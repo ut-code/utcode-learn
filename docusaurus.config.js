@@ -55,7 +55,7 @@ module.exports = {
         docs: {
           homePageId: 'day01/01',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/ut-code/utcode-learn/',
+          editUrl: 'https://github.com/ut-code/utcode-learn/blob/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
