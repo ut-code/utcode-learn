@@ -8,7 +8,7 @@ const docsSidebar = [...glob.sync('docs/*/*.md')
     new Map()
   )
   .entries()]
-  .sort(([day]) => day)
+  .sort(([day1], [day2]) => parseInt(day1, 10) - parseInt(day2, 10))
   .map(([day, itemNumbers]) => ({
     type: 'category',
     label: `${day}日目`,
