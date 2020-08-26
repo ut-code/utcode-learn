@@ -1,0 +1,68 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linecap="round">
+  <style>
+    circle {
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 3;
+    }
+    text {
+      font-family: sans-serif;
+      font-weight: bold;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+  </style>
+
+  <rect x="0" y="0" fill="#fff" width="800" height="600" />
+
+  <text x="400" y="60" font-size="20" fill="#f00">
+    featureブランチ
+  </text>
+  <path
+    d="M200 200c50 0 50-100 100-100h200c50 0 50 100 100 100"
+    fill="none"
+    stroke="#f00"
+    stroke-width="20"
+  />
+  <text x="200" y="150" fill="#000">
+    git checkout -b feature
+  </text>
+  <text x="600" y="150" fill="#000">
+    git merge feature
+  </text>
+  <circle cx="350" cy="100" r="10"/>
+  <circle cx="450" cy="100" r="10"/>
+
+  <text x="500" y="340" font-size="20" fill="#0ff">
+    ﬁxブランチ
+  </text>
+  <path
+    d="M300 200c50 0 50 100 100 100h200c50 0 50-100 100-100"
+    fill="none"
+    stroke="#0ff"
+    stroke-width="20"
+  />
+  <text x="300" y="250" fill="#000">
+    git checkout -b fix
+  </text>
+  <text x="700" y="250" fill="#000">
+    git merge fix
+  </text>
+  <circle cx="450" cy="300" r="10"/>
+  <circle cx="550" cy="300" r="10"/>
+
+  <text x="500" y="240" font-size="20" fill="#ccc">
+    masterブランチ
+  </text>
+  <path d="M50 200h700" fill="none" stroke="#ccc" stroke-width="20"/>
+  <circle cx="100" cy="200" r="10"/>
+  <circle cx="200" cy="200" r="10"/>
+  <circle cx="300" cy="200" r="10"/>
+  <circle cx="400" cy="200" r="10"/>
+  <circle cx="500" cy="200" r="10"/>
+  <circle cx="600" cy="200" r="10"/>
+  <circle cx="700" cy="200" r="10"/>
+
+  <text x="600" y="220" font-size="10">マージコミット</text>
+  <text x="700" y="180" font-size="10">マージコミット</text>
+</svg>
