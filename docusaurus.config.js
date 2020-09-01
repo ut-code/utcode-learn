@@ -53,7 +53,6 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          homePageId: 'day01/01',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/ut-code/utcode-learn/blob/master/',
         },
