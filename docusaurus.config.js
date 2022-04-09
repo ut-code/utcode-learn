@@ -1,65 +1,66 @@
 module.exports = {
-  title: 'ut.code(); Learn',
-  tagline: 'ut.code(); Learn',
-  url: 'https://learn.utcode.net/',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  favicon: 'img/favicon.ico',
-  organizationName: 'ut-code',
-  projectName: 'utcode-learn',
-  themeConfig: {
-    navbar: {
-      title: 'ut.code(); Learn',
-      logo: {
-        alt: 'ut.code();',
-        src: 'img/logo.svg',
-      },
-      items: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'テキスト',
-          position: 'left',
-        },
-        {
-          href: 'https://utcode.net/',
-          label: 'ut.code();',
-          position: 'right',
-        },
-      ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'ut.code(); について',
-          items: [
-            {
-              label: '公式ウェブサイト',
-              href: 'https://utcode.net/',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/utokyo_code',
-            },
-          ],
-        }
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} ut.code();. Built with Docusaurus.`,
-    },
-  },
+  title: "ut.code(); Learn",
+  tagline: "ut.code(); Learn",
+  url: "https://learn.utcode.net/",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  favicon: "img/favicon.ico",
+  organizationName: "ut-code",
+  projectName: "utcode-learn",
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/ut-code/utcode-learn/blob/master/',
+          showLastUpdateTime: true,
+          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
   ],
+  themeConfig: {
+    navbar: {
+      title: "ut.code(); Learn",
+      logo: {
+        alt: "ut.code();",
+        src: "img/logo.svg",
+      },
+      items: [
+        {
+          to: "docs/",
+          activeBasePath: "docs",
+          label: "テキスト",
+          position: "left",
+        },
+        {
+          href: "https://utcode.net/",
+          label: "ut.code();",
+          position: "right",
+        },
+      ],
+    },
+    footer: {
+      style: "dark",
+      links: [
+        {
+          title: "ut.code(); について",
+          items: [
+            {
+              label: "公式ウェブサイト",
+              href: "https://utcode.net/",
+            },
+            {
+              label: "Twitter",
+              href: "https://twitter.com/utokyo_code",
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} ut.code();. Built with Docusaurus.`,
+    },
+  },
 };
