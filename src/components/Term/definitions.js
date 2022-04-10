@@ -155,7 +155,7 @@ export default {
       name: "演算子の優先順位 (JavaScript)",
       definition:
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
-      referencePage: "/docs/trial-session/expression/",
+      referencePage: "/docs/trial-session/expressions/",
     },
     javascriptVariable: {
       name: "変数",
