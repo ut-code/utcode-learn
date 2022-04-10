@@ -7,7 +7,9 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4"
 
 ## <Term type="javascript">JavaScript</Term>
 
-<p><Term type="html">HTML</Term> がウェブサイトの構造を、<Term type="css">CSS</Term> がデザインを司る言語であるとすれば、<Term strong type="javascript">JavaScript</Term> はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。</p>
+<p><Term type="html">HTML</Term> がウェブサイトの構造を表す言語だとすれば、<Term strong type="javascript">JavaScript</Term> はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。</p>
+
+![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
 ## <Term type="javascript">JavaScript</Term> で Hello World!
 
@@ -34,7 +36,7 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4"
 document.write("Hello World!");
 ```
 
-ブラウザじ実行してみましょう。`Hello World!` と表示されましたか？
+ブラウザで実行してみましょう。`Hello World!` と表示されましたか？
 
 <video src={helloWorldByJavascriptVideo} controls />
 

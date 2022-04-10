@@ -8,7 +8,7 @@ import Term from "@site/src/components/Term";
 
 数学における関数は、数と数の関係のようなものですが、<Term type="javascript">JavaScript</Term> をはじめとしたプログラミング言語の文脈における<Term strong type="javascriptFunction">関数</Term>は、基本的には<Term type="javascriptStatement">文</Term>のまとまりに名前を付けたものです。
 
-```jsx
+```javascript
 // 関数を定義しておけば
 function greet() {
   document.write("Hello World!");
@@ -29,7 +29,7 @@ greet();
 
 <p><Term type="javascriptFunction">関数</Term>の振る舞いを呼び出し時に変更するため、<Term type="javascriptFunction">関数</Term>に<Term strong type="javascriptParameter">引数</Term>を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の<Term type="javascriptValue">値</Term>が指定できます。</p>
 
-```jsx
+```javascript
 function greet(greetingType, myName) {
   document.write("Good " + greetingType + ", " + myName + "!");
 }
@@ -45,7 +45,7 @@ greet("morning", "佐藤");
 
 <p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong>を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
 
-```jsx
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -74,10 +74,6 @@ greet();
 この例における、`greet` <Term type="javascriptFunction">関数</Term>は、呼び出されるたびに `guestCount` に 1 を加えています。
 
 ## 演習
-
-:::info
-この課題への解答は任意です。時間が余った際に取り組んでみてください。
-:::
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 

@@ -1,15 +1,14 @@
 export default {
   referencePageTitles: {
-    "/docs/trial-session/get-started/": "事前準備",
-    "/docs/trial-session/index/": "ようこそ",
+    "/docs/trial-session/get-started/": "はじめてのWeb開発",
     "/docs/trial-session/html/": "HTML",
-    "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/trial-session/javascript/": "JavaScriptことはじめ",
     "/docs/trial-session/expressions/": "値と式と演算子",
     "/docs/trial-session/variables/": "変数",
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/trial-session/dom/": "DOM",
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",

@@ -1,22 +1,22 @@
 ---
-title: 論理値と論理演算子
+title: オブジェクト
 ---
 
 import Term from "@site/src/components/Term";
 
-## <Term type="javascriptBoolean">論理値</Term>
+## <Term type="javascriptObject">オブジェクト</Term>
 
-<p><Term type="javascript">JavaScript</Term> で利用できる「<Term type="javascriptValue">値</Term>」として、これまで<Term type="javascriptString">文字列</Term>と<Term type="javascriptNumber">数値</Term>を扱いました。JavaScript ではこの他に、<Term strong type="javascriptBoolean">論理値</Term> と呼ばれる、「正しいか、正しくないか」を表すための<Term type="javascriptValue">値</Term>が存在します。</p>
+JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の種類として、これまで<Term type="javascriptNumber">数値</Term>、<Term type="javascriptString">文字列</Term>、<Term type="javascriptBoolean">論理値</Term>を扱ってきました。<Term strong type="javascriptObject">オブジェクト</Term>もまた、<Term type="javascript">JavaScript</Term> の<Term type="javascriptValue">値</Term>ですが、今まで扱ってきた<Term type="javascriptValue">値</Term>とは少し性質が異なります。
 
-<p><Term type="javascriptBoolean">論理値</Term>は、<code>true</code>（真）または <code>false</code>（偽）の２つだけです。ダブルクォーテーションは必要ありません。通常の<Term type="javascriptValue">値</Term>ですので、<Term type="javascriptVariable">変数</Term>に<Term type="javascriptAssignment">代入</Term>したり、計算に使ったりすることができます。</p>
+オブジェクトを用いると、これまで扱ってきたような単純な<Term type="javascriptValue">値</Term>を複数まとめて一つの<Term type="javascriptValue">値</Term>として扱うことができます。
 
-![値の種類・論理値付き](./value-types-with-boolean.drawio.svg)
+![値の種類・論理値付き](./value-types-with-object.drawio.svg)
 
 ## 論理<Term type="javascriptOperator">演算子</Term>
 
 <p><Term type="javascriptBoolean">論理値</Term>に対して適用できる<Term type="javascriptOperator">演算子</Term>が存在します。</p>
 
-```jsx
+```javascript
 let isMonsterBig = true;
 let isMonsterSmall = !true; // false
 let isHunterStrong = false;
@@ -36,7 +36,7 @@ let shouldFight = isHunterStrong || isMonsterSmall; // false
 
 比較<Term type="javascriptOperator">演算子</Term>は、複数の<Term type="javascriptValue">値</Term>を比較して、単一の<Term type="javascriptBoolean">論理値</Term>を得ます。
 
-```jsx
+```javascript
 let age = 15;
 let height = 155;
 let isFourteen = age === 14; // false

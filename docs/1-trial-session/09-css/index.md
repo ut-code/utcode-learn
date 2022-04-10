@@ -4,7 +4,7 @@ title: ウェブサイトの見た目を整える
 
 import Term from "@site/src/components/Term";
 
-<p><Term strong type="styleAttribute">style 属性</Term>を用いると、多くの<Term type="element">HTML 要素</Term>の見た目をカスタマイズすることができます。</p>
+多くの<Term type="element">HTML 要素</Term>は、<Term strong type="styleAttribute" strong>style 属性</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
 ## <Term type="styleAttribute">style 属性</Term>
 
