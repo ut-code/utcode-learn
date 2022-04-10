@@ -30,9 +30,7 @@ greet();
 <p><Term type="javascriptFunction">関数</Term>の振る舞いを呼び出し時に変更するため、<Term type="javascriptFunction">関数</Term>に<Term strong type="javascriptParameter">引数</Term>を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の<Term type="javascriptValue">値</Term>が指定できます。</p>
 
 ```javascript
-function greet() {
-  let greetingType = "morning";
-  let myName = "佐藤";
+function greet(greetingType, myName) {
   document.write("Good " + greetingType + ", " + myName + "!");
 }
 
