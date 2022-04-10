@@ -3,6 +3,7 @@ title: DOM
 ---
 
 import Term from "@site/src/components/Term";
+import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 ## <Term type="html">HTML</Term> 要素を <Term type="javascript">JavaScript</Term> で取得する
 
@@ -19,17 +20,13 @@ let element = document.getElementById("greeting");
 element.textContent = "Hello DOM";
 ```
 
+<OpenInCodeSandbox path="/docs/1-trial-session/11-dom/samples/get-element-by-id" />
+
 <p><Term type="javascriptVariable">変数</Term> <code>element</code> には、<code>index.html</code> に記述された <code>div</code> <Term type="element">要素</Term>に対応する<Term type="javascriptObject">オブジェクト</Term>が<Term type="javascriptAssignment">代入</Term>されています。</p>
 
 ![DOM](./dom.png)
 
-オブジェクトは、複数の<Term strong type="javascriptProperty">プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついており、`document.getElementById` が<Term type="javascriptReturn">返す</Term><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は、それぞれが<Term type="element">HTML 要素</Term>の特徴を表しています。
-
-:::note
-<p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="css">CSS</Term> における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
-:::
-
-`document.getElementById` が<Term type="javascriptReturn">返す</Term><Term type="javascriptObject">オブジェクト</Term>には、たくさんの<Term type="javascriptProperty">プロパティ</Term>が含まれています。下はその一部分です。
+`document.getElementById` が<Term type="javascriptReturn">返す</Term><Term type="javascriptObject">オブジェクト</Term>には、取得したHTML<Term type="element">要素</Term>の特徴を表す、たくさんの<Term type="javascriptProperty">プロパティ</Term>が含まれています。下はその一部分です。
 
 | プロパティ    | 説明                                                 |
 | ------------- | ---------------------------------------------------- |
@@ -38,11 +35,11 @@ element.textContent = "Hello DOM";
 | `tagName`     | <Term type="tag">タグ</Term>の名前                   |
 | `style`       | <Term type="element">要素</Term>に設定されたスタイル |
 
-`element.textContent` のドット記号は、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>にアクセスするための記法です。`textContent` <Term type="javascriptProperty">プロパティ</Term>は、<Term type="element">HTML 要素</Term>の内部のテキストを表します。<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は通常の<Term type="javascriptVariable">変数</Term>のように取得や<Term type="javascriptAssignment">代入</Term>が可能で、上の例では `textContent` <Term type="javascriptProperty">プロパティ</Term>に対して `"Hello DOM"` という<Term type="javascriptString">文字列</Term>を代入することで、`div` <Term type="element">要素</Term>の内部のテキストを変更しています。
+`textContent` <Term type="javascriptProperty">プロパティ</Term>は、<Term type="element">HTML 要素</Term>の内部のテキストを表します。<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は通常の<Term type="javascriptVariable">変数</Term>のように取得や<Term type="javascriptAssignment">代入</Term>が可能で、上の例では `textContent` <Term type="javascriptProperty">プロパティ</Term>に対して `"Hello DOM"` という<Term type="javascriptString">文字列</Term>を代入することで、`div` <Term type="element">要素</Term>の内部のテキストを変更しています。
 
 ## <Term type="element">HTML 要素</Term>のスタイルを変更する
 
-`document.getElementById` <Term type="javascriptFunction">関数</Term>が返す<Term type="javascriptObject">オブジェクト</Term>の `style` <Term type="javascriptProperty">プロパティ</Term>は、その要素の <Term type="styleAttribute">`style` 属性</Term>と対応します。`style` <Term type="javascriptProperty">プロパティ</Term>に格納されている<Term type="javascriptValue">値</Term>自体も<Term type="javascriptObject">オブジェクト</Term>となっており、その各<Term type="javascriptProperty">プロパティ</Term>が CSS の<Term type="cssProperty">プロパティ</Term>に対応します。
+`document.getElementById` <Term type="javascriptFunction">関数</Term>が返す<Term type="javascriptObject">オブジェクト</Term>の `style` <Term type="javascriptProperty">プロパティ</Term>は、その要素の <Term type="styleAttribute">`style` 属性</Term>と対応します。**`style` <Term type="javascriptProperty">プロパティ</Term>に格納されている<Term type="javascriptValue">値</Term>自体も<Term type="javascriptObject">オブジェクト</Term>**となっており、その各<Term type="javascriptProperty">プロパティ</Term>が CSS の<Term type="cssProperty">プロパティ</Term>に対応します。
 
 ```js title="script.js"
 element.style.backgroundColor = "red";
@@ -53,3 +50,7 @@ element.style.backgroundColor = "red";
 ![JavaScriptからスタイルを操作する](./change-styles.png)
 
 <p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
+
+## 課題
+
+[CSSの節](../09-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。

@@ -3,6 +3,7 @@ title: 論理値と論理演算子
 ---
 
 import Term from "@site/src/components/Term";
+import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 ## <Term type="javascriptBoolean">論理値</Term>
 
@@ -57,3 +58,20 @@ let canRideRollerCoasters = age >= 10 && height >= 140; // true
 | `>=`   | 以上       | 左辺が右辺より以上ならば `true` |
 
 `&&` や `||` よりも比較<Term type="javascriptOperator">演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、最後の例のように複数の条件を「かつ」「または」などで組み合わせることは容易です。
+
+## 課題
+
+次のコードは何を表示するでしょうか。そしてそれはなぜでしょうか。
+
+```javascript
+let takaoHeight = 599;
+let everestHeight = 8849;
+let fujiHeight = 3776;
+document.write(takaoHeight < everestHeight < fujiHeight);
+document.write(takaoHeight = everestHeight);
+```
+
+<OpenInCodeSandbox path="/docs/1-trial-session/06-boolean/samples/weird-comparison" />
+
+- JavaScript は、数値以外の<Term type="javascriptValue">値</Term>に比較<Term type="javascriptOperator">演算子</Term>を適用した際、まずそれらを文字列に変換したうえで、辞書順に比較しようと試みます。
+- `=` は代入演算子です。代入<Term type="javascriptOperator">演算子</Term>の<Term type="javascriptExpression">式</Term>が<Term type="javascriptEvaluation">評価</Term>されると、右辺の<Term type="javascriptValue">値</Term>になります。

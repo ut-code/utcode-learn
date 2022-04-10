@@ -72,3 +72,7 @@ document.write("Hello World3");
 // この部分はコメントです
 document.write("Hello World"); // この部分もコメントです
 ```
+
+:::tip
+改行が表示されず困っていますか？`document.write`はHTMLタグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
+:::

@@ -11,6 +11,8 @@ export default function Term({ path }) {
   return (
     <a
       className={clsx("button button--primary", styles.root)}
+      target="_blank"
+      rel="noopener"
       href={`https://githubbox.com/ut-code/utcode-learn/tree/master${path}`}
     >
       このプログラムを実行する

@@ -40,7 +40,7 @@ greetButton.onclick = clicked;
 
 この例では、<Term type="element">HTML 要素</Term>の `id` <Term type="attribute">属性</Term>に `greet-button` が指定されている <Term type="element">HTML 要素</Term>を表す<Term type="javascriptObject">オブジェクト</Term>の `onclick` <Term type="javascriptProperty">プロパティ</Term>に対し、<Term type="javascriptFunction">関数</Term> `clicked` を<Term type="javascriptAssignment">代入</Term>しています。これにより、ボタンがクリックされたとき、`clicked` <Term type="javascriptFunction">関数</Term>が実行されるようになります。
 
-<video src={handleClickVideo} controls />
+<video src={handleClickVideo} autoPlay muted loop controls />
 
 :::info
 下のコードは意図したとおりに動作しません。何が間違っているのでしょうか。

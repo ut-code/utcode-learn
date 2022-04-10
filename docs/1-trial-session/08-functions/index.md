@@ -30,7 +30,9 @@ greet();
 <p><Term type="javascriptFunction">関数</Term>の振る舞いを呼び出し時に変更するため、<Term type="javascriptFunction">関数</Term>に<Term strong type="javascriptParameter">引数</Term>を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の<Term type="javascriptValue">値</Term>が指定できます。</p>
 
 ```javascript
-function greet(greetingType, myName) {
+function greet() {
+  let greetingType = "morning";
+  let myName = "佐藤";
   document.write("Good " + greetingType + ", " + myName + "!");
 }
 
@@ -40,6 +42,8 @@ greet("morning", "佐藤");
 <p><Term type="javascriptFunction">関数</Term>定義では、<Term type="javascriptFunction">関数</Term>名直後のかっこ内に<Term type="javascriptParameter">引数</Term>名をコンマ区切りで設定できます。上のプログラムで <code>greet</code> <Term type="javascriptFunction">関数</Term>は、 <code>greetingType</code> や <code>myName</code> という名前の<Term type="javascriptParameter">引数</Term>をとります。<Term type="javascriptFunction">関数</Term>定義の中では、これらは<Term type="javascriptVariable">変数</Term>のように振舞います。</p>
 
 呼び出し側では、括弧の中に<Term type="javascriptFunction">関数</Term>に<Term type="javascriptPass">渡す</Term><Term type="javascriptParameter">引数</Term>を指定します。このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
+
+![引数](arguments.png)
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
@@ -55,9 +59,11 @@ document.write(add(3, 4));
 
 上の例の 4 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `return a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、 `add` <Term type="javascriptFunction">関数</Term>は `7` を<Term type="javascriptReturn">返し</Term>、<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果は `7` となります。
 
-## <Term type="javascriptVariable">変数</Term>のスコープ
+## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
-<p><Term type="javascriptFunction">関数</Term>内で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptFunction">関数</Term>内でのみ有効です。しかしながら、<Term type="javascriptFunction">関数</Term>外で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は<Term type="javascriptFunction">関数</Term>内でも利用できます。</p>
+<p><Term type="javascriptFunction">関数</Term>内で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptFunction">関数</Term>内でのみ有効です。<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope" strong>スコープ</Term>と呼んでいます。</p>
+
+<p><Term type="javascriptFunction">関数</Term>外で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は<Term type="javascriptFunction">関数</Term>内でも利用できます。</p>
 
 ```javascript
 let guestCount = 0;
@@ -72,6 +78,27 @@ greet();
 ```
 
 この例における、`greet` <Term type="javascriptFunction">関数</Term>は、呼び出されるたびに `guestCount` に 1 を加えています。
+
+:::caution <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope" strong>スコープ</Term>
+
+<p><Term type="javascriptScope">スコープ</Term>が終わった<Term type="javascriptVariable">変数</Term>は、その時点で破棄されます。</p>
+
+```javascript
+let outer = 0;
+
+function increment() {
+  let inner = 0;
+  outer = outer + 1;
+  inner = inner + 1;
+  document.write(outer); // 1ずつ増える
+  document.write(inner); // 常に1
+}
+
+increment();
+increment();
+```
+
+:::
 
 ## 演習
 

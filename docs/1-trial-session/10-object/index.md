@@ -10,50 +10,58 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 
 オブジェクトを用いると、これまで扱ってきたような単純な<Term type="javascriptValue">値</Term>を複数まとめて一つの<Term type="javascriptValue">値</Term>として扱うことができます。
 
-![値の種類・論理値付き](./value-types-with-object.drawio.svg)
+今まで扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term strong type="javascriptPrimitive">プリミティブ</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
 
-## 論理<Term type="javascriptOperator">演算子</Term>
+![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
 
-<p><Term type="javascriptBoolean">論理値</Term>に対して適用できる<Term type="javascriptOperator">演算子</Term>が存在します。</p>
+:::tip ほかの言語の経験者へ
+JavaScript のオブジェクトは、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScript のオブジェクトは使用頻度が非常に高いです。
+:::
 
-```javascript
-let isMonsterBig = true;
-let isMonsterSmall = !true; // false
-let isHunterStrong = false;
-let shouldEscape = !isHunterStrong && isMonsterBig; // true
-let shouldFight = isHunterStrong || isMonsterSmall; // false
-```
+## オブジェクトの作成
 
-詳細は以下の通りです。 `!` のみが作用する対象を 1 つしかとらないことに注意してください。
-
-| 演算子                    | 意味       | 詳細                                                                 |
-| ------------------------- | ---------- | -------------------------------------------------------------------- |
-| `!`                       | ～ではない | `true` ならば `false`、`false` ならば `true`                         |
-| `&&`                      | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false`  |
-| <code>&#124;&#124;</code> | または     | 両方 `false` ならば `false` 、どちらか 1 つでも `true` ならば `true` |
-
-## 比較<Term type="javascriptOperator">演算子</Term>
-
-比較<Term type="javascriptOperator">演算子</Term>は、複数の<Term type="javascriptValue">値</Term>を比較して、単一の<Term type="javascriptBoolean">論理値</Term>を得ます。
+オブジェクトは、複数の<Term strong type="javascriptProperty" strong>プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
 
 ```javascript
-let age = 15;
-let height = 155;
-let isFourteen = age === 14; // false
-let isNotFourteen = age !== 14; // true
-let isChild = age < 20; // true
-let canRideRollerCoasters = age >= 10 && height >= 140; // true
+let person = { name: "田中", age: 18 };
 ```
 
-各<Term type="javascriptOperator">演算子</Term>の詳細は、次の通りです。
+![プロパティ](properties.png)
 
-| 演算子 | 意味       | 詳細                            |
-| ------ | ---------- | ------------------------------- |
-| `===`  | 等しい     |                                 |
-| `!==`  | 等しくない |                                 |
-| `<`    | 小なり     | 左辺が右辺より小さければ `true` |
-| `<=`   | 以下       | 左辺が右辺より以下ならば `true` |
-| `>`    | 大なり     | 左辺が右辺より大きければ `true` |
-| `>=`   | 以上       | 左辺が右辺より以上ならば `true` |
+<p><Term type="javascriptObject">オブジェクト</Term>の中に<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。</p>
 
-`&&` や `||` よりも比較<Term type="javascriptOperator">演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、最後の例のように複数の条件を「かつ」「または」などで組み合わせることは容易です。
+```javascript
+let person = {
+  name: "田中",
+  scores: { math: 80, science: 90 },
+};
+```
+
+:::note
+<p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="css">CSS</Term> における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
+:::
+
+## <Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更する
+
+ドット記号を用いることで、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更できます。通常の<Term type="javascriptVariable">変数</Term>のように扱えます。
+
+```javascript
+person.age = person.age + 1;
+document.write(person.age);
+```
+
+## 課題
+
+<p><Term type="javascriptObject">オブジェクト</Term>も<Term type="javascriptValue">値</Term>の一種なので、<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">引数</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。</p>
+
+`age` <Term type="javascriptProperty">プロパティ</Term> 1 を加えた<Term type="javascriptObject">オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
+
+```javascript
+function incrementAge(person) {
+  // ここに書く
+};
+
+let tanaka = { name: "田中", age: 18 };
+let nextYearTanaka = incrementAge(tanaka);
+document.write(nextYearTanaka.age); // 19 と表示されてほしい
+```

@@ -9,6 +9,7 @@ export default {
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
     "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
+    "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
@@ -216,21 +217,32 @@ export default {
         "関数の実行が終了し、式の評価結果の値が確定すること。return 文により実現できる。",
       referencePage: "/docs/trial-session/functions/",
     },
+    javascriptScope: {
+      name: "スコープ (JavaScript)",
+      definition: "変数が有効な範囲",
+      referencePage: "/docs/trial-session/functions/",
+    },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
       definition:
-        "JavaScriptにおける値の一種。内部にプロパティとを複数格納できる。",
-      referencePage: "/docs/trial-session/dom/",
+        "JavaScriptにおける値の一種。内部にプロパティを複数格納できる。プリミティブではない値。",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptPrimitive: {
+      name: "プリミティブ (JavaScript)",
+      definition:
+        "JavaScriptにおける値の種類。感覚的には「それ以上分解できない値」",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptProperty: {
+      name: "プロパティ (JavaScript)",
+      definition: "JavaScriptのオブジェクトがその内部に持っている値。",
+      referencePage: "/docs/trial-session/object/",
     },
     dom: {
       name: "DOM",
       definition:
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
-      referencePage: "/docs/trial-session/dom/",
-    },
-    javascriptProperty: {
-      name: "プロパティ (JavaScript)",
-      definition: "JavaScriptのオブジェクトがその内部に持っている値。",
       referencePage: "/docs/trial-session/dom/",
     },
   },
