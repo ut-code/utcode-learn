@@ -73,5 +73,5 @@ document.write(takaoHeight = everestHeight);
 
 <OpenInCodeSandbox path="/docs/1-trial-session/06-boolean/samples/weird-comparison" />
 
-- JavaScript は、数値以外の<Term type="javascriptValue">値</Term>に比較<Term type="javascriptOperator">演算子</Term>を適用した際、まずそれらを文字列に変換したうえで、辞書順に比較しようと試みます。
+- JavaScript で、数値と論理値に比較<Term type="javascriptOperator">演算子</Term>を適用すると、`true` は `1` として、`false` は `0` として比較されます。
 - `=` は代入演算子です。代入<Term type="javascriptOperator">演算子</Term>の<Term type="javascriptExpression">式</Term>が<Term type="javascriptEvaluation">評価</Term>されると、右辺の<Term type="javascriptValue">値</Term>になります。
