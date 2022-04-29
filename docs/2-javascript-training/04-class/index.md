@@ -17,6 +17,10 @@ class Student {
 }
 ```
 
+:::info
+クラスの名前は、通常の<Term type="camelCase">キャメルケース</Term>の最初の文字だけを大文字にした**パスカルケース**で記述するのが普通です。
+:::
+
 `new` 演算子をクラスに対して適用すると、設計図に基づいてオブジェクトが作成されます。こうしてできたオブジェクトを、もとになったクラスの**インスタンス**と呼びます。
 
 ```javascript
@@ -176,3 +180,7 @@ document.write("Hello World!".toString()); // Hello World!
 document.write(false.toString()); // false
 ```
 :::
+
+## 課題
+
+`継承` のセクションで登場した `Student` クラスを継承して `SeniorStudent` クラス
