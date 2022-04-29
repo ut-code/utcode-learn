@@ -8,7 +8,18 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 ## クラスとインスタンス
 
-**クラス** は、オブジェクトの設計図となるものです。次のコードでは、`name` や `age` というプロパティを持つオブジェクトの設計図となるクラス `Student` を定義しています。
+オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ形（＝同じプロパティを持つ）のオブジェクトを多く扱う場合が多いです。例えば、学生をオブジェクトとして表すことを考えてみましょう。学生にには必ず名前と年齢があるはずなので、ひとまず `name` と `age` をプロパティを持つとしましょう。
+
+```javascript
+const tanaka = {
+  name: "田中",
+  age: 18,
+};
+```
+
+同じ形をしたオブジェクトを統一的に扱うための仕組みが　**クラス** です。クラスは、オブジェクトの設計図になります。
+
+次のコードでは、先ほど作った `tanaka` のように `name` や `age` というプロパティを持つオブジェクトの設計図として、クラス `Student` を定義しています。
 
 ```javascript
 class Student {
@@ -27,8 +38,10 @@ class Student {
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
 
 tanaka.name = "田中"; // name プロパティに代入
-document.write(tanaka.age); // 18
+document.write(tanaka.age); // age プロパティのデフォルト値は 18
 ```
+
+![クラスとインスタンス](./class-instance.png)
 
 :::tip `undefined` という値
 上で定義した `Student` クラスには、デフォルト値の指定されていないプロパティ `name` が存在します。`new Student` をした直後のオブジェクトの `name` プロパティの値はどうなっているのでしょうか。
@@ -46,7 +59,10 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 ```
 :::
 
+
 ## メソッド
+
+同じ形をしたオブジェクトに対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。
 
 オブジェクトに対して定義されている関数を**メソッド**と呼びます。メソッドの定義はクラス定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
@@ -57,26 +73,34 @@ class Student {
 
   // メソッド introduceSelf を定義する
   introduceSelf() {
+    // this は作成されたインスタンスを指す
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
 ```
 
-メソッドを使用するには、プロパティへのアクセス時と同じく `.`（ドット）記号を用います。
+メソッド自体は単なる設計図でしかないため、実際のオブジェクトが存在するわけではありません。そこで、メソッド内では、設計図から作成されたインスタンス自身を指す特殊な変数 `this` が使用できます。
+
+メソッドを使用するには、プロパティへのアクセス時と同じく、インスタンスに対して `.`（ドット）記号を用います。
 
 ```javascript
 const tanaka = new Student();
 tanaka.name = "田中";
 tanaka.age = 18;
 
+// introduceSelf メソッド内では this は tanaka に格納されたオブジェクトになる
 tanaka.introduceSelf();
 ```
 
 :::tip メソッドやプロパティの表記と `prototype`
 多くの言語で、クラス `Class` のメソッドやプロパティ `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されているメソッドは `Student#introduceSelf` メソッドです。
 
-ただし、JavaScriptにおいては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
 :::
+
+### 課題
+
+自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
 
 ## コンストラクタ
 
@@ -143,9 +167,13 @@ const tanaka = new FreshmanStudent("田中", "18", "ドイツ語");
 tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ語選択です。
 ```
 
+### 課題
+
+`Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
+
 ## `Date` クラス
 
-[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScriptに標準で用意されている、日付や時刻を扱うためのクラスです。このように、JavaScriptでは、開発者が定義しなくても最初から使用可能なクラスが数多く用意されています。
+[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うためのクラスです。このように、JavaScript では、開発者が定義しなくても最初から使用可能なクラスが数多く用意されています。
 
 ```javascript
 const myBirthDay = new Date("2014-05-06"); // Dateクラスをインスタンス化
@@ -181,6 +209,14 @@ document.write(false.toString()); // false
 ```
 :::
 
-## 課題
+### 課題
 
-`継承` のセクションで登場した `Student` クラスを継承して `SeniorStudent` クラス
+`document.getElementById` 関数で `div` 要素を取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが返されます。このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement) を継承しており、さらに `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+
+![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+
+実は、[DOM](./../../1-trial-session/11-dom/index.md) の節で使用した `textContent` プロパティは、この `Node` クラスで定義されています。
+
+`HTMLDivElement` クラスを自分でインスタンス化し、`textContent` プロパティに適当な値を代入して、`document.body.appendChild` 関数を用いて、作成した `div` 要素を `body` 要素の中に追加しましょう。
+
+(発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
