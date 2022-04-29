@@ -82,7 +82,7 @@ studentNames.push("内藤");
 document.write(studentNames[3]); // 内藤
 ```
 
-### `Array.length` プロパティ
+### `Array#length` プロパティ
 
 [`Array#length` プロパティ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length)は、配列の長さを自動的に反映するプロパティです。
 
@@ -92,6 +92,16 @@ document.write(studentNames.length); // 3
 studentNames.push("内藤");
 document.write(studentNames.length); // 4
 ```
+
+### 課題
+
+- `Array#push` メソッドを用いて、フィボナッチ数列の配列を作ってみましょう。
+- 作成した配列の各要素を `for ～ of` 文を用いて出力してみましょう。
+- 作成した配列の各要素を、通常の `for` 文と `Array#length` プロパティを用いて出力してみましょう。
+
+:::info ヒント
+変数 `i` を 0 から `(作成した配列の length プロパティの値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+:::
 
 ## 配列とオブジェクト
 

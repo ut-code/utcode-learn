@@ -111,10 +111,23 @@ const stars = rates.map(rate => "★".repeat(rate));
 
 ## 課題
 
-[`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
+`scores` 変数には、各必修科目の点数が格納されているとします。全ての要素が 50 点以上であることを確認するには、何というメソッドを使うのが適切か調べてみてください。また、実際にそのメソッドを用いて点数を確認してみてください。
 
 ```javascript
-const scores = [90, 85, 70, 95];
+const scores = [90, 65, 70, 55, 80];
+if (/* すべての点数が 50 点以上なら */) {
+  document.write("進級できます");
+}
+```
+
+:::info ヒント
+「全ての要素が特定の条件を満たすかどうか」を調べるメソッドがあります。
+:::
+
+(発展) [`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
+
+```javascript
+const scores = [90, 65, 70, 55, 80];
 const minScore = scores.reduce(/* コールバック関数 */);
 document.write(minScore); // 70
 ```
