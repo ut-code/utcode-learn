@@ -132,7 +132,7 @@ for (let x = 0; x < 5; x += 1) {
 <OpenInCodeSandbox path="/docs/2-javascript-training/02-loop/samples/nested-loop" />
 
 :::tip テンプレートリテラル
-テンプレートリテラルは、文字列をプログラム中に記述する方法の一種です。ただ、文字列中に別の指揮を埋め込めるという特徴があります。
+テンプレートリテラルは、文字列をプログラム中に記述する方法の一種です。ただ、文字列中に別の式を埋め込めるという特徴があります。
 
 ```javascript
 const string1 = "10から2を引くと" + (10 - 2) + "です。";
