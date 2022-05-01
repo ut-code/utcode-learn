@@ -6,31 +6,31 @@ import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
-:::caution
-以下の文章は macOS か wsl を用いて開発している前提で記述されています。
+:::info  
+macOS、WSLを利用する場合は Git は標準搭載なので追加インストールの必要なしです！
 :::
 
 ## GitHub への登録
 
 1. [Github](https://github.co.jp)を開き、右上のサインアップをクリック。
+   
    ![Github home](./pictures/github-home.png)
 
 2. 情報を入力する。
+   
    ![create New Account](./pictures/github-signup.png)
    :::caution
-   Username は、登録後変更できるとはいえ手順が面倒なため、変更しないものとしてよく考えてつけましょう。
+   Username は、一度付けると変更が面倒なためよく考えてつけましょう。
    :::
 
 3. 公開鍵と秘密鍵の作成
 
    Terminal にて以下のコマンドを実行
-
    ```
    $ cd ~
    $ ssh-keygen -t ed25519
    ```
-   途中でターミナルの表示画面が止まりますが、user@host:~$が再度表示されるまで enter で進みます。
-
+   途中でターミナルの表示画面が止まりますが、user@host:~$が再度表示されるまで enter で進みます。  
    公開鍵が格納されたファイルの中身を表示させるため、以下のコマンドを入力します。
 
    ```
@@ -38,28 +38,27 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
    $ cat id_ed25519.pub
    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNwa2O/BIlw+WvisPCrSlM6IS2M2bbCRKNU9G8NYq2L [ユーザー名]@[コンピューター名]
    ```
-   `ssh-ed25519 AA...`2Lの部分をコピーしましょう。これが公開鍵です。
+   `ssh-ed25519 AA...2L`の部分をコピーしましょう。これが公開鍵です。
 
 4. Github への公開鍵の登録
 
-   登録ページへの移動方法は、`Setting` > `SSH and GPG keys` > `New SSH key`と順に移動すればたどり着ける。
+   登録ページへの移動方法は、`Setting` > `SSH and GPG keys` > `New SSH key`と順に移動すればたどり着けます。
    ![add-ssh-key](./pictures/ssh-key-add.png)
 
-   上記のようなページが表示されたら、Title に適切な名前(自分のどの端末かわかるような情報)、Key には先ほどTerminalで表示した公開鍵を入力して登録しましょう。
+   上記のようなページが表示されたら、Title に適切な名前、Key には先ほどTerminalで表示した公開鍵を入力して登録しましょう。
 
 ## Gitによるバージョン管理
 ### ローカルのリポジトリをGitで管理
-Gitのリポジトリは、コミットと呼ばれるソースコードへの変更の塊の集合です。適当なプロジェクトを、Gitの管理下に置いてみましょう。
-
-以下のコマンドをTerminalに入力してください(usernameやprojectnameは自分の環境に合わせたものを使用してください)
+Gitのリポジトリは、コミットと呼ばれるソースコードへの変更の塊の集合です。適当なプロジェクトを、Gitの管理下に置いてみましょう。  
+以下のコマンドをTerminalに入力してください(usernameやproject-nameは自分の環境に合わせたものを使用してください)
 ```
-$ cd /Users/username/projects/projectname
+$ cd /Users/username/projects/project-name
 $ git init
-Initialized empty Git repository in /Users/username/projects/projectname/.git/
+Initialized empty Git repository in /Users/username/projects/project-name/.git/
 ```
 
 :::info VSCode上でのTerminalの開き方
-   下の画像のようにタブバーから開くことができる
+   下の画像のようにタブバーから開くことができます。
    ![open terminal](pictures/new-integrated-terminal.png)
 :::
 
@@ -67,8 +66,7 @@ Initialized empty Git repository in /Users/username/projects/projectname/.git/
 
 ![git init](pictures/git-init.png)
 
-`git init`は、ディレクトリをGitの支配下に置くことを宣言するためのコマンドです。このコマンドを実行することにより、プロジェクトディレクトリはまだコミットが存在しない空のリポジトリになりました。
-
+`git init`は、ディレクトリをGitの支配下に置くことを宣言するためのコマンドです。このコマンドを実行することにより、プロジェクトディレクトリはまだコミットが存在しない空のリポジトリになりました。　　
 `U`は`Untracked`の頭文字で、そのファイルが最後のコミット（といってもまだ作ったばかりのリポジトリなので空ですが）より後に新しく作成され、まだGitによって管理されていないことを表します。
 
 ```
@@ -79,7 +77,8 @@ $ git add -A
 
 ![ステージング](pictures/git-staging.png)
 
-`git add`コマンドは、変更を**ステージング**するためのコマンドです。ステージングとはコミットの直前の状態で、Gitに対して該当ファイルをコミットする意思があることを伝えるためのものです。今回は`-A`オプションによりすべてのファイルをステージングしましたが、特定のファイルのみとすることもできます。
+`git add`コマンドは、変更を**ステージング**するためのコマンドです。ステージングとはコミットの直前の状態で、Gitに対して該当ファイルをコミットする意思があることを伝えるためのものです。  
+今回は`-A`オプションによりすべてのファイルをステージングしましたが、特定のファイルのみとすることもできます。
 
 VSCodeは、GUIを利用したGitの操作に標準で対応しています。変更一覧に表示されるプラスボタンがステージング、マイナスボタンがその解除に当たります。
 
@@ -158,16 +157,16 @@ GitHubをリロードしてみてください。変更が反映されている�
 
 ## おすすめ拡張機能
 
-- Git Lens
+- GitLens
 
   コミットの差分などが見やすくなり便利
   ![gitlens](./pictures/gitLens.png)
 
-- Git Glaph
+- Git Graph
 
   コマンドパレット(Cmd + Shift + P)に Git Graph: View Git Graph (git log)というメニューが出て見やすい
 
-  ![gitGlaph](./pictures/gitGlaph.png)
+  ![gitGraph](./pictures/gitGlaph.png)
 
 
 ### 課題
