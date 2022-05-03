@@ -37,20 +37,20 @@ app.listen(3000);
 
 ## 静的ホスティング
 
-次の例では、`/index.html`、`/script.js`、`/sub/index.html`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
+次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
 ```javascript
 const express = require("express");
 const fs = require("fs");
 const app = express();
 
-app.get("/index.html", (request, response) => {
+app.get("/", (request, response) => {
   response.send(fs.readFileSync("static/index.html", "utf-8"));
 });
 app.get("/script.js", (request, response) => {
   response.send(fs.readFileSync("static/script.js", "utf-8"));
 });
-app.get("/sub/index.html", (request, response) => {
+app.get("/sub/", (request, response) => {
   response.send(fs.readFileSync("static/sub/index.html", "utf-8"));
 });
 app.get("/sub/script.js", (request, response) => {
@@ -59,6 +59,8 @@ app.get("/sub/script.js", (request, response) => {
 
 app.listen(3000);
 ```
+
+<OpenInCodeSandbox path="/docs/3-golden-week/05-template-engine/samples/static-hosting-naive" />
 
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
