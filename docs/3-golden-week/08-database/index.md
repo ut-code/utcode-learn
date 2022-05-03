@@ -189,4 +189,43 @@ Prisma が作成したテーブルに、DBeaver を用いてレコードを追�
 
 ## Prisma でデータベースのデータを読み書きする
 
-Node.js から Prisma を利用してデータベースのデータを操作するためには、[`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。
+Node.js から Prisma を利用してデータベースのデータを操作するためには、[`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。データの取得には、次の 3 つのメソッドが利用できます。
+
+- [`PrismaClient#[テーブル名].findMany` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
+- [`PrismaClient#[テーブル名].findFirst` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
+- [`PrismaClient#[テーブル名].findUnique` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを 1 つだけ取得
+
+`findMany` メソッドの戻り値を、デバッガを用いて確認してみましょう。
+
+```javascript
+const { PrismaClient } = require("@prisma/client");
+const client = new PrismaClient();
+
+async function main() {
+  const todos = await client.todo.findMany();
+  debugger;
+}
+main();
+```
+
+![findMany の戻り値](./find-many-result.png)
+
+また、[`PrismaClient#[テーブル名].create` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いることで、テーブルにレコードを作成することができます。
+
+```javascript
+const { PrismaClient } = require("@prisma/client");
+const client = new PrismaClient();
+
+async function main() {
+  const todos = await client.todo.create({ data: { name: "買い物をする" } });
+  debugger;
+}
+main();
+```
+
+![create の戻り値](./create-result.png)
+
+## 課題
+
+[前頁](../06-get-post/index.md)で作成した ToDo リストのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
+
