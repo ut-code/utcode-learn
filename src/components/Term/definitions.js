@@ -14,6 +14,7 @@ export default {
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
+    "/docs/golden-week/module/": "モジュールと npm",
   },
   terms: {
     fileExtension: {
@@ -244,6 +245,12 @@ export default {
       definition:
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
+    },
+    library: {
+      name: "ライブラリ",
+      definition:
+        "ほかのプログラムから利用され、単体では実行できないプログラム。",
+      referencePage: "/docs/golden-week/module/",
     },
   },
 };

@@ -1,7 +1,6 @@
 ---
 title: WSLのセットアップ (Windows のみ)
 ---
-
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
@@ -43,3 +42,29 @@ WSL のインストールは、10 分程度で終わる簡単な作業です。�
 画面に `$` 記号が表示された状態で止まったら完了です。ウィンドウを閉じても問題ありません。
 
 ![完成](completed.png)
+
+## VSCode に `Remote - WSL` 拡張機能をインストールする
+
+VSCode の `Remote - WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`Remote - WSL` 拡張機能をインストールしましょう。
+
+![Remote - WSL 拡張機能のインストール](./install-wsl-extension.png)
+
+拡張機能をインストールすると、左下に緑色のボタンが出現します。クリックすると画面上部からメニューが出現するので、`New WSL Window` を選択しましょう。
+
+![WSLに接続](./connect-to-wsl.png)
+
+画面左下の緑色の部分に `WSL: Ubuntu` と表示されたら成功です。
+
+![接続完了](./connected.png)
+
+## WSL の基本的な使い方
+
+WSL を使用するには、ターミナルで `wsl` コマンドを実行します。`PS` から始まる行に入力したコマンドは通常の Windows 環境で実行されますが、スクリーンショット右側のように、一度 `wsl` コマンドを実行すると、それ以降の入力は Linux 上で実行されます。
+
+また、WSL で `exit` コマンドを実行すると、Windows 環境に戻ることができます。
+
+![Linuxに入る](./go-into-linux.png)
+
+WSL は、Windows から独立した別のコンピュータのように振舞います。WSL上にあるファイルを Windows 側から確認するには、エクスプローラーのサイドパネルに表示されている `Linux` をクリックします。
+
+![WSL 側のファイルを Windows のエクスプローラーから表示する](./show-linux-files.png)

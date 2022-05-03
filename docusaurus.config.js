@@ -1,3 +1,6 @@
+const math = require("remark-math");
+const katex = require("rehype-katex");
+
 module.exports = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); Learn",
@@ -15,9 +18,14 @@ module.exports = {
           showLastUpdateTime: true,
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            require.resolve("./node_modules/katex/dist/katex.min.css"),
+            require.resolve("./src/css/custom.css"),
+          ],
         },
       },
     ],
