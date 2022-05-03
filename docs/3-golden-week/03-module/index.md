@@ -1,11 +1,65 @@
 ---
 title: モジュールと npm
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import commandsAnswerVideo from "./commands-answer.mp4";
 import npmInitVideo from "./npm-init.mp4";
 import npmInstallVideo from "./npm-install.mp4";
+
+## パスとコマンド
+
+Linux や macOS のファイルシステムは、**ルートディレクトリ**と呼ばれる特殊なディレクトリを頂点とする木構造で表現され、この木構造の中の特定の要素を一意に表現するための表記を**パス**と呼びます。パスの区切り文字は `/` で、それが単体で利用された際はルートディレクトリを表します。例えば、ルートディレクトリの中の `home` ディレクトリの中の `utcode` という名前のディレクトリは `/home/utcode` という形で表現されます。
+
+![Linux のファイルシステム](./linux-file-system.png)
+
+現在作業対象となっているディレクトリを**カレントディレクトリ**と呼びます。すべてのファイルやディレクトリは、ルートディレクトリを基準とした**絶対パス**で表される他、カレントディレクトリからの**相対パス**で表すことができます。例えば、カレントディレクトリが `/home/utcode` のとき、`/home/utcode/pictures/xxx.jpg` は `pictures/xxx.jpg` と表されます。
+
+Ubuntu の場合は、標準状態でカレントディレクトリがターミナル上に表示される場合が多いです。以下の例の場合は `~/projects/sample` がカレントディレクトリです。
+
+![カレントディレクトリの確認](./check-current-directory.png)
+
+パスを表現するとき、カレントディレクトリは `.`、親ディレクトリは `..` という記号が利用できます。次の表は、これらの記号を用いて相対パスを表した例です。
+
+| カレントディレクトリ | 目標のディレクトリ    | 相対パス                         |
+| -------------------- | --------------------- | -------------------------------- |
+| `/foo/bar`           | `/foo/bar/baz`        | `baz` 又は `./baz`               |
+| `/foo/bar`           | `/foo/bar/baz/foobar` | `baz/foobar` 又は `./baz/foobar` |
+| `/foo/bar/baz`       | `/foo/bar`            | `..` 又は `./..`                 |
+| `/foo/bar/baz`       | `/foo`                | `../..` 又は `./../..`           |
+
+**コマンド** を用いると、文字を用いてコンピューターに指示を与えることができます。コマンドはスペース区切りで入力し、最初の部分をコマンド名、それ以降の部分をそのコマンドの引数と呼びます。
+
+| コマンド名   | 機能                         |
+| ------------ | ---------------------------- |
+| pwd          | カレントディレクトリを表示   |
+| ls           | ディレクトリの中身を一覧表示 |
+| cd [移動先]  | カレントディレクトリを移動   |
+| mkdir [名前] | 新しいディレクトリを作成     |
+| touch [名前] | 新しいファイルを作成         |
+
+### 課題
+
+現在 VSCode で開いているフォルダの中に、コマンドを用いて次のファイルとディレクトリの構造を作成してください。
+
+```plain
+secret
+├── pictures
+│   └── xxx.txt
+└── videos
+    ├── yyy.txt
+    └── zzz.txt
+```
+
+<details>
+  <summary>解答</summary>
+  <div>
+    <p>カレントディレクトリを親ディレクトにに移動する場合には <code>cd ..</code> とするのがポイントです。</p>
+    <video src={commandsAnswerVideo} controls />
+  </div>
+</details>
 
 ## 別のファイルに書かれたプログラム
 
@@ -25,7 +79,7 @@ console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 
 Node.js では、プログラム中で `exports` というオブジェクトが利用できます。`exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
-`require` 関数に別のファイルを指定すると、そのファイルを実行した後にできる `exports` オブジェクトを取得できます。このとき、ファイル名は `.` から始めなければなりません。例を見てみましょう。
+`require` 関数に別のファイルへの相対パスを指定すると、そのファイルを実行した後にできる `exports` オブジェクトを取得できます。
 
 ```javascript title=sub.js
 exports.add = (a, b) => {
@@ -46,7 +100,6 @@ document.write(add(3, 4));
 const { add } = require("./sub");
 document.write(add(3, 4));
 ```
-
 :::
 
 ## 標準モジュール

@@ -8,6 +8,7 @@ import TabItem from '@theme/TabItem';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import installNvmInWslVideo from "./install-nvm-in-wsl.mp4";
+import installNvmInMacVideo from "./install-nvm-in-mac.mp4";
 import openFolderInWslVideo from "./open-folder-in-wsl.mp4";
 import debuggingVideo from "./debugging.mp4";
 
@@ -79,7 +80,9 @@ v16.15.0
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    近年の macOS では特殊な処理が必要です。
+    <p>macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。</p>
+    <CodeBlock language="shell">touch ~/.zshrc</CodeBlock>
+    <video src={installNvmInMacVideo} controls />
   </TabItem>
   <TabItem value="win" label="Windows (WSL)">
     <p>Windows 上での作業は、WSL のターミナルを利用するようにしましょう。</p>
@@ -118,3 +121,7 @@ Node.js のデバッグを開始するには、ブレークポイント等を設
 ステップ実行、コールスタックなど、基本的な機能はブラウザに搭載されているものとほとんど同じです。
 
 <video src={debuggingVideo} controls />
+
+### 課題
+
+Node.js のデバッガを用いて、`console` オブジェクトにどのようなプロパティがあるのか調べてみましょう。
