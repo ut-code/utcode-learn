@@ -60,7 +60,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 :::
 
 ### 課題
-`weight` と `cost` をプロパティとして持ち、`weight`のデフォルト値が`"1t"`であるクラス`car`を作成し、`cost`に好きな値を代入してみましょう。
+`weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
 ## メソッド
 
