@@ -104,7 +104,7 @@ document.write(stars); // ★★★,★★★★★,★
 アロー関数は、内部の処理が `return` 文のみの場合、波括弧を省略して式のみを記述できます。また、引数がひとつだけの場合、引数を囲む括弧を省略できます。前項のサンプルプログラムは、次のように省略可能です。本資料では、前者の省略記法のみを用いることとします。
 
 ```javascript
-const stars = rates.map(rate => "★".repeat(rate));
+const stars = rates.map((rate) => "★".repeat(rate));
 ```
 
 ![アロー関数の省略形](./arrow-function-abbreviation.png)
@@ -124,10 +124,42 @@ if (/* すべての点数が 50 点以上なら */) {
 「全ての要素が特定の条件を満たすかどうか」を調べるメソッドがあります。
 :::
 
+<details>
+  <summary>解答</summary>
+  <div>
+    <p><code>Array#every</code>メソッドを使うと、配列の全要素が指定された関数でテストできます</p>
+    <CodeBlock language="javascript">{`
+const scores = [90, 65, 70, 55, 80];
+if (scores.every((score) => score > 50)) {
+  document.write("進級できます");
+}
+    `.trim()}</CodeBlock>
+    <OpenInCodeSandbox path="/docs/2-javascript-training/01-constant/samples/answer" />
+  </div>
+</details>
+
 (発展) [`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];
 const minScore = scores.reduce(/* コールバック関数 */);
-document.write(minScore); // 70
+document.write(minScore); // 55
 ```
+
+<details>
+  <summary>解答</summary>
+  <div>
+    <CodeBlock language="javascript">{`
+const scores = [90, 65, 70, 55, 80]
+const minScore = scores.reduce((previousValue, currentValue) => {
+    if (previousValue > currentValue) {
+      return currentValue;
+    };
+  return previousValue;
+  }
+);
+document.write(minScore); // 55
+    `.trim()}</CodeBlock>
+    <OpenInCodeSandbox path="/docs/2-javascript-training/01-constant/samples/answer" />
+  </div>
+</details>
