@@ -12,7 +12,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
 
 ## GitHub への登録
 
-1. [Github](https://github.co.jp)を開き、右上のサインアップをクリック。
+1. [GitHub](https://github.co.jp)を開き、右上のサインアップをクリック。
    
    ![Github home](./pictures/github-home.png)
 
@@ -56,11 +56,6 @@ $ cd /Users/username/projects/project-name
 $ git init
 Initialized empty Git repository in /Users/username/projects/project-name/.git/
 ```
-
-:::info VSCode上でのTerminalの開き方
-   下の画像のようにタブバーから開くことができます。
-   ![open terminal](pictures/new-integrated-terminal.png)
-:::
 
 ファイルリスト中のファイルの色が変わり、`U` の文字が表示されたでしょうか。
 
@@ -171,4 +166,4 @@ GitHubをリロードしてみてください。変更が反映されている�
 
 ### 課題
 
-Todo アプリのソースコードを Github に保存してみましょう。
+ToDo アプリのソースコードを GitHub に保存してみましょう。

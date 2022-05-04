@@ -8,18 +8,27 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 ## クエリパラメータの利用
 
-クエリパラメータとは？
+入力した内容によって、次に移る（表示される）ページが異なるウェブページがあります。例として、Google で `utcode` と検索した際に表示される検索結果のページを考えてみましょう。
 
-入力した内容によって、次に移る（表示される）ページが異なるウェブページがあります。このようなページでは、入力した内容によって異なるウェブページが表示されるよう、入力した内容が移った先のページのURLに反映されています。URLのうち、入力した内容が反映されている部分をクエリパラメータといいます。
+![クエリパラメータ](./query-parameter.png)
 
-例：google.comで、検索エンジンに何か入力して、検索すると、検索結果が表示されますが、そのページのURLに注目してみましょう。（下画像赤線がクエリパラメータ）  
-![クエリパラメータ](クエリパラメータ.png)
+このページの URL は、次のようになっています。
 
-以下が上記サイトのURL  
-[https://www.google.com/search?q=utcode&sxsrf=APq-WBv6kgtDWiq8hT6wfFdMPw4M5qWnNQ%3A1647830270847&source=hp&ei=_uQ3YrnJMY-F0wTg65qgDg&iflsig=AHkkrS4AAAAAYjfzDslMMqbHckba3h4_maDN03TFTmoX&oq=&gs_lcp=Cgdnd3Mtd2l6EAMYATIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJ1AAWABg4wpoAXAAeACAAQCIAQCSAQCYAQCwAQo&sclient=gws-wiz](https://www.google.com/search?q=utcode&sxsrf=APq-WBv6kgtDWiq8hT6wfFdMPw4M5qWnNQ%3A1647830270847&source=hp&ei=_uQ3YrnJMY-F0wTg65qgDg&iflsig=AHkkrS4AAAAAYjfzDslMMqbHckba3h4_maDN03TFTmoX&oq=&gs_lcp=Cgdnd3Mtd2l6EAMYATIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJ1AAWABg4wpoAXAAeACAAQCIAQCSAQCYAQCwAQo&sclient=gws-wiz)
+```
+https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
+```
 
-URLの末尾に `?key1=value1&key2=value2&...` の形式でクエリパラメータを記載できます。  
-expressでは `request.query` オブジェクトに格納されています。
+このようなページでは、入力した内容によって異なるウェブページが表示されるよう、入力した内容が移った先のページの URL に反映されています。この例では、URL の末尾に `?q=utcode&sourceid=chrome&ie=UTF-8` というデータが付加されています。これが**クエリパラメータ**です。
+
+クエリパラメータは、キーと値の組み合わせにより表現されます。先ほどの Google の検索結果であれば、次のような 3 つのパラメータが存在することになります。
+
+| キー       | 値       |
+| ---------- | -------- |
+| `q`        | `utcode` |
+| `sourceid` | `chrome` |
+| `ie`       | `UTF-8`  |
+
+Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
 
 ```javascript title="script.js"
 const express = require("express");
@@ -31,28 +40,30 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-:::tip JSON.stringifyメソッド
-`JSON.stringifyメソッド`はオブジェクトをJSON形式の文字列に変換するメソッドです。
+:::tip JSON.stringify メソッド
+`JSON.stringify` メソッドはオブジェクトを JSON 形式の文字列に変換するメソッドです。
 :::
 
-:::tip URLとして使用できない文字の対処方法
-URLとして使用できない文字（日本語文字など）は[URLエンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScriptなら `encodeURIComponent` 関数で変換できます。
+:::tip URL として使用できない文字の対処方法
+URL として使用できない文字（日本語文字など）は[URL エンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScript なら `encodeURIComponent` 関数で変換できます。
 
 ```javascript
-encodeURIComponent("日本語") // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
+encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 ```
 :::
 
 ## サーバーにデータを送信する
-form要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
 
-- formのaction属性: フォーム送信時に移動し、データを送信するページ
-- input要素: テキストボックス
-- inputのname属性: クエリパラメータのキー
-- button要素: form内のボタンをクリックするとformのactionに指定したページに遷移します（送信ボタンになります）
+form 要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
 
-以下のコードの、htmlファイル（staticディレクトリ内に作ってください）と、jsファイルを作成し、実行してみましょう。
-```html title="index.html"
+- form の action 属性: フォーム送信時に移動し、データを送信するページ
+- input 要素: テキストボックス
+- input の name 属性: クエリパラメータのキー
+- button 要素: form 内のボタンをクリックすると form の action に指定したページに遷移します（送信ボタンになります）
+
+以下のコードの、HTML ファイルと、JavaScript ファイルを作成して実行してみましょう。
+
+```html title="static/index.html"
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -67,8 +78,9 @@ form要素を使うとユーザーの入力からクエリパラメータを生�
     </form>
   </body>
 </html>
-```  
-```javascript title="sever.js"
+```
+
+```javascript title="main.js"
 const express = require("express");
 
 const app = express();
@@ -81,14 +93,45 @@ app.get("/send", (request, response) => {
 app.listen(3000);
 ```
 
+<OpenInCodeSandbox path="/docs/3-golden-week/06-form/_samples/send-data-to-server" />
+
 上記コードを実行すると、以下のような画面がブラウザに表示されます。
-![初めの画面](フォームの例①.png)
+
+![初めの画面](./form-example-1.png)
 
 以下のように入力して、送信ボタンをクリックすると、
-![初めの画面に入力](フォームの例②.png)
+![初めの画面に入力](./form-example-2.png)
 
-[http://localhost/3000/send](http://localhost/3000/send)に移り、以下のような画面が表示されます。
-![http://localhost/3000/sendの様子](フォームの例③.png)
+[http://localhost:3000/send](http://localhost:3000/send) に移り、以下のような画面が表示されます。
 
-このページのURLを見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
-![URLのクエリパラメータ](フォームのURL.png)
+![http://localhost:3000/send](./form-example-3.png)
+
+このページの URL を見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
+![URLのクエリパラメータ](form-url.png)
+
+## 課題
+
+書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
+
+```javascript
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊つちやん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+```
+
+著者名を入力して送信すると、その著者の出版物が一覧表示されるシステムを作ってみましょう。
+
+:::tip `Array#filter` メソッド
+[`Array#filter` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が `true` となる要素だけからなる新しい配列を返すメソッドです。
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+/// [2, 4, 6, 8]
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+```
+:::

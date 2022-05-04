@@ -1,34 +1,26 @@
 ---
 title: GET リクエストと POST リクエスト
 ---
-
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
-import bodyParserVideo from "./body-parser.mp4";
-import postInDevelopment1 from "./postInDevelopment1.mp4"
-import postInDevelopment2 from "./postInDevelopment2.mp4"
-import postInDevelopment3 from "./postInDevelopment3.mp4"
+import postInDevelopment1 from "./postInDevelopment1.mp4";
+import postInDevelopment2 from "./postInDevelopment2.mp4";
+import postInDevelopment3 from "./postInDevelopment3.mp4";
 
 ## GET リクエストと POST リクエスト
 
-HTTP 上の通信においてクライアントからサーバーへの要求をリクエストと言いましたが、今まで扱ってきたのはその中でも**GET リクエスト**と呼ばれるものになります。
+HTTP 上の通信においてクライアントからサーバーへの要求をリクエストと言いましたが、今まで扱ってきたのはその中でも **GET リクエスト**と呼ばれるものになります。
 
-GET リクエストではリクエストに乗せられた情報がクエリパラメータとして URL の末尾につくことになりますが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、web ページによっては URL の長さに制限があるため、大量の情報を送信できないことがあります。
+GET リクエストでサーバーにデータを送信する場合、前頁で扱ったように、クエリパラメータとして URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、URL の長さの制限のため、大量の情報は送信できません。
 
-<p>そこで用いるのが<strong>POST リクエスト</strong>です。POST リクエストは<Term type="html">HTML</Term>ファイル上の form 要素の method 属性を POST にすることで使用できます。POST リクエストを用いると GET リクエストよりも大容量のデータを送ることができます。このデータのことを<strong>リクエストボディ</strong>と呼びます。</p> 
+そこで用いるのが **POST リクエスト**です。POST リクエストでは、クエリパラメータとは別に、**リクエストボディ** と呼ばれる領域を使って大容量のデータを送信できます。
 
-![GETリクエストとPOSTリクエスト](requestAndResponse.png)
+![HTTP メソッドの比較](./method-comparison.png)
 
-リクエストボディは通常クエリパラメータと同じく `key1=value1&key2=value2` といった形のデータになりますが、これを JavaScript から扱いやすい形にする `body-parser` モジュールを使用します。
+前頁の例を、POST リクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドのリクエストを発行します。
 
-まず `body-parser` モジュールをインストールします。ターミナルで `npm install body-parser` と入力しましょう。すると `package.json` ファイルに `body-parser` が追加されます。
-
-<video src={bodyParserVideo} controls />
-
-これでインストール完了です。では実際に POST リクエストを扱ってみましょう。つぎのような HTML ファイルを static フォルダ内に作成してください。
-
-```html title="index.html"
+```html title="static/index.html"
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -45,15 +37,12 @@ GET リクエストではリクエストに乗せられた情報がクエリパ�
 </html>
 ```
 
-作成できたら、次のような js ファイルを作成して実行してみましょう。
-
-```javascript title="server.js"
+```javascript title="main.js"
 const express = require("express");
-const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
@@ -64,36 +53,33 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-そうすると次のようなサイトがブラウザで実行されます。
+<OpenInCodeSandbox path="/docs/3-golden-week/06-get-post/_samples/post-request" />
+
+これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドのリクエストしか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
+
+クエリパラメータにアクセスするには、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) を使用しましたが、リクエストボディを使用するには、`request.body` ([`express.Request#body` プロパティ](https://expressjs.com/ja/api.html#req.body)) を使用します。
+
+`app.use(express.urlencoded({ extended: true }));` は、リクエストボディの解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストのリクエストボディは、クエリパラメータと同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされたリクエストボディを読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
+
+このシステムでは、まず次のような画面が表示されます。
 
 ![名前と年齢を入力１](postRequest1.png)
 
 以下のように入力して、送信ボタンをクリックすると
+
 ![名前と年齢を入力２](postRequest2.png)
-http://localhost/3000/send
-に移り、以下のような画面が表示されます。GET リクエストの時と違い、クエリパラメータが URL に表示されていないことが分かります。
+
+`http://localhost:3000/send` に移り、以下のような画面が表示されます。GET リクエストの時と違い、クエリパラメータが URL に表示されていないことが分かります。
+
 ![名前と年齢を入力３](postRequest3.png)
-
-上記のコードを見てみるとわかるのですが、GETリクエストの際は `app.get` という風に `get` メソッドを利用していたのに対し、POSTリクエストの際は `app.post` という風に `post` メソッドが使用されているのがわかります。　
-
-以上のようにして、POST リクエストを使用することができます。
-
-:::info
-いくつか見慣れないコードがあったと思うので補足を加えます。まず、GETリクエストを使ったときのリクエストの中身には `request.query` でアクセスができたと思いますが、`body-parser` を使用すると `request.body` にデータが格納されるようになっています。
-また、６行目の `bodyParser.urlendoded` という部分ではリクエストボディの解釈方法を決めています。例えばリクエストボディがURLエンコードされている場合（name1=value1&name2=value2のような場合）に、そのデータをオブジェクト形式に直してrequestのbodyプロパティに入れています。 `extended:true` はあまり気にしなくていいです。（少なくともnode.jsを使っている場合 `extended:false` は非推奨なようです。）
-:::
 
 ## POST リクエストを開発者ツールで覗いてみる
 
-実際に POST リクエストの中身がどうなっているか覗いてみましょう。windows の場合、開発者ツールは Chrome,Edge であれば `Ctrl` + `shift` + `i`　もしくは `F12` で開くことができます。Mac の場合は `command` + `option` + `i` で開くことができます。
-![Chromeの開発者ツール](developmentTool.png)
+実際に POST リクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールを開き、文字を入力して送信してみます。
 
-Chrome の開発者ツールでは Network というタブから POST リクエストの様子を伺うことができます。（Edgeでも大体同じです。）
-
-まず開発者ツールを開き、文字を入力して送信してみます。
 <video src={postInDevelopment1} controls />
 
-そして `name` 欄の `send` をクリックし、 `Headers` を選択すると `general` 欄の `Requested method` が `POST` になっています。また、 `Headers` の横にある `Payload` を選択し `Form data` を見ると、 `name` と `age` の情報が載っています。 
+そして `name` 欄の `send` をクリックし、 `Headers` を選択すると `general` 欄の `Requested method` が `POST` になっています。また、 `Headers` の横にある `Payload` を選択し `Form data` を見ると、 `name` と `age` の情報が載っています。
 
 <video src={postInDevelopment2} controls />
 
@@ -102,3 +88,18 @@ Chrome の開発者ツールでは Network というタブから POST リクエ�
 <video src={postInDevelopment3} controls />
 
 以上のようにして、POSTリクエストの中身を覗くことができます。
+
+![GETリクエストとPOSTリクエスト](requestAndResponse.png)
+
+## 課題
+
+古き良き掲示板システムを作ってみましょう。次のようなページを作成してください。
+
+- `GET /`: 現在の投稿されているすべての記事を表示します。`/send` へ POST するためのフォームも同時に表示します。
+- `POST /send`: リクエストボディに含まれている記事の内容を記録します。
+
+:::tip ヒント
+- イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
+- `GET /` では EJS を用いて配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
+- `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
+:::

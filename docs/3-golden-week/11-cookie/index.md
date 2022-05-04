@@ -31,7 +31,7 @@ Cookie 自体も Key-Value のデータ構造となっているので、`set-coo
 
 ## Express で Cookie を利用する
 
-Express を用いてレスポンスヘッダに Cookie を付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/en/4x/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser) パッケージを利用します。
+Express を用いてレスポンスヘッダに Cookie を付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser) パッケージを利用します。
 
 ```shell
 npm install cookie-parser
@@ -58,7 +58,7 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies` プロパティ](https://expressjs.com/en/4x/api.html#req.cookies) には、ブラウザから送信されていた Cookie がオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていた Cookie がオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
 
 <video src={cookieCounterVideo} controls muted autoPlay loop />
 

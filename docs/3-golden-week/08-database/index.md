@@ -94,7 +94,15 @@ npx prisma db push
 
 <video src={prismaDbPushVideo} controls />
 
+## DBeaver で Prisma が作成したテーブルにレコードを追加する
+
+Prisma が作成したテーブルに、DBeaver を用いてレコードを追加しましょう。
+
+<video src={createRecordInDatabaseVideo} controls />
+
 ## 非同期処理
+
+Prisma を用いてデータベースの操作を行う場合には、非同期処理の概念を理解しておく必要があります。
 
 非同期処理を使うと、メインスレッドを停止させずに時間のかかる処理（ファイルの読み書きやネットワーク通信など）を行うことができます。下のコードにおいて `sample.txt` を読み込む 3 つの関数 `sync`、`callback`、`asyncAwait` の挙動を比較してみましょう。なお、`sample.txt` には `これはサンプルです。` と記述されているものとします。
 
@@ -131,6 +139,8 @@ asyncAwait();
 console.log("After asyncAwait()");
 ```
 
+<OpenInCodeSandbox path="/docs/3-golden-week/08-database/_samples/async-operations" />
+
 このプログラムの結果は、次のようになります。
 
 ```plain
@@ -147,9 +157,11 @@ After asyncAwait()
 
 同期的な関数 `sync` では後続の `console.log("After sync()");` がファイルの中身が表示された後に実行されているのに対し、その他の 2 つでは後回しになっています。これは、この 2 つはファイルの読み込みを非同期処理で行っているからです。
 
-`fs.readFile` を用いる方法では、第 2 引数にコールバック関数を登録します。この関数はファイルの読み込みが完了したタイミングで実行されます。
+`fs.readFile` を用いる方法では、第 2 引数にコールバック関数を登録します。この関数はファイルの読み込みが完了したタイミングで実行されます。関数が呼び出されるまでの間は他の処理が割り込むことができます。
 
-`fs/promises` は `fs` と同じく Node.js の標準モジュールですが、`await` キーワードを用いて非同期処理を記述できるようになっています。`await` キーワードにより非同期処理の完了を待っている間はほかの処理が割り込める。なお、 **`await` キーワードは `async` キーワードを付けた関数内でしか使えません**。
+`fs/promises` は `fs` と同じく Node.js の標準モジュールですが、`await` キーワードを用いて非同期処理を記述できるようになっています。`await` キーワードにより非同期処理の完了を待っている間はほかの処理が割り込めます。なお、 **`await` キーワードは `async` キーワードを付けた関数内でしか使えません**。
+
+![非同期処理](./async-await.png)
 
 :::tip (発展) Promise
 `async` キーワードのついた関数は、戻り値として [`Promise` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)のインスタンスを返却するようになります。この Promise クラスを用いることにより、コールバック型の非同期関数を `await` を用いることができる形に変換できます。
@@ -180,12 +192,6 @@ myAsyncAwait();
 console.log("After myAsyncAwait()");
 ```
 :::
-
-## DBeaver で Prisma が作成したテーブルにレコードを追加する
-
-Prisma が作成したテーブルに、DBeaver を用いてレコードを追加しましょう。
-
-<video src={createRecordInDatabaseVideo} controls />
 
 ## Prisma でデータベースのデータを読み書きする
 
