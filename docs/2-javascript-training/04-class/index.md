@@ -104,6 +104,33 @@ tanaka.introduceSelf();
 
 自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
 
+<details>
+  <summary>解答</summary>
+  <div>
+    <CodeBlock language="javascript">{`
+class Student {
+  name;
+  age = 18;
+  introduceSelf() {
+    document.write(\`私の名前は\${this.name}です。\`);
+    document.write(\`\${this.age}歳です\`);
+  }
+  incrementAge() {
+    this.age += 1;
+  }
+}\n
+const tanaka = new Student();
+tanaka.name = "田中";
+tanaka.age = 19;
+tanaka.introduceSelf();
+tanaka.incrementAge();
+tanaka.introduceSelf();
+    `.trim()}</CodeBlock>
+    <OpenInCodeSandbox path="/docs/2-javascript-training/01-constant/samples/answer" />
+  </div>
+</details>
+
+
 ## コンストラクタ
 
 **コンストラクタ**は、インスタンスを作成するタイミング（`new` 演算子をクラスに適用するタイミング）で実行される特殊なメソッドです。コンストラクタとなるメソッドは `constructor` という名前で定義する必要があります。
@@ -172,6 +199,35 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 ### 課題
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
+
+<details>
+  <summary>解答</summary>
+  <div>
+    <CodeBlock language="javascript">{`
+class Student {
+  name;
+  age;
+  introduceSelf() {
+    document.write(\`私の名前は\${this.name}です。\${this.age}歳です。\`);
+  }
+}\n
+class SeniorStudent extends Student {
+  researchQuestion;
+  introduceSelf() {
+    super.introduceSelf();
+    document.write(\`研究テーマは\${this.researchQuestion}です。\`);
+  }
+}\n
+const tanaka = new SeniorStudent();
+tanaka.age = 22;
+tanaka.name = "田中";
+tanaka.researchQuestion = "量子力学";
+tanaka.introduceSelf();
+    `.trim()}</CodeBlock>
+    <OpenInCodeSandbox path="/docs/2-javascript-training/01-constant/samples/answer" />
+  </div>
+</details>
+
 
 ## `Date` クラス
 
