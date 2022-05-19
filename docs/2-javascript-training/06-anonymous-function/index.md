@@ -26,9 +26,9 @@ document.getElementById("strange-button").onclick = onStrangeButtonClick;
 
 <OpenInCodeSandbox path="/docs/2-javascript-training/05-anonymous-function/samples/normal-event-handler" />
 
-この場合、関数 `onStrangeButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onStrangeButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（無名関数式）を用いることができます。
+この場合、関数 `onStrangeButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onStrangeButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
 
-先ほどのプログラムを無名関数式を用いて書き換えると、次のようになります。
+先ほどのプログラムを関数式を用いて書き換えると、次のようになります。
 
 ```javascript title=script.js
 document.getElementById("strange-button").onclick = () => {
@@ -38,7 +38,7 @@ document.getElementById("strange-button").onclick = () => {
 
 <OpenInCodeSandbox path="/docs/2-javascript-training/05-anonymous-function/samples/using-anonymous-function" />
 
-無名関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
+JavaScript における関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
 
 ```javascript
 (引数1, 引数2) => {
@@ -47,7 +47,7 @@ document.getElementById("strange-button").onclick = () => {
 ```
 
 :::tip 無名関数を用いて関数定義を書き換える
-通常の関数定義の構文は、ほとんど無名関数式を使用して書き換えることができます。次のプログラムにおいて、`add1` と `add2` はほとんど等価なものとみなすことができます。
+通常の関数定義の構文は、ほとんど関数式を使用して書き換えることができます。次のプログラムにおいて、`add1` と `add2` はほとんど等価なものとみなすことができます。
 
 ```javascript
 function add1(a, b) {
@@ -58,11 +58,10 @@ const add2 = (a, b) => {
   return a + b;
 };
 ```
-
 :::
 
 :::tip アロー関数
-この項で扱った無名関数式を、`=>` 記号が矢のように見えることから、**アロー関数**と呼ぶことがあります。JavaScript には、アロー関数の他にもう一つ、無名関数を記述する方法があります。
+この項で扱った無名関数式を、`=>` 記号が矢のように見えることから、<Term type="arrowFunction" strong>アロー関数</Term>と呼ぶことがあります。JavaScript には、アロー関数の他にもう一つ、無名関数を記述する方法があります。
 
 ```javascript
 const add3 = function (a, b) {

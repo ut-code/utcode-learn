@@ -1,0 +1,9 @@
+{
+  "name": "fetch-api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

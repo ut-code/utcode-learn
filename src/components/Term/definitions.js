@@ -14,7 +14,10 @@ export default {
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
+    "/docs/javascript-training/anonymous-function/": "無名関数",
     "/docs/golden-week/module/": "モジュールと npm",
+    "/docs/golden-week/get-post/": "GET リクエストと POST リクエスト",
+    "/docs/golden-week/database/": "データベース",
   },
   terms: {
     fileExtension: {
@@ -246,11 +249,29 @@ export default {
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
     },
+    arrowFunction: {
+      name: "アロー関数",
+      definition:
+        "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
+      referencePage: "/docs/javascript-training/anonymous-function/",
+    },
     library: {
       name: "ライブラリ",
       definition:
         "ほかのプログラムから利用され、単体では実行できないプログラム。",
       referencePage: "/docs/golden-week/module/",
+    },
+    httpMethod: {
+      name: "HTTP メソッド",
+      definition:
+        "HTTP リクエストの種類。GET や POST などがある。GET リクエストにはリクエストボディが存在しないが、POST リクエストでは利用できる。",
+      referencePage: "/docs/golden-week/get-post/",
+    },
+    asynchronousProcess: {
+      name: "非同期処理",
+      definition:
+        "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
+      referencePage: "/docs/golden-week/database/",
     },
   },
 };
