@@ -150,13 +150,13 @@ app.get("/messages", (request, response) => {
 });
 ```
 
-新着メッセージを確認するために、定期的に `/messages` に対して `fetch` 関数を用いてリクエストしましょう。`setInterval` 関数が利用できます。
+新着メッセージを確認するために、定期的に `/messages` に対して `fetch` 関数を用いて<Term type="httpRequestResponse">リクエスト</Term>しましょう。`setInterval` 関数が利用できます。
 
 ```javascript title="/static/script.js"
 setInterval(async () => {
   const response = await fetch("/messages");
   // レスポンスを処理する
-});
+}, 1000);
 ```
 
 `innerHTML` プロパティを空文字列とすることで要素の子要素を全て削除できます。`document.createElement` 関数を用いて再び生成し直しましょう。

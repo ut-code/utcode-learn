@@ -1,32 +1,33 @@
 ---
 title: より高度な CSS
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
-## CSSを別ファイルに分離する
+## CSS を別ファイルに分離する
 
 社会の要求の高まりに応えて CSS のプロパティの種類は増え続け、現在では数えきれないほどのプロパティが定義されています。
 
-このため、CSSをすべて`style`属性で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+このため、CSS をすべて`style`属性で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 
 ![CSSを別ファイルに分離する](./separate-html-css.png)
 
-CSSファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
+CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 
 ```html title=index.html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="element">Hello World!</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="element">Hello World!</div>
+  </body>
 </html>
 ```
 
@@ -51,20 +52,25 @@ CSSファイルの拡張子は通常 `.css` です。今回は `index.html` と�
 
 また、`id` 属性と似た使い方ができる属性として、`class` 属性があります。この属性は、開発者が好きな値を設定できるのは同じですが、同じ値を複数の要素が持つことを許されています。また、スペース区切りで複数の複数の値を設定することもできます。
 
+| セレクタ   | 意味                                    |
+| ---------- | --------------------------------------- |
+| `#element` | `id` 属性が `element` である要素        |
+| `.element` | `class` 属性に `element` が含まれる要素 |
+| `element`  | タグ名が `element` である要素           |
 
-| セレクタ   | 意味                                 |
-| ------------ | -------------------------------------- |
-| `#element` | `id` 属性が`element` である要素        |
-| `.element` | `class` 属性に`element` が含まれる要素 |
-| `element`  | タグ名が `element` である要素          |
+また、セレクタをスペースで区切ると子孫要素、`>`で区切ると直属の子要素を表すことができます。そのまま繋げば and 条件とみなされます。
 
-また、セレクタをスペースで区切ると子孫要素、`>`で区切ると直属の子要素を表すことができます。そのまま繋げばand条件とみなされます。
+| セレクタ         | 意味                                                                           |
+| ---------------- | ------------------------------------------------------------------------------ |
+| `div.element`    | `class` 属性に `element` が含まれる `div` 要素                                 |
+| `#parent .child` | `id` 属性が `parent` である要素の子孫の、`class` 属性に `child` が含まれる要素 |
+| `#parent > div`  | `id` 属性が `parent` である要素の直属の子の `div` 要素                         |
 
+セレクタを上手に活用すると、HTML を最小限必要なものに抑えながら、変更に強くて柔軟な CSS を作成することができます。
 
-| セレクタ         | 意味                                                                     |
-| ------------------ | -------------------------------------------------------------------------- |
-| `div.element`    | `class`属性に`element`が含まれる`div`要素                                |
-| `#parent .child` | `id`属性が`parent`である要素の子孫の、`class`属性に`child`が含まれる要素 |
-| `#parent > div`  | `id`属性が`parent`である要素の直属の子の`div`要素                        |
+## 課題
 
-セレクタを上手に活用すると、HTMLを最小限必要なものに抑えながら、変更に強くて柔軟なCSSを作成することができます。
+次のような条件を満たす要素を選択するセレクタは何でしょうか。
+
+- `id` 属性が `foo` の要素
+- `class` 属性に `bar` が含まれる要素の子孫の要素のうち、`button` 要素であるもの
