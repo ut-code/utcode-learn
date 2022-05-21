@@ -144,7 +144,32 @@ npm install date-fns
 <video src={npmInitVideo} controls muted autoPlay loop />
 
 :::tip JSON
-npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON とは JavaScript Object Notation の略で、JavaScript オブジェクトの形式で設定などを記述する手法です。
+npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、 JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
+
+JSON は、JavaScript のオブジェクト記法よりも制限が厳しくなっています。例えば、
+
+```js
+{
+  name: "田中",
+  age: 18,
+}
+```
+
+は、JavaScript の文法では有効ですが、JSON としては誤りです。JSON には、
+
+- キーには必ずダブルクォーテーションをつける
+- 最後のプロパティの後にはコンマをつけてはならない
+
+という制約があります。このため、上のオブジェクトを JSON で記述するためには、
+
+```json
+{
+  "name": "田中",
+  "age": 18
+}
+```
+
+のようにしなければなりません。
 :::
 
 ## npm のパッケージを Node.js から利用する

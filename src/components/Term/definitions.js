@@ -14,10 +14,23 @@ export default {
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
+    "/docs/javascript-training/inspector/": "ブラウザの開発者ツール",
+    "/docs/javascript-training/constant/": "定数とオブジェクトの参照",
+    "/docs/javascript-training/loop/": "繰り返し",
+    "/docs/javascript-training/class/": "クラス",
+    "/docs/javascript-training/array/": "配列",
     "/docs/javascript-training/anonymous-function/": "無名関数",
+    "/docs/golden-week/wsl-setup/": "WSL のセットアップ",
+    "/docs/golden-week/node-js/": "はじめての Node.js",
     "/docs/golden-week/module/": "モジュールと npm",
+    "/docs/golden-week/http-server/": "HTTP サーバー",
+    "/docs/golden-week/template-engine/": "Express とテンプレートエンジン",
+    "/docs/golden-week/form/": "フォーム",
     "/docs/golden-week/get-post/": "GET リクエストと POST リクエスト",
     "/docs/golden-week/database/": "データベース",
+    "/docs/golden-week/git/": "Git",
+    "/docs/golden-week/cookie/": "Cookie と認証",
+    "/docs/golden-week/deploy-on-render/": "Render へのデプロイ",
   },
   terms: {
     fileExtension: {
@@ -249,6 +262,12 @@ export default {
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
     },
+    javascriptMethod: {
+      name: "メソッド (JavaScript)",
+      definition:
+        "オブジェクトに対して定義された関数。メソッド内ではメソッドが定義されたオブジェクトを this キーワードを用いて参照できる。",
+      referencePage: "/docs/javascript-training/class/",
+    },
     arrowFunction: {
       name: "アロー関数",
       definition:
@@ -260,6 +279,36 @@ export default {
       definition:
         "ほかのプログラムから利用され、単体では実行できないプログラム。",
       referencePage: "/docs/golden-week/module/",
+    },
+    serverClient: {
+      name: "サーバーとクライアント",
+      definition:
+        "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
+      referencePage: "/docs/golden-week/http-server/",
+    },
+    json: {
+      name: "JSON",
+      definition:
+        "複雑なデータ構造を JavaScript オブジェクトに似た形式で文字列として表現するための記法。",
+      referencePage: "/docs/golden-week/module/",
+    },
+    httpRequestResponse: {
+      name: "リクエストとレスポンス (HTTP)",
+      definition:
+        "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
+      referencePage: "/docs/golden-week/http-server/",
+    },
+    queryString: {
+      name: "クエリ文字列",
+      definition:
+        "URL の末尾し付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2 といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
+      referencePage: "/docs/golden-week/form/",
+    },
+    httpHeaderBody: {
+      name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
+      definition:
+        "HTTP においてリクエストやレスポンスは主にヘッダと呼ばれる領域とボディと呼ばれる領域に分かれている。リクエストやレスポンスの本体はボディの部分に格納されており、ヘッダは付加的な情報を与えるために用いられる。なお、GET リクエストではリクエストボディを使用できない。",
+      referencePage: "/docs/golden-week/get-post/",
     },
     httpMethod: {
       name: "HTTP メソッド",
