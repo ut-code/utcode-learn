@@ -65,6 +65,8 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
+<OpenInCodeSandbox path="/docs/4-advanced/02-fetch-api/_samples/send-post-request" />
+
 HTML のフォームで送ったものと同じ形式でデータを送信するには、[GET リクエストと POST リクエスト](../../3-golden-week/06-get-post/index.md)節で扱ったように、<Term type="httpHeaderBody">リクエストボディ</Term>が<Term type="queryString">クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term type="queryString">クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term type="httpHeaderBody">リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
 
 ## <Term type="httpHeaderBody">リクエストボディ</Term>に <Term type="json">JSON</Term> を使用する
