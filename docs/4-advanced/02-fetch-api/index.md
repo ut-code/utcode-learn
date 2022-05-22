@@ -6,6 +6,7 @@ import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
+import chatAppVideo from "./chat-app.mp4";
 
 ## ブラウザで動く JavaScript から <Term type="httpRequestResponse">HTTP リクエスト</Term>を発行する
 
@@ -130,6 +131,8 @@ app.listen(3000);
 ## 課題
 
 `Fetch API` を用いてチャットアプリを作成してみましょう。
+
+<video src={chatAppVideo} controls loop autoPlay muted />
 
 ### ヒント
 
