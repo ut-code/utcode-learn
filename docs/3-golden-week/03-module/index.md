@@ -75,7 +75,7 @@ function add(a, b) {
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
-別のファイルに書かれたプログラムを読み込むための手段として、Node.js では**モジュール**という仕組みが用意されています。JavaScript では、すべてのファイルがモジュールとして扱われます。
+別のファイルに書かれたプログラムを読み込むための手段として、Node.js では**<Term type="javascriptModule">モジュール</Term>**という仕組みが用意されています。JavaScript では、すべてのファイルが<Term type="javascriptModule">モジュール</Term>として扱われます。
 
 Node.js では、プログラム中で `exports` というオブジェクトが利用できます。`exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
@@ -102,7 +102,7 @@ document.write(add(3, 4));
 ```
 :::
 
-## 標準モジュール
+## 標準<Term type="javascriptModule">モジュール</Term>
 
 Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。[`fs.readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
 
@@ -174,7 +174,7 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 
 ## npm のパッケージを Node.js から利用する
 
-npm でダウンロードしたパッケージは、モジュールとして `require` 関数に指定できます。
+npm でダウンロードしたパッケージは、<Term type="javascriptModule">モジュール</Term>として `require` 関数に指定できます。
 
 ```javascript
 const dateFns = require("date-fns");

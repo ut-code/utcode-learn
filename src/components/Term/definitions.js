@@ -31,6 +31,9 @@ export default {
     "/docs/golden-week/git/": "Git",
     "/docs/golden-week/cookie/": "Cookie と認証",
     "/docs/golden-week/deploy-on-render/": "Render へのデプロイ",
+    "/docs/advanced/css/": "高度な CSS",
+    "/docs/advanced/fetch-api/": "Fetch API",
+    "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
   },
   terms: {
     fileExtension: {
@@ -196,6 +199,18 @@ export default {
         "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則",
       referencePage: "/docs/trial-session/variables/",
     },
+    snakeCase: {
+      name: "スネークケース",
+      definition:
+        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則",
+      referencePage: "/docs/trial-session/variables/",
+    },
+    pascalCase: {
+      name: "パスカルケース",
+      definition:
+        "複数の単語にわたるフレーズを、先頭の文字を大文字にして結合する命名規則",
+      referencePage: "/docs/trial-session/variables/",
+    },
     javascriptBoolean: {
       name: "論理値 (JavaScript)",
       definition:
@@ -274,6 +289,12 @@ export default {
         "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
       referencePage: "/docs/javascript-training/anonymous-function/",
     },
+    javascriptModule: {
+      name: "モジュール (JavaScript)",
+      definition:
+        "独立したプログラムの塊。JavaScript では、通常 1 つのファイルがモジュールとして扱われる。Node.js では require 関数を、ECMAScript モジュールが使用可能な環境では import 文を用いてインポートして利用する。",
+      referencePage: "/docs/golden-week/module/",
+    },
     library: {
       name: "ライブラリ",
       definition:
@@ -316,11 +337,29 @@ export default {
         "HTTP リクエストの種類。GET や POST などがある。GET リクエストにはリクエストボディが存在しないが、POST リクエストでは利用できる。",
       referencePage: "/docs/golden-week/get-post/",
     },
+    npxCommand: {
+      name: "npx コマンド",
+      definition:
+        "npm 付属のコマンド。インストールした npm パッケージを直接実行する機能を持つ。",
+      referencePage: "/docs/golden-week/database/",
+    },
     asynchronousProcess: {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
       referencePage: "/docs/golden-week/database/",
+    },
+    transpile: {
+      name: "トランスパイル",
+      definition:
+        "プログラムを同じ意味を持つ別のプログラムへと変換すること。Web 開発では、通常変換の結果ウェブブラウザが解釈できる JavaScript が生成される。Babel が有名。",
+      referencePage: "/docs/advanced/bundler/",
+    },
+    moduleBundler: {
+      name: "モジュールバンドラ",
+      definition:
+        "複数の JavaScript モジュールをまとめてひとつにするためのソフトウェア。webpack が有名。",
+      referencePage: "/docs/advanced/bundler/",
     },
   },
 };

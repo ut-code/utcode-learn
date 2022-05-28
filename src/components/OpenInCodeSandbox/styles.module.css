@@ -1,10 +1,15 @@
 .root {
   display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  width: max-content;
-  margin-left: auto;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-bottom: var(--ifm-leading);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .icon {

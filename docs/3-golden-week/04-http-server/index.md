@@ -24,7 +24,7 @@ Web では、通常インターネットを介してデータをやり取りし�
 
 ## Node.js で Web サーバーを作成する
 
-Node.js で Web サーバーを作成するには、`http` 標準モジュールを使用します。
+Node.js で Web サーバーを作成するには、`http` 標準<Term type="javascriptModule">モジュール</Term>を使用します。
 
 ```javascript title=main.js
 const http = require("http");

@@ -55,8 +55,8 @@ npx prisma init
 
 <video src={prismaInitVideo} controls muted autoPlay loop />
 
-:::tip `npx` コマンド
-`npx` コマンドは、npm のパッケージを、プログラムからではなく直接実行するためのコマンドです。npm には `prisma` パッケージのように、直接実行専用のパッケージも存在します。
+:::tip <Term type="npxCommand">`npx` コマンド</Term>
+<p><Term type="npxCommand"><code>npx</code> コマンド</Term>は、npm のパッケージを、プログラムからではなく直接実行するためのコマンドです。npm には <code>prisma</code> パッケージのように、直接実行専用のパッケージも存在します。</p>
 :::
 
 続いて、ElephantSQL からデータベースへの接続情報を `.env` ファイルにコピーします。これにより、Prisma は ElephantSQL 上の PostgreSQL サーバーと接続できるようになります。
