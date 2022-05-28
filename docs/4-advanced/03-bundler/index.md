@@ -105,7 +105,7 @@ JavaScript 標準の<Term type="javascriptModule">モジュール</Term>シス�
 ```javascript
 import { add } from "./sub";
 
-document.getElementById("#app").textContent = add(3, 4);
+document.getElementById("app").textContent = add(3, 4);
 ```
 
 ```javascript title="sub.js"
@@ -113,6 +113,8 @@ export function add(a, b) {
   return a + b;
 }
 ```
+
+<OpenInCodeSandbox path="/docs/4-advanced/03-bundler/_samples/es-modules" />
 
 :::tip ECMAScript モジュールの実装状況
 ECMAScript モジュールは、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
