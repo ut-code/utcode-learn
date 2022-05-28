@@ -333,3 +333,27 @@ npm でインストールしたパッケージが TypeScript に対応してい�
 Vite は、標準で TypeScript のトランスパイラが内蔵されています。新しくプロジェクトを作成する際は、テンプレートを選択する際に TypeScript のテンプレートを使用しましょう。
 
 <video src={viteTypescriptVideo} controls />
+
+## 課題
+
+- `string & number` 型は何型と等しいでしょうか。
+- 次のように定義される型 `T` に対して使用可能なプロパティは何でしょうか。
+
+```typescript
+type T = { name: string; age: number } | { name: string; subject: string }
+```
+
+- 次の型のうち、`(v: string) => string` 型とみなせる (部分集合である) ものを全て選んでください。
+  - `(v: unknown) => string`
+  - `(v: never) => string`
+  - `(v: string) => unknown`
+  - `(v: string) => never`
+- 次の関数 `apply` は、関数を適用する関数です。ジェネリクスを用いて適切な型をつけてください (ヒント: 引数と戻り値を表す型パラメータを定義しましょう)。
+
+```typescript
+function apply(f, x) {
+  return f(x);
+}
+```
+
+- フロントエンド・バックエンドともに TypeScript を利用するアプリケーションを作成し、公開してみてください。

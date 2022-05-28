@@ -1,0 +1,16 @@
+{
+  "name": "fullstack-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server/main.js",
+    "build": "vite build client --outDir ../dist",
+    "prestart": "npm run build"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

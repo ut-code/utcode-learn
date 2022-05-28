@@ -35,7 +35,9 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加される�
 
 ## Vite を用いたフロントエンド開発
 
-[Vite](https://vitejs.dev/) は、<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>などの機能を持つソフトウェアです。
+Web 開発の領域では、ブラウザ (クライアント) で動く JavaScript プログラムを**フロントエンド**、サーバーで動くプログラムを**バックエンド**と呼ぶことがあります。
+
+[Vite](https://vitejs.dev/) は、主にフロントエンドの領域における、<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>などの機能を持つソフトウェアです。
 
 Vite を用いて新しくプロジェクトを作成してみましょう。
 
@@ -94,6 +96,22 @@ dist/assets/index.06d14ce2.css     0.17 KiB / gzip: 0.14 KiB
 
 <video src={buildVideo} controls />
 
+:::tip `npm run` コマンド
+`npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
+
+`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いとときのように、npm でインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
+
+```json title="package.json (一部抜粋)"
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+```
+:::
+
 ## <Term type="javascriptModule">ECMAScript モジュール</Term>
 
 Node.js では、通常 `require` 関数と `exports` オブジェクトを使用して<Term type="javascriptModule">モジュール</Term>を作成していました。しかしながら、この機能は Node.js に特有の機能で、標準的な JavaScript の仕様には含まれていません。
@@ -102,7 +120,7 @@ JavaScript 標準の<Term type="javascriptModule">モジュール</Term>シス�
 
 <p><Term type="javascriptModule">ECMAScript モジュール</Term>では、<code>export</code> 文や <code>import</code> 文を用いて他のモジュールとのやりとりを行います。</p>
 
-```javascript
+```javascript title="main.js"
 import { add } from "./sub";
 
 document.getElementById("app").textContent = add(3, 4);
@@ -116,6 +134,19 @@ export function add(a, b) {
 
 <OpenInCodeSandbox path="/docs/4-advanced/03-bundler/_samples/es-modules" />
 
+**デフォルトエクスポート**は、各モジュールにつき一度だけ使えるエクスポート方法です。
+```javascript title="main.js"
+import add from "./sub";
+
+document.getElementById("app").textContent = add(3, 4);
+```
+
+```javascript title="sub.js"
+export default function add(a, b) {
+  return a + b;
+}
+```
+
 :::tip ECMAScript モジュールの実装状況
 ECMAScript モジュールは、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
 
@@ -123,3 +154,67 @@ ECMAScript モジュールは、実際にはブラウザや Node.js でも利用
 
 なお、`exports` オブジェクトや `require` 関数を使ったモジュールシステムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
 :::
+
+## npm のパッケージを Web ブラウザ上で利用する
+
+npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとしたトランスパイラやモジュールバンドラにより、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
+
+```javascript
+import { format } from "date-fns";
+
+document.getElementById("app").textContent = format(
+  new Date("2022-01-10"),
+  "yyyy年MM月dd日"
+);
+```
+
+<OpenInCodeSandbox path="/docs/4-advanced/03-bundler/_samples/run-npm-package-on-browsers" />
+
+## フロントエンドとバックエンドの統合
+
+Vite などのツールによって出力されたブラウザ上で動くアプリケーションと、Node.js をはじめとしたサーバー向けのアプリケーションを統合するためには、複数の手法が考えられます。
+
+最も単純なアプローチは、ビルド時に統合することです。この方法のメリットは、本番環境にデプロイするのが簡単であることです。ディレクトリ構成は、例えば次のようになります。
+
+```
+app
+├── client
+│   ├── index.html
+│   └── main.js
+├── package.json
+├── package-lock.json
+└── server
+    └── main.js
+```
+
+<OpenInCodeSandbox path="/docs/4-advanced/03-bundler/_samples/fullstack-app" />
+
+`npm run build` コマンドによって Vite がビルド結果を `/dist` に出力するようにしておきます。
+
+```json title="/package.json"
+{
+  "scripts": {
+    "start": "node server/main.js",
+    "build": "vite build client --outDir ../dist"
+  }
+}
+```
+
+`express.static` により Vite が作成したディレクトリを指定すれば完成です。
+
+```javascript title="/server/main.js"
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// Vite によって出力されたディレクトリを配信する
+app.use(express.static("dist"));
+
+app.listen(3000);
+```
+
+## 課題
+
+- [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+- Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。
