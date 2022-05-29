@@ -204,7 +204,7 @@ function add(a: number, b: number): number {
 const operator: BinaryNumberOperator = add;
 ```
 
-引数の数が多い関数型は、少ない関数型の部分集合とみなされます。
+引数の数が少ない関数型は、多い関数型の部分集合とみなされます。
 
 ```typescript
 function increment(a: number): number {
