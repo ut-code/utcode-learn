@@ -34,6 +34,8 @@ export default {
     "/docs/advanced/css/": "高度な CSS",
     "/docs/advanced/fetch-api/": "Fetch API",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
+    "/docs/advanced/typescript/": "TypeScript",
+    "/docs/advanced/react/": "React",
   },
   terms: {
     fileExtension: {
@@ -360,6 +362,12 @@ export default {
       definition:
         "複数の JavaScript モジュールをまとめてひとつにするためのソフトウェア。webpack が有名。",
       referencePage: "/docs/advanced/bundler/",
+    },
+    jsx: {
+      name: "JSX",
+      definition:
+        "JavaScript の拡張構文で、React などと共に用いられる。JSX が有効な JavaScript では、 HTML に似た構文の式により特定の種類のオブジェクトを作成できる。拡張子は .jsx で、TypeScript とともに用いる場合は .tsx。",
+      referencePage: "/docs/advanced/react/",
     },
   },
 };

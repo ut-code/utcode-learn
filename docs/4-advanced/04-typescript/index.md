@@ -334,6 +334,12 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
 <video src={viteTypescriptVideo} controls />
 
+:::tip `tsconfig.json`
+この方法でプロジェクトを作成すると、`tsconfig.json` というファイルが生成されます。TypeScript は、さまざまな JavaScript のニーズに合わせてカスタマイズできるようになっており、その設定を記述するためのファイルが `tsconfig.json` です。
+
+[公式ドキュメント](https://www.typescriptlang.org/tsconfig) には、全てのオプションの詳細な説明が記述されています。特に、[`strict` オプション](https://www.typescriptlang.org/tsconfig#strict)は、TypeScript の能力を大幅に上昇させることができるので、有効にすることが推奨されています。`typescript` パッケージを直接インストールしたプロジェクトでは、`npx tsc --init` コマンドによりこのファイルを生成できます。
+:::
+
 ## 課題
 
 - `string & number` 型は何型と等しいでしょうか。
