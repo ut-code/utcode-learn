@@ -369,5 +369,17 @@ export default {
         "JavaScript の拡張構文で、React などと共に用いられる。JSX が有効な JavaScript では、 HTML に似た構文の式により特定の種類のオブジェクトを作成できる。拡張子は .jsx で、TypeScript とともに用いる場合は .tsx。",
       referencePage: "/docs/advanced/react/",
     },
+    javascriptTruthyFalsy: {
+      name: "truthy と falsy (JavaScript)",
+      definition:
+        "JavaScript では、数値のゼロ、空文字列、null、undefined、NaN を falsy、それ以外の全ての値を truthy とみなす。if 文は条件式の結果が truthy であるか falsy であるかによって分岐を行う。",
+      referencePage: "/docs/advanced/react/",
+    },
+    mutableImmutable: {
+      name: "ミュータブルとイミュータブル",
+      definition:
+        "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。React などのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
+      referencePage: "/docs/javascript-training/constant/",
+    },
   },
 };
