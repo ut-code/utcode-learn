@@ -135,7 +135,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 ```
 
 :::tip Non-null assertion operator
-`document.getElementById("root")` の直後に続く `!` 記号は、TypeScript の non-null assertion operator です。`document.getElementById` 関数は、要素が見つからなかった場合に `null` を返すため、戻り値は `HTMLElement | null` 型と定義されています。`null` である可能ががないことをプログラマが保証することを TypeScript に伝える記号が `!` です。なお、`tsconfig.json` の設定によってはこのエラーは表示されません。
+`document.getElementById("root")` の直後に続く `!` 記号は、TypeScript の non-null assertion operator です。`document.getElementById` 関数は、要素が見つからなかった場合に `null` を返すため、戻り値は `HTMLElement | null` 型と定義されています。`null` である可能性がないことをプログラマが保証することを TypeScript に伝える記号が `!` です。なお、`tsconfig.json` の設定によってはこのエラーは表示されません。
 
 ```typescript
 document.getElementById("root").textContent; // Object is possibly 'null'.
