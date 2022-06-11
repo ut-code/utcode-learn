@@ -22,7 +22,7 @@ import createRecordInDatabaseVideo from "./create-record-in-database.mp4";
 
 ## ElephantSQL で PostgreSQL を使用する
 
-[PostgreSQL](https://www.postgresql.org) は、代表的なリレーショナルデータベースです。[ElephantSQL](https://www.elephantsql.com) を利用すると、無料のアカウント登録のみで、 PostgreSQL サーバーが利用できます。
+[PostgreSQL](https://www.postgresql.org) は、代表的なリレーショナルデータベースです。[ElephantSQL](https://www.elephantsql.com) を利用すると、無料のアカウント登録のみで、PostgreSQL サーバーが利用できます。
 
 アカウント登録が完了したら、早速 PostgreSQL サーバーを起動しましょう。設定項目は多くないので簡単です。
 
