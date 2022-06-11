@@ -47,7 +47,7 @@ server.listen(3000);
 このプログラムは、一度起動すると停止しません。サーバーにとって、クライアントからのリクエストはいつやってくるかわからないため、常に起動し続けている必要があるからです。Node.js プログラムを終了するには、ターミナル上で `Ctrl + C` を押します。
 :::
 
-[`http.Server` クラス](https://nodejs.org/api/http.html#class-httpserver) は、サーバーを作成するためのクラスです。このクラスの [`addListener` メソッド](https://nodejs.org/api/events.html#emitteraddlistenereventname-listener) は、イベントハンドラを追加するためのメソッドです。第 1 引数にイベントの名前、第 2 引数にイベントハンドラとなる関数オブジェクをを指定します。
+[`http.Server` クラス](https://nodejs.org/api/http.html#class-httpserver) は、サーバーを作成するためのクラスです。このクラスの [`addListener` メソッド](https://nodejs.org/api/events.html#emitteraddlistenereventname-listener) は、イベントハンドラを追加するためのメソッドです。第 1 引数にイベントの名前、第 2 引数にイベントハンドラとなる関数オブジェクトを指定します。
 
 [`request イベント`](https://nodejs.org/api/http.html#event-request) は、クライアントからリクエストが来るたびに発生するイベントです。イベントハンドラの第 1 引数に受け取ったリクエストを表す [`http.IncomingMessage` クラス](https://nodejs.org/api/http.html#class-httpincomingmessage) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`http.ServerResponse` クラス](https://nodejs.org/api/http.html#class-httpserverresponse) のインスタンスが渡されます。
 
