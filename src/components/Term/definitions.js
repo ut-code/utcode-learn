@@ -14,24 +14,24 @@ export default {
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
-    "/docs/javascript-training/inspector/": "ブラウザの開発者ツール",
-    "/docs/javascript-training/constant/": "定数とオブジェクトの参照",
-    "/docs/javascript-training/loop/": "繰り返し",
-    "/docs/javascript-training/class/": "クラス",
-    "/docs/javascript-training/array/": "配列",
-    "/docs/javascript-training/anonymous-function/": "無名関数",
-    "/docs/golden-week/wsl-setup/": "WSL のセットアップ",
-    "/docs/golden-week/node-js/": "はじめての Node.js",
-    "/docs/golden-week/module/": "モジュールと npm",
-    "/docs/golden-week/http-server/": "HTTP サーバー",
-    "/docs/golden-week/template-engine/": "Express とテンプレートエンジン",
-    "/docs/golden-week/form/": "フォーム",
-    "/docs/golden-week/get-post/": "GET リクエストと POST リクエスト",
-    "/docs/golden-week/database/": "データベース",
-    "/docs/golden-week/git/": "Git",
-    "/docs/golden-week/cookie/": "Cookie と認証",
-    "/docs/golden-week/deploy-on-render/": "Render へのデプロイ",
+    "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
+    "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
+    "/docs/browser-apps/loop/": "繰り返し",
+    "/docs/browser-apps/class/": "クラス",
+    "/docs/browser-apps/array/": "配列",
+    "/docs/browser-apps/anonymous-function/": "無名関数",
     "/docs/advanced/css/": "高度な CSS",
+    "/docs/browser-apps/git-github/": "Git と GitHub",
+    "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
+    "/docs/web-servers/node-js/": "はじめての Node.js",
+    "/docs/web-servers/module/": "モジュールと npm",
+    "/docs/web-servers/http-server/": "HTTP サーバー",
+    "/docs/web-servers/template-engine/": "Express とテンプレートエンジン",
+    "/docs/web-servers/form/": "フォーム",
+    "/docs/web-servers/get-post/": "GET リクエストと POST リクエスト",
+    "/docs/web-servers/database/": "データベース",
+    "/docs/web-servers/cookie/": "Cookie と認証",
+    "/docs/web-servers/deploy-on-render/": "Render へのデプロイ",
     "/docs/advanced/fetch-api/": "Fetch API",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
@@ -283,73 +283,73 @@ export default {
       name: "メソッド (JavaScript)",
       definition:
         "オブジェクトに対して定義された関数。メソッド内ではメソッドが定義されたオブジェクトを this キーワードを用いて参照できる。",
-      referencePage: "/docs/javascript-training/class/",
+      referencePage: "/docs/browser-apps/class/",
     },
     arrowFunction: {
       name: "アロー関数",
       definition:
         "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
-      referencePage: "/docs/javascript-training/anonymous-function/",
+      referencePage: "/docs/browser-apps/anonymous-function/",
     },
     javascriptModule: {
       name: "モジュール (JavaScript)",
       definition:
         "独立したプログラムの塊。JavaScript では、通常 1 つのファイルがモジュールとして扱われる。Node.js では require 関数を、ECMAScript モジュールが使用可能な環境では import 文を用いてインポートして利用する。",
-      referencePage: "/docs/golden-week/module/",
+      referencePage: "/docs/web-servers/module/",
     },
     library: {
       name: "ライブラリ",
       definition:
         "ほかのプログラムから利用され、単体では実行できないプログラム。",
-      referencePage: "/docs/golden-week/module/",
+      referencePage: "/docs/web-servers/module/",
     },
     serverClient: {
       name: "サーバーとクライアント",
       definition:
         "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
-      referencePage: "/docs/golden-week/http-server/",
+      referencePage: "/docs/web-servers/http-server/",
     },
     json: {
       name: "JSON",
       definition:
         "複雑なデータ構造を JavaScript オブジェクトに似た形式で文字列として表現するための記法。",
-      referencePage: "/docs/golden-week/module/",
+      referencePage: "/docs/web-servers/module/",
     },
     httpRequestResponse: {
       name: "リクエストとレスポンス (HTTP)",
       definition:
         "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
-      referencePage: "/docs/golden-week/http-server/",
+      referencePage: "/docs/web-servers/http-server/",
     },
     queryString: {
       name: "クエリ文字列",
       definition:
         "URL の末尾し付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2 といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
-      referencePage: "/docs/golden-week/form/",
+      referencePage: "/docs/web-servers/form/",
     },
     httpHeaderBody: {
       name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
       definition:
         "HTTP においてリクエストやレスポンスは主にヘッダと呼ばれる領域とボディと呼ばれる領域に分かれている。リクエストやレスポンスの本体はボディの部分に格納されており、ヘッダは付加的な情報を与えるために用いられる。なお、GET リクエストではリクエストボディを使用できない。",
-      referencePage: "/docs/golden-week/get-post/",
+      referencePage: "/docs/web-servers/get-post/",
     },
     httpMethod: {
       name: "HTTP メソッド",
       definition:
         "HTTP リクエストの種類。GET や POST などがある。GET リクエストにはリクエストボディが存在しないが、POST リクエストでは利用できる。",
-      referencePage: "/docs/golden-week/get-post/",
+      referencePage: "/docs/web-servers/get-post/",
     },
     npxCommand: {
       name: "npx コマンド",
       definition:
         "npm 付属のコマンド。インストールした npm パッケージを直接実行する機能を持つ。",
-      referencePage: "/docs/golden-week/database/",
+      referencePage: "/docs/web-servers/database/",
     },
     asynchronousProcess: {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
-      referencePage: "/docs/golden-week/database/",
+      referencePage: "/docs/web-servers/database/",
     },
     transpile: {
       name: "トランスパイル",
@@ -379,7 +379,7 @@ export default {
       name: "ミュータブルとイミュータブル",
       definition:
         "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。React などのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
-      referencePage: "/docs/javascript-training/constant/",
+      referencePage: "/docs/browser-apps/constant/",
     },
   },
 };
