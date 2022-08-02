@@ -6,18 +6,18 @@ import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
-:::info  
+:::info
 macOS、WSLを利用する場合は Git は標準搭載なので追加インストールの必要なしです！
 :::
 
 ## GitHub への登録
 
-1. [GitHub](https://github.co.jp)を開き、右上のサインアップをクリック。
-   
+1. [GitHub](https://github.com)を開き、右上のサインアップをクリック。
+
    ![Github home](./pictures/github-home.png)
 
 2. 情報を入力する。
-   
+
    ![create New Account](./pictures/github-signup.png)
    :::caution
    Username は、一度付けると変更が面倒なためよく考えてつけましょう。
@@ -30,7 +30,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
    $ cd ~
    $ ssh-keygen -t ed25519
    ```
-   途中でターミナルの表示画面が止まりますが、user@host:~$が再度表示されるまで enter で進みます。  
+   途中でターミナルの表示画面が止まりますが、user@host:~$が再度表示されるまで enter で進みます。
    公開鍵が格納されたファイルの中身を表示させるため、以下のコマンドを入力します。
 
    ```
@@ -49,7 +49,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
 
 ## Gitによるバージョン管理
 ### ローカルのリポジトリをGitで管理
-Gitのリポジトリは、コミットと呼ばれるソースコードへの変更の塊の集合です。適当なプロジェクトを、Gitの管理下に置いてみましょう。  
+Gitのリポジトリは、コミットと呼ばれるソースコードへの変更の塊の集合です。適当なプロジェクトを、Gitの管理下に置いてみましょう。
 以下のコマンドをTerminalに入力してください(usernameやproject-nameは自分の環境に合わせたものを使用してください)
 ```
 $ cd /Users/username/projects/project-name
@@ -72,7 +72,7 @@ $ git add -A
 
 ![ステージング](pictures/git-staging.png)
 
-`git add` コマンドは、変更を**ステージング**するためのコマンドです。ステージングとはコミットの直前の状態で、Gitに対して該当ファイルをコミットする意思があることを伝えるためのものです。  
+`git add` コマンドは、変更を**ステージング**するためのコマンドです。ステージングとはコミットの直前の状態で、Gitに対して該当ファイルをコミットする意思があることを伝えるためのものです。
 今回は `-A` オプションによりすべてのファイルをステージングしましたが、特定のファイルのみとすることもできます。
 
 VSCodeは、GUIを利用したGitの操作に標準で対応しています。変更一覧に表示されるプラスボタンがステージング、マイナスボタンがその解除に当たります。
