@@ -1,6 +1,7 @@
 const math = require("remark-math");
 const katex = require("rehype-katex");
 
+/** @type {import("@docusaurus/types").Config} */
 module.exports = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); Learn",
@@ -13,6 +14,7 @@ module.exports = {
   presets: [
     [
       "@docusaurus/preset-classic",
+      /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
           showLastUpdateTime: true,
@@ -30,7 +32,16 @@ module.exports = {
       },
     ],
   ],
+  /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
+    prism: {
+      theme: require("prism-react-renderer/themes/github"),
+    },
     navbar: {
       title: "ut.code(); Learn",
       logo: {
