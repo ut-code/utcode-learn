@@ -10,6 +10,55 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 macOS、WSLを利用する場合は Git は標準搭載なので追加インストールの必要なしです！
 :::
 
+## Gitの説明
+
+1. Gitは、プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムです。
+
+2. Gitの中身の話をする前に、Gitを構成する重要な技術の一つである[hash関数](https://www.wikiwand.com/ja/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0)についての説明をします。hash関数は任意のデータを固定長の文字列に変換する非可逆な要約関数です。データが1文字でも違うとhash関数は全く異なる値を出力します。hash関数の出力の値を比べることで、データが編集されていないかを確かめることができます。(注 異なる入力に対してhash関数の出力が等しくなる場合(衝突)が稀にあります。)
+![Git wiki hash](./pictures/git-hash.png)
+
+3. Gitは、[有向非巡回グラフ(DAG)](https://www.wikiwand.com/ja/%E6%9C%89%E5%90%91%E9%9D%9E%E5%B7%A1%E5%9B%9E%E3%82%B0%E3%83%A9%E3%83%95)というグラフ構造を取っています。矢印には方向があります。巡回(ループ)がある場合、自己への参照が発生してしまい、自己の定義に自己を用いていることになってしまいます。巡回がある場合、定義が無限ループに陥ってしまうため、Gitは必ず非巡回のグラフとなっています。
+![Git wiki dag](./pictures/git-dag.png)
+次に、Gitのグラフの中身を見てみましょう。
+
+4. Gitはcommit objectの集合です。commitは、1つのtree objectへのリンク(参照)を持ちます。1つのtree objectは1つ以上の、tree object,や[blob object](https://techacademy.jp/magazine/28210)へのリンク(参照)を持ちます。blobはbinary large objectの略で、ファイルのバイナリデータです。index.htmlやscript.jsなどのファイルをバイナリデータにしたものがblobです。具体的なcommitの構造を見てみましょう。
+
+5. commitの構造です。
+98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、緑色のcommit objectをhash関数に入力した時に出力されるhash値です。commit objectには、commitのsize, treeのhash値、authorのname, commitorのnameなどの情報が含まれており、それらの情報を全てhash関数に入力することで、98ca9..というhash値が計算されています。
+緑色のcommit objectは青色のtree objectのhash値を保有しており、commit objectからtree objectへの矢印(リンク)を持っています。commit objectはリンク先が編集された場合、hash値を計算することで検知することができます。
+92ec2..は青色のtree objectから得られたhash値です。tree objectは複数のblobのhash値を保有しています。複数のblobのhash値を持つことで、tree objectからblob objectへの矢印を持っています。
+blob, tree, commitの順でhash値が計算され格納されています。
+![Git mit tree](./pictures/git-mit-tree.png)
+
+6. commitを重ねると、編集の履歴がグラフとして表されます。tree objectはsnapshotとして表されています。98ca9..は最初のcommitです。34ac2..はparentの98ca9..のhash値を持っています。f30ab..はparentとして34ac..のhash値を持っています。98ca9.., 34ac2.., f30ab..の順番でhashが計算されます。parentのcommit objectをhash関数の入力にしたときの出力値と、childが保有しているparentのhash値が一致するか確かめることで、正当な継承かどうか確かめることができます。
+![Git mit commit](./pictures/git-mit-commit.png)
+
+7. branchは、commit objectへのpointer(参照です)。branchは、commit objectのhash値を持っています。作業する内容に応じてbranchを用います。
+![Git mit commit testing](./pictures/git-mit-branch.png)
+HEADは現在の位置を指します。HEADは指しているbranchの名前を保有します。
+![Git mit branch](./pictures/git-mit-head.png)
+
+8. 新たにtesingのbranchでの変更内容をcommitします。そのためには、まずHEADをtestingに移動します。
+![Git mit checkout](./pictures/git-mit-checkout.png)
+![Git mit commit testing](./pictures/git-mit-commit-testing.png)
+HEADがtestingを指している状態でcommitをします。新たなcommit objectが記録されました。testingのbranchが指しているhash値はf30abからc2b9eへと更新されました。HEADの指しているbranch名ではtestingのままで変化していません、c2b9eは親commit objectのhash値であるf30abを保有しています。
+再びmaserに作業場を移します。
+![Git mit checkout master](./pictures/git-mit-checkout-master.png)
+masterをcommitします
+![Git commit master](./pictures/git-mit-commit-master.png)
+新たなcommit objectが登録されました。
+次に、枝分かれしたbranchを統合するmerge, rebaseについて説明します。
+
+9. masterとexperimentの2つにbranchが分かれており、それぞれcommitが1つ進んでいる状態を考えます。
+![Git mit rebase](./pictures/git-mit-merge-rebase.png)
+mergeする場合は、C3とC4の内容をもとにC5を作成します。C5のcommit objectは、C3のhash値とC4のhash値を記録しています。
+![Git mit merge](./pictures/git-mit-merge.png)
+rebaseする場合は、C3'が作られます。このcommit objectは、C4のhash値を記録しています。
+![Git mit rebase](./pictures/git-mit-rebase.png)
+
+Gitでコミットを積み重ねることで、レポジトリを作成することができました。レポジトリを管理するサービスとして、GitHubがあります。GitHubに関する説明に進んでいきます。
+The images in this slide deck are from Pro Git under a Creative Common license (Attribution, Noncommercial, Share alike).
+
 ## GitHub への登録
 
 1. [GitHub](https://github.com)を開き、右上のサインアップをクリック。
