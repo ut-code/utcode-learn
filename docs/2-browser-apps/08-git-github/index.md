@@ -14,20 +14,15 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
 
 1. Gitは、プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムです。
 
-2. Gitの中身の話をする前に、Gitを構成する重要な技術の一つである[hash関数](https://www.wikiwand.com/ja/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0)についての説明をします。hash関数は任意のデータを固定長の文字列に変換する非可逆な要約関数です。データが1文字でも違うとhash関数は全く異なる値を出力します。hash関数の出力の値を比べることで、データが編集されていないかを確かめることができます。hash値はデータと一対一対応しているとみなすことができます。(注 異なる入力に対してhash関数の出力が等しくなる場合(衝突)が稀にあります。)
+2. Gitの中身の話をする前に、Gitを構成する重要な技術の一つである[hash関数](https://www.wikiwand.com/ja/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0)についての説明をします。hash関数は任意のデータを固定長の文字列に変換する非可逆な要約関数です。データが1文字でも違うとhash関数は全く異なる値を出力します。hash関数の出力の値を比べることで、データが編集されていないかを確かめることができます。(注 異なる入力に対してhash関数の出力が等しくなる場合(衝突)が稀にあります。)
 ![Git wiki hash](./pictures/git-hash.png)
 
 3. Gitは、[有向非巡回グラフ(DAG)](https://www.wikiwand.com/ja/%E6%9C%89%E5%90%91%E9%9D%9E%E5%B7%A1%E5%9B%9E%E3%82%B0%E3%83%A9%E3%83%95)というグラフ構造を取っています。矢印には方向があります。巡回(ループ)がある場合、自己への参照が発生してしまい、自己の定義に自己を用いていることになってしまいます。巡回がある場合、定義が無限ループに陥ってしまうため、Gitは必ず非巡回のグラフとなっています。
 ![Git wiki dag](./pictures/git-dag.png)
 次に、Gitのグラフの中身を見てみましょう。
 
-4. Gitはcommit objectの集合です。commitは、1つのtree objectへのリンク(参照)を持ちます。1つのtree objectは1つ以上の、tree object,や[blob object](https://techacademy.jp/magazine/28210)へのリンク(参照)を持ちます。blobはbinary large objectの略で、ファイルのバイナリデータです。index.htmlやscript.jsなどのファイルをバイナリデータにしたものがblobです。具体的なcommitの構造を見てみましょう。
-
-5. commitの構造です。
-98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、緑色のcommit objectをhash関数に入力した時に出力されるhash値です。commit objectには、commitのsize, treeのhash値、authorのname, commitorのnameなどの情報が含まれており、それらの情報を全てhash関数に入力することで、98ca9..というhash値が計算されています。
-緑色のcommit objectは青色のtree objectのhash値を保有しており、commit objectからtree objectへの矢印(リンク)を持っています。commit objectはリンク先が編集された場合、hash値を計算することで検知することができます。
-92ec2..は青色のtree objectから得られたhash値です。tree objectは複数のblobのhash値を保有しています。複数のblobのhash値を持つことで、tree objectからblob objectへの矢印を持っています。
-blob, tree, commitの順でhash値が計算され格納されています。
+4. Gitはcommit objectの集合です。commitは、1つのtree objectへのリンク(参照)を持ちます。tree objectは1つ以上の、tree objectや[blob object](https://techacademy.jp/magazine/28210)へのリンク(参照)を持ちます。blobはbinary large objectの略で、ファイルのバイナリデータです。index.htmlやscript.jsなどのファイルをバイナリデータにしたものがblobです。具体的なcommitの構造を見てみましょう。
+98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、該当するcommit objectをhash関数に入力した時に計算されたhash値です。commit objectには、commitの情報(size, treeのhash値、authorのname, commitorのname)が含まれており、それらはhash関数に入力することで、98ca9..というhash値が計算されています。
 ![Git mit tree](./pictures/git-mit-tree.png)
 
 6. commitを重ねると、編集の履歴がグラフとして表されます。tree objectはsnapshotとして表されています。98ca9..は最初のcommitです。34ac2..はparentの98ca9..のhash値を持っています。f30ab..はparentとして34ac..のhash値を持っています。98ca9.., 34ac2.., f30ab..の順番でhashが計算されます。parentのcommit objectをhash関数の入力にしたときの出力値と、childが保有しているparentのhash値が一致するか確かめることで、正当な継承かどうか確かめることができます。
@@ -217,44 +212,61 @@ GitHubをリロードしてみてください。変更が反映されている�
 隣の人のレポジトリのurlを教えてもらいましょう
 
 ```
-$git clone https://github.com/ut-code/readme_practice.git`
+$git@github.com:ut-code/readme_practice.git
+$cd readme_practice
+$ls
 ```
 
 次に、branchを作成します。
+branch名は、今回は自分のgithub上の名前+readmeにします。
+一般的な場合では、branch名は、作業する内容を端的に表す名前にすることが推奨されます。
 
 ```
-$git branch edit-readme
+$git branch username_readme
 $git branch
 ```
 git branchが閲覧できたでしょうか。
 次に、branchにheadを移動します。
 ```
-$git checkout edit-readme
+$git checkout username_readme
+$git branch
 ```
+"*"が移動したことを確認してください。
 
-README.mdに、hello worldという文字を追加で加えましょう。addしてblob objectを作成しましょう。
+続いて、README.mdに、hello worldという文字を追加で加えましょう。README.mdに編集ができたら、ファイルを保存しましょう。次に、git addしてblob objectを作成しましょう。
 
 ```
-echo hello world >> README.md
 $git add -A
 ```
+README.mdのblob objectが作成されました。blob objectにはREADME.mdのhash値が格納されています。
 
-commitしてcommit objectを作成しましょう。
-git pushにより、remoteにoriginとして変更を登録しましょう
+次に、git commitしてcommit objectを作成しましょう。
 
 ```
 $git commit -m"README.md に変更を加えました"
+```
+commit することで、ローカルレポジトリのtree objectとcommit objectが作成され、親のcommit objectへのリンク(参照)も作成されました。これで、gitで編集を記録するグラフを作成することができました。
+
+git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにbranchを反映します。
+
+```
 $git push -u origin edit-readme
 ```
 
+
 ブラウザで、pushした隣の人のgithubのレポジトリを開きましょう。pull requestを出しましょう。
+
 pull requestをの申請を受け取った人は、mergeするか確認してmergeしましょう。
+mergeできたでしょうか。
 
-
-
-
-
-
+remoteレポジトリの変更をlocalに反映させます。
+```
+$git fetch origin main
+```
+最後にmergeします
+```
+$git merge origin main
+```
 
 
 ### 課題
