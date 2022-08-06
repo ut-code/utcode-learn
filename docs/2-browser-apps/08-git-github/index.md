@@ -46,12 +46,13 @@ masterをcommitします
 
 9. masterとexperimentの2つにbranchが分かれており、それぞれcommitが1つ進んでいる状態を考えます。
 ![Git mit rebase](./pictures/git-mit-merge-rebase.png)
-mergeする場合は、C3とC4の内容をもとにC5を作成します。C5のcommit objectは、C3のhash値とC4のhash値を記録しています。
+mergeする場合は、C3とC4の内容をもとにC5を作成します。C5のcommit objectは、C3とC4の2つのhash値を記録しています。
 ![Git mit merge](./pictures/git-mit-merge.png)
-rebaseする場合は、C3'が作られます。このcommit objectは、C4のhash値を記録しています。
+mergeの代わりにrebaseする場合は以下の通りとなります。新たにC3'が作られます。このcommit objectは、C4のhash値を記録しています。
 ![Git mit rebase](./pictures/git-mit-rebase.png)
 
 Gitでコミットを積み重ねることで、レポジトリを作成することができました。レポジトリを管理するサービスとして、GitHubがあります。GitHubに関する説明に進んでいきます。
+
 The images in this slide deck are from Pro Git under a Creative Common license (Attribution, Noncommercial, Share alike).
 
 ## GitHub への登録
