@@ -250,7 +250,7 @@ commit することで、ローカルレポジトリのtree objectとcommit obje
 git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにbranchを反映します。
 
 ```
-$git push -u origin edit-readme
+$git push -u origin username_readme
 ```
 
 
