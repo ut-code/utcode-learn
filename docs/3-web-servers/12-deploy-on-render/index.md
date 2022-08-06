@@ -1,82 +1,21 @@
 ---
-title: Render へのデプロイ
+title: 動的サイトのデプロイ
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
-## PaaS
-
-**PaaS** (Platform as a Service)は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/) は最近登場した簡単に操作できる PaaS です。
-
-Render などの PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。Renderでは、ポート番号が `PORT` という名前の環境変数によって指定される。Node.jsでは、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
-
-```javascript
-app.listen(process.env.PORT || 3000);
-```
-
-## 静的ページと動的ページ
-
-[Render](https://render.com/) に登録すると、最初に次のような画面が現れます。
-
-![Render のホーム画面](./render-home.png)
-
-この画面の `Static Sites` と `Web Services` の違いを解説します。 
-
-`Static Sites` は静的ページのことで、大まかに言えば「内容が変化しないWebページ」です。サーバーにアップロードされてから内容が変化せず、いつ閲覧しても同じページが表示されます。
-
-一方、Renderにおける `Web Services` は静的ページの対義語にあたる動的ページに分類されます。これは大まかに言えば「内容が変化するWebページ」で、先ほどやったようなデータベースやサーバーとの通信をすることで閲覧する端末や閲覧する時間によって内容が異なるページが表示されます。
-
-動的ページはSNSやログイン機能のあるページなど、Webサービスでは必要不可欠ですが、その都度サーバーとの通信をしなければならないため静的ページに比べてサーバー負荷が大きいというデメリットがあります。実際、Renderでも `Static Sites` は無料ですが `Web Services` はサーバーの性能によって無料〜月450ドルのプランを選択することになります。
-
 ## Render へのデプロイ
 
-Render を GitHub のレポジトリと接続することで、ファイルを編集するごとに手動でサーバーにアップロードする必要なく GitHub上で `merge` するごとにWebページを更新することができます。 事前にアプリケーション全体を GitHub に保存しておいてください。`Static Sites` と `Web Services` それぞれの方法を紹介します。
+Render で動的サイトをデプロイするには、ホーム画面から `Web Services` を選択しましょう。
 
-**Static Sitesの場合**
-ホーム画面から `Static Sites` を選択しましょう。
+静的サイトのときと同様にGitHubアカウントとレポジトリを選択します。
 
-続いて、GitHub アカウントを選択します。
-
-![GitHub への接続](./connect-github.png)
-
-接続が完了すると、リポジトリが選択できるようになります。
-
-![リポジトリの選択](./select-repository.png)
-
-設定項目を入力します。
-
-![設定](./configuration2.png)
-
-ステータスが `Live` になったら成功です！　 `.onrender.com` のアドレスのサイトでアプリケーションが公開されています！
-
-
-**Web Servicesの場合**
-ホーム画面から `Web Services` を選択しましょう。
-
-`Static Sites` のときと同様にGitHubアカウントとレポジトリを選択します。
-
-設定項目を入力します。ここではnode.jsの設定を行なっています。
+設定項目を入力します。ここではnode.jsの設定を行っています。
 
 ![設定](./configuration.png)
 
-ステータスが `Live` になったら成功です！　この画面の `.onrender.com` のアドレスのサイトでアプリケーションが公開されています！
+ステータスが `Live` になったら成功です！　この画面の `.onrender.com` のアドレスのサイトでアプリケーションが公開されています！静的サイトのときと同様にGirHubからも見ることができます！
 
 ![デプロイ](./deployment.png)
-
-## .onrender.com へのアクセス
-
-先ほど発行した `.onrender.com` のサイトは、RenderだけでなくGitHubからもアクセスでき、pull request した内容を merge する前に実際に確認することができます。
-
-GitHub でレポジトリのページに移動し、`Pull requests` を選択します。
-
-![レポジトリの画面](./select-pullrequest.png)
-
-一覧から開きたい pull request を選択します。
-
-![リクエストの選択](./select-pullrequest2.png)
-
-pull request の内容を反映したサイトのリンクが表示されているので、そこからアクセスできます！
-
-![onrenderへアクセス](./access-onrender.png)
