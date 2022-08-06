@@ -14,7 +14,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
 
 1. Gitは、プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムです。
 
-2. Gitの中身の話をする前に、Gitを構成する重要な技術の一つである[hash関数](https://www.wikiwand.com/ja/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0)についての説明をします。hash関数は任意のデータを固定長の文字列に変換する非可逆な要約関数です。データが1文字でも違うとhash関数は全く異なる値を出力します。hash関数の出力の値を比べることで、データが編集されていないかを確かめることができます。(注 異なる入力に対してhash関数の出力が等しくなる場合(衝突)が稀にあります。)
+2. Gitの中身の話をする前に、Gitを構成する重要な技術の一つである[hash関数](https://www.wikiwand.com/ja/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0)についての説明をします。hash関数は任意のデータを固定長の文字列に変換する非可逆な要約関数です。データが1文字でも違うとhash関数は全く異なる値を出力します。hash関数の出力の値を比べることで、データが編集されていないかを確かめることができます。hash値はデータと一対一対応しているとみなすことができます。(注 異なる入力に対してhash関数の出力が等しくなる場合(衝突)が稀にあります。)
 ![Git wiki hash](./pictures/git-hash.png)
 
 3. Gitは、[有向非巡回グラフ(DAG)](https://www.wikiwand.com/ja/%E6%9C%89%E5%90%91%E9%9D%9E%E5%B7%A1%E5%9B%9E%E3%82%B0%E3%83%A9%E3%83%95)というグラフ構造を取っています。矢印には方向があります。巡回(ループ)がある場合、自己への参照が発生してしまい、自己の定義に自己を用いていることになってしまいます。巡回がある場合、定義が無限ループに陥ってしまうため、Gitは必ず非巡回のグラフとなっています。
@@ -211,6 +211,50 @@ GitHubをリロードしてみてください。変更が反映されている�
   コマンドパレット(Cmd + Shift + P)に Git Graph: View Git Graph (git log)というメニューが出て見やすい
 
   ![gitGraph](./pictures/gitGlaph.png)
+
+## git clone
+隣の人のレポジトリにpull requestを送りましょう。
+隣の人のレポジトリのurlを教えてもらいましょう
+
+```
+$git clone https://github.com/ut-code/readme_practice.git`
+```
+
+次に、branchを作成します。
+
+```
+$git branch edit-readme
+$git branch
+```
+git branchが閲覧できたでしょうか。
+次に、branchにheadを移動します。
+```
+$git checkout edit-readme
+```
+
+README.mdに、hello worldという文字を追加で加えましょう。addしてblob objectを作成しましょう。
+
+```
+echo hello world >> README.md
+$git add -A
+```
+
+commitしてcommit objectを作成しましょう。
+git pushにより、remoteにoriginとして変更を登録しましょう
+
+```
+$git commit -m"README.md に変更を加えました"
+$git push -u origin edit-readme
+```
+
+ブラウザで、pushした隣の人のgithubのレポジトリを開きましょう。pull requestを出しましょう。
+pull requestをの申請を受け取った人は、mergeするか確認してmergeしましょう。
+
+
+
+
+
+
 
 
 ### 課題
