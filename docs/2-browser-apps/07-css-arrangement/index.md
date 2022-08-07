@@ -7,6 +7,16 @@ import Term from "@site/src/components/Term";
 import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
+import absoluteScroll from "./position-absolute-scroll.mp4"
+
+import fixedScroll from "./position-fixed-scroll.mp4"
+
+import percentCss from "./percent-css.mp4"
+
+import maxMinWidth from "./max-width-min-width.mp4"
+
+import mediaQuery from "./mediaquery.mp4"
+
 ## CSS のボックスモデル
 
 HTML の要素はすべて、一定の高さと幅を持った四角形だと考えることができます。その四角形は
@@ -67,11 +77,11 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 以下ではブロックレベル要素である `<div></div>` を 3 つ並べています。
 
 ```html title="index.html"
-  <body>
-    <div class="box1">box1</div>
-    <div class="box2">box2</div>
-    <div class="box3">box3</div>
-  </body>
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+  <div class="box3">box3</div>
+</body>
 ```
 
 ```css title="style.css"
@@ -101,11 +111,11 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 以下ではインライン要素である `<span></span>` を 3 つ並べています。
 
 ```html title="index.html"
-  <body>
-    <span class="box1">box1</span>
-    <span class="box2">box2</span>
-    <span class="box3">box3</span>
-  </body>
+<body>
+  <span class="box1">box1</span>
+  <span class="box2">box2</span>
+  <span class="box3">box3</span>
+</body>
 ```
 
 ![spanタグを3つ並べる](./three-span.png)
@@ -129,13 +139,13 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 以下のように、`box1`, `box2`, `box3` という 3 つの `<div></div>` が `wrapper` という `<div></div>` の中に並んでいる状態を考えましょう。
 
 ```html title="index.html"
-  <body>
-    <div class="wrapper">
-      <div class="box1">box1</div>
-      <div class="box2">box2</div>
-      <div class="box3">box3</div>
-    </div>
-  </body>
+<body>
+  <div class="wrapper">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+</body>
 ```
 
 このままだとブロックレベル要素である `<div></div>` が並んでいるだけなので、`box1`, `box2`, `box3` は縦に並んで表示されます。
@@ -286,11 +296,11 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 `absolute` の場合はスクロールすると `box2` も動いていきます。
 
-![position: absoluteの場合にスクロールする](./position-absolute-scroll.mp4)
+<video src={absoluteScroll} controls />
 
 `fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
 
-![position: fixedの場合にスクロールする](./position-fixed-scroll.mp4)
+<video src={fixedScroll} controls />
 
 `position` プロパティを使うと、親要素を基準にして子要素の位置を指定することができます。
 
@@ -358,7 +368,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-![パーセント指定](./percent-css.mp4)
+<video src={percentCss} controls />
 
 ### `max-width` , `min-width`
 
@@ -393,7 +403,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-![max-widthとmin-width](./max-width-min-width.mp4)
+<video src={maxMinWidth} controls />
 
 ### メディアクエリ
 
@@ -425,4 +435,4 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-![メディアクエリの使用](./mediaquery.mp4)
+<video src={mediaQuery} controls />
