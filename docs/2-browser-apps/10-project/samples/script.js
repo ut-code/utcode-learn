@@ -4,13 +4,13 @@ const year = today.getFullYear();
 const month = today.getMonth();
 const startDate = new Date(year, month, 1);
 const endDate = new Date(year, month + 1, 0);
-const calender = document.getElementById("calender");
+const calendar = document.getElementById("calendar");
 const button = document.getElementById("button");
 
 //編集中の予定を追うための変数
 let editedLi = null;
 
-//曜日の行を作成
+//見出しとして曜日の行を作成
 const firstRow = document.createElement("tr");
 for (let i = 0; i < 7; i += 1) {
   const th = document.createElement("th");
@@ -19,11 +19,11 @@ for (let i = 0; i < 7; i += 1) {
 }
 
 //曜日の行を追加
-calender.appendChild(firstRow);
+calendar.appendChild(firstRow);
 
 //日付の行を作成
 for (let x = 1; x <= 6; x += 1) {
-  calender.appendChild(document.createElement("tr"));
+  calendar.appendChild(document.createElement("tr"));
   for (let y = 1; y <= 7; y += 1) {
     const td = document.createElement("td");
     td.id = String(y + 7 * (x - 1));
@@ -32,7 +32,7 @@ for (let x = 1; x <= 6; x += 1) {
     divForDate.className = "date";
     td.appendChild(divForDate);
     td.appendChild(ul);
-    calender.appendChild(td);
+    calendar.appendChild(td);
   }
 }
 
@@ -91,6 +91,7 @@ function deleteTask() {
   button.style.visibility = "hidden";
   editedLi = null;
 }
+
 
 //クリックしたときに実行される関数
 function clicked(e) {
