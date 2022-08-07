@@ -17,7 +17,7 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 - margin（境界線の外側の余白）
   の 4 重構造になっています。
 
-体験会の[ウェブサイトの見た目を整える](https://learn.utcode.net/docs/trial-session/css/)ページの課題を例に構造を見てみましょう。
+体験会の[「ウェブサイトの見た目を整える」ページの課題](https://learn.utcode.net/docs/trial-session/css/#%E8%AA%B2%E9%A1%8C-%E6%99%82%E9%96%93%E3%81%8C%E4%BD%99%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88)を例に構造を見てみましょう。
 
 ```html title=index.html
 <!DOCTYPE html>
@@ -47,12 +47,10 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 ![開発者ツールでボックスモデルを眺める](./devtool-boxmodel.png)
 
 4 重に色分けされた構造が見えます。
-`content`は主に`width`や`height`などのプロパティを、
-`padding`, `border`, `margin`はそれぞれ主に`padding`, `border`, `margin`などのプロパティを操作することで制御できます。
+`content` は主に `width` や `height` などのプロパティを、
+`padding`, `border`, `margin` はそれぞれ主に `padding`, `border`, `margin` などのプロパティを操作することで制御できます。
 
 `width`, `height`, `padding`, `border`, `margin`の値を変えると開発者ツールの表示がどう変わるか試してみましょう。
-
-<!-- <OpenInCodeSandbox path="/docs/2-browser-apps/07-advanced-css/_samples/separate-css-files" /> -->
 
 ## ブロックレベル要素とインライン要素
 
@@ -64,24 +62,16 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 そのため、ブロックレベル要素を複数並べて書くと、上から下へと配置されていきます。
 
-ブロックレベル要素には`<div></div>`や`<p></p>`、`<table></table>`、`<ul></ul>`などがあります。
+ブロックレベル要素には `<div></div>` や `<p></p>`、 `<table></table>` 、`<ul></ul>` などがあります。
 
-以下ではブロックレベル要素である`<div></div>`を 3 つ並べています。
+以下ではブロックレベル要素である `<div></div>` を 3 つ並べています。
 
 ```html title="index.html"
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
   <body>
     <div class="box1">box1</div>
     <div class="box2">box2</div>
     <div class="box3">box3</div>
   </body>
-</html>
 ```
 
 ```css title="style.css"
@@ -106,38 +96,16 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 そのため、インライン要素を複数並べて書くと、左から右へと配置されていきます。
 
-インライン要素には`<span></span>`や`<a></a>`、`<img>`や`<input>`があります。
+インライン要素には `<span></span>` や `<a></a>` 、`<img>` や `<input>` があります。
 
-以下ではインライン要素である`<span></span>`を 3 つ並べています。
+以下ではインライン要素である `<span></span>` を 3 つ並べています。
 
 ```html title="index.html"
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
   <body>
     <span class="box1">box1</span>
     <span class="box2">box2</span>
     <span class="box3">box3</span>
   </body>
-</html>
-```
-
-```css title="style.css"
-.box1 {
-  background-color: lightcoral;
-}
-
-.box2 {
-  background-color: lightblue;
-}
-
-.box3 {
-  background-color: lightgreen;
-}
 ```
 
 ![spanタグを3つ並べる](./three-span.png)
@@ -158,16 +126,9 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 フレックスボックスを利用するには、配置したい要素の**親要素**に `display: flex` を適用します。
 
-以下のように、`box1`, `box2`, `box3`という 3 つの`<div></div>`が`wrapper`という`<div></div>`の中に並んでいる状態を考えましょう。
+以下のように、`box1`, `box2`, `box3` という 3 つの `<div></div>` が `wrapper` という `<div></div>` の中に並んでいる状態を考えましょう。
 
 ```html title="index.html"
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
   <body>
     <div class="wrapper">
       <div class="box1">box1</div>
@@ -175,21 +136,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
       <div class="box3">box3</div>
     </div>
   </body>
-</html>
-```
-
-```css title="style.css"
-.box1 {
-  background-color: lightcoral;
-}
-
-.box2 {
-  background-color: lightblue;
-}
-
-.box3 {
-  background-color: lightgreen;
-}
 ```
 
 このままだとブロックレベル要素である `<div></div>` が並んでいるだけなので、`box1`, `box2`, `box3` は縦に並んで表示されます。
@@ -208,7 +154,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 フレックスボックスを使用すると複雑な配置も簡単に実現できます。
 
-一つの例として、`justify-content: space-around` を `wrapper`に指定してみると、要素の周囲に同じだけの間隔が空きます。
+一つの例として、`justify-content: space-around` を `wrapper` に指定してみると、要素の周囲に同じだけの間隔が空きます。
 
 ![justify-content: space-around](./space-around.png)
 
@@ -229,7 +175,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
     <div class="box4">box4</div>
     <div class="box5">box5</div>
     <div class="box6">box6</div>
-    <div class="box7">box7</div>
   </div>
 </body>
 ```
@@ -314,11 +259,170 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 上のコードの `box1` に `float: left` を指定するとどうなるか、試してみましょう。
 
-![float による調整](./float1.png)
-
+![float による調整](./float.png)
 
 `box1` が浮かんだことで空いたスペースには、すぐ下の `box2` が入り込んでいます。
 
+また、先述のように、`float` は現在では主にテキストが回り込むレイアウトを表現するために使われます。
 
+`float` によって下側に入り込んだ要素の中のテキストは、浮かんでいる要素を避けて回り込みます。
 
+`box2` の中に何か文章を書いて確かめてみましょう。
 
+## position
+
+`position` プロパティを操作すると、要素の位置指定の基準を変更することができます。
+
+- `position: static` : デフォルトの状態です。
+- `position: relative` : 要素の本来の位置から相対的にどれだけずらすかを指定することができます。
+
+![position: relativeによる調整](./position-relative.png)
+
+- `position: absolute` : 周囲の要素を無視し、ページ内で絶対的にどの位置にあるかを指定することができます。
+
+![position: absoluteによる調整](./position-absolute.png)
+
+- `position: fixed` : `absolute`に似ていますが、画面をスクロールしても要素は同じ場所に留まります。
+
+`absolute` の場合はスクロールすると `box2` も動いていきます。
+
+![position: absoluteの場合にスクロールする](./position-absolute-scroll.mp4)
+
+`fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
+
+![position: fixedの場合にスクロールする](./position-fixed-scroll.mp4)
+
+`position` プロパティを使うと、親要素を基準にして子要素の位置を指定することができます。
+
+そのような場合、親要素に `relative` を、子要素に `absolute` を指定します。
+
+```html title="index.html"
+<body>
+  <div class="box1">
+    box1
+    <div class="box2">box2</div>
+  </div>
+</body>
+```
+
+```css title="style.css"
+.box1 {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: lightcoral;
+}
+
+.box2 {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+```
+
+上のコードの `box1` に `margin-left: 200px` を指定してみましょう。
+
+![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute.png)
+
+`box1` の位置が変わっても、`box2` の `box1` に対する位置は変化していません。
+
+## レスポンシブデザイン
+
+デバイスの画面サイズに応じて適切なレイアウトで表示を行うデザインをレスポンシブデザインと呼びます。
+
+スマホ用、PC 用などと個別のサイトを作らずとも、同一の CSS であらゆるデバイスに対応することができます。
+
+### パーセント指定
+
+長さの指定は、親要素に対する比率によって行うこともできます。
+
+```html title="index.html"
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+</body>
+```
+
+```css title="style.css"
+.box1 {
+  background-color: lightcoral;
+  width: 50%;
+}
+
+.box2 {
+  background-color: lightblue;
+  width: 700px;
+}
+```
+
+![パーセント指定](./percent-css.mp4)
+
+### `max-width` , `min-width`
+
+`max-width` , `min-width` を使うと、要素の幅の上限と下限を指定することができます。
+
+以下の例を見てみましょう。
+
+```html title="index.html"
+<body>
+  <div class="box1">box1</div>
+  <div class="box2">box2</div>
+  <div class="box3">box3</div>
+</body>
+```
+
+```css title="style.css"
+.box1 {
+  background-color: lightcoral;
+  width: 80%;
+  max-width: 800px;
+}
+
+.box2 {
+  background-color: lightblue;
+  width: 80%;
+  min-width: 500px;
+}
+
+.box3 {
+  background-color: lightgreen;
+  width: 80%;
+}
+```
+
+![max-widthとmin-width](./max-width-min-width.mp4)
+
+### メディアクエリ
+
+画面サイズによって異なるスタイルを適用させたい際にはメディアクエリを使います。
+
+まずメディアクエリを使う準備として、`head` タグの中に以下を記述しましょう。
+
+```html title="index.html"
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+メディアクエリの基本的な形は `@media (条件) {条件が真の場合に適用されるスタイル}` のようになります。
+
+```html title="index.html"
+<body>
+  <div class="box1">box1</div>
+</body>
+```
+
+```css title="style.css"
+.box1 {
+  background-color: lightcoral;
+}
+
+@media (max-width: 800px) {
+  .box1 {
+    background-color: lightblue;
+  }
+}
+```
+
+![メディアクエリの使用](./mediaquery.mp4)
