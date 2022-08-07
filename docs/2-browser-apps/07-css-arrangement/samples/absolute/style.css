@@ -1,0 +1,39 @@
+.box1 {
+  width: 200px;
+  height: 200px;
+  background-color: lightcoral;
+}
+
+.box2 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-color: lightblue;
+  width: 200px;
+  height: 200px;
+}
+
+.box3 {
+  background-color: lightgreen;
+  width: 200px;
+  height: 200px;
+}
+
+.box4 {
+  background-color: lightseagreen;
+  width: 200px;
+  height: 200px;
+}
+
+.box5 {
+  background-color: lightskyblue;
+  width: 200px;
+  height: 200px;
+}
+
+.box6 {
+  background-color: lightgoldenrodyellow;
+  width: 200px;
+  height: 200px;
+}
+
