@@ -178,33 +178,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 グリッドを利用するには、配置したい要素の**親要素**に `display: grid` を適用し、`grid-template-columns` プロパティで列の幅を、`grid-template-rows` プロパティで行の幅を指定します。
 
-以下のコードを試してみましょう。
-
-```html title="index.html"
-<body>
-  <div class="wrapper">
-    <div class="box1">box1</div>
-    <div class="box2">box2</div>
-    <div class="box3">box3</div>
-    <div class="box4">box4</div>
-    <div class="box5">box5</div>
-    <div class="box6">box6</div>
-  </div>
-</body>
-```
-
-```css title="style.css"
-.wrapper {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px;
-}
-```
-
-![display: gridを使用する](./grid.png)
-
-## `grid-column`, `grid-row` による調整
-
 `grid-column` や `grid-row` を使うと、開始ラインや終了ラインを指定して項目を配置することができます。
 
 以下のコードを試してみましょう。
@@ -221,67 +194,35 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 ```
 
 ```css title="style.css"
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+}
+
 .box1 {
-  grid-column: 2 / 4;
-  grid-row: 1 / 2;
-}
-
-.box2 {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-
-.box3 {
-  grid-row: 2;
-  grid-column: 3;
-}
-
-.box4 {
-  grid-row: 2;
-  grid-column: 2;
-}
-```
-
-![grid-column, grid-row による調整](./grid-column-row.png)
-
-## フロート
-
-フロートはかつて要素の横並びを表現するために使われていましたが、より簡単に横並びを表現できるフレックスボックスの登場によりあまり使われなくなりました。
-
-現在では、主にテキストの回り込みを表現するために使われます。
-
-```html title="index.html"
-<body>
-  <div class="box1">box1</div>
-  <div class="box2">box2</div>
-</body>
-```
-
-```css title="style.css"
-.box1 {
-  width: 150px;
-  height: 150px;
   background-color: lightcoral;
 }
 
 .box2 {
-  width: 200px;
-  height: 200px;
   background-color: lightblue;
+}
+
+.box3 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+  background-color: lightgreen;
+}
+
+.box4 {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  background-color: lightseagreen;
 }
 ```
 
-`float` プロパティを操作してみましょう。`float: left` ならば要素を上（画面のこちら側）に浮かべて左から配置していく、といった意味になります。
+![display: gridを使用する](./grid.png)
 
-上のコードの `box1` に `float: left` を指定するとどうなるか、試してみましょう。
-
-![float による調整](./float.png)
-
-`box1` が浮かんだことで空いたスペースには、すぐ下の `box2` が入り込んでいます。
-
-また、先述のように、`float` は現在では主にテキストが回り込むレイアウトを表現するために使われます。
-
-`float` によって下側に入り込んだ要素の中のテキストは、浮かんでいる要素を避けて回り込みます。`box2` の中に何か文章を書いて確かめてみましょう。
 
 ## position
 
@@ -303,12 +244,12 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 ```css title="style.css"
 .box2 {
-    position: relative;
-    top: 50px;
-    left: 50px;
-    width: 200px;
-    height: 200px;
-    background-color: lightblue;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
 }
 ```
 
@@ -332,8 +273,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 `fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
 
-
 ### 親要素を基準にして子要素の位置を指定する
+
 `position` プロパティを使うと、親要素を基準にして子要素の位置を指定することができます。
 
 そのような場合、親要素に `relative` を、子要素に `absolute` を指定します。
@@ -375,7 +316,43 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 デバイスの画面サイズに応じて適切なレイアウトで表示を行うデザインをレスポンシブデザインと呼びます。
 
-スマホ用、PC 用などと個別のサイトを作らずとも、同一の CSS であらゆるデバイスに対応することができます。
+スマートフォン用、PC 用などと個別のサイトを作らずとも、同一の CSS であらゆるデバイスに対応することができます。
+
+### メディアクエリ
+
+画面サイズによって異なるスタイルを適用させたい際にはメディアクエリを使います。
+
+スマートフォン等でもサイトをデバイス本来の画面サイズで表示するために、`head` タグの中に以下を記述しましょう。
+
+```html title="index.html"
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+メディアクエリの基本的な形は `@media (条件) {条件が真の場合に適用されるスタイル}` のようになります。
+
+以下の例を試してみましょう。
+
+```html title="index.html"
+<body>
+  <div class="box1">box1</div>
+</body>
+```
+
+```css title="style.css"
+.box1 {
+  background-color: lightcoral;
+}
+
+@media (max-width: 800px) {
+  .box1 {
+    background-color: lightblue;
+  }
+}
+```
+
+ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
+
+<video src={mediaQuery} controls />
 
 ### パーセント指定
 
@@ -438,43 +415,9 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   width: 80%;
 }
 ```
+
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
 <video src={maxMinWidth} controls />
-
-### メディアクエリ
-
-画面サイズによって異なるスタイルを適用させたい際にはメディアクエリを使います。
-
-まずメディアクエリを使う準備として、`head` タグの中に以下を記述しましょう。
-
-```html title="index.html"
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-```
-
-メディアクエリの基本的な形は `@media (条件) {条件が真の場合に適用されるスタイル}` のようになります。
-
-以下の例を試してみましょう。
-
-```html title="index.html"
-<body>
-  <div class="box1">box1</div>
-</body>
-```
-
-```css title="style.css"
-.box1 {
-  background-color: lightcoral;
-}
-
-@media (max-width: 800px) {
-  .box1 {
-    background-color: lightblue;
-  }
-}
-```
-ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
-
-<video src={mediaQuery} controls />
 
 
