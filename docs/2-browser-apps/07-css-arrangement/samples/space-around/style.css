@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box1 {
+  background-color: lightcoral;
+}
+
+.box2 {
+  background-color: lightblue;
+}
+
+.box3 {
+  background-color: lightgreen;
+}

@@ -54,6 +54,8 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 }
 ```
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/box-model" />
+
 このページを開発者ツールを使って見てみましょう。
 ![開発者ツールでボックスモデルを眺める](./devtool-boxmodel.png)
 
@@ -100,6 +102,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/three-div" />
+
 ![divタグを3つ並べる](./three-div.png)
 
 インライン要素は文章の一部や表の要素など、ブロックレベル要素の内容となる要素です。
@@ -119,6 +123,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   <span class="box3">box3</span>
 </body>
 ```
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/three-span" />
 
 ![spanタグを3つ並べる](./three-span.png)
 
@@ -156,17 +162,29 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 `box1`, `box2`, `box3` の親要素である `wrapper` に `display: flex` を指定すると、要素は横並びに表示されます。
 
+
 ```css title="style.css"
 .wrapper {
   display: flex;
 }
 ```
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/flex" />
+
 ![display: flexを指定すると横並びになる](./flex.png)
 
 フレックスボックスを使用すると複雑な配置も簡単に実現できます。
 
 一つの例として、`justify-content: space-around` を `wrapper` に指定してみると、要素の周囲に同じだけの間隔が空きます。
+
+```css title="style.css"
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+```
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/space-around" />
 
 ![justify-content: space-around](./space-around.png)
 
@@ -220,6 +238,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightseagreen;
 }
 ```
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/grid" />
 
 ![display: gridを使用する](./grid.png)
 
@@ -253,23 +272,30 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/relative" />
+
 ![position: relativeによる調整](./position-relative.png)
 
 `position: absolute` : 周囲の要素を無視し、ページ内で絶対的にどの位置にあるかを指定することができます。
 
 上のコードの `position: relative` を `position: absolute` に変えてみましょう。
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/absolute" />
+
 ![position: absoluteによる調整](./position-absolute.png)
 
 `position: fixed` : `absolute`に似ていますが、画面をスクロールしても要素は同じ場所に留まります。
 
-上のコードの `position: relative` を `position: fixed` に変えてみましょう。
-
-<video src={absoluteScroll} controls />
-
 `absolute` の場合はスクロールすると `box2` も動いていきました。
 
 <video src={fixedScroll} controls />
+
+上のコードの `position: relative` を `position: fixed` に変えてみましょう。
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/fixed" />
+
+<video src={absoluteScroll} controls />
+
 
 `fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
 
@@ -307,6 +333,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 ```
 
 上のコードの `box1` に `margin-left: 200px` を指定して位置をずらしてみましょう。
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/relative-absolute" />
 
 ![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute.png)
 
@@ -349,6 +377,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   }
 }
 ```
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/media-query" />
 
 ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
 
@@ -378,6 +407,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   width: 700px;
 }
 ```
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/percent" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
@@ -415,6 +446,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   width: 80%;
 }
 ```
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/max-min-width" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
