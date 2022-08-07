@@ -10,12 +10,12 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 Render で動的サイトをデプロイするには、ホーム画面から `Web Services` を選択しましょう。
 
-静的サイトのときと同様にGitHubアカウントとレポジトリを選択します。
+静的サイトのときと同様に GitHub アカウントとレポジトリを選択します。
 
-設定項目を入力します。ここではnode.jsの設定を行っています。
+設定項目を入力します。ここでは Node.js の設定を行っています。
 
 ![設定](./configuration.png)
 
-ステータスが `Live` になったら成功です！　この画面の `.onrender.com` のアドレスのサイトでアプリケーションが公開されています！静的サイトのときと同様にGirHubからも見ることができます！
+ステータスが `Live` になったら成功です！　この画面の `.onrender.com` のアドレスのサイトでアプリケーションが公開されています！静的サイトのときと同様に GitHub からも見ることができます！
 
 ![デプロイ](./deployment.png)
