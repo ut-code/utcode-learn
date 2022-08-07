@@ -11,7 +11,7 @@ import calendarVideo from "./calendar.mp4"
 
 これまで学んできた知識を利用して、予定を追加したり削除したりできるカレンダーアプリを作ってみましょう。
 
-<!-- <video src={calendarVideo} controls /> -->
+<video src={calendarVideo} controls />
 
 ## ヒント
 ### 今月のカレンダーを表示する
