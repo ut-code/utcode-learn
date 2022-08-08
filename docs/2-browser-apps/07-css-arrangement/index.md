@@ -281,24 +281,45 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 上のコードの `position: relative` を `position: absolute` に変えてみましょう。
 
+```css title="style.css"
+.box2 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+```
+
 <OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/absolute" />
 
 ![position: absoluteによる調整](./position-absolute.png)
 
 `position: fixed` : `absolute`に似ていますが、画面をスクロールしても要素は同じ場所に留まります。
 
-`absolute` の場合はスクロールすると `box2` も動いていきました。
-
-<video src={fixedScroll} controls />
-
 上のコードの `position: relative` を `position: fixed` に変えてみましょう。
 
+```css title="style.css"
+.box2 {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+```
 <OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/fixed" />
+
+以下のように、`absolute` の場合はスクロールすると `box2` も動いていきましたが、
 
 <video src={absoluteScroll} controls />
 
-
 `fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
+
+<video src={fixedScroll} controls />
+
 
 ### 親要素を基準にして子要素の位置を指定する
 
@@ -334,6 +355,16 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 ```
 
 上のコードの `box1` に `margin-left: 200px` を指定して位置をずらしてみましょう。
+
+```css title="style.css"
+.box1 {
+  position: relative;
+  margin-left: 200px;
+  width: 400px;
+  height: 400px;
+  background-color: lightcoral;
+}
+```
 
 <OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/relative-absolute" />
 
