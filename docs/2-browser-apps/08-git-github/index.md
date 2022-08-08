@@ -191,31 +191,32 @@ $ git branch
 ```
 "*"が移動したことを確認してください。
 
-続いて、README.mdに、hello worldという文字を追加で加えましょう。README.mdに編集ができたら、ファイルを保存しましょう。次に、git addしてblob objectを作成しましょう。
+続いて、README.mdに、hello worldという文字を追加で加えましょう。README.mdに編集ができたら、ファイルを保存しましょう。
+次に、git addしましょう。git add は、作業ディレクトリ内の変更をステージングエリアに追加するコマンドです。
 
 ```
 $ git add -A
 ```
-README.mdのblob objectが作成されました。blob objectにはREADME.mdのhash値が格納されています。
 
-次に、git commitしてcommit objectを作成しましょう。
-
+次に、git commitしてcommitを作成しましょう。
+追加・変更したファイルをGitに登録するためのコマンドです。
 ```
 $ git commit -m"README.md に変更を加えました"
 ```
-commit することで、ローカルレポジトリのtree objectとcommit objectが作成され、親のcommit objectへのリンク(参照)も作成されました。これで、gitで編集を記録するグラフを作成することができました。
 
-git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにbranchを反映します。
+git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにlocalのbranchを反映します。
 
 ```
 $ git push -u origin username_readme
 ```
 
+ブラウザで、pushした隣の人のgithubのレポジトリを開きましょう。
+pull requestを出しましょう。
 
-ブラウザで、pushした隣の人のgithubのレポジトリを開きましょう。pull requestを出しましょう。
-
-pull requestをの申請を受け取った人は、mergeするか確認してmergeしましょう。
+pull requestの申請を受け取った人は、mergeするか確認してmergeしましょう。
 mergeできたでしょうか。
+
+通常の場合、branchは役目を終えたら削除するようにしましょう。
 
 <!-- remoteレポジトリの変更をlocalに反映させます。
 ```
