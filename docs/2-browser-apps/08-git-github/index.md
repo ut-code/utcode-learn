@@ -165,8 +165,6 @@ GitHubをリロードしてみてください。変更が反映されている�
 
   ![gitGraph](./pictures/git-git-graph.png)
 
-  ![g]
-
 ## git clone
 隣の人のレポジトリにpull requestを送りましょう。
 隣の人のレポジトリのurlを教えてもらいましょう
@@ -219,14 +217,14 @@ $ git push -u origin username_readme
 pull requestをの申請を受け取った人は、mergeするか確認してmergeしましょう。
 mergeできたでしょうか。
 
-remoteレポジトリの変更をlocalに反映させます。
+<!-- remoteレポジトリの変更をlocalに反映させます。
 ```
 $ git fetch origin main
 ```
 最後にmergeします
 ```
 $ git merge origin main
-```
+``` -->
 
 
 
