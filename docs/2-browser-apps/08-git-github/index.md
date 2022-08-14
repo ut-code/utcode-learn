@@ -201,7 +201,7 @@ $ git add -A
 次に、git commitしてcommitを作成しましょう。
 追加・変更したファイルをGitに登録するためのコマンドです。
 ```
-$ git commit -m"README.md に変更を加えました"
+$ git commit -m "README.md に変更を加えました"
 ```
 
 git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにlocalのbranchを反映します。
@@ -256,7 +256,7 @@ HEADは現在の位置を指します。HEADは指しているbranchの名前を
 ![Git mit checkout](./pictures/git-mit-checkout.png)
 ![Git mit commit testing](./pictures/git-mit-commit-testing.png)
 HEADがtestingを指している状態でcommitをします。新たなcommit objectが記録されました。testingのbranchが指しているhash値はf30abからc2b9eへと更新されました。HEADの指しているbranch名ではtestingのままで変化していません、c2b9eは親commit objectのhash値であるf30abを保有しています。
-再びmaserに作業場を移します。
+再びmasterに作業場を移します。
 ![Git mit checkout master](./pictures/git-mit-checkout-master.png)
 masterをcommitします
 ![Git commit master](./pictures/git-mit-commit-master.png)

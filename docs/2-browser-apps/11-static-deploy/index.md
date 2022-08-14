@@ -10,7 +10,7 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 **PaaS** (Platform as a Service)は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/) は最近登場した簡単に操作できる PaaS です。
 
-Render などの PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。 Render では、ポート番号が `PORT` という名前の環境変数によって指定される。 Node.js では、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
+Render などの PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。 Render では、ポート番号が `PORT` という名前の環境変数によって指定されます。 Node.js では、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
 
 ```javascript
 app.listen(process.env.PORT || 3000);
