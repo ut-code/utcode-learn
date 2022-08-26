@@ -21,9 +21,8 @@ body {
 
 .price {
   margin-bottom: 10px;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 36px;
-  line-height: 40px;
   color: #000;
 }
 
