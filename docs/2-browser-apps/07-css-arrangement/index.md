@@ -485,4 +485,31 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 <video src={maxMinWidth} controls />
 
+## 演習
+
+これまでの知識を活用して、料金プランの説明をするページを作ってみましょう。
+![料金プランのページを作ってみる](./exercise.png)
+
+スマホ等でも見やすく表示されるようにしてみましょう。
+![スマートフォンでの表示](./exercise-smartphone.png)
+
+
+### 参考: サンプルで使われているCSSプロパティの一覧
+- `display`
+- `flex-grow`
+- `flex-shrink`
+- `flex-basis`
+- `flex-direction`
+- `justify-content`
+- `align-self`
+- `margin`
+- `padding`
+- `border`
+- `border-radius`
+- `box-shadow`
+- `background-color`
+- `color`
+- `font-weight`
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/exercise" />
 
