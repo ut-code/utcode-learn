@@ -241,7 +241,7 @@ $ git merge origin main
 次に、Gitのグラフの中身を見てみましょう。
 
 4. Gitはcommit objectの集合です。commitは、1つのtree objectへのリンク(参照)を持ちます。tree objectは1つ以上の、tree objectや[blob object](https://techacademy.jp/magazine/28210)へのリンク(参照)を持ちます。blobはbinary large objectの略で、ファイルのバイナリデータです。index.htmlやscript.jsなどのファイルをバイナリデータにしたものがblobです。具体的なcommitの構造を見てみましょう。
-98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、該当するcommit objectをhash関数に入力した時に計算されたhash値です。commit objectには、commitの情報(size, treeのhash値、authorのname, commitorのname)が含まれており、それらはhash関数に入力することで、98ca9..というhash値が計算されています。
+98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、該当するcommit objectをhash関数に入力した時に計算されたhash値です。commit objectには、commitの情報が含まれており、それらはhash関数に入力することで、98ca9..というhash値が計算されています。
 ![Git mit tree](./pictures/git-mit-tree.png)
 
 6. commitを重ねると、編集の履歴がグラフとして表されます。tree objectはsnapshotとして表されています。98ca9..は最初のcommitです。34ac2..はparentの98ca9..のhash値を持っています。f30ab..はparentとして34ac..のhash値を持っています。98ca9.., 34ac2.., f30ab..の順番でhashが計算されます。parentのcommit objectをhash関数の入力にしたときの出力値と、childが保有しているparentのhash値が一致するか確かめることで、正当な継承かどうか確かめることができます。
