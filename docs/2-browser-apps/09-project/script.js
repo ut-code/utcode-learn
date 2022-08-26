@@ -10,6 +10,9 @@ const button = document.getElementById("button");
 //編集中の予定を追うための変数
 let editedLi = null;
 
+//各日付の要素を格納するオブジェクト
+const container = {};
+
 //曜日の行を作成
 const firstRow = document.createElement("tr");
 for (let i = 0; i < 7; i += 1) {
@@ -23,16 +26,17 @@ calender.appendChild(firstRow);
 
 //日付の行を作成
 for (let x = 1; x <= 6; x += 1) {
-  calender.appendChild(document.createElement("tr"));
+  const tr = document.createElement("tr");
+  calender.appendChild(tr);
   for (let y = 1; y <= 7; y += 1) {
     const td = document.createElement("td");
-    td.id = String(y + 7 * (x - 1));
     const ul = document.createElement("ul");
     const divForDate = document.createElement("div");
     divForDate.className = "date";
     td.appendChild(divForDate);
     td.appendChild(ul);
-    calender.appendChild(td);
+    container[`${y + 7 * (x - 1)}`] = td;
+    tr.appendChild(td);
   }
 }
 
@@ -41,8 +45,7 @@ for (let i = 1; i <= 42; i += 1) {
     i >= startDate.getDay() + 1 &&
     i <= startDate.getDay() + endDate.getDate()
   ) {
-    const td = document.getElementById(`${i}`);
-    td.firstChild.textContent = `${i - startDate.getDay()}`;
+    container[`${String(i)}`].firstChild.textContent = `${i - startDate.getDay()}`;
   }
 }
 
@@ -50,9 +53,6 @@ for (let i = 1; i <= 42; i += 1) {
 function addTask(e) {
   const li = document.createElement("li");
   const input = document.createElement("input");
-  li.id = `task${
-    +String(e.target.id) + String(e.target.lastChild.childElementCount)
-  }`;
   li.appendChild(input);
   input.addEventListener("keypress", fixTask);
   e.target.lastChild.appendChild(li);
@@ -93,8 +93,10 @@ function deleteTask() {
 }
 
 //クリックしたときに実行される関数
+
 function clicked(e) {
   //予定を編集していないとき
+
   if (editedLi === null) {
     if (e.target.class === "task") {
       button.style.visibility = "visible";
