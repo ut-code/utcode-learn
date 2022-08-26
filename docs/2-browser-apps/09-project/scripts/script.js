@@ -68,7 +68,9 @@ function fixTask(e) {
       div.textContent = input.value;
       div.class = "task";
       editedLi.replaceChild(div, input);
-    } 
+    } else {
+      e.target.removeChild(editedLi);
+    }
     button.style.visibility = "hidden";
     editedLi = null;
   }
@@ -99,7 +101,7 @@ function clicked(e) {
     if (e.target.class === "task") {
       button.style.visibility = "visible";
       editTask(e);
-    } else if (e.target.tagName === "TD") {
+    } else if (e.target.tagName === "TD" && e.target.firstChild.textContent !== "") {
       button.style.visibility = "visible";
       addTask(e);
     }
