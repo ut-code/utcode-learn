@@ -68,9 +68,7 @@ function fixTask(e) {
       div.textContent = input.value;
       div.class = "task";
       editedLi.replaceChild(div, input);
-    } else {
-      e.target.removeChild(li);
-    }
+    } 
     button.style.visibility = "hidden";
     editedLi = null;
   }
