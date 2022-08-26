@@ -124,5 +124,5 @@ function clicked(e) {
   }
 }
 
-window.addEventListener("click", clicked);
+window.onclick = clicked;
 button.onclick = deleteTask;
