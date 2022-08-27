@@ -24,7 +24,7 @@ function onStrangeButtonClick() {
 document.getElementById("strange-button").onclick = onStrangeButtonClick;
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/05-anonymous-function/samples/normal-event-handler" />
+<OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/normal-event-handler" />
 
 この場合、関数 `onStrangeButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onStrangeButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
 
@@ -36,7 +36,7 @@ document.getElementById("strange-button").onclick = () => {
 };
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/05-anonymous-function/samples/using-anonymous-function" />
+<OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/using-anonymous-function" />
 
 JavaScript における関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
 
