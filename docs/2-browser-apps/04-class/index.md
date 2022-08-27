@@ -277,4 +277,6 @@ document.write(false.toString()); // false
 
 `HTMLDivElement` クラスを自分でインスタンス化し、`textContent` プロパティに適当な値を代入して、`document.body.appendChild` 関数を用いて、作成した `div` 要素を `body` 要素の中に追加しましょう。
 
+※ `HTMLDivElement` クラスをインスタンス化する際には `new HTMLDivElement` ではなく `document.createElement("div")` とします。
+
 (発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。

@@ -1,0 +1,57 @@
+body {
+  background-color: #eee;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 20px;
+  padding: 15px 25px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.price {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #000;
+}
+
+#container h2 {
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.button {
+  align-self: flex-start;
+  margin: 10px 0px;
+  padding: 10px 40px;
+  border: 1px solid #0af;
+  border-radius: 5px;
+  background-color: #0af;
+  color: #fff;
+  font-size: 1em;
+}
+
+ul {
+  padding: 0 0 0 20px;
+}
+
+#container button:hover {
+  background-color: #0cf;
+}
+
+@media (max-width: 1024px) {
+  #container {
+    display: block;
+  }
+}
