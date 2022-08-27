@@ -165,9 +165,11 @@ GitHubをリロードしてみてください。変更が反映されている�
 
   ![gitGraph](./pictures/git-git-graph.png)
 
-## git clone
-隣の人のレポジトリにpull requestを送りましょう。
+### 課題
+githubを実際に使ってみましょう。
+隣の人のレポジトリのREADME.mdを編集をし、pull requestを送りましょう。
 隣の人のレポジトリのurlを教えてもらいましょう
+最初に、githubに練習用のレポジトリをREADME.md付きで作成してください。
 
 ```
 $ git clone git@github.com:ut-code/readme_practice.git
@@ -276,6 +278,7 @@ The images in this slide deck are from Pro Git under a Creative Common license (
 
 
 
-### 課題
+<!-- ### 課題 -->
 
-ToDo アプリのソースコードを GitHub に保存してみましょう。
+<!-- ToDo アプリのソースコードを GitHub に保存してみましょう。
+ -->
