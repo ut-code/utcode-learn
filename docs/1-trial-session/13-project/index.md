@@ -71,7 +71,7 @@ omikujiButton.onclick = omikuji;
 
 ### ヒント
 
-- `setInterval` <Term type="javascriptFunction">関数</Term>は<Term type="javascriptParameter">引数</Term>をふたつ (`func`, `delay`)をとり、`func` は<Term type="javascriptValue">値</Term>としての<Term type="javascriptFunction">関数</Term>、`delay` は整数です。`setInterval` は、 `func` に指定された<Term type="javascriptFunction">関数</Term>を `delay` ミリ秒の間隔で定期的に実行します。
+- `setInterval` <Term type="javascriptFunction">関数</Term>は<Term type="javascriptParameter">引数</Term>をふたつ (`func`, `delay`)とり、`func` は<Term type="javascriptValue">値</Term>としての<Term type="javascriptFunction">関数</Term>、`delay` は整数です。`setInterval` は、 `func` に指定された<Term type="javascriptFunction">関数</Term>を `delay` ミリ秒の間隔で定期的に実行します。
 
 ```javascript
 function greet() {

@@ -29,5 +29,5 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 <video src={openFolderVideo} controls />
 
 :::info
-最初にフォルダを開いたとき、`Du you trust the authors of the files in this folder?` と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダを VSCode で開いたとき、VSCode によって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
+最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?` と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダを VSCode で開いたとき、VSCode によって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
 :::
