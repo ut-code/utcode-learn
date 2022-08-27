@@ -19,7 +19,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加される�
 
 <p><Term type="transpile" strong>トランスパイラ</Term>は、ソースコードを別のソースコードに変換するためのプログラムです。JavaScript においてトランスパイラが必要になるのは、主に 2 つの理由によります。</p>
 
-ひとつは、**最新の機能を使用するため**です。JavaScriptのの言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term type="transpile">トランスパイラ</Term>です。
+ひとつは、**最新の機能を使用するため**です。JavaScriptの言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term type="transpile">トランスパイラ</Term>です。
 
 もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 

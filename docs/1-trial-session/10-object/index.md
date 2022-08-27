@@ -54,7 +54,7 @@ document.write(person.age);
 
 <p><Term type="javascriptObject">オブジェクト</Term>も<Term type="javascriptValue">値</Term>の一種なので、<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">引数</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。</p>
 
-`age` <Term type="javascriptProperty">プロパティ</Term> 1 を加えた<Term type="javascriptObject">オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
+`age` <Term type="javascriptProperty">プロパティ</Term>に 1 を加えた<Term type="javascriptObject">オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
 
 ```javascript
 function incrementAge(person) {
