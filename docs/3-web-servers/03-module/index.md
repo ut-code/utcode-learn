@@ -141,7 +141,7 @@ npm install date-fns
 
 これにより、フォルダの中に `package-lock.json` ファイルと、`node_modules` フォルダが作成され、内部にパッケージ本体がダウンロードされます。
 
-<video src={npmInitVideo} controls muted autoPlay loop />
+<video src={npmInstallVideo} controls muted autoPlay loop />
 
 :::tip JSON
 npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、 JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
