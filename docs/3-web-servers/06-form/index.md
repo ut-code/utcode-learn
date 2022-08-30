@@ -30,7 +30,7 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 
 Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
 
-```javascript title="script.js"
+```javascript title="main.js"
 const express = require("express");
 
 const app = express();
@@ -102,7 +102,7 @@ app.listen(3000);
 以下のように入力して、送信ボタンをクリックすると、
 ![初めの画面に入力](./form-example-2.png)
 
-[http://localhost:3000/send](http://localhost:3000/send) に移り、以下のような画面が表示されます。
+ `http://localhost:3000/send` に移り、以下のような画面が表示されます。
 
 ![http://localhost:3000/send](./form-example-3.png)
 

@@ -165,7 +165,7 @@ for (let x = 1; x <= 9; x += 1) {
 document.write("</table>");
       `.trim()}
     </CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/03-loop/samples/answer-for" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/03-loop/samples/times-table" />
   </div>
 </details>
 
