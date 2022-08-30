@@ -30,7 +30,7 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 
 Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
 
-```javascript title="script.js"
+```javascript title="main.js"
 const express = require("express");
 
 const app = express();

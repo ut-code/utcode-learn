@@ -86,7 +86,7 @@ TypeScript を試すには、Microsoft が提供している [TS Playground](htt
 
 ### 型を記述できる場所
 
-TypeScript の型は、関数の引数や戻り値、変数の後に `:` ともに記述できます。
+TypeScript の型は、関数の引数や戻り値、変数の後に `:` とともに記述できます。
 
 ```typescript
 // add は number 型の引数 a, b をとり number 型の値を返す関数
