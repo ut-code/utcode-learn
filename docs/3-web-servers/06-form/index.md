@@ -102,7 +102,7 @@ app.listen(3000);
 以下のように入力して、送信ボタンをクリックすると、
 ![初めの画面に入力](./form-example-2.png)
 
-[http://localhost:3000/send](http://localhost:3000/send) に移り、以下のような画面が表示されます。
+ `http://localhost:3000/send` に移り、以下のような画面が表示されます。
 
 ![http://localhost:3000/send](./form-example-3.png)
 
