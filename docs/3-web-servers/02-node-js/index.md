@@ -102,7 +102,7 @@ Windows の WSL では、エクスプローラーのサイドパネルから `Li
 
 続いて、開いたフォルダに `main.js` ファイルを作成し、下のスクリプトを保存します。`console.log` 関数は、画面に文章を表示させるための関数です。
 
-```javascript title=script.js
+```javascript title=main.js
 console.log("Hello World");
 ```
 

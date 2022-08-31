@@ -11,7 +11,7 @@ import buildVideo from "./build.mp4";
 
 ## 複雑化する Web 開発
 
-JavaScript は、当初は Web サイトに簡易的な動きを追加されるための言語として設計されました。しかしながら、高度な Web アプリケーションの台頭や、Node.js をはじめとしたブラウザにおける JavaScript のユースケースの広がりにより、標準的な JavaScript のみでの開発には限界があることがわかってきました。
+JavaScript は、当初は Web サイトに簡易的な動きを追加させるための言語として設計されました。しかしながら、高度な Web アプリケーションの台頭や、Node.js をはじめとしたブラウザにおける JavaScript のユースケースの広がりにより、標準的な JavaScript のみでの開発には限界があることがわかってきました。
 
 このため、現代では、JavaScript は事前に何らかの変換を行っておくことが一般的になっています。
 
@@ -99,7 +99,7 @@ dist/assets/index.06d14ce2.css     0.17 KiB / gzip: 0.14 KiB
 :::tip `npm run` コマンド
 `npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
 
-`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いとときのように、npm でインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
+`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いたときのように、npm でインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
 
 ```json title="package.json (一部抜粋)"
 {

@@ -129,7 +129,7 @@ if (/* すべての点数が 50 点以上なら */) {
     <p><code>Array#every</code>メソッドを使うと、配列の全要素が指定された関数でテストできます</p>
     <CodeBlock language="javascript">{`
 const scores = [90, 65, 70, 55, 80];
-if (scores.every((score) => score > 50)) {
+if (scores.every((score) => score >= 50)) {
   document.write("進級できます");
 }
     `.trim()}</CodeBlock>

@@ -59,7 +59,7 @@ document.write(person.age);
 ```javascript
 function incrementAge(person) {
   // ここに書く
-};
+}
 
 let tanaka = { name: "田中", age: 18 };
 let nextYearTanaka = incrementAge(tanaka);
