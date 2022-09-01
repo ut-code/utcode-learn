@@ -121,7 +121,7 @@ for (let i = 0; i < f.length; i += 1) {
   document.write(f[i]);
 }
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/01-constant/samples/answer" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/05-array/samples/Array-class" />
   </div>
 </details>
 

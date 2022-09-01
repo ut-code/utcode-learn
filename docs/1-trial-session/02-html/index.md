@@ -3,6 +3,7 @@ title: HTML
 ---
 
 import Term from "@site/src/components/Term";
+import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import createFileVideo from "./create-file.mp4";
 import openInBrowserVideo from "./open-in-browser.mp4";
 import showFileExtensionsVideo from "./show-file-extensions.mp4";
@@ -126,6 +127,6 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 - テキストボックスは `input` タグで作成できます。
 - 最後の箇条書きには `ul` タグや `li` タグを使用しています。
 
-### 解答
+### 解答例
 
-[CodeSandboxで開く](https://githubbox.com/ut-code/utcode-learn-answers/tree/master/01)
+<OpenInCodeSandbox path="/docs/1-trial-session/02-html/samples/form" />
