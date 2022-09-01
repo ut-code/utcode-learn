@@ -30,7 +30,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
    $ cd ~
    $ ssh-keygen -t ed25519
    ```
-   途中でターミナルの表示画面が止まりますが、user@host:~$が再度表示されるまで enter で進みます。
+   途中でターミナルの表示画面が止まりますが、 `user@host:~$` が再度表示されるまでEnterキーで進みます。
    公開鍵が格納されたファイルの中身を表示させるため、以下のコマンドを入力します。
 
    ```
@@ -40,7 +40,7 @@ macOS、WSLを利用する場合は Git は標準搭載なので追加インス�
    ```
    `ssh-ed25519 AA...2L` の部分をコピーしましょう。これが公開鍵です。
 
-4. Github への公開鍵の登録
+4. GitHub への公開鍵の登録
 
    登録ページへの移動方法は、`Setting` > `SSH and GPG keys` > `New SSH key`と順に移動すればたどり着けます。
    ![add-ssh-key](./pictures/ssh-key-add.png)
@@ -61,7 +61,7 @@ Initialized empty Git repository in /Users/username/projects/project-name/.git/
 
 ![git init](pictures/git-init.png)
 
-`git init` は、ディレクトリをGitの支配下に置くことを宣言するためのコマンドです。このコマンドを実行することにより、プロジェクトディレクトリはまだコミットが存在しない空のリポジトリになりました。　　
+`git init` は、ディレクトリをGitの支配下に置くことを宣言するためのコマンドです。このコマンドを実行することにより、プロジェクトディレクトリはまだコミットが存在しない空のリポジトリになりました。
 `U` は `Untracked` の頭文字で、そのファイルが最後のコミット（といってもまだ作ったばかりのリポジトリなので空ですが）より後に新しく作成され、まだGitによって管理されていないことを表します。
 
 ```
@@ -83,7 +83,7 @@ VSCodeは、GUIを利用したGitの操作に標準で対応しています。�
 $ git commit -m "init"
 ```
 
-コミットが作成され、ファイルリストは白色に戻りました。なお、gitではコミットを作成するとき、そのコミットによって行った変更を説明するための**コミットメッセージ**を付けることになっています。それを指定するためのオプションが `-m` です。
+コミットが作成され、ファイルリストは白色に戻りました。なお、Gitではコミットを作成するとき、そのコミットによって行った変更を説明するための**コミットメッセージ**を付けることになっています。それを指定するためのオプションが `-m` です。
 
 ![コミット](pictures/git-commit.png)
 
@@ -166,10 +166,9 @@ GitHubをリロードしてみてください。変更が反映されている�
   ![gitGraph](./pictures/git-git-graph.png)
 
 ### 課題
-githubを実際に使ってみましょう。
-隣の人のレポジトリのREADME.mdを編集をし、pull requestを送りましょう。
-隣の人のレポジトリのurlを教えてもらいましょう
-最初に、githubに練習用のレポジトリをREADME.md付きで作成してください。
+GitHubを実際に使ってみましょう。
+隣の人のレポジトリのURLを教えてもらい、そのレポジトリの `README.md` を編集し、pull requestを送りましょう。
+最初に、GitHubに練習用のレポジトリを `README.md` 付きで作成してください。
 
 ```
 $ git clone git@github.com:ut-code/readme_practice.git
@@ -178,47 +177,47 @@ $ ls
 ```
 
 次に、branchを作成します。
-branch名は、今回は自分のgithub上の名前+readmeにします。
+branch名は、今回は `自分のGitHub上の名前+readme` にします。
 一般的な場合では、branch名は、作業する内容を端的に表す名前にすることが推奨されます。
 
 ```
 $ git branch username_readme
 $ git branch
 ```
-git branchが閲覧できたでしょうか。
-次に、branchにheadを移動します。
+ブランチの一覧が閲覧できたでしょうか。
+次に、今作成したブランチにHEADを移動します。
 ```
 $ git checkout username_readme
 $ git branch
 ```
-"*"が移動したことを確認してください。
+ `*` が移動したことを確認してください。
 
-続いて、README.mdに、hello worldという文字を追加で加えましょう。README.mdに編集ができたら、ファイルを保存しましょう。
-次に、git addしましょう。git add は、作業ディレクトリ内の変更をステージングエリアに追加するコマンドです。
+続いて、 `README.md` に、 `Hello World` という文字を追加しましょう。 `README.md` に編集ができたら、ファイルを保存しましょう。
+次に、変更をステージングしましょう。 `git add` コマンドは、作業ディレクトリ内の変更をステージングエリアに追加するコマンドです。
 
 ```
 $ git add -A
 ```
 
-次に、git commitしてcommitを作成しましょう。
-追加・変更したファイルをGitに登録するためのコマンドです。
+次に、ステージングされたファイルをコミットしましょう。
+ `git commit` コマンドは、追加・変更したファイルをGitに登録するためのコマンドです。
 ```
 $ git commit -m "README.md に変更を加えました"
 ```
 
-git pushにより、remoteレポジトリにoriginとして変更を登録しましょう。remoteレポジトリにlocalのbranchを反映します。
+remoteレポジトリに `origin` として変更を登録しましょう。remoteレポジトリにlocalのbranchを反映します。
 
 ```
 $ git push -u origin username_readme
 ```
 
-ブラウザで、pushした隣の人のgithubのレポジトリを開きましょう。
+ブラウザで、pushした隣の人のGitHubのレポジトリを開きましょう。
 pull requestを出しましょう。
 
-pull requestの申請を受け取った人は、mergeするか確認してmergeしましょう。
+pull requestの申請を受け取った人は、確認しmergeしましょう。
 mergeできたでしょうか。
 
-通常の場合、branchは役目を終えたら削除するようにしましょう。
+通常の場合、branchは役目を終えたら削除するようにしてください。
 
 <!-- remoteレポジトリの変更をlocalに反映させます。
 ```
@@ -243,21 +242,21 @@ $ git merge origin main
 次に、Gitのグラフの中身を見てみましょう。
 
 4. Gitはcommit objectの集合です。commitは、1つのtree objectへのリンク(参照)を持ちます。tree objectは1つ以上の、tree objectや[blob object](https://techacademy.jp/magazine/28210)へのリンク(参照)を持ちます。blobはbinary large objectの略で、ファイルのバイナリデータです。index.htmlやscript.jsなどのファイルをバイナリデータにしたものがblobです。具体的なcommitの構造を見てみましょう。
-98ca9..や923c2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、該当するcommit objectをhash関数に入力した時に計算されたhash値です。commit objectには、commitの情報が含まれており、それらはhash関数に入力することで、98ca9..というhash値が計算されています。
+98ca9..や92ec2..はデータのhash値です。hash値は先頭からの一致を用いて比較されます。ここでは先頭の5桁が示されています。98ca9..という値は、該当するcommit objectをhash関数に入力した時に計算されたhash値です。commit objectには、commitの情報が含まれており、それらはhash関数に入力することで、98ca9..というhash値が計算されています。
 ![Git mit tree](./pictures/git-mit-tree.png)
 
-6. commitを重ねると、編集の履歴がグラフとして表されます。tree objectはsnapshotとして表されています。98ca9..は最初のcommitです。34ac2..はparentの98ca9..のhash値を持っています。f30ab..はparentとして34ac..のhash値を持っています。98ca9.., 34ac2.., f30ab..の順番でhashが計算されます。parentのcommit objectをhash関数の入力にしたときの出力値と、childが保有しているparentのhash値が一致するか確かめることで、正当な継承かどうか確かめることができます。
+6. commitを重ねると、編集の履歴がグラフとして表されます。tree objectはsnapshotとして表されています。98ca9..は最初のcommitです。34ac2..はparentの98ca9..のhash値を持っています。f30ab..はparentとして34ac2..のhash値を持っています。98ca9.., 34ac2.., f30ab..の順番でhashが計算されます。parentのcommit objectをhash関数の入力にしたときの出力値と、childが保有しているparentのhash値が一致するか確かめることで、正当な継承かどうか確かめることができます。
 ![Git mit commit](./pictures/git-mit-commit.png)
 
-7. branchは、commit objectへのpointer(参照です)。branchは、commit objectのhash値を持っています。作業する内容に応じてbranchを用います。
+7. branchは、commit objectへのpointer(参照)です。branchは、commit objectのhash値を持っています。作業する内容に応じてbranchを用います。
 ![Git mit commit testing](./pictures/git-mit-branch.png)
 HEADは現在の位置を指します。HEADは指しているbranchの名前を保有します。
 ![Git mit branch](./pictures/git-mit-head.png)
 
 8. 新たにtesingのbranchでの変更内容をcommitします。そのためには、まずHEADをtestingに移動します。
 ![Git mit checkout](./pictures/git-mit-checkout.png)
+HEADがtestingを指している状態でcommitをします。新たなcommit objectが記録されました。testingのbranchが指しているhash値はf30ab..からc2b9e..へと更新されました。HEADの指しているbranch名はtestingのままで変化していません。c2b9e..は親commit objectのhash値であるf30ab..を保有しています。
 ![Git mit commit testing](./pictures/git-mit-commit-testing.png)
-HEADがtestingを指している状態でcommitをします。新たなcommit objectが記録されました。testingのbranchが指しているhash値はf30abからc2b9eへと更新されました。HEADの指しているbranch名ではtestingのままで変化していません、c2b9eは親commit objectのhash値であるf30abを保有しています。
 再びmasterに作業場を移します。
 ![Git mit checkout master](./pictures/git-mit-checkout-master.png)
 masterをcommitします
