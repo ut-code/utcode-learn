@@ -3,6 +3,7 @@ title: プロジェクト
 ---
 
 import Term from "@site/src/components/Term";
+import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 import omikujiVideo from "./omikuji.mp4";
 import stopwatchVideo from "./stopwatch.mp4";
 
@@ -57,6 +58,10 @@ function omikuji() {
 }
 omikujiButton.onclick = omikuji;
 ```
+
+### 解答例
+
+<OpenInCodeSandbox path="/docs/1-trial-session/13-project/samples/omikuji" />
 
 ## ストップウォッチ
 
@@ -122,3 +127,7 @@ let stopButton = document.getElementById("stop-button");
 startButton.onclick = start;
 stopButton.onclick = stop;
 ```
+
+### 解答例
+
+<OpenInCodeSandbox path="/docs/1-trial-session/13-project/samples/stopwatch" />

@@ -70,3 +70,5 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の外側に余白があります (margin)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
+
+<OpenInCodeSandbox path="/docs/1-trial-session/09-css/samples/foo" />
