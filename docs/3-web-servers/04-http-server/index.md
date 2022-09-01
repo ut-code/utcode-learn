@@ -53,10 +53,30 @@ server.listen(3000);
 
 ### 課題
 
-- `Hello World` の `Hello` の部分を太字で表示されるようにしてみましょう。
-- `response.write` の前に `console.log` を実行するようプログラムを変更してみましょう。`console.log` はいつ実行されますか？
-- 作成した JavaScript ファイルを、デバッガを用いて実行し、`response.write` の行にブレークポイントを設置してみましょう。ブレークポイントでプログラムの実行が止まったら、`request` 引数と `response` 引数の内部がどうなっているか確認してみましょう。
-- `response.end` を実行しない場合、どのような挙動を示すでしょうか。
+1. `Hello World` の `Hello` の部分を太字で表示されるようにしてみましょう。
+2. `response.write` の前に `console.log` を実行するようプログラムを変更してみましょう。`console.log` はいつ実行されますか？
+3. 作成した JavaScript ファイルを、デバッガを用いて実行し、`response.write` の行にブレークポイントを設置してみましょう。ブレークポイントでプログラムの実行が止まったら、`request` 引数と `response` 引数の内部がどうなっているか確認してみましょう。
+4. `response.end` を実行しない場合、どのような挙動を示すでしょうか。
+
+<details>
+  <summary>解答</summary>
+  <div>
+    1.
+    <CodeBlock language="javascript">{`
+server.addListener("request", (request, response) => {
+    response.write("<b>Hello</b> World");
+    response.end();
+});
+    `.trim()}</CodeBlock>
+    <OpenInCodeSandbox path="/docs/3-web-servers/04-http-server/samples/bold" />
+  </div>
+  <div>
+    2. ブラウザ読み込み時に実行されます。
+  </div>
+  <div>
+    3. ブラウザでの読み込みが終わらなくなります。
+  </div>
+</details>
 
 ## HTTP
 
@@ -78,3 +98,5 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 - リンクがクリックされると `http://localhost:3000/secret` にページが移動し、`Secret` と表示される。
 
 <video src={pathRoutingVideo} controls autoPlay muted loop />
+
+<OpenInCodeSandbox path="/docs/3-web-servers/04-http-server/samples/secret" />

@@ -171,6 +171,14 @@ app.listen(3000);
 - (重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。
   - この 2 つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
 
-最後の課題の解答:
+解答例 1:
+
+<OpenInCodeSandbox path="/docs/3-web-servers/05-template-engine/_samples/nth" />
+
+解答例 2:
+
+<OpenInCodeSandbox path="/docs/3-web-servers/05-template-engine/_samples/nth-ejs" />
+
+解答例 3:
 
 <OpenInCodeSandbox path="/docs/3-web-servers/05-template-engine/_samples/server-or-client" />

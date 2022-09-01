@@ -123,6 +123,8 @@ Hello World
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
+<OpenInCodeSandbox path="/docs/3-web-servers/03-module/samples/fs-writeFileSync" />
+
 ## npm
 
 Node.js における**パッケージ**とは、主に JavaScript ファイルをまとめていろいろな場所で利用可能にしたものです。[npm](https://docs.npmjs.com/about-npm) (Node Package Manager) は、Node.js の**パッケージマネージャー**で、このソフトウェアを通してパッケージを管理できます。
@@ -188,3 +190,5 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
+
+<OpenInCodeSandbox path="/docs/3-web-servers/03-module/samples/math-js" />
