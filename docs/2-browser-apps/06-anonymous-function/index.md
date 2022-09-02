@@ -133,7 +133,7 @@ if (scores.every((score) => score >= 50)) {
   document.write("進級できます");
 }
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/01-constant/samples/answer" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/every" />
   </div>
 </details>
 
@@ -159,6 +159,6 @@ const minScore = scores.reduce((previousValue, currentValue) => {
 );
 document.write(minScore); // 55
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/01-constant/samples/answer" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/reduce" />
   </div>
 </details>

@@ -126,7 +126,7 @@ tanaka.introduceSelf();
 tanaka.incrementAge();
 tanaka.introduceSelf();
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/01-constant/samples/answer" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/04-class/samples/method" />
   </div>
 </details>
 
@@ -224,7 +224,7 @@ tanaka.name = "田中";
 tanaka.researchQuestion = "量子力学";
 tanaka.introduceSelf();
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/01-constant/samples/answer" />
+    <OpenInCodeSandbox path="/docs/2-browser-apps/04-class/samples/inheritance" />
   </div>
 </details>
 
