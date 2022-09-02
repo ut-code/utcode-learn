@@ -15,13 +15,17 @@ import componentRenderingVideo from "./component-rendering.mp4";
 
 簡単な ToDo アプリケーションを例に考えてみましょう。
 
-```html
+```html title=index.html
 <ul id="todos"></ul>
 <input id="message" />
 <button id="add-todo" type="button">追加</button>
 ```
 
-```js
+```js title=script.js
+const todoContainer = document.getElementById("todos");
+const messageInput = document.getElementById("message");
+const addTodoButton = document.getElementById("add-todo");
+
 addTodoButton.onclick = () => {
   const message = messageInput.value;
   const li = document.createElement("li");
