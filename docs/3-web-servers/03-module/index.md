@@ -111,7 +111,7 @@ const fs = require("fs");
 console.log(fs.readFileSync("sample.txt", "utf-8"));
 ```
 
-```plain title=main.js
+```plain title=sample.txt
 Hello World
 ```
 
