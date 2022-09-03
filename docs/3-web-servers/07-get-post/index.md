@@ -105,3 +105,9 @@ app.listen(3000);
 - `GET /` では EJS を用いて配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
 - `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
 :::
+
+## 解答例
+
+解答例は以下を参照してください。
+
+<OpenInCodeSandbox path="/docs/3-web-servers/07-get-post/_samples/bulletin-board" />
