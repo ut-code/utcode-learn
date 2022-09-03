@@ -135,3 +135,9 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 const evenNumbers = numbers.filter((number) => number % 2 === 0);
 ```
 :::
+
+### 解答例
+
+解答例は以下を参照してください
+
+<OpenInCodeSandbox path="/docs/3-web-servers/06-form/_samples/book-search-system" />
