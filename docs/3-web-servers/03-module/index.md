@@ -90,7 +90,7 @@ exports.add = (a, b) => {
 ```javascript title=main.js
 const sub = require("./sub"); // sub = { add: (a, b) => { return a + b; } }
 const add = sub.add;
-document.write(add(3, 4));
+console.log(add(3, 4));
 ```
 
 :::tip 分割代入
@@ -98,7 +98,7 @@ document.write(add(3, 4));
 
 ```javascript title=main.js
 const { add } = require("./sub");
-document.write(add(3, 4));
+console.log(add(3, 4));
 ```
 :::
 
