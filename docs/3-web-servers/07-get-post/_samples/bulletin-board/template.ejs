@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%for ( const message of messages ){ %>
+    <div>・ <%= message %></div>
+    <% }%>
+    <form action="/send" method="post">
+      <input name="message" />
+      <button>送信</button>
+    </form>
+  </body>
+</html>
