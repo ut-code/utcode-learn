@@ -138,6 +138,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 上記のコードで、ブロックレベル要素である `<div></div>` に `display: inline` を、インライン要素である `<span></span>` に `display: block` を指定してみると表示はどう変わるか、試してみましょう。
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/display" />
+
 ## フレックスボックス
 
 フレックスボックスを利用すると、要素を横や縦に並べたり、間隔を均等に取って並べたり、順番を指定して並べたりといった柔軟な配置を簡単に行うことができます。
