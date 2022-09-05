@@ -232,6 +232,17 @@ const max = a > b ? a : b; // 6
 
 ![JSX と JavaScript の入れ子構造](./jsx-and-javascript.png)
 
+### 課題
+
+`React` を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
+
+解答例
+<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/the-right-to-vote" />
+
+別解
+
+<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/another-the-right-to-vote" />
+
 ## JSX における条件分岐
 
 JSX 要素は式の形で表現されるため、内部で `if` 文や `for` 文といった制御構造は用いることができません。
@@ -324,6 +335,12 @@ export default function App() {
   );
 }
 ```
+
+### 課題
+
+先程の `students` のデータを用いて、表を作ってみましょう。
+
+<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/table" />
 
 ## コンポーネント
 
@@ -656,6 +673,10 @@ const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中",
 
 ## 課題
 
+- ToDo リストの要素を上下に移動させる機能を追加しましょう
+  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-up-down" />
 - ToDo リストの要素へ編集する機能を追加しましょう
+  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-edit" />
 - データベースに永続化することができる ToDo リストアプリケーションを作成しましょう
   - ヒント: ページ読み込み時に Fetch API を用いてデータを保存済みの ToDo 一覧を取得します。リストが編集されたら再び Fetch API を用いてデータを保存しましょう。
+  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-database" />
