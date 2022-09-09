@@ -11,13 +11,17 @@ export default function App() {
     <table>
       <thead>
         <tr>
-          <th>ID</th><th>名前</th><th>年齢</th>
+          <th>ID</th>
+          <th>名前</th>
+          <th>年齢</th>
         </tr>
       </thead>
       <tbody>
         {students.map((student) => (
           <tr key={student.id}>
-            <td>{student.id}</td><td>{student.name}</td><td>{student.age}</td>
+            <td>{student.id}</td>
+            <td>{student.name}</td>
+            <td>{student.age}</td>
           </tr>
         ))}
       </tbody>

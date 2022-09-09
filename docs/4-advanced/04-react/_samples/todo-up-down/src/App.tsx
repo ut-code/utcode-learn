@@ -23,7 +23,7 @@ export default function App() {
     newTodos[i] = newTodos[i - 1];
     newTodos[i - 1] = tmp;
     setTodos(newTodos);
-  }
+  };
 
   const moveDown = (i: number) => {
     const newTodos = [...todos];
@@ -31,7 +31,7 @@ export default function App() {
     newTodos[i] = newTodos[i + 1];
     newTodos[i + 1] = tmp;
     setTodos(newTodos);
-  }
+  };
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function App() {
               削除
             </button>
 
-            {i > 0 &&
+            {i > 0 && (
               <button
                 type="button"
                 onClick={() => {
@@ -57,9 +57,9 @@ export default function App() {
               >
                 ↑
               </button>
-            }
+            )}
 
-            {i < todos.length - 1 &&
+            {i < todos.length - 1 && (
               <button
                 type="button"
                 onClick={() => {
@@ -68,7 +68,7 @@ export default function App() {
               >
                 ↓
               </button>
-            }
+            )}
           </li>
         ))}
       </ul>

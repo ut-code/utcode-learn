@@ -6,7 +6,7 @@ const sendTodos = async (todos: Todo[]) => {
   await fetch("/send", {
     method: "post",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(todos)
+    body: JSON.stringify(todos),
   });
 };
 
@@ -17,13 +17,17 @@ export default function App() {
     const fetchTodos = async () => {
       const response = await (await fetch("/todos")).json();
       setTodos(response);
-      setNextId(!response.length ? 1 : response.reduce((previousValue: Todo, currentValue: Todo) => {
-        if (previousValue.id > currentValue.id) return previousValue;
-        return currentValue;
-      }).id + 1);
+      setNextId(
+        !response.length
+          ? 1
+          : response.reduce((previousValue: Todo, currentValue: Todo) => {
+              if (previousValue.id > currentValue.id) return previousValue;
+              return currentValue;
+            }).id + 1
+      );
     };
     fetchTodos();
-    setInterval(fetchTodos,1000);
+    setInterval(fetchTodos, 1000);
   }, []);
   const [newTodo, setNewTodo] = useState<string>("");
   const [edittingTodo, setEdittingTodo] = useState<Todo>({ id: -1, title: "" });
@@ -49,7 +53,7 @@ export default function App() {
     newTodos[i - 1] = tmp;
     setTodos(newTodos);
     await sendTodos(newTodos);
-  }
+  };
 
   const moveDown = async (i: number) => {
     const newTodos = [...todos];
@@ -58,25 +62,27 @@ export default function App() {
     newTodos[i + 1] = tmp;
     setTodos(newTodos);
     await sendTodos(newTodos);
-  }
+  };
 
   const editTodo = (todo: Todo) => {
     setEdittingTodo(todo);
-  }
+  };
 
   const fixTodo = async (todo: Todo) => {
-    const newTodos = todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo));
+    const newTodos = todos.map((todo) =>
+      todo.id === edittingTodo.id ? edittingTodo : todo
+    );
     setTodos(newTodos);
     setEdittingTodo({ id: -1, title: "" });
     await sendTodos(newTodos);
-  }
+  };
 
   return (
     <>
       <ul>
         {todos.map((todo, i) => (
           <li key={todo.id}>
-            {edittingTodo.id === todo.id ?
+            {edittingTodo.id === todo.id ? (
               <>
                 <input
                   value={edittingTodo.title}
@@ -87,14 +93,16 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => { fixTodo(todo) }}
+                  onClick={() => {
+                    fixTodo(todo);
+                  }}
                 >
                   確定
                 </button>
               </>
-              :
+            ) : (
               <span>{todo.title}</span>
-            }
+            )}
 
             <button
               type="button"
@@ -114,7 +122,7 @@ export default function App() {
               編集
             </button>
 
-            {i > 0 &&
+            {i > 0 && (
               <button
                 type="button"
                 onClick={() => {
@@ -123,9 +131,9 @@ export default function App() {
               >
                 ↑
               </button>
-            }
+            )}
 
-            {i < todos.length - 1 &&
+            {i < todos.length - 1 && (
               <button
                 type="button"
                 onClick={() => {
@@ -134,7 +142,7 @@ export default function App() {
               >
                 ↓
               </button>
-            }
+            )}
           </li>
         ))}
       </ul>

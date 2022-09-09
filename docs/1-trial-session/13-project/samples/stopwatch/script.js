@@ -1,11 +1,11 @@
 let timerId;
 
 function start() {
-    timerId = setInterval(tick, 1000);
+  timerId = setInterval(tick, 1000);
 }
 
 function stop() {
-    clearInterval(timerId);
+  clearInterval(timerId);
 }
 
 let startButton = document.getElementById("start-button");
@@ -18,6 +18,6 @@ let timer = document.getElementById("timer");
 let time = 0;
 
 function tick() {
-    time = time + 1;
-    timer.textContent = time;
+  time = time + 1;
+  timer.textContent = time;
 }

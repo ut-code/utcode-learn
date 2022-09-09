@@ -1,6 +1,6 @@
 class Car {
-    weight = "1t";
-    cost;
+  weight = "1t";
+  cost;
 }
 
 const PRIUS = new Car();

@@ -1,33 +1,25 @@
 // 参照 https://www.chartjs.org/docs/latest/getting-started/integration.html
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 
 // 参照 https://www.chartjs.org/docs/latest/getting-started/
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-];
+const labels = ["January", "February", "March", "April", "May", "June"];
 
 const data = {
   labels: labels,
-  datasets: [{
-    label: 'My First dataset',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
-  }]
+  datasets: [
+    {
+      label: "My First dataset",
+      backgroundColor: "rgb(255, 99, 132)",
+      borderColor: "rgb(255, 99, 132)",
+      data: [0, 10, 5, 2, 20, 30, 45],
+    },
+  ],
 };
 
 const config = {
-  type: 'line',
+  type: "line",
   data: data,
-  options: {}
+  options: {},
 };
 
-const myChart = new Chart(
-  document.getElementById('myChart'),
-  config
-);
+const myChart = new Chart(document.getElementById("myChart"), config);

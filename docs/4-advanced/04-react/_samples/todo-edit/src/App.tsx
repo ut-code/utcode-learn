@@ -24,7 +24,7 @@ export default function App() {
     newTodos[i] = newTodos[i - 1];
     newTodos[i - 1] = tmp;
     setTodos(newTodos);
-  }
+  };
 
   const moveDown = (i: number) => {
     const newTodos = [...todos];
@@ -32,23 +32,25 @@ export default function App() {
     newTodos[i] = newTodos[i + 1];
     newTodos[i + 1] = tmp;
     setTodos(newTodos);
-  }
+  };
 
   const editTodo = (todo: Todo) => {
     setEdittingTodo(todo);
-  }
+  };
 
   const fixTodo = (todo: Todo) => {
-    setTodos(todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo)));
+    setTodos(
+      todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo))
+    );
     setEdittingTodo({ id: -1, title: "" });
-  }
+  };
 
   return (
     <>
       <ul>
         {todos.map((todo, i) => (
           <li key={todo.id}>
-            {edittingTodo.id === todo.id ?
+            {edittingTodo.id === todo.id ? (
               <>
                 <input
                   value={edittingTodo.title}
@@ -59,14 +61,16 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => { fixTodo(todo) }}
+                  onClick={() => {
+                    fixTodo(todo);
+                  }}
                 >
                   確定
                 </button>
               </>
-              :
+            ) : (
               <span>{todo.title}</span>
-            }
+            )}
 
             <button
               type="button"
@@ -86,7 +90,7 @@ export default function App() {
               編集
             </button>
 
-            {i > 0 &&
+            {i > 0 && (
               <button
                 type="button"
                 onClick={() => {
@@ -95,9 +99,9 @@ export default function App() {
               >
                 ↑
               </button>
-            }
+            )}
 
-            {i < todos.length - 1 &&
+            {i < todos.length - 1 && (
               <button
                 type="button"
                 onClick={() => {
@@ -106,7 +110,7 @@ export default function App() {
               >
                 ↓
               </button>
-            }
+            )}
           </li>
         ))}
       </ul>

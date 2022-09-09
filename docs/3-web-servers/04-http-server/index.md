@@ -64,8 +64,8 @@ server.listen(3000);
     1.
     <CodeBlock language="javascript">{`
 server.addListener("request", (request, response) => {
-    response.write("<b>Hello</b> World");
-    response.end();
+  response.write("<b>Hello</b> World");
+  response.end();
 });
     `.trim()}</CodeBlock>
     <OpenInCodeSandbox path="/docs/3-web-servers/04-http-server/samples/bold" />
