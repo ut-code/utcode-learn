@@ -45,6 +45,14 @@ document.write(studentNames[six / 2 - 1]); // 鈴木
 document.write([3, 2, 1][0]);
 ```
 
+<details>
+  <summary>解答</summary>
+  <div>
+    <code>[3, 2, 1]</code> で配列が生成され、<code>[0]</code> で0番目の要素が指定されているので、3と表示されます。
+    <OpenInCodeSandbox path="/docs/2-browser-apps/05-array/samples/array" />
+  </div>
+</details>
+
 ## for 〜 of 文
 
 `for 〜 of` 文を用いると、配列の要素を順番に取り出す処理を簡単に記述できます。

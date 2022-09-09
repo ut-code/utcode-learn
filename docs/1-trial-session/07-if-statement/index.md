@@ -3,6 +3,7 @@ title: 条件分岐
 ---
 
 import Term from "@site/src/components/Term";
+import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 
 ## if 構文
 
@@ -85,3 +86,5 @@ let age = 20;
 - 18 歳未満なら `選挙権はありません` と表示する
 - 18 歳以上 ～ 25 歳未満なら `投票に行けます` と表示する
 - 25 歳以上なら `衆議院議員に立候補できます` と表示する
+
+<OpenInCodeSandbox path="/docs/1-trial-session/07-if-statement/samples/the-right-to-vote" />

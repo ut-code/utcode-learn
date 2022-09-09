@@ -233,5 +233,6 @@ main();
 
 ## 課題
 
-[前頁](../07-get-post/index.md)で作成した ToDo リストのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
+[前頁](../07-get-post/index.md)で作成した掲示板システムのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
 
+<OpenInCodeSandbox path="/docs/3-web-servers/08-database/_samples/forum" />

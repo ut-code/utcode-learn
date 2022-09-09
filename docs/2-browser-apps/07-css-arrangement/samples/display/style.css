@@ -1,0 +1,9 @@
+.box1 {
+  background-color: lightcoral;
+  display: inline;
+}
+
+.box2 {
+  background-color: lightblue;
+  display: block;
+}

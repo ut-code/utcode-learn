@@ -1,0 +1,11 @@
+{
+  "name": "apply",
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}

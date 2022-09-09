@@ -62,6 +62,8 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 ### 課題
 `weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
+<OpenInCodeSandbox path="/docs/2-browser-apps/04-class/samples/class" />
+
 ## メソッド
 
 同じ形をしたオブジェクトに対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。
@@ -280,3 +282,5 @@ document.write(false.toString()); // false
 ※ `HTMLDivElement` クラスをインスタンス化する際には `new HTMLDivElement` ではなく `document.createElement("div")` とします。
 
 (発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
+
+<OpenInCodeSandbox path="/docs/2-browser-apps/04-class/samples/HTMLDivElement" />
