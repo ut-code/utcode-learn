@@ -218,6 +218,6 @@ app.listen(3000);
 
 - [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
-<OpenInCodeSandbox path="/docs/4-advanced/02-bundler/_samples/chartjs" />
+[GitHubで表示](https://github.com/ut-code/utcode-learn/tree/master/docs/4-advanced/02-bundler/_samples/chartjs)
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。

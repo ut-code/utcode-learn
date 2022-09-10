@@ -394,6 +394,6 @@ e = d;
   </div>
   <div>
     4.
-    <OpenInCodeSandbox path="/docs/4-advanced/03-typescript/samples/apply" />
+    [GitHubで表示](https://github.com/ut-code/utcode-learn/tree/master/docs/4-advanced/03-typescript/samples/apply)
   </div>
 </details>
