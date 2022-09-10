@@ -683,4 +683,4 @@ const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中",
   <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-edit" />
 - データベースに永続化することができる ToDo リストアプリケーションを作成しましょう
   - ヒント: ページ読み込み時に Fetch API を用いてデータを保存済みの ToDo 一覧を取得します。リストが編集されたら再び Fetch API を用いてデータを保存しましょう。
-  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-database" />
+  [GitHubで表示](https://github.com/ut-code/utcode-learn/tree/master/docs/4-advanced/04-react/_samples/todo-database)
