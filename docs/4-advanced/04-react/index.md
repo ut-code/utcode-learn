@@ -238,7 +238,7 @@ const max = a > b ? a : b; // 6
 
 ### 課題
 
-`React` を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
+React を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
 
 解答例
 <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/the-right-to-vote" />
