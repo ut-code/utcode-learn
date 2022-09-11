@@ -4,7 +4,7 @@ title: Git と GitHub
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 :::info
 macOS、WSLを利用する場合は Git は標準搭載なので追加インストールの必要なしです！

@@ -4,7 +4,7 @@ title: トランスパイラとモジュールバンドラ
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import getStartedWithViteVideo from "./get-started-with-vite.mp4";
 import buildVideo from "./build.mp4";
@@ -132,7 +132,7 @@ export function add(a, b) {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/02-bundler/_samples/es-modules" />
+<ViewSource path="/docs/4-advanced/02-bundler/_samples/es-modules" />
 
 **デフォルトエクスポート**は、各モジュールにつき一度だけ使えるエクスポート方法です。
 ```javascript title="main.js"
@@ -168,7 +168,7 @@ document.getElementById("app").textContent = format(
 );
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/02-bundler/_samples/run-npm-package-on-browsers" />
+<ViewSource path="/docs/4-advanced/02-bundler/_samples/run-npm-package-on-browsers" />
 
 ## フロントエンドとバックエンドの統合
 
@@ -187,7 +187,7 @@ app
     └── main.js
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/02-bundler/_samples/fullstack-app" />
+<ViewSource path="/docs/4-advanced/02-bundler/_samples/fullstack-app" />
 
 `npm run build` コマンドによって Vite がビルド結果を `/dist` に出力するようにしておきます。
 
@@ -217,6 +217,6 @@ app.listen(3000);
 ## 課題
 
 - [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
-<OpenInCodeSandbox path="/docs/4-advanced/02-bundler/_samples/chartjs" noCodeSandbox />
+<ViewSource path="/docs/4-advanced/02-bundler/_samples/chartjs" noCodeSandbox />
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。

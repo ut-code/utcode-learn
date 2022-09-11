@@ -4,7 +4,7 @@ title: 動的サイトのデプロイ
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 ## Render へのデプロイ
 

@@ -4,7 +4,7 @@ title: CSS による配置
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
 import absoluteScroll from "./position-absolute-scroll.mp4"
@@ -54,7 +54,7 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/box-model" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/box-model" />
 
 このページを開発者ツールを使って見てみましょう。
 ![開発者ツールでボックスモデルを眺める](./devtool-boxmodel.png)
@@ -102,7 +102,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/three-div" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/three-div" />
 
 ![divタグを3つ並べる](./three-div.png)
 
@@ -124,7 +124,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 </body>
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/three-span" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/three-span" />
 
 ![spanタグを3つ並べる](./three-span.png)
 
@@ -138,7 +138,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 上記のコードで、ブロックレベル要素である `<div></div>` に `display: inline` を、インライン要素である `<span></span>` に `display: block` を指定してみると表示はどう変わるか、試してみましょう。
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/display" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/display" />
 
 ## フレックスボックス
 
@@ -171,7 +171,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/flex" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/flex" />
 
 ![display: flexを指定すると横並びになる](./flex.png)
 
@@ -186,7 +186,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/space-around" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/space-around" />
 
 ![justify-content: space-around](./space-around.png)
 
@@ -240,7 +240,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightseagreen;
 }
 ```
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/grid" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/grid" />
 
 ![display: gridを使用する](./grid.png)
 
@@ -275,7 +275,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/relative" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/relative" />
 
 ![position: relativeによる調整](./position-relative.png)
 
@@ -294,7 +294,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/absolute" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/absolute" />
 
 ![position: absoluteによる調整](./position-absolute.png)
 
@@ -312,7 +312,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightblue;
 }
 ```
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/fixed" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/fixed" />
 
 以下のように、`absolute` の場合はスクロールすると `box2` も動いていきましたが、
 
@@ -368,7 +368,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/relative-absolute" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/relative-absolute" />
 
 ![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute.png)
 
@@ -411,7 +411,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   }
 }
 ```
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/media-query" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/media-query" />
 
 ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
 
@@ -442,7 +442,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/percent" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/percent" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
@@ -481,7 +481,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/max-min-width" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/max-min-width" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
@@ -513,5 +513,5 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 - `color`
 - `font-weight`
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-css-arrangement/samples/exercise" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/samples/exercise" />
 

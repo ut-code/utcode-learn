@@ -4,7 +4,7 @@ title: 無名関数
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 ## 無名関数
 
@@ -24,7 +24,7 @@ function onStrangeButtonClick() {
 document.getElementById("strange-button").onclick = onStrangeButtonClick;
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/normal-event-handler" />
+<ViewSource path="/docs/2-browser-apps/06-anonymous-function/samples/normal-event-handler" />
 
 この場合、関数 `onStrangeButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onStrangeButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
 
@@ -36,7 +36,7 @@ document.getElementById("strange-button").onclick = () => {
 };
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/using-anonymous-function" />
+<ViewSource path="/docs/2-browser-apps/06-anonymous-function/samples/using-anonymous-function" />
 
 JavaScript における関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
 
@@ -133,7 +133,7 @@ if (scores.every((score) => score >= 50)) {
   document.write("進級できます");
 }
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/every" />
+    <ViewSource path="/docs/2-browser-apps/06-anonymous-function/samples/every" />
   </div>
 </details>
 
@@ -159,6 +159,6 @@ const minScore = scores.reduce((previousValue, currentValue) => {
 );
 document.write(minScore); // 55
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/2-browser-apps/06-anonymous-function/samples/reduce" />
+    <ViewSource path="/docs/2-browser-apps/06-anonymous-function/samples/reduce" />
   </div>
 </details>

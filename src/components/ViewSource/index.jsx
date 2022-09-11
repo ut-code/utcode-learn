@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
  * @param {boolean} props.path
  * @param {boolean} props.noCodeSandbox
  */
-export default function OpenInCodeSandbox({ path, noCodeSandbox }) {
+export default function ViewSource({ path, noCodeSandbox }) {
   return (
     <div className={styles.root}>
       <a

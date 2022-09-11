@@ -4,7 +4,7 @@ title: 高度な CSS
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
 ## CSS を別ファイルに分離する
@@ -38,7 +38,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 }
 ```
 
-<OpenInCodeSandbox path="/docs/2-browser-apps/07-advanced-css/_samples/separate-css-files" />
+<ViewSource path="/docs/2-browser-apps/07-advanced-css/_samples/separate-css-files" />
 
 まず注目すべきは `link` 要素です。`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
 

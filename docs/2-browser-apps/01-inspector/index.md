@@ -4,7 +4,7 @@ title: ブラウザの開発者ツール
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import inspectElementsVideo from "./inspect-elements.mp4";
 import { GrSelect } from "react-icons/gr";
 

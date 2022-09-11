@@ -3,7 +3,7 @@ title: DOM
 ---
 
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 ## <Term type="html">HTML</Term> 要素を <Term type="javascript">JavaScript</Term> で取得する
 
@@ -20,7 +20,7 @@ let element = document.getElementById("greeting");
 element.textContent = "Hello DOM";
 ```
 
-<OpenInCodeSandbox path="/docs/1-trial-session/11-dom/samples/get-element-by-id" />
+<ViewSource path="/docs/1-trial-session/11-dom/samples/get-element-by-id" />
 
 <p><Term type="javascriptVariable">変数</Term> <code>element</code> には、<code>index.html</code> に記述された <code>div</code> <Term type="element">要素</Term>に対応する<Term type="javascriptObject">オブジェクト</Term>が<Term type="javascriptAssignment">代入</Term>されています。</p>
 
@@ -55,4 +55,4 @@ element.style.backgroundColor = "red";
 
 [CSSの節](../09-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
-<OpenInCodeSandbox path="/docs/1-trial-session/11-dom/samples/css" />
+<ViewSource path="/docs/1-trial-session/11-dom/samples/css" />

@@ -4,7 +4,7 @@ title: データベース
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import newPostgresqlInstanceVideo from "./new-postgresql-instance.mp4";
 import connectDbeaverToDatabaseVideo from "./connect-dbeaver-to-database.mp4";
 import prismaInitVideo from "./prisma-init.mp4";
@@ -139,7 +139,7 @@ asyncAwait();
 console.log("After asyncAwait()");
 ```
 
-<OpenInCodeSandbox path="/docs/3-web-servers/08-database/_samples/async-operations" />
+<ViewSource path="/docs/3-web-servers/08-database/_samples/async-operations" />
 
 このプログラムの結果は、次のようになります。
 
@@ -235,4 +235,4 @@ main();
 
 [前頁](../07-get-post/index.md)で作成した掲示板システムのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
 
-<OpenInCodeSandbox path="/docs/3-web-servers/08-database/_samples/forum" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/08-database/_samples/forum" noCodeSandbox />
