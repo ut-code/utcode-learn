@@ -74,7 +74,7 @@ server.addListener("request", (request, response) => {
     2. ブラウザ読み込み時に実行されます。
   </div>
   <div>
-    3. ブラウザでの読み込みが終わらなくなります。
+    4. ブラウザでの読み込みが終わらなくなります。
   </div>
 </details>
 
