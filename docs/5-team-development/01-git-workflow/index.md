@@ -136,7 +136,7 @@ HEAD が `master` ブランチを指している状態で、コミットを行�
 
 Git と GitHub の節では、自分の PC に置かれたリポジトリ (ローカルリポジトリ) と GitHub 上のリポジトリ (リモートリポジトリ) を接続しました。`git push origin master` コマンド行ったときの Git の動作を確認しておきましょう。
 
-`git push origin master` コマンドは、ローカルリポジトリの `master` ブランチが指し示すコミットを、リモートリポジトリの `master` ブランチが指し示すコミットとして設定するためのコマンドです。次の図は、ローカルリポジトリの `master` ブランチがコミット `2b104b6c` を指している状態で、空のリモートリポジトリ `origin` に対して `git push origin master` を実行した際の様子を表しています。
+`git push origin master` コマンドは、ローカルリポジトリの `master` ブランチが指し示すコミットを、リモートリポジトリの `master` ブランチが指し示すコミットとして設定するためのコマンドです。次の図は、ローカルリポジトリの `master` ブランチがコミット `2ce3d099` を指している状態で、空のリモートリポジトリ `origin` に対して `git push origin master` を実行した際の様子を表しています。
 
 ![リモートブランチ](./remote-branch.drawio.svg)
 
