@@ -6,7 +6,7 @@ import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import installNvmInWslVideo from "./install-nvm-in-wsl.mp4";
 import installNvmInMacVideo from "./install-nvm-in-mac.mp4";
 import openFolderInWslVideo from "./open-folder-in-wsl.mp4";

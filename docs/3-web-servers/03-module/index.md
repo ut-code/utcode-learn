@@ -4,7 +4,7 @@ title: モジュールと npm
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import commandsAnswerVideo from "./commands-answer.mp4";
 import npmInitVideo from "./npm-init.mp4";
 import npmInstallVideo from "./npm-install.mp4";
@@ -123,7 +123,7 @@ Hello World
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
-<OpenInCodeSandbox path="/docs/3-web-servers/03-module/samples/fs-writeFileSync" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/03-module/samples/fs-writeFileSync" noCodeSandbox />
 
 ## npm
 
@@ -191,4 +191,4 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
 
-<OpenInCodeSandbox path="/docs/3-web-servers/03-module/samples/math-js" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/03-module/samples/math-js" noCodeSandbox />

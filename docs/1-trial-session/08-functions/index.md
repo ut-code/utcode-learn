@@ -3,7 +3,7 @@ title: 関数
 ---
 
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import returnValueVideo from "./return-value.mp4";
 
 ## 処理の共通化
@@ -120,4 +120,4 @@ document.write(calculateCost(3.5));
 > - _monthlyBandwidth_ < 5.0 のとき、携帯電話料金は _monthlyBandwidth_ × 600 (円)
 > - _monthlyBandwidth_ >= 5.0 のとき、携帯電話料金は 3000 (円)
 
-<OpenInCodeSandbox path="/docs/1-trial-session/08-functions/samples/mobile-phone-bill" />
+<ViewSource path="/docs/1-trial-session/08-functions/samples/mobile-phone-bill" />

@@ -4,7 +4,7 @@ title: Cookie と認証
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import cookieCounterVideo from "./cookie-counter.mp4";
 
 ## HTTP ヘッダ
