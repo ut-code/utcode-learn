@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: var(--ifm-leading);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.icon {
+  font-size: 1.5em;
+}
