@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
  * @param {Object} props
  * @param {boolean} props.path
  */
-export default function Term({ path }) {
+export default function OpenInCodeSandbox({ path }) {
   return (
     <div className={styles.root}>
       <a
