@@ -5,7 +5,7 @@ title: TypeScript
 import { SiTypescript } from "react-icons/si";
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import typescriptDemoVideo from "./typescript-demo.mp4";
 import setupTypeScriptNodeVideo from "./setup-typescript-node.mp4";
@@ -394,6 +394,6 @@ e = d;
   </div>
   <div>
     4.
-    <OpenInCodeSandbox path="/docs/4-advanced/03-typescript/samples/apply" noCodeSandbox />
+    <ViewSource path="/docs/4-advanced/03-typescript/samples/apply" noCodeSandbox />
   </div>
 </details>

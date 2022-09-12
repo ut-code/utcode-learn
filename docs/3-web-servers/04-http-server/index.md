@@ -3,7 +3,7 @@ title: HTTP サーバー
 ---
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import pathRoutingVideo from "./path-routing.mp4";
 
 ## ウェブサイトが動作する仕組み
@@ -68,7 +68,7 @@ server.addListener("request", (request, response) => {
   response.end();
 });
     `.trim()}</CodeBlock>
-    <OpenInCodeSandbox path="/docs/3-web-servers/04-http-server/samples/bold" noCodeSandbox />
+    <ViewSource path="/docs/3-web-servers/04-http-server/samples/bold" noCodeSandbox />
   </div>
   <div>
     2. ブラウザ読み込み時に実行されます。
@@ -99,4 +99,4 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 
 <video src={pathRoutingVideo} controls autoPlay muted loop />
 
-<OpenInCodeSandbox path="/docs/3-web-servers/04-http-server/samples/secret" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/04-http-server/samples/secret" noCodeSandbox />

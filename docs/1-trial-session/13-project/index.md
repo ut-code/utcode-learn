@@ -3,7 +3,7 @@ title: プロジェクト
 ---
 
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import omikujiVideo from "./omikuji.mp4";
 import stopwatchVideo from "./stopwatch.mp4";
 
@@ -61,7 +61,7 @@ omikujiButton.onclick = omikuji;
 
 ### 解答例
 
-<OpenInCodeSandbox path="/docs/1-trial-session/13-project/samples/omikuji" />
+<ViewSource path="/docs/1-trial-session/13-project/samples/omikuji" />
 
 ## ストップウォッチ
 
@@ -130,4 +130,4 @@ stopButton.onclick = stop;
 
 ### 解答例
 
-<OpenInCodeSandbox path="/docs/1-trial-session/13-project/samples/stopwatch" />
+<ViewSource path="/docs/1-trial-session/13-project/samples/stopwatch" />

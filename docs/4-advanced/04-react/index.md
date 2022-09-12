@@ -4,7 +4,7 @@ title: React
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import createReactProjectVideo from "./create-react-project.mp4";
 import componentRenderingVideo from "./component-rendering.mp4";
@@ -43,7 +43,7 @@ addTodoButton.onclick = () => {
 };
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-dom" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/todo-dom" />
 
 なんとか作り上げることができましたが、このまま要件を増やして複雑なプログラムを作ろうとすれば、要素の作成忘れ、削除忘れなどにより、すぐに破綻してしまいそうです。
 
@@ -90,7 +90,7 @@ function removeTodo(index: number) {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-declarative" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/todo-declarative" />
 
 これにより、アプリケーション全体の状態が変数 `state` に集約され、開発者が意識すべき状態のパターンを大幅に減らすことに成功しました。
 
@@ -156,7 +156,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-hello-world" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-hello-world" />
 
 このプログラムを実行すると、`div` 要素が生成され、その中に `Hello React` が表示されます。3 行目の `<div>Hello React</div>` が見慣れない文法ですね。
 
@@ -241,11 +241,11 @@ const max = a > b ? a : b; // 6
 React を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
 
 解答例
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/the-right-to-vote" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/the-right-to-vote" />
 
 別解
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/another-the-right-to-vote" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/another-the-right-to-vote" />
 
 ## JSX における条件分岐
 
@@ -344,7 +344,7 @@ export default function App() {
 
 先程の `students` のデータを用いて、表を作ってみましょう。
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/table" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/table" />
 
 ## コンポーネント
 
@@ -493,7 +493,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-component-function" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-component-function" />
 
 このプログラムを実行することで、`App` 関数は、初回読み込み時と、ボタンがクリックされたタイミングで実行されていることが分かります。
 
@@ -511,7 +511,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
 
 `onChange` イベントを受け取って入力した値をコンポーネントの状態に反映させることで、ユーザー入力とコンポーネントの状態を同期させることができるようになります。
 
@@ -535,7 +535,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
 
 `onChange` 属性には、要素のテキストが変更された際に発生するイベントのイベントハンドラを指定します。React の `onChange` 属性は、DOM の [`change` イベント](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/change_event)ハンドラと同様に記述することができ、第 1 引数には [`Event` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/Event)に似た値が与えられます。
 
@@ -582,7 +582,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-prop-forwarding" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-prop-forwarding" />
 
 ## 複雑な状態を扱う
 
@@ -641,7 +641,7 @@ export default function App() {
 }
 ```
 
-<OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/react-todo" />
+<ViewSource path="/docs/4-advanced/04-react/_samples/react-todo" />
 
 この例では、ToDo 一覧を保持する状態 `todos` と、次の ID を保持する状態 `nextId`、そして新規作成用のテキストボックスの内容を保持する状態 `newTodo` に分けて状態を管理しています。
 
@@ -678,9 +678,9 @@ const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中",
 ## 課題
 
 - ToDo リストの要素を上下に移動させる機能を追加しましょう
-  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-up-down" />
+  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-up-down" />
 - ToDo リストの要素へ編集する機能を追加しましょう
-  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-edit" />
+  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-edit" />
 - データベースに永続化することができる ToDo リストアプリケーションを作成しましょう
   - ヒント: ページ読み込み時に Fetch API を用いてデータを保存済みの ToDo 一覧を取得します。リストが編集されたら再び Fetch API を用いてデータを保存しましょう。
-  <OpenInCodeSandbox path="/docs/4-advanced/04-react/_samples/todo-database" noCodeSandbox />
+  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-database" noCodeSandbox />

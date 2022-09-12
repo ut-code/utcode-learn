@@ -3,7 +3,7 @@ title: GET リクエストと POST リクエスト
 ---
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import postInDevelopment1 from "./postInDevelopment1.mp4";
 import postInDevelopment2 from "./postInDevelopment2.mp4";
 import postInDevelopment3 from "./postInDevelopment3.mp4";
@@ -55,7 +55,7 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<OpenInCodeSandbox path="/docs/3-web-servers/07-get-post/_samples/post-request" />
+<ViewSource path="/docs/3-web-servers/07-get-post/_samples/post-request" />
 
 これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドのリクエストしか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
@@ -110,4 +110,4 @@ app.listen(3000);
 
 解答例は以下を参照してください。
 
-<OpenInCodeSandbox path="/docs/3-web-servers/07-get-post/_samples/bulletin-board" />
+<ViewSource path="/docs/3-web-servers/07-get-post/_samples/bulletin-board" />

@@ -3,7 +3,7 @@ title: ウェブサイトの見た目を整える
 ---
 
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 多くの<Term type="element">HTML 要素</Term>は、<Term strong type="styleAttribute" strong>style 属性</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
@@ -15,7 +15,7 @@ import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
 <p style="color: red;">Hello CSS!</p>
 ```
 
-<OpenInCodeSandbox path="/docs/1-trial-session/09-css/samples/first-css" />
+<ViewSource path="/docs/1-trial-session/09-css/samples/first-css" />
 
 次のように、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
@@ -71,4 +71,4 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
 
-<OpenInCodeSandbox path="/docs/1-trial-session/09-css/samples/foo" />
+<ViewSource path="/docs/1-trial-session/09-css/samples/foo" />

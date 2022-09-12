@@ -5,7 +5,7 @@ import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 import registerGitHubVideo from "./register-github.mp4";
 import addSshKeyVideo from "./add-ssh-key.mp4";
 import gitInitVideo from "./git-init.mp4";

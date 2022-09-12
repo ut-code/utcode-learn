@@ -3,7 +3,7 @@ title: 変数
 ---
 
 import Term from "@site/src/components/Term";
-import OpenInCodeSandbox from "@site/src/components/OpenInCodeSandbox";
+import ViewSource from "@site/src/components/ViewSource";
 
 ## <Term type="javascriptVariable">変数</Term>とは
 
@@ -62,7 +62,7 @@ price = price / 2;
 document.write(price);
 ```
 
-<OpenInCodeSandbox path="/docs/1-trial-session/05-variables/samples/compound-assignment" />
+<ViewSource path="/docs/1-trial-session/05-variables/samples/compound-assignment" />
 
 
 <p><Term type="javascriptAssignment">代入</Term><Term type="javascriptOperator">演算子</Term>は、まず右辺の<Term type="javascriptExpression">式</Term>を<Term type="javascriptEvaluation">評価</Term>します。これにより、右辺は <code>100 / 2</code> となります。よって、最終的に<Term type="javascriptVariable">変数</Term> <code>price</code> の<Term type="javascriptValue">値</Term>は <code>50</code> となり、これは <code>price</code> を半分にする操作に対応します。</p>
