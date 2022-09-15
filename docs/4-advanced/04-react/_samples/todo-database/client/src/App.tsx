@@ -27,7 +27,11 @@ export default function App() {
       );
     };
     fetchTodos();
-    setInterval(fetchTodos, 1000);
+    const timerId = setInterval(fetchTodos, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    }
   }, []);
   const [newTodo, setNewTodo] = useState<string>("");
   const [edittingTodo, setEdittingTodo] = useState<Todo>({ id: -1, title: "" });

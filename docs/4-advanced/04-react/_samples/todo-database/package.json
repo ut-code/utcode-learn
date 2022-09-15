@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node server/main.js",
-    "dev": "vite",
     "build": "tsc && vite build client --outDir ../dist",
     "preview": "vite preview"
   },
