@@ -67,4 +67,4 @@ let nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 
-<ViewSource path="/docs/1-trial-session/10-object/samples/incrementAge" />
+<ViewSource path="/docs/1-trial-session/10-object/_samples/incrementAge" />

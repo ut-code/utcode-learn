@@ -67,7 +67,7 @@ const div = document.getElementById("div");
 div.onclick = clicked;
 ```
 
-<ViewSource path="/docs/2-browser-apps/09-project/samples/event-target" />
+<ViewSource path="/docs/2-browser-apps/09-project/_samples/event-target" />
 
 
 - グローバル変数の[`window`](https://developer.mozilla.org/ja/docs/Web/API/Window)は、スクリプトを実行しているウィンドウそのものを表します。この変数も`onclick`要素を指定することができます。
@@ -82,10 +82,10 @@ function pressed() {
 window.addEventListener("keypress", pressed);
 ```
 
-<ViewSource path="/docs/2-browser-apps/09-project/samples/addEventListener" />
+<ViewSource path="/docs/2-browser-apps/09-project/_samples/addEventListener" />
 
 ## 解答例
 
 解答例は次のリンクを参照してください。
 
-<ViewSource path="/docs/2-browser-apps/09-project/samples/calender" />
+<ViewSource path="/docs/2-browser-apps/09-project/_samples/calender" />

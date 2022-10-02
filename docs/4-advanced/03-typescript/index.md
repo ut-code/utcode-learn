@@ -394,6 +394,6 @@ e = d;
   </div>
   <div>
     4.
-    <ViewSource path="/docs/4-advanced/03-typescript/samples/apply" noCodeSandbox />
+    <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
   </div>
 </details>

@@ -49,7 +49,7 @@ document.write([3, 2, 1][0]);
   <summary>解答</summary>
   <div>
     <code>[3, 2, 1]</code> で配列が生成され、<code>[0]</code> で0番目の要素が指定されているので、3と表示されます。
-    <ViewSource path="/docs/2-browser-apps/05-array/samples/array" />
+    <ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
   </div>
 </details>
 
@@ -129,7 +129,7 @@ for (let i = 0; i < f.length; i += 1) {
   document.write(f[i]);
 }
     `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/05-array/samples/Array-class" />
+    <ViewSource path="/docs/2-browser-apps/05-array/_samples/Array-class" />
   </div>
 </details>
 
