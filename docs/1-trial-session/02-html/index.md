@@ -129,4 +129,4 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 
 ### 解答例
 
-<ViewSource path="/docs/1-trial-session/02-html/samples/form" />
+<ViewSource path="/docs/1-trial-session/02-html/_samples/form" />
