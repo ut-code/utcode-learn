@@ -6,7 +6,7 @@ title: コンピュータを構成する2つの最適化
 
 ## コンピュータの階層
 
-![computer science](./computer-sicence.jpeg)
+![computer science](./computer-science.jpeg)
 物理法則、論理ゲート、回路、ALU/メモリ、コンピュータアーキテクチャ、機械語、アセンブラ、バーチャルマシン、コンパイラ、OS、プログラミング言語、アプリケーション、データサイエンス/機械学習の層で構成されています。
 
 。
