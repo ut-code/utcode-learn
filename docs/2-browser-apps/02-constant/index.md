@@ -5,6 +5,7 @@ title: 定数とオブジェクトの参照
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 
 ## 定数
 
@@ -112,20 +113,21 @@ document.write(tanaka.age);
 オブジェクトが書き換えられないようにするためには、オブジェクトを新しく作り直す必要があります。
 :::
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <p>オブジェクトを新しく生成して、生成したオブジェクトを返しましょう。</p>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+オブジェクトを新しく生成して、生成したオブジェクトを返しましょう。
+
+```javascript
 function incrementAge(person) {
   return { name: person.name, age: person.age + 1 };
-};\n
+};
 const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
-document.write(nextYearTanaka.age);\n
+document.write(nextYearTanaka.age);
 // 18
 document.write(tanaka.age);
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/02-constant/_samples/answer" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/02-constant/_samples/answer" />
+
+</Answer>
