@@ -5,6 +5,7 @@ title: 繰り返し
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 import whileLoopVideo from "./while-loop.mp4";
 
 ## while 文
@@ -46,11 +47,9 @@ while (条件式) {
 `1` から `10` まで順番に増えていく変数 `i` と、合計値を保存しておく変数 `sum` を用意しましょう。
 :::
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">
-      {`
+<Answer>
+
+```javascript
 let i = 1;
 let sum = 0;
 while (i <= 10) {
@@ -58,11 +57,11 @@ while (i <= 10) {
   i += 1;
 }
 document.write(sum);
-      `.trim()}
-    </CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-while" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-while" />
+
+</Answer>
 
 ## for 文
 
@@ -101,21 +100,19 @@ for (初期化; 条件式; 更新式) {
 
 前項で書いた 1 から 10 までの整数の合計を計算するプログラムを for 文を用いて書き換えてみましょう。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">
-      {`
+<Answer>
+
+```javascript
 let sum = 0;
 for (let i = 1; i <= 10; i += 1) {
   sum += i;
 }
 document.write(sum);
-      `.trim()}
-    </CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-for" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-for" />
+
+</Answer>
 
 ## ネストされたループ
 
@@ -148,24 +145,22 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 HTML の `table`, `tr`, `td` タグを用いて、九九の表を画面に表示させてみましょう。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <p>開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。</p>
-    <CodeBlock language="javascript">
-      {`
+<Answer>
+
+開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
+
+```javascript
 document.write("<table>");
 for (let x = 1; x <= 9; x += 1) {
   document.write("<tr>");
   for (let y = 1; y <= 9; y += 1) {
-    document.write(\`<td>\${x * y}</td>\`);
+    document.write(`<td>${x * y}</td>`);
   }
   document.write("</tr>");
 }
 document.write("</table>");
-      `.trim()}
-    </CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/03-loop/_samples/times-table" />
-  </div>
-</details>
+```
 
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/times-table" />
+
+</Answer>
