@@ -5,6 +5,7 @@ title: 高度な CSS
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
 ## CSS を別ファイルに分離する
@@ -75,10 +76,9 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 - `id` 属性が `foo` の要素
 - `class` 属性に `bar` が含まれる要素の子孫の要素のうち、`button` 要素であるもの
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="css">{`
+<Answer>
+
+```css
 <!-- id 属性が foo の要素 -->
 #foo {
   <!-- 処理 -->
@@ -87,6 +87,6 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 .bar button {
   <!-- 処理 -->
 }
-    `.trim()}</CodeBlock>
-  </div>
-</details>
+```
+
+</Answer>
