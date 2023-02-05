@@ -5,6 +5,7 @@ title: 配列
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 
 ## 配列
 
@@ -45,13 +46,13 @@ document.write(studentNames[six / 2 - 1]); // 鈴木
 document.write([3, 2, 1][0]);
 ```
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <code>[3, 2, 1]</code> で配列が生成され、<code>[0]</code> で0番目の要素が指定されているので、3と表示されます。
-    <ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
-  </div>
-</details>
+<Answer>
+
+`[3, 2, 1]` で配列が生成され、`[0]` で0番目の要素が指定されているので、3と表示されます。
+
+<ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
+
+</Answer>
 
 ## for 〜 of 文
 
@@ -111,27 +112,27 @@ document.write(studentNames.length); // 4
 変数 `i` を 0 から `(作成した配列の length プロパティの値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
 :::
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+```javascript
 //Array#push メソッドを用いて、フィボナッチ数列の配列を作成
 const f = [1, 1];
 for (let i = 0; i < 100; i++) {
   f.push(f[f.length - 1] + f[f.length - 2]);
-}\n
+}
 //作成した配列の各要素を for ～ of 文を用いて出力
 for (const item of f) {
   document.write(item);
-}\n
+}
 //作成した配列の各要素を、通常の for 文と Array#length プロパティを用いて出力
 for (let i = 0; i < f.length; i += 1) {
   document.write(f[i]);
 }
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/05-array/_samples/Array-class" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/05-array/_samples/Array-class" />
+
+</Answer>
 
 ## 配列とオブジェクト
 
