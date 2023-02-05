@@ -4,6 +4,7 @@ title: HTTP サーバー
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 import pathRoutingVideo from "./path-routing.mp4";
 
 ## ウェブサイトが動作する仕組み
@@ -58,25 +59,29 @@ server.listen(3000);
 3. 作成した JavaScript ファイルを、デバッガを用いて実行し、`response.write` の行にブレークポイントを設置してみましょう。ブレークポイントでプログラムの実行が止まったら、`request` 引数と `response` 引数の内部がどうなっているか確認してみましょう。
 4. `response.end` を実行しない場合、どのような挙動を示すでしょうか。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    1.
-    <CodeBlock language="javascript">{`
+<Answer>
+
+<ol>
+  <li>
+
+```javascript
 server.addListener("request", (request, response) => {
   response.write("<b>Hello</b> World");
   response.end();
 });
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/3-web-servers/04-http-server/_samples/bold" noCodeSandbox />
-  </div>
-  <div>
-    2. ブラウザ読み込み時に実行されます。
-  </div>
-  <div>
-    4. ブラウザでの読み込みが終わらなくなります。
-  </div>
-</details>
+```
+<ViewSource path="/docs/3-web-servers/04-http-server/_samples/bold" noCodeSandbox />
+
+  </li>
+  <li>
+    ブラウザ読み込み時に実行されます。
+  </li>
+  <li value="4">
+    ブラウザでの読み込みが終わらなくなります。
+  </li>
+</ol>
+
+</Answer>
 
 ## HTTP
 

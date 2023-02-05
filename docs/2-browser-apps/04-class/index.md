@@ -5,6 +5,7 @@ title: クラス
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 
 ## クラスとインスタンス
 
@@ -106,32 +107,31 @@ tanaka.introduceSelf();
 
 自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+```javascript
 class Student {
   name;
   age = 18;
   introduceSelf() {
-    document.write(\`私の名前は\${this.name}です。\`);
-    document.write(\`\${this.age}歳です\`);
+    document.write(`私の名前は${this.name}です。`);
+    document.write(`${this.age}歳です`);
   }
   incrementAge() {
     this.age += 1;
   }
-}\n
+}
 const tanaka = new Student();
 tanaka.name = "田中";
 tanaka.age = 19;
 tanaka.introduceSelf();
 tanaka.incrementAge();
 tanaka.introduceSelf();
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/04-class/_samples/method" />
-  </div>
-</details>
+```
 
+<ViewSource path="/docs/2-browser-apps/04-class/_samples/method" />
+
+</Answer>
 
 ## コンストラクタ
 
@@ -202,34 +202,33 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+```javascript
 class Student {
   name;
   age;
   introduceSelf() {
-    document.write(\`私の名前は\${this.name}です。\${this.age}歳です。\`);
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
-}\n
+}
 class SeniorStudent extends Student {
   researchQuestion;
   introduceSelf() {
     super.introduceSelf();
-    document.write(\`研究テーマは\${this.researchQuestion}です。\`);
+    document.write(`研究テーマは${this.researchQuestion}です。`);
   }
-}\n
+}
 const tanaka = new SeniorStudent();
 tanaka.age = 22;
 tanaka.name = "田中";
 tanaka.researchQuestion = "量子力学";
 tanaka.introduceSelf();
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/04-class/_samples/inheritance" />
-  </div>
-</details>
+```
 
+<ViewSource path="/docs/2-browser-apps/04-class/_samples/inheritance" />
+
+</Answer>
 
 ## `Date` クラス
 

@@ -6,6 +6,7 @@ import { SiTypescript } from "react-icons/si";
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import typescriptDemoVideo from "./typescript-demo.mp4";
 import setupTypeScriptNodeVideo from "./setup-typescript-node.mp4";
@@ -364,36 +365,35 @@ function apply(f, x) {
 
 5. フロントエンド・バックエンドともに TypeScript を利用するアプリケーションを作成し、公開してみてください。
 
-<details>
-  <summary>解答</summary>
-  <div>
-    1. <code>never</code> 型
-    <CodeBlock language="typescript">{`
-type StringAndNumber = string & number;
-    `.trim()}</CodeBlock>
-  </div>
-  <div>
-    2. <code>name</code> のみ
-    <CodeBlock language="typescript">{`
-declare const t: { name: string; age: number } | { name: string; subject: string };
-    `.trim()}</CodeBlock>
-  </div>
-  <div>
-    3. <code>(v: unknown) => string</code> と <code>(v: string) => never</code>
-    <CodeBlock language="typescript">{`
-declare const a: (v: unknown) => string;
-declare const b: (v: never) => string;
-declare const c: (v: string) => unknown;
-declare const d: (v: string) => never;
-let e: (v: string) => string;
-e = a;
-// e = b;
-// e = c;
-e = d;
-    `.trim()}</CodeBlock>
-  </div>
-  <div>
-    4.
-    <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
-  </div>
-</details>
+<Answer>
+
+1. `never` 型
+
+  ```typescript
+  type StringAndNumber = string & number;
+  ```
+
+2. `name` のみ
+
+  ```typescript
+  declare const t: { name: string; age: number } | { name: string; subject: string };
+  ```
+
+3. `(v: unknown) => string` と `(v: string) => never`
+
+  ```typescript
+  declare const a: (v: unknown) => string;
+  declare const b: (v: never) => string;
+  declare const c: (v: string) => unknown;
+  declare const d: (v: string) => never;
+  let e: (v: string) => string;
+  e = a;
+  // e = b;
+  // e = c;
+  e = d;
+  ```
+
+4.
+  <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
+
+</Answer>
