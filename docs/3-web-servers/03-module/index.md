@@ -5,6 +5,7 @@ title: モジュールと npm
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 import commandsAnswerVideo from "./commands-answer.mp4";
 import npmInitVideo from "./npm-init.mp4";
 import npmInstallVideo from "./npm-install.mp4";
@@ -53,13 +54,13 @@ secret
     └── zzz.txt
 ```
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <p>カレントディレクトリを親ディレクトにに移動する場合には <code>cd ..</code> とするのがポイントです。</p>
-    <video src={commandsAnswerVideo} controls />
-  </div>
-</details>
+<Answer>
+
+カレントディレクトリを親ディレクトにに移動する場合には `cd ..` とするのがポイントです。
+
+<video src={commandsAnswerVideo} controls />
+
+</Answer>
 
 ## 別のファイルに書かれたプログラム
 
