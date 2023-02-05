@@ -5,6 +5,7 @@ title: 無名関数
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 
 ## 無名関数
 
@@ -123,19 +124,20 @@ if (/* すべての点数が 50 点以上なら */) {
 「全ての要素が特定の条件を満たすかどうか」を調べるメソッドがあります。
 :::
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <p><code>Array#every</code>メソッドを使うと、配列の全要素が指定された関数でテストできます</p>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+`Array#every` メソッドを使うと、配列の全要素が指定された関数でテストできます
+
+```javascript
 const scores = [90, 65, 70, 55, 80];
 if (scores.every((score) => score >= 50)) {
   document.write("進級できます");
 }
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/06-anonymous-function/_samples/every" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/06-anonymous-function/_samples/every" />
+
+</Answer>
 
 (発展) [`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
 
@@ -145,10 +147,9 @@ const minScore = scores.reduce(/* コールバック関数 */);
 document.write(minScore); // 55
 ```
 
-<details>
-  <summary>解答</summary>
-  <div>
-    <CodeBlock language="javascript">{`
+<Answer>
+
+```javascript
 const scores = [90, 65, 70, 55, 80]
 const minScore = scores.reduce((previousValue, currentValue) => {
     if (previousValue > currentValue) {
@@ -158,7 +159,8 @@ const minScore = scores.reduce((previousValue, currentValue) => {
   }
 );
 document.write(minScore); // 55
-    `.trim()}</CodeBlock>
-    <ViewSource path="/docs/2-browser-apps/06-anonymous-function/_samples/reduce" />
-  </div>
-</details>
+```
+
+<ViewSource path="/docs/2-browser-apps/06-anonymous-function/_samples/reduce" />
+
+</Answer>
