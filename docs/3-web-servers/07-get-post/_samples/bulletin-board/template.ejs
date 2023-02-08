@@ -5,9 +5,11 @@
     <title>Document</title>
   </head>
   <body>
-    <%for ( const message of messages ){ %>
-    <div>・ <%= message %></div>
-    <% }%>
+    <ul>
+      <% for (const message of messages) { %>
+        <li><%= message %></li>
+      <% } %>
+    </ul>
     <form action="/send" method="post">
       <input name="message" />
       <button>送信</button>
