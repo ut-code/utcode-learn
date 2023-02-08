@@ -158,7 +158,7 @@ export default {
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptOperator: {
-      name: "演算子 (Javascript)",
+      name: "演算子 (JavaScript)",
       definition:
         "JavaScript において、主に値に対して作用し、別の値を得るための記号。",
       referencePage: "/docs/trial-session/expressions/",
