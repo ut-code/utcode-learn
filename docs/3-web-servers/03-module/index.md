@@ -56,7 +56,7 @@ secret
 
 <Answer>
 
-カレントディレクトリを親ディレクトにに移動する場合には `cd ..` とするのがポイントです。
+カレントディレクトリを親ディレクトリに移動する場合には `cd ..` とするのがポイントです。
 
 <video src={commandsAnswerVideo} controls />
 
