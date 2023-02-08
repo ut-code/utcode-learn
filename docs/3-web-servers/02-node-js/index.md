@@ -16,7 +16,7 @@ import debuggingVideo from "./debugging.mp4";
 
 **ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Macだと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
 
-VSCode 内臓のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
+VSCode 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
 
 ![新しいターミナルを開く](./open-new-terminal.png)
 
