@@ -164,7 +164,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 `box1`, `box2`, `box3` の親要素である `wrapper` に `display: flex` を指定すると、要素は横並びに表示されます。
 
-
 ```css title="style.css"
 .wrapper {
   display: flex;
@@ -240,10 +239,10 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightseagreen;
 }
 ```
+
 <ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/grid" />
 
 ![display: gridを使用する](./grid.png)
-
 
 ## position
 
@@ -312,6 +311,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightblue;
 }
 ```
+
 <ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/fixed" />
 
 以下のように、`absolute` の場合はスクロールすると `box2` も動いていきましたが、
@@ -321,7 +321,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 `fixed` の場合はスクロールしても `box2`は同じ場所に留まっています。
 
 <video src={fixedScroll} controls />
-
 
 ### 親要素を基準にして子要素の位置を指定する
 
@@ -411,6 +410,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   }
 }
 ```
+
 <ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/media-query" />
 
 ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
@@ -495,8 +495,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 スマホ等でも見やすく表示されるようにしてみましょう。
 ![スマートフォンでの表示](./exercise-smartphone.png)
 
+### 参考: サンプルで使われている CSS プロパティの一覧
 
-### 参考: サンプルで使われているCSSプロパティの一覧
 - `display`
 - `flex-grow`
 - `flex-shrink`
@@ -514,4 +514,3 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 - `font-weight`
 
 <ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/exercise" />
-

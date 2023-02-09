@@ -58,9 +58,11 @@ function emptyFunction() {}
 document.write(emptyObject.unknownProperty); // 存在しないプロパティは undefined
 document.write(emptyFunction()); // 値を返さない関数の戻り値は undefined
 ```
+
 :::
 
 ### 課題
+
 `weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
 <ViewSource path="/docs/2-browser-apps/04-class/_samples/class" />
@@ -268,6 +270,7 @@ document.write((123).toString()); // 123
 document.write("Hello World!".toString()); // Hello World!
 document.write(false.toString()); // false
 ```
+
 :::
 
 ### 課題

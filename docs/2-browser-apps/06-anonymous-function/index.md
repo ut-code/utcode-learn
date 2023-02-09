@@ -59,6 +59,7 @@ const add2 = (a, b) => {
   return a + b;
 };
 ```
+
 :::
 
 :::tip アロー関数
