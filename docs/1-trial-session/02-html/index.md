@@ -60,6 +60,7 @@ VSCode 上で作成したファイルは `index.html` でした。しかしな�
 
 `body` 要素の中身を書き換え、次のようにしてみましょう。
 
+<!-- prettier-ignore -->
 ```html title="index.html"
 <!DOCTYPE html>
 <html lang="ja">
