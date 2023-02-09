@@ -208,12 +208,14 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 class Student {
   name;
   age;
+
   introduceSelf() {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
 class SeniorStudent extends Student {
   researchQuestion;
+
   introduceSelf() {
     super.introduceSelf();
     document.write(`研究テーマは${this.researchQuestion}です。`);
