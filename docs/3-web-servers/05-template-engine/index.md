@@ -68,7 +68,7 @@ app.listen(3000);
 const express = require("express");
 
 const app = express();
-app.use(express.static("static"))
+app.use(express.static("static"));
 app.listen(3000);
 ```
 
@@ -149,7 +149,7 @@ app.listen(3000);
   <body>
     <ul>
       <% for (const listItem of listItems) { %>
-        <li><%= listItem %></li>
+      <li><%= listItem %></li>
       <% } %>
     </ul>
   </body>
