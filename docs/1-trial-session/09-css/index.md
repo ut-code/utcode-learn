@@ -12,7 +12,7 @@ import ViewSource from "@site/src/components/ViewSource";
 `p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
 
 ```html title="index.html"
-<p style="color: red;">Hello CSS!</p>
+<p style="color: red">Hello CSS!</p>
 ```
 
 <ViewSource path="/docs/1-trial-session/09-css/_samples/first-css" />
