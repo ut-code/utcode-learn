@@ -115,6 +115,7 @@ app.listen(3000);
 ```javascript
 console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 ```
+
 :::
 
 なかなか大変なことになっています。これから HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。

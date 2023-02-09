@@ -101,6 +101,7 @@ console.log(add(3, 4));
 const { add } = require("./sub");
 console.log(add(3, 4));
 ```
+
 :::
 
 ## 標準<Term type="javascriptModule">モジュール</Term>

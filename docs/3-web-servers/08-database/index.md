@@ -56,6 +56,7 @@ npx prisma init
 <video src={prismaInitVideo} controls muted autoPlay loop />
 
 :::tip <Term type="npxCommand">`npx` コマンド</Term>
+
 <p><Term type="npxCommand"><code>npx</code> コマンド</Term>は、npm のパッケージを、プログラムからではなく直接実行するためのコマンドです。npm には <code>prisma</code> パッケージのように、直接実行専用のパッケージも存在します。</p>
 :::
 
@@ -179,7 +180,7 @@ function myReadFileAsync(fileName) {
         resolve(buffer);
       }
     });
-  })
+  });
 }
 
 async function myAsyncAwait() {
@@ -191,6 +192,7 @@ console.log("Before myAsyncAwait()");
 myAsyncAwait();
 console.log("After myAsyncAwait()");
 ```
+
 :::
 
 ## Prisma でデータベースのデータを読み書きする

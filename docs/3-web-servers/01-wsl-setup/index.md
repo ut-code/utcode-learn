@@ -1,6 +1,7 @@
 ---
 title: WSLのセットアップ (Windows のみ)
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
@@ -65,14 +66,14 @@ WSL を使用するには、ターミナルで `wsl` コマンドを実行しま
 
 ![Linuxに入る](./go-into-linux.png)
 
-WSL は、Windows から独立した別のコンピュータのように振舞います。WSL上にあるファイルを Windows 側から確認するには、エクスプローラーのサイドパネルに表示されている `Linux` をクリックします。
+WSL は、Windows から独立した別のコンピュータのように振舞います。WSL 上にあるファイルを Windows 側から確認するには、エクスプローラーのサイドパネルに表示されている `Linux` をクリックします。
 
 ![WSL 側のファイルを Windows のエクスプローラーから表示する](./show-linux-files.png)
 
-:::info Windows10を使っている場合の注意
-Windows10では上記のようにしてもWSL上にあるファイルを確認することができません。
+:::info Windows10 を使っている場合の注意
+Windows10 では上記のようにしても WSL 上にあるファイルを確認することができません。
 代わりに以下のようにします。
 
-エクスプローラーのアドレスバーに `¥¥wsl$` と入力して、Enterキーを押します。
+エクスプローラーのアドレスバーに `¥¥wsl$` と入力して、Enter キーを押します。
 ![WSL 側のファイルを Windows のエクスプローラーから表示する(Windows10)](./show-linux-files-windows10.png)
 :::
