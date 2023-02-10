@@ -9,14 +9,18 @@ import styles from "./styles.module.css";
  * @param {boolean} props.path
  * @param {boolean} props.noCodeSandbox
  */
-export default function ViewSource({ path, noCodeSandbox }) {
+export default function ViewSource({ url, path, noCodeSandbox }) {
+  const fullPathSplit = url.split("/");
+  const pathFromDocs = fullPathSplit.slice(fullPathSplit.lastIndexOf("docs"));
+  const dirPath = pathFromDocs.slice(0, 3);
+  const relativePath = `${dirPath.join("/")}/${path}`;
   return (
     <div className={styles.root}>
       <a
         className={clsx("button button--secondary", styles.button)}
         target="_blank"
         rel="noopener"
-        href={`https://github.com/ut-code/utcode-learn/tree/master${path}`}
+        href={`https://github.com/ut-code/utcode-learn/tree/master/${relativePath}`}
       >
         <SiGithub className={styles.icon} />
         GitHub で表示
