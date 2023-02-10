@@ -54,7 +54,7 @@ VSCode 上で作成したファイルは `index.html` でした。しかしな�
 
 `<strong>World</strong>` の部分に注目してください。
 
-<p><Term type="html">HTML</Term> ファイルは、文書に意味を持たせるために、<Term strong type="tag">タグ</Term>と呼ばれる構造を持つことができます。<Term type="tag">タグ</Term>は、<code>&lt;tag&gt;</code> のような、「小なり」と「大なり」で囲まれた英数字のまとまりです。</p>
+<p><Term type="html">HTML</Term> ファイルは、文書に意味を持たせるために、<Term strong type="tag">タグ</Term>と呼ばれる構造を持つことができます。<Term type="tag">タグ</Term>は、<code>&lt;tag&gt;</code> のような、<code>&lt;</code>と<code>&gt;</code>で囲まれた英数字のまとまりです。</p>
 
 <p><Term type="tag">タグ</Term>は、 <code>&lt;tag&gt;内容&lt;/tag&gt;</code> のように、<Term type="tag">タグ</Term>名の先頭にスラッシュを付けるか否かの区別により<Term strong type="startTag">開始タグ</Term>と<Term strong type="endTag">終了タグ</Term>に分かれ、内部にテキストや別のタグを挟み込むことができます。<Term type="startTag">開始タグ</Term>から<Term type="endTag">終了タグ</Term>までのまとまりを<Term strong type="element">要素</Term>といいます。</p>
 
