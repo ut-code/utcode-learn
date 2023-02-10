@@ -57,9 +57,9 @@ if (age >= 20) {
 
 この例では、`age >= 20` の<Term type="javascriptEvaluation">評価</Term>が `false` となるので、`子供です` が表示されます。
 
-## if ～ else if ～ else
+## if ～ else if ～ else ～
 
-if ～ else if ～ else 構文を使うと、複数の条件を重ねることができます。
+if ～ else if ～ else ～ 構文を使うと、複数の条件を重ねることができます。
 
 ```javascript
 if (式1) {
