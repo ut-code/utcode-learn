@@ -23,7 +23,7 @@ document.write(myGreatName);
 
 続いて 2 行目では、<Term type="javascriptVariable">変数</Term> `myGreatName` に文字列 `"Becky Jones"` を<Term strong type="javascriptAssignment">代入</Term>しています。`=` は<Term type="javascriptAssignment">代入</Term>を表し、左側に指定した<Term type="javascriptVariable">変数</Term>に対し、右側に指定された<Term type="javascriptValue">値</Term>を<Term type="javascriptAssignment">代入</Term>します。
 
-3 行目では、<Term type="javascriptVariable">変数</Term> `myGreatName` が<Term type="javascriptVariable">評価</Term>され、<Term type="javascriptAssignment">代入</Term>されていた<Term type="javascriptString">文字列</Term><Term type="javascriptValue">値</Term> `"Becky Jones"` が画面に表示されます。
+3 行目では、<Term type="javascriptVariable">変数</Term> `myGreatName` が<Term type="javascriptEvaluation">評価</Term>され、<Term type="javascriptAssignment">代入</Term>されていた<Term type="javascriptString">文字列</Term><Term type="javascriptValue">値</Term> `"Becky Jones"` が画面に表示されます。
 
 上の例では、`my great name` というフレーズを、`myGreatName` のように記述しています。
 
