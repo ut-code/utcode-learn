@@ -80,13 +80,22 @@ v18.12.0
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    <p>macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。</p>
-    <CodeBlock language="shell">touch ~/.zshrc</CodeBlock>
-    <video src={installNvmInMacVideo} controls />
+
+macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。
+
+```shell
+touch ~/.zshrc
+```
+
+<video src={installNvmInMacVideo} controls />
+
   </TabItem>
   <TabItem value="win" label="Windows (WSL)">
-    <p>Windows 上での作業は、WSL のターミナルを利用するようにしましょう。</p>
-    <video src={installNvmInWslVideo} controls />
+
+Windows 上での作業は、WSL のターミナルを利用するようにしましょう。
+
+<video src={installNvmInWslVideo} controls />
+
   </TabItem>
 </Tabs>
 
