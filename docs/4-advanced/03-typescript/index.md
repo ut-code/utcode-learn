@@ -23,7 +23,7 @@ function formatDate(date) {
 }
 ```
 
-この関数の `date` 引数には、どのような値を指定すれば良いでしょうか。答えは、[`Date` オブジェクト](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を指定することです。`formatDate(new Date("2022-01-01"))` は動作しますが、`formatDate("2022-01-01")` はエラーになってしまいます。しかも、エラーが発生するかどうかは実際に実行してみるまでわかりません。また、`get
+この関数の `date` 引数には、どのような値を指定すれば良いでしょうか。答えは、[`Date` オブジェクト](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を指定することです。`formatDate(new Date("2022-01-01"))` は動作しますが、`formatDate("2022-01-01")` はエラーになってしまいます。しかも、エラーが発生するかどうかは実際に実行してみるまでわかりません。
 
 上のような単純なプログラムならこういった問題は起きにくいですが、プログラムの規模が大きくなるにつれ、「どういった値がやりとりされているのか」という情報を把握することが重要になってきます。こういった情報を、**データ型**、あるいは単に**型**と呼びます。
 
