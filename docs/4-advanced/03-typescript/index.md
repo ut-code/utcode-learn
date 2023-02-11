@@ -394,6 +394,6 @@ function apply(f, x) {
   ```
 
 4.
-  <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
+  <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
 
 </Answer>

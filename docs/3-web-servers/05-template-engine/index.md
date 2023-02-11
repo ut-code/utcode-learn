@@ -60,7 +60,7 @@ app.get("/sub/script.js", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/static-hosting-naive" />
+<ViewSource url={import.meta.url} path="_samples/static-hosting-naive" />
 
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
@@ -72,7 +72,7 @@ app.use(express.static("static"))
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/static-hosting-smart" />
+<ViewSource url={import.meta.url} path="_samples/static-hosting-smart" />
 
 これにより、リクエストのパスをもとに、`static` フォルダ内の適切なファイルが自動的に配信されます。
 
@@ -156,7 +156,7 @@ app.listen(3000);
 </html>
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/ejs-template-engine" />
+<ViewSource url={import.meta.url} path="_samples/ejs-template-engine" />
 
 イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `template.ejs` ファイルの内容を読み込んでいます。その次の行の [`ejs.render` 関数](https://ejs.co/#docs) がポイントです。この関数は、第 1 引数にテンプレートを文字列として受け取り、諸々の変換を行った後の文字列を返します。第 2 引数には、変換の際に埋め込みたいデータをオブジェクトの形式で指定します。
 
@@ -173,12 +173,12 @@ app.listen(3000);
 
 解答例 1:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/nth" />
+<ViewSource url={import.meta.url} path="_samples/nth" />
 
 解答例 2:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/nth-ejs" />
+<ViewSource url={import.meta.url} path="_samples/nth-ejs" />
 
 解答例 3:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/server-or-client" />
+<ViewSource url={import.meta.url} path="_samples/server-or-client" />
