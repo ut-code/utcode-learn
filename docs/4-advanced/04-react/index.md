@@ -100,7 +100,7 @@ function removeTodo(index: number) {
 
 [React](https://ja.reactjs.org/) は、この問題を**仮想 DOM**を用いて解決します。React は、DOM に似たデータ構造を内部的に JavaScript オブジェクトの形式で保持し、実際に変更された部分のみを実際の DOM に反映させることで、高いパフォーマンスを実現しています。
 
-それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、テンプレートには `react-ts` を選択してください。
+それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、`framework` は `React`、`variant` は `TypeScript` を選択してください。
 
 <video src={createReactProjectVideo} controls />
 
