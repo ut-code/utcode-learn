@@ -10,7 +10,7 @@ import postInDevelopment3 from "./postInDevelopment3.mp4";
 
 ## GET リクエストと POST リクエスト
 
-HTTP 上の通信において<Term type="serverClient">クライアント</Term>から<Term type="serverClient">サーバー</Term>への要求を<Term type="httpRequestResponse">リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも <Term type="httpMethod" strong>GET リクエスト</Term>と呼ばれるものになります。
+HTTP 上の通信において<Term type="serverClient">クライアント</Term>から<Term type="serverClient">サーバー</Term>への要求を<Term type="httpRequestResponse">リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも **GET リクエスト**と呼ばれるものになります。
 
 GET リクエストで<Term type="serverClient">サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term type="queryString">クエリパラメータ</Term>として URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、URL の長さの制限のため、大量の情報は送信できません。
 
