@@ -54,7 +54,7 @@ TypeScript を用いて Node.js のプログラムを作成するには、次の
 
 <video src={setupTypeScriptNodeVideo} controls />
 
-まずは、プロジェクトルートに `package.json` を作成します。
+まずは、プロジェクトルートに `package.json` を作成します。`npm init` を実行すればよいのでした。
 
 続いて、
 
