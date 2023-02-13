@@ -23,7 +23,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 
-### <Term type="moduleBundler" strong>モジュールバンドラ</Term>
+### <Term type="moduleBundler">モジュールバンドラ</Term>
 
 通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](../../3-web-servers/04-http-server/index.md)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
