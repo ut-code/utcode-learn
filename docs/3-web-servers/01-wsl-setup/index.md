@@ -44,11 +44,11 @@ WSL のインストールは、10 分程度で終わる簡単な作業です。�
 
 ![完成](completed.png)
 
-## VSCode に `Remote - WSL` 拡張機能をインストールする
+## VSCode に `WSL` 拡張機能をインストールする
 
-VSCode の `Remote - WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`Remote - WSL` 拡張機能をインストールしましょう。
+VSCode の `WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`WSL` 拡張機能をインストールしましょう。
 
-![Remote - WSL 拡張機能のインストール](./install-wsl-extension.png)
+![WSL 拡張機能のインストール](./install-wsl-extension.png)
 
 拡張機能をインストールすると、左下に緑色のボタンが出現します。クリックすると画面上部からメニューが出現するので、`New WSL Window` を選択しましょう。
 

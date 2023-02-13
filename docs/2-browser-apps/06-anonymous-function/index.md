@@ -2,7 +2,7 @@
 title: 無名関数
 ---
 
-import CodeBlock from '@theme/CodeBlock';
+
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";

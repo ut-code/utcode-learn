@@ -23,7 +23,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 
-### モジュールバンドラ
+### <Term type="moduleBundler">モジュールバンドラ</Term>
 
 通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](../../3-web-servers/04-http-server/index.md)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
@@ -112,13 +112,13 @@ dist/assets/index.06d14ce2.css     0.17 KiB / gzip: 0.14 KiB
 
 :::
 
-## <Term type="javascriptModule">ECMAScript モジュール</Term>
+## ECMAScript <Term type="javascriptModule">モジュール</Term>
 
 Node.js では、通常 `require` 関数と `exports` オブジェクトを使用して<Term type="javascriptModule">モジュール</Term>を作成していました。しかしながら、この機能は Node.js に特有の機能で、標準的な JavaScript の仕様には含まれていません。
 
-JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。トランスパイラを用いることで、<Term type="javascriptModule">ECMAScript モジュール</Term>を用いてプログラムを記述できます。
+JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。<Term type="transpile">トランスパイラ</Term>を用いることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
 
-<p><Term type="javascriptModule">ECMAScript モジュール</Term>では、<code>export</code> 文や <code>import</code> 文を用いて他のモジュールとのやりとりを行います。</p>
+<p>ECMAScript <Term type="javascriptModule">モジュール</Term>では、<code>export</code> 文や <code>import</code> 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやりとりを行います。</p>
 
 ```javascript title="main.js"
 import { add } from "./sub";
@@ -134,7 +134,7 @@ export function add(a, b) {
 
 <ViewSource path="/docs/4-advanced/02-bundler/_samples/es-modules" />
 
-**デフォルトエクスポート**は、各モジュールにつき一度だけ使えるエクスポート方法です。
+**デフォルトエクスポート**は、各<Term type="javascriptModule">モジュール</Term>につき一度だけ使えるエクスポート方法です。
 
 ```javascript title="main.js"
 import add from "./sub";
@@ -149,16 +149,16 @@ export default function add(a, b) {
 ```
 
 :::tip ECMAScript モジュールの実装状況
-ECMAScript モジュールは、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
+ECMAScript <Term type="javascriptModule">モジュール</Term>は、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
 
-しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の <Term type="javascriptModule">ECMAScript モジュール</Term>サポートは、2022 年現在、周辺エコシステムとの関係上、難しい場合が多いです。
+しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の ECMAScript <Term type="javascriptModule">モジュール</Term>サポートは、2022 年現在、周辺エコシステムとの関係上、難しい場合が多いです。
 
-なお、`exports` オブジェクトや `require` 関数を使ったモジュールシステムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
+なお、`exports` オブジェクトや `require` 関数を使った<Term type="javascriptModule">モジュール</Term>システムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
 :::
 
 ## npm のパッケージを Web ブラウザ上で利用する
 
-npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとしたトランスパイラやモジュールバンドラにより、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
+npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
 
 ```javascript
 import { format } from "date-fns";

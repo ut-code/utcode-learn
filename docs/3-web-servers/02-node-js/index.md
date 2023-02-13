@@ -29,7 +29,7 @@ VSCode の**コマンド パレット**は、現在 VSCode 上で使用できる
 :::
 
 :::info Windows 環境でターミナルを使用する場合の注意
-`Remote - WSL` 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
+`WSL` 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
 
 ![統合ターミナル](./wsl-integrated-terminal.png)
 :::
@@ -80,13 +80,22 @@ v18.12.0
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    <p>macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。</p>
-    <CodeBlock language="shell">touch ~/.zshrc</CodeBlock>
-    <video src={installNvmInMacVideo} controls />
+
+macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。
+
+```shell
+touch ~/.zshrc
+```
+
+<video src={installNvmInMacVideo} controls />
+
   </TabItem>
   <TabItem value="win" label="Windows (WSL)">
-    <p>Windows 上での作業は、WSL のターミナルを利用するようにしましょう。</p>
-    <video src={installNvmInWslVideo} controls />
+
+Windows 上での作業は、WSL のターミナルを利用するようにしましょう。
+
+<video src={installNvmInWslVideo} controls />
+
   </TabItem>
 </Tabs>
 
