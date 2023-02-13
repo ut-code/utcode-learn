@@ -51,7 +51,7 @@ Vite を用いて新しくプロジェクトを作成してみましょう。
 npm create vite@latest
 ```
 
-を実行します。プロジェクトのテンプレートを尋ねられるので、`vanilla` を選択してください。
+を実行します。`Select a framework` と尋ねられるので、`Vanilla` を選択してください。その後、`Select a variant` と尋ねられるので、`JavaScript` を選択してください。
 
 すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリを VSCode で開きましょう。
 
@@ -69,7 +69,7 @@ npm run dev
 
 を実行してください。
 
-Vite 内蔵のウェブサーバーが起動し、`http://127.0.0.1:5173/` でウェブサイトが表示されます。
+Vite 内蔵のウェブサーバーが起動し、`http://localhost:5173/` でウェブサイトが表示されます。
 
 ## Vite の仕組み
 
@@ -81,12 +81,12 @@ $ npm run build
 > vite@0.0.0 build
 > vite build
 
-vite v2.9.9 building for production...
-✓ 4 modules transformed.
-dist/assets/favicon.17e50649.svg   1.49 KiB
-dist/index.html                    0.46 KiB
-dist/assets/index.f72635f1.js      0.85 KiB / gzip: 0.49 KiB
-dist/assets/index.06d14ce2.css     0.17 KiB / gzip: 0.14 KiB
+vite v4.1.1 building for production...
+✓ 6 modules transformed.
+dist/index.html                      0.45 kB
+dist/assets/javascript-8dac5379.svg  1.00 kB
+dist/assets/index-48a8825f.css       1.24 kB │ gzip: 0.65 kB
+dist/assets/index-36cd5a33.js        1.44 kB │ gzip: 0.75 kB
 ```
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。

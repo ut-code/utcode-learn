@@ -100,7 +100,7 @@ function removeTodo(index: number) {
 
 [React](https://ja.reactjs.org/) は、この問題を**仮想 DOM**を用いて解決します。React は、DOM に似たデータ構造を内部的に JavaScript オブジェクトの形式で保持し、実際に変更された部分のみを実際の DOM に反映させることで、高いパフォーマンスを実現しています。
 
-それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、テンプレートには `react-ts` を選択してください。
+それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、`framework` は `React`、`variant` は `TypeScript` を選択してください。
 
 <video src={createReactProjectVideo} controls />
 
@@ -447,7 +447,7 @@ const setCount = useStateResult[1];
 :::
 
 :::tip `void` 型
-`void` 型は、通常関数の戻り値にのみに使用される型で、関数が値を返さないことを示します。
+`void` 型は、通常関数の戻り値にのみ使用される型で、関数が値を返さないことを示します。
 :::
 
 `App` 関数内で定義されている `increment` 関数では、`setCount` 関数に対し、現在の状態である `count` 変数に `1` を加えた値を引数として渡しています。これにより、`increment` 関数が呼ばれると、状態 `count` が増加するようになります。
@@ -648,7 +648,7 @@ export default function App() {
 この例では、ToDo 一覧を保持する状態 `todos` と、次の ID を保持する状態 `nextId`、そして新規作成用のテキストボックスの内容を保持する状態 `newTodo` に分けて状態を管理しています。
 
 :::tip React とイミュータビリティ
-[定数とオブジェクトの参照](../../2-browser-apps/02-constant/index.md)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先へ変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
+[定数とオブジェクトの参照](../../2-browser-apps/02-constant/index.md)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
 
 ```tsx
 const addTodo = () => {
