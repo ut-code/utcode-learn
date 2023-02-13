@@ -260,63 +260,67 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 GitHub を開いているブラウザを更新して、プログラムが反映されていることを確認したら完了です。
 
-<!-- ## GitHub を用いて、共同開発をする
+## GitHub を用いた共同開発をする
 
-### 課題
+GitHub を用いると簡単に共同開発ができます。
 
-GitHub を実際に使ってみましょう。
-隣の人のレポジトリの URL を教えてもらい、そのレポジトリの `README.md` を編集し、pull request を送りましょう。
-最初に、GitHub に練習用のレポジトリを `README.md` 付きで作成してください。
+まずは、共同開発をするリポジトリをローカルにクローンし、VSCode で開きます。[ut.code(); Learn のリポジトリ](https://github.com/ut-code/utcode-learn)に変更を加えてみましょう。変更を加えるのには、ut.code(); のリポジトリの編集権限が必要なので、権限を持っている人から編集権限をもらいましょう。(実は、リポジトリをフォークすれば、権限を持っていなくても共同開発に参加できます。もちろん、一番最後のマージは承認が必要ですが。)
 
-```
-$ git clone git@github.com:ut-code/readme_practice.git
-$ cd readme_practice
-$ ls
+```shell
+git clone git@github.com:ut-code/utcode-learn.git
 ```
 
-次に、branch を作成します。
-branch 名は、今回は `自分のGitHub上の名前+readme` にします。
-一般的な場合では、branch 名は、作業する内容を端的に表す名前にすることが推奨されます。
+次にブランチを作成します。ブランチは、ソースコードへの変更を分岐して行うための仕組みです。ブランチを作成することで、複数の変更を同時に進めていくことができます。
 
-```
-$ git branch username_readme
+まずは、ブランチの一覧を確認してみましょう。ターミナルで `git branch` コマンドを実行してください。
+
+```shell
 $ git branch
+* master
 ```
 
-ブランチの一覧が閲覧できたでしょうか。
-次に、今作成したブランチに HEAD を移動します。
+ここで、`*` から始まっているのが、現在いるブランチです。`master` となっているはずです。
 
+次に、新しいブランチを作成して、移動します。ブランチ名は作業する内容がわかるような名前にしてください。
+
+```shell
+git checkout -b 新しいブランチ名
 ```
-$ git checkout username_readme
+
+現在いるブランチを確認すると、`*` が移動しているはずです。
+
+```shell
 $ git branch
+  master
+* 新しいブランチ名
 ```
 
-`*` が移動したことを確認してください。
+この状態で、ファイルに必要な変更を行います。
+その後、変更をステージし、コミットします。
+必要に応じて、コミットの履歴やコミットの差分を確認してください。
 
-続いて、`README.md` に、`Hello World` という文字を追加しましょう。`README.md` に編集ができたら、ファイルを保存しましょう。
-次に、変更をステージングしましょう。`git add` コマンドは、作業ディレクトリ内の変更をステージングエリアに追加するコマンドです。
+次に、変更を加えたブランチをリモートリポジトリにプッシュして、プルリクエストをします。
 
-```
-$ git add -A
-```
-
-次に、ステージングされたファイルをコミットしましょう。
-`git commit` コマンドは、追加・変更したファイルを Git に登録するためのコマンドです。
-
-```
-$ git commit -m "README.md に変更を加えました"
+```shell
+git push origin ブランチ名
 ```
 
-remote レポジトリに `origin` として変更を登録しましょう。remote レポジトリに local の branch を反映します。
+とすると、変更を加えたブランチをリモートリポジトリにプッシュできます。
 
-```
-$ git push -u origin username_readme
-```
+ここで、GitHub を開き `Pull requests` を開いてください。
 
-ブラウザで、push した隣の人の GitHub のレポジトリを開きましょう。
-pull request を出しましょう。
+![Pull requests](./pull-requests-tab.png)
 
-pull request の申請を受け取った人は、確認し merge しましょう。
-merge できたでしょうか。
+`New pull request` を押してください。
 
-通常の場合、branch は役目を終えたら削除するようにしてください。 -->
+次のような画面が現れるので、
+
+![Compare changes](./compare-changes.png)
+
+`compare` と書いてある方のブランチを変更して、変更を加えたブランチを選択してください。
+
+![Comparing changes](./comparing-changes.png)
+
+`Create pull request` を押すと、プルリクエストが作成できます。後は、プルリクエストした内容が承認されると、マージできるようになるので、マージしてください。
+
+マージしたら、不要になったブランチは削除しておきましょう。ut.code(); Learn のリポジトリでは、自動で削除されます。
