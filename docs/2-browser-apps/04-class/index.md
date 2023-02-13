@@ -165,27 +165,27 @@ tanaka.introduceSelf();
 
 ```javascript
 const tanaka = {
-    name : "田中",
-    age : 18,
-    introduceSelf() {
-        document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
-      }
+  name: "田中",
+  age: 18,
+  introduceSelf() {
+    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+  },
 };
 
 const suzuki = {
-    name : "鈴木",
-    age : 20,
-    introduceSelf() {
-        document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
-      }
+  name: "鈴木",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+  },
 };
 
 const sato = {
-    name : "佐藤",
-    age : 20,
-    introduceSelf() {
-        document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
-      }
+  name: "佐藤",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+  },
 };
 
 tanaka.introduceSelf();
@@ -193,37 +193,37 @@ suzuki.introduceSelf();
 sato.introduceSelf();
 ```
 
-オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが3回繰り返されています。
+オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
 では、クラスとコンストラクタを用いるとどうでしょうか。
 
 ```javascript
 class Student {
-    name;
-    age;
-  
-    // コンストラクタを定義する
-    constructor(name, age) {
-        // this は作成されたインスタンスを指す
-        this.name = name;
-        this.age = age;
-      }
+  name;
+  age;
 
-    // メソッド introduceSelf を定義する
-    introduceSelf() {
-      document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
-    }
+  // コンストラクタを定義する
+  constructor(name, age) {
+    // this は作成されたインスタンスを指す
+    this.name = name;
+    this.age = age;
   }
-  
-  const tanaka = new Student("田中", 18);
-  const suzuki = new Student("鈴木", 20);
-  const sato = new Student("佐藤", 20);
-  
-  tanaka.introduceSelf();
-  suzuki.introduceSelf();
-  sato.introduceSelf();
+
+  // メソッド introduceSelf を定義する
+  introduceSelf() {
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+  }
+}
+
+const tanaka = new Student("田中", 18);
+const suzuki = new Student("鈴木", 20);
+const sato = new Student("佐藤", 20);
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
 ```
 
-クラスの定義自体はやや長いものの、1つのオブジェクトの定義はたった1行で済みます。これならオブジェクトの数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
+クラスの定義自体はやや長いものの、1 つのオブジェクトの定義はたった 1 行で済みます。これならオブジェクトの数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
 
 ## 継承
 

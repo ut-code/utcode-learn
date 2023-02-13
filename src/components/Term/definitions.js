@@ -270,7 +270,8 @@ export default {
     },
     javascriptProperty: {
       name: "プロパティ (JavaScript)",
-      definition: "JavaScriptのオブジェクトがその内部に持っている値。オブジェクトの属性(情報)。",
+      definition:
+        "JavaScriptのオブジェクトがその内部に持っている値。オブジェクトの属性(情報)。",
       referencePage: "/docs/trial-session/object/",
     },
     dom: {
