@@ -270,7 +270,7 @@ export default {
     },
     javascriptProperty: {
       name: "プロパティ (JavaScript)",
-      definition: "JavaScriptのオブジェクトがその内部に持っている値。",
+      definition: "JavaScriptのオブジェクトがその内部に持っている値。オブジェクトの属性(情報)。",
       referencePage: "/docs/trial-session/object/",
     },
     dom: {
@@ -324,7 +324,7 @@ export default {
     queryString: {
       name: "クエリ文字列",
       definition:
-        "URL の末尾し付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2 といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
+        "URL の末尾に付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2 といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
       referencePage: "/docs/web-servers/form/",
     },
     httpHeaderBody: {
