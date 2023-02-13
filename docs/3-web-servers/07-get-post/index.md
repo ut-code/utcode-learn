@@ -10,17 +10,17 @@ import postInDevelopment3 from "./postInDevelopment3.mp4";
 
 ## GET リクエストと POST リクエスト
 
-HTTP 上の通信において<Term type="serverClient">クライアント</Term>から<Term type="serverClient">サーバー</Term>への要求を<Term type="httpRequestResponse">リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも <Term type="httpMethod" strong>GET リクエスト</Term>と呼ばれるものになります。
+HTTP 上の通信において<Term type="serverClient">クライアント</Term>から<Term type="serverClient">サーバー</Term>への要求を<Term type="httpRequestResponse">リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも **GET リクエスト**と呼ばれるものになります。
 
 GET リクエストで<Term type="serverClient">サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term type="queryString">クエリパラメータ</Term>として URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、URL の長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが **POST リクエスト**です。POST リクエストでは、クエリパラメータとは別に、<Term type="httpHeaderBody">リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
+そこで用いるのが **POST リクエスト**です。POST リクエストでは、<Term type="queryString">クエリパラメータ</Term>とは別に、<Term type="httpHeaderBody">リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
 HTTP リクエストのこのような区分を、<Term type="httpMethod" strong>メソッド</Term>と呼びます。
 
 ![HTTP メソッドの比較](./method-comparison.png)
 
-前頁の例を、POST リクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドのリクエストを発行します。
+前頁の例を、POST リクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドの<Term type="httpRequestResponse">リクエスト</Term>を発行します。
 
 ```html title="static/index.html"
 <!DOCTYPE html>
@@ -57,11 +57,11 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/post-request" />
 
-これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドのリクエストしか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
+これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドの<Term type="httpRequestResponse">リクエスト</Term>しか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
-クエリパラメータにアクセスするには、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) を使用しましたが、リクエストボディを使用するには、`request.body` ([`express.Request#body` プロパティ](https://expressjs.com/ja/api.html#req.body)) を使用します。
+<p><Term type="queryString">クエリパラメータ</Term>にアクセスするには、<code>request.query</code> (<a href="https://expressjs.com/ja/api.html#req.query" ><code>express.Request#query</code> プロパティ</a>) を使用しましたが、<Term type="httpHeaderBody">リクエストボディ</Term>を使用するには、<code>request.body</code> (<a href="https://expressjs.com/ja/api.html#req.body" ><code>express.Request#body</code> プロパティ</a>) を使用します。</p>
 
-`app.use(express.urlencoded({ extended: true }));` は、リクエストボディの解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストのリクエストボディは、クエリパラメータと同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされたリクエストボディを読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
+`app.use(express.urlencoded({ extended: true }));` は、<Term type="httpHeaderBody">リクエストボディ</Term>の解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term type="httpHeaderBody">リクエストボディ</Term>は、<Term type="queryString">クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
 
 このシステムでは、まず次のような画面が表示されます。
 
@@ -71,7 +71,7 @@ app.listen(3000);
 
 ![名前と年齢を入力２](postRequest2.png)
 
-`http://localhost:3000/send` に移り、以下のような画面が表示されます。GET リクエストの時と違い、クエリパラメータが URL に表示されていないことが分かります。
+`http://localhost:3000/send` に移り、以下のような画面が表示されます。GET リクエストの時と違い、<Term type="queryString">クエリパラメータ</Term>が URL に表示されていないことが分かります。
 
 ![名前と年齢を入力３](postRequest3.png)
 
@@ -85,7 +85,7 @@ app.listen(3000);
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされたリクエストボディの中身を見ることができます。
+ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 

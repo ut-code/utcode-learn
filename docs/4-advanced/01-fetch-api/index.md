@@ -66,6 +66,22 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
+```javascript title="/server.js"
+const express = require("express");
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("static"));
+
+app.post("/send", (request, response) => {
+  response.send(
+    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`
+  );
+});
+
+app.listen(3000);
+```
+
 <ViewSource url={import.meta.url} path="_samples/send-post-request" />
 
 HTML のフォームで送ったものと同じ形式でデータを送信するには、[GET リクエストと POST リクエスト](../../3-web-servers/07-get-post/index.md)節で扱ったように、<Term type="httpHeaderBody">リクエストボディ</Term>が<Term type="queryString">クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term type="queryString">クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term type="httpHeaderBody">リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
