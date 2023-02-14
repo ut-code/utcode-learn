@@ -68,7 +68,7 @@ git commit -m"TP-001 コードでは分からない部分の抽象的な説明�
 機能ごとにcommitを分けると、分かりやすいです。vscodeでマウスでコードを選択し、右クリックを押してstage selected areaを選択すると、選択した部分のみをstageできます。source controlを使うことで、stageとunstageを自在に操ることが簡単になります。
 
 ## migrationについて
-開発中は、prismaやtypeormなどのormで作成したモデルに従って、sqlが生成されて実行されます。データベースの構造が変更されます。
+開発中は、prismaやtypeormなどのormで作成したモデルに従って、sqlが生成されて実行されます。
 開発開始時には、ORMで操作するDBのモデルModel_1と、DBに入っている生データData_1があるとします。
 開発中に、ORMを編集し、DBのモデルをModel_developに変更したとします。この時、Model_developとModel_1の差分を埋めるsqlが自動で生成され、実行されます。Data_1はData_developに変化します。本来の意図とは違うsqlが生成されることを原理的に避けることができません。その時はData_developを削除し、新たに適当なデータを代入します。
 Model_developとModel_1の差分を正しく変更するSQLを、手で作成する必要があります。これをmigration fileと言います。
