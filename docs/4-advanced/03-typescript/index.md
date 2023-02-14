@@ -371,7 +371,7 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 1. `never` 型
 
    ```typescript
-   type StringAndNumber = string & number;
+   type StringAndNumber = string & number; // never
    ```
 
 2. `name` のみ
@@ -396,6 +396,14 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
    e = d;
    ```
 
-4. <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
+4.
+
+   ```typescript
+   function apply<T, U>(f: (x: T) => U, x: T): U {
+     return f(x);
+   }
+   ```
+
+   <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
 
 </Answer>

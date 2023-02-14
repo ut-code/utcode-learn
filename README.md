@@ -13,13 +13,13 @@ ut.code(); Learn is a web learning material created by ut.code(); and built with
 
 ## Table of Contents
 
-- About
-- Usage
-- Development
-  - Requirements
-  - Installation
-  - Local Development
-- Contributing
+- [About](#about)
+- [Usage](#usage)
+- [Development](#development)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Local Development](#local-development)
+- [Contributing](#contributing)
 
 ## About
 
