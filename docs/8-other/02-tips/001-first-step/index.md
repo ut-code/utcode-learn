@@ -73,7 +73,7 @@ git commit -m"TP-001 コードでは分からない部分の抽象的な説明�
 開発中に、ORMを編集し、DBのモデルをModel_developに変更したとします。この時、Model_developとModel_1の差分を埋めるsqlが自動で生成され、実行されます。Data_1はData_developに変化します。本来の意図とは違うsqlが生成されることを原理的に避けることができません。その時はData_developを削除し、新たに適当なデータを代入します。
 Model_developとModel_1の差分を正しく変更するSQLを、手で作成する必要があります。これをmigration fileと言います。
 
-新たにテーブルを追加し、ボタンを作成するというチケットが発行されたとします。
+今、新たにテーブルを追加し、ボタンを作成するという機能に取り組んでいるとします。
 フロントエンドの変更、バックエンドの変更、ORMの変更をします。
 次に、migration fileの作成を行います。upとdownのsqlを作成します。
 migrationのupとdown(Data_1→Data_develop, Data_develop→Data_1の変化)が成功することを確認します。
