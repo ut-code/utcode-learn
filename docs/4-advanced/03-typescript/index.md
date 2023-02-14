@@ -396,9 +396,7 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
    e = d;
    ```
 
-4.
-
-   ```typescript
+4. ```typescript
    function apply<T, U>(f: (x: T) => U, x: T): U {
      return f(x);
    }
