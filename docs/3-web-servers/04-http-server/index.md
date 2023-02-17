@@ -71,6 +71,7 @@ server.addListener("request", (request, response) => {
   response.end();
 });
 ```
+
 <ViewSource url={import.meta.url} path="_samples/bold" noCodeSandbox />
 
   </li>

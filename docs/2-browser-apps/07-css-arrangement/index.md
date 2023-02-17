@@ -239,6 +239,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightseagreen;
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/grid" />
 
 ![display: gridを使用する](./grid.png)
@@ -310,6 +311,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   background-color: lightblue;
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/fixed" />
 
 以下のように、`absolute` の場合はスクロールすると `box2` も動いていきましたが、
@@ -408,6 +410,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
   }
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/media-query" />
 
 ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
@@ -511,4 +514,3 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 - `font-weight`
 
 <ViewSource url={import.meta.url} path="_samples/exercise" />
-
