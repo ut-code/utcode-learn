@@ -15,7 +15,7 @@ import ViewSource from "@site/src/components/ViewSource";
 <p style="color: red">Hello CSS!</p>
 ```
 
-<ViewSource path="/docs/1-trial-session/09-css/_samples/first-css" />
+<ViewSource url={import.meta.url} path="_samples/first-css" />
 
 次のように、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
@@ -71,4 +71,4 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
 
-<ViewSource path="/docs/1-trial-session/09-css/_samples/foo" />
+<ViewSource url={import.meta.url} path="_samples/foo" />
