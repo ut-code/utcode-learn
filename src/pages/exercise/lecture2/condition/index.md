@@ -29,7 +29,7 @@ if (4 <= lengthOfName <= 10) {
 
 ### 解答例
 
-<ViewSource path="/src/pages/exercise/lecture2/condition/_samples/length-of-name" />
+<ViewSource url={import.meta.url} path="_samples/length-of-name" />
 
 ## 問題2-2(仮)
 
@@ -43,4 +43,4 @@ AさんとBさんの手札の数字の合計をそれぞれ変数に入れてお
 
 ### 解答例
 
-<ViewSource path="/src/pages/exercise/lecture2/condition/_samples/blackjack" />
+<ViewSource url={import.meta.url} path="_samples/blackjack" />
