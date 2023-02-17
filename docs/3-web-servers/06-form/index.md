@@ -54,6 +54,7 @@ URL として使用できない文字（日本語文字など）は[URL エン�
 ```javascript
 encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 ```
+
 :::
 
 ## サーバーにデータを送信する
@@ -97,7 +98,7 @@ app.get("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/06-form/_samples/send-data-to-server" />
+<ViewSource url={import.meta.url} path="_samples/send-data-to-server" />
 
 上記コードを実行すると、以下のような画面がブラウザに表示されます。
 
@@ -106,7 +107,7 @@ app.listen(3000);
 以下のように入力して、送信ボタンをクリックすると、
 ![初めの画面に入力](./form-example-2.png)
 
- `http://localhost:3000/send` に移り、以下のような画面が表示されます。
+`http://localhost:3000/send` に移り、以下のような画面が表示されます。
 
 ![http://localhost:3000/send](./form-example-3.png)
 
@@ -138,11 +139,11 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 /// [2, 4, 6, 8]
 const evenNumbers = numbers.filter((number) => number % 2 === 0);
 ```
+
 :::
 
 ### 解答例
 
 解答例は以下を参照してください
 
-<ViewSource path="/docs/3-web-servers/06-form/_samples/book-search-system" />
-
+<ViewSource url={import.meta.url} path="_samples/book-search-system" />

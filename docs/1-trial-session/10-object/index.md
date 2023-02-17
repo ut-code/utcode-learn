@@ -39,6 +39,7 @@ let person = {
 ```
 
 :::note
+
 <p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="css">CSS</Term> における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
 :::
 
@@ -67,4 +68,4 @@ let nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 
-<ViewSource path="/docs/1-trial-session/10-object/_samples/incrementAge" />
+<ViewSource url={import.meta.url} path="_samples/incrementAge" />

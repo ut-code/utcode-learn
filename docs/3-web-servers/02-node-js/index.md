@@ -14,7 +14,7 @@ import debuggingVideo from "./debugging.mp4";
 
 ## ターミナル
 
-**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Macだと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
+**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Mac だと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
 
 VSCode 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
 
@@ -103,7 +103,7 @@ Windows 上での作業は、WSL のターミナルを利用するようにし�
 
 まずは、新しいフォルダを作成し、Visual Studio Code で開きます。Mac の場合は[はじめての Web 開発](../../1-trial-session/01-get-started/index.md)で作成した `Projects` フォルダの中に別のフォルダを作れば問題ありませんが、Windows の場合は WSL 上にフォルダを作成します。
 
-:::info WSL上にプロジェクトフォルダを作る
+:::info WSL 上にプロジェクトフォルダを作る
 Windows の WSL では、エクスプローラーのサイドパネルから `Linux` を開いた後、`Ubuntu` → `home` → `[ユーザー名]` の順番でフォルダを開き、そこに `Projects` フォルダを作成します。
 
 <video src={openFolderInWslVideo} controls muted />
