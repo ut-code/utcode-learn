@@ -39,7 +39,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/separate-css-files" />
+<ViewSource path="/docs/2-browser-apps/07-advanced-css/_samples/separate-css-files" />
 
 まず注目すべきは `link` 要素です。`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
 

@@ -121,4 +121,4 @@ document.write(calculateCost(3.5));
 > - _monthlyBandwidth_ < 5.0 のとき、携帯電話料金は _monthlyBandwidth_ × 600 (円)
 > - _monthlyBandwidth_ >= 5.0 のとき、携帯電話料金は 3000 (円)
 
-<ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
+<ViewSource path="/docs/1-trial-session/08-functions/_samples/mobile-phone-bill" />
