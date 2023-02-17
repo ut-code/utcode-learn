@@ -68,7 +68,7 @@ app.listen(3000);
 const express = require("express");
 
 const app = express();
-app.use(express.static("static"))
+app.use(express.static("static"));
 app.listen(3000);
 ```
 
@@ -115,6 +115,7 @@ app.listen(3000);
 ```javascript
 console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 ```
+
 :::
 
 なかなか大変なことになっています。これから HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
@@ -149,7 +150,7 @@ app.listen(3000);
   <body>
     <ul>
       <% for (const listItem of listItems) { %>
-        <li><%= listItem %></li>
+      <li><%= listItem %></li>
       <% } %>
     </ul>
   </body>

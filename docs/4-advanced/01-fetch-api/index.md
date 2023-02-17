@@ -142,7 +142,8 @@ app.listen(3000);
 | `application/json` | JSON       |
 | `image/jpg`        | JPEG       |
 | `image/png`        | PNG        |
-::: 
+
+:::
 
 ## 課題
 

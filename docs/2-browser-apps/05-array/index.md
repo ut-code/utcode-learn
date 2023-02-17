@@ -48,7 +48,7 @@ document.write([3, 2, 1][0]);
 
 <Answer>
 
-`[3, 2, 1]` で配列が生成され、`[0]` で0番目の要素が指定されているので、3と表示されます。
+`[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、3 と表示されます。
 
 <ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
 
@@ -159,4 +159,5 @@ document.write(`${subject} の点数は ${scores[subject]} です。`); // math 
 const studentNames = ["田中", "佐藤", "鈴木"];
 document.write(studentNames["0"]); // 田中
 ```
+
 :::

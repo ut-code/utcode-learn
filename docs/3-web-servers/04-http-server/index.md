@@ -1,6 +1,7 @@
 ---
 title: HTTP サーバー
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
@@ -70,6 +71,7 @@ server.addListener("request", (request, response) => {
   response.end();
 });
 ```
+
 <ViewSource path="/docs/3-web-servers/04-http-server/_samples/bold" noCodeSandbox />
 
   </li>
