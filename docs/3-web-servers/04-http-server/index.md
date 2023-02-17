@@ -72,7 +72,7 @@ server.addListener("request", (request, response) => {
 });
 ```
 
-<ViewSource url={import.meta.url} path="_samples/bold" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/04-http-server/_samples/bold" noCodeSandbox />
 
   </li>
   <li>
@@ -106,4 +106,4 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 
 <video src={pathRoutingVideo} controls autoPlay muted loop />
 
-<ViewSource url={import.meta.url} path="_samples/secret" noCodeSandbox />
+<ViewSource path="/docs/3-web-servers/04-http-server/_samples/secret" noCodeSandbox />

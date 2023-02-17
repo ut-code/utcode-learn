@@ -54,7 +54,7 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/box-model" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/box-model" />
 
 このページを開発者ツールを使って見てみましょう。
 ![開発者ツールでボックスモデルを眺める](./devtool-boxmodel.png)
@@ -102,7 +102,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/three-div" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/three-div" />
 
 ![divタグを3つ並べる](./three-div.png)
 
@@ -124,7 +124,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 </body>
 ```
 
-<ViewSource url={import.meta.url} path="_samples/three-span" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/three-span" />
 
 ![spanタグを3つ並べる](./three-span.png)
 
@@ -138,7 +138,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 
 上記のコードで、ブロックレベル要素である `<div></div>` に `display: inline` を、インライン要素である `<span></span>` に `display: block` を指定してみると表示はどう変わるか、試してみましょう。
 
-<ViewSource url={import.meta.url} path="_samples/display" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/display" />
 
 ## フレックスボックス
 
@@ -170,7 +170,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/flex" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/flex" />
 
 ![display: flexを指定すると横並びになる](./flex.png)
 
@@ -185,7 +185,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/space-around" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/space-around" />
 
 ![justify-content: space-around](./space-around.png)
 
@@ -240,7 +240,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/grid" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/grid" />
 
 ![display: gridを使用する](./grid.png)
 
@@ -274,7 +274,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/relative" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/relative" />
 
 ![position: relativeによる調整](./position-relative.png)
 
@@ -293,7 +293,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/absolute" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/absolute" />
 
 ![position: absoluteによる調整](./position-absolute.png)
 
@@ -312,7 +312,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/fixed" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/fixed" />
 
 以下のように、`absolute` の場合はスクロールすると `box2` も動いていきましたが、
 
@@ -367,7 +367,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/relative-absolute" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/relative-absolute" />
 
 ![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute.png)
 
@@ -411,7 +411,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/media-query" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/media-query" />
 
 ウインドウの幅を変えてみると要素はどのようになるか、試してみましょう。
 
@@ -442,7 +442,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/percent" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/percent" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
@@ -481,7 +481,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/max-min-width" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/max-min-width" />
 
 ウインドウの幅を変えてみると要素の幅はどのようになるか、試してみましょう。
 
@@ -513,4 +513,4 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 - `color`
 - `font-weight`
 
-<ViewSource url={import.meta.url} path="_samples/exercise" />
+<ViewSource path="/docs/2-browser-apps/07-css-arrangement/_samples/exercise" />

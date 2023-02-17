@@ -87,4 +87,4 @@ let age = 20;
 - 18 歳以上 ～ 25 歳未満なら `投票に行けます` と表示する
 - 25 歳以上なら `衆議院議員に立候補できます` と表示する
 
-<ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
+<ViewSource path="/docs/1-trial-session/07-if-statement/_samples/the-right-to-vote" />
