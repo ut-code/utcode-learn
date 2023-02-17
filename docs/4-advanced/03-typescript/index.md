@@ -370,7 +370,7 @@ function apply(f, x) {
 1. `never` 型
 
   ```typescript
-  type StringAndNumber = string & number;
+  type StringAndNumber = string & number; // never
   ```
 
 2. `name` のみ
@@ -394,6 +394,13 @@ function apply(f, x) {
   ```
 
 4.
+
+  ```typescript
+  function apply<T, U>(f: (x: T) => U, x: T): U {
+    return f(x);
+  }
+  ```
+
   <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
 
 </Answer>
