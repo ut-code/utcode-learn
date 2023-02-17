@@ -54,7 +54,7 @@ object2.age = 19;
 document.write(object1.age);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/reference" />
+<ViewSource path="/docs/2-browser-apps/02-constant/_samples/reference" />
 
 このプログラムの実行結果は `19` になります。なぜでしょうか。
 
@@ -103,7 +103,7 @@ document.write(nextYearTanaka.age);
 document.write(tanaka.age);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/object-mutated-by-function" />
+<ViewSource path="/docs/2-browser-apps/02-constant/_samples/object-mutated-by-function" />
 
 このコードは、[オブジェクト](../../1-trial-session/10-object/index.md)の項で扱った課題でした。実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
 
@@ -128,6 +128,6 @@ document.write(nextYearTanaka.age);
 document.write(tanaka.age);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/answer" />
+<ViewSource path="/docs/2-browser-apps/02-constant/_samples/answer" />
 
 </Answer>
