@@ -32,6 +32,6 @@ calcButton.onclick = () => {
 };
 ```
 
-<ViewSource path="/src/pages/exercise/lecture3/project-bmi/_sample" />
+<ViewSource path="/src/pages/exercise/lecture3/project-bmi/_samples/bmi" />
 
 </Answer>
