@@ -355,6 +355,8 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
+![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute-before.png)
+
 上のコードの `box1` に `margin-left: 200px` を指定して位置をずらしてみましょう。
 
 ```css title="style.css"
@@ -367,11 +369,11 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/relative-absolute" />
-
-![親要素に relative を、子要素に absolute を指定した場合](./relative-absolute.png)
+![親要素に relative を、子要素に absolute を指定し位置をずらした場合](./relative-absolute-after.png)
 
 `box1` の位置が変わっても、`box2` の `box1` に対する位置は変化していません。
+
+<ViewSource url={import.meta.url} path="_samples/relative-absolute" />
 
 ## レスポンシブデザイン
 
