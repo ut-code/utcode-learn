@@ -140,7 +140,7 @@ asyncAwait();
 console.log("After asyncAwait()");
 ```
 
-<ViewSource path="/docs/3-web-servers/08-database/_samples/async-operations" />
+<ViewSource url={import.meta.url} path="_samples/async-operations" />
 
 このプログラムの結果は、次のようになります。
 
@@ -237,4 +237,4 @@ main();
 
 [前頁](../07-get-post/index.md)で作成した掲示板システムのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
 
-<ViewSource path="/docs/3-web-servers/08-database/_samples/forum" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />

@@ -9,14 +9,21 @@ import styles from "./styles.module.css";
  * @param {boolean} props.path
  * @param {boolean} props.noCodeSandbox
  */
-export default function ViewSource({ path, noCodeSandbox }) {
+export default function ViewSource({ url, path, noCodeSandbox }) {
+  const fullPathSplit = url.split("/");
+  const docsIndex = fullPathSplit.indexOf("docs");
+  const srcIndex = fullPathSplit.indexOf("src");
+  const baseIndex = docsIndex !== -1 ? docsIndex : srcIndex;
+  const pathFromBase = fullPathSplit.slice(baseIndex);
+  const dirPath = pathFromBase.slice(0, pathFromBase.length - 1);
+  const relativePath = `${dirPath.join("/")}/${path}`;
   return (
     <div className={styles.root}>
       <a
         className={clsx("button button--secondary", styles.button)}
         target="_blank"
         rel="noopener"
-        href={`https://github.com/ut-code/utcode-learn/tree/master${path}`}
+        href={`https://github.com/ut-code/utcode-learn/tree/master/${relativePath}`}
       >
         <SiGithub className={styles.icon} />
         GitHub で表示
@@ -26,7 +33,7 @@ export default function ViewSource({ path, noCodeSandbox }) {
           className={clsx("button button--primary", styles.button)}
           target="_blank"
           rel="noopener"
-          href={`https://githubbox.com/ut-code/utcode-learn/tree/master${path}`}
+          href={`https://githubbox.com/ut-code/utcode-learn/tree/master/${relativePath}`}
         >
           このプログラムを実行する
           <BiLinkExternal className={styles.icon} />

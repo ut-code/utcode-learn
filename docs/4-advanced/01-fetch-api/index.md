@@ -26,7 +26,7 @@ document.getElementById("fetch-button").onclick = async () => {
 };
 ```
 
-<ViewSource path="/docs/4-advanced/01-fetch-api/_samples/fetch-api" />
+<ViewSource url={import.meta.url} path="_samples/fetch-api" />
 
 `async () => {}` は、<Term type="asynchronousProcess">非同期関数</Term>、つまり<Term type="asynchronousProcess">async キーワードのついた関数</Term>を生成するための<Term type="arrowFunction">アロー関数式</Term>です。
 
@@ -82,7 +82,7 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/4-advanced/01-fetch-api/_samples/send-post-request" />
+<ViewSource url={import.meta.url} path="_samples/send-post-request" />
 
 HTML のフォームで送ったものと同じ形式でデータを送信するには、[GET リクエストと POST リクエスト](../../3-web-servers/07-get-post/index.md)節で扱ったように、<Term type="httpHeaderBody">リクエストボディ</Term>が<Term type="queryString">クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term type="queryString">クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term type="httpHeaderBody">リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
 
@@ -127,7 +127,7 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/4-advanced/01-fetch-api/_samples/json-request-body" />
+<ViewSource url={import.meta.url} path="_samples/json-request-body" />
 
 :::tip `Content-Type` <Term type="httpHeaderBody">リクエスト・レスポンスヘッダ</Term>
 `Content-Type` ヘッダは、<Term type="httpHeaderBody">リクエストボディやレスポンスボディ</Term>の種類を識別するために使用されます。ここで使用する種類は、[**MIME タイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
@@ -202,4 +202,4 @@ for (const message of messages) {
 
 解答は次のリンクを参照してください。
 
-<ViewSource path="/docs/4-advanced/01-fetch-api/_samples/chat" />
+<ViewSource url={import.meta.url} path="_samples/chat" />
