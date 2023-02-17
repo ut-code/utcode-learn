@@ -1,0 +1,10 @@
+---
+runs:
+  using: "Composite"
+  steps:
+    - name: Install npm Modules
+      uses: ./.github/actions/install-modules
+
+    - name: Build
+      run: npm run build
+      shell: bash

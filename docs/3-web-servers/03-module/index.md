@@ -101,6 +101,7 @@ console.log(add(3, 4));
 const { add } = require("./sub");
 console.log(add(3, 4));
 ```
+
 :::
 
 ## 標準<Term type="javascriptModule">モジュール</Term>
@@ -124,7 +125,7 @@ Hello World
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
-<ViewSource path="/docs/3-web-servers/03-module/_samples/fs-writeFileSync" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/fs-writeFileSync" noCodeSandbox />
 
 ## npm
 
@@ -192,4 +193,4 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
 
-<ViewSource path="/docs/3-web-servers/03-module/_samples/math-js" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />

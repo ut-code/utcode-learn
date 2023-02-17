@@ -43,7 +43,7 @@ addTodoButton.onclick = () => {
 };
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/todo-dom" />
+<ViewSource url={import.meta.url} path="_samples/todo-dom" />
 
 なんとか作り上げることができましたが、このまま要件を増やして複雑なプログラムを作ろうとすれば、要素の作成忘れ、削除忘れなどにより、すぐに破綻してしまいそうです。
 
@@ -90,7 +90,7 @@ function removeTodo(index: number) {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/todo-declarative" />
+<ViewSource url={import.meta.url} path="_samples/todo-declarative" />
 
 これにより、アプリケーション全体の状態が変数 `state` に集約され、開発者が意識すべき状態のパターンを大幅に減らすことに成功しました。
 
@@ -100,7 +100,7 @@ function removeTodo(index: number) {
 
 [React](https://ja.reactjs.org/) は、この問題を**仮想 DOM**を用いて解決します。React は、DOM に似たデータ構造を内部的に JavaScript オブジェクトの形式で保持し、実際に変更された部分のみを実際の DOM に反映させることで、高いパフォーマンスを実現しています。
 
-それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、テンプレートには `react-ts` を選択してください。
+それでは、React を用いたプロジェクトを作成してみましょう。Vite でプロジェクトを作成しますが、`framework` は `React`、`variant` は `TypeScript` を選択してください。
 
 <video src={createReactProjectVideo} controls />
 
@@ -156,7 +156,7 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-hello-world" />
+<ViewSource url={import.meta.url} path="_samples/react-hello-world" />
 
 このプログラムを実行すると、`div` 要素が生成され、その中に `Hello React` が表示されます。3 行目の `<div>Hello React</div>` が見慣れない文法ですね。
 
@@ -241,11 +241,11 @@ const max = a > b ? a : b; // 6
 React を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
 
 解答例
-<ViewSource path="/docs/4-advanced/04-react/_samples/the-right-to-vote" />
+<ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
 
 別解
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/another-the-right-to-vote" />
+<ViewSource url={import.meta.url} path="_samples/another-the-right-to-vote" />
 
 ## JSX における条件分岐
 
@@ -344,7 +344,7 @@ export default function App() {
 
 先程の `students` のデータを用いて、表を作ってみましょう。
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/table" />
+<ViewSource url={import.meta.url} path="_samples/table" />
 
 ## コンポーネント
 
@@ -443,10 +443,11 @@ const useStateResult = useState(0);
 const count = useStateResult[0];
 const setCount = useStateResult[1];
 ```
+
 :::
 
 :::tip `void` 型
-`void` 型は、通常関数の戻り値にのみに使用される型で、関数が値を返さないことを示します。
+`void` 型は、通常関数の戻り値にのみ使用される型で、関数が値を返さないことを示します。
 :::
 
 `App` 関数内で定義されている `increment` 関数では、`setCount` 関数に対し、現在の状態である `count` 変数に `1` を加えた値を引数として渡しています。これにより、`increment` 関数が呼ばれると、状態 `count` が増加するようになります。
@@ -463,6 +464,7 @@ function App() {
   return <div />;
 }
 ```
+
 :::
 
 ## コンポーネント関数が実行されるタイミング
@@ -493,7 +495,7 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-component-function" />
+<ViewSource url={import.meta.url} path="_samples/react-component-function" />
 
 このプログラムを実行することで、`App` 関数は、初回読み込み時と、ボタンがクリックされたタイミングで実行されていることが分かります。
 
@@ -511,7 +513,7 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
+<ViewSource url={import.meta.url} path="_samples/react-fixed-input" />
 
 `onChange` イベントを受け取って入力した値をコンポーネントの状態に反映させることで、ユーザー入力とコンポーネントの状態を同期させることができるようになります。
 
@@ -535,7 +537,7 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-fixed-input" />
+<ViewSource url={import.meta.url} path="_samples/react-fixed-input" />
 
 `onChange` 属性には、要素のテキストが変更された際に発生するイベントのイベントハンドラを指定します。React の `onChange` 属性は、DOM の [`change` イベント](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/change_event)ハンドラと同様に記述することができ、第 1 引数には [`Event` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/Event)に似た値が与えられます。
 
@@ -582,7 +584,7 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-prop-forwarding" />
+<ViewSource url={import.meta.url} path="_samples/react-prop-forwarding" />
 
 ## 複雑な状態を扱う
 
@@ -641,12 +643,12 @@ export default function App() {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/04-react/_samples/react-todo" />
+<ViewSource url={import.meta.url} path="_samples/react-todo" />
 
 この例では、ToDo 一覧を保持する状態 `todos` と、次の ID を保持する状態 `nextId`、そして新規作成用のテキストボックスの内容を保持する状態 `newTodo` に分けて状態を管理しています。
 
 :::tip React とイミュータビリティ
-[定数とオブジェクトの参照](../../2-browser-apps/02-constant/index.md)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先へ変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
+[定数とオブジェクトの参照](../../2-browser-apps/02-constant/index.md)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
 
 ```tsx
 const addTodo = () => {
@@ -673,18 +675,20 @@ const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
 const object1 = { name: "田中", age: 18 };
 const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中", age: 19, address: "東京" }
 ```
+
 :::
 
 ## 課題
 
 - ToDo リストの要素を上下に移動させる機能を追加しましょう
-  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-up-down" />
+  <ViewSource url={import.meta.url} path="_samples/todo-up-down" />
 - ToDo リストの要素へ編集する機能を追加しましょう
-  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-edit" />
+  <ViewSource url={import.meta.url} path="_samples/todo-edit" />
 - データベースに永続化することができる ToDo リストアプリケーションを作成しましょう
+
   - ヒント: ページ読み込み時に Fetch API を用いてデータを保存済みの ToDo 一覧を取得します。リストが編集されたら再び Fetch API を用いてデータを保存しましょう。
 
   解答例
-  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-database" noCodeSandbox />
+  <ViewSource url={import.meta.url} path="_samples/todo-database" noCodeSandbox />
   別解
-  <ViewSource path="/docs/4-advanced/04-react/_samples/todo-database2" noCodeSandbox />
+  <ViewSource url={import.meta.url} path="_samples/todo-database2" noCodeSandbox />

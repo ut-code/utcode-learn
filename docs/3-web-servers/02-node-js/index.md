@@ -14,7 +14,7 @@ import debuggingVideo from "./debugging.mp4";
 
 ## ターミナル
 
-**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Macだと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
+**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Mac だと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
 
 VSCode 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
 
@@ -29,7 +29,7 @@ VSCode の**コマンド パレット**は、現在 VSCode 上で使用できる
 :::
 
 :::info Windows 環境でターミナルを使用する場合の注意
-`Remote - WSL` 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
+`WSL` 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
 
 ![統合ターミナル](./wsl-integrated-terminal.png)
 :::
@@ -80,13 +80,22 @@ v18.12.0
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    <p>macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。</p>
-    <CodeBlock language="shell">touch ~/.zshrc</CodeBlock>
-    <video src={installNvmInMacVideo} controls />
+
+macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。
+
+```shell
+touch ~/.zshrc
+```
+
+<video src={installNvmInMacVideo} controls />
+
   </TabItem>
   <TabItem value="win" label="Windows (WSL)">
-    <p>Windows 上での作業は、WSL のターミナルを利用するようにしましょう。</p>
-    <video src={installNvmInWslVideo} controls />
+
+Windows 上での作業は、WSL のターミナルを利用するようにしましょう。
+
+<video src={installNvmInWslVideo} controls />
+
   </TabItem>
 </Tabs>
 
@@ -94,7 +103,7 @@ v18.12.0
 
 まずは、新しいフォルダを作成し、Visual Studio Code で開きます。Mac の場合は[はじめての Web 開発](../../1-trial-session/01-get-started/index.md)で作成した `Projects` フォルダの中に別のフォルダを作れば問題ありませんが、Windows の場合は WSL 上にフォルダを作成します。
 
-:::info WSL上にプロジェクトフォルダを作る
+:::info WSL 上にプロジェクトフォルダを作る
 Windows の WSL では、エクスプローラーのサイドパネルから `Linux` を開いた後、`Ubuntu` → `home` → `[ユーザー名]` の順番でフォルダを開き、そこに `Projects` フォルダを作成します。
 
 <video src={openFolderInWslVideo} controls muted />

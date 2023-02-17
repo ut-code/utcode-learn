@@ -1,6 +1,7 @@
 ---
 title: WSLのセットアップ (Windows のみ)
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
@@ -43,11 +44,11 @@ WSL のインストールは、10 分程度で終わる簡単な作業です。�
 
 ![完成](completed.png)
 
-## VSCode に `Remote - WSL` 拡張機能をインストールする
+## VSCode に `WSL` 拡張機能をインストールする
 
-VSCode の `Remote - WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`Remote - WSL` 拡張機能をインストールしましょう。
+VSCode の `WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`WSL` 拡張機能をインストールしましょう。
 
-![Remote - WSL 拡張機能のインストール](./install-wsl-extension.png)
+![WSL 拡張機能のインストール](./install-wsl-extension.png)
 
 拡張機能をインストールすると、左下に緑色のボタンが出現します。クリックすると画面上部からメニューが出現するので、`New WSL Window` を選択しましょう。
 
@@ -65,14 +66,14 @@ WSL を使用するには、ターミナルで `wsl` コマンドを実行しま
 
 ![Linuxに入る](./go-into-linux.png)
 
-WSL は、Windows から独立した別のコンピュータのように振舞います。WSL上にあるファイルを Windows 側から確認するには、エクスプローラーのサイドパネルに表示されている `Linux` をクリックします。
+WSL は、Windows から独立した別のコンピュータのように振舞います。WSL 上にあるファイルを Windows 側から確認するには、エクスプローラーのサイドパネルに表示されている `Linux` をクリックします。
 
 ![WSL 側のファイルを Windows のエクスプローラーから表示する](./show-linux-files.png)
 
-:::info Windows10を使っている場合の注意
-Windows10では上記のようにしてもWSL上にあるファイルを確認することができません。
+:::info Windows10 を使っている場合の注意
+Windows10 では上記のようにしても WSL 上にあるファイルを確認することができません。
 代わりに以下のようにします。
 
-エクスプローラーのアドレスバーに `¥¥wsl$` と入力して、Enterキーを押します。
+エクスプローラーのアドレスバーに `¥¥wsl$` と入力して、Enter キーを押します。
 ![WSL 側のファイルを Windows のエクスプローラーから表示する(Windows10)](./show-linux-files-windows10.png)
 :::
