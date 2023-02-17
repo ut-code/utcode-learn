@@ -16,7 +16,7 @@ app.get("/", (request, response) => {
 
 app.post("/send", (request, response) => {
   messages.push(request.body.message);
-  response.send("送信しました")
+  response.send("送信しました");
 });
 
 app.listen(3000);

@@ -5,8 +5,10 @@
     <title>Document</title>
   </head>
   <body>
-    <%for (const item of selectedBooks){ %>
-    <div><%= item.title %></div>
-    <% }%>
+    <ul>
+      <% for (const selectedBook of selectedBooks) { %>
+        <li><%= selectedBook.title %></li>
+      <% } %>
+    </ul>
   </body>
 </html>
