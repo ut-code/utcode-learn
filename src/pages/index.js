@@ -32,7 +32,7 @@ function Home() {
         </div>
       </header>
       <main>
-        ut.code(); Learnは、東京大学のソフトウェアエンジニアリングコミュニティ
+        ut.code(); Learn は、東京大学のソフトウェアエンジニアリングコミュニティ
         ut.code(); の内部向け学習資料です。
       </main>
     </Layout>
