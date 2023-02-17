@@ -35,10 +35,6 @@ document.write("<p style='color: blue'>Hello World!</p>");
 
 <Answer>
 
-```html title="index.html"
-<p id="answer"></p>
-```
-
 ```javascript title="script.js"
 let box = 25;
 let weight = 1000;
