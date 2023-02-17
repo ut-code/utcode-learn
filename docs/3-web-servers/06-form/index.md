@@ -93,7 +93,7 @@ app.get("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/06-form/_samples/send-data-to-server" />
+<ViewSource url={import.meta.url} path="_samples/send-data-to-server" />
 
 上記コードを実行すると、以下のような画面がブラウザに表示されます。
 
@@ -140,4 +140,4 @@ const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
 解答例は以下を参照してください
 
-<ViewSource path="/docs/3-web-servers/06-form/_samples/book-search-system" />
+<ViewSource url={import.meta.url} path="_samples/book-search-system" />

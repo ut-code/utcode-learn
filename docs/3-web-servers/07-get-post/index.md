@@ -55,7 +55,7 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/07-get-post/_samples/post-request" />
+<ViewSource url={import.meta.url} path="_samples/post-request" />
 
 これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドの<Term type="httpRequestResponse">リクエスト</Term>しか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
@@ -110,4 +110,4 @@ app.listen(3000);
 
 解答例は以下を参照してください。
 
-<ViewSource path="/docs/3-web-servers/07-get-post/_samples/bulletin-board" />
+<ViewSource url={import.meta.url} path="_samples/bulletin-board" />

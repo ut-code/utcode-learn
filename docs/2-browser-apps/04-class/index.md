@@ -63,7 +63,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 ### 課題
 `weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/class-car" />
+<ViewSource url={import.meta.url} path="_samples/class-car" />
 
 ## メソッド
 
@@ -129,7 +129,7 @@ tanaka.incrementAge();
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/method-incrementAge" />
+<ViewSource url={import.meta.url} path="_samples/method-incrementAge" />
 
 </Answer>
 
@@ -292,7 +292,7 @@ tanaka.researchQuestion = "量子力学";
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/inheritance-class-SeniorStudent" />
+<ViewSource url={import.meta.url} path="_samples/inheritance-class-SeniorStudent" />
 
 </Answer>
 
@@ -348,4 +348,4 @@ document.write(false.toString()); // false
 
 (発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/HTMLDivElement" />
+<ViewSource url={import.meta.url} path="_samples/HTMLDivElement" />

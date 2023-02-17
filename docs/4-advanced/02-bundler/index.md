@@ -132,7 +132,7 @@ export function add(a, b) {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/es-modules" />
+<ViewSource url={import.meta.url} path="_samples/es-modules" />
 
 **デフォルトエクスポート**は、各<Term type="javascriptModule">モジュール</Term>につき一度だけ使えるエクスポート方法です。
 ```javascript title="main.js"
@@ -168,7 +168,7 @@ document.getElementById("app").textContent = format(
 );
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/run-npm-package-on-browsers" />
+<ViewSource url={import.meta.url} path="_samples/run-npm-package-on-browsers" />
 
 ## フロントエンドとバックエンドの統合
 
@@ -187,7 +187,7 @@ app
     └── main.js
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/fullstack-app" />
+<ViewSource url={import.meta.url} path="_samples/fullstack-app" />
 
 `npm run build` コマンドによって Vite がビルド結果を `/dist` に出力するようにしておきます。
 
@@ -217,6 +217,6 @@ app.listen(3000);
 ## 課題
 
 - [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/chartjs" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。
