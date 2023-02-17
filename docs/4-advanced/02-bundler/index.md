@@ -19,7 +19,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 <p><Term type="transpile" strong>トランスパイラ</Term>は、ソースコードを別のソースコードに変換するためのプログラムです。JavaScript においてトランスパイラが必要になるのは、主に 2 つの理由によります。</p>
 
-ひとつは、**最新の機能を使用するため**です。JavaScriptの言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term type="transpile">トランスパイラ</Term>です。
+ひとつは、**最新の機能を使用するため**です。JavaScript の言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term type="transpile">トランスパイラ</Term>です。
 
 もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 
@@ -44,7 +44,6 @@ Vite を用いて新しくプロジェクトを作成してみましょう。
 <video src={getStartedWithViteVideo} controls />
 
 詳細な手順は次のとおりです。
-
 
 まずは、ターミナルでカレントディレクトリをプロジェクトフォルダを格納するディレクトリに移動し、
 
@@ -110,6 +109,7 @@ dist/assets/index-36cd5a33.js        1.44 kB │ gzip: 0.75 kB
   }
 }
 ```
+
 :::
 
 ## ECMAScript <Term type="javascriptModule">モジュール</Term>
@@ -135,6 +135,7 @@ export function add(a, b) {
 <ViewSource url={import.meta.url} path="_samples/es-modules" />
 
 **デフォルトエクスポート**は、各<Term type="javascriptModule">モジュール</Term>につき一度だけ使えるエクスポート方法です。
+
 ```javascript title="main.js"
 import add from "./sub";
 
@@ -150,7 +151,7 @@ export default function add(a, b) {
 :::tip ECMAScript モジュールの実装状況
 ECMAScript <Term type="javascriptModule">モジュール</Term>は、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
 
-しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の ECMAScript <Term type="javascriptModule">モジュール</Term>サポートは、2022年現在、周辺エコシステムとの関係上、難しい場合が多いです。
+しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の ECMAScript <Term type="javascriptModule">モジュール</Term>サポートは、2022 年現在、周辺エコシステムとの関係上、難しい場合が多いです。
 
 なお、`exports` オブジェクトや `require` 関数を使った<Term type="javascriptModule">モジュール</Term>システムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
 :::
@@ -217,6 +218,7 @@ app.listen(3000);
 ## 課題
 
 - [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
-<ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
+
+  <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。

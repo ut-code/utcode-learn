@@ -2,7 +2,6 @@
 title: 無名関数
 ---
 
-
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
@@ -59,6 +58,7 @@ const add2 = (a, b) => {
   return a + b;
 };
 ```
+
 :::
 
 :::tip アロー関数
@@ -152,12 +152,11 @@ document.write(minScore); // 55
 ```javascript
 const scores = [90, 65, 70, 55, 80];
 const minScore = scores.reduce((previousValue, currentValue) => {
-    if (previousValue > currentValue) {
-      return currentValue;
-    };
-  return previousValue;
+  if (previousValue > currentValue) {
+    return currentValue;
   }
-);
+  return previousValue;
+});
 document.write(minScore); // 55
 ```
 

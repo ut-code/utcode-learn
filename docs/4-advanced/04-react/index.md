@@ -443,6 +443,7 @@ const useStateResult = useState(0);
 const count = useStateResult[0];
 const setCount = useStateResult[1];
 ```
+
 :::
 
 :::tip `void` 型
@@ -463,6 +464,7 @@ function App() {
   return <div />;
 }
 ```
+
 :::
 
 ## コンポーネント関数が実行されるタイミング
@@ -673,6 +675,7 @@ const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
 const object1 = { name: "田中", age: 18 };
 const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中", age: 19, address: "東京" }
 ```
+
 :::
 
 ## 課題
@@ -682,6 +685,7 @@ const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中",
 - ToDo リストの要素へ編集する機能を追加しましょう
   <ViewSource url={import.meta.url} path="_samples/todo-edit" />
 - データベースに永続化することができる ToDo リストアプリケーションを作成しましょう
+
   - ヒント: ページ読み込み時に Fetch API を用いてデータを保存済みの ToDo 一覧を取得します。リストが編集されたら再び Fetch API を用いてデータを保存しましょう。
 
   解答例

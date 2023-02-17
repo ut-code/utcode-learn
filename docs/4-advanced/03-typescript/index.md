@@ -132,6 +132,7 @@ const strangeValue: any = 1;
 // TypeScript は誤りを検出できないが、実行時にエラーになる
 strangeValue.strangeMethod();
 ```
+
 :::
 
 ### データ型の別名
@@ -346,22 +347,22 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 1. `string & number` 型は何型と等しいでしょうか。
 2. 次のように定義される型 `T` に対して使用可能なプロパティは何でしょうか。
 
-```typescript
-type T = { name: string; age: number } | { name: string; subject: string }
-```
+   ```typescript
+   type T = { name: string; age: number } | { name: string; subject: string };
+   ```
 
 3. 次の型のうち、`(v: string) => string` 型とみなせる (部分集合である) ものを全て選んでください。
-  - `(v: unknown) => string`
-  - `(v: never) => string`
-  - `(v: string) => unknown`
-  - `(v: string) => never`
+   - `(v: unknown) => string`
+   - `(v: never) => string`
+   - `(v: string) => unknown`
+   - `(v: string) => never`
 4. 次の関数 `apply` は、関数を適用する関数です。ジェネリクスを用いて適切な型をつけてください (ヒント: 引数と戻り値を表す型パラメータを定義しましょう)。
 
-```typescript
-function apply(f, x) {
-  return f(x);
-}
-```
+   ```typescript
+   function apply(f, x) {
+     return f(x);
+   }
+   ```
 
 5. フロントエンド・バックエンドともに TypeScript を利用するアプリケーションを作成し、公開してみてください。
 
@@ -369,38 +370,38 @@ function apply(f, x) {
 
 1. `never` 型
 
-  ```typescript
-  type StringAndNumber = string & number; // never
-  ```
+   ```typescript
+   type StringAndNumber = string & number; // never
+   ```
 
 2. `name` のみ
 
-  ```typescript
-  declare const t: { name: string; age: number } | { name: string; subject: string };
-  ```
+   ```typescript
+   declare const t:
+     | { name: string; age: number }
+     | { name: string; subject: string };
+   ```
 
 3. `(v: unknown) => string` と `(v: string) => never`
 
-  ```typescript
-  declare const a: (v: unknown) => string;
-  declare const b: (v: never) => string;
-  declare const c: (v: string) => unknown;
-  declare const d: (v: string) => never;
-  let e: (v: string) => string;
-  e = a;
-  // e = b;
-  // e = c;
-  e = d;
-  ```
+   ```typescript
+   declare const a: (v: unknown) => string;
+   declare const b: (v: never) => string;
+   declare const c: (v: string) => unknown;
+   declare const d: (v: string) => never;
+   let e: (v: string) => string;
+   e = a;
+   // e = b;
+   // e = c;
+   e = d;
+   ```
 
-4.
+4. ```typescript
+   function apply<T, U>(f: (x: T) => U, x: T): U {
+     return f(x);
+   }
+   ```
 
-  ```typescript
-  function apply<T, U>(f: (x: T) => U, x: T): U {
-    return f(x);
-  }
-  ```
-
-  <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
+   <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
 
 </Answer>

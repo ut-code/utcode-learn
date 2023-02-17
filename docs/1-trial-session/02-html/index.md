@@ -39,7 +39,7 @@ Web 開発に必ず用いられる言語があります。<Term type="html" stro
 <video src={openInBrowserVideo} controls />
 
 :::info 拡張子
-VSCode 上で作成したファイルは `index.html` でした。しかしながら、Windowsでフォルダの中身を見ると `index` しか表示されません（Macの場合は正しく表示されます）。なぜでしょうか？
+VSCode 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
 
 ファイル名の `.` (ピリオド) 以降の部分は<Term type="fileExtension" strong>拡張子</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term type="html">HTML</Term>ファイルであることを明示するためです。
 
@@ -60,6 +60,7 @@ VSCode 上で作成したファイルは `index.html` でした。しかしな�
 
 `body` 要素の中身を書き換え、次のようにしてみましょう。
 
+<!-- prettier-ignore -->
 ```html title="index.html"
 <!DOCTYPE html>
 <html lang="ja">
@@ -117,7 +118,7 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 
 ## 課題 (時間が余った場合)
 
-単一のHTMLファイルのみを使用して、下のようなフォームを作成してみましょう。いきなり飛躍した感がありますが、やることは単純で、ひたすらHTMLタグを並べるのみです。
+単一の HTML ファイルのみを使用して、下のようなフォームを作成してみましょう。いきなり飛躍した感がありますが、やることは単純で、ひたすら HTML タグを並べるのみです。
 
 ![課題の例](task-sample.png)
 

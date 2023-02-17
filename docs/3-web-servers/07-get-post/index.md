@@ -1,6 +1,7 @@
 ---
 title: GET リクエストと POST リクエスト
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
@@ -85,11 +86,11 @@ app.listen(3000);
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>の中身を見ることができます。
+ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。すると URL エンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 
-以上のようにして、POSTリクエストの中身を覗くことができます。
+以上のようにして、POST リクエストの中身を覗くことができます。
 
 ![GETリクエストとPOSTリクエスト](requestAndResponse.png)
 
@@ -101,9 +102,11 @@ app.listen(3000);
 - `POST /send`: リクエストボディに含まれている記事の内容を記録します。
 
 :::tip ヒント
+
 - イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
 - `GET /` では EJS を用いて配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
 - `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
+
 :::
 
 ### 解答例

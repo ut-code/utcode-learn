@@ -26,7 +26,7 @@ element.textContent = "Hello DOM";
 
 ![DOM](./dom.png)
 
-`document.getElementById` が<Term type="javascriptReturn">返す</Term><Term type="javascriptObject">オブジェクト</Term>には、取得したHTML<Term type="element">要素</Term>の特徴を表す、たくさんの<Term type="javascriptProperty">プロパティ</Term>が含まれています。下はその一部分です。
+`document.getElementById` が<Term type="javascriptReturn">返す</Term><Term type="javascriptObject">オブジェクト</Term>には、取得した HTML<Term type="element">要素</Term>の特徴を表す、たくさんの<Term type="javascriptProperty">プロパティ</Term>が含まれています。下はその一部分です。
 
 | プロパティ    | 説明                                                 |
 | ------------- | ---------------------------------------------------- |
@@ -53,6 +53,6 @@ element.style.backgroundColor = "red";
 
 ## 課題
 
-[CSSの節](../09-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
+[CSS の節](../09-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
 <ViewSource url={import.meta.url} path="_samples/css" />

@@ -1,6 +1,7 @@
 ---
 title: Git と GitHub
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,8 +45,8 @@ Git では、ファイルの変更だけでなく、その変更を行ったの�
 
 名前は必ず GitHub のアカウント名と一致させるようにしてください。メールアドレスは GitHub の登録の際に設定したメールアドレスが推奨されますが、メールアドレスを公開したくない場合は、[GitHub のメール設定](https://github.com/settings/emails)から
 
-* Keep my email address private
-* Block command line pushes that expose my email
+- Keep my email address private
+- Block command line pushes that expose my email
 
 を必要に応じて有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では `112743782+sample-ma9qke@users.noreply.github.com`) を Git に指定してください。
 
@@ -97,8 +98,8 @@ Git では、**リポジトリ**と呼ばれる単位でソースコードを管
 
 Git はコマンドラインから用いるツールですが、理解を深めるために VSCode の機能や拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
 
-* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-* [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
 
 ![インストールする拡張機能](./useful-extensions.png)
 

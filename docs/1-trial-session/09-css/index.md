@@ -12,7 +12,7 @@ import ViewSource from "@site/src/components/ViewSource";
 `p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
 
 ```html title="index.html"
-<p style="color: red;">Hello CSS!</p>
+<p style="color: red">Hello CSS!</p>
 ```
 
 <ViewSource url={import.meta.url} path="_samples/first-css" />
@@ -54,7 +54,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 #### 3. 周辺知識を信頼できる情報源で調べる
 
-見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScriptの場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDNでこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
 :::
 
 ## 課題 (時間が余った場合)
