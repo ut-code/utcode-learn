@@ -39,7 +39,11 @@ app.get("/", (request, response) => {
 });
 app.listen(3000);
 ```
-
+:::tip JSONとは何か
+JSONは「JavaScript Object Notation」の略でJavaScriptのオブジェクト表記法を倣ったデータ記述方法のことです。
+つまりデータの保存は<Term type="javascriptObject">オブジェクト</Term>
+の形式で行うという決まり事です。表記法の名前なので臆する必要はありません。
+:::
 :::tip JSON.stringify メソッド
 `JSON.stringify` メソッドはオブジェクトを JSON 形式の文字列に変換するメソッドです。
 :::
