@@ -46,7 +46,9 @@ server.listen(3000);
 ![HTTPサーバー](./http-server.png)
 
 :::caution Web サーバーの停止
+
 このプログラムは、一度起動すると停止しません。サーバーにとって、クライアントからのリクエストはいつやってくるかわからないため、常に起動し続けている必要があるからです。Node.js プログラムを終了するには、ターミナル上で `Ctrl + C` を押します。
+
 :::
 
 [`http.Server` クラス](https://nodejs.org/api/http.html#class-httpserver) は、サーバーを作成するためのクラスです。このクラスの [`addListener` メソッド](https://nodejs.org/api/events.html#emitteraddlistenereventname-listener) は、イベントハンドラを追加するためのメソッドです。第 1 引数にイベントの名前、第 2 引数にイベントハンドラとなる関数オブジェクトを指定します。

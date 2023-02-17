@@ -130,6 +130,7 @@ app.listen(3000);
 <ViewSource url={import.meta.url} path="_samples/json-request-body" />
 
 :::tip `Content-Type` <Term type="httpHeaderBody">リクエスト・レスポンスヘッダ</Term>
+
 `Content-Type` ヘッダは、<Term type="httpHeaderBody">リクエストボディやレスポンスボディ</Term>の種類を識別するために使用されます。ここで使用する種類は、[**MIME タイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
 
 代表的な MIME タイプとして、次のような値が定義されています。

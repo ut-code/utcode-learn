@@ -40,15 +40,21 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 :::tip JSONとは何か
+
 JSONは「JavaScript Object Notation」の略でJavaScriptのオブジェクト表記法を倣ったデータ記述方法のことです。
 つまりデータの保存は<Term type="javascriptObject">オブジェクト</Term>
 の形式で行うという決まり事です。表記法の名前なので臆する必要はありません。
+
 :::
+
 :::tip JSON.stringify メソッド
+
 `JSON.stringify` メソッドはオブジェクトを JSON 形式の文字列に変換するメソッドです。
+
 :::
 
 :::tip URL として使用できない文字の対処方法
+
 URL として使用できない文字（日本語文字など）は[URL エンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScript なら `encodeURIComponent` 関数で変換できます。
 
 ```javascript
@@ -131,6 +137,7 @@ const books = [
 著者名を入力して送信すると、その著者の出版物が一覧表示されるシステムを作ってみましょう。
 
 :::tip `Array#filter` メソッド
+
 [`Array#filter` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が `true` となる要素だけからなる新しい配列を返すメソッドです。
 
 ```javascript

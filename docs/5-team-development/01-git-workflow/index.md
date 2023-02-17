@@ -78,11 +78,13 @@ HEAD が `master` ブランチを指している状態で、コミットを行�
 <video src={mergeVideo} controls muted autoPlay loop />
 
 :::tip Git 標準のエディタ
+
 コマンドラインからコミットを作成する際、`-m` オプションを指定しなかった場合、コミットメッセージを編集するためのエディタが起動します。このエディタは自分で設定することができますが、上の例では [nano](https://www.nano-editor.org/) が起動しており、この場合は `Ctrl + X` で終了します。
 
 環境によっては [Vim](https://www.vim.org/) が起動する場合があります。この場合は、`:q` を入力して `Enter` を押下することにより終了できます。
 
 <video src={editCommitMessageWithVim} controls muted autoPlay loop />
+
 :::
 
 ## コンフリクト

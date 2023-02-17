@@ -7,7 +7,9 @@ import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
 :::info
+
 macOS、WSL を利用する場合は Git は標準搭載なので追加インストールの必要なしです！
+
 :::
 
 ## GitHub への登録
@@ -20,7 +22,9 @@ macOS、WSL を利用する場合は Git は標準搭載なので追加インス
 
    ![create New Account](./pictures/github-signup.png)
    :::caution
+
    Username は、一度付けると変更が面倒なためよく考えてつけましょう。
+
    :::
 
 3. 公開鍵と秘密鍵の作成
@@ -98,7 +102,9 @@ $ git commit -m "init"
 ![さらに編集](pictures/additional-changes.png)
 
 :::tip `.gitignore`
+
 `.gitignore` ファイルで指定されたファイルはコミットされない。`npm install` で簡単にダウンロードできて容量が大きいのでバージョン管理するメリットのない `node_modules` や、機密情報や環境ごとに異なる情報を含む `.env` といったファイルが指定されます。
+
 :::
 
 ### GitHub との同期
@@ -122,7 +128,9 @@ $ git remote add origin git@github.com:アカウント名/リポジトリ名.git
 このコマンドを実行することで、ローカルリポジトリに対し、URL で指定したリポジトリを `origin` という名前で関連付けさせます。
 
 :::note
+
 `origin` という名前は慣習的に決まっているものです。別の名前で登録することもできますが、あまり一般的ではありません。
+
 :::
 
 `origin` に対し、ローカルリポジトリの変更を**プッシュ**しましょう。
@@ -132,6 +140,7 @@ $ git push -u origin master
 ```
 
 :::info
+
 この操作の際、初回は以下のような警告が出る場合があります。
 
 ```
@@ -141,9 +150,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
 これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。家庭用のインターネット回線、UTokyo WiFi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、 `yes` を入力して続行させてください。
+
 :::
 
 :::tip
+
 `-u` オプションは、初回の `push` 時にその宛先を記憶し、次回以降自動的にその場所を指定するためのオプションです。2 回目以降は
 
 ```
@@ -151,6 +162,7 @@ $ git push
 ```
 
 だけで構いません。 `master` は、**ブランチ**と呼ばれるソースコードの編集の分岐の名前を表すものですが、この回ではまだ詳しく扱わないこととします。
+
 :::
 
 GitHub をリロードしてみてください。変更が反映されているのを確認できるはずです。
