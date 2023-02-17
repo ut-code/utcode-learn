@@ -50,7 +50,7 @@ document.write([3, 2, 1][0]);
 
 `[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、3 と表示されます。
 
-<ViewSource url={import.meta.url} path="_samples/array" />
+<ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
 
 </Answer>
 
@@ -130,7 +130,7 @@ for (let i = 0; i < f.length; i += 1) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/Array-class" />
+<ViewSource path="/docs/2-browser-apps/05-array/_samples/Array-class" />
 
 </Answer>
 

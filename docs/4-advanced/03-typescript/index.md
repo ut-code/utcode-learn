@@ -402,6 +402,6 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
    }
    ```
 
-   <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
+   <ViewSource path="/docs/4-advanced/03-typescript/_samples/apply" noCodeSandbox />
 
 </Answer>

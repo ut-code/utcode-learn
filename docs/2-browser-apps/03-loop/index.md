@@ -59,7 +59,7 @@ while (i <= 10) {
 document.write(sum);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/answer-while" />
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-while" />
 
 </Answer>
 
@@ -110,7 +110,7 @@ for (let i = 1; i <= 10; i += 1) {
 document.write(sum);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/answer-for" />
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/answer-for" />
 
 </Answer>
 
@@ -126,7 +126,7 @@ for (let x = 0; x < 5; x += 1) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/nested-loop" />
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/nested-loop" />
 
 :::tip テンプレートリテラル
 テンプレートリテラルは、文字列をプログラム中に記述する方法の一種です。ただ、文字列中に別の式を埋め込めるという特徴があります。
@@ -161,6 +161,6 @@ for (let x = 1; x <= 9; x += 1) {
 document.write("</table>");
 ```
 
-<ViewSource url={import.meta.url} path="_samples/times-table" />
+<ViewSource path="/docs/2-browser-apps/03-loop/_samples/times-table" />
 
 </Answer>
