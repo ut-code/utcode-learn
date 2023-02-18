@@ -30,7 +30,9 @@ class Student {
 ```
 
 :::info
+
 クラスの名前は、通常の<Term type="camelCase">キャメルケース</Term>の最初の文字を大文字にした<Term type="pascalCase">パスカルケース</Term>で記述するのが普通です。
+
 :::
 
 `new` 演算子をクラスに対して適用すると、設計図に基づいてオブジェクトが作成されます。こうしてできたオブジェクトを、もとになったクラスの**インスタンス**と呼びます。今回の `age` プロパティのように、インスタンスのプロパティにデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、プロパティに新たな値を代入してデフォルト値を書き換えることもできます。
@@ -45,6 +47,7 @@ document.write(tanaka.age); // age プロパティのデフォルト値は 18
 ![クラスとインスタンス](./class-instance.png)
 
 :::tip `undefined` という値
+
 上で定義した `Student` クラスには、デフォルト値の指定されていないプロパティ `name` が存在します。`new Student` をした直後のオブジェクトの `name` プロパティの値はどうなっているのでしょうか。
 
 実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。これまで、JavaScript の値には数値、文字列、論理値、オブジェクトがあるとしてきましたが、これらとはまた別の値です。
@@ -100,9 +103,11 @@ tanaka.introduceSelf();
 ```
 
 :::tip メソッドやプロパティの表記と `prototype`
+
 多くの言語で、クラス `Class` のメソッドやプロパティ `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されているメソッドは `Student#introduceSelf` メソッドです。
 
 ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+
 :::
 
 ### 課題
@@ -314,6 +319,7 @@ document.write(myBirthDay.getFullYear()); // 2014
 `getFullYear` メソッドは、年となる数値を返すメソッドです。
 
 :::tip `Object` クラス
+
 JavaScript では、**全てのオブジェクトは[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全てのオブジェクトは `Object` クラスのメソッドを使用することができます。また、プリミティブな値でも、メソッドを呼び出すと自動的にオブジェクトに変換されます。
 
 `toString` メソッドはその一つで、オブジェクトの文字列表記を返します。このメソッドはオーバーライド可能で、たとえば `Date` クラスではこのメソッドがオーバーライドされています。

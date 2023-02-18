@@ -16,7 +16,9 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 ![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
 
 :::tip ほかの言語の経験者へ
+
 JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
+
 :::
 
 ## オブジェクトの作成
@@ -41,6 +43,7 @@ let person = {
 :::note
 
 <p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="css">CSS</Term> における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
+
 :::
 
 ## <Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更する

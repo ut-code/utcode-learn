@@ -77,7 +77,9 @@ app.listen(3000);
 これにより、リクエストのパスをもとに、`static` フォルダ内の適切なファイルが自動的に配信されます。
 
 :::tip `index.html` の省略
+
 `express.static` を用いる場合、`index.html` は省略可能になります。つまり、`/` へのリクエストで `static/index.html` が、`/sub` へのリクエストで `static/sub/index.html` にアクセスできるようになります。これは、Express や JavaScript に限ったことではなく、多くの Web サーバーの実装において、こういったルールが成り立ちます。
+
 :::
 
 ## EJS テンプレートエンジン
@@ -110,6 +112,7 @@ app.listen(3000);
 ```
 
 :::note `Array#join`
+
 [`Array#join` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
 
 ```javascript

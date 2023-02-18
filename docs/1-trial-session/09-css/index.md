@@ -42,6 +42,7 @@ color: red;
 CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾)等、数えきれないほどの種類が定義されています。
 
 :::tip どうやって調べたらいいの？
+
 プログラミングを始めたての間は、分からないことがあったときにどのように調べたら良いのか戸惑うことが多いと思います。そんなときは、次のような手順で調べてみましょう。例として、「文字を赤くする方法」を調べてみます。
 
 #### 1. タスクを細かく分割する
@@ -55,6 +56,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 #### 3. 周辺知識を信頼できる情報源で調べる
 
 見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+
 :::
 
 ## 課題 (時間が余った場合)

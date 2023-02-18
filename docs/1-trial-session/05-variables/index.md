@@ -32,6 +32,7 @@ document.write(myGreatName);
 :::note
 
 <p><Term type="javascript">JavaScript</Term> の<Term type="javascriptVariable">変数</Term>名には、通常<Term type="camelCase">キャメルケース</Term>が用いられます。<Term type="snakeCase">スネークケース</Term>や<Term type="pascalCase">パスカルケース</Term>などの命名規則が利用される文法もあります。</p>
+
 :::
 
 <p><Term type="javascriptVariable">変数</Term>の<Term type="javascriptDeclaration">宣言</Term>と同時に初回の<Term type="javascriptAssignment">代入</Term>を行うこともできます。</p>

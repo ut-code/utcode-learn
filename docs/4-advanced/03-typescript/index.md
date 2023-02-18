@@ -45,7 +45,9 @@ function formatDate(date: Date) {
 <video src={typescriptDemoVideo} controls autoPlay muted loop />
 
 :::tip 静的型言語との比較
+
 C++ や Java などの一般的なプログラミング言語では、型の情報は実行に何らかの影響を与えますが、TypeScript は JavaScript にトランスパイルされる言語であり、実行時には型の情報は一切利用されません。
+
 :::
 
 ## TypeScript を使って Node.js のプログラムを記述する
@@ -124,6 +126,7 @@ const c: 1 = 1; // 左辺の 1 はデータ型 (unknown の部分集合) とし�
 ![TypeScript のデータ型](./typescript-types.drawio.svg)
 
 :::tip `any` 型
+
 TypeScript の標準設定では、型が判明しなかった場合、`any` 型が指定されたものとみなされます。`any` 型の値には、どんな操作でも許容されます。`any` 型の値はどんな型の変数にも代入できますし、`any` 型の変数にはどんな値でも代入できます。上の集合のどの部分にも当てはまりません。
 
 ```typescript
@@ -147,7 +150,9 @@ const age: Age = 18;
 ```
 
 :::tip
+
 型の名前には通常<Term type="pascalCase">パスカルケース</Term>が用いられます。
+
 :::
 
 ### オブジェクト型
@@ -337,9 +342,11 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 <video src={viteTypescriptVideo} controls />
 
 :::tip `tsconfig.json`
+
 この方法でプロジェクトを作成すると、`tsconfig.json` というファイルが生成されます。TypeScript は、さまざまな JavaScript のニーズに合わせてカスタマイズできるようになっており、その設定を記述するためのファイルが `tsconfig.json` です。
 
 [公式ドキュメント](https://www.typescriptlang.org/tsconfig) には、全てのオプションの詳細な説明が記述されています。特に、[`strict` オプション](https://www.typescriptlang.org/tsconfig#strict)は、TypeScript の能力を大幅に上昇させることができるので、有効にすることが推奨されています。`typescript` パッケージを直接インストールしたプロジェクトでは、`npx tsc --init` コマンドによりこのファイルを生成できます。
+
 :::
 
 ## 課題

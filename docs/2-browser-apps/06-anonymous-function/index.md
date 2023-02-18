@@ -47,6 +47,7 @@ JavaScript における関数式の構文は、次のとおりです。`=>` の�
 ```
 
 :::tip 無名関数を用いて関数定義を書き換える
+
 通常の関数定義の構文は、ほとんど関数式を使用して書き換えることができます。次のプログラムにおいて、`add1` と `add2` はほとんど等価なものとみなすことができます。
 
 ```javascript
@@ -62,6 +63,7 @@ const add2 = (a, b) => {
 :::
 
 :::tip アロー関数
+
 この項で扱った無名関数式を、`=>` 記号が矢のように見えることから、<Term type="arrowFunction" strong>アロー関数</Term>と呼ぶことがあります。JavaScript には、アロー関数の他にもう一つ、無名関数を記述する方法があります。
 
 ```javascript
@@ -71,6 +73,7 @@ const add3 = function (a, b) {
 ```
 
 古い文献ではこちらの記法が採用されている場合がありますが、現代ではほとんど用いられません。
+
 :::
 
 ## 無名関数を用いると便利な関数
@@ -88,6 +91,7 @@ document.write(stars); // ★★★,★★★★★,★
 ```
 
 :::tip プリミティブ値のラッパーオブジェクト
+
 数値や文字列、論理値には、それぞれ対応するクラスが存在し、そのクラスのメソッドが使用できます。[クラスとインスタンスの節](../04-class/index.md)でこうしたプリミティブ値に対して `toString` メソッドが使用できたのは、これらのクラスが `Object` クラスを継承しているからです。
 
 | プリミティブ値 | 対応するクラス                                                                                   |
@@ -97,6 +101,7 @@ document.write(stars); // ★★★,★★★★★,★
 | 論理値         | [Boolean](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
 
 上のプログラムで使用されているのは[`String#repeat` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)で、文字列を指定された回数繰り返した文字列を返すメソッドです。
+
 :::
 
 ## アロー関数の省略形
@@ -121,7 +126,9 @@ if (/* すべての点数が 50 点以上なら */) {
 ```
 
 :::info ヒント
+
 「全ての要素が特定の条件を満たすかどうか」を調べるメソッドがあります。
+
 :::
 
 <Answer>

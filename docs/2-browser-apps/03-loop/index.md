@@ -44,7 +44,9 @@ while (条件式) {
 1 から 10 までの整数の合計を計算するプログラムを作ってみましょう。
 
 :::tip ヒント
+
 `1` から `10` まで順番に増えていく変数 `i` と、合計値を保存しておく変数 `sum` を用意しましょう。
+
 :::
 
 <Answer>
@@ -77,9 +79,11 @@ document.write("終了");
 ```
 
 :::tip 複合代入演算子
+
 [複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)は、計算と代入を同時に行うことができる演算子です。
 
 `x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。
+
 :::
 
 `for` 文の文法は次の通りです。
@@ -129,6 +133,7 @@ for (let x = 0; x < 5; x += 1) {
 <ViewSource url={import.meta.url} path="_samples/nested-loop" />
 
 :::tip テンプレートリテラル
+
 テンプレートリテラルは、文字列をプログラム中に記述する方法の一種です。ただ、文字列中に別の式を埋め込めるという特徴があります。
 
 ```javascript
@@ -139,6 +144,7 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 通常の文字列は `"` (ダブルクォーテーション) で囲って記述するのに対し、テンプレートリテラルでは <code>`</code> (バッククォーテーション) を用います。
 
 ![バッククォーテーション](./backquote.drawio.svg)
+
 :::
 
 ### 課題
