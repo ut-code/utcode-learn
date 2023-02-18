@@ -61,7 +61,7 @@ omikujiButton.onclick = omikuji;
 
 ### 解答例
 
-<ViewSource path="/docs/1-trial-session/13-project/_samples/omikuji" />
+<ViewSource url={import.meta.url} path="_samples/omikuji" />
 
 ## ストップウォッチ
 
@@ -130,4 +130,4 @@ stopButton.onclick = stop;
 
 ### 解答例
 
-<ViewSource path="/docs/1-trial-session/13-project/_samples/stopwatch" />
+<ViewSource url={import.meta.url} path="_samples/stopwatch" />
