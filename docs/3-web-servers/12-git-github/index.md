@@ -262,12 +262,12 @@ GitHub を開いているブラウザを更新して、プログラムが反映�
 
 ## GitHub を用いた共同開発をする
 
-GitHub を用いると簡単に共同開発ができます。
+GitHub を用いると簡単に共同開発ができます。ここでは、[練習用のリポジトリ](https://github.com/ut-code/readme_practice)に変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、権限をもらっておきましょう。
 
-まずは、共同開発をするリポジトリをローカルにクローンし、VSCode で開きます。[ut.code(); Learn のリポジトリ](https://github.com/ut-code/utcode-learn)に変更を加えてみましょう。変更を加えるのには、ut.code(); のリポジトリの編集権限が必要なので、権限を持っている人から編集権限をもらいましょう。(実は、リポジトリをフォークすれば、権限を持っていなくても共同開発に参加できます。もちろん、一番最後のマージは承認が必要ですが。)
+まずは、共同開発をするリポジトリをローカルにクローンし、VSCode で開きます。
 
 ```shell
-git clone git@github.com:ut-code/utcode-learn.git
+git clone git@github.com:ut-code/readme_practice.git
 ```
 
 次にブランチを作成します。ブランチは、ソースコードへの変更を分岐して行うための仕組みです。ブランチを作成することで、複数の変更を同時に進めていくことができます。
@@ -276,12 +276,12 @@ git clone git@github.com:ut-code/utcode-learn.git
 
 ```shell
 $ git branch
-* master
+* main
 ```
 
-ここで、`*` から始まっているのが、現在いるブランチです。`master` となっているはずです。
+ここで、`*` から始まっているのが、現在いるブランチです。`main` となっているはずです。
 
-次に、新しいブランチを作成して、移動します。ブランチ名は作業する内容がわかるような名前にしてください。
+次に、変更を行うために新しいブランチを作成して、移動します。ブランチ名は作業する内容が端的にわかるような名前にしてください。
 
 ```shell
 git checkout -b 新しいブランチ名
@@ -291,15 +291,16 @@ git checkout -b 新しいブランチ名
 
 ```shell
 $ git branch
-  master
+  main
 * 新しいブランチ名
 ```
 
 この状態で、ファイルに必要な変更を行います。
-その後、変更をステージし、コミットします。
+練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。
+変更ができたらその都度、変更をステージし、コミットします。
 必要に応じて、コミットの履歴やコミットの差分を確認してください。
 
-次に、変更を加えたブランチをリモートリポジトリにプッシュして、プルリクエストをします。
+変更が終わったら、変更を加えたブランチをリモートリポジトリにプッシュして、プルリクエストをします。
 
 ```shell
 git push origin ブランチ名
@@ -307,7 +308,7 @@ git push origin ブランチ名
 
 とすると、変更を加えたブランチをリモートリポジトリにプッシュできます。
 
-ここで、GitHub を開き `Pull requests` を開いてください。
+プッシュができたら、GitHub を開き `Pull requests` を開いてください。
 
 ![Pull requests](./pull-requests-tab.png)
 
@@ -321,6 +322,14 @@ git push origin ブランチ名
 
 ![Comparing changes](./comparing-changes.png)
 
-`Create pull request` を押すと、プルリクエストが作成できます。後は、プルリクエストした内容が承認されると、マージできるようになるので、マージしてください。
+`Create pull request` を押してください。
 
-マージしたら、不要になったブランチは削除しておきましょう。ut.code(); Learn のリポジトリでは、自動で削除されます。
+![Create pull request](./create-pull-request.png)
+
+確認画面が出るので、コメントを書いて `Create pull request` を押してください。これで、プルリクエストを作成することができました。
+
+![Merge pull request](./merge-pull-request.png)
+
+変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
+
+マージしたら、不要になったブランチは削除しておきましょう。
