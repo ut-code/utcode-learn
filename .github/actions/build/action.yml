@@ -1,6 +1,8 @@
 ---
+name: Build
+
 runs:
-  using: "Composite"
+  using: Composite
   steps:
     - name: Install npm Modules
       uses: ./.github/actions/install-modules

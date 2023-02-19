@@ -1,6 +1,8 @@
 ---
+name: Install npm Modules
+
 runs:
-  using: "Composite"
+  using: Composite
   steps:
     - name: Setup Node.js
       uses: actions/setup-node@v3
