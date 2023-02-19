@@ -6,7 +6,7 @@ module.exports = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); Learn",
   url: "https://learn.utcode.net/",
-  baseUrl: "/",
+  baseUrl: process.env.NODE_ENV === "development" ? "/" : process.env.BASE_URL,
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
   organizationName: "ut-code",

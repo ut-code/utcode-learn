@@ -15,3 +15,5 @@ jobs:
 
       - name: Build
         uses: ./.github/actions/build
+        with:
+          base-url: "/"

@@ -1,6 +1,10 @@
 ---
 name: Build
 
+inputs:
+  base-url:
+    required: true
+
 runs:
   using: Composite
   steps:
@@ -9,4 +13,6 @@ runs:
 
     - name: Build
       run: npm run build
+      env:
+        BASE_URL: ${{ inputs.base-url }}
       shell: bash
