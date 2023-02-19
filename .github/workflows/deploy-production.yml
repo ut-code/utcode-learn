@@ -1,5 +1,5 @@
 ---
-name: Build and Deploy
+name: Build and Deploy in Production Environment
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    name: Build and Deploy
+    name: Build and Deploy in Production Environment
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
