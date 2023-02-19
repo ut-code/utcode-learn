@@ -45,7 +45,9 @@ for (let i = 1; i <= 42; i += 1) {
     i >= startDate.getDay() + 1 &&
     i <= startDate.getDay() + endDate.getDate()
   ) {
-    container[`${String(i)}`].firstChild.textContent = `${i - startDate.getDay()}`;
+    container[`${String(i)}`].firstChild.textContent = `${
+      i - startDate.getDay()
+    }`;
   }
 }
 
@@ -101,7 +103,10 @@ function clicked(e) {
     if (e.target.class === "task") {
       button.style.visibility = "visible";
       editTask(e);
-    } else if (e.target.tagName === "TD" && e.target.firstChild.textContent !== "") {
+    } else if (
+      e.target.tagName === "TD" &&
+      e.target.firstChild.textContent !== ""
+    ) {
       button.style.visibility = "visible";
       addTask(e);
     }

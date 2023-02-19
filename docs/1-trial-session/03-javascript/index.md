@@ -51,7 +51,9 @@ document.write("Hello World!");
 まず、この記述によって、 `script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが <Term type="javascript">JavaScript</Term> です。
 
 :::note
+
 この講座の中では、`script` <Term type="element">要素</Term>を常に **`body` <Term type="element">要素</Term>の末尾**に記述するようにします。これは、<Term type="javascript">JavaScript</Term> が読み込まれるタイミングで他のすべての <Term type="element">HTML 要素</Term>がすでに表示されていることを保証するためです。
+
 :::
 
 ## <Term type="javascript">JavaScript</Term> の基本文法
@@ -76,5 +78,7 @@ document.write("Hello World"); // この部分もコメントです
 ```
 
 :::tip
-改行が表示されず困っていますか？`document.write`はHTMLタグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
+
+改行が表示されず困っていますか？`document.write`は HTML タグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
+
 :::

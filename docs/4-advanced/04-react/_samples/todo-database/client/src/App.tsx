@@ -31,7 +31,7 @@ export default function App() {
 
     return () => {
       clearInterval(timerId);
-    }
+    };
   }, []);
   const [newTodo, setNewTodo] = useState<string>("");
   const [edittingTodo, setEdittingTodo] = useState<Todo>({ id: -1, title: "" });

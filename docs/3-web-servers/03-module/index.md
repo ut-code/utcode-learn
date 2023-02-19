@@ -95,12 +95,14 @@ console.log(add(3, 4));
 ```
 
 :::tip 分割代入
+
 [**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) の記法を用いると、オブジェクトからプロパティを取り出して変数に代入する操作を簡潔に記述できます。この記法を使用すると、上のプログラムは次のように簡略化できます。
 
 ```javascript title=main.js
 const { add } = require("./sub");
 console.log(add(3, 4));
 ```
+
 :::
 
 ## 標準<Term type="javascriptModule">モジュール</Term>
@@ -117,14 +119,16 @@ Hello World
 ```
 
 :::tip 文字コード
+
 **文字コード**とは、文字のコンピューターによる表現です。`UTF-8` や `Shift_JIS` などさまざまな方式が定義されていますが、現在では通常 `UTF-8` を選んでおけば問題ありません。間違った方式を選んでしまうと、意図と異なる文字として解釈されてしまう現象 (**文字化け**)が起こります。
+
 :::
 
 ### 課題
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
-<ViewSource path="/docs/3-web-servers/03-module/_samples/fs-writeFileSync" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/fs-writeFileSync" noCodeSandbox />
 
 ## npm
 
@@ -147,6 +151,7 @@ npm install date-fns
 <video src={npmInstallVideo} controls muted autoPlay loop />
 
 :::tip JSON
+
 npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、 JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
 
 JSON は、JavaScript のオブジェクト記法よりも制限が厳しくなっています。例えば、
@@ -173,6 +178,7 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 ```
 
 のようにしなければなりません。
+
 :::
 
 ## npm のパッケージを Node.js から利用する
@@ -192,4 +198,4 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
 
-<ViewSource path="/docs/3-web-servers/03-module/_samples/math-js" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />

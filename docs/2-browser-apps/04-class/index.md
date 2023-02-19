@@ -9,7 +9,7 @@ import Answer from "@site/src/components/Answer";
 
 ## クラスとインスタンス
 
-オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ形（＝同じプロパティを持つ）のオブジェクトを多く扱う場合が多いです。例えば、学生をオブジェクトとして表すことを考えてみましょう。学生には必ず名前と年齢があるはずなので、ひとまず `name` と `age` をプロパティに持つとしましょう。
+<Term type="javascriptObject">オブジェクト</Term>を使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term type="javascriptProperty">プロパティ</Term>(属性)を持つ<Term type="javascriptObject">オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term type="javascriptObject">オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term　type="javascriptProperty">プロパティ</Term>に持つとしましょう。
 
 ```javascript
 const tanaka = {
@@ -18,9 +18,9 @@ const tanaka = {
 };
 ```
 
-同じ形をしたオブジェクトを統一的に扱うための仕組みが **クラス** です。クラスは、オブジェクトの設計図になります。
+同じ属性を持つオブジェクトを複数生成するときに役立つのが **クラス** です。クラスでは、オブジェクトのプロパティを予め設定しておくだけでなく、後のメソッドの節で説明するように、プロパティを引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。クラスは、同じプロパティを持つオブジェクトを統一的に扱うための仕組みであり、オブジェクトの設計図と言えます。
 
-次のコードでは、先ほど作った `tanaka` のように `name` や `age` というプロパティを持つオブジェクトの設計図として、クラス `Student` を定義しています。
+次のコードでは、先ほど作った `tanaka` のように `name` や `age` というプロパティを持つオブジェクトの設計図として、クラス `Student` を定義しています。クラスでは、この例の `age` プロパティのように、デフォルトの値を設定することができます。
 
 ```javascript
 class Student {
@@ -30,10 +30,12 @@ class Student {
 ```
 
 :::info
-クラスの名前は、通常の<Term type="camelCase">キャメルケース</Term>の最初の文字だけを大文字にした<Term type="pascalCase">パスカルケース</Term>で記述するのが普通です。
+
+クラスの名前は、通常の<Term type="camelCase">キャメルケース</Term>の最初の文字を大文字にした<Term type="pascalCase">パスカルケース</Term>で記述するのが普通です。
+
 :::
 
-`new` 演算子をクラスに対して適用すると、設計図に基づいてオブジェクトが作成されます。こうしてできたオブジェクトを、もとになったクラスの**インスタンス**と呼びます。
+`new` 演算子をクラスに対して適用すると、設計図に基づいてオブジェクトが作成されます。こうしてできたオブジェクトを、もとになったクラスの**インスタンス**と呼びます。今回の `age` プロパティのように、インスタンスのプロパティにデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、プロパティに新たな値を代入してデフォルト値を書き換えることもできます。
 
 ```javascript
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
@@ -45,6 +47,7 @@ document.write(tanaka.age); // age プロパティのデフォルト値は 18
 ![クラスとインスタンス](./class-instance.png)
 
 :::tip `undefined` という値
+
 上で定義した `Student` クラスには、デフォルト値の指定されていないプロパティ `name` が存在します。`new Student` をした直後のオブジェクトの `name` プロパティの値はどうなっているのでしょうか。
 
 実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。これまで、JavaScript の値には数値、文字列、論理値、オブジェクトがあるとしてきましたが、これらとはまた別の値です。
@@ -58,16 +61,18 @@ function emptyFunction() {}
 document.write(emptyObject.unknownProperty); // 存在しないプロパティは undefined
 document.write(emptyFunction()); // 値を返さない関数の戻り値は undefined
 ```
+
 :::
 
 ### 課題
+
 `weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/class" />
+<ViewSource url={import.meta.url} path="_samples/class-car" />
 
 ## メソッド
 
-同じ形をしたオブジェクトに対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。
+同じプロパティを持つオブジェクトに対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` クラスに、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
 
 オブジェクトに対して定義されている関数を**メソッド**と呼びます。メソッドの定義はクラス定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
@@ -98,9 +103,11 @@ tanaka.introduceSelf();
 ```
 
 :::tip メソッドやプロパティの表記と `prototype`
+
 多くの言語で、クラス `Class` のメソッドやプロパティ `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されているメソッドは `Student#introduceSelf` メソッドです。
 
 ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+
 :::
 
 ### 課題
@@ -129,13 +136,13 @@ tanaka.incrementAge();
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/method" />
+<ViewSource url={import.meta.url} path="_samples/method-incrementAge" />
 
 </Answer>
 
 ## コンストラクタ
 
-**コンストラクタ**は、インスタンスを作成するタイミング（`new` 演算子をクラスに適用するタイミング）で実行される特殊なメソッドです。コンストラクタとなるメソッドは `constructor` という名前で定義する必要があります。
+**コンストラクタ**は、インスタンスを作成するタイミング（`new` 演算子をクラスに適用するタイミング）で実行される特殊なメソッドです。コンストラクタとなるメソッドは `constructor` という名前で定義する必要があります。コンストラクタを定義すると、`new Student` を実行してインスタンスを生成するときにプロパティの設定も同時に行うことができます。
 
 ```javascript
 class Student {
@@ -144,6 +151,8 @@ class Student {
 
   // コンストラクタを定義する
   constructor(name, yearOfBirth, currentYear) {
+    // this.name は作成されたインスタンスのプロパティ
+    // name はインスタンス生成時に代入する値
     this.name = name;
     this.age = currentYear - yearOfBirth;
   }
@@ -156,6 +165,70 @@ class Student {
 const tanaka = new Student("田中", 2004, 2022);
 tanaka.introduceSelf();
 ```
+
+クラスとコンストラクタのメリットを理解するために、クラスのインスタンスを複数生成する場合を考えましょう。例えば、田中さん、鈴木さん、佐藤さんが続けて自己紹介する場合、クラスを使わないでコードを書くと以下のようになります。
+
+```javascript
+const tanaka = {
+  name: "田中",
+  age: 18,
+  introduceSelf() {
+    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+  },
+};
+
+const suzuki = {
+  name: "鈴木",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+  },
+};
+
+const sato = {
+  name: "佐藤",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+  },
+};
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
+```
+
+オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
+では、クラスとコンストラクタを用いるとどうでしょうか。
+
+```javascript
+class Student {
+  name;
+  age;
+
+  // コンストラクタを定義する
+  constructor(name, age) {
+    // this は作成されたインスタンスを指す
+    this.name = name;
+    this.age = age;
+  }
+
+  // メソッド introduceSelf を定義する
+  introduceSelf() {
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+  }
+}
+
+const tanaka = new Student("田中", 18);
+const suzuki = new Student("鈴木", 20);
+const sato = new Student("佐藤", 20);
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
+```
+
+クラスの定義自体はやや長いものの、1 つのオブジェクトの定義はたった 1 行で済みます。これならオブジェクトの数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
 
 ## 継承
 
@@ -208,12 +281,14 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 class Student {
   name;
   age;
+
   introduceSelf() {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
 class SeniorStudent extends Student {
   researchQuestion;
+
   introduceSelf() {
     super.introduceSelf();
     document.write(`研究テーマは${this.researchQuestion}です。`);
@@ -226,7 +301,7 @@ tanaka.researchQuestion = "量子力学";
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/inheritance" />
+<ViewSource url={import.meta.url} path="_samples/inheritance-class-SeniorStudent" />
 
 </Answer>
 
@@ -244,6 +319,7 @@ document.write(myBirthDay.getFullYear()); // 2014
 `getFullYear` メソッドは、年となる数値を返すメソッドです。
 
 :::tip `Object` クラス
+
 JavaScript では、**全てのオブジェクトは[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全てのオブジェクトは `Object` クラスのメソッドを使用することができます。また、プリミティブな値でも、メソッドを呼び出すと自動的にオブジェクトに変換されます。
 
 `toString` メソッドはその一つで、オブジェクトの文字列表記を返します。このメソッドはオーバーライド可能で、たとえば `Date` クラスではこのメソッドがオーバーライドされています。
@@ -266,6 +342,7 @@ document.write((123).toString()); // 123
 document.write("Hello World!".toString()); // Hello World!
 document.write(false.toString()); // false
 ```
+
 :::
 
 ### 課題
@@ -282,4 +359,4 @@ document.write(false.toString()); // false
 
 (発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/HTMLDivElement" />
+<ViewSource url={import.meta.url} path="_samples/HTMLDivElement" />

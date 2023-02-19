@@ -43,6 +43,7 @@ greetButton.onclick = clicked;
 <video src={handleClickVideo} autoPlay muted loop controls />
 
 :::info
+
 下のコードは意図したとおりに動作しません。何が間違っているのでしょうか。
 
 ```javascript
@@ -61,8 +62,11 @@ greetButton.onclick = clicked();
 ```
 
 では<Term type="javascriptAssignment">代入</Term>より前、<Term type="javascriptExpression">式</Term> `clicked()` が<Term type="javascriptEvaluation">評価</Term>されたタイミングで `clicked` <Term type="javascriptFunction">関数</Term>が実行されてしまいます。
+
 :::
 
 :::caution
+
 上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、 `document.write` をすべての<Term type="element">要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term type="element">要素</Term>を一度削除するという挙動をとるためです。このため、現代の <Term type="javascript">JavaScript</Term> において、 `document.write` <Term type="javascriptFunction">関数</Term>が使用されることはほとんどありません。
+
 :::

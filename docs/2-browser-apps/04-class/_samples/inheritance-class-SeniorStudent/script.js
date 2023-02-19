@@ -1,17 +1,19 @@
 class Student {
-    name;
-    age;
-    introduceSelf() {
-        document.write(`私の名前は${this.name}です。${this.age}歳です。`);
-    }
+  name;
+  age;
+
+  introduceSelf() {
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
+  }
 }
 
 class SeniorStudent extends Student {
-    researchQuestion;
-    introduceSelf() {
-        super.introduceSelf();
-        document.write(`研究テーマは${this.researchQuestion}です。`);
-    }
+  researchQuestion;
+
+  introduceSelf() {
+    super.introduceSelf();
+    document.write(`研究テーマは${this.researchQuestion}です。`);
+  }
 }
 
 const tanaka = new SeniorStudent();

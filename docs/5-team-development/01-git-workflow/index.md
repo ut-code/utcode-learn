@@ -78,11 +78,13 @@ HEAD が `master` ブランチを指している状態で、コミットを行�
 <video src={mergeVideo} controls muted autoPlay loop />
 
 :::tip Git 標準のエディタ
+
 コマンドラインからコミットを作成する際、`-m` オプションを指定しなかった場合、コミットメッセージを編集するためのエディタが起動します。このエディタは自分で設定することができますが、上の例では [nano](https://www.nano-editor.org/) が起動しており、この場合は `Ctrl + X` で終了します。
 
 環境によっては [Vim](https://www.vim.org/) が起動する場合があります。この場合は、`:q` を入力して `Enter` を押下することにより終了できます。
 
 <video src={editCommitMessageWithVim} controls muted autoPlay loop />
+
 :::
 
 ## コンフリクト
@@ -116,7 +118,9 @@ HEAD が `master` ブランチを指している状態で、コミットを行�
 この例の場合、共通の祖先に対して `master` は `<li>三四郎</li>` が、`feature` は `<li>こころ</li>` が**同じ場所に**追加されています。この状態で `git merge feature` を実行すると、Git は**コンフリクト**を報告し、マージを中断します。コンフリクトが発生したファイルには、Git により自動的に `<<<<<<<` や `=======`、`>>>>>>>` といったコンフリクトマーカーが挿入されます。
 
 <!-- 頭にインデントを入れておくことで Markdown ファイルのコンフリクトと認識させない -->
+
 <CodeBlock language="html">{outdent`
+
   <li>吾輩は猫である</li>
   <li>坊っちゃん</li>
   <<<<<<< HEAD
