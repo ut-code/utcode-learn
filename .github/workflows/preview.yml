@@ -1,0 +1,33 @@
+---
+name: Deploy PR Previews
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopend
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    name: Deploy PR Previews
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Make BASE_URL
+        run: echo ${{ github.ref }} | sed "s/[^0-9]//g" | (pr_number=$(cat); echo -e "BASE_URL=/utcode-learn/pr-preview/pr-$pr_number/") >> $GITHUB_ENV
+
+      - name: Build
+        uses: ./.github/actions/build
+        with:
+          base-url: $BASE_URL
+
+      - name: Deploy Preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: build
