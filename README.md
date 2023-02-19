@@ -19,6 +19,7 @@ ut.code(); Learn is a web learning material created by ut.code(); and built with
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Local Development](#local-development)
+  - [Code Style](#code-style)
 - [Contributing](#contributing)
 
 ## About
@@ -50,6 +51,10 @@ npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Code Style
+
+This document is formatted with Prettier.
 
 ## License
 
