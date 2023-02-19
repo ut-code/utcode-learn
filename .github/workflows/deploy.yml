@@ -23,4 +23,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          clean-exclude: pr-preview/
           folder: build
