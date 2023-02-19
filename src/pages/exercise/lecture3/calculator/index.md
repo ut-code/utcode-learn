@@ -81,4 +81,4 @@ document.write(fruitSelect.value);
 
 ### 解答例
 
-<ViewSource path="/src/pages/exercise/lecture3/calculator/_samples" />
+<ViewSource url={import.meta.url} path="_samples" />
