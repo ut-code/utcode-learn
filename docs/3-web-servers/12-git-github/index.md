@@ -15,6 +15,7 @@ import secondCommitVideo from "./second-commit.mp4";
 import showGitHistoryVideo from "./show-git-history.mp4";
 import showGitHistoryWithCliVideo from "./show-git-history-with-cli.mp4";
 import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
+import prPracticeVideo from "./pr-practice.mp4";
 
 ## バージョン管理システム
 
@@ -333,3 +334,5 @@ git push origin ブランチ名
 変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
 
 マージしたら、不要になったブランチは削除しておきましょう。
+
+<video src={prPracticeVideo} muted controls />
