@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import installCommandLineDeveloperToolsVideo from "./install-command-line-developer-tools.mp4";
 import registerGitHubVideo from "./register-github.mp4";
 import addSshKeyVideo from "./add-ssh-key.mp4";
 import gitInitVideo from "./git-init.mp4";
@@ -23,11 +24,22 @@ import prPracticeVideo from "./pr-practice.mp4";
 
 **Git** は、現在最もよく使われるバージョン管理システムです。軽量ながらも多機能であり、周辺のエコシステムも非常に充実しています。
 
-<!-- :::info
+## Git をインストールする
 
-macOS、WSL を利用する場合は Git は標準搭載なので追加インストールの必要なしです！
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
 
-::: -->
+macOS の場合は、コマンドラインデベロッパツールが必要です。
+
+<video src={installCommandLineDeveloperToolsVideo} controls muted />
+
+  </TabItem>
+  <TabItem value="win" label="Windows (WSL)">
+
+WSL を利用する場合は Git は標準搭載なので追加でインストールする必要はありません。
+
+  </TabItem>
+</Tabs>
 
 ## GitHub への登録
 
