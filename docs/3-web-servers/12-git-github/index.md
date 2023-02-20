@@ -67,8 +67,8 @@ Git では、ファイルの変更だけでなく、その変更を行ったの�
 
 名前は必ず GitHub のアカウント名と一致させるようにしてください。メールアドレスは GitHub の登録の際に設定したメールアドレスが推奨されますが、メールアドレスを公開したくない場合は、[GitHub のメール設定](https://github.com/settings/emails)から
 
-- Keep my email address private
-- Block command line pushes that expose my email
+- `Keep my email addresses private`
+- `Block command line pushes that expose my email`
 
 を必要に応じて有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では `112743782+sample-ma9qke@users.noreply.github.com`) を Git に指定してください。
 
