@@ -59,7 +59,7 @@ app.listen(3000);
 
 これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドの<Term type="httpRequestResponse">リクエスト</Term>しか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
-<Term type="queryString">クエリパラメータ</Term>にアクセスするには、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) を使用しましたが、<Term type="httpHeaderBody">リクエストボディ</Term>を使用するには、`request.body` ([`express.Request#body` プロパティ](https://expressjs.com/ja/api.html#req.body)) を使用します。
+<p><Term type="queryString">クエリパラメータ</Term>にアクセスするには、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) を使用しましたが、<Term type="httpHeaderBody">リクエストボディ</Term>を使用するには、`request.body` ([`express.Request#body` プロパティ](https://expressjs.com/ja/api.html#req.body)) を使用します。</p>
 
 `app.use(express.urlencoded({ extended: true }));` は、<Term type="httpHeaderBody">リクエストボディ</Term>の解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term type="httpHeaderBody">リクエストボディ</Term>は、<Term type="queryString">クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
 

@@ -279,6 +279,24 @@ export default {
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
     },
+    javascriptClass: {
+      name: "クラス (JavaScript)",
+      definition:
+        "同じプロパティを持つオブジェクトを統一的に扱うための仕組み。プロパティや関数(メソッド)を予め設定できる。",
+      referencePage: "/docs/browser-apps/class/",
+    },
+    javascriptInstance: {
+      name: "インスタンス (JavaScript)",
+      definition:
+        "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
+      referencePage: "/docs/browser-apps/class/",
+    },
+    javascriptConstructor: {
+      name: "コンストラクタ (JavaScript)",
+      definition:
+        "インスタンスを作成するタイミング（new 演算子をクラスに適用するタイミング）で実行される特殊なメソッド。constructor という名前で定義する必要がある。コンストラクタを定義すると、インスタンスを生成するときにプロパティの設定も同時に行うことができる。",
+      referencePage: "/docs/browser-apps/class/",
+    },
     javascriptMethod: {
       name: "メソッド (JavaScript)",
       definition:
