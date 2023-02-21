@@ -56,7 +56,9 @@ npx prisma init
 <video src={prismaInitVideo} controls muted autoPlay loop />
 
 :::tip <Term type="npxCommand">`npx` コマンド</Term>
+
 <p><Term type="npxCommand"><code>npx</code> コマンド</Term>は、npm のパッケージを、プログラムからではなく直接実行するためのコマンドです。npm には <code>prisma</code> パッケージのように、直接実行専用のパッケージも存在します。</p>
+
 :::
 
 続いて、ElephantSQL からデータベースへの接続情報を `.env` ファイルにコピーします。これにより、Prisma は ElephantSQL 上の PostgreSQL サーバーと接続できるようになります。
@@ -139,7 +141,7 @@ asyncAwait();
 console.log("After asyncAwait()");
 ```
 
-<ViewSource path="/docs/3-web-servers/08-database/_samples/async-operations" />
+<ViewSource url={import.meta.url} path="_samples/async-operations" />
 
 このプログラムの結果は、次のようになります。
 
@@ -164,6 +166,7 @@ After asyncAwait()
 ![非同期処理](./async-await.png)
 
 :::tip (発展) Promise
+
 `async` キーワードのついた関数は、戻り値として [`Promise` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)のインスタンスを返却するようになります。この Promise クラスを用いることにより、コールバック型の非同期関数を `await` を用いることができる形に変換できます。
 
 ```javascript
@@ -179,7 +182,7 @@ function myReadFileAsync(fileName) {
         resolve(buffer);
       }
     });
-  })
+  });
 }
 
 async function myAsyncAwait() {
@@ -191,6 +194,7 @@ console.log("Before myAsyncAwait()");
 myAsyncAwait();
 console.log("After myAsyncAwait()");
 ```
+
 :::
 
 ## Prisma でデータベースのデータを読み書きする
@@ -235,4 +239,4 @@ main();
 
 [前頁](../07-get-post/index.md)で作成した掲示板システムのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
 
-<ViewSource path="/docs/3-web-servers/08-database/_samples/forum" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />

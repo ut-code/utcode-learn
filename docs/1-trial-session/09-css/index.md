@@ -12,10 +12,10 @@ import ViewSource from "@site/src/components/ViewSource";
 `p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
 
 ```html title="index.html"
-<p style="color: red;">Hello CSS!</p>
+<p style="color: red">Hello CSS!</p>
 ```
 
-<ViewSource path="/docs/1-trial-session/09-css/_samples/first-css" />
+<ViewSource url={import.meta.url} path="_samples/first-css" />
 
 次のように、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
@@ -42,6 +42,7 @@ color: red;
 CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾)等、数えきれないほどの種類が定義されています。
 
 :::tip どうやって調べたらいいの？
+
 プログラミングを始めたての間は、分からないことがあったときにどのように調べたら良いのか戸惑うことが多いと思います。そんなときは、次のような手順で調べてみましょう。例として、「文字を赤くする方法」を調べてみます。
 
 #### 1. タスクを細かく分割する
@@ -54,7 +55,8 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 #### 3. 周辺知識を信頼できる情報源で調べる
 
-見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScriptの場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDNでこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+
 :::
 
 ## 課題 (時間が余った場合)
@@ -71,4 +73,4 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
 
-<ViewSource path="/docs/1-trial-session/09-css/_samples/foo" />
+<ViewSource url={import.meta.url} path="_samples/foo" />

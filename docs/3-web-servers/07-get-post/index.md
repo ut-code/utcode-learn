@@ -1,6 +1,7 @@
 ---
 title: GET リクエストと POST リクエスト
 ---
+
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
@@ -55,11 +56,11 @@ app.post("/send", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/07-get-post/_samples/post-request" />
+<ViewSource url={import.meta.url} path="_samples/post-request" />
 
 これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドの<Term type="httpRequestResponse">リクエスト</Term>しか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
-<p><Term type="queryString">クエリパラメータ</Term>にアクセスするには、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) を使用しましたが、<Term type="httpHeaderBody">リクエストボディ</Term>を使用するには、`request.body` ([`express.Request#body` プロパティ](https://expressjs.com/ja/api.html#req.body)) を使用します。</p>
+<p><Term type="queryString">クエリパラメータ</Term>にアクセスするには、<code>request.query</code> (<a href="https://expressjs.com/ja/api.html#req.query" ><code>express.Request#query</code> プロパティ</a>) を使用しましたが、<Term type="httpHeaderBody">リクエストボディ</Term>を使用するには、<code>request.body</code> (<a href="https://expressjs.com/ja/api.html#req.body" ><code>express.Request#body</code> プロパティ</a>) を使用します。</p>
 
 `app.use(express.urlencoded({ extended: true }));` は、<Term type="httpHeaderBody">リクエストボディ</Term>の解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term type="httpHeaderBody">リクエストボディ</Term>は、<Term type="queryString">クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
 
@@ -85,11 +86,11 @@ app.listen(3000);
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>の中身を見ることができます。
+ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。すると URL エンコードされた<Term type="httpHeaderBody">リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 
-以上のようにして、POSTリクエストの中身を覗くことができます。
+以上のようにして、POST リクエストの中身を覗くことができます。
 
 ![GETリクエストとPOSTリクエスト](requestAndResponse.png)
 
@@ -101,13 +102,15 @@ app.listen(3000);
 - `POST /send`: リクエストボディに含まれている記事の内容を記録します。
 
 :::tip ヒント
+
 - イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
 - `GET /` では EJS を用いて配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
 - `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
+
 :::
 
 ### 解答例
 
 解答例は以下を参照してください。
 
-<ViewSource path="/docs/3-web-servers/07-get-post/_samples/bulletin-board" />
+<ViewSource url={import.meta.url} path="_samples/bulletin-board" />

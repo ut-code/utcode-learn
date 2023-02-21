@@ -30,7 +30,9 @@ class Student {
 ```
 
 :::info
+
 <Term type="javascriptClass">クラス</Term>の名前は、通常の<Term type="camelCase">キャメルケース</Term>の最初の文字を大文字にした<Term type="pascalCase">パスカルケース</Term>で記述するのが普通です。
+
 :::
 
 `new` 演算子を<Term type="javascriptClass">クラス</Term>に対して適用すると、設計図に基づいて<Term type="javascriptObject">オブジェクト</Term>が作成されます。こうしてできた<Term type="javascriptObject">オブジェクト</Term>を、もとになった<Term type="javascriptClass">クラス</Term>の　**<Term type="javascriptInstance">インスタンス</Term>**　と呼びます。今回の `age` <Term type="javascriptProperty">プロパティ</Term>のように、<Term type="javascriptClass">クラス</Term>の<Term type="javascriptProperty">プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term type="javascriptProperty">プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
@@ -45,6 +47,7 @@ document.write(tanaka.age); // age プロパティのデフォルト値は 18
 ![クラスとインスタンス](./class-instance.png)
 
 :::tip `undefined` という値
+
 上で定義した `Student` <Term type="javascriptClass">クラス</Term>には、デフォルト値の指定されていない<Term type="javascriptProperty">プロパティ</Term> `name` が存在します。`new Student` をした直後の<Term type="javascriptObject">オブジェクト</Term>の `name` <Term type="javascriptProperty">プロパティ</Term>の値はどうなっているのでしょうか。
 
 実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。これまで、JavaScript の値には数値、文字列、論理値、<Term type="javascriptObject">オブジェクト</Term>があるとしてきましたが、これらとはまた別の値です。
@@ -58,12 +61,14 @@ function emptyFunction() {}
 document.write(emptyObject.unknownProperty); // 存在しないプロパティは undefined
 document.write(emptyFunction()); // 値を返さない関数の戻り値は undefined
 ```
+
 :::
 
 ### 課題
+
 `weight` と `cost` をプロパティとして持ち、 `weight` のデフォルト値が `"1t"` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/class-car" />
+<ViewSource url={import.meta.url} path="_samples/class-car" />
 
 ## <Term type="javascriptMethod">メソッド</Term>
 
@@ -98,9 +103,11 @@ tanaka.introduceSelf();
 ```
 
 :::tip メソッドやプロパティの表記と `prototype`
+
 多くの言語で、<Term type="javascriptClass">クラス</Term> `Class` の<Term type="javascriptMethod">メソッド</Term>や<Term type="javascriptProperty">プロパティ</Term> `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されている<Term type="javascriptMethod">メソッド</Term>は `Student#introduceSelf` <Term type="javascriptMethod">メソッド</Term>です。
 
 ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+
 :::
 
 ### 課題
@@ -129,7 +136,7 @@ tanaka.incrementAge();
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/method-incrementAge" />
+<ViewSource url={import.meta.url} path="_samples/method-incrementAge" />
 
 </Answer>
 
@@ -163,27 +170,27 @@ tanaka.introduceSelf();
 
 ```javascript
 const tanaka = {
-    name : "田中",
-    age : 18,
-    introduceSelf() {
-        document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
-      }
+  name: "田中",
+  age: 18,
+  introduceSelf() {
+    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+  },
 };
 
 const suzuki = {
-    name : "鈴木",
-    age : 20,
-    introduceSelf() {
-        document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
-      }
+  name: "鈴木",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+  },
 };
 
 const sato = {
-    name : "佐藤",
-    age : 20,
-    introduceSelf() {
-        document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
-      }
+  name: "佐藤",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+  },
 };
 
 tanaka.introduceSelf();
@@ -196,29 +203,29 @@ sato.introduceSelf();
 
 ```javascript
 class Student {
-    name;
-    age;
-  
-    // コンストラクタを定義する
-    constructor(name, age) {
-        // this は作成されたインスタンスを指す
-        this.name = name;
-        this.age = age;
-      }
+  name;
+  age;
 
-    // メソッド introduceSelf を定義する
-    introduceSelf() {
-      document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
-    }
+  // コンストラクタを定義する
+  constructor(name, age) {
+    // this は作成されたインスタンスを指す
+    this.name = name;
+    this.age = age;
   }
-  
-  const tanaka = new Student("田中", 18);
-  const suzuki = new Student("鈴木", 20);
-  const sato = new Student("佐藤", 20);
-  
-  tanaka.introduceSelf();
-  suzuki.introduceSelf();
-  sato.introduceSelf();
+
+  // メソッド introduceSelf を定義する
+  introduceSelf() {
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+  }
+}
+
+const tanaka = new Student("田中", 18);
+const suzuki = new Student("鈴木", 20);
+const sato = new Student("佐藤", 20);
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
 ```
 
 クラスの定義自体はやや長いものの、1つの<Term type="javascriptObject">オブジェクト</Term>の定義はたった1行で済みます。これなら<Term type="javascriptObject">オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
@@ -274,12 +281,14 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 class Student {
   name;
   age;
+
   introduceSelf() {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
 class SeniorStudent extends Student {
   researchQuestion;
+
   introduceSelf() {
     super.introduceSelf();
     document.write(`研究テーマは${this.researchQuestion}です。`);
@@ -292,7 +301,7 @@ tanaka.researchQuestion = "量子力学";
 tanaka.introduceSelf();
 ```
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/inheritance-class-SeniorStudent" />
+<ViewSource url={import.meta.url} path="_samples/inheritance-class-SeniorStudent" />
 
 </Answer>
 
@@ -310,6 +319,7 @@ document.write(myBirthDay.getFullYear()); // 2014
 `getFullYear` <Term type="javascriptMethod">メソッド</Term>は、年となる数値を返す<Term type="javascriptMethod">メソッド</Term>です。
 
 :::tip `Object` クラス
+
 JavaScript では、**全ての<Term type="javascriptObject">オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term type="javascriptObject">オブジェクト</Term>は `Object` <Term type="javascriptClass">クラス</Term>の<Term type="javascriptMethod">メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term type="javascriptMethod">メソッド</Term>を呼び出すと自動的に<Term type="javascriptObject">オブジェクト</Term>に変換されます。
 
 `toString` <Term type="javascriptMethod">メソッド</Term>はその一つで、<Term type="javascriptObject">オブジェクト</Term>の文字列表記を返します。この<Term type="javascriptMethod">メソッド</Term>はオーバーライド可能で、たとえば `Date` <Term type="javascriptClass">クラス</Term>ではこの<Term type="javascriptMethod">メソッド</Term>がオーバーライドされています。
@@ -332,6 +342,7 @@ document.write((123).toString()); // 123
 document.write("Hello World!".toString()); // Hello World!
 document.write(false.toString()); // false
 ```
+
 :::
 
 ### 課題
@@ -348,4 +359,4 @@ document.write(false.toString()); // false
 
 (発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
 
-<ViewSource path="/docs/2-browser-apps/04-class/_samples/HTMLDivElement" />
+<ViewSource url={import.meta.url} path="_samples/HTMLDivElement" />
