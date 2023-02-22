@@ -1,20 +1,34 @@
 ---
-title: 静的サイト のデプロイ
+title: 静的サイトのデプロイ
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import registerRenderVideo from "./register-render.mp4";
+import connectGitHubVideo from "./connect-github.mp4";
+import staticSiteDeployVideo from "./static-site-deploy.mp4";
+import prPreviewVideo from "./pr-preview.mp4";
 
 ## PaaS
 
-**PaaS** (Platform as a Service)は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/) は最近登場した簡単に操作できる PaaS です。
+**PaaS** (Platform as a Service) は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/) は最近登場した簡単に操作できる PaaS です。
 
 Render などの PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。 Render では、ポート番号が `PORT` という名前の環境変数によって指定されます。 Node.js では、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
 
 ```javascript
 app.listen(process.env.PORT || 3000);
 ```
+
+## Render への登録
+
+[Render](https://render.com/) に登録しましょう。
+
+<video src={registerRenderVideo} controls muted />
+
+初回は、Render の GitHub へのアクセスを許可しないといけません。
+
+<video src={connectGitHubVideo} controls muted />
 
 ## 静的ページと動的ページ
 
@@ -32,36 +46,33 @@ app.listen(process.env.PORT || 3000);
 
 ## Render へのデプロイ
 
-Render を GitHub のレポジトリと接続することで、ファイルを編集するごとに手動でサーバーにアップロードする必要なく GitHub 上で `merge` するごとに Web ページを更新することができます。 事前にアプリケーション全体を GitHub に保存しておいてください。
+Render を GitHub のリポジトリと接続することで、ファイルを編集するごとに手動でサーバーにアップロードし直す必要なく GitHub での更新に合わせて自動で Web ページを更新することができます。 事前にアプリケーション全体を GitHub に保存しておいてください。
 
 静的サイトをデプロイするには、ホーム画面から `Static Sites` を選択しましょう。
 
-続いて、GitHub アカウントを選択します。
+リポジトリを選択します。
 
-![GitHub への接続](./connect-github.png)
-
-接続が完了すると、リポジトリが選択できるようになります。
-
-![リポジトリの選択](./select-repository.png)
+![リポジトリの接続](./connect-repository.png)
 
 設定項目を入力します。
 
-![設定](./configuration2.png)
+![静的サイトの設定](./static-site-config.png)
 
-ステータスが `Live` になったら成功です！　表示されている `.onrender.com` のサイトでアプリケーションが公開されています！
+ステータスが `Live` になったら成功です！
+表示されている `.onrender.com` のサイトでアプリケーションが公開されています！
 
-## .onrender.com へのアクセス
+<video src={staticSiteDeployVideo} controls muted />
 
-先ほど発行した `.onrender.com` のサイトは、 Render だけでなく GitHub からもアクセスでき、pull request した内容を merge する前に実際に確認することができます。
+## プルリクエストプレビュー
 
-GitHub でレポジトリのページに移動し、`Pull requests` を選択します。
+プルリクエストした内容を実際に確認できるように、プレビューページを自動で生成することもできます。
 
-![レポジトリの画面](./select-pullrequest.png)
+設定で、`Enable PR Previews` を設定しましょう。
 
-一覧から開きたい pull request を選択します。
+![Enable PR Previews](./enable-pr-previews.png)
 
-![リクエストの選択](./select-pullrequest2.png)
+プルリクエストをすると画面に変更の内容を反映したサイトへのリンクが表示されるようになるので、そこからプレビューページにアクセスできます！
 
-pull request の内容を反映したサイトのリンクが表示されているので、そこからアクセスできます！
+![PR Preview のリンク](./pr-preview.png)
 
-![onrenderへアクセス](./access-onrender.png)
+<video src={prPreviewVideo} controls muted />
