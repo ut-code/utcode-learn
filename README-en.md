@@ -59,6 +59,7 @@ This document is formatted with Prettier.
 ## License
 
 ut.code(); Learn is licensed under the [MIT license](https://github.com/ut-code/utcode-learn/blob/master/LICENSE).
+Copyright © 2023 ut.code();.
 
 ## Contributing
 

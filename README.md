@@ -9,7 +9,7 @@
 
 [English README is here.](./README-en.md)
 
-ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習教材です。[Docusaurus](https://docusaurus.io/)を用いて作られています。
+ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習教材です。[Docusaurus](https://docusaurus.io/) を用いて作られています。
 
 ## 目次
 
@@ -30,7 +30,7 @@ ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習�
 
 ## 使い方
 
-[https://learn.utcode.net/](https://learn.utcode.net/)にアクセスすれば、内容を見ることができます。
+[https://learn.utcode.net/](https://learn.utcode.net/) にアクセスすれば、内容を見ることができます。
 
 ## 開発
 
@@ -49,7 +49,7 @@ npm ci
 
 ### 開発用サーバーの起動
 
-次のコマンドを実行することで、開発用のサーバーが起動できます。また、変更した内容をリアルタイムでプレビューできます。
+次のコマンドを実行することで、開発用のサーバーが起動できます。また、ブラウザが自動で立ち上がり変更した内容をリアルタイムでプレビューできます。
 
 ```shell
 npm start
@@ -69,7 +69,8 @@ VSCode 拡張機能で Prettier をインストールして、コマンドパレ
 
 ## ライセンス
 
-ut.code(); Learn は [MIT license](https://github.com/ut-code/utcode-learn/blob/master/LICENSE)でライセンスされています。
+ut.code(); Learn は [MIT license](https://github.com/ut-code/utcode-learn/blob/master/LICENSE) でライセンスされています。
+Copyright © 2023 ut.code();.
 
 ## 貢献
 
