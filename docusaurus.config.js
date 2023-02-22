@@ -5,7 +5,7 @@ const katex = require("rehype-katex");
 module.exports = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); Learn",
-  url: "https://learn.utcode.net/",
+  url: "https://test-learn.utcode.net/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
