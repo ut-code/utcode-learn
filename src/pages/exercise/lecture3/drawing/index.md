@@ -8,7 +8,7 @@
 `canvas`要素を`getElementById`関数で呼び出し、`getContext`関数を用いることによって図形の描画を行うことができます。
 
 ```html
-<canvas id="canvas">描画用キャンパス</canvas>
+<canvas id="canvas">描画用キャンバス</canvas>
 ```
 
 ```javascript
@@ -20,7 +20,7 @@ ctx.fillRect(10, 10, 100, 100);
 
 ## 解答
 
-```html
+```html title="imageReader.html"
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -29,7 +29,7 @@ ctx.fillRect(10, 10, 100, 100);
   </head>
   <body>
     <canvas id="canvas" style="border: solid" width="360px" height="360px"
-      >描画用キャンパス</canvas
+      >描画用キャンバス</canvas
     >
     <div>
       <button id="small">小</button>
@@ -42,7 +42,7 @@ ctx.fillRect(10, 10, 100, 100);
 </html>
 ```
 
-```javascript
+```javascript title="imageReader.js"
 const canvas = document.getElementById("canvas");
 const small = document.getElementById("small");
 const big = document.getElementById("big");
