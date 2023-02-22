@@ -8,6 +8,7 @@ import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import installCommandLineDeveloperToolsVideo from "./install-command-line-developer-tools.mp4";
 import registerGitHubVideo from "./register-github.mp4";
+import setupGitVideo from "./setup-git.mp4";
 import addSshKeyVideo from "./add-ssh-key.mp4";
 
 ## バージョン管理システム
@@ -72,6 +73,8 @@ Git では、ファイルの変更だけでなく、その変更を行ったの�
 $ git config --global user.name 名前
 $ git config --global user.email メールアドレス
 ```
+
+<video src={setupGitVideo} controls muted />
 
 ## 公開鍵・秘密鍵ペアの作成と GitHub への登録
 
