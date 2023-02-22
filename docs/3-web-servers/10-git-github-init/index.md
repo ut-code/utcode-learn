@@ -1,5 +1,5 @@
 ---
-title: Git と GitHub
+title: Git と GitHub のセットアップ
 ---
 
 import Tabs from '@theme/Tabs';
