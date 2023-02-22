@@ -1,14 +1,14 @@
 ---
-title: 静的サイトのデプロイ
+title: Render へのデプロイ
 ---
 
-import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import registerRenderVideo from "./register-render.mp4";
 import connectGitHubVideo from "./connect-github.mp4";
 import staticSiteDeployVideo from "./static-site-deploy.mp4";
 import prPreviewVideo from "./pr-preview.mp4";
+import dynamicSiteDeployVideo from "./dynamic-site-deploy.mp4";
 
 ## PaaS
 
@@ -44,7 +44,7 @@ app.listen(process.env.PORT || 3000);
 
 動的ページは SNS やログイン機能のあるページなど、 Web サービスでは必要不可欠ですが、その都度サーバーとの通信をしなければならないため静的ページに比べてサーバー負荷が大きいというデメリットがあります。 Render でも `Static Sites` は無料ですが、 `Web Services` はサーバーの性能によって無料〜月 450 ドルのプランを選択することになります。
 
-## Render へのデプロイ
+## 静的サイトのデプロイ
 
 Render を GitHub のリポジトリと接続することで、ファイルを編集するごとに手動でサーバーにアップロードし直す必要なく GitHub での更新に合わせて自動で Web ページを更新することができます。 事前にアプリケーション全体を GitHub に保存しておいてください。
 
@@ -76,3 +76,21 @@ Render を GitHub のリポジトリと接続することで、ファイルを�
 ![PR Preview のリンク](./pr-preview.png)
 
 <video src={prPreviewVideo} controls muted />
+
+## 動的サイトのデプロイ
+
+Render で動的サイトをデプロイするには、ホーム画面から `Web Services` を選択しましょう。
+
+静的サイトのときと同様にリポジトリを選択します。
+
+設定項目を入力します。ここでは Node.js の設定を行っています。
+
+![動的サイトの設定](./dynamic-site-config.png)
+
+ステータスが `Live` になったら成功です！
+
+表示されている `.onrender.com` のサイトでアプリケーションが公開されています！
+
+![Live](./live.png)
+
+<video src={dynamicSiteDeployVideo} controls muted />
