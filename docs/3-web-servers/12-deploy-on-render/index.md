@@ -14,12 +14,6 @@ import dynamicSiteDeployVideo from "./dynamic-site-deploy.mp4";
 
 **PaaS** (Platform as a Service) は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/) は最近登場した簡単に操作できる PaaS です。
 
-Render などの PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。 Render では、ポート番号が `PORT` という名前の環境変数によって指定されます。 Node.js では、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
-
-```javascript
-app.listen(process.env.PORT || 3000);
-```
-
 ## Render への登録
 
 [Render](https://render.com/) に登録しましょう。
@@ -92,3 +86,13 @@ Render で動的サイトをデプロイするには、ホーム画面から `We
 ![Live](./live.png)
 
 <video src={dynamicSiteDeployVideo} controls muted />
+
+:::tip ポート番号
+
+Render では必要ありませんが、PaaS を利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。ポート番号は `PORT` という名前の環境変数によって指定されています。 Node.js では、環境変数は `process.env` 変数を用いて取得できるので、このポート番号を指定しましょう。
+
+```javascript
+app.listen(process.env.PORT || 3000);
+```
+
+:::
