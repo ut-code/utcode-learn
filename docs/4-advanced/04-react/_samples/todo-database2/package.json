@@ -1,0 +1,14 @@
+{
+  "name": "todo-database2",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "setup": "npm run setup:env && npm run setup:install",
+    "setup:env": "cp backend/.env.sample backend/.env && cp frontend/.env.sample frontend/.env",
+    "setup:install": "npm run backend:install && npm run frontend:install",
+    "backend:install": "cd backend && npm ci",
+    "frontend:install": "cd frontend && npm ci"
+  },
+  "author": "",
+  "license": "MIT"
+}

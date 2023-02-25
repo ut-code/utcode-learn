@@ -4,7 +4,7 @@ const app = express();
 import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
-app.use(cors());
+app.use(cors({ origin: process.env["WEB_ORIGIN"] }));
 app.use(express.json());
 
 app.get("/todos", async (request, response) => {
