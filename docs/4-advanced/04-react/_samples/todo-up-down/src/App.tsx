@@ -17,19 +17,19 @@ export default function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const moveUp = (i: number) => {
+  const moveUp = (index: number) => {
     const newTodos = [...todos];
-    const tmp = newTodos[i];
-    newTodos[i] = newTodos[i - 1];
-    newTodos[i - 1] = tmp;
+    const tmp = newTodos[index];
+    newTodos[index] = newTodos[index - 1];
+    newTodos[index - 1] = tmp;
     setTodos(newTodos);
   };
 
-  const moveDown = (i: number) => {
+  const moveDown = (index: number) => {
     const newTodos = [...todos];
-    const tmp = newTodos[i];
-    newTodos[i] = newTodos[i + 1];
-    newTodos[i + 1] = tmp;
+    const tmp = newTodos[index];
+    newTodos[index] = newTodos[index + 1];
+    newTodos[index + 1] = tmp;
     setTodos(newTodos);
   };
 
@@ -47,7 +47,6 @@ export default function App() {
             >
               削除
             </button>
-
             {i > 0 && (
               <button
                 type="button"
@@ -58,7 +57,6 @@ export default function App() {
                 ↑
               </button>
             )}
-
             {i < todos.length - 1 && (
               <button
                 type="button"
