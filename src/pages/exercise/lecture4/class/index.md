@@ -27,7 +27,7 @@ class Cat {
 
   meow() {
     const div = document.createElement("div");
-    div.textContent = "にゃー"
+    div.textContent = "ニャー"
     document.body.appendChild(div);
   }
 }
@@ -39,7 +39,7 @@ class Dog {
 
   bark() {
     const div = document.createElement("div");
-    div.textContent = "わんわん"
+    div.textContent = "ワンワン"
     document.body.appendChild(div);
   }
 }
@@ -65,7 +65,7 @@ dog.bark();
 chicken.crow();
 ```
 
-1. 新たにbear（熊）クラスを追加し、体重を80として、`grr` クラスで「グルルル」と鳴くようにしてみましょう。
+1. 新たに `Bear`（熊）クラスを追加し、体重を80として、`growl` メソッドで「グルルル」と鳴くようにしてみましょう。
 
 2. 1のようにどんどん動物を増やしていく事もできますが、いくつかの性質や処理は共通点があり、１つの親クラスにまとめることができるように見えます。どのようなクラスを用意すればきれいにまとめることができるでしょうか？
 
@@ -81,7 +81,7 @@ class Cat {
 
   meow() {
     const div = document.createElement("div");
-    div.textContent = "にゃー";
+    div.textContent = "ニャー";
     document.body.appendChild(div);
   }
 }
@@ -93,7 +93,7 @@ class Dog {
 
   bark() {
     const div = document.createElement("div");
-    div.textContent = "わんわん";
+    div.textContent = "ワンワン";
     document.body.appendChild(div);
   }
 }
@@ -113,7 +113,7 @@ class Chicken {
 class Bear {
   weight = 80;
 
-  grr() {
+  growl() {
     const div = document.createElement("div");
     div.textContent = "グルルル";
     document.body.appendChild(div);
@@ -128,7 +128,7 @@ const bear = new Bear();
 cat.meow();
 dog.bark();
 chicken.crow();
-bear.grr();
+bear.growl();
 ```
 
 ### 2 の解答例
@@ -141,7 +141,7 @@ class animal {
 
   sound;
 
-  speak(sound) {
+  say(sound) {
     const div = document.createElement("div");
     div.textContent = sound;
     document.body.appendChild(div);
@@ -157,7 +157,7 @@ class animal {
 
   sound;
 
-  speak(sound) {
+  say(sound) {
     const div = document.createElement("div");
     div.textContent = sound;
     document.body.appendChild(div);
@@ -169,7 +169,7 @@ class Cat extends animal {
 
   isKitten = true;
 
-  sound = "にゃー";
+  sound = "ニャー";
 }
 
 class Dog extends animal {
@@ -177,7 +177,7 @@ class Dog extends animal {
 
   isRetriever = false;
 
-  sound = "わんわん";
+  sound = "ワンワン";
 }
 
 class Chicken extends animal {
@@ -199,10 +199,10 @@ const dog = new Dog();
 const chicken = new Chicken();
 const bear = new Bear();
 
-cat.speak();
-dog.speak();
-chicken.speak();
-bear.speak();
+cat.say();
+dog.say();
+chicken.say();
+bear.say();
 
 ```
 
@@ -217,7 +217,7 @@ function showSound(animal){
         animal.bark();
     } 
     else if(animal instanceof chicken){
-        animal.grr();
+        animal.growl();
     }
     // 動物が増えるとさらに条件分岐が続く
 }
@@ -227,7 +227,7 @@ function showSound(animal){
 
 ```javascript
 function showSound(animal){
-    animal.speak();
+    animal.say();
     // なんの動物であるかを気にする必要がない
 }
 ```
