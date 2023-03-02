@@ -83,7 +83,11 @@ header {
   align-items: center;
 }
 
-span {
+.logo {
+  font-size: 40px;
+}
+
+.logo span {
   color: springgreen;
 }
 
@@ -110,10 +114,6 @@ header a {
   text-decoration: none;
   display: block;
   text-align: center;
-}
-
-.logo {
-  font-size: 40px;
 }
 
 .link {
@@ -156,6 +156,5 @@ article div.title{
   color: white;
   letter-spacing: 2px;
 }
-
 
 ```
