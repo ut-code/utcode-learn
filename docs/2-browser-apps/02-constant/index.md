@@ -24,12 +24,15 @@ const constant = 1;
 ```
 
 :::tip `let` と `const`
+
 ほとんどの場合、`const` が用いられたプログラムは `let` に書き換えても動作します。それでは、あえて `const` を用いる理由は何なのでしょうか。
 
 JavaScript において、それはコードを読んだ際に読みやすいからです。`const` で定義されている変数なら、宣言文さえ見れば変数の中に入っている値を知ることができます。`const` が使用できる場所では、基本的に全て `const` を用いるようにしましょう。
+
 :::
 
 :::info オブジェクトと `const`
+
 `const` による宣言で禁止されるのはその変数への代入だけであり、オブジェクトのプロパティへの代入はこれにあたりません。
 
 ```javascript
@@ -54,7 +57,7 @@ object2.age = 19;
 document.write(object1.age);
 ```
 
-<ViewSource path="/docs/2-browser-apps/02-constant/_samples/reference" />
+<ViewSource url={import.meta.url} path="_samples/reference" />
 
 このプログラムの実行結果は `19` になります。なぜでしょうか。
 
@@ -103,14 +106,16 @@ document.write(nextYearTanaka.age);
 document.write(tanaka.age);
 ```
 
-<ViewSource path="/docs/2-browser-apps/02-constant/_samples/object-mutated-by-function" />
+<ViewSource url={import.meta.url} path="_samples/object-mutated-by-function" />
 
 このコードは、[オブジェクト](../../1-trial-session/10-object/index.md)の項で扱った課題でした。実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
 
 `incrementAge` 関数の実装を変更し、関数に渡したオブジェクトが書き換えられないようにしてください。
 
 :::tip
+
 オブジェクトが書き換えられないようにするためには、オブジェクトを新しく作り直す必要があります。
+
 :::
 
 <Answer>
@@ -128,6 +133,6 @@ document.write(nextYearTanaka.age);
 document.write(tanaka.age);
 ```
 
-<ViewSource path="/docs/2-browser-apps/02-constant/_samples/answer" />
+<ViewSource url={import.meta.url} path="_samples/answer" />
 
 </Answer>

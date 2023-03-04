@@ -60,7 +60,7 @@ app.get("/sub/script.js", (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/static-hosting-naive" />
+<ViewSource url={import.meta.url} path="_samples/static-hosting-naive" />
 
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
@@ -72,12 +72,14 @@ app.use(express.static("static"));
 app.listen(3000);
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/static-hosting-smart" />
+<ViewSource url={import.meta.url} path="_samples/static-hosting-smart" />
 
 これにより、リクエストのパスをもとに、`static` フォルダ内の適切なファイルが自動的に配信されます。
 
 :::tip `index.html` の省略
+
 `express.static` を用いる場合、`index.html` は省略可能になります。つまり、`/` へのリクエストで `static/index.html` が、`/sub` へのリクエストで `static/sub/index.html` にアクセスできるようになります。これは、Express や JavaScript に限ったことではなく、多くの Web サーバーの実装において、こういったルールが成り立ちます。
+
 :::
 
 ## EJS テンプレートエンジン
@@ -110,6 +112,7 @@ app.listen(3000);
 ```
 
 :::note `Array#join`
+
 [`Array#join` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
 
 ```javascript
@@ -120,7 +123,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 なかなか大変なことになっています。これから HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
 
-[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。
+[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。`ejs` パッケージを npm でインストールしてください。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。
 
 ```javascript title=main.js
 const fs = require("fs");
@@ -157,7 +160,7 @@ app.listen(3000);
 </html>
 ```
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/ejs-template-engine" />
+<ViewSource url={import.meta.url} path="_samples/ejs-template-engine" />
 
 イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `template.ejs` ファイルの内容を読み込んでいます。その次の行の [`ejs.render` 関数](https://ejs.co/#docs) がポイントです。この関数は、第 1 引数にテンプレートを文字列として受け取り、諸々の変換を行った後の文字列を返します。第 2 引数には、変換の際に埋め込みたいデータをオブジェクトの形式で指定します。
 
@@ -174,12 +177,12 @@ app.listen(3000);
 
 解答例 1:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/nth" />
+<ViewSource url={import.meta.url} path="_samples/nth" />
 
 解答例 2:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/nth-ejs" />
+<ViewSource url={import.meta.url} path="_samples/nth-ejs" />
 
 解答例 3:
 
-<ViewSource path="/docs/3-web-servers/05-template-engine/_samples/server-or-client" />
+<ViewSource url={import.meta.url} path="_samples/server-or-client" />

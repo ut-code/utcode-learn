@@ -26,9 +26,11 @@ studentNames[1] = "内藤";
 ```
 
 :::caution 配列のインデックス
+
 配列のインデックスは `0` から始まります。このため、`2` 番目の要素のインデックスは `1` で、`n` 番目の要素のインデックスは `n - 1` になります。
 
 また、長さが `N` の配列の最後の要素のインデックスは `N - 1` になります。
+
 :::
 
 `[` 〜 `]` の中には任意の式を記述できます。変数を使用することも可能です。
@@ -50,7 +52,7 @@ document.write([3, 2, 1][0]);
 
 `[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、3 と表示されます。
 
-<ViewSource path="/docs/2-browser-apps/05-array/_samples/array" />
+<ViewSource url={import.meta.url} path="_samples/array" />
 
 </Answer>
 
@@ -109,7 +111,9 @@ document.write(studentNames.length); // 4
 - 作成した配列の各要素を、通常の `for` 文と `Array#length` プロパティを用いて出力してみましょう。
 
 :::info ヒント
+
 変数 `i` を 0 から `(作成した配列の length プロパティの値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+
 :::
 
 <Answer>
@@ -130,7 +134,7 @@ for (let i = 0; i < f.length; i += 1) {
 }
 ```
 
-<ViewSource path="/docs/2-browser-apps/05-array/_samples/Array-class" />
+<ViewSource url={import.meta.url} path="_samples/Array-class" />
 
 </Answer>
 
@@ -151,6 +155,7 @@ document.write(`${subject} の点数は ${scores[subject]} です。`); // math 
 ```
 
 :::tip オブジェクトのプロパティ
+
 オブジェクトのプロパティに数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
 
 答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。

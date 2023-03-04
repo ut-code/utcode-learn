@@ -39,6 +39,7 @@ Web 開発に必ず用いられる言語があります。<Term type="html" stro
 <video src={openInBrowserVideo} controls />
 
 :::info 拡張子
+
 VSCode 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
 
 ファイル名の `.` (ピリオド) 以降の部分は<Term type="fileExtension" strong>拡張子</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term type="html">HTML</Term>ファイルであることを明示するためです。
@@ -46,6 +47,7 @@ VSCode 上で作成したファイルは `index.html` でした。しかしな�
 実は Windows では、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
 
 <video src={showFileExtensionsVideo} controls />
+
 :::
 
 ## <Term type="html">HTML</Term> の構造
@@ -79,9 +81,11 @@ VSCode 上で作成したファイルは `index.html` でした。しかしな�
 ![ファイルを保存する](./save-file.png)
 
 :::tip ショートカットキー
+
 ショートカットキーがうまく押せませんか？ `Cmd / Ctrl + S` はよく、「`Cmd (macOS)` または `Ctrl (Windows)` キーと `S` キーを同時に押す」と言われますが、実は同時に押すと半分くらいの確率で失敗します。`Cmd / Ctrl` キーを押した後、キーから指を離す前に `S` キーを押しましょう。
 
 ショートカットキーを使いこなせるようになると、パソコンの操作速度が飛躍的に上昇します。慣れている人がパソコンを操作しているのを見たら、ぜひ後ろから覗き込んでみましょう。便利そうなショートカットキーを使っている人がいたら身に着けるようにすると良いです。
+
 :::
 
 保存したら、ブラウザの更新ボタンを押して、ページを再読み込みします。
@@ -113,7 +117,9 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 ![HTMLの構造](./html-structure.drawio.svg)
 
 :::info
+
 ブラウザの画面内に表示される情報を表すのは `body` <Term type="element">要素</Term>中だけなので、<Term type="html">HTML</Term> ファイルの編集は通常 `body` <Term type="element">要素</Term>内部が中心となります。このドキュメントでも、これ以降掲載する <Term type="html">HTML</Term> のサンプルコードは `body` <Term type="element">要素</Term>内部のみを記述することとします。
+
 :::
 
 ## 課題 (時間が余った場合)
@@ -130,4 +136,4 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 
 ### 解答例
 
-<ViewSource path="/docs/1-trial-session/02-html/_samples/form" />
+<ViewSource url={import.meta.url} path="_samples/form" />

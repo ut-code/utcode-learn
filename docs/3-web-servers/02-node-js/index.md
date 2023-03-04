@@ -21,17 +21,21 @@ VSCode 内蔵のターミナルを起動させるには、メニューの `Termi
 ![新しいターミナルを開く](./open-new-terminal.png)
 
 :::tip コマンド パレット
+
 VSCode の**コマンド パレット**は、現在 VSCode 上で使用できる全ての機能を一覧表示する機能です。`Cmd / Ctrl + Shift + P` キーを押すことにより起動できます。
 
 次の画像は、コマンド パレットを用いて新しいターミナルを作成する例です。コマンド パレットを使用することで、ショートカットキーを知らなくても、キーボードのみで VSCode が操作できるようになります。
 
 ![コマンド パレット](./command-palette.png)
+
 :::
 
 :::info Windows 環境でターミナルを使用する場合の注意
+
 `WSL` 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
 
 ![統合ターミナル](./wsl-integrated-terminal.png)
+
 :::
 
 ## ブラウザ外で動作する JavaScript
@@ -104,9 +108,11 @@ Windows 上での作業は、WSL のターミナルを利用するようにし�
 まずは、新しいフォルダを作成し、Visual Studio Code で開きます。Mac の場合は[はじめての Web 開発](../../1-trial-session/01-get-started/index.md)で作成した `Projects` フォルダの中に別のフォルダを作れば問題ありませんが、Windows の場合は WSL 上にフォルダを作成します。
 
 :::info WSL 上にプロジェクトフォルダを作る
+
 Windows の WSL では、エクスプローラーのサイドパネルから `Linux` を開いた後、`Ubuntu` → `home` → `[ユーザー名]` の順番でフォルダを開き、そこに `Projects` フォルダを作成します。
 
 <video src={openFolderInWslVideo} controls muted />
+
 :::
 
 続いて、開いたフォルダに `main.js` ファイルを作成し、下のスクリプトを保存します。`console.log` 関数は、画面に文章を表示させるための関数です。

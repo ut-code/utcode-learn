@@ -96,6 +96,7 @@ dist/assets/index-36cd5a33.js        1.44 kB │ gzip: 0.75 kB
 <video src={buildVideo} controls />
 
 :::tip `npm run` コマンド
+
 `npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
 
 `npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いたときのように、npm でインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
@@ -132,7 +133,7 @@ export function add(a, b) {
 }
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/es-modules" />
+<ViewSource url={import.meta.url} path="_samples/es-modules" />
 
 **デフォルトエクスポート**は、各<Term type="javascriptModule">モジュール</Term>につき一度だけ使えるエクスポート方法です。
 
@@ -149,11 +150,13 @@ export default function add(a, b) {
 ```
 
 :::tip ECMAScript モジュールの実装状況
+
 ECMAScript <Term type="javascriptModule">モジュール</Term>は、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
 
 しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の ECMAScript <Term type="javascriptModule">モジュール</Term>サポートは、2022 年現在、周辺エコシステムとの関係上、難しい場合が多いです。
 
 なお、`exports` オブジェクトや `require` 関数を使った<Term type="javascriptModule">モジュール</Term>システムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
+
 :::
 
 ## npm のパッケージを Web ブラウザ上で利用する
@@ -169,7 +172,7 @@ document.getElementById("app").textContent = format(
 );
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/run-npm-package-on-browsers" />
+<ViewSource url={import.meta.url} path="_samples/run-npm-package-on-browsers" />
 
 ## フロントエンドとバックエンドの統合
 
@@ -188,7 +191,7 @@ app
     └── main.js
 ```
 
-<ViewSource path="/docs/4-advanced/02-bundler/_samples/fullstack-app" />
+<ViewSource url={import.meta.url} path="_samples/fullstack-app" />
 
 `npm run build` コマンドによって Vite がビルド結果を `/dist` に出力するようにしておきます。
 
@@ -219,6 +222,6 @@ app.listen(3000);
 
 - [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
-  <ViewSource path="/docs/4-advanced/02-bundler/_samples/chartjs" noCodeSandbox />
+  <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。
