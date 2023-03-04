@@ -12,11 +12,11 @@
  }
 
 ~~~
-しかしながら田中君は、親にmath,scienceの成績を高く見せたいと考えました。
+しかしながら田中君は、親に数学,理科の成績を高く見せたいと考えました。
 下を満たすプログラムを作成して下さい。
-- htmlを読み込むと、`成績:数学...80点、理科...90点`と表示される
+- HTMLを読み込むと、`成績:数学...80点、理科...90点`と表示される
 - ボタンを押すと、`成績:数学...100点、理科...100点`と表示される
-- ただし、javascriptは`tanaka`オブジェクトのみを参照する。新しい成績格納オブジェクトを作ってはならない。
+- ただし、JavaScriptは`tanaka`オブジェクトのみを参照する。新しい成績格納オブジェクトを作ってはならない。
 
 すなわち、
 ~~~javascript
@@ -33,7 +33,7 @@
   <title>school annual report</title>
 </head>
 <body>
-  <div id="academicPerformance">成績:数学...80点、理科...90点</div>
+  <div id="academic-performance">成績:数学...80点、理科...90点</div>
   <button id="button" type="button">クリック</button>
   <script src="./script.js"></script> 
 </body>
@@ -48,16 +48,16 @@ let tanaka = {
   }
  }
 
-function falsify_data() {
+function falsifyData() {
   
   tanaka.scores.math = 100;
   tanaka.scores.science = 100;
-  let academicPerformance = document.getElementById("academicPerformance");
+  let academicPerformance = document.getElementById("academic-performance");
   academicPerformance.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`
 
 }
 
 let trickbutton = document.getElementById("button");
-trickbutton.onclick = falsify_data;
+trickbutton.onclick = falsifyData;
 
 ~~~
