@@ -86,7 +86,7 @@ const sato = {
 </html>
 ~~~
 
-続いて、script.jsの回答例です。順を追って解説していきます。
+続いて、script.jsの回答例です。
 ~~~javascript title="script.js"
 function makePersonalData(name, mathScore, scienceScore) {
   return {
@@ -126,7 +126,15 @@ function swap(a, b) {
 
 }
 
+//swapの別解
+// function swap(a, b) {
+//   const tmp = academicPerformanceData[a];
+//   academicPerformanceData[a] = academicPerformanceData[b];
+//   academicPerformanceData[b] = tmp;
+// }
+
 //いざ、並び替え！
+//i++はi += 1と同じ意味です。
 for (let i = 1; i < 4; i++) {
 
   const person_i = academicPerformanceData[i];
@@ -162,3 +170,5 @@ for (let i = 0; i < 4; i++) {
 
 }
 ~~~
+
+並び替えは「バブルソート」を用いています。[他の並べ方](https://products.sint.co.jp/topsic/blog/algorithm-type)もあるので興味のある方は調べてみましょう
