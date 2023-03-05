@@ -8,7 +8,7 @@ import openFolderVideo from "./open-folder.mp4";
 
 ## Visual Studio Code のインストール
 
-**Visual Studio Code** (以下 VSCode) は、Microsoft 社が開発するテキストエディタです。多くの開発者に使用されています。
+**Visual Studio Code** (以下 VS Code) は、Microsoft 社が開発するテキストエディタです。多くの開発者に使用されています。
 
 Visual Studio Code は、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
@@ -24,12 +24,12 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 
 ## Visual Studio Code でプロジェクトフォルダを開く
 
-`File` メニューから `Open Folder...` をクリックして、先ほど作成したフォルダを VSCode で開きます。
+`File` メニューから `Open Folder...` をクリックして、先ほど作成したフォルダを VS Code で開きます。
 
 <video src={openFolderVideo} controls />
 
 :::info
 
-最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?` と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダを VSCode で開いたとき、VSCode によって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
+最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?` と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダを VS Code で開いたとき、VS Code によって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
 
 :::

@@ -53,7 +53,7 @@ npm create vite@latest
 
 を実行します。`Select a framework` と尋ねられるので、`Vanilla` を選択してください。その後、`Select a variant` と尋ねられるので、`JavaScript` を選択してください。
 
-すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリを VSCode で開きましょう。
+すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリを VS Code で開きましょう。
 
 続いて、作成された `package.json` をもとに npm から必要なパッケージをダウンロードするため、
 
