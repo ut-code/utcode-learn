@@ -3,7 +3,7 @@
 <img alt="logo" src="./static/img/logo.svg" height="200px" />
 
 [![MDX](https://img.shields.io/badge/MDX-1B1F24.svg?logo=mdx)](https://mdxjs.com/)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![license](https://img.shields.io/badge/license-MIT-informational.svg)
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
