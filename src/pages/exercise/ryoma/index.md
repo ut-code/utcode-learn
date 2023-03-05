@@ -18,9 +18,9 @@
 - 順位の判定はもちろん、配列内で繰り返し処理（点数の比較）をするプログラムをjavascriptで書いて行う。
 
 ~~~ javascript
-let academicPerformanceData = [sato, suzuki, takahashi, tanaka];
+const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
 
-//let academicPerformanceData = [tanaka, suzuki, sato, takahashi];などでも構わない。
+//const academicPerformanceData = [tanaka, suzuki, sato, takahashi];などでも構わない。
 
 //for文でacademicPerformanceDataの要素を順位順に並べ替える処理を書く
 ~~~
@@ -106,7 +106,7 @@ const takahashi = makePersonalData("高橋", 100, 40);
 const tanaka = makePersonalData("田中", 85, 65);
 
 //この配列の要素をあとで並び替える。
-let academicPerformanceData = [sato, suzuki, takahashi, tanaka];
+const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
 
 //並び替えるぞ～
 //まず、合計点の順に並べよう。for文のネストが要るぞ！
@@ -125,13 +125,6 @@ function swap(a, b) {
   academicPerformanceData[b] = after_b;
 
 }
-
-//swapの別解
-// function swap(a, b) {
-//   const tmp = academicPerformanceData[a];
-//   academicPerformanceData[a] = academicPerformanceData[b];
-//   academicPerformanceData[b] = tmp;
-// }
 
 //いざ、並び替え！
 //i++はi += 1と同じ意味です。
