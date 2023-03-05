@@ -46,6 +46,7 @@ document.write("Hello World!");
 console.log("Hello World!");
 ```
 VSCodeのコンソールで実行してみましょう。`Hello World!`と表示されましたか？
+
 ## <Term type="javascript">JavaScript</Term> が動く仕組み
 
 <p><Term type="html">HTML</Term> ファイルの中に、以下のような記述があります。</p>
