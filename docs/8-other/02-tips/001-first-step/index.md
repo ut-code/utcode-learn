@@ -90,7 +90,6 @@ migration の up と down(Data_1→Data_develop, Data_develop→Data_1 の変化
 
 フロントエンドの debug は、ブラウザ上で行います。http://localhost:3000 を開き、inspect を開きます。
 Sources から、javascript のファイルを開きます。監視したいコードの部分をクリックします。web でボタンを押すと、クリックした箇所で実行が静止します。マウスをホバーさせると変数のデータを確認できます。
-inspectのNetworkの中のHeaders, payload, response, cookiesなどを確認して、きちんとデータが送られているか確認しましょう。
 バックエンドの debug は、vscode 上で行います。F5 キーで debug モードに入ります。
 
 ## 開発中のチップス
@@ -118,7 +117,3 @@ Minimum Valuable Product の作成を早期に目指しましょう。
 json-server をフロントエンド上で起動させることで、バックエンドがあたかもあるかのように開発を先行して進めることができます。
 trello や jira などのアプリを使えば、アジャイル開発を円滑に行うことが可能になります。github issues や project でも同じような機能があります。
 dev container を用いると、環境の立ち上げが快適になる可能性があります。一方で、プロセスを全て起動するのは重すぎる場合もあります。必要に応じてプロセスを立ち上げることがお勧めです。
-
-## 公式ドキュメントを読む
-
-新たなツールを使うときは、公式ドキュメントを読みましょう。
