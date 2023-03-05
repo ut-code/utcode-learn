@@ -33,7 +33,7 @@ const sato = {
   name:"佐藤";
   scores: {
     math: 0,
-    science: 0;
+    science: 0,
     total: 0;
   };
 }
