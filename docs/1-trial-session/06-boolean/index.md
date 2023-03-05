@@ -63,12 +63,13 @@ let canRideRollerCoasters = age >= 10 && height >= 140; // true
 
 次のコードは何を表示するでしょうか。そしてそれはなぜでしょうか。
 
+<!-- prettier-ignore -->
 ```javascript
 let takaoHeight = 599;
 let everestHeight = 8849;
 let fujiHeight = 3776;
 document.write(takaoHeight < everestHeight < fujiHeight);
-document.write((takaoHeight = everestHeight));
+document.write(takaoHeight = everestHeight);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/weird-comparison" />
