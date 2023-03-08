@@ -14,17 +14,17 @@ import debuggingVideo from "./debugging.mp4";
 
 ## ターミナル
 
-**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Mac だと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VSCode 内蔵のターミナルもなかなか便利です。
+**ターミナル** は、文字を用いてコンピュータと会話するためのソフトウェアです。Mac だと標準搭載の `terminal.app` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VS Code 内蔵のターミナルもなかなか便利です。
 
-VSCode 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
+VS Code 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
 
 ![新しいターミナルを開く](./open-new-terminal.png)
 
 :::tip コマンド パレット
 
-VSCode の**コマンド パレット**は、現在 VSCode 上で使用できる全ての機能を一覧表示する機能です。`Cmd / Ctrl + Shift + P` キーを押すことにより起動できます。
+VS Code の**コマンド パレット**は、現在 VS Code 上で使用できる全ての機能を一覧表示する機能です。`Cmd / Ctrl + Shift + P` キーを押すことにより起動できます。
 
-次の画像は、コマンド パレットを用いて新しいターミナルを作成する例です。コマンド パレットを使用することで、ショートカットキーを知らなくても、キーボードのみで VSCode が操作できるようになります。
+次の画像は、コマンド パレットを用いて新しいターミナルを作成する例です。コマンド パレットを使用することで、ショートカットキーを知らなくても、キーボードのみで VS Code が操作できるようになります。
 
 ![コマンド パレット](./command-palette.png)
 
@@ -129,9 +129,9 @@ console.log("Hello World");
 
 ## Node.js のデバッグ
 
-[ブラウザの開発者ツールを利用する](../../2-browser-apps/01-inspector/index.md) 節で JavaScript のデバッグを行ったのと同様に、Node.js では、VSCode 標準の機能を用いてデバッグを行えます。
+[ブラウザの開発者ツールを利用する](../../2-browser-apps/01-inspector/index.md) 節で JavaScript のデバッグを行ったのと同様に、Node.js では、VS Code 標準の機能を用いてデバッグを行えます。
 
-Node.js のデバッグを開始するには、ブレークポイント等を設定したうえで、`F5` キーを押します。初回はデバッグ構成を選択するメニューが出現するので、`Node.js` を選択しましょう。デバッグが開始されると、VSCode 下部の青いバーが橙色に変化します。`console.log` は `DEBUG CONSOLE` タブに出力されるので注意しましょう。
+Node.js のデバッグを開始するには、ブレークポイント等を設定したうえで、`F5` キーを押します。初回はデバッグ構成を選択するメニューが出現するので、`Node.js` を選択しましょう。デバッグが開始されると、VS Code 下部の青いバーが橙色に変化します。`console.log` は `DEBUG CONSOLE` タブに出力されるので注意しましょう。
 
 ステップ実行、コールスタックなど、基本的な機能はブラウザに搭載されているものとほとんど同じです。
 

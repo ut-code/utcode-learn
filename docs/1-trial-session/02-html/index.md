@@ -40,7 +40,7 @@ Web 開発に必ず用いられる言語があります。<Term type="html" stro
 
 :::info 拡張子
 
-VSCode 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
+VS Code 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
 
 ファイル名の `.` (ピリオド) 以降の部分は<Term type="fileExtension" strong>拡張子</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term type="html">HTML</Term>ファイルであることを明示するためです。
 

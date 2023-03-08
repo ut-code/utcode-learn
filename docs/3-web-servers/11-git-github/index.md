@@ -19,7 +19,7 @@ import prPracticeVideo from "./pr-practice.mp4";
 
 Git では、**リポジトリ**と呼ばれる単位でソースコードを管理します。リポジトリはひとつのディレクトリに相当し、そのディレクトリ以下の全てのファイルが Git による追跡対象となります。
 
-まずは Git で管理するためのディレクトリを作成し、VSCode で開きます。ターミナルを開き、次のコマンドを実行しましょう。
+まずは Git で管理するためのディレクトリを作成し、VS Code で開きます。ターミナルを開き、次のコマンドを実行しましょう。
 
 ```shell
 git init
@@ -49,7 +49,7 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 それでは、前項で作成したリポジトリで最初のコミットを作成してみましょう。まずはファイルを作成し、適当な内容で保存します。
 
-コミットを作成する前に、変更を**ステージ**する必要があります。ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。VSCode から行う場合、`Source Control` パネル内の変更したファイルの横の `+` ボタンを押します。ファイルが `Changes` セクションから `Staged Changes` に移ったら成功です。
+コミットを作成する前に、変更を**ステージ**する必要があります。ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。VS Code から行う場合、`Source Control` パネル内の変更したファイルの横の `+` ボタンを押します。ファイルが `Changes` セクションから `Staged Changes` に移ったら成功です。
 
 <video src={stageChangesVideo} loop muted autoPlay controls />
 
@@ -138,7 +138,7 @@ GitHub を開いているブラウザを更新して、プログラムが反映�
 
 GitHub を用いると簡単に共同開発ができます。ここでは、[練習用のリポジトリ](https://github.com/ut-code/readme_practice)に変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、権限をもらっておきましょう。
 
-まずは、共同開発をするリポジトリをローカルにクローンし、VSCode で開きます。
+まずは、共同開発をするリポジトリをローカルにクローンし、VS Code で開きます。
 
 ```shell
 git clone git@github.com:ut-code/readme_practice.git
