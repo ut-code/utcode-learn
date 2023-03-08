@@ -1,6 +1,6 @@
 import ViewSource from "@site/src/components/ViewSource";
 
-## 第6回課題(プロジェクト)
+## 第 6 回課題(プロジェクト)
 
 単語帳アプリを作ってみましょう。
 
