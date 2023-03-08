@@ -41,11 +41,11 @@ import createRecordInDatabaseVideo from "./create-record-in-database.mp4";
 
 ## Prisma でテーブル構造を作成する
 
-[Prisma](https://www.prisma.io) は、Node.js から主にリレーショナルデータベースを使用するためのライブラリです。Prisma を便利に使用するための拡張機能が VSCode 向けに用意されているので、先にダウンロードしておきましょう。
+[Prisma](https://www.prisma.io) は、Node.js から主にリレーショナルデータベースを使用するためのライブラリです。Prisma を便利に使用するための拡張機能が VS Code 向けに用意されているので、先にダウンロードしておきましょう。
 
 ![Prisma 拡張機能のインストール](./install-prisma-extension.png)
 
-新しいフォルダを VSCode で開き、`npm init` コマンドを使用して `package.json` ファイルを作成した後、
+新しいフォルダを VS Code で開き、`npm init` コマンドを使用して `package.json` ファイルを作成した後、
 
 ```shell
 npx prisma init
