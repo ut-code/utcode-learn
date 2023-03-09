@@ -126,13 +126,6 @@ function swap(a, b) {
 
 }
 
-//swapの別解
-// function swap(a, b) {
-//   const tmp = academicPerformanceData[a];
-//   academicPerformanceData[a] = academicPerformanceData[b];
-//   academicPerformanceData[b] = tmp;
-// }
-
 //いざ、並び替え！
 //i++はi += 1と同じ意味です。
 for (let i = 1; i < 4; i++) {
