@@ -17,15 +17,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div id="div1">横</div>
-    <div id="div2">縦</div>  
+    <div id="landscape">横</div>
+    <div id="portrait">縦</div>  
   </body>
 </html>
 ```
 
 ```css title="style.css"
 @media (orientation: landscape) {
-  #div1 {
+  #landscape {
     color: red;
     text-decoration-line: underline;
     text-decoration-color: red;
@@ -34,7 +34,7 @@
 }
 
 @media (orientation: portrait) {
-  #div2 {
+  #portrait {
     color: red;
     text-decoration-line: underline;
     text-decoration-color: red;
