@@ -1,4 +1,4 @@
-# 課題１（配列、繰り返し）
+# 課題（配列、繰り返し）
 
 みんなのテストの点数が出ました。
 ~~~
@@ -125,6 +125,13 @@ function swap(a, b) {
   academicPerformanceData[b] = after_b;
 
 }
+
+//swapの別解
+// function swap(a, b) {
+//   const tmp = academicPerformanceData[a];
+//   academicPerformanceData[a] = academicPerformanceData[b];
+//   academicPerformanceData[b] = tmp;
+// }
 
 //いざ、並び替え！
 //i++はi += 1と同じ意味です。

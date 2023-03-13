@@ -46,9 +46,9 @@ WSL のインストールは、10 分程度で終わる簡単な作業です。�
 
 ![完成](completed.png)
 
-## VSCode に `WSL` 拡張機能をインストールする
+## VS Code に `WSL` 拡張機能をインストールする
 
-VSCode の `WSL` 拡張機能を用いると、VSCode を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`WSL` 拡張機能をインストールしましょう。
+VS Code の `WSL` 拡張機能を用いると、VS Code を WSL 上で動かすことができ、Linux と同様の開発体験を得られます。まずは、`WSL` 拡張機能をインストールしましょう。
 
 ![WSL 拡張機能のインストール](./install-wsl-extension.png)
 
