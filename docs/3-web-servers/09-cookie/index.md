@@ -97,3 +97,5 @@ model Session {
   userId Int // User の ID
 }
 ```
+
+<ViewSource url={import.meta.url} path="_samples/profile" noCodeSandbox />
