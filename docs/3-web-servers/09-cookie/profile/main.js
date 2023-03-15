@@ -27,12 +27,12 @@ app.post("/login", (request, response) => {
                 username: request.body.username
             },
         });
-        if (user == undefined) {
+        if (user === undefined) {
             const html = ejs.render(index, {
                 warning: "入力されたユーザー名は存在しません。"
             });
             response.send(html);
-        } else if (user.password == request.body.password) {
+        } else if (user.password === request.body.password) {
             const sessionId = await client.Session.findFirst({
                 where: { 
                     userId: user.id,
@@ -92,12 +92,12 @@ app.post("/resistered", (request, response) => {
                 username: request.body.username
             }
         });
-        if (request.body.username == "" | request.body.password == "" | request.body.name == "" | request.body.age == "" | request.body.univ == "" ) {
+        if (request.body.username === "" | request.body.password === "" | request.body.name === "" | request.body.age === "" | request.body.univ === "" ) {
             const html = ejs.render(resister, {
                 warning: "未記入の項目があります。",
             });
             response.send(html);
-        } else if (user == undefined) {
+        } else if (user === undefined) {
             const new_user = await client.User.create({ data: { 
                 username: request.body.username, 
                 password: request.body.password 
@@ -136,7 +136,3 @@ function randomStr(len) {
     }
     return result;
 }
-
-/*async function main() {
-    const user = await client.
-}*/
