@@ -64,3 +64,12 @@ document.write("Hello" + 1 + 2);
 `+` の結合規則は左から右なので、`3 + 4 + "Hello"` は `(3 + 4) + "Hello"` 、`"Hello" + 1 + 2` は`("Hello" + 1) + 2`と解釈されることになります。
 
 `+`は、両辺が<Term type="javascriptNumber">数値</Term>の場合のみ加算<Term type="javascriptOperator">演算子</Term>として振る舞い、片方が<Term type="javascriptNumber">数値</Term>で片方が<Term type="javascriptString">文字列</Term>の場合は<Term type="javascriptNumber">数値</Term>を<Term type="javascriptString">文字列</Term>に変換してから<Term type="javascriptString">文字列</Term>結合<Term type="javascriptOperator">演算子</Term>として機能します。このため、最終的な<Term type="javascriptExpression">式</Term>全体の<Term type="javascriptEvaluation">評価</Term>結果は前者が `"7Hello"` 、後者が `"Hello12"` となるのです。
+
+<h3>代表的な演算子</h3>
+
+| 演算子 | 説明 | 例
+|-------|------|----------------------------------|
+|   `+` |　足す   | `1 + 1 === 2 `  `"A" + "B" === "AB"`|
+|   `-` |　引く    | `2 - 1 === 1`
+|   `*` |　掛ける   | `2 * 2 === 4`
+|   `/` |　割る    |  `4 / 2 === 2`
