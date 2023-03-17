@@ -55,6 +55,21 @@ person.age = person.age + 1;
 document.write(person.age);
 ```
 
+:::tip 複合代入演算子
+
+[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)は、計算と代入を同時に行うことができる演算子です。
+
+`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y` 、`x *= y` は`x = x * y` という意味になります。
+
+複合代入演算子を用いると、先ほどのプログラムは以下のように書くことができます。
+
+```javascript
+person.age += 1;
+document.write(person.age);
+```
+
+:::
+
 ## 課題
 
 <p><Term type="javascriptObject">オブジェクト</Term>も<Term type="javascriptValue">値</Term>の一種なので、<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">引数</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。</p>
