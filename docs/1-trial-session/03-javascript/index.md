@@ -40,12 +40,6 @@ document.write("Hello World!");
 
 <video src={helloWorldByJavascriptVideo} controls />
 
-```document.write()```はブラウザ上に表示させます。一方、```console.log()```はブラウザには表示させず、開発者ツールのコンソールなど
-出入力のウィンドウに表示させます。
-```javascript title="script.js"
-console.log("Hello World!");
-```
-VSCodeのコンソールで実行してみましょう。`Hello World!`と表示されましたか？
 ## <Term type="javascript">JavaScript</Term> が動く仕組み
 
 <p><Term type="html">HTML</Term> ファイルの中に、以下のような記述があります。</p>
