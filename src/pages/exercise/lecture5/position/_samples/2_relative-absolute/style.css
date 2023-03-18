@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+#header {
+  text-align: center;
+
+  width: 100%;
+  height: 160px;
+  background-color: lightblue;
+  padding: 20px;
+  z-index: 10;
+  /* 以下の部分を追加: (1) */
+  position: fixed;
+  top: 0;
+}
+
+#wrapper {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  /* 以下の部分を追加: (1) */
+  margin-top: 200px;
+}
+
+.card {
+  border: 1px solid #aaa;
+  padding: 20px;
+  /* 以下の部分を追加: (2) */
+  position: relative;
+}
+
+.district {
+  background-color: #ddd;
+  margin: 0;
+}
+
+.reservation {
+  width: 5rem;
+  text-align: center;
+  /* 以下の部分を追加: (2) */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.needed {
+  background-color: lightpink;
+}
+
+.not-needed {
+  background-color: lightgreen;
+}
