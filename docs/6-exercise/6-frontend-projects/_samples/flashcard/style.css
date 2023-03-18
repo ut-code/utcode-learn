@@ -1,0 +1,16 @@
+.card {
+  height: 200px;
+  width: 500px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#question {
+  font-size: 75px;
+  margin: 5px;
+}
+
+#answer {
+  font-size: 35px;
+  color: grey;
+}
