@@ -17,7 +17,6 @@ import Answer from "@site/src/components/Answer";
 <Answer>
 
 ```javascript title="server.js"
-const fs = require("fs");
 const express = require("express");
 
 const app = express();
