@@ -123,3 +123,4 @@ function randomStr(len) {
         result += str[Math.floor(Math.random() * str.length)];
     }
     return result;
+}
