@@ -5,10 +5,16 @@ sidebar_position: 3
 
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
+import bmiVideo from "./bmi.mp4";
+import calculatorVideo from "./calculator.mp4";
+import objectEventVideo from "./object-event.mp4";
+import drawingVideo from "./drawing.mp4";
 
 ## 課題 1
 
 身長と体重を入力すると BMI を計算するアプリを作ってみましょう。
+
+<video src={bmiVideo} controls muted autoPlay loop />
 
 <Answer>
 
@@ -47,6 +53,8 @@ calcButton.onclick = () => {
 
 - 2 つの数値と、演算子 `+`、`-`、`*`、`/` のうちいずれか 1 つを選択できます
 - `計算` ボタンをクリックすると、計算結果が表示されます
+
+<video src={calculatorVideo} controls muted autoPlay loop />
 
 ### STEP 1
 
@@ -190,6 +198,8 @@ html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科
 
 というコードを含めることを条件とする。
 
+<video src={objectEventVideo} controls muted autoPlay loop />
+
 <Answer>
 
 ```html title=index.html
@@ -234,6 +244,8 @@ trickbutton.onclick = falsifyData;
 ## 課題 4
 
 枠内でクリックしたら正方形を描画するツールを作成してみましょう。
+
+<video src={drawingVideo} controls muted autoPlay loop />
 
 ### ヒント
 
