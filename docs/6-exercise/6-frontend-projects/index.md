@@ -4,7 +4,8 @@ title: ブラウザで動作する色々なアプリを作ってみよう
 
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
-import timerVideo from "./timer.mp4"
+import timerVideo from "./timer.mp4";
+import flashcardVideo from "./flashcard.mp4";
 
 「ブラウザで動作するアプリを構築しよう」までの項目の総合問題です。
 
@@ -19,6 +20,8 @@ import timerVideo from "./timer.mp4"
 - 「答えを見る」ボタンを押すと、答えが表示される
 
 - 「次の問題へ」ボタンを押すと、次の問題が表示される(最後の問題の次は最初の問題に戻る)
+
+<video src={flashcardVideo} controls muted autoPlay loop />
 
 ### ヒント
 
