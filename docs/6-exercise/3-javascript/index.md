@@ -35,7 +35,7 @@ calcButton.onclick = () => {
 };
 ```
 
-<!-- <ViewSource path="/src/pages/exercise/lecture3/project-bmi/_samples/bmi" /> -->
+<ViewSource url={import.meta.url} path="_samples/bmi" />
 
 </Answer>
 
@@ -116,7 +116,7 @@ calcButton.onclick = () => {
 
 ### 解答例
 
-<ViewSource url={import.meta.url} path="_samples" />
+<ViewSource url={import.meta.url} path="_samples/calculator" />
 
 ## 課題 3
 
@@ -183,6 +183,8 @@ function falsifyData() {
 let trickbutton = document.getElementById("button");
 trickbutton.onclick = falsifyData;
 ```
+
+<ViewSource url={import.meta.url} path="_samples/object-event" />
 
 ## 課題 4
 
@@ -257,3 +259,5 @@ big.onclick = () => {
   isBig = true;
 };
 ```
+
+<ViewSource url={import.meta.url} path="_samples/drawing" />
