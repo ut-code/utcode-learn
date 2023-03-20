@@ -2,8 +2,6 @@
 title: ブラウザで動作する色々なアプリを作ってみよう
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 import timerVideo from "./timer.mp4"
