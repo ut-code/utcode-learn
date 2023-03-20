@@ -94,7 +94,7 @@ const person = {
 
 ```javascript
 function incrementAge(person) {
-  person.age = person.age + 1;
+  person.age += 1;
   return person;
 }
 
