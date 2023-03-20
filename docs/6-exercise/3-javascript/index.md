@@ -203,18 +203,8 @@ HTML要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科
 <Answer>
 
 ```html title=index.html
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>school annual report</title>
-  </head>
-  <body>
-    <div id="academic-performance">成績:数学...80点、理科...90点</div>
-    <button id="button" type="button">クリック</button>
-    <script src="./script.js"></script>
-  </body>
-</html>
+<div id="academic-performance">成績:数学...80点、理科...90点</div>
+<button id="button" type="button">クリック</button>
 ```
 
 ```javascript title=script.js
@@ -266,25 +256,15 @@ ctx.fillRect(10, 10, 100, 100);
 <Answer>
 
 ```html title=imageReader.html
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-  </head>
-  <body>
-    <canvas id="canvas" style="border: solid" width="360px" height="360px"
-      >描画用キャンバス</canvas
-    >
-    <div>
-      <button id="small">小</button>
-    </div>
-    <div>
-      <button id="big">大</button>
-    </div>
-    <script src="imageReader.js"></script>
-  </body>
-</html>
+<canvas id="canvas" style="border: solid" width="360px" height="360px"
+  >描画用キャンバス</canvas
+>
+<div>
+  <button id="small">小</button>
+</div>
+<div>
+  <button id="big">大</button>
+</div>
 ```
 
 ```javascript title=imageReader.js
