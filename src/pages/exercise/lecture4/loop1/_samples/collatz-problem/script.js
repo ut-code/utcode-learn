@@ -1,6 +1,7 @@
 let n = 27;
+const answer = document.getElementById("answer");
 while (n !== 1) {
-  document.write(n + " → ");
+  answer.textContent += n + " → ";
   if (n % 2 === 0) {
     n /= 2;
   } else {
@@ -8,4 +9,4 @@ while (n !== 1) {
     n += 1;
   }
 }
-document.write(1);
+answer.textContent += 1;
