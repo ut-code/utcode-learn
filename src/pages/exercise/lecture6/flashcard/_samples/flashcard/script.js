@@ -1,8 +1,8 @@
 const questions = ["apple", "black", "cloud"];
 const answers = ["りんご", "黒", "雲"];
 
-let question = document.getElementById("question");
-let answer = document.getElementById("answer");
+const question = document.getElementById("question");
+const answer = document.getElementById("answer");
 let index = 0;
 
 question.textContent = questions[0];
