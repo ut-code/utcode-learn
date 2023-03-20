@@ -87,8 +87,8 @@ class TimeRenderer {
     if (minuteString.length === 1) {
       minuteString = `0${minuteString}`;
     }
-    if (secondString.length === 1){
-      secondString = `0${secondString}`
+    if (secondString.length === 1) {
+      secondString = `0${secondString}`;
     }
 
     // 時間を表示
