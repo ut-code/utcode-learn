@@ -1,12 +1,12 @@
 ---
-title: JavaScript の諸文法
+title: 第 3 回演習問題
 sidebar_position: 3
 ---
 
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-# 第 3 回 プロジェクト 問題
+## 課題 1
 
 身長と体重を入力すると BMI を計算するアプリを作ってみましょう。
 
@@ -39,7 +39,7 @@ calcButton.onclick = () => {
 
 </Answer>
 
-## 課題 3-X(仮)
+## 課題 2
 
 入力した 2 つの値の四則演算ができる、簡易的な計算アプリを作ってみましょう。
 
@@ -118,7 +118,7 @@ calcButton.onclick = () => {
 
 <ViewSource url={import.meta.url} path="_samples" />
 
-# 課題
+## 課題 3
 
 田中君の成績を格納したオブジェクトがあります。
 
@@ -147,7 +147,7 @@ html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科
 
 というコードを含めることを条件とする。
 
-## 回答例
+### 解答例
 
 ```html title="index.html"
 <!DOCTYPE html>
@@ -184,11 +184,11 @@ let trickbutton = document.getElementById("button");
 trickbutton.onclick = falsifyData;
 ```
 
-## 第３回問題
+## 課題 4
 
 枠内でクリックしたら正方形を描画するツールを作成してみましょう。
 
-## ヒント
+### ヒント
 
 `canvas`要素を用いることによって、ブラウザ上に図形や絵を描画することができます。
 `canvas`要素を`getElementById`関数で呼び出し、`getContext`関数を用いることによって図形の描画を行うことができます。
@@ -204,7 +204,7 @@ ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
 
-## 解答
+### 解答
 
 ```html title="imageReader.html"
 <!DOCTYPE html>
