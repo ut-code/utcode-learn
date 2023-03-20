@@ -3,10 +3,8 @@ title: JavaScript の諸文法
 sidebar_position: 3
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
+import ViewSource from "@site/src/components/ViewSource";
 
 # 第 3 回 プロジェクト 問題
 
@@ -40,8 +38,6 @@ calcButton.onclick = () => {
 <!-- <ViewSource path="/src/pages/exercise/lecture3/project-bmi/_samples/bmi" /> -->
 
 </Answer>
-
-import ViewSource from "@site/src/components/ViewSource";
 
 ## 課題 3-X(仮)
 
