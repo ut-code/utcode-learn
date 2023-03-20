@@ -193,7 +193,7 @@ let tanaka = {
 すなわち、
 
 ```javascript
-html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
+HTML要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
 ```
 
 というコードを含めることを条件とします。
