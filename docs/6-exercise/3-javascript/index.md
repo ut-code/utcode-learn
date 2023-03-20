@@ -196,7 +196,7 @@ let tanaka = {
 html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
 ```
 
-というコードを含めることを条件とする。
+というコードを含めることを条件とします。
 
 <video src={objectEventVideo} controls muted autoPlay loop />
 
