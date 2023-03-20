@@ -54,7 +54,7 @@ calcButton.onclick = () => {
 
 - 入力欄は `input` タグで作成できます。`type` 属性に `number` を指定することで、入力を数値のみに限定することができます。
 
-  ```html title="index.html"
+  ```html title=index.html
   <input id="number1" type="number" />
   ```
 
@@ -67,14 +67,14 @@ calcButton.onclick = () => {
 
 - 2 つの入力欄とボタンを配置し、ボタンを押すと入力された 2 つの数の和が表示されるようにしてみましょう。
 
-  ```html title="index.html"
+  ```html title=index.html
   <input id="number1" type="number" />
   <input id="number2" type="number" />
   <button id="calculate-button" type="button">計算</button>
   <div id="result"></div>
   ```
 
-  ```javascript title="script.js"
+  ```javascript title=script.js
   let calculateButton = document.getElementById("calculate-button");
   let number1 = document.getElementById("number1");
   let number2 = document.getElementById("number2");
@@ -94,7 +94,7 @@ calcButton.onclick = () => {
 
 - プルダウンメニューは、`select` タグと `option` タグを使って実現できます。1 つ 1 つの選択肢を `option` タグで作成し、全体を `select` タグで囲みます。
 
-  ```html title="index.html"
+  ```html title=index.html
   <select id="fruit-select">
     <option value="strawberry">イチゴ</option>
     <option value="apple">リンゴ</option>
@@ -104,7 +104,7 @@ calcButton.onclick = () => {
 
 - `select` 要素を `document.getElementById` 関数で取得します。返されたオブジェクトの `value` プロパティには、プルダウンメニューで選択されている選択肢の `value` 属性に指定されている文字列が格納されています。
 
-  ```javascript title="script.js"
+  ```javascript title=script.js
   let fruitSelect = document.getElementById("fruit-select");
 
   // "strawberry", "apple", "banana" のいずれか
@@ -178,9 +178,9 @@ let tanaka = {
 しかしながら田中君は、親に数学,理科の成績を高く見せたいと考えました。
 下を満たすプログラムを作成して下さい。
 
-- HTML を読み込むと、`成績:数学...80点、理科...90点`と表示される
-- ボタンを押すと、`成績:数学...100点、理科...100点`と表示される
-- ただし、JavaScript は`tanaka`オブジェクトのみを参照する。新しい成績格納オブジェクトを作ってはならない。
+- HTML を読み込むと、`成績:数学...80点、理科...90点` と表示される
+- ボタンを押すと、`成績:数学...100点、理科...100点` と表示される
+- ただし、JavaScript は `tanaka` オブジェクトのみを参照する。新しい成績格納オブジェクトを作ってはならない。
 
 すなわち、
 
@@ -237,8 +237,8 @@ trickbutton.onclick = falsifyData;
 
 ### ヒント
 
-`canvas`要素を用いることによって、ブラウザ上に図形や絵を描画することができます。
-`canvas`要素を`getElementById`関数で呼び出し、`getContext`関数を用いることによって図形の描画を行うことができます。
+`canvas` 要素を用いることによって、ブラウザ上に図形や絵を描画することができます。
+`canvas` 要素を `getElementById` 関数で呼び出し、`getContext` 関数を用いることによって図形の描画を行うことができます。
 
 ```html
 <canvas id="canvas">描画用キャンバス</canvas>
