@@ -12,7 +12,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 <Answer>
 
-```html title="index.html"
+```html title=index.html
 <h1>BMI計算アプリ</h1>
 <p><input id="height" /> cm</p>
 <p><input id="weight" /> kg</p>
@@ -22,7 +22,7 @@ import ViewSource from "@site/src/components/ViewSource";
 <p>です！</p>
 ```
 
-```javascript title="script.js"
+```javascript title=script.js
 const height = document.getElementById("height");
 const weight = document.getElementById("weight");
 
@@ -114,9 +114,52 @@ calcButton.onclick = () => {
 - 演算子 `+`、`-`、`*`、`/` の中から 1 つ選択できるプルダウンメニューを作り、選ばれた演算子に応じた計算結果が表示されるようにしましょう。
 - 余裕がある人は、0 で割ろうとした時に計算結果の代わりにエラーメッセージが表示されるようにしてみましょう。
 
-### 解答例
+<Answer>
+
+```html title=index.html
+<input id="number1" type="number" />
+<select id="operator">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input id="number2" type="number" />
+<button id="calculate-button" type="button">計算</button>
+<div id="result"></div>
+```
+
+```javascript title=script.js
+let calculateButton = document.getElementById("calculate-button");
+let number1 = document.getElementById("number1");
+let number2 = document.getElementById("number2");
+let operator = document.getElementById("operator");
+let result = document.getElementById("result");
+
+function calculate() {
+  let inputNumber1 = Number(number1.value);
+  let inputNumber2 = Number(number2.value);
+  if (operator.value === "/" && inputNumber2 === 0) {
+    result.textContent = "0で割ることはできません。";
+    result.style.color = "red";
+  } else {
+    if (operator.value === "+")
+      result.textContent = inputNumber1 + inputNumber2;
+    if (operator.value === "-")
+      result.textContent = inputNumber1 - inputNumber2;
+    if (operator.value === "*")
+      result.textContent = inputNumber1 * inputNumber2;
+    if (operator.value === "/")
+      result.textContent = inputNumber1 / inputNumber2;
+    result.style.color = "black";
+  }
+}
+calculateButton.onclick = calculate;
+```
 
 <ViewSource url={import.meta.url} path="_samples/calculator" />
+
+</Answer>
 
 ## 課題 3
 
@@ -147,9 +190,9 @@ html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科
 
 というコードを含めることを条件とする。
 
-### 解答例
+<Answer>
 
-```html title="index.html"
+```html title=index.html
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -164,7 +207,7 @@ html要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科
 </html>
 ```
 
-```javascript title="script.js"
+```javascript title=script.js
 let tanaka = {
   name: "田中",
   scores: {
@@ -186,6 +229,8 @@ trickbutton.onclick = falsifyData;
 
 <ViewSource url={import.meta.url} path="_samples/object-event" />
 
+</Answer>
+
 ## 課題 4
 
 枠内でクリックしたら正方形を描画するツールを作成してみましょう。
@@ -206,9 +251,9 @@ ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
 
-### 解答
+<Answer>
 
-```html title="imageReader.html"
+```html title=imageReader.html
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -230,7 +275,7 @@ ctx.fillRect(10, 10, 100, 100);
 </html>
 ```
 
-```javascript title="imageReader.js"
+```javascript title=imageReader.js
 const canvas = document.getElementById("canvas");
 const small = document.getElementById("small");
 const big = document.getElementById("big");
@@ -261,3 +306,5 @@ big.onclick = () => {
 ```
 
 <ViewSource url={import.meta.url} path="_samples/drawing" />
+
+</Answer>
