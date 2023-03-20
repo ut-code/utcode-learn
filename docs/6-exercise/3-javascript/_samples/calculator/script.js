@@ -11,10 +11,14 @@ function calculate() {
     result.textContent = "0で割ることはできません。";
     result.style.color = "red";
   } else {
-    if (operator.value === "+") result.textContent = inputNumber1 + inputNumber2;
-    if (operator.value === "-") result.textContent = inputNumber1 - inputNumber2;
-    if (operator.value === "*") result.textContent = inputNumber1 * inputNumber2;
-    if (operator.value === "/") result.textContent = inputNumber1 / inputNumber2;
+    if (operator.value === "+")
+      result.textContent = inputNumber1 + inputNumber2;
+    if (operator.value === "-")
+      result.textContent = inputNumber1 - inputNumber2;
+    if (operator.value === "*")
+      result.textContent = inputNumber1 * inputNumber2;
+    if (operator.value === "/")
+      result.textContent = inputNumber1 / inputNumber2;
     result.style.color = "black";
   }
 }
