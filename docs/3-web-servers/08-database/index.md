@@ -104,9 +104,11 @@ Prisma が作成したテーブルに、DBeaver を用いてレコードを追�
 
 ## 非同期処理
 
-Prisma を用いてデータベースの操作を行う場合には、非同期処理の概念を理解しておく必要があります。
+Prisma を用いてデータベースの操作を行う場合には、<Term type="asynchronousProcess">非同期処理</Term>の概念を理解しておく必要があります。
 
-非同期処理を使うと、メインスレッドを停止させずに時間のかかる処理（ファイルの読み書きやネットワーク通信など）を行うことができます。下のコードにおいて `sample.txt` を読み込む 3 つの関数 `sync`、`callback`、`asyncAwait` の挙動を比較してみましょう。なお、`sample.txt` には `これはサンプルです。` と記述されているものとします。
+Javascriptのコードの実行やブラウザの画面への描写（レンダリング）は、メインスレッドと呼ばれる単一の<Term type="thread">スレッド</Term>において順次処理されていきます。このため、ファイルの読み書きやネットワーク通信などの比較的時間がかかる処理があると、Webページの読み込みに時間がかかってしまいます。<Term type="asynchronousProcess">非同期処理</Term>を使うと、メインスレッドを停止させずに時間のかかる処理を並行して行うことができ、処理効率が高まるので、なめらかな画面切り替えが可能になります。データベースの操作では、データベースサーバーとの通信やデータベースにあるデータの読み書きを行うため、<Term type="asynchronousProcess">非同期処理</Term>が必要となります。
+
+まずは簡単な例で<Term type="asynchronousProcess">非同期処理</Term>を説明します。下のコードにおいて `sample.txt` を読み込む 3 つの関数 `sync`、`callback`、`asyncAwait` の挙動を比較してみましょう。なお、`sample.txt` には `これはサンプルです。` と記述されているものとします。
 
 ```javascript
 const fs = require("fs");
@@ -157,17 +159,17 @@ After asyncAwait()
 これはサンプルです。
 ```
 
-同期的な関数 `sync` では後続の `console.log("After sync()");` がファイルの中身が表示された後に実行されているのに対し、その他の 2 つでは後回しになっています。これは、この 2 つはファイルの読み込みを非同期処理で行っているからです。
+同期的な関数 `sync` では後続の `console.log("After sync()");` がファイルの中身が表示された後に実行されているのに対し、その他の 2 つでは後回しになっています。これは、この 2 つはファイルの読み込みを<Term type="asynchronousProcess">非同期処理</Term>で行っているからです。
 
-`fs.readFile` を用いる方法では、第 2 引数にコールバック関数を登録します。この関数はファイルの読み込みが完了したタイミングで実行されます。関数が呼び出されるまでの間は他の処理が割り込むことができます。
+`fs.readFile` を用いる方法では、第 2 引数に<Term type="callbackFunction">コールバック関数</Term>を登録します。この関数はファイルの読み込みが完了したタイミングで実行されます。関数が呼び出されるまでの間は他の処理が割り込むことができます。
 
-`fs/promises` は `fs` と同じく Node.js の標準モジュールですが、`await` キーワードを用いて非同期処理を記述できるようになっています。`await` キーワードにより非同期処理の完了を待っている間はほかの処理が割り込めます。なお、 **`await` キーワードは `async` キーワードを付けた関数内でしか使えません**。
+`fs/promises` は `fs` と同じく Node.js の標準モジュールですが、`await` キーワードを用いて<Term type="asynchronousProcess">非同期処理</Term>を記述できるようになっています。`await` キーワードをつけると<Term type="asynchronousProcess">非同期処理</Term>の完了を待つことができ、その間に他の処理が割り込めます。なお、 **`await` キーワードは `async` キーワードを付けた関数内でしか使えません**。
 
 ![非同期処理](./async-await.png)
 
 :::tip (発展) Promise
 
-`async` キーワードのついた関数は、戻り値として [`Promise` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)のインスタンスを返却するようになります。この Promise クラスを用いることにより、コールバック型の非同期関数を `await` を用いることができる形に変換できます。
+`async` キーワードのついた関数は、戻り値として [`Promise` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)のインスタンスを返却するようになります。この Promise クラスを用いることにより、<Term type="callbackFunction">コールバック</Term>型の非同期関数を `await` を用いることができる形に変換できます。`await` キーワードをつけることで、`resolve` の引数 `buffer` の値が返ってきます。
 
 ```javascript
 const fs = require("fs");
@@ -199,7 +201,7 @@ console.log("After myAsyncAwait()");
 
 ## Prisma でデータベースのデータを読み書きする
 
-Node.js から Prisma を利用してデータベースのデータを操作するためには、[`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。データの取得には、次の 3 つのメソッドが利用できます。
+Node.js から Prisma を利用してデータベースのデータを操作するためには、[`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。こちらも `fs/promises` と同様に `await` キーワードを用いて<Term type="asynchronousProcess">非同期処理</Term>を記述することができます。データの取得には、次の 3 つのメソッドが利用できます。
 
 - [`PrismaClient#[テーブル名].findMany` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
 - [`PrismaClient#[テーブル名].findFirst` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
