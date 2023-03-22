@@ -1,0 +1,30 @@
+#time{
+    text-align: center;
+    font-size: 15vw;
+}
+
+input{
+    width: 20vw;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input-container{
+    text-align: center;
+}
+
+button{
+    width: 30vw;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.button-container{
+    margin-top: 2px;
+    text-align: center;
+}
+#error-console{
+    color: red;
+    text-align: center;
+    font-size: xx-large;
+}
