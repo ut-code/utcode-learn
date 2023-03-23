@@ -1,5 +1,6 @@
 ---
 title: ブラウザで動作する色々なアプリを作ってみよう
+sidebar_position: 5
 ---
 
 import ViewSource from "@site/src/components/ViewSource";
