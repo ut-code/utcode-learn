@@ -1,6 +1,6 @@
 ---
 title: javascriptの諸文法
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Answer from "@site/src/components/Answer";
