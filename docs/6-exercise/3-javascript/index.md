@@ -319,9 +319,9 @@ function showSound(Animal) {
 ```javascript
 const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
 
-//const academicPerformanceData = [tanaka, suzuki, sato, takahashi];などでも構わない。
+// const academicPerformanceData = [tanaka, suzuki, sato, takahashi];などでも構わない。
 
-//for文でacademicPerformanceDataの要素を順位順に並べ替える処理を書く
+// for文でacademicPerformanceDataの要素を順位順に並べ替える処理を書く
 ```
 
 最初の配列 `academicPerformanceData` がどんな並びをしていても,最終的には 1 位から順に並んだ配列が出てくるようにプログラムを作成すること。(上記の点数の場合は `[suzuki, tanaka, sato, takahashi]`)
@@ -405,20 +405,20 @@ function makePersonalData(name, mathScore, scienceScore) {
   };
 }
 
-//データオブジェクトを生成
+// データオブジェクトを生成
 const sato = makePersonalData("佐藤", 80, 70);
 const suzuki = makePersonalData("鈴木", 90, 70);
 const takahashi = makePersonalData("高橋", 100, 40);
 const tanaka = makePersonalData("田中", 85, 65);
 
-//この配列の要素をあとで並び替える。
+// この配列の要素をあとで並び替える。
 const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
 
-//並び替えるぞ～
-//まず、合計点の順に並べよう。for文のネストが要るぞ！
-//佐藤と鈴木を比べる→高橋と「佐藤＆鈴木」を比べる→田中と「佐藤＆鈴木＆高橋」を比べる
+// 並び替えるぞ～
+// まず、合計点の順に並べよう。for文のネストが要るぞ！
+// 佐藤と鈴木を比べる→高橋と「佐藤＆鈴木」を比べる→田中と「佐藤＆鈴木＆高橋」を比べる
 
-//academicPerformanceDataのa番目とb番目の要素を入れ替える関数を用意する。
+// academicPerformanceDataのa番目とb番目の要素を入れ替える関数を用意する。
 function swap(a, b) {
   const before_a = academicPerformanceData[a];
   const before_b = academicPerformanceData[b];
@@ -430,15 +430,15 @@ function swap(a, b) {
   academicPerformanceData[b] = after_b;
 }
 
-//swapの別解
+// swapの別解
 // function swap(a, b) {
 //   const tmp = academicPerformanceData[a];
 //   academicPerformanceData[a] = academicPerformanceData[b];
 //   academicPerformanceData[b] = tmp;
 // }
 
-//いざ、並び替え！
-//i++はi += 1と同じ意味です。
+// いざ、並び替え！
+// i++はi += 1と同じ意味です。
 for (let i = 1; i < 4; i++) {
   const person_i = academicPerformanceData[i];
 
@@ -446,7 +446,7 @@ for (let i = 1; i < 4; i++) {
     const person_j = academicPerformanceData[j];
 
     if (person_j.scores.total < person_i.scores.total) {
-      //１つ目のルールに従って入れ替え
+      // １つ目のルールに従って入れ替え
       swap(j, i);
     }
 
@@ -454,13 +454,13 @@ for (let i = 1; i < 4; i++) {
       person_j.scores.total == person_i.scores.total &&
       person_j.scores.math < person_i.scores.math
     ) {
-      //２つ目のルールに従って入れ替え
+      // ２つ目のルールに従って入れ替え
       swap(j, i);
     }
   }
 }
 
-//表を埋めていくDOM
+// 表を埋めていくDOM
 for (let i = 0; i < 4; i++) {
   let name = document.getElementById(`prize${i + 1}Name`);
   let score = document.getElementById(`prize${i + 1}Score`);
