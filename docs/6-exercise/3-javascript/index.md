@@ -314,7 +314,7 @@ function showSound(Animal) {
 
 - `math`、 `science` の合計点が高い者を上位とする。
 - 上記で同率になった場合、`math` の得点が高い者を上位とする。
-- 順位の判定はもちろん、配列内で繰り返し処理（点数の比較）をするプログラムを javascript で書いて行う。
+- 順位の判定はもちろん、配列内で繰り返し処理（点数の比較）をするプログラムを JavaScript で書いて行う。
 
 ```javascript
 const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
@@ -347,7 +347,7 @@ const sato = {
 
 <Answer>
 
-まずは、html で表のひな形を作ります。
+まずは、HTML で表のひな形を作ります。
 
 ```html title=index.html
 <!DOCTYPE html>
