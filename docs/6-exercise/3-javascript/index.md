@@ -34,7 +34,30 @@ if (n % 2 === 0) {
 
 ### 解答例
 
+<Answer>
+
+```html
+<div id="answer"></div>
+```
+
+```javascript
+let n = 27;
+const answer = document.getElementById("answer");
+while (n !== 1) {
+  answer.textContent += n + " → ";
+  if (n % 2 === 0) {
+    n /= 2;
+  } else {
+    n *= 3;
+    n += 1;
+  }
+}
+answer.textContent += 1;
+```
+
 <ViewSource url={import.meta.url} path="_samples/collatz-problem" />
+
+</Answer>
 
 ## クラス
 
@@ -167,6 +190,8 @@ chicken.crow();
 bear.growl();
 ```
 
+<ViewSource url={import.meta.url} path="_samples/animals1" />
+
 #### 2 の解答例
 
 以下のようなクラス `Animal` を用意します。つまり、動物の体重という性質や動物が「鳴く」という処理は同じであり、変わるのは声のみなので、一括で扱ってしまいます。
@@ -240,6 +265,8 @@ dog.say();
 chicken.say();
 bear.say();
 ```
+
+<ViewSource url={import.meta.url} path="_samples/animals1" />
 
 また、たとえばある正体不明の動物のインスタンスを引数として受け取ったときに鳴き声を表示する関数を作るとします。このとき、メソッドがバラバラだと次のように関数が長いコードになってしまいます。
 
@@ -443,5 +470,7 @@ for (let i = 0; i < 4; i++) {
 ```
 
 並び替えは「バブルソート」を用いています。[他の並べ方](https://products.sint.co.jp/topsic/blog/algorithm-type)もあるので興味のある方は調べてみましょう
+
+<ViewSource url={import.meta.url} path="_samples/ranking" />
 
 </Answer>
