@@ -63,7 +63,7 @@ answer.textContent += 1;
 
 次のコードは、ブラウザ上に動物の鳴き声を表示するプログラムです。
 
-```html title="Animals.html"
+```html title=index.html
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -71,12 +71,12 @@ answer.textContent += 1;
     <title>動物</title>
   </head>
   <body>
-    <script src="Animals.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
 ```
 
-```javascript title="Animals.js"
+```javascript title=script.js
 class Cat {
   weight = 5;
 
@@ -132,7 +132,7 @@ chicken.crow();
 
 #### 1 の解答例
 
-```javascript title="animals.js"
+```javascript title=script.js
 class Cat {
   weight = 5;
 
@@ -212,7 +212,7 @@ class Animal {
 
 このようなクラスを作れば、次のようにコードをきれいに書くことができます。
 
-```javascript title="animals.js"
+```javascript title=script.js
 class Animal {
   weight;
 
@@ -300,7 +300,7 @@ function showSound(Animal) {
 
 みんなのテストの点数が出ました。
 
-```
+```plain
 佐藤...math: 80点、science:70点
 鈴木...math: 90点、science:70点
 高橋...math:100点、science:40点
@@ -312,8 +312,8 @@ function showSound(Animal) {
 
 ルールは以下とします。
 
-- `math` , `science`の合計点が高い者を上位とする。
-- 上記で同率になった場合、`math`の得点が高い者を上位とする。
+- `math`、 `science` の合計点が高い者を上位とする。
+- 上記で同率になった場合、`math` の得点が高い者を上位とする。
 - 順位の判定はもちろん、配列内で繰り返し処理（点数の比較）をするプログラムを javascript で書いて行う。
 
 ```javascript
@@ -324,7 +324,7 @@ const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
 //for文でacademicPerformanceDataの要素を順位順に並べ替える処理を書く
 ```
 
-最初の配列`academicPerformanceData`がどんな並びをしていても,最終的には 1 位から順に並んだ配列が出てくるようにプログラムを作成すること。(上記の点数の場合は`[suzuki, tanaka, sato, takahashi]`)
+最初の配列 `academicPerformanceData` がどんな並びをしていても,最終的には 1 位から順に並んだ配列が出てくるようにプログラムを作成すること。(上記の点数の場合は `[suzuki, tanaka, sato, takahashi]`)
 
 ### ヒント
 
@@ -341,7 +341,7 @@ const sato = {
 
 このように氏名・点数のデータからオブジェクトを作成すると処理がしやすいでしょう。
 
-プログラムを書き終えたら、初めの`academicPerformanceData`の順番をいじったり、点数を書き換えたりして、望み通りの表ができるか確認しましょう。
+プログラムを書き終えたら、初めの `academicPerformanceData` の順番をいじったり、点数を書き換えたりして、望み通りの表ができるか確認しましょう。
 
 ### 解答例
 
@@ -349,7 +349,7 @@ const sato = {
 
 まずは、html で表のひな形を作ります。
 
-```html title="index.html"
+```html title=index.html
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -393,7 +393,7 @@ const sato = {
 
 続いて、script.js の回答例です。
 
-```javascript title="script.js"
+```javascript title=script.js
 function makePersonalData(name, mathScore, scienceScore) {
   return {
     name: name,
