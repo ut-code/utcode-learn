@@ -1,57 +1,3 @@
----
-title: データベースと Cookie
-sidebar_position: 7
----
-
-import trackingVideo from "./tracking.mp4"
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-
-## cookie 
-
-ショッピングサイトのトラッキングシステムを作ってみましょう。
-<video src={trackingVideo} controls muted autoPlay loop />
-
-- 購入ボタンを押した回数がクッキーに保存されるようにしてみましょう。
-- 購入した回数が一番多い商品をお勧めするようにしてみましょう。
-
-### 解答例
-
-<Answer>
-
-```html title=index.ejs
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>ut商会</title>
-  </head>
-  <body>
-    <table>
-      <thead>
-        <tr>
-          <th>車</th>
-          <th>指輪</th>
-          <th>エビ</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <% for ( const item of items ){%>
-            <td><form action=<%= `/${item}` %>><button>購入</button></form></td>
-            <% } %>
-          </tr>
-      </tbody>
-    </table>
-    <% if(recommended){ %>
-      <div>あなたへのおすすめは<%= recommended %>です</div>
-      <% } %>
-  </body>
-</html>
-
-```
-
-```javascript title=main.js
 const fs = require("fs");
 const ejs = require("ejs");
 const express = require("express");
@@ -109,9 +55,3 @@ app.get("/shrimp", (request, response) => {
 });
 
 app.listen(3000);
-
-```
-
-<ViewSource url={import.meta.url} path="_samples/cookie" />
-
-</Answer>
