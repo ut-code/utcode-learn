@@ -1,4 +1,4 @@
-//DOMの取得
+// DOMの取得
 const Display = document.getElementById("time");
 const hourInput = document.getElementById("hour-input");
 const minuteInput = document.getElementById("minute-input");
@@ -8,7 +8,7 @@ const stopButton = document.getElementById("stop-button");
 const setButton = document.getElementById("set-button");
 const errorConsole = document.getElementById("error-console");
 
-//タイマー本体
+// タイマー本体
 class Timer {
   timeLeft = 0;
 
@@ -28,7 +28,7 @@ class Timer {
 
   startCountDown() {
     this.onStart();
-    //カウントダウン処理
+    // カウントダウン処理
     this.tickerId = setInterval(() => {
       this.timeLeft -= 100;
       if (this.timeLeft === 0) {
@@ -52,7 +52,7 @@ class Timer {
   }
 }
 
-//残り時間描画用クラス
+// 残り時間描画用クラス
 class TimeRenderer {
   timer;
 
@@ -96,7 +96,7 @@ class TimeRenderer {
   }
 }
 
-//統括クラス
+// 統括クラス
 class AppManager {
   timer;
 
