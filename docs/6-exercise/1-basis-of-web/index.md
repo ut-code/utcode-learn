@@ -3,6 +3,9 @@ title: Webプログラミングの初歩
 sidebar_position: 1
 ---
 
+import Answer from "@site/src/components/Answer";
+import ViewSource from "@site/src/components/ViewSource";
+
 この章では教材の「初めてのウェブ開発」から「ウェブサイトの見た目を整える」までの内容を扱っています。
 
 ## SOS 団の Web サイト
@@ -24,6 +27,8 @@ sidebar_position: 1
 - [こちら](http://www.htmq.com/)で HTML タグの使い方が簡潔に示されています。
 
 ### 解答例
+
+<Answer>
 
 ```html
 <!DOCTYPE html>
@@ -59,6 +64,10 @@ sidebar_position: 1
 
 jpg ファイルは html ファイルと同じ階層に入れているので、`img`タグの`src`属性は`./ファイル名`となっています。
 
+<ViewSource url={import.meta.url} path="_samples/sos-dan" />
+
+</Answer>
+
 ## 名前の長さ
 
 太郎くんは、名前を 4 文字以上 10 文字以下で入力して登録できるウェブサイトを作ろうとしています。そこで、名前の文字数を変数に入れておき、
@@ -85,7 +94,24 @@ if (lengthOfName === 0) {
 
 ### 解答例
 
+<Answer>
+
+```javascript
+let lengthOfName = 7;
+if (4 <= lengthOfName && lengthOfName <= 10) {
+  // 比較演算子を2つ並べるのではなく、論理演算子&&を用います。
+  document.write("登録できます");
+} else if (lengthOfName === 0) {
+  // else if の else が抜けていました。
+  document.write("名前を入力してください");
+} else {
+  document.write("名前は4文字以上10文字以下で入力してください");
+}
+```
+
 <ViewSource url={import.meta.url} path="_samples/length-of-name" />
+
+</Answer>
 
 ## ブラックジャック
 
@@ -99,13 +125,38 @@ A さんと B さんの手札の数字の合計をそれぞれ変数に入れて
 
 ### 解答例
 
+<Answer>
+
+```javascript
+let numberOfA = 19;
+let numberOfB = 22;
+
+// 21を超えていた場合は0(最弱)として扱う
+if (numberOfA > 21) numberOfA = 0;
+if (numberOfB > 21) numberOfB = 0;
+
+if (numberOfA > numberOfB) {
+  document.write("Aさんの勝ち");
+} else if (numberOfA < numberOfB) {
+  document.write("Bさんの勝ち");
+} else {
+  document.write("引き分け");
+}
+```
+
 <ViewSource url={import.meta.url} path="_samples/blackjack" />
+
+</Answer>
 
 ## 関数
 
 (1)引数を２つとり、そのうち大きい数を返す関数 max を定義してください。
 
 (2)1,1,2,3,5・・・というように、前２つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 n に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし１番目と２番目の数は１とします。
+
+### 解答例
+
+<Answer>
 
 (1)解答例
 
@@ -117,6 +168,8 @@ function max(a, b) {
   return b;
 }
 ```
+
+<ViewSource url={import.meta.url} path="_samples/max" />
 
 (2)解答例
 
@@ -130,6 +183,10 @@ function fibonacci(n) {
 
 // このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
 ```
+
+<ViewSource url={import.meta.url} path="_samples/fibonacci" />
+
+</Answer>
 
 ## トラック
 
@@ -180,6 +237,6 @@ if (box <= 30 && weight <= 2000) {
 }
 ```
 
-<!-- <ViewSource > -->
+<ViewSource url={import.meta.url} path="_samples/truck" />
 
 </Answer>
