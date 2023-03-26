@@ -30,7 +30,7 @@ app.post("/rate", (request, response) => {
     restaurants[index].averageRating =
       restaurants[index].totalRating / restaurants[index].numRatings;
   } else {
-    // 評価者が0人のときは、平均点は0（ゼロ除算を防ぐ）
+    // 評価者が0人のときは、平均点は0（ゼロ除算を防ぐため）
     restaurants[index].averageRating = 0;
   }
   response.end();

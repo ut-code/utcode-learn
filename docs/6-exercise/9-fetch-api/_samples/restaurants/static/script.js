@@ -3,32 +3,26 @@ const nameInput = document.getElementById("name-input");
 const nameSelect = document.getElementById("name-select");
 const pointsSelect = document.getElementById("points-select");
 
-let knownRestaurants;
-
 setInterval(async () => {
-  const response = await fetch("/restaurants");
-  const restaurants = await response.json();
-  console.log(restaurants);
-
-  restaurantList.innerHTML = "";
-
-  for (let i = 0; i < restaurants.length; i += 1) {
-    const li = document.createElement("li");
-    const name = document.createElement("h3");
-    const averageRating = document.createElement("p");
-    name.textContent = restaurants[i].name;
-    averageRating.textContent = `平均評価: ${restaurants[i].averageRating}`;
-    li.appendChild(name);
-    li.appendChild(averageRating);
-    restaurantList.appendChild(li);
-  }
-  if (knownRestaurants === restaurants.length) {
-    return;
-    // レストランの数が変化していない場合は、selectの再レンダリングを行わない（selectの入力を可能にするため）
-  } else {
-    knownRestaurants = restaurants.length;
+  // nameSelect に フォーカスが当たっていない際にのみ、要素を再生成する
+  if (document.activeElement !== nameSelect) {
+    const response = await fetch("/restaurants");
+    const restaurants = await response.json();
+    restaurantList.innerHTML = "";
     nameSelect.innerHTML = "";
+
     for (let i = 0; i < restaurants.length; i += 1) {
+      // 料理店の一覧を生成する部分
+      const li = document.createElement("li");
+      const name = document.createElement("h3");
+      const averageRating = document.createElement("p");
+      name.textContent = restaurants[i].name;
+      averageRating.textContent = `平均評価: ${restaurants[i].averageRating}`;
+      li.appendChild(name);
+      li.appendChild(averageRating);
+      restaurantList.appendChild(li);
+
+      // 評価する料理店の選択肢を生成する部分
       const option = document.createElement("option");
       option.value = i;
       option.textContent = restaurants[i].name;
