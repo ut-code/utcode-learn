@@ -10,6 +10,13 @@ import Answer from "@site/src/components/Answer";
 
 ## 課題
 
+料理店に評価をつけられるサイトを作ってみましょう。
+
 ## 解答例
 
-<ViewSource url={import.meta.url} path="" />
+<Answer>
+
+コードの全体は以下を参照してください。
+<ViewSource url={import.meta.url} path="_samples/restaurants" />
+
+</Answer>

@@ -3,7 +3,7 @@ const nameInput = document.getElementById("name-input");
 const nameSelect = document.getElementById("name-select");
 const pointsSelect = document.getElementById("points-select");
 
-let numberOfRestaurants;
+let knownRestaurants;
 
 setInterval(async () => {
   const response = await fetch("/restaurants");
@@ -13,33 +13,31 @@ setInterval(async () => {
   restaurantList.innerHTML = "";
 
   for (let i = 0; i < restaurants.length; i += 1) {
-    console.log("for start");
     const li = document.createElement("li");
     const name = document.createElement("h3");
-    const average = document.createElement("p");
+    const averageRating = document.createElement("p");
     name.textContent = restaurants[i].name;
-    average.textContent = `平均評価: ${restaurants[i].average}`;
+    averageRating.textContent = `平均評価: ${restaurants[i].averageRating}`;
     li.appendChild(name);
-    li.appendChild(average);
+    li.appendChild(averageRating);
     restaurantList.appendChild(li);
   }
-  if (numberOfRestaurants === restaurants.length) {
-    console.log("no diff");
+  if (knownRestaurants === restaurants.length) {
     return;
+    // レストランの数が変化していない場合は、selectの再レンダリングを行わない（selectの入力を可能にするため）
   } else {
-    numberOfRestaurants = restaurants.length;
+    knownRestaurants = restaurants.length;
     nameSelect.innerHTML = "";
     for (let i = 0; i < restaurants.length; i += 1) {
       const option = document.createElement("option");
       option.value = i;
       option.textContent = restaurants[i].name;
       nameSelect.appendChild(option);
-      // forEach を使う例もある
     }
   }
 }, 1000);
 
-document.getElementById("name-button").onclick = async () => {
+document.getElementById("register-button").onclick = async () => {
   const name = nameInput.value;
   await fetch("/register", {
     method: "post",
