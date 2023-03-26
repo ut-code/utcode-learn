@@ -4,8 +4,11 @@ const nameSelect = document.getElementById("name-select");
 const pointsSelect = document.getElementById("points-select");
 
 setInterval(async () => {
-  // nameSelect に フォーカスが当たっていない際にのみ、要素を再生成する
-  if (document.activeElement !== nameSelect) {
+  // nameSelect にも pointsSelect にもフォーカスが当たっていない際にのみ、要素を再生成する
+  if (
+    document.activeElement !== nameSelect &&
+    document.activeElement !== pointsSelect
+  ) {
     const response = await fetch("/restaurants");
     const restaurants = await response.json();
     restaurantList.innerHTML = "";
