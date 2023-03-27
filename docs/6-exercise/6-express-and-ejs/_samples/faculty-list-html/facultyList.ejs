@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>東京大学の学部一覧</title>
+  </head>
+  <body>
+    東京大学の学部一覧
+    <ul>
+      <% for (const faculty of faculties) { %>
+      <li><a href=<%= faculty %>><%= facultyDatas[faculty].name %></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

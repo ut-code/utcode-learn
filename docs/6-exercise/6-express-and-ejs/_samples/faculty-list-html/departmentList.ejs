@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= facultyDatas[faculty].name %>の学科一覧</title>
+  </head>
+  <body>
+    <%= facultyDatas[faculty].name %>の学科一覧
+    <ul>
+      <% for (const department of facultyDatas[faculty].departments) { %>
+      <li><%= department %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
