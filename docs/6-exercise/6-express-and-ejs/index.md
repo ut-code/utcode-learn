@@ -6,6 +6,8 @@ sidebar_position: 6
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
+この章では「はじめての Node.js」から「Express とテンプレートエンジン」までの内容を扱っています。
+
 ## 準備
 
 このページの演習問題を解く前に、以下の準備を行ってください。
@@ -118,6 +120,26 @@ http モジュール(あるいは Express)と EJS を用いて、以下の要件
 
 - `http://localhost:3000/` にアクセスすると東京大学の学部一覧が表示される。それぞれの学部名は `/[学部の英語名]` へのリンクになっている。
 - リンクがクリックされると `http://localhost:3000/[学部の英語名]` にページが移動し、その学部の学科一覧が表示される。例えば、工学部がクリックされると `http://localhost:3000/engineering` に移動し、工学部の学科一覧が表示される。
+
+![課題の例1](sample1.png)
+![課題の例2](sample2.png)
+
+:::tip
+
+Express を用いる場合は、`app.get` の代わりに `app.use` を用いることで、http 標準モジュールにおける `server.addListener` と同様の処理が実現可能です。
+
+```javascript title="main.js"
+const express = require("express");
+const app = express();
+
+app.use((request, response) => {
+  response.send("Hello Express");
+});
+
+app.listen(3000);
+```
+
+:::
 
 ### 解答例 1(http 標準モジュール)
 
