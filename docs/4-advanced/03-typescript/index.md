@@ -391,7 +391,6 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
 3. `(v: unknown) => string` と `(v: string) => never`
 
-
    ```typescript
    declare const a: (v: unknown) => string;
    declare const b: (v: never) => string;
