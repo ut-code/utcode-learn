@@ -370,6 +370,12 @@ export default {
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
       referencePage: "/docs/web-servers/database/",
     },
+    api: {
+      name: "API",
+      definition:
+        "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
+      referencePage: "/docs/advanced/fetch-api/",
+    },
     transpile: {
       name: "トランスパイル",
       definition:
