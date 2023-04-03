@@ -6,6 +6,7 @@ sidebar_position: 4
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import transitionVideo from "./transition.mp4"
+import Details from "@theme/Details";
 
 この章では「高度な CSS」「CSS による配置」の内容を扱っています。
 
@@ -32,10 +33,14 @@ import transitionVideo from "./transition.mp4"
 
 ### 解説
 
+<Details summary={<summary>解説</summary>}>
+
 - ブロックレベル要素は `width`, `height` の値を設定できますが、インライン要素はできません。
 - ブロックレベル要素は `margin` を上下左右に設定できますが、インライン要素は左右しか設定できません。
 - ブロックレベル要素に上下の `padding` を設定すると、余白が他の要素に被らないように縦の位置が調整されます。一方、インライン要素に上下の `padding` を設定した場合、要素の縦の位置が調整されず他の要素に被って表示されます。
 - ブロックレベル要素の `height` やインライン要素の `width`, `height` の初期値は、中身の要素の大きさによって決まるので、`font-size` を変更することで大きさが変化します。また、開発者ツールで値を調べてみると、インライン要素の大きさは文字の大きさと同じになるのに対し、ブロックレベル要素の `height` は `font-size` の 1.5 倍になることがわかります。
+
+</Details>
 
 ## フレックスボックスとグリッド
 
@@ -58,6 +63,10 @@ import transitionVideo from "./transition.mp4"
 <ViewSource url={import.meta.url} path="_samples/flexbox-grid" />
 
 ## position
+
+この問題では、以下の HTML ファイルと CSS ファイルをコピーして使用してください。
+
+<Details summary={<summary>HTML</summary>}>
 
 ```html
 <!DOCTYPE html>
@@ -165,6 +174,10 @@ import transitionVideo from "./transition.mp4"
 </html>
 ```
 
+</Details>
+
+<Details summary={<summary>CSS</summary>}>
+
 ```css
 body {
   margin: 0;
@@ -216,6 +229,8 @@ h3 {
   background-color: lightgreen;
 }
 ```
+
+</Details>
 
 ### 問題
 
