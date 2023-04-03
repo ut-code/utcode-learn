@@ -14,7 +14,7 @@ import Details from "@theme/Details";
 このページの演習問題を解く前に、以下の準備を行ってください。
 
 1. 新しいフォルダを Visual Studio Code で開き、`faculties.js` という名前のファイルを作成してください。
-2. 右下の「github で表示」ボタンをクリックし、表示されるファイルの中身を `faculties.js` にコピー&ペーストしてください。
+2. 以下のコードを `faculties.js` にコピー&ペーストしてください。
 
 <Details summary={<summary>faculties.js</summary>}>
 
