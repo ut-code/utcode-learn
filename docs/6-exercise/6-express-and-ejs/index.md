@@ -32,7 +32,7 @@ exports.faculties = [
   "pharmaceuticalSciences",
 ];
 
-exports.facultyDatas = {
+exports.facultyData = {
   law: {
     name: "法学部",
     departments: [
@@ -112,15 +112,15 @@ exports.facultyDatas = {
 
 これ以降、`faculties.js` の中身を書き換えたり、コピーして他のファイルに貼り付けたりしてはいけません。
 
-`faculties.js` ファイルでは、東京大学の学部に関するデータが入った `faculties`, `facultyDatas` がエクスポートされています。
+`faculties.js` ファイルでは、東京大学の学部に関するデータが入った `faculties`, `facultyData` がエクスポートされています。
 
 - `faculties` は学部の英語名の配列です。
-- `facultyDatas` は学部の英語名をプロパティ名とするオブジェクトです。さらに、各プロパティは `name` と `departments` プロパティを持つオブジェクトであり、`name` は学部の日本語名、`departments` はその学部に属する学科の日本語名の配列です。
+- `facultyData` は学部の英語名をプロパティ名とするオブジェクトです。さらに、各プロパティは `name` と `departments` プロパティを持つオブジェクトであり、`name` は学部の日本語名、`departments` はその学部に属する学科の日本語名の配列です。
 
 ## モジュール
 
 工学部の学科数をコンソールに出力するプログラムを `main.js` ファイルに作成し、Node.js で実行してください。
-ただし、工学部の学科数は自分で数えるのではなく、`faculties.js` ファイルから `facultyDatas` を取得して計算してください。
+ただし、工学部の学科数は自分で数えるのではなく、`faculties.js` ファイルから `facultyData` を取得して計算してください。
 
 ### 解答例
 
@@ -129,8 +129,8 @@ exports.facultyDatas = {
 ターミナルで `node main.js` コマンドを実行すると、コンソールに `16` と表示されるはずです。
 
 ```javascript title="main.js"
-const { facultyDatas } = require("./faculties");
-console.log(facultyDatas.engineering.departments.length);
+const { facultyData } = require("./faculties");
+console.log(facultyData.engineering.departments.length);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/module" noCodeSandbox />
@@ -146,11 +146,11 @@ Express を用いて、工学部の学科を箇条書きで表示するウェブ
 <Answer>
 
 ```javascript title="main.js"
-const { facultyDatas } = require("./faculties");
+const { facultyData } = require("./faculties");
 const express = require("express");
 const app = express();
 
-const departments = facultyDatas.engineering.departments;
+const departments = facultyData.engineering.departments;
 app.get("/", (request, response) => {
   response.send(
     departments.map((department) => `<li>${department}</li>`).join("")
@@ -169,7 +169,7 @@ app.listen(3000);
 <Answer>
 
 ```javascript title="main.js"
-const { facultyDatas } = require("./faculties");
+const { facultyData } = require("./faculties");
 const fs = require("fs");
 const express = require("express");
 const ejs = require("ejs");
@@ -178,7 +178,7 @@ const app = express();
 app.get("/", (request, response) => {
   const template = fs.readFileSync("template.ejs", "utf-8");
   const html = ejs.render(template, {
-    departments: facultyDatas.engineering.departments,
+    departments: facultyData.engineering.departments,
   });
   response.send(html);
 });

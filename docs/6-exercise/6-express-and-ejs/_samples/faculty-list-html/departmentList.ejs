@@ -2,12 +2,12 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title><%= facultyDatas[faculty].name %>の学科一覧</title>
+    <title><%= facultyData[faculty].name %>の学科一覧</title>
   </head>
   <body>
-    <%= facultyDatas[faculty].name %>の学科一覧
+    <%= facultyData[faculty].name %>の学科一覧
     <ul>
-      <% for (const department of facultyDatas[faculty].departments) { %>
+      <% for (const department of facultyData[faculty].departments) { %>
       <li><%= department %></li>
       <% } %>
     </ul>

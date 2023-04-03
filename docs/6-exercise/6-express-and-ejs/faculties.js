@@ -11,7 +11,7 @@ exports.faculties = [
   "pharmaceuticalSciences",
 ];
 
-exports.facultyDatas = {
+exports.facultyData = {
   law: {
     name: "法学部",
     departments: [

@@ -1,8 +1,8 @@
-const { facultyDatas } = require("./faculties");
+const { facultyData } = require("./faculties");
 const express = require("express");
 const app = express();
 
-const departments = facultyDatas.engineering.departments;
+const departments = facultyData.engineering.departments;
 app.get("/", (request, response) => {
   response.send(
     departments.map((department) => `<li>${department}</li>`).join("")

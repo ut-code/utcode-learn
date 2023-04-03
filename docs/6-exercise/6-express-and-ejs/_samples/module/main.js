@@ -1,2 +1,2 @@
-const { facultyDatas } = require("./faculties");
-console.log(facultyDatas.engineering.departments.length);
+const { facultyData } = require("./faculties");
+console.log(facultyData.engineering.departments.length);

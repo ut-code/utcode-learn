@@ -1,4 +1,4 @@
-const { faculties, facultyDatas } = require("./faculties");
+const { faculties, facultyData } = require("./faculties");
 const fs = require("fs");
 const http = require("http");
 const ejs = require("ejs");
@@ -9,13 +9,13 @@ server.addListener("request", (request, response) => {
     const template = fs.readFileSync("facultyList.ejs", "utf-8");
     const html = ejs.render(template, {
       faculties,
-      facultyDatas,
+      facultyData,
     });
     response.write(html);
   } else if (faculties.includes(request.url.slice(1))) {
     const template = fs.readFileSync("departmentList.ejs", "utf-8");
     const html = ejs.render(template, {
-      facultyDatas,
+      facultyData,
       faculty: request.url.slice(1),
     });
     response.write(html);
