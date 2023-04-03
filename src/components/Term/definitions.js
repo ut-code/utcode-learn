@@ -288,8 +288,7 @@ export default {
     },
     javascriptInstance: {
       name: "インスタンス (JavaScript)",
-      definition:
-        "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
+      definition: "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
       referencePage: "/docs/browser-apps/class/",
     },
     javascriptConstructor: {
@@ -312,8 +311,7 @@ export default {
     },
     callbackFunction: {
       name: "コールバック関数",
-      definition:
-        "他の関数の引数として呼び出される関数。",
+      definition: "他の関数の引数として呼び出される関数。",
       referencePage: "/docs/browser-apps/anonymous-function/",
     },
     javascriptModule: {
@@ -381,6 +379,7 @@ export default {
       definition:
         "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
       referencePage: "/docs/advanced/fetch-api/",
+    },
     thread: {
       name: "スレッド",
       definition:
