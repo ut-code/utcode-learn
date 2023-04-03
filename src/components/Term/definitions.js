@@ -310,6 +310,12 @@ export default {
         "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
       referencePage: "/docs/browser-apps/anonymous-function/",
     },
+    callbackFunction: {
+      name: "コールバック関数",
+      definition:
+        "他の関数の引数として呼び出される関数。",
+      referencePage: "/docs/browser-apps/anonymous-function/",
+    },
     javascriptModule: {
       name: "モジュール (JavaScript)",
       definition:
@@ -375,6 +381,11 @@ export default {
       definition:
         "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
       referencePage: "/docs/advanced/fetch-api/",
+    thread: {
+      name: "スレッド",
+      definition:
+        "コンピュータがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
+      referencePage: "/docs/web-servers/database/",
     },
     transpile: {
       name: "トランスパイル",
