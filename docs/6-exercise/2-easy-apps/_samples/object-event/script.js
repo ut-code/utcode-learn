@@ -6,12 +6,17 @@ let tanaka = {
   },
 };
 
-function falsify_data() {
+function falsifyTanakaData() {
   tanaka.scores.math = 100;
   tanaka.scores.science = 100;
-  let academicPerformance = document.getElementById("academicPerformance");
-  academicPerformance.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
+  let academicPerformance = document.getElementById("academic-performance");
+  academicPerformance.textContent =
+    "成績:数学..." +
+    tanaka.scores.math +
+    "点、理科..." +
+    tanaka.scores.science +
+    "点";
 }
 
 let trickbutton = document.getElementById("button");
-trickbutton.onclick = falsify_data;
+trickbutton.onclick = falsifyTanakaData;

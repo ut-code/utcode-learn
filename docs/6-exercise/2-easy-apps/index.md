@@ -29,12 +29,12 @@ import drawingVideo from "./drawing.mp4";
 ```
 
 ```javascript title=script.js
-const height = document.getElementById("height");
-const weight = document.getElementById("weight");
+let height = document.getElementById("height");
+let weight = document.getElementById("weight");
 
-const calcButton = document.getElementById("calc-button");
+let calcButton = document.getElementById("calc-button");
 
-const answer = document.getElementById("answer");
+let answer = document.getElementById("answer");
 
 calcButton.onclick = () => {
   answer.textContent = weight.value / (height.value / 100) ** 2;
@@ -183,7 +183,7 @@ let tanaka = {
 };
 ```
 
-しかしながら田中君は、親に数学,理科の成績を高く見せたいと考えました。
+しかしながら田中君は、親に数学、理科の成績を高く見せたいと考えました。
 下を満たすプログラムを作成して下さい。
 
 - HTML を読み込むと、`成績:数学...80点、理科...90点` と表示される
@@ -193,7 +193,12 @@ let tanaka = {
 すなわち、
 
 ```javascript
-HTML要素のid.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
+HTML要素のid.textContent =
+  "成績:数学..." +
+  tanaka.scores.math +
+  "点、理科..." +
+  tanaka.scores.science +
+  "点";
 ```
 
 というコードを含めることを条件とします。
@@ -216,15 +221,20 @@ let tanaka = {
   },
 };
 
-function falsifyData() {
+function falsifyTanakaData() {
   tanaka.scores.math = 100;
   tanaka.scores.science = 100;
   let academicPerformance = document.getElementById("academic-performance");
-  academicPerformance.textContent = `成績:数学...${tanaka.scores.math}点、理科...${tanaka.scores.science}点`;
+  academicPerformance.textContent =
+    "成績:数学..." +
+    tanaka.scores.math +
+    "点、理科..." +
+    tanaka.scores.science +
+    "点";
 }
 
 let trickbutton = document.getElementById("button");
-trickbutton.onclick = falsifyData;
+trickbutton.onclick = falsifyTanakaData;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/object-event" />
@@ -247,15 +257,15 @@ trickbutton.onclick = falsifyData;
 ```
 
 ```javascript
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
 ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
 
 <Answer>
 
-```html title=imageReader.html
+```html title=index.html
 <canvas id="canvas" style="border: solid" width="360px" height="360px"
   >描画用キャンバス</canvas
 >
@@ -267,19 +277,19 @@ ctx.fillRect(10, 10, 100, 100);
 </div>
 ```
 
-```javascript title=imageReader.js
-const canvas = document.getElementById("canvas");
-const small = document.getElementById("small");
-const big = document.getElementById("big");
+```javascript title=script.js
+let canvas = document.getElementById("canvas");
+let small = document.getElementById("small");
+let big = document.getElementById("big");
 
-const ctx = canvas.getContext("2d");
+let ctx = canvas.getContext("2d");
 let isBig = false;
 
 canvas.onclick = (e) => drawRect(e);
 
 function drawRect(e) {
-  const top = canvas.getBoundingClientRect().top;
-  const left = canvas.getBoundingClientRect().left;
+  let top = canvas.getBoundingClientRect().top;
+  let left = canvas.getBoundingClientRect().left;
   ctx.fillStyle = "green";
   if (isBig) {
     ctx.fillRect(e.pageX - left - 10, e.pageY - top - 10, 20, 20);

@@ -1,9 +1,9 @@
-const height = document.getElementById("height");
-const weight = document.getElementById("weight");
+let height = document.getElementById("height");
+let weight = document.getElementById("weight");
 
-const calcButton = document.getElementById("calc-button");
+let calcButton = document.getElementById("calc-button");
 
-const answer = document.getElementById("answer");
+let answer = document.getElementById("answer");
 
 calcButton.onclick = () => {
   answer.textContent = weight.value / (height.value / 100) ** 2;
