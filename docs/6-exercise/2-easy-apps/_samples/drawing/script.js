@@ -1,6 +1,6 @@
 let canvas = document.getElementById("canvas");
-let small = document.getElementById("small");
-let big = document.getElementById("big");
+let smallButton = document.getElementById("small-button");
+let bigButton = document.getElementById("big-button");
 
 let ctx = canvas.getContext("2d");
 let isBig = false;
@@ -19,13 +19,13 @@ function drawRect(e) {
 }
 
 function clicked() {
-  if(isBig){
-    isBig = false
-  }else{
-    isBig = true
+  if (isBig) {
+    isBig = false;
+  } else {
+    isBig = true;
   }
 }
 
-small.onclick = clicked
+smallButton.onclick = clicked;
 
-big.onclick = clicked
+bigButton.onclick = clicked;

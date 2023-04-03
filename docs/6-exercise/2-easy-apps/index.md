@@ -270,22 +270,22 @@ ctx.fillRect(10, 10, 100, 100);
   >描画用キャンバス</canvas
 >
 <div>
-  <button id="small">小</button>
+  <button id="small-button">小</button>
 </div>
 <div>
-  <button id="big">大</button>
+  <button id="big-button">大</button>
 </div>
 ```
 
 ```javascript title=script.js
 let canvas = document.getElementById("canvas");
-let small = document.getElementById("small");
-let big = document.getElementById("big");
+let smallButton = document.getElementById("small-button");
+let bigButton = document.getElementById("big-button");
 
 let ctx = canvas.getContext("2d");
 let isBig = false;
 
-canvas.onclick = (e) => drawRect(e);
+canvas.onclick = drawRect;
 
 function drawRect(e) {
   let top = canvas.getBoundingClientRect().top;
@@ -298,13 +298,17 @@ function drawRect(e) {
   }
 }
 
-small.onclick = () => {
-  isBig = false;
-};
+function clicked() {
+  if (isBig) {
+    isBig = false;
+  } else {
+    isBig = true;
+  }
+}
 
-big.onclick = () => {
-  isBig = true;
-};
+smallButton.onclick = clicked;
+
+bigButton.onclick = clicked;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/drawing" />
