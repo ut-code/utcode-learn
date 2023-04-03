@@ -310,6 +310,12 @@ export default {
         "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
       referencePage: "/docs/browser-apps/anonymous-function/",
     },
+    callbackFunction: {
+      name: "コールバック関数",
+      definition:
+        "他の関数の引数として呼び出される関数。",
+      referencePage: "/docs/browser-apps/anonymous-function/",
+    },
     javascriptModule: {
       name: "モジュール (JavaScript)",
       definition:
@@ -368,6 +374,12 @@ export default {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
+      referencePage: "/docs/web-servers/database/",
+    },
+    thread: {
+      name: "スレッド",
+      definition:
+        "コンピュータがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     transpile: {
