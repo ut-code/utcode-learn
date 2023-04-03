@@ -5,7 +5,7 @@ const big = document.getElementById("big");
 const ctx = canvas.getContext("2d");
 let isBig = false;
 
-canvas.onclick = (e) => drawRect(e);
+canvas.onclick = drawRect;
 
 function drawRect(e) {
   const top = canvas.getBoundingClientRect().top;
@@ -18,10 +18,14 @@ function drawRect(e) {
   }
 }
 
-small.onclick = () => {
-  isBig = false;
-};
+function clicked() {
+  if(isBig){
+    isBig = false
+  }else{
+    isBig = true
+  }
+}
 
-big.onclick = () => {
-  isBig = true;
-};
+small.onclick = clicked
+
+big.onclick = clicked

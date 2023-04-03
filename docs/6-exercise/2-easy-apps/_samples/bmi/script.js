@@ -5,6 +5,8 @@ const calcButton = document.getElementById("calc-button");
 
 const answer = document.getElementById("answer");
 
-calcButton.onclick = () => {
+function clicked() {
   answer.textContent = weight.value / (height.value / 100) ** 2;
-};
+}
+
+calcButton.onclick = clicked;
