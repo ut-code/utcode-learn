@@ -42,11 +42,10 @@ function swap(a, b) {
 // }
 
 // いざ、並び替え！
-// i++はi += 1と同じ意味です。
-for (let i = 1; i < 4; i++) {
+for (let i = 1; i < 4; i += 1) {
   const person_i = academicPerformanceData[i];
 
-  for (let j = 0; j < i; j++) {
+  for (let j = 0; j < i; j += 1) {
     const person_j = academicPerformanceData[j];
 
     if (person_j.scores.total < person_i.scores.total) {
@@ -65,7 +64,7 @@ for (let i = 1; i < 4; i++) {
 }
 
 // 表を埋めていくDOM
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 4; i += 1) {
   let name = document.getElementById(`prize${i + 1}Name`);
   let score = document.getElementById(`prize${i + 1}Score`);
   name.textContent = academicPerformanceData[i].name;
