@@ -122,7 +122,7 @@ setButton.onclick = () => {
   );
 };
 
-
+// タイマーの描画を開始
 setInterval(() => {
   let timeLeftCopy = timer.timeLeft + 999;
   // 時間を取得
