@@ -34,7 +34,7 @@ class Timer {
   // カウントダウンをスタートするメソッド
   startCountDown() {
     this.onStart();
-    //カウントダウン処理
+    // カウントダウン処理
     this.tickerId = setInterval(() => {
       this.timeLeft -= 100;
       if (this.timeLeft === 0) {

@@ -3,7 +3,7 @@ const answers = ["りんご", "黒", "雲"];
 
 let questionDisplay = document.getElementById("question");
 
-let answer = document.getElementById("answer");
+const answer = document.getElementById("answer");
 let index = 0;
 
 questionDisplay.textContent = questions[0];
