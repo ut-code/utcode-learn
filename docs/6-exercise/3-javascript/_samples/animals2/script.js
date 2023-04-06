@@ -3,10 +3,8 @@ class Animal {
 
   sound;
 
-  say(sound) {
-    const div = document.createElement("div");
-    div.textContent = sound;
-    document.body.appendChild(div);
+  say() {
+    alert(this.sound);
   }
 }
 
@@ -21,7 +19,7 @@ class Cat extends Animal {
 class Dog extends Animal {
   weight = 10;
 
-  isRetriever = false;
+  isPuppy = false;
 
   sound = "ワンワン";
 }

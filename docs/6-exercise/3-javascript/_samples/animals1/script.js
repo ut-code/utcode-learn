@@ -4,21 +4,17 @@ class Cat {
   isKitten = true;
 
   meow() {
-    const div = document.createElement("div");
-    div.textContent = "ニャー";
-    document.body.appendChild(div);
+    alert("ミャー");
   }
 }
 
 class Dog {
   weight = 10;
 
-  isRetriever = false;
+  isPuppy = false;
 
   bark() {
-    const div = document.createElement("div");
-    div.textContent = "ワンワン";
-    document.body.appendChild(div);
+    alert("ワンワン");
   }
 }
 
@@ -28,9 +24,7 @@ class Chicken {
   isDelicious = true;
 
   crow() {
-    const div = document.createElement("div");
-    div.textContent = "コケコッコー";
-    document.body.appendChild(div);
+    alert("コケコッコー");
   }
 }
 
@@ -38,9 +32,7 @@ class Bear {
   weight = 80;
 
   growl() {
-    const div = document.createElement("div");
-    div.textContent = "グルルル";
-    document.body.appendChild(div);
+    alert("グルルル");
   }
 }
 
