@@ -124,4 +124,3 @@ document.getElementById("next-button").onclick = () => {
 <ViewSource url={import.meta.url} path="_samples/timer" />
 
 </Answer>
-````
