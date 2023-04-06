@@ -6,6 +6,8 @@ sidebar_position: 4
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import transitionVideo from "./transition.mp4"
+import headerScrollVideo from "./header-scroll.mp4"
+import placeScrollVideo from "./place-scroll.mp4"
 import Details from "@theme/Details";
 
 この章では「高度な CSS」「CSS による配置」の内容を扱っています。
@@ -238,6 +240,8 @@ h3 {
 
 水色の部分(ヘッダー)が、スクロールしても同じ位置にとどまるようにしてみましょう。
 
+<video src={headerScrollVideo} controls />
+
 #### ヒント
 
 - `#header` を固定すると、`#wrapper` の上部が `#header` の裏側に隠れてしまうでしょうか。これは `#header` を固定したことによって、`#header` が画面手前に向かって浮いたようになり、空いたスペースに `#wrapper` が入り込んだためです。
@@ -272,7 +276,7 @@ h3 {
 
 「予約不要」「予約必要」といった表示が、各企画のカードの右上に表示されるようにしましょう。
 
-- 画像
+![予約のラベルをカード右上に表示](./reserve-label.png)
 
 ### `position` の問題 2 の解答
 
@@ -301,7 +305,7 @@ h3 {
 
 (発展) 「中央通り屋台」「屋外ステージ」などの場所の名前が、その場所の企画が画面上にある間は上部にとどまるようにしてみましょう。
 
-- 動画
+<video src={placeScrollVideo} controls />
 
 ### `position` の問題 3 の解答
 
