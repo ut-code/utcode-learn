@@ -2,3 +2,412 @@
 title: JavaScriptの諸文法
 sidebar_position: 3
 ---
+
+import Answer from "@site/src/components/Answer";
+import ViewSource from "@site/src/components/ViewSource";
+
+---
+
+## 1. コラッツの問題
+
+正の整数 n に対して、以下の操作を考えます。
+
+- n が偶数の場合、n を 2 で割る。
+- n が奇数の場合、n に 3 をかけて 1 を足す。
+
+`n = 27` から始めて、`n` が `1` になるまで操作を繰り返します。それぞれの操作の後の `n` の値を順番に表示するプログラムを、while 文を用いて作成してください。
+
+例えば、`n = 3` から始めて操作を繰り返すと、`n` の値は 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 と変化します。
+
+:::tip `a` を `b` で割った余り
+
+`a` を `b` で割った余りは `a % b` と表します。これを用いて `n` が偶数か奇数かを判定しましょう。
+
+```javascript
+let n = 27;
+if (n % 2 === 0) {
+  document.write("nは偶数です");
+} else {
+  document.write("nは奇数です");
+}
+```
+
+:::
+
+### 解答例
+
+<Answer>
+
+```html
+<div id="answer"></div>
+```
+
+```javascript
+let n = 27;
+const answer = document.getElementById("answer");
+while (n !== 1) {
+  answer.textContent += n + " → ";
+  if (n % 2 === 0) {
+    n /= 2;
+  } else {
+    n *= 3;
+    n += 1;
+  }
+}
+answer.textContent += 1;
+```
+
+<ViewSource url={import.meta.url} path="_samples/collatz-problem" />
+
+</Answer>
+
+---
+
+## 2. 動物の鳴き声
+
+次のコードは、ブラウザ上に動物の鳴き声を表示するプログラムです。
+
+```html title=index.html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>動物</title>
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title=script.js
+class Cat {
+  weight = 5;
+
+  isKitten = true;
+
+  meow() {
+    alert("ミャー");
+  }
+}
+
+class Dog {
+  weight = 10;
+
+  isPuppy = false;
+
+  bark() {
+    alert("ミャー");
+  }
+}
+
+class Chicken {
+  weight = 2.8;
+
+  isDelicious = true;
+
+  crow() {
+    alert("コケコッコー");
+  }
+}
+
+const cat = new Cat();
+const dog = new Dog();
+const chicken = new Chicken();
+
+cat.meow();
+dog.bark();
+chicken.crow();
+```
+
+1. 新たに `Bear`（熊）クラスを追加し、体重を 80 として、`growl` メソッドで「グルルル」と鳴くようにしてみましょう。
+
+2. 1 のようにどんどん動物を増やしていく事もできますが、いくつかの性質や処理は共通点があり、１つの親クラスにまとめることができるように見えます。どのようなクラスを用意すればきれいにまとめることができるでしょうか？
+
+### 解答例
+
+<Answer>
+
+#### 1 の解答例
+
+```javascript title=script.js
+// 犬、猫、ニワトリの後
+
+class Bear {
+  weight = 80;
+
+  growl() {
+    alert();
+  }
+}
+
+const cat = new Cat();
+const dog = new Dog();
+const chicken = new Chicken();
+const bear = new Bear();
+
+cat.meow();
+dog.bark();
+chicken.crow();
+bear.growl();
+```
+
+<ViewSource url={import.meta.url} path="_samples/animals1" />
+
+#### 2 の解答例
+
+以下のようなクラス `Animal` を用意します。つまり、動物の体重という性質や動物が「鳴く」という処理は同じであり、変わるのは声のみなので、一括で扱ってしまいます。
+
+```javascript
+class Animal {
+  weight;
+
+  sound;
+
+  say() {
+    alert(this.sound);
+  }
+}
+```
+
+このようなクラスを作れば、次のようにコードをきれいに書くことができます。
+
+```javascript title=script.js
+class Animal {
+  weight;
+
+  sound;
+
+  say() {
+    alert(this.sound);
+  }
+}
+
+class Cat extends Animal {
+  weight = 5;
+
+  isKitten = true;
+
+  sound = "ニャー";
+}
+
+class Dog extends Animal {
+  weight = 10;
+
+  isPuppy = false;
+
+  sound = "ワンワン";
+}
+
+class Chicken extends Animal {
+  weight = 2.8;
+
+  isDelicious = true;
+
+  sound = "コケコッコー";
+}
+
+class Bear extends Animal {
+  weight = 80;
+
+  sound = "グルルル";
+}
+
+const cat = new Cat();
+const dog = new Dog();
+const chicken = new Chicken();
+const bear = new Bear();
+
+cat.say();
+dog.say();
+chicken.say();
+bear.say();
+```
+
+<ViewSource url={import.meta.url} path="_samples/animals1" />
+
+また、たとえばある正体不明の動物のインスタンスを引数として受け取ったときに鳴き声を表示する関数を作るとします。このとき、メソッドがバラバラだと次のように関数が長いコードになってしまいます。
+
+```javascript
+function showSound(Animal) {
+  if (Animal instanceof cat) {
+    Animal.meow();
+  } else if (Animal instanceof dog) {
+    Animal.bark();
+  } else if (Animal instanceof chicken) {
+    Animal.growl();
+  }
+  // 動物が増えるとさらに条件分岐が続く
+}
+```
+
+これも、親クラスを作ることで短く書けます。
+
+```javascript
+function showSound(Animal) {
+  Animal.say();
+  // なんの動物であるかを気にする必要がない
+}
+```
+
+このように、同じ処理でも動物によって処理が変わるにもかかわらず、コードは１つにまとめることができました。この「同じ処理でも引数（今回は動物）によって処理が変わる」ことを、**ポリモーフィズム**と言います。
+
+</Answer>
+
+---
+
+## 3. 順位表
+
+みんなのテストの点数が出ました。
+
+| 名前 | 数学   | 理科  |
+| ---- | ------ | ----- |
+| 佐藤 | 80 点  | 70 点 |
+| 鈴木 | 90 点  | 70 点 |
+| 高橋 | 100 点 | 40 点 |
+| 田中 | 85 点  | 65 点 |
+
+この点数データを使って、順位表を作ってください。
+![image.jpg](./tableImage.png)
+
+ルールは以下とします。
+
+- `math`、`science` の合計点が高い者を上位とする。
+- 上記で同率になった場合、`math` の得点が高い者を上位とする。
+- 順位の判定はもちろん、配列内で繰り返し処理（点数の比較）をするプログラムを JavaScript で書いて行う。
+
+```javascript
+const academicPerformanceData = [sato, suzuki, takahashi, tanaka];
+
+// const academicPerformanceData = [tanaka, suzuki, sato, takahashi];などでも構わない。
+
+// for文でacademicPerformanceDataの要素を順位順に並べ替える処理を書く
+```
+
+最初の配列 `academicPerformanceData` がどんな並びをしていても,最終的には 1 位から順に並んだ配列が出てくるようにプログラムを作成すること。(上記の点数の場合は `[suzuki, tanaka, sato, takahashi]`)
+
+### ヒント
+
+```javascript
+const sato = {
+  name:"佐藤";
+  scores: {
+    math: 0,
+    science: 0,
+    total: 0;
+  };
+}
+```
+
+このように氏名・点数のデータからオブジェクトを作成すると処理がしやすいでしょう。
+
+プログラムを書き終えたら、初めの `academicPerformanceData` の順番をいじったり、点数を書き換えたりして、望み通りの表ができるか確認しましょう。
+
+### 解答例
+
+<Answer>
+
+まずは、HTML で表のひな形を作ります。
+
+```html title=index.html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="table" style="border-collapse: separate; border: solid">
+      <tr>
+        <th style="border: solid">順位</th>
+        <th style="border: solid">氏名</th>
+        <th style="border: solid">合計点</th>
+      </tr>
+    </table>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+続いて、script.js の回答例です。
+
+```javascript title=script.js
+const table = document.getElementById("table");
+
+function createPersonalData(name, mathScore, scienceScore) {
+  return {
+    name: name,
+    scores: {
+      math: mathScore,
+      science: scienceScore,
+      total: mathScore + scienceScore,
+    },
+  };
+}
+
+// データオブジェクトを生成
+const sato = createPersonalData("佐藤", 80, 70);
+const suzuki = createPersonalData("鈴木", 90, 70);
+const takahashi = createPersonalData("高橋", 100, 40);
+const tanaka = createPersonalData("田中", 85, 65);
+
+// この配列の要素をあとで並び替える。
+const personalDataList = [sato, suzuki, takahashi, tanaka];
+
+// 並び替えるぞ～
+// まず、合計点の順に並べよう。for文のネストが要るぞ！
+// 佐藤と鈴木を比べる→高橋と「佐藤＆鈴木」を比べる→田中と「佐藤＆鈴木＆高橋」を比べる
+
+// 配列のa番目とb番目の要素を入れ替える関数を用意する。
+function swap(array, a, b) {
+  const previousData = array[a];
+  array[a] = array[b];
+  array[b] = previousData;
+}
+
+// いざ、並び替え！
+for (let i = 1; i < 4; i += 1) {
+  const person_i = personalDataList[i];
+
+  for (let j = 0; j < i; j += 1) {
+    const person_j = personalDataList[j];
+
+    if (person_j.scores.total < person_i.scores.total) {
+      // １つ目のルールに従って入れ替え
+      swap(personalDataList, j, i);
+    }
+
+    if (
+      person_j.scores.total == person_i.scores.total &&
+      person_j.scores.math < person_i.scores.math
+    ) {
+      // ２つ目のルールに従って入れ替え
+      swap(personalDataList, j, i);
+    }
+  }
+}
+
+// 表を埋めていくDOM
+for (const personalData of personalDataList) {
+  const newRow = document.createElement("tr");
+  const ranking = document.createElement("td");
+  const name = document.createElement("td");
+  const score = document.createElement("td");
+  ranking.textContent = personalDataList.indexOf(personalData);
+  name.textContent = personalData.name;
+  score.textContent = personalData.scores.total;
+  ranking.style.border = "solid";
+  name.style.border = "solid";
+  score.style.border = "solid";
+  newRow.appendChild(ranking);
+  newRow.appendChild(name);
+  newRow.appendChild(score);
+  table.appendChild(newRow);
+}
+```
+
+並び替えは「バブルソート」を用いています。[他の並べ方](https://products.sint.co.jp/topsic/blog/algorithm-type)もあるので興味のある方は調べてみましょう
+
+<ViewSource url={import.meta.url} path="_samples/ranking" />
+
+</Answer>
