@@ -193,7 +193,7 @@ let tanaka = {
 すなわち、
 
 ```javascript
-HTML要素のid.textContent =
+HTML要素.textContent =
   "成績:数学..." +
   tanaka.scores.math +
   "点、理科..." +
