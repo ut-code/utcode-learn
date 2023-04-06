@@ -28,7 +28,6 @@ app.get("/courses", async (request, response) => {
 app.post("/add-course", async (request, response) => {
   const newCourse = request.body.newCourse;
   const teacherId = parseInt(request.body.teacherId);
-  if (!teacherId) throw new Error();
   const hasTest = request.body.hasTest;
   const description = request.body.description;
   await client.course.create({
