@@ -1,5 +1,5 @@
 @media (orientation: landscape) {
-  #div1 {
+  #landscape {
     color: red;
     text-decoration-line: underline;
     text-decoration-color: red;
@@ -8,7 +8,7 @@
 }
 
 @media (orientation: portrait) {
-  #div2 {
+  #portrait {
     color: red;
     text-decoration-line: underline;
     text-decoration-color: red;
