@@ -117,7 +117,9 @@ exports.facultyData = {
 - `faculties` は学部の英語名の配列です。
 - `facultyData` は学部の英語名をプロパティ名とするオブジェクトです。さらに、各プロパティは `name` と `departments` プロパティを持つオブジェクトであり、`name` は学部の日本語名、`departments` はその学部に属する学科の日本語名の配列です。
 
-## モジュール
+---
+
+## 1. モジュール
 
 工学部の学科数をコンソールに出力するプログラムを `main.js` ファイルに作成し、Node.js で実行してください。
 ただし、工学部の学科数は自分で数えるのではなく、`faculties.js` ファイルから `facultyData` を取得して計算してください。
@@ -137,7 +139,9 @@ console.log(facultyData.engineering.departments.length);
 
 </Answer>
 
-## Express
+---
+
+## 2. Express
 
 Express を用いて、工学部の学科を箇条書きで表示するウェブページを作成してください。EJS は用いても用いなくても構いません。
 
@@ -207,7 +211,9 @@ app.listen(3000);
 
 </Answer>
 
-## 総合問題
+---
+
+## 3. 総合問題
 
 http モジュール(あるいは Express)と EJS を用いて、以下の要件を満たすウェブサービスを作成してください。
 
