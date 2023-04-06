@@ -75,7 +75,7 @@ const timer = new Timer( () => {
         createAudioIfNone() })
 
 // 音が出ていなければ音を出す
-function  createAudioIfNone() {
+function createAudioIfNone() {
     if (!existingAudio) {
       existingAudio = new Audio();
       existingAudio.src = "alarm-buzzer.wav";
@@ -86,7 +86,7 @@ function  createAudioIfNone() {
   }
 
 // 音が出ていれば途中で消す
-function   destroyAudioIfExists() {
+function destroyAudioIfExists() {
   if (existingAudio) {
     existingAudio.pause();
     existingAudio.removeAttribute("src"); // empty source
