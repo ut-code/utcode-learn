@@ -5,7 +5,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 以下のような音が鳴るタイマーを作ってみましょう。
 
-<video src={timerVideo} controls />
+<video src={timerVideo} controls loop autoPlay muted />
 
 - セットボタンで時間がセットされます。
 - スタートボタンで開始、ストップボタンで一時停止できます。
@@ -35,7 +35,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ## 解答例
 
-以下に解答例を添付しておきます。
+以下解答例です。
 
 <ViewSource url={import.meta.url} path="_sample" />
 
