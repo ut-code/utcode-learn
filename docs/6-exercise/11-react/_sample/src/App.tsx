@@ -217,60 +217,42 @@ function App() {
                 // ToDoが編集中かどうかで表示を変える
                 editingTodoId === todo.id ? (
                   <tr>
-                    <td className="todo">
-                      <input
-                        value={contentInput}
-                        placeholder="Enter todo"
-                        onChange={(e) => {
-                          setContentInput(e.target.value);
-                        }}
-                        onKeyDown={
-                          // エンターキーを押したとき入力なしならToDo削除、あれば確定
-                          contentInput === ""
-                            ? (e) => {
-                                if (e.code === "Enter") {
-                                  removeTodo(todo.id);
-                                  setEditingTodoId(-1);
-                                }
-                              }
-                            : (e) => {
-                                if (
-                                  e.code === "Enter" &&
-                                  // 日本語の変換確定に対応
-                                  !e.nativeEvent.isComposing
-                                ) {
-                                  updateTodoContent(
-                                    editingTodoId,
-                                    contentInput
-                                  );
-                                  setContentInput("");
-                                  setEditingTodoId(-1);
-                                }
-                              }
-                        }
-                      />
-                      <button
-                        className="confirm-button"
-                        onClick={() => {
+                    <td className="editing-todo">
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
                           updateTodoContent(editingTodoId, contentInput);
-                          setEditingTodoId(-1);
-                        }}
-                        type="button"
-                        disabled={contentInput === ""}
-                      >
-                        ✔
-                      </button>
-                      <button
-                        className="delete-button"
-                        onClick={() => {
-                          removeTodo(todo.id);
                           setContentInput("");
                           setEditingTodoId(-1);
                         }}
-                        type="button"
                       >
-                        -
-                      </button>
+                        <input
+                          value={contentInput}
+                          placeholder="Enter todo"
+                          onChange={(e) => {
+                            setContentInput(e.target.value);
+                          }}
+                        />
+
+                        <button
+                          className="confirm-button"
+                          type="submit"
+                          disabled={contentInput === ""}
+                        >
+                          ✔
+                        </button>
+                        <button
+                          className="delete-button"
+                          onClick={() => {
+                            removeTodo(todo.id);
+                            setContentInput("");
+                            setEditingTodoId(-1);
+                          }}
+                          type="button"
+                        >
+                          -
+                        </button>
+                      </form>
                     </td>
                     <td className="category">{todo.category}</td>
                     <td className="done">
