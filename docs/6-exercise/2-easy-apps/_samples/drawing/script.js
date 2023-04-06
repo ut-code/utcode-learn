@@ -18,14 +18,10 @@ function drawRect(e) {
   }
 }
 
-function clicked() {
-  if (isBig) {
-    isBig = false;
-  } else {
-    isBig = true;
-  }
+function swapSize() {
+  isBig = !isBig
 }
 
-smallButton.onclick = clicked;
+smallButton.onclick = swapSize;
 
-bigButton.onclick = clicked;
+bigButton.onclick = swapSize;
