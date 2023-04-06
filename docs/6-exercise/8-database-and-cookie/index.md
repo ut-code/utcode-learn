@@ -202,9 +202,9 @@ app.listen(3000);
 パスパラメータとは、特定のリソースを参照するために URL に付加される変数のことです。
 
 例えば
-`https://exapmle.com/users/:id` という URL の場合（:id は適当な数字）、id はそのサイト内で特定のユーザを参照するための変数となります。`https://exapmle.com/users/34` ならば、id が 34 のユーザを参照することになります。
+`https://exapmle.com/users/:id` という URL の場合（`:id` は適当な数字）、id はそのサイト内で特定のユーザを参照するための変数となります。`https://exapmle.com/users/34` ならば、id が 34 のユーザを参照することになります。
 
-express でパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
+Express でパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
 
 ```javascript
 const app = express();
