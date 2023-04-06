@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-// todoのデータ構造
+// ToDoのデータ構造
 type Todo = {
   id: number;
   category: string;
@@ -10,13 +10,13 @@ type Todo = {
 };
 
 function App() {
-  // todoのリスト
+  // ToDoのリスト
   const [todos, setTodos] = useState<Todo[]>([]);
-  // 現在編集中のtodoのid（編集していないときは-1）
+  // 現在編集中のToDoのid（編集していないときは-1）
   const [editingTodoId, setEditingTodoId] = useState<number>(-1);
-  // 次に作成するtodoのid
+  // 次に作成するToDoのid
   const [nextId, setNextId] = useState<number>(1);
-  // todoのカテゴリ（空文字はすべてのカテゴリ）
+  // ToDoのカテゴリ（空文字はすべてのカテゴリ）
   const [categories, setCategories] = useState<string[]>([""]);
   // 現在表示中のカテゴリ
   const [currentCategory, setCurrentCategory] = useState<string>("");
@@ -27,14 +27,14 @@ function App() {
   const [categoryInputInSideBar, setCategoryInputInSideBar] =
     useState<string>("");
 
-  // todoを追加する関数
+  // ToDoを追加する関数
   const addTodo = (newTodo: Todo) => {
     const todosCopy = todos.slice();
     todosCopy.push(newTodo);
     setTodos(todosCopy);
   };
 
-  // todoの内容を更新する関数
+  // ToDoの内容を更新する関数
   const updateTodoContent = (id: number, newContent: string) => {
     const todosCopy = todos.slice();
     const todoUpdated = todosCopy.find((todoCopy) => todoCopy.id === id);
@@ -43,7 +43,7 @@ function App() {
     setTodos(todosCopy);
   };
 
-  // todoが完了したかどうかを変更する関数
+  // ToDoが完了したかどうかを変更する関数
   const updateTodoIsDone = (id: number) => {
     const todosCopy = todos.slice();
     const todoUpdated = todosCopy.find((todoCopy) => todoCopy.id === id);
@@ -52,7 +52,7 @@ function App() {
     setTodos(todosCopy);
   };
 
-  // todoを削除する関数
+  // ToDoを削除する関数
   const removeTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -85,7 +85,7 @@ function App() {
     setEditingTodoId(-1);
   };
 
-  // 現在表示中のカテゴリのtodo
+  // 現在表示中のカテゴリのToDo
   const todosOfCurrentCategories =
     currentCategory === ""
       ? todos
@@ -192,7 +192,7 @@ function App() {
           </button>
         </form>
       </div>
-      {/* todoの表示部分 */}
+      {/* ToDoの表示部分 */}
       <div className="main">
         <table className="todo-table">
           {/** 表のヘッダー */}
@@ -203,9 +203,9 @@ function App() {
               <th className="header3">done</th>
             </tr>
           </thead>
-          {/** 各todoの表示部分 */}
+          {/** 各ToDoの表示部分 */}
           <tbody>
-            {/** todoがあるときとないときで表示を分ける（三項演算子を利用） */}
+            {/** ToDoがあるときとないときで表示を分ける（三項演算子を利用） */}
             {todos.length === 0 ? (
               <tr>
                 <td className="no-todo">there's no todo yet...</td>
@@ -214,7 +214,7 @@ function App() {
               </tr>
             ) : (
               todosOfCurrentCategories.map((todo) =>
-                // todoが編集中かどうかで表示を変える
+                // ToDoが編集中かどうかで表示を変える
                 editingTodoId === todo.id ? (
                   <tr>
                     <td className="todo">
@@ -225,7 +225,7 @@ function App() {
                           setContentInput(e.target.value);
                         }}
                         onKeyDown={
-                          // エンターキーを押したとき入力なしならtodo削除、あれば確定
+                          // エンターキーを押したとき入力なしならToDo削除、あれば確定
                           contentInput === ""
                             ? (e) => {
                                 if (e.code === "Enter") {
@@ -318,13 +318,13 @@ function App() {
             )}
           </tbody>
         </table>
-        {/** すべてのカテゴリを表示しているときは新規todoのカテゴリを指定して
+        {/** すべてのカテゴリを表示しているときは新規ToDoのカテゴリを指定して
          * 追加するためにinput要素を表示  */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
             let categoryOfNewTodo: string;
-            // 新規todoのカテゴリを場合分けして設定
+            // 新規ToDoのカテゴリを場合分けして設定
             if (currentCategory != "") {
               categoryOfNewTodo = currentCategory;
             } else {
@@ -360,7 +360,7 @@ function App() {
           <button
             className="add-button"
             disabled={
-              //todo編集中の時とinputが空欄の時は追加ボタンを無効化
+              //ToDo編集中の時とinputが空欄の時は追加ボタンを無効化
               editingTodoId != -1 ||
               (currentCategory === "" && categoryInputInMainScreen === "")
             }
