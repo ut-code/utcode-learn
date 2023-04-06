@@ -82,7 +82,7 @@ model Course {
 </html>
 ```
 
-講義一覧のページを用紙します。
+講義一覧のページを用意します。
 
 ```html title=courses.ejs
 <!DOCTYPE html>
@@ -196,7 +196,7 @@ app.listen(3000);
 
 <summary> 別解　</summary>
 
-解答例ではクエリパラメーターを用いましたが、**パスパラメータ **を使用することもできます。
+解答例ではクエリパラメーターを用いましたが、**パスパラメータ**を使用することもできます。
 パスパラメータとは、特定のリソースを参照するために URL に付加される変数のことです。
 
 例えば
@@ -220,7 +220,7 @@ app.get("/users/:id", (request, response) => {
 
 </details>
 
-## cookie
+## Cookie
 
 ショッピングサイトのトラッキングシステムを作ってみましょう。購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
 <video src={trackingVideo} controls muted autoPlay loop />
