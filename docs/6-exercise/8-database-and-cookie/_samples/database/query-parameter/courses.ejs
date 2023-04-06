@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>講義名</th>
+          <th>テストの有無</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const course of courses) {%>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= course.hasTest %></td>
+          <td><%= course.description %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <form action="/add-course" method="post">
+      <div>
+        <input name="newCourse" placeholder="講義名" />
+      </div>
+      <div>
+        <input name="hasTest" placeholder="テストの有無" />
+      </div>
+      <div>
+        <textarea name="description" placeholder="授業説明"></textarea>
+      </div>
+      <button name="teacherId" type="submit" value="<%= teacherId %>">
+        追加
+      </button>
+    </form>
+  </body>
+</html>
