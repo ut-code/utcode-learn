@@ -6,7 +6,9 @@ sidebar_position: 3
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-## 繰り返し
+---
+
+## 1. コラッツの問題
 
 正の整数 n に対して、以下の操作を考えます。
 
@@ -59,7 +61,9 @@ answer.textContent += 1;
 
 </Answer>
 
-## クラス
+---
+
+## 2. 動物の鳴き声
 
 次のコードは、ブラウザ上に動物の鳴き声を表示するプログラムです。
 
@@ -296,7 +300,9 @@ function showSound(Animal) {
 
 </Answer>
 
-## 配列
+---
+
+## 3. 順位表
 
 みんなのテストの点数が出ました。
 
