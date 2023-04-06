@@ -262,9 +262,10 @@ let ctx = canvas.getContext("2d");
 ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
+
 <ViewSource url={import.meta.url} path="_samples/drawing/canvas-demo" />
 
-また、DOMのonclickプロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
+また、DOM の onclick プロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
 
 ```html
 <button id="button">押してください</button>
@@ -277,14 +278,15 @@ let tagNameDisplay = document.getElementById("tag-name-display");
 let displayX = document.getElementById("display-x");
 let displayY = document.getElementById("display-y");
 
-function displayNameAndLocation(e){
-    tagNameDisplay.textContent = e.target.tagName;
-    displayX.textContent = e.pageX;
-    displayY.textContent = e.pageY;
+function displayNameAndLocation(e) {
+  tagNameDisplay.textContent = e.target.tagName;
+  displayX.textContent = e.pageX;
+  displayY.textContent = e.pageY;
 }
 
 button.onclick = displayNameAndLocation;
 ```
+
 <ViewSource url={import.meta.url} path="_samples/drawing/event-demo" />
 
 <Answer>
@@ -300,8 +302,6 @@ button.onclick = displayNameAndLocation;
   <button id="big-button">大</button>
 </div>
 ```
-
-
 
 ```javascript title=script.js
 let canvas = document.getElementById("canvas");
@@ -325,13 +325,12 @@ function drawRect(e) {
 }
 
 function swapSize() {
-  isBig = !isBig
+  isBig = !isBig;
 }
 
 smallButton.onclick = swapSize;
 
 bigButton.onclick = swapSize;
-
 ```
 
 <ViewSource url={import.meta.url} path="_samples/drawing/answer" />

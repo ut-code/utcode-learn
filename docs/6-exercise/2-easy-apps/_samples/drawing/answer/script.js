@@ -19,7 +19,7 @@ function drawRect(e) {
 }
 
 function swapSize() {
-  isBig = !isBig
+  isBig = !isBig;
 }
 
 smallButton.onclick = swapSize;
