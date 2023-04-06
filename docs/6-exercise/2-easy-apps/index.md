@@ -262,6 +262,30 @@ let ctx = canvas.getContext("2d");
 ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
+<ViewSource url={import.meta.url} path="_samples/drawing/canvas-demo" />
+
+また、DOMのonclickプロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
+
+```html
+<button id="button">押してください</button>
+<div id="display"></div>
+```
+
+```javascript
+const button = document.getElementById("button");
+const tagNameDisplay = document.getElementById("tag-name-display");
+const displayX = document.getElementById("display-x");
+const displayY = document.getElementById("display-y");
+
+function displayNameAndLocation(e){
+    tagNameDisplay.textContent = e.target.tagName;
+    displayX.textContent = e.pageX;
+    displayY.textContent = e.pageY;
+}
+
+button.onclick = displayNameAndLocation;
+```
+<ViewSource url={import.meta.url} path="_samples/drawing/event-demo" />
 
 <Answer>
 
@@ -277,12 +301,14 @@ ctx.fillRect(10, 10, 100, 100);
 </div>
 ```
 
+
+
 ```javascript title=script.js
 let canvas = document.getElementById("canvas");
 let smallButton = document.getElementById("small-button");
 let bigButton = document.getElementById("big-button");
 
-let ctx = canvas.getContext("2d");
+let context = canvas.getContext("2d");
 let isBig = false;
 
 canvas.onclick = drawRect;
@@ -290,27 +316,24 @@ canvas.onclick = drawRect;
 function drawRect(e) {
   let top = canvas.getBoundingClientRect().top;
   let left = canvas.getBoundingClientRect().left;
-  ctx.fillStyle = "green";
+  context.fillStyle = "green";
   if (isBig) {
-    ctx.fillRect(e.pageX - left - 10, e.pageY - top - 10, 20, 20);
+    context.fillRect(e.pageX - left - 10, e.pageY - top - 10, 20, 20);
   } else {
-    ctx.fillRect(e.pageX - left - 5, e.pageY - top - 5, 10, 10);
+    context.fillRect(e.pageX - left - 5, e.pageY - top - 5, 10, 10);
   }
 }
 
-function clicked() {
-  if (isBig) {
-    isBig = false;
-  } else {
-    isBig = true;
-  }
+function swapSize() {
+  isBig = !isBig
 }
 
-smallButton.onclick = clicked;
+smallButton.onclick = swapSize;
 
-bigButton.onclick = clicked;
+bigButton.onclick = swapSize;
+
 ```
 
-<ViewSource url={import.meta.url} path="_samples/drawing" />
+<ViewSource url={import.meta.url} path="_samples/drawing/answer" />
 
 </Answer>
