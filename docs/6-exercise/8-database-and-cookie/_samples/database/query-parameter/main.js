@@ -16,7 +16,7 @@ app.get("/", async (request, response) => {
 });
 
 app.get("/courses", async (request, response) => {
-  const teacherId = request.query.teacherId
+  const teacherId = request.query.teacherId;
   const courses = await client.course.findMany({
     where: { teacherId: parseInt(teacherId) },
   });

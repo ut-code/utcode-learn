@@ -36,8 +36,8 @@ model Course {
 ```
 
 まず講師一覧表示用の画面を用意します
-```html title=index.ejs
 
+```html title=index.ejs
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -80,8 +80,8 @@ model Course {
     </form>
   </body>
 </html>
-
 ```
+
 講義一覧のページを用紙します。
 
 ```html title=courses.ejs
@@ -126,9 +126,10 @@ model Course {
     </form>
   </body>
 </html>
-
 ```
+
 最後にサーバー処理を追加します。
+
 ```javascript title=main.js
 const fs = require("fs");
 const express = require("express");
@@ -148,7 +149,7 @@ app.get("/", async (request, response) => {
 });
 
 app.get("/courses", async (request, response) => {
-  const teacherId = request.query.teacherId
+  const teacherId = request.query.teacherId;
   const courses = await client.course.findMany({
     where: { teacherId: parseInt(teacherId) },
   });
@@ -185,7 +186,6 @@ app.post("/add-teacher", async (request, response) => {
 });
 
 app.listen(3000);
-
 ```
 
 <ViewSource url={import.meta.url} path="_samples/database/query-parameter" noCodeSandbox />
@@ -197,21 +197,19 @@ app.listen(3000);
 <summary> 別解　</summary>
 
 解答例ではクエリパラメーターを用いましたが、**パスパラメータ **を使用することもできます。
-パスパラメータとは、特定のリソースを参照するためにURLに付加される変数のことです。
+パスパラメータとは、特定のリソースを参照するために URL に付加される変数のことです。
 
 例えば
-`https://exapmle.com/users/:id` というURLの場合（:idは適当な数字）、idはそのサイト内で特定のユーザを参照するための変数となります。`https://exapmle.com/users/34` ならば、idが34のユーザを参照することになります。
+`https://exapmle.com/users/:id` という URL の場合（:id は適当な数字）、id はそのサイト内で特定のユーザを参照するための変数となります。`https://exapmle.com/users/34` ならば、id が 34 のユーザを参照することになります。
 
-expressでパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
+express でパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
 
 ```javascript
-
 const app = express();
 
-app.get('/users/:id', (request, response) => {
-  response.send('user ' + request.params.id)
-})
-
+app.get("/users/:id", (request, response) => {
+  response.send("user " + request.params.id);
+});
 ```
 
 このパスパラメータを用いた解答を作ることもできます。
@@ -222,8 +220,7 @@ app.get('/users/:id', (request, response) => {
 
 </details>
 
-
-## cookie 
+## cookie
 
 ショッピングサイトのトラッキングシステムを作ってみましょう。購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
 <video src={trackingVideo} controls muted autoPlay loop />
@@ -285,9 +282,9 @@ app.get("/", (request, response) => {
   const shrimpPreference = parseInt(request.cookies.shrimpPreference) || 0;
   const favorite = Math.max(carPreference, ringPreference, shrimpPreference);
   if (
-    carPreference === ringPreference && carPreference === favorite ||
-    ringPreference === shrimpPreference && ringPreference === favorite ||
-    shrimpPreference === carPreference && shrimpPreference === favorite ||
+    (carPreference === ringPreference && carPreference === favorite) ||
+    (ringPreference === shrimpPreference && ringPreference === favorite) ||
+    (shrimpPreference === carPreference && shrimpPreference === favorite) ||
     favorite === 0
   ) {
     recommended = null;
@@ -325,7 +322,6 @@ app.get("/shrimp", (request, response) => {
 });
 
 app.listen(3000);
-
 ```
 
 <ViewSource url={import.meta.url} path="_samples/cookie" />

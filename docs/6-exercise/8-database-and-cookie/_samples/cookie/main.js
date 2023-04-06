@@ -15,9 +15,9 @@ app.get("/", (request, response) => {
   const shrimpPreference = parseInt(request.cookies.shrimpPreference) || 0;
   const favorite = Math.max(carPreference, ringPreference, shrimpPreference);
   if (
-    carPreference === ringPreference && carPreference === favorite ||
-    ringPreference === shrimpPreference && ringPreference === favorite ||
-    shrimpPreference === carPreference && shrimpPreference === favorite ||
+    (carPreference === ringPreference && carPreference === favorite) ||
+    (ringPreference === shrimpPreference && ringPreference === favorite) ||
+    (shrimpPreference === carPreference && shrimpPreference === favorite) ||
     favorite === 0
   ) {
     recommended = null;
