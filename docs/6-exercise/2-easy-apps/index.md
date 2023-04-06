@@ -18,6 +18,8 @@ import drawingVideo from "./drawing.mp4";
 
 <video src={bmiVideo} controls muted autoPlay loop />
 
+### 解答例
+
 <Answer>
 
 ```html title=index.html
@@ -126,6 +128,8 @@ calcButton.onclick = () => {
 - 演算子 `+`、`-`、`*`、`/` の中から 1 つ選択できるプルダウンメニューを作り、選ばれた演算子に応じた計算結果が表示されるようにしましょう。
 - 余裕がある人は、0 で割ろうとした時に計算結果の代わりにエラーメッセージが表示されるようにしてみましょう。
 
+### 解答例
+
 <Answer>
 
 ```html title=index.html
@@ -210,6 +214,8 @@ HTML要素.textContent =
 というコードを含めることを条件とします。
 
 <video src={objectEventVideo} controls muted autoPlay loop />
+
+### 解答例
 
 <Answer>
 
@@ -296,6 +302,8 @@ button.onclick = displayNameAndLocation;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/drawing/event-demo" />
+
+### 解答例
 
 <Answer>
 
