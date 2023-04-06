@@ -7,7 +7,9 @@ import trackingVideo from "./tracking.mp4"
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 
-## データベース
+---
+
+## 1. データベース
 
 ある学校のアプリで、データベースから先生たちのデータを取得して表示し、先生を１人選択するとその先生が持っている講義一覧が表示されるアプリを作ってみましょう。また、新たに先生の追加と講義の追加ができるようにしましょう。
 
@@ -220,7 +222,9 @@ app.get("/users/:id", (request, response) => {
 
 </details>
 
-## Cookie
+---
+
+## 2. Cookie
 
 ショッピングサイトのトラッキングシステムを作ってみましょう。購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
 <video src={trackingVideo} controls muted autoPlay loop />
