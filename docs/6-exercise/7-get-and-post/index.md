@@ -26,7 +26,7 @@ const express = require("express");
 
 const app = express();
 
-const data = { tanaka: "1234", satou: "9999" };
+const data = { tanaka: "1234", sato: "9999" };
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("static"));
