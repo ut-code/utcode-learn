@@ -80,7 +80,7 @@ const add3 = function (a, b) {
 
 [`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)は、関数オブジェクトの引数をひとつとり、配列の各要素に適用した上で、その戻り値からなる新しい配列を返します。
 
-このように、外部から呼び出される関数のことを**コールバック関数**と呼びます。
+このように、他の関数の引数として呼び出される関数のことを<Term type="callbackFunction" strong>コールバック関数</Term>と呼びます。
 
 ```javascript
 const rates = [3, 5, 1];

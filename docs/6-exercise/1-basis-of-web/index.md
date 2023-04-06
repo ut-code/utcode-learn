@@ -1,5 +1,5 @@
 ---
-title: webプログラミングの初歩
+title: Webプログラミングの初歩
 sidebar_position: 1
 ---
 

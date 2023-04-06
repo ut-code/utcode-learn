@@ -59,7 +59,7 @@ document.write(person.age);
 
 [複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)は、計算と代入を同時に行うことができる演算子です。
 
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y` 、`x *= y` は`x = x * y` という意味になります。
+`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
 
 複合代入演算子を用いると、先ほどのプログラムは以下のように書くことができます。
 
