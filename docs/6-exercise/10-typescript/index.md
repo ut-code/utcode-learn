@@ -8,6 +8,8 @@ import ViewSource from "@site/src/components/ViewSource";
 
 この章では教材の「TypeScript」の内容を扱っています。
 
+---
+
 ## 問題 1
 
 以下の 2 つの TypeScript のコードについて、エラーが表示される行を全て選んでください。
@@ -64,6 +66,8 @@ console.log(d.y);
 
 </Answer>
 
+---
+
 ## 問題 2
 
 TypeScript を用いて、以下の要件を満たす関数 `welcome` を作成してください。
@@ -119,6 +123,8 @@ function welcome(user: User) {
 <ViewSource url={import.meta.url} path="_samples/welcome" noCodeSandbox />
 
 </Answer>
+
+---
 
 ## 問題 3
 
