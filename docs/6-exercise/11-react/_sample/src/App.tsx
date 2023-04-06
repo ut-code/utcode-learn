@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 // todoのデータ構造
-interface Todo {
+type Todo = {
   id: number;
   category: string;
   content: string;
@@ -13,7 +13,7 @@ function App() {
   // todoのリスト
   const [todos, setTodos] = useState<Todo[]>([]);
   // 現在編集中のtodoのid（編集していないときは-1）
-  const [idOfEditedTodo, setIdOfEditedTodo] = useState<number>(-1);
+  const [editingTodoId, setEditingTodoId] = useState<number>(-1);
   // 次に作成するtodoのid
   const [nextId, setNextId] = useState<number>(1);
   // todoのカテゴリ（空文字はすべてのカテゴリ）
@@ -28,9 +28,9 @@ function App() {
     useState<string>("");
 
   // todoを追加する関数
-  const addTodo = (todo: Todo) => {
+  const addTodo = (newTodo: Todo) => {
     const todosCopy = todos.slice();
-    todosCopy.push(todo);
+    todosCopy.push(newTodo);
     setTodos(todosCopy);
   };
 
@@ -48,18 +48,13 @@ function App() {
     const todosCopy = todos.slice();
     const todoUpdated = todosCopy.find((todoCopy) => todoCopy.id === id);
     if (!todoUpdated) throw new Error();
-    todoUpdated.isDone
-      ? (todoUpdated.isDone = false)
-      : (todoUpdated.isDone = true);
+    todoUpdated.isDone = !todoUpdated.isDone;
     setTodos(todosCopy);
   };
 
   // todoを削除する関数
-  const deleteTodo = (id: number) => {
-    const todosCopy = todos.slice();
-    const todoDeleted = todosCopy.find((todoCopy) => todoCopy.id === id);
-    if (!todoDeleted) throw new Error();
-    setTodos(todosCopy.filter((todoCopy) => todoCopy.id != todoDeleted.id));
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   // カテゴリを追加する関数
@@ -70,25 +65,24 @@ function App() {
   };
 
   // カテゴリを削除する関数
-  const deleteCategory = (existingCategory: string) => {
-    const categoriesCopy = categories.slice();
+  const removeCategory = (existingCategory: string) => {
     setCategories(
-      categoriesCopy.filter((categoryCopy) => existingCategory != categoryCopy)
+      categories.filter((category) => existingCategory != category)
     );
   };
 
   // 編集操作を取り消す関数
   const clearEditing = () => {
     const editedTodo =
-      idOfEditedTodo === -1
+      editingTodoId === -1
         ? null
-        : todos.find((todo) => todo.id === idOfEditedTodo);
+        : todos.find((todo) => todo.id === editingTodoId);
     if (editedTodo === undefined) throw new Error();
     else if (editedTodo != null && editedTodo.content === "") {
-      deleteTodo(idOfEditedTodo);
+      removeTodo(editingTodoId);
     }
     setContentInput("");
-    setIdOfEditedTodo(-1);
+    setEditingTodoId(-1);
   };
 
   // 現在表示中のカテゴリのtodo
@@ -115,6 +109,7 @@ function App() {
                     setCurrentCategory(category);
                     setCategoryInputInMainScreen("");
                   }}
+                  type="button"
                 >
                   All todos
                 </button>
@@ -130,6 +125,7 @@ function App() {
                     setCurrentCategory(category);
                     setCategoryInputInMainScreen("");
                   }}
+                  type="button"
                 >
                   {category}
                 </button>
@@ -139,17 +135,18 @@ function App() {
                     if (currentCategory === category) {
                       setCurrentCategory("");
                     }
-                    deleteCategory(category);
+                    removeCategory(category);
                     const todosCopy = todos.slice();
                     const todosLeft = todosCopy.filter(
                       (todo) =>
-                        (todo.id != idOfEditedTodo || todo.content != "") &&
+                        (todo.id != editingTodoId || todo.content != "") &&
                         todo.category != category
                     );
                     setTodos(todosLeft);
-                    setIdOfEditedTodo(-1);
+                    setEditingTodoId(-1);
                     setContentInput("");
                   }}
+                  type="button"
                 >
                   -
                 </button>
@@ -157,43 +154,43 @@ function App() {
             )
           )}
         </ul>
-        <input
-          className="category-input"
-          placeholder="Add category"
-          value={categoryInputInSideBar}
-          onInvalid={() => {}}
-          onChange={(e) => {
-            setCategoryInputInSideBar(e.target.value);
-          }}
-          // エンターキーを押すとカテゴリ追加（今回はonKeyDown属性を使っていますが、form要素のonSubmit属性とイベントオブジェクトのpreventDefaultメソッドを使ったほうが良いようです）
-          onKeyDown={(e) => {
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
             if (
-              e.code === "Enter" &&
-              !e.nativeEvent.isComposing &&
+              categoryInputInSideBar !== "" &&
               !categories.some(
                 (category) => category === categoryInputInSideBar
               )
             ) {
-              {
-                addCategory(categoryInputInSideBar);
-                setCategoryInputInSideBar("");
-              }
+              addCategory(categoryInputInSideBar);
+              setCategoryInputInSideBar("");
             }
           }}
-        />
-        <button
-          className="add-button"
-          onClick={() => {
-            addCategory(categoryInputInSideBar);
-            setCategoryInputInSideBar("");
-          }}
-          disabled={
-            categoryInputInSideBar === "" ||
-            categories.some((category) => category === categoryInputInSideBar)
-          }
         >
-          +
-        </button>
+          <input
+            className="category-input"
+            placeholder="Add category"
+            value={categoryInputInSideBar}
+            onChange={(e) => {
+              setCategoryInputInSideBar(e.target.value);
+            }}
+          />
+          <button
+            className="add-button"
+            onClick={() => {
+              addCategory(categoryInputInSideBar);
+              setCategoryInputInSideBar("");
+            }}
+            disabled={
+              categoryInputInSideBar === "" ||
+              categories.some((category) => category === categoryInputInSideBar)
+            }
+            type="submit"
+          >
+            +
+          </button>
+        </form>
       </div>
       {/* todoの表示部分 */}
       <div className="main">
@@ -218,7 +215,7 @@ function App() {
             ) : (
               todosOfCurrentCategories.map((todo) =>
                 // todoが編集中かどうかで表示を変える
-                idOfEditedTodo === todo.id ? (
+                editingTodoId === todo.id ? (
                   <tr>
                     <td className="todo">
                       <input
@@ -232,8 +229,8 @@ function App() {
                           contentInput === ""
                             ? (e) => {
                                 if (e.code === "Enter") {
-                                  deleteTodo(todo.id);
-                                  setIdOfEditedTodo(-1);
+                                  removeTodo(todo.id);
+                                  setEditingTodoId(-1);
                                 }
                               }
                             : (e) => {
@@ -243,11 +240,11 @@ function App() {
                                   !e.nativeEvent.isComposing
                                 ) {
                                   updateTodoContent(
-                                    idOfEditedTodo,
+                                    editingTodoId,
                                     contentInput
                                   );
                                   setContentInput("");
-                                  setIdOfEditedTodo(-1);
+                                  setEditingTodoId(-1);
                                 }
                               }
                         }
@@ -255,9 +252,10 @@ function App() {
                       <button
                         className="confirm-button"
                         onClick={() => {
-                          updateTodoContent(idOfEditedTodo, contentInput);
-                          setIdOfEditedTodo(-1);
+                          updateTodoContent(editingTodoId, contentInput);
+                          setEditingTodoId(-1);
                         }}
+                        type="button"
                         disabled={contentInput === ""}
                       >
                         ✔
@@ -265,10 +263,11 @@ function App() {
                       <button
                         className="delete-button"
                         onClick={() => {
-                          deleteTodo(todo.id);
+                          removeTodo(todo.id);
                           setContentInput("");
-                          setIdOfEditedTodo(-1);
+                          setEditingTodoId(-1);
                         }}
+                        type="button"
                       >
                         -
                       </button>
@@ -285,18 +284,20 @@ function App() {
                       <button
                         className="edit-button"
                         onClick={() => {
-                          setIdOfEditedTodo(todo.id);
+                          setEditingTodoId(todo.id);
                           setContentInput(todo.content);
                         }}
-                        disabled={idOfEditedTodo != -1}
+                        disabled={editingTodoId != -1}
+                        type="button"
                       >
                         🖋
                       </button>
                       <button
                         className="delete-button"
                         onClick={() => {
-                          deleteTodo(todo.id);
+                          removeTodo(todo.id);
                         }}
+                        type="button"
                       >
                         -
                       </button>
@@ -319,49 +320,9 @@ function App() {
         </table>
         {/** すべてのカテゴリを表示しているときは新規todoのカテゴリを指定して
          * 追加するためにinput要素を表示  */}
-        <input
-          value={categoryInputInMainScreen}
-          className={currentCategory === "" ? "category-input" : "hidden"}
-          placeholder="Select or add category"
-          onChange={(e) => {
-            setCategoryInputInMainScreen(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            if (
-              e.code === "Enter" &&
-              !e.nativeEvent.isComposing &&
-              categoryInputInMainScreen != ""
-            ) {
-              let categoryOfNewTodo: string;
-              // 新規todoのカテゴリを場合分けして設定
-              if (currentCategory != "") {
-                categoryOfNewTodo = currentCategory;
-              } else {
-                categoryOfNewTodo = categoryInputInMainScreen;
-                if (
-                  !categories.some(
-                    (category) => category === categoryInputInMainScreen
-                  )
-                ) {
-                  addCategory(categoryInputInMainScreen);
-                }
-              }
-              addTodo({
-                id: nextId,
-                category: categoryInputInMainScreen,
-                content: "",
-                isDone: false,
-              });
-              setIdOfEditedTodo(nextId);
-              setNextId(nextId + 1);
-              setCategoryInputInMainScreen("");
-            }
-          }}
-          disabled={idOfEditedTodo != -1}
-        />
-        <button
-          className="add-button"
-          onClick={() => {
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
             let categoryOfNewTodo: string;
             // 新規todoのカテゴリを場合分けして設定
             if (currentCategory != "") {
@@ -382,18 +343,32 @@ function App() {
               content: "",
               isDone: false,
             });
-            setIdOfEditedTodo(nextId);
+            setEditingTodoId(nextId);
             setNextId(nextId + 1);
             setCategoryInputInMainScreen("");
           }}
-          disabled={
-            //todo編集中の時とinputが空欄の時は追加ボタンを無効化
-            idOfEditedTodo != -1 ||
-            (currentCategory === "" && categoryInputInMainScreen === "")
-          }
         >
-          +
-        </button>
+          <input
+            value={categoryInputInMainScreen}
+            className={currentCategory === "" ? "category-input" : "hidden"}
+            placeholder="Select or add category"
+            onChange={(e) => {
+              setCategoryInputInMainScreen(e.target.value);
+            }}
+            disabled={editingTodoId != -1}
+          />
+          <button
+            className="add-button"
+            disabled={
+              //todo編集中の時とinputが空欄の時は追加ボタンを無効化
+              editingTodoId != -1 ||
+              (currentCategory === "" && categoryInputInMainScreen === "")
+            }
+            type="submit"
+          >
+            +
+          </button>
+        </form>
       </div>
     </div>
   );
