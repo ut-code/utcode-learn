@@ -10,7 +10,9 @@ import calculatorVideo from "./calculator.mp4";
 import objectEventVideo from "./object-event.mp4";
 import drawingVideo from "./drawing.mp4";
 
-## 課題 1
+---
+
+## 1. BMI 計算アプリ
 
 身長と体重を入力すると BMI を計算するアプリを作ってみましょう。
 
@@ -45,7 +47,9 @@ calcButton.onclick = () => {
 
 </Answer>
 
-## 課題 2
+---
+
+## 2. 電卓アプリ
 
 入力した 2 つの値の四則演算ができる、簡易的な計算アプリを作ってみましょう。
 
@@ -169,7 +173,9 @@ calculateButton.onclick = calculate;
 
 </Answer>
 
-## 課題 3
+---
+
+## 3. 成績改竄
 
 田中君の成績を格納したオブジェクトがあります。
 
@@ -241,7 +247,9 @@ trickbutton.onclick = falsifyTanakaData;
 
 </Answer>
 
-## 課題 4
+---
+
+## 4. 正方形の描画
 
 枠内でクリックしたら正方形を描画するツールを作成してみましょう。
 
