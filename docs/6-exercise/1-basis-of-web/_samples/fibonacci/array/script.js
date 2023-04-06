@@ -8,3 +8,5 @@ function fibonacci(n) {
     };
     return sequence[n];
   }
+
+document.write(fibonacci(10));
