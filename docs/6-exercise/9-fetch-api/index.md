@@ -15,7 +15,7 @@ import restaurantsVideo from "./restaurants.mp4"
 
 <video src={restaurantsVideo} controls />
 
-## ヒント
+### ヒント
 
 - 選択式のメニューを作るには `select` タグを用いましょう。
 
@@ -50,7 +50,7 @@ import restaurantsVideo from "./restaurants.mp4"
   }
   ```
 
-## 解答例
+### 解答例
 
 <Answer>
 
