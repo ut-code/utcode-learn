@@ -1,4 +1,4 @@
-//DOMの取得
+// DOMの取得
 const timerDisplay = document.getElementById("time");
 const hourInput = document.getElementById("hour-input");
 const minuteInput = document.getElementById("minute-input");
