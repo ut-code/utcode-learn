@@ -44,7 +44,44 @@ import flashcardVideo from "./flashcard.mp4";
 
 ### 解答例
 
+<Answer>
+
+```html title=index.html
+<div class="card">
+  <div id="question"></div>
+  <div id="answer"></div>
+</div>
+<button id="answer-button">答えを見る</button>
+<button id="next-button">次の問題へ</button>
+```
+
+```js title=script.js
+const questions = ["apple", "black", "cloud"];
+const answers = ["りんご", "黒", "雲"];
+
+let questionDisplay = document.getElementById("question");
+
+const answer = document.getElementById("answer");
+let index = 0;
+
+questionDisplay.textContent = questions[0];
+
+document.getElementById("answer-button").onclick = () => {
+  answer.textContent = answers[index];
+};
+document.getElementById("next-button").onclick = () => {
+  index += 1;
+  if (index === questions.length) {
+    index = 0;
+  }
+  questionDisplay.textContent = questions[index];
+  answer.textContent = "";
+};
+```
+
 <ViewSource url={import.meta.url} path="_samples/flashcard" />
+
+</Answer>
 
 ---
 
@@ -82,4 +119,9 @@ import flashcardVideo from "./flashcard.mp4";
 
 ### 解答例
 
+<Answer>
+
 <ViewSource url={import.meta.url} path="_samples/timer" />
+
+</Answer>
+````
