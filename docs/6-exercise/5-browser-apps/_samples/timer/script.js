@@ -18,7 +18,7 @@ class Timer {
 
   // スタートしたときに実行される関数
   onStart;
-  
+
   // ストップしたときに実行される関数
   onStop;
 
@@ -60,30 +60,33 @@ class Timer {
   }
 }
 
-const timer = new Timer( () => {
-        startButton.disabled = true;
-        stopButton.disabled = false;
-      },
-      () => {
-        startButton.disabled = false;
-        stopButton.disabled = true;
-        destroyAudioIfExists();
-      },
-      () => {
-        startButton.disabled = true;
-        stopButton.disabled = false;
-        createAudioIfNone() })
+const timer = new Timer(
+  () => {
+    startButton.disabled = true;
+    stopButton.disabled = false;
+  },
+  () => {
+    startButton.disabled = false;
+    stopButton.disabled = true;
+    destroyAudioIfExists();
+  },
+  () => {
+    startButton.disabled = true;
+    stopButton.disabled = false;
+    createAudioIfNone();
+  }
+);
 
 // 音が出ていなければ音を出す
 function createAudioIfNone() {
-    if (!existingAudio) {
-      existingAudio = new Audio();
-      existingAudio.src = "alarm-buzzer.wav";
-      existingAudio.addEventListener("canplaythrough", () => {
-        existingAudio.play();
-      });
-    }
+  if (!existingAudio) {
+    existingAudio = new Audio();
+    existingAudio.src = "alarm-buzzer.wav";
+    existingAudio.addEventListener("canplaythrough", () => {
+      existingAudio.play();
+    });
   }
+}
 
 // 音が出ていれば途中で消す
 function destroyAudioIfExists() {
@@ -154,4 +157,3 @@ setInterval(() => {
   // 時間を表示
   timerDisplay.textContent = `${hourString}:${minuteString}:${secondString}`;
 }, 10);
-
