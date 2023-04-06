@@ -63,7 +63,7 @@ app.listen(3000);
           </td>
         </tr>
       </table>
-      <button>ログインする</button>
+      <button type="submit">ログインする</button>
     </form>
   </body>
 </html>
