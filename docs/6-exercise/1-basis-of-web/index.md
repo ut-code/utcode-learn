@@ -24,7 +24,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 - 文章や写真がなんとなく真ん中で一列にきれいに揃えられていますね。実は `table` タグで表を作っています。表といえど境界線がないので気づきにくかったかもしれません。`table` タグに `tr`、`th`、`td`タグをネストさせてきれいな表を作りましょう。全ての `td` タグの `align` 属性にある値を入れると...なんということでしょう。真ん中が縦で揃えられた表が完成します。
 
-- [こちら](http://www.htmq.com/)で HTML タグの使い方が簡潔に示されています。
+- [こちら](https://developer.mozilla.org/ja/docs/Web/HTML/Element)で HTML タグの使い方が簡潔に示されています。
 
 ### 解答例
 
@@ -151,7 +151,7 @@ if (numberOfA > numberOfB) {
 
 (1)引数を 2 つとり、そのうち大きい数を返す関数 max を定義してください。
 
-(2)1,1,2,3,5・・・というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 n に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
+(2)1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 n に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
 
 ### 解答例
 
@@ -183,7 +183,27 @@ function fibonacci(n) {
 // このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
 ```
 
-<ViewSource url={import.meta.url} path="_samples/fibonacci" />
+<ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
+
+(2)別解
+
+もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
+
+```javascript
+function fibonacci(n) {
+    let sequence = [0, 1];
+    if( n === 0 || n === 1 ){
+      return sequence[n]
+    };
+    for ( let i = 2; i < n + 1; i += 1 ){
+        sequence.push( sequence[i - 1] + sequence[i - 2] )
+    };
+    return sequence[n];
+  }
+
+```
+<ViewSource url={import.meta.url} path="_samples/fibonacci/array" />
+
 
 </Answer>
 
