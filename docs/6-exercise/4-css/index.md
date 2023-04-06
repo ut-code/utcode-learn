@@ -12,7 +12,9 @@ import Details from "@theme/Details";
 
 この章では「高度な CSS」「CSS による配置」の内容を扱っています。
 
-## ブロックレベル要素とインライン要素
+---
+
+## 1. ブロックレベル要素とインライン要素
 
 1. 以下の点について、ブロックレベル要素とインライン要素の挙動の違いを確認してみましょう。見た目だけでなく、開発者ツールを用いて値がどうなっているか調べてみましょう。
 
@@ -44,7 +46,9 @@ import Details from "@theme/Details";
 
 </Details>
 
-## フレックスボックスとグリッド
+---
+
+## 2. フレックスボックスとグリッド
 
 次のようなウェブサイトを作成してみましょう。
 
@@ -67,7 +71,9 @@ import Details from "@theme/Details";
 
 <ViewSource url={import.meta.url} path="_samples/flexbox-grid" />
 
-## position
+---
+
+## 3. `position`
 
 この問題では、以下の HTML ファイルと CSS ファイルをコピーして使用してください。
 
@@ -236,7 +242,7 @@ h3 {
 
 </Details>
 
-### `position` の問題 1
+### 問題 1
 
 水色の部分(ヘッダー)が、スクロールしても同じ位置にとどまるようにしてみましょう。
 
@@ -248,7 +254,7 @@ h3 {
 
   - `#wrapper` の上部に適切なサイズの余白を設けることで対処しましょう。
 
-### `position` の問題 1 の解答
+#### 解答例
 
 <Answer>
 
@@ -272,13 +278,13 @@ h3 {
 <ViewSource url={import.meta.url} path="_samples/1_fixed" />
 </Answer>
 
-### `position` の問題 2
+### 問題 2
 
 「予約不要」「予約必要」といった表示が、各企画のカードの右上に表示されるようにしましょう。
 
 ![予約のラベルをカード右上に表示](./reserve-label.png)
 
-### `position` の問題 2 の解答
+#### 解答例
 
 <Answer>
 
@@ -301,13 +307,13 @@ h3 {
 <ViewSource url={import.meta.url} path="_samples/2_relative-absolute" />
 </Answer>
 
-### `position` の問題 3
+### 問題 3
 
 (発展) 「中央通り屋台」「屋外ステージ」などの場所の名前が、その場所の企画が画面上にある間は上部にとどまるようにしてみましょう。
 
 <video src={placeScrollVideo} controls />
 
-### `position` の問題 3 の解答
+#### 解答例
 
 <Answer>
 
@@ -328,7 +334,9 @@ h3 {
 
 </Answer>
 
-## レスポンシブデザイン
+---
+
+## 4. レスポンシブデザイン
 
 スマホは縦向き、横向きの両方で使います。両方の画面を一つの CSS でデザインする練習をしましょう。
 
