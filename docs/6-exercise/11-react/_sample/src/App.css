@@ -1,8 +1,8 @@
-body{
+body {
   overflow-y: hidden;
 }
 
-.no-category{
+.no-category {
   opacity: 0.3;
 }
 
@@ -17,12 +17,12 @@ body{
   border-right: solid;
 }
 
-.sidenav .nav-list{
+.sidenav .nav-list {
   list-style: none;
   padding-left: 0;
 }
 
-.sidenav .nav-row{
+.sidenav .nav-row {
   display: flex;
 }
 
@@ -40,7 +40,7 @@ body{
   background-color: gainsboro;
 }
 
-.sidenav .on-focus{
+.sidenav .on-focus {
   display: block;
   text-align: left;
   height: 25px;
@@ -49,7 +49,7 @@ body{
   width: 100%;
 }
 
-.sidenav .delete-button{
+.sidenav .delete-button {
   display: block;
   border: none;
 }
@@ -67,11 +67,11 @@ th {
   border-bottom: solid;
 }
 
-.header1{
+.header1 {
   width: 70%;
 }
 
-.header2{
+.header2 {
   width: 20%;
 }
 
@@ -85,14 +85,14 @@ td {
   vertical-align: middle;
 }
 
-.no-todo{
+.no-todo {
   display: flex;
   height: 25px;
   vertical-align: middle;
   opacity: 0.3;
 }
 
-.category{
+.category {
   text-align: center;
 }
 
@@ -121,19 +121,19 @@ td .delete-button {
   text-align: center;
 }
 
-.category-input{
+.category-input {
   border: none;
   border-bottom: solid 1px;
   outline: none;
 }
 
-.category-input ::after{
+.category-input ::after {
   left: 0;
   top: 30px;
   content: error;
   color: red;
 }
 
-.hidden{
+.hidden {
   display: none;
 }

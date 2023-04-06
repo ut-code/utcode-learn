@@ -7,7 +7,7 @@ type Todo = {
   category: string;
   content: string;
   isDone: boolean;
-}
+};
 
 function App() {
   // todoのリスト
