@@ -390,30 +390,33 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
    ```
 
 3. `(v: unknown) => string` と `(v: string) => never`
-  制約条件の集合と、解空間の集合に着目します。
-制約条件の集合を考えた時、unknown型という制約条件はstring型という制約条件の部分集合です。制約条件AとBからなる集合を考えましょう。制約条件の集合{A}は制約条件の集合{A, B}の部分集合です。制約条件の空集合{φ}は制約条件の集合{A}の部分集合です。
-次に、解空間の集合を考えましょう。解空間の集合{(a, b) | a in A, b in B } は、解空間の集合{a| a in A}の部分集合です。{φ|}は{a | a in A}の部分集合です。
-  このように、制約条件と解空間の集合を区別して考える必要があります。
-  制約条件の集合を考えた場合、制約条件の空集合に相当するunknown型はstring型の部分集合です。
-  解空間の集合を考えた場合、空集合であるnever型はstring型の部分集合です。
-  
-   ```typescript
-   declare const a: (v: unknown) => string;
-   declare const b: (v: never) => string;
-   declare const c: (v: string) => unknown;
-   declare const d: (v: string) => never;
-   let e: (v: string) => string;
-   e = a;
-   // e = b;
-   // e = c;
-   e = d;
-   ```
 
-4. ```typescript
-   function apply<T, U>(f: (x: T) => U, x: T): U {
-     return f(x);
-   }
-   ```
+   まず `(v: string) => never` に関してですが、こちらはなんとなく想像がつくかもしれません。`never` 型はすべての型に含まれるため `string` 型にも含まれますから、 `(v: string) => string` とみなすことができるでしょう。
+
+   一方で、`(v: unknown) => string` 型が答えになっているのは意外かもしれません。`unknown` 型は `string` 型を含むから間違いなのではないかと考えた方も多いでしょう。しかし、この理論で行くと少々不都合が生じます。例えば、次のようなコードを考えましょう。
+
+```javascript
+type F = (arg: { name: string, math: number }) => number;
+
+function func(arg: { name: string, math: number, science: number }): number {
+  console.log(arg.science);
+  return arg.math;
+}
+
+const f: F = func;
+f({ name: "Tanaka", math: 100 });
+```
+このコードでは、`{ name: string, math: number }` 型は `{ name: string, math: number, science: number }` 型を含んでいます。先ほどの `unknown` 型と `string` 型の関係と同じです。
+
+もしこのコードが通る場合、実際に渡された `{name: "Tanaka", math: 100}` には存在しないはずの `science` プロパティにアクセスできてしまうことになります。このようなことを防ぐために、引数の型が小さい集合になればなるほど、関数の型は大きな集合になる必要があります。
+
+4.
+
+```typescript
+function apply<T, U>(f: (x: T) => U, x: T): U {
+  return f(x);
+}
+```
 
    <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
 
