@@ -1,5 +1,5 @@
 ---
-title: WSLのセットアップ (Windows のみ)
+title: WSL のセットアップ (Windows のみ)
 ---
 
 import CodeBlock from '@theme/CodeBlock';

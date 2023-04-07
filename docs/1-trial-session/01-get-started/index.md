@@ -1,5 +1,5 @@
 ---
-title: はじめてのWeb開発
+title: はじめての Web 開発
 ---
 
 import installVscodeVideo from "./install-vscode.mp4";
