@@ -16,7 +16,7 @@ while 文を用いると、ある条件が満たされている間実行され�
 let i = 0;
 while (i < 5) {
   document.write(i);
-  i = i + 1;
+  i += 1;
 }
 document.write("終了");
 ```

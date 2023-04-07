@@ -7,7 +7,7 @@ function start() {
 let time = 0;
 
 function tick() {
-  time = time + 1;
+  time += 1;
   timer.textContent = time;
 }
 
