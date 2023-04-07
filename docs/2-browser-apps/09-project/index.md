@@ -31,21 +31,21 @@ import calenderVideo from "./calender.mp4";
 
 - 表を作るわけなので`table`タグを使うのですが、日数を１から３０前後までいちいち html ファイルに書き込んでいくのは手間ですし応用が効かないので、javascript ファイル上で繰り返しを使ってコードを簡潔にしましょう。もちろん今月の日数はカレンダーを見ればわかりますが、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を用いて月初めの日と月終わりの日を取ってこれば、計算をしなくても始まりの曜日や月の日数が取ってこれそうですね。
 
-```javascript
-const today = new Date();
-const year = today.getFullYear();
-const month = today.getMonth();
-const startDate = new Date(year, month, 1);
-const endDate = new Date(year, month + 1, 0);
-```
+  ```javascript
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth();
+  const startDate = new Date(year, month, 1);
+  const endDate = new Date(year, month + 1, 0);
+  ```
 
 - 後で日付の下に予定を追加したり予定を編集したりしたいので、予定を書き込むための要素も作ったうえで、その要素を保存するオブジェクトを作っておきましょう。
 
-```javascript
-//予定を書き込むための要素を格納するオブジェクト
-const container = {};
-//ここに予定を打ち込む要素を保存しておく
-```
+  ```javascript
+  //予定を書き込むための要素を格納するオブジェクト
+  const container = {};
+  //ここに予定を打ち込む要素を保存しておく
+  ```
 
 ### ② について
 
@@ -53,19 +53,19 @@ const container = {};
 
 - イベントが発生して関数が呼び出されると、一番目の引数に発生したイベントの情報が格納された `Event` オブジェクトが渡されてきます。`Event`オブジェクトの`target`<Term type="javascriptProperty">プロパティ</Term>を用いることで、クリックした要素を取得することができます。取得した要素の種類によって関数を変えることで、予定の編集や追加の機能を実現できます。
 
-```html title="index.html"
-<div id="div">ここをクリック！</div>
-```
+  ```html title="index.html"
+  <div id="div">ここをクリック！</div>
+  ```
 
-```javascript title="script.js"
-function clicked(e) {
-  console.log(e.target.tagName);
-}
+  ```javascript title="script.js"
+  function clicked(e) {
+    console.log(e.target.tagName);
+  }
 
-const div = document.getElementById("div");
+  const div = document.getElementById("div");
 
-div.onclick = clicked;
-```
+  div.onclick = clicked;
+  ```
 
 <ViewSource url={import.meta.url} path="_samples/event-target" />
 
@@ -73,15 +73,15 @@ div.onclick = clicked;
 
 - [`addEventListener`メソッド](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)は、ターゲットに特定のイベントが行われるたびに呼び出される関数を設定します。
 
-```javascript title="script.js"
-function pressed() {
-  console.log("キーを押しました");
-}
+  ```javascript title="script.js"
+  function pressed() {
+    console.log("キーを押しました");
+  }
 
-window.addEventListener("keypress", pressed);
-```
+  window.addEventListener("keypress", pressed);
+  ```
 
-<ViewSource url={import.meta.url} path="_samples/addEventListener" />
+  <ViewSource url={import.meta.url} path="_samples/addEventListener" />
 
 ## 解答例
 
