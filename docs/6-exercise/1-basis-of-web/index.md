@@ -20,11 +20,17 @@ import ViewSource from "@site/src/components/ViewSource";
 
 - 写真を出すには `img` タグを使います。`src` 属性に写真の URL を指定しましょう。
 
-- [SOS 団の Web サイト](http://haruhi.tv)を開き、ダウンロードしたい画像にカーソルを当てて右クリックすると、写真をダウンロードすることができます。
+- [SOS 団の Web サイト](http://haruhi.tv)を開き、ダウンロードしたい画像にカーソルを当てて右クリックすると、写真をダウンロードすることができます。htmlファイルと同じ階層に保存するのがおすすめです。URLは`./ファイル名`となります。
 
 - 何らかの理由で画像読み込みに失敗した時、何の写真を出したかったか説明するために、画像には「代替テキスト」を設定することが多いです。`img` タグでは `alt` 属性で代替テキストを指定できます。余力のある人は実装してみましょう。実装したら、写真ファイルを削除して挙動を確認してみましょう。
 
-- 文章や写真がなんとなく真ん中で一列にきれいに揃えられていますね。実は `table` タグで表を作っています。表といえど境界線がないので気づきにくかったかもしれません。`table` タグに `tr`、`th`、`td`タグをネストさせてきれいな表を作りましょう。全ての `td` タグの `align` 属性にある値を入れると...なんということでしょう。真ん中が縦で揃えられた表が完成します。
+- 文章や写真がなんとなく真ん中で一列にきれいに揃えられていますね。これは`body`要素の`style`属性を設定することで実装できます。`body`の開始タグを
+```html
+<body style="text-align: center">
+```
+としてみましょう。
+
+- 作者に敬意を表してcopyrightを作成しましょう。`small`タグで文字を小さくしたほうがデザインが良いですね。copyrightでよくある、cを円で囲ったあの記号は`&copy;`と書けば出力できます。
 
 - [こちら](https://developer.mozilla.org/ja/docs/Web/HTML/Element)で HTML タグの使い方が簡潔に示されています。
 
@@ -36,34 +42,24 @@ import ViewSource from "@site/src/components/ViewSource";
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <title>SOS dan web site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Dan web site</title>
   </head>
-  <body>
-    <table>
-      <tr>
-        <th align="center"><h1>SOS団のサイトへようこそ！</h1></th>
-      </tr>
-      <tr>
-        <td align="center"><img src="./zozlogo.jpg" alt="SOS団ロゴ" /></td>
-      </tr>
-      <tr>
-        <td align="center"><h4>入り口</h4></td>
-      </tr>
-      <tr>
-        <td align="center">
-          メールはこちらから→<img src="./post_no.jpg" alt="ポスト" />
-        </td>
-      </tr>
-      <tr>
-        <td align="center"><h4>活動内容</h4></td>
-      </tr>
-    </table>
+  <body style="text-align: center">
+    <div><h1 style="color: red">SOS団のサイトにようこそ！</h1></div>
+    <div><img src="./zozlogo.jpg" alt="SOS団ロゴ"></div>
+    <div><h4>入り口</h4></div>
+    <div>メールはこちらから→<img src="./post_no.jpg" alt="ポスト"></div>
+    <small>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</small>
   </body>
 </html>
 ```
 
-`jpg` ファイルは HTML ファイルと同じ階層に入れているので、`img` タグの `src` 属性は `./ファイル名` となっています。
+`jpg` ファイルを HTML ファイルと同じ階層に入れた際の回答例です。`img` タグの `src` 属性は `./ファイル名` となっています。
+
+
+このhtmlファイルだけだとSOS団のロゴやポストの画像は登録されていません。「このプログラムを実行する」を押すと果たしてどう表示されるでしょうか？
 
 <ViewSource url={import.meta.url} path="_samples/sos-dan" />
 
