@@ -1,5 +1,5 @@
 ---
-title: 簡単なWebアプリケーションの作成
+title: 簡単な Web アプリケーションの作成
 sidebar_position: 2
 ---
 
