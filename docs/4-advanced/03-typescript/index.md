@@ -391,17 +391,25 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
 3. `(v: unknown) => string` と `(v: string) => never`
 
-   ```typescript
-   declare const a: (v: unknown) => string;
-   declare const b: (v: never) => string;
-   declare const c: (v: string) => unknown;
-   declare const d: (v: string) => never;
-   let e: (v: string) => string;
-   e = a;
-   // e = b;
-   // e = c;
-   e = d;
+   まず `(v: string) => never` に関してですが、こちらはなんとなく想像がつくかもしれません。`never` 型はすべての型に含まれるため `string` 型にも含まれますから、 `(v: string) => string` とみなすことができるでしょう。
+
+   一方で、`(v: unknown) => string` 型が答えになっているのは意外かもしれません。`unknown` 型は `string` 型を含むから間違いなのではないかと考えた方も多いでしょう。しかし、この理論で行くと少々不都合が生じます。例えば、次のようなコードを考えましょう。
+
+   ```javascript
+   type F = (arg: { name: string, math: number }) => number;
+
+   function func(arg: { name: string, math: number, science: number }): number {
+     console.log(arg.science);
+     return arg.math;
+   }
+
+   const f: F = func;
+   f({ name: "Tanaka", math: 100 });
    ```
+
+   このコードでは、`{ name: string, math: number }` 型は `{ name: string, math: number, science: number }` 型を含んでいます。先ほどの `unknown` 型と `string` 型の関係と同じです。
+
+   もしこのコードが通る場合、実際に渡された `{name: "Tanaka", math: 100}` には存在しないはずの `science` プロパティにアクセスできてしまうことになります。このようなことを防ぐために、引数の型が小さい集合になればなるほど、関数の型は大きな集合になる必要があります。
 
 4. ```typescript
    function apply<T, U>(f: (x: T) => U, x: T): U {

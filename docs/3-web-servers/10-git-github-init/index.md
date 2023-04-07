@@ -138,7 +138,7 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 
 ## Git の拡張機能をインストールする
 
-Git はコマンドラインから用いるツールですが、理解を深めるために VSCode の機能や拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
+Git はコマンドラインから用いるツールですが、理解を深めるために VS Code の機能や拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
 
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
   コミットの差分などが見やすくなり便利

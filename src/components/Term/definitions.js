@@ -288,8 +288,7 @@ export default {
     },
     javascriptInstance: {
       name: "インスタンス (JavaScript)",
-      definition:
-        "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
+      definition: "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
       referencePage: "/docs/browser-apps/class/",
     },
     javascriptConstructor: {
@@ -308,6 +307,11 @@ export default {
       name: "アロー関数",
       definition:
         "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
+      referencePage: "/docs/browser-apps/anonymous-function/",
+    },
+    callbackFunction: {
+      name: "コールバック関数",
+      definition: "他の関数の引数として呼び出される関数。",
       referencePage: "/docs/browser-apps/anonymous-function/",
     },
     javascriptModule: {
@@ -368,6 +372,18 @@ export default {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
+      referencePage: "/docs/web-servers/database/",
+    },
+    api: {
+      name: "API",
+      definition:
+        "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
+      referencePage: "/docs/advanced/fetch-api/",
+    },
+    thread: {
+      name: "スレッド",
+      definition:
+        "コンピュータがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     transpile: {

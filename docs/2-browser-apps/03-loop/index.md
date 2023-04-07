@@ -16,7 +16,7 @@ while 文を用いると、ある条件が満たされている間実行され�
 let i = 0;
 while (i < 5) {
   document.write(i);
-  i = i + 1;
+  i += 1;
 }
 document.write("終了");
 ```
@@ -77,14 +77,6 @@ for (let i = 0; i < 5; i += 1) {
 }
 document.write("終了");
 ```
-
-:::tip 複合代入演算子
-
-[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)は、計算と代入を同時に行うことができる演算子です。
-
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。
-
-:::
 
 `for` 文の文法は次の通りです。
 

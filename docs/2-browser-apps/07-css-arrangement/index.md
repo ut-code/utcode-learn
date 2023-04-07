@@ -369,9 +369,7 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 }
 ```
 
-
 ![親要素に relative を、子要素に absolute を指定し位置をずらした場合](./relative-absolute-after.png)
-
 
 `box1` の位置が変わっても、`box2` の `box1` に対する位置は変化していません。
 

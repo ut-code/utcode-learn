@@ -12,7 +12,8 @@ import chatAppVideo from "./chat-app.mp4";
 
 これまで、ブラウザが<Term type="serverClient">サーバー</Term>に対して<Term type="httpRequestResponse">リクエスト</Term>を送信するのは、リンクがクリックされたときや、フォームが送信されたときなど、ページの再読み込みが起こる場合のみでした。
 
-しかしながら、ブラウザ上で動く JavaScript から利用できる **Fetch API** を用いると、任意のタイミングで<Term type="httpRequestResponse">リクエスト</Term>が発行できるようになります。<Term type="serverClient">サーバー</Term>と<Term type="serverClient">クライアント</Term>、どちらで動く JavaScript なのかに注意しながら、次のプログラムを実行してみましょう。
+しかしながら、ブラウザ上で動く JavaScript から利用できる **<Term type="api">FetchAPI</Term >** を用いると、任意のタイミングで<Term type="httpRequestResponse">リクエスト</Term>が発行できるようになります。<Term type="api">API</Term > は、アプリケーションプログラミングインターフェース(Application Programming Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term type="api">API</Term > に従い短いコードを記述するだけでその機能を利用することができます。
+<Term type="serverClient">サーバー</Term>と<Term type="serverClient">クライアント</Term>、どちらで動く JavaScript なのかに注意しながら、次のプログラムを実行してみましょう。
 
 ```html title="/static/index.html の body 内"
 <button id="fetch-button">天気予報を見る</button>
@@ -30,7 +31,7 @@ document.getElementById("fetch-button").onclick = async () => {
 
 `async () => {}` は、<Term type="asynchronousProcess">非同期関数</Term>、つまり<Term type="asynchronousProcess">async キーワードのついた関数</Term>を生成するための<Term type="arrowFunction">アロー関数式</Term>です。
 
-[`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term type="httpRequestResponse">リクエスト</Term>を発行するための関数です。標準では<Term type="httpMethod">GET リクエスト</Term>が発行されます。この関数の戻り値に <Term type="asynchronousProcess">`await 演算子`</Term>を適用すると、発行した<Term type="httpRequestResponse">リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。
+[`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term type="httpRequestResponse">リクエスト</Term>を発行するための関数です。標準では<Term type="httpMethod">GET リクエスト</Term>が発行されます。この関数の戻り値に <Term type="asynchronousProcess">`await 演算子`</Term>を適用すると、発行した<Term type="httpRequestResponse">リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch` 関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term type="httpRequestResponse">リクエスト</Term>を発行することができます。
 
 [`Response#text` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)は、<Term type="httpHeaderBody">レスポンスボディ</Term>全体を文字列として読み込むための<Term type="asynchronousProcess">非同期関数</Term>です。
 
@@ -109,7 +110,7 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
-サーバー側では、リクエストボディの JSON を解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
+サーバー側では、<Term type="httpHeaderBody">リクエストボディ</Term>の JSON を解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
 
 ```javascript title="/server.js"
 const express = require("express");

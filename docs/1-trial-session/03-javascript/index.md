@@ -1,5 +1,5 @@
 ---
-title: JavaScriptことはじめ
+title: JavaScript ことはじめ
 ---
 
 import Term from "@site/src/components/Term";
