@@ -44,16 +44,20 @@ type Todo = {
 ```javascript
 const [todos, setTodos] = useState<Todo[]>([]);
 
-const addTodo = (todo: Todo) => {
-    // ToDoを追加する操作
+const addTodo = (newTodo: Todo) => {
+    // todosを更新する操作
 };
 
-const updateTodo = (id: number, newContent: string) => {
-    // ToDoを更新する操作
+const updateTodoContent = (id: number, newContent: string) => {
+    // todoの内容を更新する操作
 };
 
-const deleteTodo = (id: number) => {
-    // ToDoを削除する操作
+const updateTodoIsDone = (id: number) => {
+    // todoが完了したかを更新する操作
+};
+
+const removeTodo = (id: number) => {
+    // todosを削除する操作
 }
 ```
 
@@ -66,10 +70,9 @@ const addCategory = (newCategory: string) => {
     // カテゴリを追加する操作
 }
 
-const deleteCategory = () => {
+const removeCategory = (existingCategory: string) => {
     // カテゴリを削除する操作
 }
-
 ```
 
 ### 解答例
