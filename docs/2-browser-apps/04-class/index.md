@@ -198,7 +198,7 @@ suzuki.introduceSelf();
 sato.introduceSelf();
 ```
 
-オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが3回繰り返されています。
+オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
 では、<Term type="javascriptClass">クラス</Term>と<Term type="javascriptConstructor">コンストラクタ</Term>を用いるとどうでしょうか。
 
 ```javascript
@@ -228,7 +228,7 @@ suzuki.introduceSelf();
 sato.introduceSelf();
 ```
 
-クラスの定義自体はやや長いものの、1つの<Term type="javascriptObject">オブジェクト</Term>の定義はたった1行で済みます。これなら<Term type="javascriptObject">オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
+クラスの定義自体はやや長いものの、1 つの<Term type="javascriptObject">オブジェクト</Term>の定義はたった 1 行で済みます。これなら<Term type="javascriptObject">オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
 
 ## 継承
 
