@@ -81,7 +81,7 @@ const timer = new Timer(
 function createAudioIfNone() {
   if (!existingAudio) {
     existingAudio = new Audio();
-    existingAudio.src = "alarm-buzzer.wav";
+    existingAudio.src = "alarm.mp3";
     existingAudio.addEventListener("canplaythrough", () => {
       existingAudio.play();
     });
