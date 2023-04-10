@@ -54,7 +54,7 @@ SOS 団ロゴとポストの画像は以下をクリックし、ダウンロー�
   </head>
   <body style="text-align: center">
     <h1 style="color:red">SOS団のサイトにようこそ！</h1>
-    <div><img src="./zozlogo.png" alt="SOS団ロゴ" /></div>
+    <img src="./zozlogo.png" alt="SOS団ロゴ" />
     <h4>入り口</h4>
     <div>メールはこちらから→<img src="./post_no.png" alt="ポスト" /></div>
     <p><small>© 2006-2009 谷川流・いとうのいぢ/SOS団</small></p>
