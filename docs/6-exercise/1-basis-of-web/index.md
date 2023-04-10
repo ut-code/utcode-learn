@@ -15,12 +15,14 @@ import ViewSource from "@site/src/components/ViewSource";
 簡単な[SOS 団の Web サイト](http://haruhi.tv)を作ってみましょう。いきなり飛躍した印象を受けるかもしれませんが、ひよっこエンジニアのキョンでも、団長ハルヒに急かされてからというもの HTML タグを必死に並べ、なんとか SOS 団を外部に知らしめることに成功したのです...と長話はさておき、HTML タグを皆さんもならべてみましょう。
 ![image.jpg](./image.png)
 現在の知識でも作れるよう少し簡単にしました。こんなページを作ってみてください。
+ＳＯＳ団ロゴとポストの画像はこちらをダウンロードして使ってください。(Microsoft powerpointで生成)
+[sos団ロゴ](./zozlogo.png)[ポスト](./post_no.png)
 
 ### ヒント
 
 - 写真を出すには `img` タグを使います。`src` 属性に写真の URL を指定しましょう。
 
-- [SOS 団の Web サイト](http://haruhi.tv)を開き、ダウンロードしたい画像にカーソルを当てて右クリックすると、写真をダウンロードすることができます。htmlファイルと同じ階層に保存するのがおすすめです。URLは`./ファイル名`となります。
+- 写真はhtmlファイルと同じ階層に保存するのがおすすめです。この時`src`属性に指定するURLは`./ファイル名`となります。
 
 - 何らかの理由で画像読み込みに失敗した時、何の写真を出したかったか説明するために、画像には「代替テキスト」を設定することが多いです。`img` タグでは `alt` 属性で代替テキストを指定できます。余力のある人は実装してみましょう。実装したら、写真ファイルを削除して挙動を確認してみましょう。
 
@@ -47,10 +49,10 @@ import ViewSource from "@site/src/components/ViewSource";
     <title>SOS Dan web site</title>
   </head>
   <body style="text-align: center">
-    <div><h1 style="color: red">SOS団のサイトにようこそ！</h1></div>
-    <div><img src="./zozlogo.jpg" alt="SOS団ロゴ"></div>
+    <div><h1 style="color:red">SOS団のサイトにようこそ！</h1></div>
+    <div><img src="./zozlogo.png" alt="SOS団ロゴ"></div>
     <div><h4>入り口</h4></div>
-    <div>メールはこちらから→<img src="./post_no.jpg" alt="ポスト"></div>
+    <div>メールはこちらから→<img src="./post_no.png" alt="ポスト"></div>
     <small>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</small>
   </body>
 </html>
