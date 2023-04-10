@@ -37,7 +37,7 @@ SOS 団ロゴとポストの画像は以下をクリックし、ダウンロー�
 
 としてみましょう。
 
-- 作者に敬意を表して Copyright を作成しましょう。文字を小さくしたほうがデザインが良いですね。Copyright でよくある、c を円で囲ったあの記号は `&copy;` と書けば出力できます。
+- 作者に敬意を表して Copyright を作成しましょう。Copyright でよくある、c を円で囲ったあの記号は `&copy;` と書けば出力できます。
 
 - [こちら](https://developer.mozilla.org/ja/docs/Web/HTML/Element)で HTML タグの使い方が簡潔に示されています。
 
@@ -57,7 +57,7 @@ SOS 団ロゴとポストの画像は以下をクリックし、ダウンロー�
     <div><img src="./zozlogo.png" alt="SOS団ロゴ" /></div>
     <h4>入り口</h4>
     <div>メールはこちらから→<img src="./post_no.png" alt="ポスト" /></div>
-    <h6>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</h6>
+    <p><small>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</small></p>
   </body>
 </html>
 ```
