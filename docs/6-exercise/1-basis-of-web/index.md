@@ -15,10 +15,9 @@ import ViewSource from "@site/src/components/ViewSource";
 簡単な[SOS 団の Web サイト](http://haruhi.tv)を作ってみましょう。いきなり飛躍した印象を受けるかもしれませんが、ひよっこエンジニアだったキョンは、団長ハルヒに急かされてからというもの HTML タグを必死に並べ、なんとか SOS 団を外部に知らしめることに成功したのです...と長話はさておき、HTML タグを皆さんもならべてみましょう。
 ![image.jpg](./image.png)
 現在の知識でも作れるよう少し簡単にしました。こんなページを作ってみてください。
-ＳＯＳ団ロゴとポストの画像は以下をクリックし、ダウンロードして使ってください。(Microsoft powerpointで生成)
+ＳＯＳ団ロゴとポストの画像は以下をクリックし、ダウンロードして使ってください。(Microsoft powerpoint で生成)
 
-
-[sos団ロゴ](./zozlogo.png)
+[sos 団ロゴ](./zozlogo.png)
 
 [ポスト](./post_no.png)
 
@@ -26,17 +25,19 @@ import ViewSource from "@site/src/components/ViewSource";
 
 - 写真を出すには `img` タグを使います。`src` 属性に写真の URL を指定しましょう。
 
-- 写真はhtmlファイルと同じ階層に保存するのがおすすめです。この時`src`属性に指定するURLは`./ファイル名`となります。
+- 写真は html ファイルと同じ階層に保存するのがおすすめです。この時`src`属性に指定する URL は`./ファイル名`となります。
 
 - 何らかの理由で画像読み込みに失敗した時、何の写真を出したかったか説明するために、画像には「代替テキスト」を設定することが多いです。`img` タグでは `alt` 属性で代替テキストを指定できます。余力のある人は実装してみましょう。実装したら、写真ファイルを削除して挙動を確認してみましょう。
 
 - 文章や写真がなんとなく真ん中で一列にきれいに揃えられていますね。これは`body`要素の`style`属性を設定することで実装できます。`body`の開始タグを
+
 ```html
-<body style="text-align: center">
+<body style="text-align: center"></body>
 ```
+
 としてみましょう。
 
-- 作者に敬意を表してcopyrightを作成しましょう。文字を小さくしたほうがデザインが良いですね。copyrightでよくある、cを円で囲ったあの記号は`&copy;`と書けば出力できます。
+- 作者に敬意を表して copyright を作成しましょう。文字を小さくしたほうがデザインが良いですね。copyright でよくある、c を円で囲ったあの記号は`&copy;`と書けば出力できます。
 
 - [こちら](https://developer.mozilla.org/ja/docs/Web/HTML/Element)で HTML タグの使い方が簡潔に示されています。
 
@@ -48,14 +49,14 @@ import ViewSource from "@site/src/components/ViewSource";
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>SOS Dan web site</title>
   </head>
   <body style="text-align: center">
     <h1 style="color:red">SOS団のサイトにようこそ！</h1>
-    <div><img src="./zozlogo.png" alt="SOS団ロゴ"></div>
+    <div><img src="./zozlogo.png" alt="SOS団ロゴ" /></div>
     <h4>入り口</h4>
-    <div>メールはこちらから→<img src="./post_no.png" alt="ポスト"></div>
+    <div>メールはこちらから→<img src="./post_no.png" alt="ポスト" /></div>
     <h6>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</h6>
   </body>
 </html>
@@ -63,8 +64,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 `png` ファイルを HTML ファイルと同じ階層に入れた際の回答例です。`img` タグの `src` 属性は `./ファイル名` となっています。
 
-
-このhtmlファイルだけだとSOS団のロゴやポストの画像は登録されていません。「このプログラムを実行する」を押すと果たしてどう表示されるでしょうか？
+この html ファイルだけだと SOS 団のロゴやポストの画像は登録されていません。「このプログラムを実行する」を押すと果たしてどう表示されるでしょうか？
 
 <ViewSource url={import.meta.url} path="_samples/sos-dan" />
 
