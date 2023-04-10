@@ -400,9 +400,54 @@ export default function App() {
 
 ### 課題
 
-先程の `students` のデータを用いて、表を作ってみましょう。
+先程の `students` のデータを用いて、次のような表を作ってみましょう。
+
+| 学籍番号  | 名前 | 年齢 |
+| --------- | ---- | ---- |
+| J4-220000 | 田中 | 19   |
+| J5-220001 | 鈴木 | 18   |
+| J6-230001 | 佐藤 | 20   |
+
+<Answer>
+
+```tsx title=App.tsx
+type Student = { id: string; name: string; age: number };
+
+const students: Student[] = [
+  { id: "J4-220000", name: "田中", age: 19 },
+  { id: "J5-220001", name: "鈴木", age: 18 },
+  { id: "J6-230001", name: "佐藤", age: 20 },
+];
+
+function App() {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>学生証番号</th>
+          <th>名前</th>
+          <th>年齢</th>
+        </tr>
+      </thead>
+      <tbody>
+        {students.map((student) => (
+          <tr key={student.id}>
+            <td>{student.id}</td>
+            <td>{student.name}</td>
+            <td>{student.age}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+export default App;
+```
 
 <ViewSource url={import.meta.url} path="_samples/table" />
+
+</Answer>
 
 ## コンポーネント
 
