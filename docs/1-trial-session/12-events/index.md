@@ -21,9 +21,10 @@ func();
 
 上の例では、 `let func = greet;` の行で<Term type="javascriptVariable">変数</Term> `func` に<Term type="javascriptFunction">関数</Term> `greet` を<Term type="javascriptAssignment">代入</Term>しています。<Term type="javascriptFunction">関数</Term>を<Term type="javascriptValue">値</Term>として扱うときは、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の括弧は使用しません。これにより、<Term type="javascriptFunction">関数</Term>が<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptVariable">変数</Term>を経由してその<Term type="javascriptFunction">関数</Term>を実行できます。
 
-## イベントハンドラ
+## <Term type="eventHandler">イベントハンドラ</Term>
 
 <p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>として<Term type="javascriptFunction">関数</Term>を利用することもできます。 <code>document.getElementById</code> が返す<Term type="javascriptObject">オブジェクト</Term>の <code>onclick</code> <Term type="javascriptProperty">プロパティ</Term>には、<Term type="element">要素</Term>がクリックされたときに実行される<Term type="javascriptFunction">関数</Term>を指定できます。</p>
+ボタンのクリック、フォームへの入力、ページの読み込みなど、Webページ上で発生するあらゆるアクションを総称して<Term type="events">イベント</Term>と呼びます。このような<Term type="events">イベント</Term>の処理を行うのが<Term type="eventHandler">イベントハンドラ</Term>で、<code>onclick</code> 関数はその一例です。
 
 ```html title="index.html"
 <button id="greet-button" type="button">クリック</button>

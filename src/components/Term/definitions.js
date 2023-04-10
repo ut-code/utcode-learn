@@ -280,6 +280,18 @@ export default {
         "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
     },
+    events: {
+      name: "イベント",
+      definition:
+        "ボタンのクリック、フォームへの入力、ページの読み込みなど、Webページ上で発生するあらゆるアクションの総称。",
+      referencePage: "/docs/trial-session/events/",
+    },
+    eventHandler: {
+      name: "イベントハンドラ",
+      definition:
+        "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
+      referencePage: "/docs/trial-session/events/",
+    },    
     javascriptClass: {
       name: "クラス (JavaScript)",
       definition:
