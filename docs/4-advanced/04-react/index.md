@@ -257,7 +257,7 @@ const max = a > b ? a : b; // 6
 ```tsx title=App.tsx
 const score: number = 80;
 
-function App() {
+export default function App() {
   return (
     <>
       {score >= 80 ? (
@@ -270,8 +270,6 @@ function App() {
     </>
   );
 }
-
-export default App;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/test-score" />
@@ -283,7 +281,7 @@ export default App;
 ```tsx title=App.tsx
 const score: number = 80;
 
-function App() {
+export default function App() {
   let message: JSX.Element;
   if (score >= 80) {
     message = <div>大変よくできました。</div>;
@@ -294,8 +292,6 @@ function App() {
   }
   return message;
 }
-
-export default App;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/another-test-score" />
@@ -419,7 +415,7 @@ const students: Student[] = [
   { id: "J6-230001", name: "佐藤", age: 20 },
 ];
 
-function App() {
+export default function App() {
   return (
     <table>
       <thead>
@@ -441,8 +437,6 @@ function App() {
     </table>
   );
 }
-
-export default App;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/table" />

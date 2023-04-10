@@ -1,6 +1,6 @@
 const score: number = 80;
 
-function App() {
+export default function App() {
   return (
     <>
       {score >= 80 ? (
@@ -13,5 +13,3 @@ function App() {
     </>
   );
 }
-
-export default App;

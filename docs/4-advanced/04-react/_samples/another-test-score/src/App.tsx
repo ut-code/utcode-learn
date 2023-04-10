@@ -1,6 +1,6 @@
 const score: number = 80;
 
-function App() {
+export default function App() {
   let message: JSX.Element;
   if (score >= 80) {
     message = <div>大変よくできました。</div>;
@@ -11,5 +11,3 @@ function App() {
   }
   return message;
 }
-
-export default App;

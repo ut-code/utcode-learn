@@ -6,7 +6,7 @@ const students: Student[] = [
   { id: "J6-230001", name: "佐藤", age: 20 },
 ];
 
-function App() {
+export default function App() {
   return (
     <table>
       <thead>
@@ -28,5 +28,3 @@ function App() {
     </table>
   );
 }
-
-export default App;
