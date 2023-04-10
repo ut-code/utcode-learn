@@ -36,7 +36,7 @@ import ViewSource from "@site/src/components/ViewSource";
 ```
 としてみましょう。
 
-- 作者に敬意を表してcopyrightを作成しましょう。`small`タグで文字を小さくしたほうがデザインが良いですね。copyrightでよくある、cを円で囲ったあの記号は`&copy;`と書けば出力できます。
+- 作者に敬意を表してcopyrightを作成しましょう。文字を小さくしたほうがデザインが良いですね。copyrightでよくある、cを円で囲ったあの記号は`&copy;`と書けば出力できます。
 
 - [こちら](https://developer.mozilla.org/ja/docs/Web/HTML/Element)で HTML タグの使い方が簡潔に示されています。
 
@@ -52,11 +52,11 @@ import ViewSource from "@site/src/components/ViewSource";
     <title>SOS Dan web site</title>
   </head>
   <body style="text-align: center">
-    <div><h1 style="color:red">SOS団のサイトにようこそ！</h1></div>
+    <h1 style="color:red">SOS団のサイトにようこそ！</h1>
     <div><img src="./zozlogo.png" alt="SOS団ロゴ"></div>
-    <div><h4>入り口</h4></div>
+    <h4>入り口</h4>
     <div>メールはこちらから→<img src="./post_no.png" alt="ポスト"></div>
-    <small>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</small>
+    <h6>&copy; 2006-2009 谷川流・いとうのいぢ/SOS団</h6>
   </body>
 </html>
 ```
