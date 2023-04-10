@@ -1,0 +1,17 @@
+.block {
+  background-color: lightcoral;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.inline {
+  background-color: lightblue;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  padding: 30px;
+  font-size: 30px;
+}
