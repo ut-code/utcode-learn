@@ -13,7 +13,7 @@ import ViewSource from "@site/src/components/ViewSource";
 ## 1. SOS 団の Web サイト
 
 簡単な[SOS 団の Web サイト](http://haruhi.tv)を作ってみましょう。いきなり飛躍した印象を受けるかもしれませんが、ひよっこエンジニアだったキョンは、団長ハルヒに急かされてからというもの HTML タグを必死に並べ、なんとか SOS 団を外部に知らしめることに成功したのです...と長話はさておき、HTML タグを皆さんもならべてみましょう。
-![image.jpg](./image.png)
+![SOS 団 Web サイト](./sos-dan-web-site.png)
 現在の知識でも作れるよう少し簡単にしました。こんなページを作ってみてください。
 SOS 団ロゴとポストの画像は以下をクリックし、ダウンロードして使ってください。(Microsoft PowerPoint で生成)
 
