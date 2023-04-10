@@ -12,7 +12,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ## 1. SOS 団の Web サイト
 
-簡単な[SOS 団の Web サイト](http://haruhi.tv)を作ってみましょう。いきなり飛躍した印象を受けるかもしれませんが、ひよっこエンジニアのキョンでも、団長ハルヒに急かされてからというもの HTML タグを必死に並べ、なんとか SOS 団を外部に知らしめることに成功したのです...と長話はさておき、HTML タグを皆さんもならべてみましょう。
+簡単な[SOS 団の Web サイト](http://haruhi.tv)を作ってみましょう。いきなり飛躍した印象を受けるかもしれませんが、ひよっこエンジニアだったキョンは、団長ハルヒに急かされてからというもの HTML タグを必死に並べ、なんとか SOS 団を外部に知らしめることに成功したのです...と長話はさておき、HTML タグを皆さんもならべてみましょう。
 ![image.jpg](./image.png)
 現在の知識でも作れるよう少し簡単にしました。こんなページを作ってみてください。
 ＳＯＳ団ロゴとポストの画像は以下をクリックし、ダウンロードして使ってください。(Microsoft powerpointで生成)
@@ -49,7 +49,6 @@ import ViewSource from "@site/src/components/ViewSource";
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOS Dan web site</title>
   </head>
   <body style="text-align: center">
@@ -62,7 +61,7 @@ import ViewSource from "@site/src/components/ViewSource";
 </html>
 ```
 
-`jpg` ファイルを HTML ファイルと同じ階層に入れた際の回答例です。`img` タグの `src` 属性は `./ファイル名` となっています。
+`png` ファイルを HTML ファイルと同じ階層に入れた際の回答例です。`img` タグの `src` 属性は `./ファイル名` となっています。
 
 
 このhtmlファイルだけだとSOS団のロゴやポストの画像は登録されていません。「このプログラムを実行する」を押すと果たしてどう表示されるでしょうか？
