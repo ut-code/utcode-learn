@@ -6,7 +6,7 @@ import Term from "@site/src/components/Term";
 
 ## <Term type="javascriptValue">値</Term>
 
-次のコードを実行すると、`Hello World`が画面に表示されました。
+次のコードを実行すると、`Hello World` が画面に表示されました。
 
 ```javascript title="script.js"
 document.write("Hello World");
@@ -36,7 +36,7 @@ document.write(3 + 4);
 document.write(3 + 4 * 5);
 ```
 
-`*`（乗算<Term type="javascriptOperator">演算子</Term>）は`+`より<Term type="javascriptOperatorPriority">優先順位</Term>が高く設定されているため、上記のコードの実行結果は`23`となります。
+`*`（乗算<Term type="javascriptOperator">演算子</Term>）は `+` より<Term type="javascriptOperatorPriority">優先順位</Term>が高く設定されているため、上記のコードの実行結果は `23` となります。
 
 このコードにおいて、`3 + 4 * 5` や、`4 * 5`、`4` を<Term strong type="javascriptExpression">式</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term strong type="javascriptEvaluation">評価</Term>されるといいます。
 
@@ -61,9 +61,9 @@ document.write("Hello" + 1 + 2);
 
 このような場合、<Term type="javascriptOperator">演算子</Term>の**結合規則**を考える必要があります。
 
-`+` の結合規則は左から右なので、`3 + 4 + "Hello"` は `(3 + 4) + "Hello"` 、`"Hello" + 1 + 2` は`("Hello" + 1) + 2`と解釈されることになります。
+`+` の結合規則は左から右なので、`3 + 4 + "Hello"` は `(3 + 4) + "Hello"`、`"Hello" + 1 + 2` は`("Hello" + 1) + 2`と解釈されることになります。
 
-`+`は、両辺が<Term type="javascriptNumber">数値</Term>の場合のみ加算<Term type="javascriptOperator">演算子</Term>として振る舞い、片方が<Term type="javascriptNumber">数値</Term>で片方が<Term type="javascriptString">文字列</Term>の場合は<Term type="javascriptNumber">数値</Term>を<Term type="javascriptString">文字列</Term>に変換してから<Term type="javascriptString">文字列</Term>結合<Term type="javascriptOperator">演算子</Term>として機能します。このため、最終的な<Term type="javascriptExpression">式</Term>全体の<Term type="javascriptEvaluation">評価</Term>結果は前者が `"7Hello"` 、後者が `"Hello12"` となるのです。
+`+` は、両辺が<Term type="javascriptNumber">数値</Term>の場合のみ加算<Term type="javascriptOperator">演算子</Term>として振る舞い、片方が<Term type="javascriptNumber">数値</Term>で片方が<Term type="javascriptString">文字列</Term>の場合は<Term type="javascriptNumber">数値</Term>を<Term type="javascriptString">文字列</Term>に変換してから<Term type="javascriptString">文字列</Term>結合<Term type="javascriptOperator">演算子</Term>として機能します。このため、最終的な<Term type="javascriptExpression">式</Term>全体の<Term type="javascriptEvaluation">評価</Term>結果は前者が `"7Hello"` 、後者が `"Hello12"` となるのです。
 
 ### 代表的な演算子
 
