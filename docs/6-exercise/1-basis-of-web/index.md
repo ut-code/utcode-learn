@@ -12,8 +12,63 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ## 1. HTML
 
-作成中です...
+HTML を用いて次のようなウェブサイトを作ってみましょう。ut.code(); のロゴは[ここ](./_samples/html/logo.svg)からダウンロードして使用してください。
 
+![ut.code(); のウェブサイト](website.png)
+
+### 解答例
+
+<Answer>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ut.code(); のウェブサイト</title>
+  </head>
+  <body>
+    <h1>ut.code();</h1>
+    <img src="logo.svg" alt="ut.code(); のロゴ" />
+    <h2>ut.code(); とは</h2>
+    <p>
+      ut.code(); は、2019
+      年設立の東京大学のソフトウェアエンジニアリングコミュニティです。
+    </p>
+    <h2>主な活動</h2>
+    <ul>
+      <li>
+        学習
+        <ul>
+          <li>学習カリキュラムの作成</li>
+          <li>自主ゼミの開講</li>
+          <li>「はじめてのプログラミング教室」の出展</li>
+        </ul>
+      </li>
+      <li>
+        交流
+        <ul>
+          <li>作業会の開催</li>
+          <li>五月祭・駒場祭への出展</li>
+          <li>合宿の開催</li>
+        </ul>
+      </li>
+      <li>
+        開発
+        <ul>
+          <li>プロジェクトの開発</li>
+          <li>ブレインストーミングの実施</li>
+          <li>定例ミーティングの開催</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>
+```
+
+<ViewSource url={import.meta.url} path="_samples/html" />
+
+</Answer>
 
 ## 2. 名前の長さ
 
