@@ -9,6 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "mathjs": "^11.1.0"
+    "mathjs": "^11.8.0"
   }
 }

@@ -16,35 +16,108 @@ import Details from "@theme/Details";
 
 ## 1. ブロックレベル要素とインライン要素
 
-1. 以下の点について、ブロックレベル要素とインライン要素の挙動の違いを確認してみましょう。見た目だけでなく、開発者ツールを用いて値がどうなっているか調べてみましょう。
+### 問題 1
 
-   - `width`, `height` の設定が反映されるかどうか。
-   - `margin` の設定が反映されるかどうか。
-   - `padding` を設定するとどのように表示されるか。
-   - `font-size` を設定し、`width`, `height` を設定しないとき、要素の大きさはどうなるか。
+以下の点について、ブロックレベル要素とインライン要素の挙動の違いを確認してみましょう。見た目だけでなく、開発者ツールを用いて値がどうなっているか調べてみましょう。
 
-2. 以下のように、`div` 要素の中に `div` 要素を配置するとどのように表示されるでしょうか。`span` 要素の中に `span` 要素を配置した場合はどうでしょうか。また、上に挙げた CSS プロパティを外側の要素にのみ設定した場合や、内側の要素にも値を設定した場合にどうなるか調べてみましょう。
+- `width`, `height` の設定が反映されるかどうか。
+- `margin` の設定が反映されるかどうか。
+- `padding` を設定するとどのように表示されるか。
+- `font-size` を設定し、`width`, `height` を設定しないとき、要素の大きさはどうなるか。
 
-   ```html title="index.html"
-   <body>
-     <div class="box1">
-       A
-       <div class="box2">B</div>
-       C
-     </div>
-   </body>
-   ```
+#### 解説
 
-### 解説
+<Answer>
 
-<Details summary={<summary>解説</summary>}>
+以下に示したコードの CSS プロパティの値を変えてみて、挙動を調べてみましょう。
 
 - ブロックレベル要素は `width`, `height` の値を設定できますが、インライン要素はできません。
 - ブロックレベル要素は `margin` を上下左右に設定できますが、インライン要素は左右しか設定できません。
 - ブロックレベル要素に上下の `padding` を設定すると、余白が他の要素に被らないように縦の位置が調整されます。一方、インライン要素に上下の `padding` を設定した場合、要素の縦の位置が調整されず他の要素に被って表示されます。
 - ブロックレベル要素の `height` やインライン要素の `width`, `height` の初期値は、中身の要素の大きさによって決まるので、`font-size` を変更することで大きさが変化します。また、開発者ツールで値を調べてみると、インライン要素の大きさは文字の大きさと同じになるのに対し、ブロックレベル要素の `height` は `font-size` の 1.5 倍になることがわかります。
 
-</Details>
+```html title="index.html"
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="block">block</div>
+    <span class="inline">inline</span>
+  </body>
+</html>
+```
+
+```css title="style.css"
+.block {
+  background-color: lightcoral;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.inline {
+  background-color: lightblue;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  padding: 30px;
+  font-size: 30px;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/block-inline1" />
+
+</Answer>
+
+### 問題 2
+
+以下のように、`div` 要素の中に `div` 要素を配置するとどのように表示されるでしょうか。`span` 要素の中に `span` 要素を配置した場合はどうでしょうか。また、上に挙げた CSS プロパティを外側の要素にのみ設定するとどうなるか調べてみましょう。
+
+```html title="index.html"
+<body>
+  <div class="box1">
+    A
+    <div class="box2">B</div>
+    C
+  </div>
+</body>
+```
+
+#### 解説
+
+<Answer>
+
+- 画像のように、`div` 要素の場合は縦方向に、`span` 要素の場合は横方向に挟まるように表示されます。
+
+  ![div要素の場合](divElement.png)
+  ![span要素の場合](spanElement.png)
+
+- CSS プロパティの一部は、親要素のものが継承されます。例えば `font-size` は、外側の要素に設定した値が自動的に内側の要素にも反映されます(もちろん、手動で別の値を設定することも可能です)。一方、`margin` や `padding` などは反映されません。以下のような CSS ファイルを作成して、挙動を調べてみましょう。
+
+  ```css title="style.css"
+  .box1 {
+    background-color: lightcoral;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 30px;
+    font-size: 30px;
+  }
+
+  .box2 {
+    background-color: lightblue;
+  }
+  ```
+
+<ViewSource url={import.meta.url} path="_samples/block-inline2" />
+
+</Answer>
 
 ---
 

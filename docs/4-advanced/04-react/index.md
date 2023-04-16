@@ -2,8 +2,8 @@
 title: React
 ---
 
-import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
+import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import createReactProjectVideo from "./create-react-project.mp4";
@@ -242,14 +242,61 @@ const max = a > b ? a : b; // 6
 
 ### 課題
 
-React を用いて、[条件分岐の節の課題](../../1-trial-session/07-if-statement/index.md#演習)をやってみましょう。
+自分のテストの点数を表す変数 `score` を用意し、React で次を満たすプログラムを作成してください。
 
-解答例
-<ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
+- `score` が 80 以上なら `大変よくできました。` と表示する。
+- `score` が 50 以上 80 未満なら `よくできました。` と表示する。
+- `score` が 50 未満なら `もう少し頑張りましょう。` と表示する。
 
-別解
+<Answer>
 
-<ViewSource url={import.meta.url} path="_samples/another-the-right-to-vote" />
+解答例 1
+
+条件演算子をネストして、条件分岐を表現します。
+
+```tsx title=App.tsx
+const score: number = 80;
+
+export default function App() {
+  return (
+    <>
+      {score >= 80 ? (
+        <div>大変よくできました。</div>
+      ) : score >= 50 ? (
+        <div>よくできました。</div>
+      ) : (
+        <div>もう少し頑張りましょう。</div>
+      )}
+    </>
+  );
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/test-score" />
+
+解答例 2
+
+次のように変数に JSX 要素を代入しておき、最後にその変数を返すという方法もあります。
+
+```tsx title=App.tsx
+const score: number = 80;
+
+export default function App() {
+  let message: JSX.Element;
+  if (score >= 80) {
+    message = <div>大変よくできました。</div>;
+  } else if (score >= 50) {
+    message = <div>よくできました。</div>;
+  } else {
+    message = <div>もう少し頑張りましょう。</div>;
+  }
+  return message;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/another-test-score" />
+
+</Answer>
 
 ## JSX における条件分岐
 
@@ -349,9 +396,52 @@ export default function App() {
 
 ### 課題
 
-先程の `students` のデータを用いて、表を作ってみましょう。
+先程の `students` のデータを用いて、次のような表を作ってみましょう。
+
+| 学籍番号  | 名前 | 年齢 |
+| --------- | ---- | ---- |
+| J4-220000 | 田中 | 19   |
+| J5-220001 | 鈴木 | 18   |
+| J6-230001 | 佐藤 | 20   |
+
+<Answer>
+
+```tsx title=App.tsx
+type Student = { id: string; name: string; age: number };
+
+const students: Student[] = [
+  { id: "J4-220000", name: "田中", age: 19 },
+  { id: "J5-220001", name: "鈴木", age: 18 },
+  { id: "J6-230001", name: "佐藤", age: 20 },
+];
+
+export default function App() {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>学生証番号</th>
+          <th>名前</th>
+          <th>年齢</th>
+        </tr>
+      </thead>
+      <tbody>
+        {students.map((student) => (
+          <tr key={student.id}>
+            <td>{student.id}</td>
+            <td>{student.name}</td>
+            <td>{student.age}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+```
 
 <ViewSource url={import.meta.url} path="_samples/table" />
+
+</Answer>
 
 ## コンポーネント
 

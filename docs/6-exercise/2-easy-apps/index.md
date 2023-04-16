@@ -279,7 +279,7 @@ ctx.fillRect(10, 10, 100, 100);
 
 <ViewSource url={import.meta.url} path="_samples/drawing/canvas-demo" />
 
-また、DOM の onclick プロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
+また、DOM の onclick プロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent#target` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
 
 ```html
 <button id="button">押してください</button>
@@ -293,6 +293,7 @@ let displayX = document.getElementById("display-x");
 let displayY = document.getElementById("display-y");
 
 function displayNameAndLocation(e) {
+  // e は event の略
   tagNameDisplay.textContent = e.target.tagName;
   displayX.textContent = e.pageX;
   displayY.textContent = e.pageY;

@@ -11,7 +11,7 @@ export default function App() {
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>学生証番号</th>
           <th>名前</th>
           <th>年齢</th>
         </tr>

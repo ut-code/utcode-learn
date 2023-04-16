@@ -6,9 +6,9 @@
     "start": "vite"
   },
   "devDependencies": {
-    "vite": "^3.0.7"
+    "vite": "^4.2.1"
   },
   "dependencies": {
-    "chart.js": "^3.9.1"
+    "chart.js": "^4.2.1"
   }
 }
