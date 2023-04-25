@@ -80,6 +80,6 @@ app.listen(3000);
 
 本来はそのような場合も想定し、`{ id: { name: "名前", password: ""}}` のようなモデルを使って、ユーザを登録するたびに `id` を自動で発行し、その `id` をキーにするようにするとよいでしょう。
 
-詳細はデータベースや Cookie について理解したのちに、[Cookie の章の課題](/docs/web-servers/cookie/#%E8%AA%B2%E9%A1%8C-1)等を通して学習してください。
+詳細はデータベースや Cookie について理解したのちに、[Cookie の章の課題](https://learn.utcode.net/docs/web-servers/cookie/#%E8%AA%B2%E9%A1%8C-1)等を通して学習してください。
 
 </Details>
