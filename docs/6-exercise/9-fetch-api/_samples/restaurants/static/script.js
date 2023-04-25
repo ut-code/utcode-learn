@@ -1,13 +1,13 @@
 const restaurantList = document.getElementById("restaurant-list");
 const nameInput = document.getElementById("name-input");
 const nameSelect = document.getElementById("name-select");
-const pointsSelect = document.getElementById("points-select");
+const ratingSelect = document.getElementById("rating-select");
 
 setInterval(async () => {
-  // nameSelect にも pointsSelect にもフォーカスが当たっていない際にのみ、要素を再生成する
+  // nameSelect にも ratingSelect にもフォーカスが当たっていない際にのみ、要素を再生成する
   if (
     document.activeElement !== nameSelect &&
-    document.activeElement !== pointsSelect
+    document.activeElement !== ratingSelect
   ) {
     const response = await fetch("/restaurants");
     const restaurants = await response.json();
@@ -45,10 +45,10 @@ document.getElementById("register-button").onclick = async () => {
 
 document.getElementById("rate-button").onclick = async () => {
   const index = nameSelect.value;
-  const points = pointsSelect.value;
+  const rating = ratingSelect.value;
   await fetch("/rate", {
     method: "post",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ index: index, points: points }),
+    body: JSON.stringify({ index: index, rating: rating }),
   });
 };
