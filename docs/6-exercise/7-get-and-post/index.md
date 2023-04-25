@@ -7,6 +7,7 @@ import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
+import Details from "@theme/Details";
 
 ## ユーザ名とパスワードを入力してログイン
 
@@ -72,3 +73,13 @@ app.listen(3000);
 <ViewSource url={import.meta.url} path="_samples/login-form" />
 
 </Answer>
+
+<Details summary={<summary>注意</summary>}>
+
+このシステムでは、`tanaka` や `satou` などのユーザ名をキーにしているため、同名の人物が存在するとログインできなくなります。
+
+本来はそのような場合も想定し、`{ id: { name: "名前", password: ""}}` のようなモデルを使って、ユーザを登録するたびに `id` を自動で発行し、その `id` をキーにするようにするとよいでしょう。
+
+詳細はデータベースや Cookie について理解したのちに、[Cookie の章の課題](https://learn.utcode.net/docs/web-servers/cookie/#%E8%AA%B2%E9%A1%8C-1)等を通して学習してください。
+
+</Details>
