@@ -12,7 +12,7 @@ import chatAppVideo from "./chat-app.mp4";
 
 これまで、ブラウザが<Term type="serverClient">サーバー</Term>に対して<Term type="httpRequestResponse">リクエスト</Term>を送信するのは、リンクがクリックされたときや、フォームが送信されたときなど、ページの再読み込みが起こる場合のみでした。
 
-しかしながら、ブラウザ上で動く JavaScript から利用できる **<Term type="api">FetchAPI</Term >** を用いると、任意のタイミングで<Term type="httpRequestResponse">リクエスト</Term>が発行できるようになります。<Term type="api">API</Term > は、アプリケーションプログラミングインターフェース(Application Programming Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term type="api">API</Term > に従い短いコードを記述するだけでその機能を利用することができます。
+しかしながら、ブラウザ上で動く JavaScript から利用できる **Fetch <Term type="api">API</Term >** を用いると、任意のタイミングで<Term type="httpRequestResponse">リクエスト</Term>が発行できるようになります。<Term type="api">API</Term > は、アプリケーションプログラミングインターフェース(Application Programming Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term type="api">API</Term > に従い短いコードを記述するだけでその機能を利用することができます。
 <Term type="serverClient">サーバー</Term>と<Term type="serverClient">クライアント</Term>、どちらで動く JavaScript なのかに注意しながら、次のプログラムを実行してみましょう。
 
 ```html title="/static/index.html の body 内"
