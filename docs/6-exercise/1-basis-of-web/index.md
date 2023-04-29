@@ -81,11 +81,11 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 と表示されるプログラムを以下のように作成しました。
 
 ```javascript
-let lengthOfName = 7;
-if (4 <= lengthOfName <= 10) {
+let nameLength = 7;
+if (4 <= nameLength <= 10) {
   document.write("登録できます");
 }
-if (lengthOfName === 0) {
+if (nameLength === 0) {
   document.write("名前を入力してください");
 } else {
   document.write("名前は4文字以上10文字以下で入力してください");
@@ -99,11 +99,11 @@ if (lengthOfName === 0) {
 <Answer>
 
 ```javascript
-let lengthOfName = 7;
-if (4 <= lengthOfName && lengthOfName <= 10) {
+let nameLength = 7;
+if (4 <= nameLength && nameLength <= 10) {
   // 比較演算子を2つ並べるのではなく、論理演算子&&を用います。
   document.write("登録できます");
-} else if (lengthOfName === 0) {
+} else if (nameLength === 0) {
   // else if の else が抜けていました。
   document.write("名前を入力してください");
 } else {
