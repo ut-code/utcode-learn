@@ -7,7 +7,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ## if 構文
 
-**if 構文**は、<Term type="javascript">JavaScript</Term>の<Term strong type="javascriptControlFlow">制御構造</Term>で、特定の条件下のみで実行されるプログラムを記述することができます。
+**if 構文**は、<Term type="javascript">JavaScript</Term> の<Term strong type="javascriptControlFlow">制御構造</Term>で、特定の条件下のみで実行されるプログラムを記述することができます。
 
 ## 基本構造
 
@@ -18,7 +18,7 @@ if (age < 20) {
 }
 ```
 
-このプログラムは、 `未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `let age = 20;` に変更すると何も表示されなくなります。
+このプログラムは、`未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `let age = 20;` に変更すると何も表示されなくなります。
 
 2 行目の `if (age < 20) {` 部分がポイントです。ここに差し掛かると、括弧内の<Term type="javascriptExpression">式</Term> `age < 20` が<Term type="javascriptEvaluation">評価</Term>され、`true` になります。このため、直後の波括弧内の処理が実行されます。
 

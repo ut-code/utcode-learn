@@ -20,7 +20,7 @@ import restaurantsVideo from "./restaurants.mp4"
 - 選択式のメニューを作るには `select` タグを用いましょう。
 
   ```html title="index.html"
-  <select id="points-select">
+  <select id="rating-select">
     <option value="5">☆5</option>
     <option value="4">☆4</option>
     <option value="3">☆3</option>
@@ -44,7 +44,7 @@ import restaurantsVideo from "./restaurants.mp4"
   ```javascript title="script.js"
   if (
     document.activeElement !== nameSelect &&
-    document.activeElement !== pointsSelect
+    document.activeElement !== ratingSelect
   ) {
     // 再描画
   }
@@ -71,7 +71,7 @@ app.post("/register", (request, response) => {
 
 app.post("/rate", (request, response) => {
   const index = request.body.index;
-  restaurants[index].totalRating += Number(request.body.points); // 文字列を数値に変換
+  restaurants[index].totalRating += Number(request.body.rating); // 文字列を数値に変換
   restaurants[index].numRatings += 1;
 
   if (restaurants[index].numRatings !== 0) {
@@ -88,10 +88,10 @@ app.post("/rate", (request, response) => {
 
 ```javascript title="static/script.js"
 setInterval(async () => {
-  // nameSelect にも pointsSelect にもフォーカスが当たっていない際にのみ、要素を再生成する
+  // nameSelect にも ratingSelect にもフォーカスが当たっていない際にのみ、要素を再生成する
   if (
     document.activeElement !== nameSelect &&
-    document.activeElement !== pointsSelect
+    document.activeElement !== ratingSelect
   ) {
     const response = await fetch("/restaurants");
     const restaurants = await response.json();

@@ -17,7 +17,7 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 
 :::tip ほかの言語の経験者へ
 
-JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
+JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
 
 :::
 
@@ -57,7 +57,7 @@ document.write(person.age);
 
 :::tip 複合代入演算子
 
-[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#assignment_operators)は、計算と代入を同時に行うことができる演算子です。
+[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90)は、計算と代入を同時に行うことができる演算子です。
 
 `x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
 

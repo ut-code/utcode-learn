@@ -24,7 +24,7 @@ func();
 ## <Term type="eventHandler">イベントハンドラ</Term>
 
 <p><Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>として<Term type="javascriptFunction">関数</Term>を利用することもできます。 <code>document.getElementById</code> が返す<Term type="javascriptObject">オブジェクト</Term>の <code>onclick</code> <Term type="javascriptProperty">プロパティ</Term>には、<Term type="element">要素</Term>がクリックされたときに実行される<Term type="javascriptFunction">関数</Term>を指定できます。</p>
-ボタンのクリック、フォームへの入力、ページの読み込みなど、Webページ上で発生するあらゆるアクションを総称して<Term type="events">イベント</Term>と呼びます。このような<Term type="events">イベント</Term>の処理を行うのが<Term type="eventHandler">イベントハンドラ</Term>で、<code>onclick</code> 関数はその一例です。
+ボタンのクリック、フォームへの入力、ページの読み込みなど、Web ページ上で発生するあらゆるアクションを総称して<Term type="events">イベント</Term>と呼びます。このような<Term type="events">イベント</Term>の処理を行うのが<Term type="eventHandler">イベントハンドラ</Term>で、<code>onclick</code> 関数はその一例です。
 
 ```html title="index.html"
 <button id="greet-button" type="button">クリック</button>

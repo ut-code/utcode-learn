@@ -22,7 +22,7 @@ app.post("/register", (request, response) => {
 
 app.post("/rate", (request, response) => {
   const index = request.body.index;
-  restaurants[index].totalRating += Number(request.body.points); // 文字列を数値に変換
+  restaurants[index].totalRating += Number(request.body.rating); // 文字列を数値に変換
   restaurants[index].numRatings += 1;
 
   if (restaurants[index].numRatings !== 0) {
