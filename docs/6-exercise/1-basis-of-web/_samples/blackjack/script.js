@@ -1,14 +1,14 @@
-let numberOfA = 19;
-let numberOfB = 22;
+let tanakaHandTotal = 19;
+let satoHandTotal = 22;
 
 // 21を超えていた場合は0(最弱)として扱う
-if (numberOfA > 21) numberOfA = 0;
-if (numberOfB > 21) numberOfB = 0;
+if (tanakaHandTotal > 21) tanakaHandTotal = 0;
+if (satoHandTotal > 21) satoHandTotal = 0;
 
-if (numberOfA > numberOfB) {
-  document.write("Aさんの勝ち");
-} else if (numberOfA < numberOfB) {
-  document.write("Bさんの勝ち");
+if (tanakaHandTotal > satoHandTotal) {
+  document.write("田中さんの勝ち");
+} else if (tanakaHandTotal < satoHandTotal) {
+  document.write("佐藤さんの勝ち");
 } else {
   document.write("引き分け");
 }
