@@ -243,7 +243,7 @@ function fibonacci(n) {
 document.write('<p style="color: blue">Hello World!</p>');
 ```
 
-![青いHello World](./blue-hello-world.jpeg)
+![青い Hello World](./blue-hello-world.jpg)
 
 ### 解答例
 
