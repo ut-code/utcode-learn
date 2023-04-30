@@ -38,6 +38,8 @@ JavaScript において、それはコードを読んだ際に読みやすいか
 ```javascript
 const person = { name: "田中", age: 18 };
 person.name = "佐藤"; // OK
+// 変数自体への再代入はできない
+// person = { name: "佐藤", age: 20 };
 ```
 
 :::
@@ -101,7 +103,7 @@ function incrementAge(person) {
 const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age);
-
+document.write(" ");
 // 19 と表示されてしまう
 document.write(tanaka.age);
 ```

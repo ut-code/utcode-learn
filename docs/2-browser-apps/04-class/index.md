@@ -9,7 +9,7 @@ import Answer from "@site/src/components/Answer";
 
 ## <Term type="javascriptClass">クラス</Term>と<Term type="javascriptInstance">インスタンス</Term>
 
-<Term type="javascriptObject">オブジェクト</Term>を使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term type="javascriptProperty">プロパティ</Term>(属性)を持つ<Term type="javascriptObject">オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term type="javascriptObject">オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term　type="javascriptProperty">プロパティ</Term>に持つとしましょう。
+オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term type="javascriptProperty">プロパティ</Term>(属性)を持つ<Term type="javascriptObject">オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term type="javascriptObject">オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term　type="javascriptProperty">プロパティ</Term>に持つとしましょう。
 
 ```javascript
 const tanaka = {

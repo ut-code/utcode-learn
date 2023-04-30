@@ -7,13 +7,13 @@ const endDate = new Date(year, month + 1, 0);
 const calender = document.getElementById("calender");
 const button = document.getElementById("button");
 
-//編集中の予定を追うための変数
+// 編集中の予定を追うための変数
 let editedLi = null;
 
-//各日付の要素を格納するオブジェクト
+// 各日付の要素を格納するオブジェクト
 const container = {};
 
-//曜日の行を作成
+// 曜日の行を作成
 const firstRow = document.createElement("tr");
 for (let i = 0; i < 7; i += 1) {
   const th = document.createElement("th");
@@ -21,10 +21,10 @@ for (let i = 0; i < 7; i += 1) {
   firstRow.appendChild(th);
 }
 
-//曜日の行を追加
+// 曜日の行を追加
 calender.appendChild(firstRow);
 
-//日付の行を作成
+// 日付の行を作成
 for (let x = 1; x <= 6; x += 1) {
   const tr = document.createElement("tr");
   calender.appendChild(tr);
@@ -51,7 +51,7 @@ for (let i = 1; i <= 42; i += 1) {
   }
 }
 
-//予定を追加する関数
+// 予定を追加する関数
 function addTask(e) {
   const li = document.createElement("li");
   const input = document.createElement("input");
@@ -61,7 +61,7 @@ function addTask(e) {
   editedLi = li;
 }
 
-//予定を固定する関数
+// 予定を固定する関数
 function fixTask(e) {
   if (e.keyCode === 13) {
     const input = editedLi.firstChild;
@@ -78,7 +78,7 @@ function fixTask(e) {
   }
 }
 
-//予定を編集できるようにする関数
+// 予定を編集できるようにする関数
 function editTask(e) {
   editedLi = e.target.parentNode;
   const input = document.createElement("input");
@@ -87,17 +87,17 @@ function editTask(e) {
   editedLi.replaceChild(input, editedLi.firstChild);
 }
 
-//予定を消す関数
+// 予定を消す関数
 function deleteTask() {
   editedLi.remove();
   button.style.visibility = "hidden";
   editedLi = null;
 }
 
-//クリックしたときに実行される関数
+// クリックしたときに実行される関数
 
 function clicked(e) {
-  //予定を編集していないとき
+  // 予定を編集していないとき
 
   if (editedLi === null) {
     if (e.target.class === "task") {
@@ -111,7 +111,7 @@ function clicked(e) {
       addTask(e);
     }
   }
-  //予定を編集中の時
+  // 予定を編集中の時
   else {
     if (e.target.tagName !== "INPUT" && e.target.tagName !== "BUTTON") {
       button.style.visibility = "hidden";

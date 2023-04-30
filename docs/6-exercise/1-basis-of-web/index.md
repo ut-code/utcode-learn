@@ -119,30 +119,30 @@ if (4 <= lengthOfName && lengthOfName <= 10) {
 
 ## 3. ブラックジャック
 
-A さんと B さんの 2 人が、トランプゲームのブラックジャックで遊んでいます。ブラックジャックのルールは以下の通りとします。
+田中さんと佐藤さんの 2 人が、トランプゲームのブラックジャックで遊んでいます。ブラックジャックのルールは以下の通りとします。
 
 - 2 人の手札の数字の合計を比べ、より大きい方が勝ちとなる。
 - ただし、どちらか 1 人の手札の数字の合計が 21 を超えていた場合、その人の負けとなる。
 - 2 人の手札の数字の合計が同じだった場合や、2 人とも 21 を超えていた場合は引き分けとなる。
 
-A さんと B さんの手札の数字の合計をそれぞれ変数に入れておき、A さんと B さんのどちらが勝つか、あるいは引き分けかを表示するプログラムを作成してください。
+田中さんと佐藤さんの手札の数字の合計をそれぞれ変数に入れておき、田中さんと佐藤さんのどちらが勝つか、あるいは引き分けかを表示するプログラムを作成してください。
 
 ### 解答例
 
 <Answer>
 
 ```javascript
-let numberOfA = 19;
-let numberOfB = 22;
+let tanakaHandTotal = 19;
+let satoHandTotal = 22;
 
 // 21を超えていた場合は0(最弱)として扱う
-if (numberOfA > 21) numberOfA = 0;
-if (numberOfB > 21) numberOfB = 0;
+if (tanakaHandTotal > 21) tanakaHandTotal = 0;
+if (satoHandTotal > 21) satoHandTotal = 0;
 
-if (numberOfA > numberOfB) {
-  document.write("Aさんの勝ち");
-} else if (numberOfA < numberOfB) {
-  document.write("Bさんの勝ち");
+if (tanakaHandTotal > satoHandTotal) {
+  document.write("田中さんの勝ち");
+} else if (tanakaHandTotal < satoHandTotal) {
+  document.write("佐藤さんの勝ち");
 } else {
   document.write("引き分け");
 }
@@ -237,13 +237,13 @@ function fibonacci(n) {
 
 ### ヒント
 
-`document.write()` では文字列だけでなく、HTML 要素を出力することができます。
+`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
 ```javascript title=script.js
-document.write("<p style='color: blue'>Hello World!</p>");
+document.write('<p style="color: blue">Hello World!</p>');
 ```
 
-![青いHello World](./blue-hello-world.jpeg)
+![青い Hello World](./blue-hello-world.jpg)
 
 ### 解答例
 
@@ -254,13 +254,13 @@ let box = 25;
 let weight = 1000;
 
 if (box <= 30 && weight <= 2000) {
-  document.write("<p style='color: green'>出発できます</p>");
+  document.write('<p style="color: green">出発できます</p>');
 } else if (box > 30 && weight <= 2000) {
-  document.write("<p style='color: red'>箱の数を減らしてください</p>");
+  document.write('<p style="color: red">箱の数を減らしてください</p>');
 } else if (box <= 30 && weight > 2000) {
-  document.write("<p style='color: red'>重量を減らしてください</p>");
+  document.write('<p style="color: red">重量を減らしてください</p>');
 } else {
-  document.write("<p style='color: red'>箱の数と重量を減らしてください</p>");
+  document.write('<p style="color: red">箱の数と重量を減らしてください</p>');
 }
 ```
 

@@ -283,7 +283,9 @@ ctx.fillRect(10, 10, 100, 100);
 
 ```html
 <button id="button">押してください</button>
-<div id="display"></div>
+<div id="tag-name-display"></div>
+<div id="display-x"></div>
+<div id="display-y"></div>
 ```
 
 ```javascript

@@ -241,10 +241,10 @@ app.listen(3000);
 ![課題の例1](sample1.png)
 ![課題の例2](sample2.png)
 
-### 解答例 1(http 標準モジュール)
+### 解答例 1 (`http` 標準モジュール)
 
 <ViewSource url={import.meta.url} path="_samples/faculty-list-html" noCodeSandbox />
 
-### 解答例 2(Express)
+### 解答例 2 (Express)
 
 <ViewSource url={import.meta.url} path="_samples/faculty-list-express" noCodeSandbox />
