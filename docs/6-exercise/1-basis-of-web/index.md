@@ -237,7 +237,7 @@ function fibonacci(n) {
 
 ### ヒント
 
-`document.write()` では文字列だけでなく、HTML 要素を出力することができます。
+`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
 ```javascript title=script.js
 document.write("<p style='color: blue'>Hello World!</p>");
