@@ -8,6 +8,9 @@ import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 
+この章では教材の「[フォーム](../../3-web-servers/06-form/index.md)」「[GET リクエストと POST リクエスト](../../3-web-servers/07-get-post/index.md)」の内容を扱っています。
+
+---
 ## ユーザ名とパスワードを入力してログイン
 
 ユーザ名とパスワードを入力してログインするサイトを作ってみましょう。

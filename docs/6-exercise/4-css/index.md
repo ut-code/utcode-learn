@@ -10,7 +10,7 @@ import headerScrollVideo from "./header-scroll.mp4"
 import placeScrollVideo from "./place-scroll.mp4"
 import Details from "@theme/Details";
 
-この章では「高度な CSS」「CSS による配置」の内容を扱っています。
+この章では教材の「[高度な CSS](../../2-browser-apps/07-advanced-css/index.md)」「[CSS による配置](../../2-browser-apps/08-css-arrangement/index.md)」の内容を扱っています。
 
 ---
 
