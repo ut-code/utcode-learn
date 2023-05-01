@@ -1,5 +1,5 @@
 ---
-title: ブラウザで動作する色々なアプリを作ってみよう
+title: フロントエンドアプリの開発
 sidebar_position: 5
 ---
 
@@ -8,7 +8,7 @@ import Answer from "@site/src/components/Answer";
 import timerVideo from "./timer.mp4";
 import flashcardVideo from "./flashcard.mp4";
 
-「ブラウザで動作するアプリを構築しよう」までの項目の総合問題です。
+この章は教材の「[ブラウザで動作するアプリを構築しよう](../../2-browser-apps/index.md)」までの項目の総合問題です。
 
 ---
 

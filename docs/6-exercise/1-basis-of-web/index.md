@@ -6,7 +6,7 @@ sidebar_position: 1
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-この章では教材の「初めてのウェブ開発」から「ウェブサイトの見た目を整える」までの内容を扱っています。
+この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/09-css/index.md)」までの内容を扱っています。
 
 ---
 
@@ -81,11 +81,11 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 と表示されるプログラムを以下のように作成しました。
 
 ```javascript
-let lengthOfName = 7;
-if (4 <= lengthOfName <= 10) {
+let nameLength = 7;
+if (4 <= nameLength <= 10) {
   document.write("登録できます");
 }
-if (lengthOfName === 0) {
+if (nameLength === 0) {
   document.write("名前を入力してください");
 } else {
   document.write("名前は4文字以上10文字以下で入力してください");
@@ -99,11 +99,11 @@ if (lengthOfName === 0) {
 <Answer>
 
 ```javascript
-let lengthOfName = 7;
-if (4 <= lengthOfName && lengthOfName <= 10) {
+let nameLength = 7;
+if (4 <= nameLength && nameLength <= 10) {
   // 比較演算子を2つ並べるのではなく、論理演算子&&を用います。
   document.write("登録できます");
-} else if (lengthOfName === 0) {
+} else if (nameLength === 0) {
   // else if の else が抜けていました。
   document.write("名前を入力してください");
 } else {
@@ -119,30 +119,30 @@ if (4 <= lengthOfName && lengthOfName <= 10) {
 
 ## 3. ブラックジャック
 
-A さんと B さんの 2 人が、トランプゲームのブラックジャックで遊んでいます。ブラックジャックのルールは次の通りとします。
+田中さんと佐藤さんの 2 人が、トランプゲームのブラックジャックで遊んでいます。ブラックジャックのルールは次の通りとします。
 
 - 2 人の手札の数字の合計を比べ、より大きい方が勝ちとなる。
 - ただし、どちらか 1 人の手札の数字の合計が 21 を超えていた場合、その人の負けとなる。
 - 2 人の手札の数字の合計が同じだった場合や、2 人とも 21 を超えていた場合は引き分けとなる。
 
-A さんと B さんの手札の数字の合計をそれぞれ変数に入れておき、A さんと B さんのどちらが勝つか、あるいは引き分けかを表示するプログラムを作成してください。
+田中さんと佐藤さんの手札の数字の合計をそれぞれ変数に入れておき、田中さんと佐藤さんのどちらが勝つか、あるいは引き分けかを表示するプログラムを作成してください。
 
 ### 解答例
 
 <Answer>
 
 ```javascript
-let numberOfA = 19;
-let numberOfB = 22;
+let tanakaHandTotal = 19;
+let satoHandTotal = 22;
 
 // 21を超えていた場合は0(最弱)として扱う
-if (numberOfA > 21) numberOfA = 0;
-if (numberOfB > 21) numberOfB = 0;
+if (tanakaHandTotal > 21) tanakaHandTotal = 0;
+if (satoHandTotal > 21) satoHandTotal = 0;
 
-if (numberOfA > numberOfB) {
-  document.write("Aさんの勝ち");
-} else if (numberOfA < numberOfB) {
-  document.write("Bさんの勝ち");
+if (tanakaHandTotal > satoHandTotal) {
+  document.write("田中さんの勝ち");
+} else if (tanakaHandTotal < satoHandTotal) {
+  document.write("佐藤さんの勝ち");
 } else {
   document.write("引き分け");
 }
@@ -156,15 +156,15 @@ if (numberOfA > numberOfB) {
 
 ## 4. フィボナッチ数列
 
-(1)引数を 2 つとり、そのうち大きい数を返す関数 max を定義してください。
+1. 引数を 2 つとり、そのうち大きい数を返す関数 `max` を定義してください。
 
-(2)1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 n に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
+2. 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
 
 ### 解答例
 
 <Answer>
 
-(1)解答例
+1 の解答例
 
 ```javascript
 function max(a, b) {
@@ -177,7 +177,7 @@ function max(a, b) {
 
 <ViewSource url={import.meta.url} path="_samples/max" />
 
-(2)解答例
+2 の解答例
 
 ```javascript
 function fibonacci(n) {
@@ -192,16 +192,13 @@ function fibonacci(n) {
 
 <ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
 
-(2)別解
+2 の別解
 
 もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
 
 ```javascript
 function fibonacci(n) {
   let sequence = [0, 1];
-  if (n === 0 || n === 1) {
-    return sequence[n];
-  }
   for (let i = 2; i < n + 1; i += 1) {
     sequence.push(sequence[i - 1] + sequence[i - 2]);
   }
@@ -229,7 +226,7 @@ function fibonacci(n) {
 - 出発できる場合には「出発できます」
 - 箱が多すぎる場合には「箱の数を減らしてください」
 - 重量が大きすぎる場合には「重量を減らしてください」
-- 箱も多すぎるし、重量も重すぎる場合には「箱の数と重量を減らしてください」
+- 箱が多すぎかつ重量も重すぎる場合には「箱の数と重量を減らしてください」
 
 と表示されるプログラムを作ってみましょう。
 
@@ -237,13 +234,13 @@ function fibonacci(n) {
 
 ### ヒント
 
-`document.write()` では文字列だけでなく、HTML 要素を出力することができます。
+`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
 ```javascript title=script.js
-document.write("<p style='color: blue'>Hello World!</p>");
+document.write('<p style="color: blue">Hello World!</p>');
 ```
 
-![青いHello World](./blue-hello-world.jpeg)
+![青い Hello World](./blue-hello-world.jpg)
 
 ### 解答例
 
@@ -254,13 +251,13 @@ let box = 25;
 let weight = 1000;
 
 if (box <= 30 && weight <= 2000) {
-  document.write("<p style='color: green'>出発できます</p>");
+  document.write('<p style="color: green">出発できます</p>');
 } else if (box > 30 && weight <= 2000) {
-  document.write("<p style='color: red'>箱の数を減らしてください</p>");
+  document.write('<p style="color: red">箱の数を減らしてください</p>');
 } else if (box <= 30 && weight > 2000) {
-  document.write("<p style='color: red'>重量を減らしてください</p>");
+  document.write('<p style="color: red">重量を減らしてください</p>');
 } else {
-  document.write("<p style='color: red'>箱の数と重量を減らしてください</p>");
+  document.write('<p style="color: red">箱の数と重量を減らしてください</p>');
 }
 ```
 

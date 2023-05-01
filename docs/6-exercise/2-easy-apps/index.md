@@ -10,6 +10,8 @@ import calculatorVideo from "./calculator.mp4";
 import objectEventVideo from "./object-event.mp4";
 import drawingVideo from "./drawing.mp4";
 
+この章では教材の「[オブジェクト](../../1-trial-session/10-object/index.md)」から「[プロジェクト](../../1-trial-session/13-project/index.md)」までの内容を扱っています。
+
 ---
 
 ## 1. BMI 計算アプリ
@@ -283,7 +285,9 @@ ctx.fillRect(10, 10, 100, 100);
 
 ```html
 <button id="button">押してください</button>
-<div id="display"></div>
+<div id="tag-name-display"></div>
+<div id="display-x"></div>
+<div id="display-y"></div>
 ```
 
 ```javascript
