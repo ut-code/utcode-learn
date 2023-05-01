@@ -11,6 +11,10 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "ut-code",
   projectName: "utcode-learn",
+  i18n: {
+    defaultLocale: "ja",
+    locales: ["ja"],
+  },
   presets: [
     [
       "@docusaurus/preset-classic",
