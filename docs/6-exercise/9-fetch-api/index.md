@@ -9,6 +9,10 @@ import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 import restaurantsVideo from "./restaurants.mp4"
 
+この章では教材の「[Fetch API](../../4-advanced/01-fetch-api/index.md)」の内容を扱っています。
+
+---
+
 ## 課題
 
 料理店に評価をつけられるサイトを作ってみましょう。

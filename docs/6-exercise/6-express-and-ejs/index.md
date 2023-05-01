@@ -7,7 +7,9 @@ import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import Details from "@theme/Details";
 
-この章では「はじめての Node.js」から「Express とテンプレートエンジン」までの内容を扱っています。
+この章では教材の「[はじめての Node.js](../../3-web-servers/02-node-js/index.md)」から「[Express とテンプレートエンジン](../../3-web-servers/05-template-engine/index.md)」までの内容を扱っています。
+
+---
 
 ## 準備
 
