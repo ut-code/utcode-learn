@@ -73,7 +73,7 @@ Vite 内蔵のウェブサーバーが起動し、`http://localhost:5173/` で�
 
 ## Vite の仕組み
 
-Vite の挙動を理解するため、`Ctrl + C` で先ほど起動させたウェブサーバを停止させ、`npm run build` コマンドを実行してみましょう。
+Vite の挙動を理解するため、`Ctrl + C` で先ほど起動させたウェブサーバーを停止させ、`npm run build` コマンドを実行してみましょう。
 
 ```shell
 $ npm run build
