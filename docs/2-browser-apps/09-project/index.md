@@ -27,9 +27,9 @@ import calenderVideo from "./calender.mp4";
 
 ### ① について
 
-- HTML 要素の作成は`document.createElement`関数を使って行えます。また、`appendChild`メソッドを用いることで要素内に子要素を追加することができます。
+- HTML 要素の作成は `document.createElement` 関数を使って行えます。また、`appendChild` メソッドを用いることで要素内に子要素を追加することができます。
 
-- 表を作るわけなので`table`タグを使うのですが、日数を１から３０前後までいちいち HTML ファイルに書き込んでいくのは手間ですし応用が効かないので、JavaScript ファイル上で繰り返しを使ってコードを簡潔にしましょう。もちろん今月の日数はカレンダーを見ればわかりますが、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を用いて月初めの日と月終わりの日を取ってこれば、計算をしなくても始まりの曜日や月の日数が取ってこれそうですね。
+- 表を作るわけなので `table` タグを使うのですが、日数を１から３０前後までいちいち HTML ファイルに書き込んでいくのは手間ですし応用が効かないので、JavaScript ファイル上で繰り返しを使ってコードを簡潔にしましょう。もちろん今月の日数はカレンダーを見ればわかりますが、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を用いて月初めの日と月終わりの日を取ってこれば、計算をしなくても始まりの曜日や月の日数が取ってこれそうですね。
 
 ```javascript
 const today = new Date();
@@ -49,9 +49,9 @@ const container = {};
 
 ### ② について
 
-- 要素をクリックした時に実行される関数は要素の`onclick` <Term type="javascriptProperty">プロパティ</Term>から設定することができます。
+- 要素をクリックした時に実行される関数は要素の `onclick` <Term type="javascriptProperty">プロパティ</Term>から設定することができます。
 
-- イベントが発生して関数が呼び出されると、一番目の引数に発生したイベントの情報が格納された `Event` オブジェクトが渡されてきます。`Event`オブジェクトの`target`<Term type="javascriptProperty">プロパティ</Term>を用いることで、クリックした要素を取得することができます。取得した要素の種類によって関数を変えることで、予定の編集や追加の機能を実現できます。
+- イベントが発生して関数が呼び出されると、一番目の引数に発生したイベントの情報が格納された `Event` オブジェクトが渡されてきます。`Event` オブジェクトの `target` <Term type="javascriptProperty">プロパティ</Term>を用いることで、クリックした要素を取得することができます。取得した要素の種類によって関数を変えることで、予定の編集や追加の機能を実現できます。
 
 ```html title="index.html"
 <div id="div">ここをクリック！</div>
@@ -69,9 +69,9 @@ div.onclick = clicked;
 
 <ViewSource url={import.meta.url} path="_samples/event-target" />
 
-- グローバル変数の[`window`](https://developer.mozilla.org/ja/docs/Web/API/Window)は、スクリプトを実行しているウィンドウそのものを表します。この変数も`onclick`要素を指定することができます。
+- グローバル変数の [`window`](https://developer.mozilla.org/ja/docs/Web/API/Window) は、スクリプトを実行しているウィンドウそのものを表します。この変数も `onclick` 要素を指定することができます。
 
-- [`addEventListener`メソッド](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)は、ターゲットに特定のイベントが行われるたびに呼び出される関数を設定します。
+- [`addEventListener` メソッド](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)は、ターゲットに特定のイベントが行われるたびに呼び出される関数を設定します。
 
 ```javascript title="script.js"
 function pressed() {
