@@ -1,7 +1,7 @@
 function clicked(e) {
-  console.log(e.target.tagName);
+  document.write(e.target.tagName);
 }
 
-const div = document.getElementById("div");
+const div = document.getElementById("button");
 
 div.onclick = clicked;

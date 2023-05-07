@@ -20,12 +20,14 @@ import calenderVideo from "./calender.mp4";
 
 ## ヒント
 
-いきなり作るのが難しい場合はタスクを分解してみましょう。今回は大まかに<br/>
-① カレンダーを作る<br/>
-② カレンダーに機能をつける<br/>
-の２つの仕事があるので、まず ① からやっていきましょう。
+いきなり作るのが難しい場合はタスクを分解してみましょう。今回は大まかに
 
-### ① について
+1. カレンダーを作る
+2. カレンダーに機能をつける
+
+の２つの仕事があるので、まず 1 からやっていきましょう。
+
+### 1 について
 
 - HTML 要素の作成は `document.createElement` 関数を使って行えます。また、`appendChild` メソッドを用いることで要素内に子要素を追加することができます。
 
@@ -47,22 +49,22 @@ const container = {};
 //ここに予定を打ち込む要素を保存しておく
 ```
 
-### ② について
+### 2 について
 
 - 要素をクリックした時に実行される関数は要素の `onclick` <Term type="javascriptProperty">プロパティ</Term>から設定することができます。
 
 - イベントが発生して関数が呼び出されると、一番目の引数に発生したイベントの情報が格納された `Event` オブジェクトが渡されてきます。`Event` オブジェクトの `target` <Term type="javascriptProperty">プロパティ</Term>を用いることで、クリックした要素を取得することができます。取得した要素の種類によって関数を変えることで、予定の編集や追加の機能を実現できます。
 
 ```html title="index.html"
-<div id="div">ここをクリック！</div>
+<button id="button">ここをクリック！</button>
 ```
 
 ```javascript title="script.js"
 function clicked(e) {
-  console.log(e.target.tagName);
+  document.write(e.target.tagName);
 }
 
-const div = document.getElementById("div");
+const div = document.getElementById("button");
 
 div.onclick = clicked;
 ```
@@ -75,7 +77,7 @@ div.onclick = clicked;
 
 ```javascript title="script.js"
 function pressed() {
-  console.log("キーを押しました");
+  document.write("キーを押しました");
 }
 
 window.addEventListener("keypress", pressed);
