@@ -44,10 +44,10 @@ VS Code の**コマンド パレット**は、現在 VS Code 上で使用でき�
 
 Node.js をインストールする方法は様々ですが、現在は [nvm](https://github.com/nvm-sh/nvm) と呼ばれるツールが用いられることが多いようです。
 
-まずは、[nvm のウェブサイトの `Install & Update Script` セクション](https://github.com/nvm-sh/nvm#install--update-script)に書かれているスクリプトを実行しましょう。2022 年 10 月現在では、次の通りです。
+まずは、[nvm のウェブサイトの `Install & Update Script` セクション](https://github.com/nvm-sh/nvm#install--update-script)に書かれているスクリプトを実行しましょう。2023 年 5 月現在では、次の通りです。
 
 ```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
 続いて、ターミナルアプリケーションを再起動してから、nvm のインストールが成功していることを確認するため、次のコマンドを実行します。
@@ -60,7 +60,7 @@ nvm -v
 
 ```shell
 $ nvm -v
-0.39.2
+0.39.3
 ```
 
 さらに、次のコマンドを実行して、Node.js をインストールします。
@@ -79,7 +79,7 @@ node -v
 
 ```shell
 $ node -v
-v18.12.0
+v18.16.0
 ```
 
 <Tabs groupId="os">
