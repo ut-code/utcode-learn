@@ -29,7 +29,7 @@ import calenderVideo from "./calender.mp4";
 
 - HTML 要素の作成は`document.createElement`関数を使って行えます。また、`appendChild`メソッドを用いることで要素内に子要素を追加することができます。
 
-- 表を作るわけなので`table`タグを使うのですが、日数を１から３０前後までいちいち html ファイルに書き込んでいくのは手間ですし応用が効かないので、JavaScript ファイル上で繰り返しを使ってコードを簡潔にしましょう。もちろん今月の日数はカレンダーを見ればわかりますが、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を用いて月初めの日と月終わりの日を取ってこれば、計算をしなくても始まりの曜日や月の日数が取ってこれそうですね。
+- 表を作るわけなので`table`タグを使うのですが、日数を１から３０前後までいちいち HTML ファイルに書き込んでいくのは手間ですし応用が効かないので、JavaScript ファイル上で繰り返しを使ってコードを簡潔にしましょう。もちろん今月の日数はカレンダーを見ればわかりますが、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を用いて月初めの日と月終わりの日を取ってこれば、計算をしなくても始まりの曜日や月の日数が取ってこれそうですね。
 
 ```javascript
 const today = new Date();
