@@ -5,7 +5,7 @@ title: プロジェクト
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
-import calenderVideo from "./calender.mp4";
+import calendarVideo from "./calendar.mp4";
 
 ここまでの知識を使って、今月分の予定管理アプリを作ってみましょう。
 
@@ -16,7 +16,7 @@ import calenderVideo from "./calender.mp4";
 - 編集中には消去ボタンが現れ、押すと予定を削除できる。
 - 編集中に別の場所を押したりエンターキーを押したりすると予定が確定する（何も入力していない状態だと消える）
 
-<video src={calenderVideo} controls loop autoPlay muted />
+<video src={calendarVideo} controls loop autoPlay muted />
 
 ## ヒント
 
@@ -89,4 +89,4 @@ window.addEventListener("keypress", pressed);
 
 解答例は次のリンクを参照してください。
 
-<ViewSource url={import.meta.url} path="_samples/calender" />
+<ViewSource url={import.meta.url} path="_samples/calendar" />
