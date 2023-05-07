@@ -113,12 +113,12 @@ React を新規プロジェクトではなく、既存のウェブプロジェ�
 ```json title="package.json (抜粋)"
 {
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11"
   }
 }
 ```
