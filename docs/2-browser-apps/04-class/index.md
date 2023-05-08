@@ -74,7 +74,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term type="javascriptClass">クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
 
-オブジェクトに対して定義されている関数を　**<Term type="javascriptMethod">メソッド</Term>**　と呼びます。<Term type="javascriptMethod">メソッド</Term>の定義は<Term type="javascriptClass">クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
+オブジェクトに対して定義されている関数を**<Term type="javascriptMethod">メソッド</Term>**と呼びます。<Term type="javascriptMethod">メソッド</Term>の定義は<Term type="javascriptClass">クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
 ```javascript
 class Student {
