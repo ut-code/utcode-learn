@@ -81,12 +81,13 @@ $ npm run build
 > vite@0.0.0 build
 > vite build
 
-vite v4.1.1 building for production...
-✓ 6 modules transformed.
-dist/index.html                      0.45 kB
-dist/assets/javascript-8dac5379.svg  1.00 kB
+vite v4.3.5 building for production...
+✓ 7 modules transformed.
+dist/index.html                      0.45 kB │ gzip: 0.30 kB
+dist/assets/javascript-8dac5379.svg  1.00 kB │ gzip: 0.60 kB
 dist/assets/index-48a8825f.css       1.24 kB │ gzip: 0.65 kB
-dist/assets/index-36cd5a33.js        1.44 kB │ gzip: 0.75 kB
+dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
+✓ built in 64ms
 ```
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。

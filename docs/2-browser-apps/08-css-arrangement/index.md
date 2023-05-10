@@ -500,9 +500,6 @@ HTML の要素は、ブロックレベル要素とインライン要素に分類
 ### 参考: サンプルで使われている CSS プロパティの一覧
 
 - `display`
-- `flex-grow`
-- `flex-shrink`
-- `flex-basis`
 - `flex-direction`
 - `justify-content`
 - `align-self`

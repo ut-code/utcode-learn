@@ -1,9 +1,9 @@
-#calender > td,
+#calendar > td,
 th {
   border: 1px solid black;
 }
 
-#calender {
+#calendar {
   border-collapse: collapse;
 }
 

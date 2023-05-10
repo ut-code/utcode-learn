@@ -4,7 +4,7 @@ const year = today.getFullYear();
 const month = today.getMonth();
 const startDate = new Date(year, month, 1);
 const endDate = new Date(year, month + 1, 0);
-const calender = document.getElementById("calender");
+const calendar = document.getElementById("calendar");
 const button = document.getElementById("button");
 
 // 編集中の予定を追うための変数
@@ -22,12 +22,12 @@ for (let i = 0; i < 7; i += 1) {
 }
 
 // 曜日の行を追加
-calender.appendChild(firstRow);
+calendar.appendChild(firstRow);
 
 // 日付の行を作成
 for (let x = 1; x <= 6; x += 1) {
   const tr = document.createElement("tr");
-  calender.appendChild(tr);
+  calendar.appendChild(tr);
   for (let y = 1; y <= 7; y += 1) {
     const td = document.createElement("td");
     const ul = document.createElement("ul");
