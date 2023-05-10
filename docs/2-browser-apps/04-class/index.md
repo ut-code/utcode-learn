@@ -18,7 +18,7 @@ const tanaka = {
 };
 ```
 
-同じ属性を持つ<Term type="javascriptObject">オブジェクト</Term>を複数生成するときに役立つのが **<Term type="javascriptClass">クラス</Term>** です。<Term type="javascriptClass">クラス</Term>では、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を予め設定しておくだけでなく、下の<Term type="javascriptMethod">メソッド</Term>の節で説明するように、<Term type="javascriptProperty">プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term type="javascriptClass">クラス</Term>は、同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>を統一的に扱うための仕組みであり、<Term type="javascriptObject">オブジェクト</Term>の設計図と言えます。
+同じ属性を持つ<Term type="javascriptObject">オブジェクト</Term>を複数生成するときに役立つのが**<Term type="javascriptClass">クラス</Term>**です。<Term type="javascriptClass">クラス</Term>では、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を予め設定しておくだけでなく、下の<Term type="javascriptMethod">メソッド</Term>の節で説明するように、<Term type="javascriptProperty">プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term type="javascriptClass">クラス</Term>は、同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>を統一的に扱うための仕組みであり、<Term type="javascriptObject">オブジェクト</Term>の設計図と言えます。
 
 次のコードでは、先ほど作った `tanaka` のように `name` や `age` という<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>の設計図として、<Term type="javascriptClass">クラス</Term> `Student` を定義しています。<Term type="javascriptClass">クラス</Term>では、この例の `age` <Term type="javascriptProperty">プロパティ</Term>のように、デフォルトの値を設定することができます。
 
@@ -35,7 +35,7 @@ class Student {
 
 :::
 
-`new` 演算子を<Term type="javascriptClass">クラス</Term>に対して適用すると、設計図に基づいて<Term type="javascriptObject">オブジェクト</Term>が作成されます。こうしてできた<Term type="javascriptObject">オブジェクト</Term>を、もとになった<Term type="javascriptClass">クラス</Term>の　**<Term type="javascriptInstance">インスタンス</Term>**　と呼びます。今回の `age` <Term type="javascriptProperty">プロパティ</Term>のように、<Term type="javascriptClass">クラス</Term>の<Term type="javascriptProperty">プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term type="javascriptProperty">プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
+`new` 演算子を<Term type="javascriptClass">クラス</Term>に対して適用すると、設計図に基づいて<Term type="javascriptObject">オブジェクト</Term>が作成されます。こうしてできた<Term type="javascriptObject">オブジェクト</Term>を、もとになった<Term type="javascriptClass">クラス</Term>の**<Term type="javascriptInstance">インスタンス</Term>**と呼びます。今回の `age` <Term type="javascriptProperty">プロパティ</Term>のように、<Term type="javascriptClass">クラス</Term>の<Term type="javascriptProperty">プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term type="javascriptProperty">プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
 
 ```javascript
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
