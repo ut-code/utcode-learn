@@ -57,7 +57,8 @@ server.listen(3000);
 
 ### 課題
 
-1. `Hello World` の `Hello` の部分を太字で表示されるようにしてみましょう。
+1. 次の画像のように `Hello World` の `Hello` の部分にハイパーリンクを設定してみましょう。
+   ![HTTP サーバーの課題](./http-server-exercise.png)
 2. `response.write` の前に `console.log` を実行するようプログラムを変更してみましょう。`console.log` はいつ実行されますか？
 3. 作成した JavaScript ファイルを、デバッガを用いて実行し、`response.write` の行にブレークポイントを設置してみましょう。ブレークポイントでプログラムの実行が止まったら、`request` 引数と `response` 引数の内部がどうなっているか確認してみましょう。
 4. `response.end` を実行しない場合、どのような挙動を示すでしょうか。
