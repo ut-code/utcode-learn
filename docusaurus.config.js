@@ -23,7 +23,7 @@ module.exports = {
         docs: {
           showLastUpdateTime: true,
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
+          editUrl: "https://github.com/ut-code/utcode-learn/blob/develop/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
