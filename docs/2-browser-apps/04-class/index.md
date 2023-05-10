@@ -89,9 +89,9 @@ class Student {
 }
 ```
 
-<Term type="javascriptClass">クラス</Term>自体は単なる設計図でしかないため、実際の<Term type="javascriptObject">オブジェクト</Term>が存在するわけではありません。そこで、<Term type="javascriptMethod">メソッド</Term>内では、設計図から作成された<Term type="javascriptInstance">インスタンス</Term>自身を指す特殊な変数 `this` が使用できます。
+<p><Term type="javascriptClass">クラス</Term>自体は単なる設計図でしかないため、実際の<Term type="javascriptObject">オブジェクト</Term>が存在するわけではありません。そこで、<Term type="javascriptMethod">メソッド</Term>内では、設計図から作成された<Term type="javascriptInstance">インスタンス</Term>自身を指す特殊な変数 <code>this</code> が使用できます。</p>
 
-<Term type="javascriptMethod">メソッド</Term>を使用するには、<Term type="javascriptProperty">プロパティ</Term>へのアクセス時と同じく、<Term type="javascriptInstance">インスタンス</Term>に対して `.`（ドット）記号を用います。
+<p><Term type="javascriptMethod">メソッド</Term>を使用するには、<Term type="javascriptProperty">プロパティ</Term>へのアクセス時と同じく、<Term type="javascriptInstance">インスタンス</Term>に対して <code>.</code>（ドット）記号を用います。</p>
 
 ```javascript
 const tanaka = new Student();
