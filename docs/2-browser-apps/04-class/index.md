@@ -18,7 +18,7 @@ const tanaka = {
 };
 ```
 
-同じ属性を持つ<Term type="javascriptObject">オブジェクト</Term>を複数生成するときに役立つのが **<Term type="javascriptClass">クラス</Term>** です。<Term type="javascriptClass">クラス</Term>では、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を予め設定しておくだけでなく、下の<Term type="javascriptMethod">メソッド</Term>の節で説明するように、<Term type="javascriptProperty">プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term type="javascriptClass">クラス</Term>は、同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>を統一的に扱うための仕組みであり、<Term type="javascriptObject">オブジェクト</Term>の設計図と言えます。
+同じ属性を持つ<Term type="javascriptObject">オブジェクト</Term>を複数生成するときに役立つのが**<Term type="javascriptClass">クラス</Term>**です。<Term type="javascriptClass">クラス</Term>では、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を予め設定しておくだけでなく、下の<Term type="javascriptMethod">メソッド</Term>の節で説明するように、<Term type="javascriptProperty">プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term type="javascriptClass">クラス</Term>は、同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>を統一的に扱うための仕組みであり、<Term type="javascriptObject">オブジェクト</Term>の設計図と言えます。
 
 次のコードでは、先ほど作った `tanaka` のように `name` や `age` という<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>の設計図として、<Term type="javascriptClass">クラス</Term> `Student` を定義しています。<Term type="javascriptClass">クラス</Term>では、この例の `age` <Term type="javascriptProperty">プロパティ</Term>のように、デフォルトの値を設定することができます。
 
@@ -35,7 +35,7 @@ class Student {
 
 :::
 
-`new` 演算子を<Term type="javascriptClass">クラス</Term>に対して適用すると、設計図に基づいて<Term type="javascriptObject">オブジェクト</Term>が作成されます。こうしてできた<Term type="javascriptObject">オブジェクト</Term>を、もとになった<Term type="javascriptClass">クラス</Term>の　**<Term type="javascriptInstance">インスタンス</Term>**　と呼びます。今回の `age` <Term type="javascriptProperty">プロパティ</Term>のように、<Term type="javascriptClass">クラス</Term>の<Term type="javascriptProperty">プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term type="javascriptProperty">プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
+`new` 演算子を<Term type="javascriptClass">クラス</Term>に対して適用すると、設計図に基づいて<Term type="javascriptObject">オブジェクト</Term>が作成されます。こうしてできた<Term type="javascriptObject">オブジェクト</Term>を、もとになった<Term type="javascriptClass">クラス</Term>の**<Term type="javascriptInstance">インスタンス</Term>**と呼びます。今回の `age` <Term type="javascriptProperty">プロパティ</Term>のように、<Term type="javascriptClass">クラス</Term>の<Term type="javascriptProperty">プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term type="javascriptProperty">プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
 
 ```javascript
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
@@ -74,7 +74,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 同じ<Term type="javascriptProperty">プロパティ</Term>を持つ<Term type="javascriptObject">オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term type="javascriptClass">クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
 
-オブジェクトに対して定義されている関数を　**<Term type="javascriptMethod">メソッド</Term>**　と呼びます。<Term type="javascriptMethod">メソッド</Term>の定義は<Term type="javascriptClass">クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
+オブジェクトに対して定義されている関数を**<Term type="javascriptMethod">メソッド</Term>**と呼びます。<Term type="javascriptMethod">メソッド</Term>の定義は<Term type="javascriptClass">クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
 ```javascript
 class Student {
@@ -89,9 +89,9 @@ class Student {
 }
 ```
 
-<Term type="javascriptClass">クラス</Term>自体は単なる設計図でしかないため、実際の<Term type="javascriptObject">オブジェクト</Term>が存在するわけではありません。そこで、<Term type="javascriptMethod">メソッド</Term>内では、設計図から作成された<Term type="javascriptInstance">インスタンス</Term>自身を指す特殊な変数 `this` が使用できます。
+<p><Term type="javascriptClass">クラス</Term>自体は単なる設計図でしかないため、実際の<Term type="javascriptObject">オブジェクト</Term>が存在するわけではありません。そこで、<Term type="javascriptMethod">メソッド</Term>内では、設計図から作成された<Term type="javascriptInstance">インスタンス</Term>自身を指す特殊な変数 <code>this</code> が使用できます。</p>
 
-<Term type="javascriptMethod">メソッド</Term>を使用するには、<Term type="javascriptProperty">プロパティ</Term>へのアクセス時と同じく、<Term type="javascriptInstance">インスタンス</Term>に対して `.`（ドット）記号を用います。
+<p><Term type="javascriptMethod">メソッド</Term>を使用するには、<Term type="javascriptProperty">プロパティ</Term>へのアクセス時と同じく、<Term type="javascriptInstance">インスタンス</Term>に対して <code>.</code>（ドット）記号を用います。</p>
 
 ```javascript
 const tanaka = new Student();

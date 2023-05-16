@@ -50,7 +50,7 @@ document.write([3, 2, 1][0]);
 
 <Answer>
 
-`[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、3 と表示されます。
+`[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、`3` と表示されます。
 
 <ViewSource url={import.meta.url} path="_samples/array" />
 
@@ -121,7 +121,7 @@ document.write(studentNames.length); // 4
 ```javascript
 //Array#push メソッドを用いて、フィボナッチ数列の配列を作成
 const f = [1, 1];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i += 1) {
   f.push(f[f.length - 1] + f[f.length - 2]);
 }
 //作成した配列の各要素を for ～ of 文を用いて出力
