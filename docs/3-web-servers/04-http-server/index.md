@@ -70,12 +70,12 @@ server.listen(3000);
 
 ```javascript
 server.addListener("request", (request, response) => {
-  response.write("<b>Hello</b> World");
+  response.write('<a href="https://www.google.com/">Hello</a> World');
   response.end();
 });
 ```
 
-<ViewSource url={import.meta.url} path="_samples/bold" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/hyperlink" noCodeSandbox />
 
   </li>
   <li>
