@@ -11,6 +11,7 @@ import gitInitWithCliVideo from "./git-init-with-cli.mp4";
 import stageChangesVideo from "./stage-changes.mp4";
 import stageChangesWithCliVideo from "./stage-changes-with-cli.mp4";
 import commitChangesVideo from "./commit-changes.mp4";
+import commitChangesWithCliVideo from "./commit-changes-with-cli.mp4";
 import secondCommitVideo from "./second-commit.mp4";
 import showGitHistoryVideo from "./show-git-history.mp4";
 import showGitHistoryWithCliVideo from "./show-git-history-with-cli.mp4";
@@ -104,6 +105,8 @@ $ git add -A # リポジトリ内部のすべてのファイルをステージ�
 ```shell
 git commit -m "コミットメッセージ"
 ```
+
+<video src={commitChangesWithCliVideo} muted autoPlay loop controls />
 
 :::
 
