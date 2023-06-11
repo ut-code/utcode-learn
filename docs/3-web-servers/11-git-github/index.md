@@ -9,6 +9,7 @@ import ViewSource from "@site/src/components/ViewSource";
 import gitInitVideo from "./git-init.mp4";
 import gitInitWithCliVideo from "./git-init-with-cli.mp4";
 import stageChangesVideo from "./stage-changes.mp4";
+import stageChangesWithCliVideo from "./stage-changes-with-cli.mp4";
 import commitChangesVideo from "./commit-changes.mp4";
 import secondCommitVideo from "./second-commit.mp4";
 import showGitHistoryVideo from "./show-git-history.mp4";
@@ -61,6 +62,20 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 <video src={stageChangesVideo} loop muted autoPlay controls />
 
+:::info `git status` コマンド
+
+現在の状況を確認するには、`git status` コマンドを使います。
+
+ステージされていない場合は、次のように表示されます。
+
+![ステージされる前の状態](./show-unstaged-status.png)
+
+ステージされた後では、次のように表示されます。
+
+![ステージされた後の状態](./show-staged-status.png)
+
+:::
+
 :::info `git add` コマンド
 
 コマンドラインから変更をステージする場合には、`git add` コマンドを実行します。
@@ -69,6 +84,10 @@ branches  config  description  HEAD  hooks  info  objects  refs
 $ git add ステージするファイルへのパス
 $ git add -A # リポジトリ内部のすべてのファイルをステージする場合
 ```
+
+`git add` コマンドを使う前後で `git status` コマンドの結果が変化していることを確認しましょう。
+
+<video src={stageChangesWithCliVideo} loop muted autoPlay controls />
 
 :::
 
