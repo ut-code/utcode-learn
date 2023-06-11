@@ -55,9 +55,11 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 それでは、前項で作成したリポジトリで最初のコミットを作成してみましょう。まずはファイルを作成し、適当な内容で保存します。
 
-コミットを作成する前に、変更を**ステージ**する必要があります。ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。VS Code から行う場合、`Source Control` パネル内の変更したファイルの横の `+` ボタンを押します。ファイルが `Changes` セクションから `Staged Changes` に移ったら成功です。
+コミットを作成する前に、変更を**ステージ**する必要があります。ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。`Source Control` パネル内の変更したファイルの横の `+` ボタンを押します。ファイルが `Changes` から `Staged Changes` に移ったら成功です。
 
 <video src={stageChangesVideo} loop muted autoPlay controls />
+
+:::info `git add` コマンド
 
 コマンドラインから変更をステージする場合には、`git add` コマンドを実行します。
 
@@ -65,6 +67,8 @@ branches  config  description  HEAD  hooks  info  objects  refs
 $ git add ステージするファイルへのパス
 $ git add -A # リポジトリ内部のすべてのファイルをステージする場合
 ```
+
+:::
 
 ステージされた変更からコミットを作成するには、**コミットメッセージ** を入力して `Commit` ボタンを押します。コミットメッセージとは、そのコミットで行われた変更を説明する簡潔なメッセージです。
 
