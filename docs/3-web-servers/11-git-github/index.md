@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import gitInitVideo from "./git-init.mp4";
+import gitInitWithCliVideo from "./git-init-with-cli.mp4";
 import stageChangesVideo from "./stage-changes.mp4";
 import commitChangesVideo from "./commit-changes.mp4";
 import secondCommitVideo from "./second-commit.mp4";
@@ -26,13 +27,13 @@ Git では、**リポジトリ**と呼ばれる単位でソースコードを管
 
 :::info `git init` コマンド
 
-Git の操作は、コマンドからも行うことが出来ます。次のコマンドを実行してください。
+Git の操作は、コマンドからも行うことが出来ます。カレントディレクトリを Git の管理下に置くには、次のコマンドを実行してください。
 
 ```shell
 git init
 ```
 
-`git init` コマンドは、カレントディレクトリを Git の管理下に置くためのコマンドです。
+<video src={gitInitWithCliVideo} controls autoPlay muted loop />
 
 :::
 
