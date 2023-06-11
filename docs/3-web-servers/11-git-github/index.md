@@ -12,6 +12,7 @@ import commitChangesVideo from "./commit-changes.mp4";
 import secondCommitVideo from "./second-commit.mp4";
 import showGitHistoryVideo from "./show-git-history.mp4";
 import showGitHistoryWithCliVideo from "./show-git-history-with-cli.mp4";
+import showGitDiffWithCliVideo from "./show-git-diff-with-cli.mp4";
 import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
 
@@ -104,9 +105,23 @@ git commit -m "コミットメッセージ"
 
 <video src={showGitHistoryVideo} muted autoPlay loop controls />
 
-コマンドを用いて変更を表示するには、`git log` コマンドを使用します。コミットには一意の ID が割り当てられており、この ID を `git diff` コマンドに与えることで、コミット同士を比較することができます。下の動画の最後で実行されている `git diff @ @~` は、最新のコミットとそのひとつ前のコミットを比較するためのコマンドです。`@` が最新のコミットを、`~` が「そのひとつ前」を表します。
+:::info `git log` コマンド
+
+コマンドを用いて変更を表示するには、`git log` コマンドを使用します。
 
 <video src={showGitHistoryWithCliVideo} muted autoPlay loop controls />
+
+:::
+
+:::info `git diff` コマンド
+
+コミットには一意の ID が割り当てられており、この ID を `git diff` コマンドに与えることで、コミット同士を比較することができます。
+
+下の動画の最後で実行されている `git diff @ @~` は、最新のコミットとそのひとつ前のコミットを比較するためのコマンドです。`@` が最新のコミットを、`~` が「そのひとつ前」を表します。
+
+<video src={showGitDiffWithCliVideo} muted autoPlay loop controls />
+
+:::
 
 ## 変更を GitHub に保存する
 
