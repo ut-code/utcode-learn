@@ -22,6 +22,8 @@ import pushChangesWithCliVideo from "./push-changes-with-cli.mp4";
 import cloneRepositoryVideo from "./clone-repository.mp4";
 import createNewBranchVideo from "./create-new-branch.mp4";
 import createNewBranchWithCliVideo from "./create-new-branch-with-cli.mp4";
+import pushNewBranchVideo from "./push-new-branch.mp4";
+import pushNewBranchWithCliVideo from "./push-new-branch-with-cli.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
 
 ## Git リポジトリを作成する
@@ -264,20 +266,45 @@ $ git branch
 
 :::
 
-この状態で、ファイルに必要な変更を行います。
-練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。
-変更ができたらその都度、変更をステージし、コミットします。
-必要に応じて、コミットの履歴やコミットの差分を確認してください。
+この状態で、ファイルに必要な変更を行います。練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。`自分のアカウント名.txt` とします。ファイルの中身は何でも構いません。変更ができたらその都度、変更をステージし、コミットします。必要に応じて、コミットの履歴やコミットの差分を確認してください。
 
-変更が終わったら、変更を加えたブランチをリモートリポジトリにプッシュして、プルリクエストをします。
+変更が終わったら、変更をリモートにも反映します。新しく作ったブランチをリモートリポジトリにプッシュします。
+
+<video src={pushNewBranchVideo} muted autoPlay loop controls />
+
+```mermaid
+gitGraph
+  commit id: "既存のコミット1"
+  commit id: "既存のコミット2"
+  branch "hello-自分のアカウント名"
+  commit id: "新たな変更"
+```
+
+:::info
+
+コマンドラインからプッシュするには、次のコマンドを実行します。
 
 ```shell
 git push origin ブランチ名
 ```
 
-とすると、変更を加えたブランチをリモートリポジトリにプッシュできます。
+<video src={pushNewBranchWithCliVideo} muted autoPlay loop controls />
 
-プッシュができたら、GitHub を開き `Pull requests` を開いてください。
+:::
+
+次に変更をメインのブランチに反映します。GitHub のプルリクエストという機能を使うことで簡単に変更をメインのブランチに取り込むことができます。
+
+```mermaid
+gitGraph
+commit id: "既存のコミット 1"
+commit id: "既存のコミット 2"
+branch "hello-自分のアカウント名"
+commit id: "新たな変更"
+checkout main
+merge "hello-自分のアカウント名"
+```
+
+GitHub を開き `Pull requests` を開いてください。
 
 ![Pull requests](./pull-requests-tab.png)
 
@@ -301,6 +328,9 @@ git push origin ブランチ名
 
 変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
 
+![Delete branch](./delete-branch.png)
+
 マージしたら、不要になったブランチは削除しておきましょう。
 
 <video src={prPracticeVideo} muted controls />
+```
