@@ -17,6 +17,8 @@ import showGitHistoryVideo from "./show-git-history.mp4";
 import showGitHistoryWithCliVideo from "./show-git-history-with-cli.mp4";
 import showGitDiffWithCliVideo from "./show-git-diff-with-cli.mp4";
 import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
+import pushChangesVideo from "./push-changes.mp4";
+import pushChangesWithCliVideo from "./push-changes-with-cli.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
 
 ## Git リポジトリを作成する
@@ -162,27 +164,38 @@ git commit -m "コミットメッセージ"
 git remote add origin git@github.com:アカウント名/リポジトリ名.git
 ```
 
-追加が完了したら、次のコマンドを実行して `origin` として登録したリモートリポジトリにコミットを送信します。この操作を**プッシュ**と呼びます。`-u` オプションを指定することで、次回から `origin` や `master` の指定を省略し、`git push` のみで実行できるようになります。このコマンドの `master` は**ブランチ**と呼ばれるソースコードの変更の分岐を表す名前で、何も指定しなければ `master` という名前になります。(macOS では `main` になります。)
+<video src={addRemoteRepositoryVideo} muted controls />
 
-```shell
-git push -u origin master
-```
+追加が完了したら、`origin` として登録したリモートリポジトリにコミットを送信します。この操作を**プッシュ**と呼びます。プッシュをするには、`Publish Branch` を押します。
+
+<video src={pushChangesVideo} muted autoPlay loop controls />
 
 :::info
 
 この操作の際、初回は以下のような警告が出る場合があります。
 
 ```plain
-The authenticity of host 'github.com (20.27.177.113)' can't be established.
-ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
+"github.com" has fingerprint "SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdk4UvCOqU."
+Are you sure you want to continue connecting?
 ```
 
-これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。家庭用のインターネット回線、UTokyo WiFi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、 `yes` を入力して続行させてください。
+これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。家庭用のインターネット回線、UTokyo Wi-Fi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、 `yes` を押して続行させてください。
 
 :::
 
-<video src={addRemoteRepositoryVideo} muted controls />
+:::info `git push` コマンド
+
+コマンドラインから実行するには、`git push` コマンドを使います。
+
+```shell
+git push origin main
+```
+
+このコマンドの `main` は**ブランチ**と呼ばれるソースコードの変更の分岐を表す名前で、何も指定しなければ `main` という名前になります。
+
+<video src={pushChangesWithCliVideo} muted controls />
+
+:::
 
 GitHub を開いているブラウザを更新して、プログラムが反映されていることを確認したら完了です。
 
