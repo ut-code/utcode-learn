@@ -19,6 +19,7 @@ import showGitDiffWithCliVideo from "./show-git-diff-with-cli.mp4";
 import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
 import pushChangesVideo from "./push-changes.mp4";
 import pushChangesWithCliVideo from "./push-changes-with-cli.mp4";
+import cloneRepositoryVideo from "./clone-repository.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
 
 ## Git リポジトリを作成する
@@ -201,13 +202,15 @@ GitHub を開いているブラウザを更新して、プログラムが反映�
 
 ## GitHub を用いた共同開発をする
 
-GitHub を用いると簡単に共同開発ができます。ここでは、[練習用のリポジトリ](https://github.com/ut-code/readme_practice)に変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、権限をもらっておきましょう。
+GitHub を用いると簡単に共同開発ができます。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)を用意してあるのでここに変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、事前に権限をもらっておきましょう。
 
-まずは、共同開発をするリポジトリをローカルにクローンし、VS Code で開きます。
+まずは、共同開発をするリポジトリをローカルにクローンします。クローンするとは、リモートリポジトリを自分の PC 上にコピーすることです。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)の **SSH** の URL をコピーして、次のコマンドを実行してください。その後、クローンしたリポジトリを VS Code で開いてください。
 
 ```shell
 git clone git@github.com:ut-code/readme_practice.git
 ```
+
+<video src={cloneRepositoryVideo} muted autoPlay loop controls />
 
 次にブランチを作成します。ブランチは、ソースコードへの変更を分岐して行うための仕組みです。ブランチを作成することで、複数の変更を同時に進めていくことができます。
 
