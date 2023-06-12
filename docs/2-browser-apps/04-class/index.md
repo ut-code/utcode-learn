@@ -150,11 +150,11 @@ class Student {
   age;
 
   // コンストラクタを定義する
-  constructor(name, yearOfBirth, currentYear) {
+  constructor(name, birthYear, currentYear) {
     // this.name は作成されたインスタンスのプロパティ
     // name はインスタンス生成時に代入する値
     this.name = name;
-    this.age = currentYear - yearOfBirth;
+    this.age = currentYear - birthYear;
   }
 
   introduceSelf() {
