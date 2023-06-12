@@ -76,7 +76,7 @@ $ git config --global user.email メールアドレス
 
 <video src={setupGitVideo} controls muted />
 
-現在 WSL 上の Ubuntu の Git では、デフォルトブランチの名前が `master` ですが、Mac では `main` になっています。また、GitHub ではデフォルトブランチの名前が `main` になっています。これらを統一するために、次のコマンドを実行してください。
+現在 WSL 上の Ubuntu の Git では、デフォルトブランチの名前が `master` ですが、macOS では `main` になっています。また、GitHub ではデフォルトブランチの名前が `main` になっています。これらを統一するために、次のコマンドを実行してください。
 
 ```shell
 git config --global init.defaultBranch main
