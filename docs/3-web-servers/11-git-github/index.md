@@ -20,6 +20,8 @@ import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
 import pushChangesVideo from "./push-changes.mp4";
 import pushChangesWithCliVideo from "./push-changes-with-cli.mp4";
 import cloneRepositoryVideo from "./clone-repository.mp4";
+import createNewBranchVideo from "./create-new-branch.mp4";
+import createNewBranchWithCliVideo from "./create-new-branch-with-cli.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
 
 ## Git リポジトリを作成する
@@ -212,9 +214,30 @@ git clone git@github.com:ut-code/readme_practice.git
 
 <video src={cloneRepositoryVideo} muted autoPlay loop controls />
 
-次にブランチを作成します。ブランチは、ソースコードへの変更を分岐して行うための仕組みです。ブランチを作成することで、複数の変更を同時に進めていくことができます。
+複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。そして、作業が終わったらメインのブランチに自分のブランチの変更を取り込みます。これによって、プロジェクトの本体に影響を与えずに同時並行で開発を進めることが出来ます。
 
-まずは、ブランチの一覧を確認してみましょう。ターミナルで `git branch` コマンドを実行してください。
+```mermaid
+gitGraph
+  commit id: "Add index.html"
+  commit id: "Add service.html"
+  commit id: "Add company.html"
+  branch add-recruit-page
+  commit id: "Add recruit.html"
+  checkout main
+  branch add-contact-page
+  commit id: "Add contact.html"
+```
+
+まずは、メインのブランチから自分の作業専用のブランチを作成しましょう。
+左下の `main` というボタンをクリックして、`Create new branch from...` を選択します。次に、分岐元のブランチを選択します。今回は `main` を選択します。最後に、新しいブランチの名前を入力します。新しいブランチ名には、変更の内容を端的に表す名前をつけてください。今回は `hello-自分のアカウント名` という名前にしてみましょう。左下の表示が新しいブランチ名に変わったことを確認してください。
+
+<video src={createNewBranchVideo} muted autoPlay loop controls />
+
+:::info `git switch` コマンド
+
+ブランチの作成をコマンドラインから行うこともできます。
+
+まずは、現在いるブランチを確認してみましょう。ターミナルで `git branch` コマンドを実行してください。
 
 ```shell
 $ git branch
@@ -223,10 +246,10 @@ $ git branch
 
 ここで、`*` から始まっているのが、現在いるブランチです。`main` となっているはずです。
 
-次に、変更を行うために新しいブランチを作成して、移動します。ブランチ名は作業する内容が端的にわかるような名前にしてください。
+新しいブランチを作成して移動するには、`git switch` コマンドを使います。
 
 ```shell
-git checkout -b 新しいブランチ名
+git switch -c 新しいブランチ名
 ```
 
 現在いるブランチを確認すると、`*` が移動しているはずです。
@@ -236,6 +259,10 @@ $ git branch
   main
 * 新しいブランチ名
 ```
+
+<video src={createNewBranchWithCliVideo} muted autoPlay loop controls />
+
+:::
 
 この状態で、ファイルに必要な変更を行います。
 練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。
