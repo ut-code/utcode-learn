@@ -76,6 +76,12 @@ $ git config --global user.email メールアドレス
 
 <video src={setupGitVideo} controls muted />
 
+現在 WSL 上の Ubuntu の Git では、デフォルトブランチの名前が `master` ですが、Mac では `main` になっています。また、GitHub ではデフォルトブランチの名前が `main` になっています。これらを統一するために、次のコマンドを実行してください。
+
+```shell
+git config --global init.defaultBranch main
+```
+
 ## 公開鍵・秘密鍵ペアの作成と GitHub への登録
 
 GitHub にブラウザからログインする際にはメールアドレスとパスワードを用いますが、Git のコマンドを用いて GitHub を使用する場合には、公開鍵・秘密鍵のペアを使用します。
