@@ -29,7 +29,7 @@ document.getElementById("fetch-button").onclick = async () => {
 
 <ViewSource url={import.meta.url} path="_samples/fetch-api" />
 
-`async () => {}` は、<Term type="asynchronousProcess">非同期関数</Term>、つまり<Term type="asynchronousProcess">async キーワードのついた関数</Term>を生成するための<Term type="arrowFunction">アロー関数式</Term>です。
+`async () => {}` は、<Term type="asynchronousProcess">非同期関数</Term>、つまり <Term type="asynchronousProcess">`async` キーワードのついた関数</Term>を生成するための<Term type="arrowFunction">アロー関数式</Term>です。
 
 [`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term type="httpRequestResponse">リクエスト</Term>を発行するための関数です。標準では<Term type="httpMethod">GET リクエスト</Term>が発行されます。この関数の戻り値に <Term type="asynchronousProcess">`await 演算子`</Term>を適用すると、発行した<Term type="httpRequestResponse">リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch` 関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term type="httpRequestResponse">リクエスト</Term>を発行することができます。
 
