@@ -145,13 +145,16 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 
 VS Code 標準の機能だけでも多くのことができますが、より便利に利用するために拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
 
-- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-  コミットの差分などが見やすくなり便利
-  ![GitLens](./gitLens.png)
+### [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
-- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-  コマンドパレット(`Cmd / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+コミットの差分などが見やすくなり便利
 
-  ![GitGragh](./gitGraph.png)
+![GitLens](./gitLens.png)
 
-  ![GitGragh拡張機能の様子](./gitGraph-view.png)
+### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+コマンドパレット(`Cmd / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+
+![GitGragh](./gitGraph.png)
+
+![GitGragh拡張機能の様子](./gitGraph-view.png)
