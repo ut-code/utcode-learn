@@ -76,7 +76,7 @@ $ git config --global user.email メールアドレス
 
 <video src={setupGitVideo} controls muted />
 
-現在 WSL 上の Ubuntu の Git では、デフォルトブランチの名前が `master` ですが、macOS では `main` になっています。また、GitHub ではデフォルトブランチの名前が `main` になっています。これらを統一するために、次のコマンドを実行してください。
+現在 WSL 上の Ubuntu の Git では、デフォルトブランチというものが `master` に設定されていますが、macOS では `main` になっています。また、GitHub ではデフォルトブランチが `main` になっています。これらを統一するために、次のコマンドを実行してください。
 
 ```shell
 git config --global init.defaultBranch main
@@ -111,8 +111,7 @@ $ ssh-keygen -t ed25519
 デフォルトでは公開鍵が `~/.ssh/id_ed25519.pub`、秘密鍵が `~/.ssh/id_ed25519` に格納されます。公開鍵のファイルを `cat` コマンドを用いて出力しましょう。
 
 ```shell
-$ cd ~/.ssh
-$ cat id_ed25519.pub
+$ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGz9wBSTWY0W4yJXPGQ/XsaffDTdvGOKg3mtR9pP3D6i [ユーザー名]@[コンピューター名]
 ```
 
@@ -146,13 +145,16 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 
 VS Code 標準の機能だけでも多くのことができますが、より便利に利用するために拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
 
-- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-  コミットの差分などが見やすくなり便利
-  ![GitLens](./gitLens.png)
+### [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
-- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-  コマンドパレット(`Cmd / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+コミットの差分などが見やすくなり便利
 
-  ![GitGragh](./gitGraph.png)
+![GitLens](./gitLens.png)
 
-  ![GitGragh拡張機能の様子](./gitGraph-view.png)
+### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+コマンドパレット(`Cmd / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+
+![GitGragh](./gitGraph.png)
+
+![GitGragh拡張機能の様子](./gitGraph-view.png)
