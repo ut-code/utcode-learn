@@ -8,6 +8,8 @@ import createNewBranchWithCliVideo from "./create-new-branch-with-cli.mp4";
 import pushNewBranchVideo from "./push-new-branch.mp4";
 import pushNewBranchWithCliVideo from "./push-new-branch-with-cli.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
+import pullBranchVideo from "./pull-branch.mp4";
+import pullBranchWithCliVideo from "./pull-branch-with-cli.mp4";
 
 ## GitHub を用いた共同開発をする
 
@@ -154,3 +156,21 @@ GitHub を開き `Pull requests` を開いてください。
 マージしたら、不要になったブランチは削除しておきましょう。
 
 <video src={prPracticeVideo} muted controls />
+
+この後、また変更を加える場合は、他の人が変更を加えている可能性があるので、まずは `main` ブランチに戻って、プルをすることでリモートの変更を取り込みます。その後は、今までと同様に新しいブランチを作成して進めて言ってください。
+
+リモートの変更をプルするには、`Source Control` パネルから `Pull` を押してリモートの変更を取り込みます。
+
+<video src={pullBranchVideo} muted controls />
+
+:::info
+
+コマンドラインからプルするには、次のコマンドを実行します。
+
+```shell
+git pull
+```
+
+<video src={pullBranchWithCliVideo} muted controls />
+
+:::
