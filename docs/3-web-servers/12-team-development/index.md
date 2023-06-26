@@ -8,12 +8,14 @@ import createNewBranchWithCliVideo from "./create-new-branch-with-cli.mp4";
 import pushNewBranchVideo from "./push-new-branch.mp4";
 import pushNewBranchWithCliVideo from "./push-new-branch-with-cli.mp4";
 import prPracticeVideo from "./pr-practice.mp4";
+import pullBranchVideo from "./pull-branch.mp4";
+import pullBranchWithCliVideo from "./pull-branch-with-cli.mp4";
 
 ## GitHub を用いた共同開発をする
 
 GitHub を用いると簡単に共同開発ができます。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)を用意してあるのでここに変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、事前に権限をもらっておきましょう。
 
-まずは、共同開発をするリポジトリをローカルにクローンします。クローンするとは、リモートリポジトリを自分の PC 上にコピーすることです。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)の **SSH** の URL をコピーして、次のコマンドを実行してください。その後、クローンしたリポジトリを VS Code で開いてください。
+まずは、共同開発をするリポジトリをローカルにクローンします。クローンするとは、リモートリポジトリを自分の PC 上に複製することです。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)の **SSH** の URL をコピーして、次のコマンドを実行してください。その後、クローンしたリポジトリを VS Code で開いてください。
 
 ```shell
 git clone git@github.com:ut-code/readme_practice.git
@@ -21,7 +23,7 @@ git clone git@github.com:ut-code/readme_practice.git
 
 <video src={cloneRepositoryVideo} muted autoPlay loop controls />
 
-複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。そして、作業が終わったらメインのブランチに自分のブランチの変更を取り込みます。これによって、プロジェクトの本体に影響を与えずに同時並行で開発を進めることが出来ます。
+複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。
 
 ```mermaid
 gitGraph
@@ -33,6 +35,22 @@ gitGraph
   checkout main
   branch add-contact-page
   commit id: "Add contact.html"
+```
+
+そして、作業が終わったらメインのブランチに自分のブランチの変更を取り込みます。これによって、プロジェクトの本体に影響を与えずに同時並行で開発を進めることが出来ます。
+
+```mermaid
+gitGraph
+  commit id: "Add index.html"
+  commit id: "Add service.html"
+  commit id: "Add company.html"
+  branch add-recruit-page
+  commit id: "Add recruit.html"
+  checkout main
+  branch add-contact-page
+  commit id: "Add contact.html"
+  checkout main
+  merge add-recruit-page
 ```
 
 まずは、メインのブランチから自分の作業専用のブランチを作成しましょう。
@@ -71,7 +89,7 @@ $ git branch
 
 :::
 
-この状態で、ファイルに必要な変更を行います。練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。`自分のアカウント名.txt` とします。ファイルの中身は何でも構いません。変更ができたらその都度、変更をステージし、コミットします。必要に応じて、コミットの履歴やコミットの差分を確認してください。
+この状態で、ファイルに必要な変更を行います。練習用のリポジトリに自分だけの新しいファイルを作ってみましょう。今回は、`自分のアカウント名.txt` というファイルを作ってみましょう。ファイルの中身は何でも構いません。変更ができたらその都度、変更をステージし、コミットします。必要に応じて、コミットの履歴やコミットの差分を確認してください。
 
 変更が終わったら、変更をリモートにも反映します。新しく作ったブランチをリモートリポジトリにプッシュします。
 
@@ -131,10 +149,28 @@ GitHub を開き `Pull requests` を開いてください。
 
 ![Merge pull request](./merge-pull-request.png)
 
-変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
+メインのブランチと自分の加えた変更の差分は、`Files changed` タブから確認できます。変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
 
 ![Delete branch](./delete-branch.png)
 
 マージしたら、不要になったブランチは削除しておきましょう。
 
 <video src={prPracticeVideo} muted controls />
+
+この後、また変更を加える場合は、他の人が変更を加えている可能性があるので、まずは `main` ブランチに戻って、プルをすることでリモートの変更を取り込みます。その後は、今までと同様に新しいブランチを作成して進めて言ってください。
+
+リモートの変更をプルするには、`Source Control` パネルから `Pull` を押してリモートの変更を取り込みます。
+
+<video src={pullBranchVideo} muted controls />
+
+:::info
+
+コマンドラインからプルするには、次のコマンドを実行します。
+
+```shell
+git pull
+```
+
+<video src={pullBranchWithCliVideo} muted controls />
+
+:::
