@@ -13,7 +13,7 @@ import prPracticeVideo from "./pr-practice.mp4";
 
 GitHub を用いると簡単に共同開発ができます。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)を用意してあるのでここに変更を加えてみましょう。変更を加えるのにはリポジトリの編集権限が必要なので、事前に権限をもらっておきましょう。
 
-まずは、共同開発をするリポジトリをローカルにクローンします。クローンするとは、リモートリポジトリを自分の PC 上にコピーすることです。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)の **SSH** の URL をコピーして、次のコマンドを実行してください。その後、クローンしたリポジトリを VS Code で開いてください。
+まずは、共同開発をするリポジトリをローカルにクローンします。クローンするとは、リモートリポジトリを自分の PC 上に複製することです。[練習用のリポジトリ](https://github.com/ut-code/readme_practice)の **SSH** の URL をコピーして、次のコマンドを実行してください。その後、クローンしたリポジトリを VS Code で開いてください。
 
 ```shell
 git clone git@github.com:ut-code/readme_practice.git
@@ -21,7 +21,7 @@ git clone git@github.com:ut-code/readme_practice.git
 
 <video src={cloneRepositoryVideo} muted autoPlay loop controls />
 
-複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。そして、作業が終わったらメインのブランチに自分のブランチの変更を取り込みます。これによって、プロジェクトの本体に影響を与えずに同時並行で開発を進めることが出来ます。
+複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。
 
 ```mermaid
 gitGraph
@@ -33,6 +33,22 @@ gitGraph
   checkout main
   branch add-contact-page
   commit id: "Add contact.html"
+```
+
+そして、作業が終わったらメインのブランチに自分のブランチの変更を取り込みます。これによって、プロジェクトの本体に影響を与えずに同時並行で開発を進めることが出来ます。
+
+```mermaid
+gitGraph
+  commit id: "Add index.html"
+  commit id: "Add service.html"
+  commit id: "Add company.html"
+  branch add-recruit-page
+  commit id: "Add recruit.html"
+  checkout main
+  branch add-contact-page
+  commit id: "Add contact.html"
+  checkout main
+  merge add-recruit-page
 ```
 
 まずは、メインのブランチから自分の作業専用のブランチを作成しましょう。
