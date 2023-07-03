@@ -383,11 +383,7 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
 2. `name` のみ
 
-   ```typescript
-   declare const t:
-     | { name: string; age: number }
-     | { name: string; subject: string };
-   ```
+2つの方に共通しているのは `name` プロパティだけなので、`StringAndNumber` 型の変数に必ず存在しているプロパティは`name` のみとなります。よって、`name` のみ使用可能となります。
 
 3. `(v: unknown) => string` と `(v: string) => never`
 
