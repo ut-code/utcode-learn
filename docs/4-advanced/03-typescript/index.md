@@ -383,11 +383,7 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
 2. `name` のみ
 
-   ```typescript
-   declare const t:
-     | { name: string; age: number }
-     | { name: string; subject: string };
-   ```
+   2 つの型に共通しているのは `name` プロパティだけなので、`T` 型の変数に必ず存在しているプロパティは`name` のみとなります。よって、`name` のみ使用可能となります。
 
 3. `(v: unknown) => string` と `(v: string) => never`
 
@@ -411,10 +407,12 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 
    もしこのコードが通る場合、実際に渡された `{name: "Tanaka", math: 100}` には存在しないはずの `science` プロパティにアクセスできてしまうことになります。このようなことを防ぐために、引数の型が小さい集合になればなるほど、関数の型は大きな集合になる必要があります。
 
-4. ```typescript
-   function apply<T, U>(f: (x: T) => U, x: T): U {
-     return f(x);
-   }
+4. 以下のコード
+
+   ```typescript
+      function apply<T, U>(f: (x: T) => U, x: T): U {
+        return f(x);
+      }
    ```
 
    <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />
