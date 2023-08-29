@@ -19,6 +19,10 @@ body {
   box-shadow: 0 0 5px #ccc;
 }
 
+h1 {
+  font-size: 1.5em;
+}
+
 .price {
   margin-bottom: 10px;
   font-weight: bold;
@@ -26,7 +30,7 @@ body {
   color: #000;
 }
 
-#container h2 {
+#container h1 {
   margin: 10px 0;
   font-weight: normal;
 }
