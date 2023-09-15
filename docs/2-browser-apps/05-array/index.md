@@ -62,8 +62,8 @@ document.write([3, 2, 1][0]);
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
-for (const studentName of studentNames) {
-  document.write(studentName);
+for (const name of studentNames) {
+  document.write(name);
 }
 ```
 
