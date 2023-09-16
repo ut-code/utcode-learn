@@ -1,14 +1,30 @@
 ---
-title: Express とテンプレートエンジン
+title: Express によるサーバー構築
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
-## Express パッケージを用いて HTTP サーバーを構築する
+## ウェブサイトが動作する仕組み
 
-[Express パッケージ](https://www.npmjs.com/package/express) を用いると、Node.js 標準の `http` モジュールよりも簡単に Web サーバーを構築できます。
+[「Webプログラミングの基礎を学ぼう」](../../1-trial-session/index.md) の章では、ウェブサイトを表示するために HTML ファイルと JavaScript ファイルを作成し、ブラウザから開きました。しかしながら、通常のウェブサイトではこのような手順は踏まず、URL をブラウザに入力することにより閲覧することができます。
+
+Web では、通常インターネットを介してデータをやり取りします。インターネットを人間が直接利用することはできないので、何らかのコンピューターを使用しなければなりません。このとき、通常は
+
+- **クライアント**: サービスを利用する側のコンピューターや、その上で直接通信を担うソフトウェア
+- **サーバー**: サービスを提供する側のコンピューターや、その上で直接通信を担うソフトウェア
+
+という二者の関係が発生します。また、その間で発生する通信を、その方向により
+
+- **リクエスト**: クライアントからサーバーに対する要求
+- **レスポンス**: リクエストに対する応答
+
+のように区別して呼びます。それでは、Node.js で Web サーバーを作ってみましょう。
+
+## Express パッケージを用いて Web サーバーを構築する
+
+[Express パッケージ](https://www.npmjs.com/package/express) を用いると、簡単に Web サーバーを構築できます。
 
 まずは `express` パッケージを npm でインストールします。
 
@@ -23,17 +39,41 @@ const express = require("express");
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send("Hello Express");
+  response.send("Hello World");
 });
 
 app.listen(3000);
 ```
 
-`main.js` を起動することにより、 `http://localhost:3000/` で `Hello Express` が表示されます。
+ファイルを保存したら、作成したファイルを実行し、ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
 
-[前頁](../04-http-server/index.md) の `http` 標準モジュールを用いた例とほとんど同じことを行うプログラムになっていますが、`express` を使う場合は少々異なる部分があります。まず、`require("express")` の戻り値は関数となっており、この関数を呼び出すことにより、[`express.Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
+:::caution Web サーバーの停止
 
-[`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)は、`http` 標準モジュールにおける `request` イベントハンドラの登録に相当する操作を行うためのメソッドです。イベントハンドラの引数に `request` と `response` が存在する点では一致していますが、Express では [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)が利用できます。これは、[`http.ServerResponse#write`](https://nodejs.org/api/http.html#responsewritechunk-encoding-callback) メソッドと、[`http.ServerResponse#end`](https://nodejs.org/api/http.html#responseenddata-encoding-callback) メソッドを順番に呼ぶ操作に対応します。
+このプログラムは、一度起動すると停止しません。サーバーにとって、クライアントからのリクエストはいつやってくるかわからないため、常に起動し続けている必要があるからです。Node.js プログラムを終了するには、ターミナル上で `Ctrl + C` を押します。
+
+:::
+
+書いたコードを詳しく見てみましょう。
+
+まず、`require("express")` の戻り値は関数となっており、この関数を呼び出すことにより、[`express.Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
+
+[`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)は、クライアントから特定のパスに対してリクエストが来た時に実行される関数を追加するメソッドです。第 1 引数にはパスの文字列を、第 2 引数には実行される関数を指定します。
+
+例えば今回であれば第 1 引数に `"/path"` を渡すと `http://localhost:3000/path` にリクエストが来たときに関数が実行されることになります。
+
+第 2 引数の関数を詳しく見てみましょう。この関数は２つの引数をとります。具体的には第 1 引数に受け取ったリクエストを表す [`express.Request` クラス](https://expressjs.com/ja/api.html#req) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`express.Response` クラス](https://expressjs.com/ja/api.html#res) のインスタンスが渡されます。
+
+そして [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)により、クライアントが必要なデータを送信することができます。
+
+## HTTP
+
+インターネット上には、さまざまなデータが流れています。インターネットに接続しているコンピューターが好き勝手にデータを送受信しても、意味のあるやり取りは成立しません。このため、通信を行うための手順を標準化しておく必要があります。こうしてできた手順のことを、**プロトコル**と呼びます。
+
+Web の世界で用いられるプロトコルは、通常 **HTTP** と呼ばれるものです。ブラウザに `http://example.com/path/to/index.html` が入力された場合、ブラウザとサーバーの間で次の図のような通信が行われます。
+
+![HTTP](./basic-http.png)
+
+Web サーバーにアクセスするために用いた http://localhost:3000/ のうち、http はプロトコルを、localhost:3000 はサーバーの所在地を表しています (localhost は自分のコンピューターを指します)。
 
 ## 静的ホスティング
 
@@ -82,7 +122,7 @@ app.listen(3000);
 
 :::
 
-## EJS テンプレートエンジン
+## 動的なウェブページ
 
 前項のプログラムを書き換えて、複雑な HTML を出力できるようにしてみましょう。
 
@@ -121,9 +161,11 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 :::
 
-なかなか大変なことになっています。これから HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
+このようにテンプレートリテラルを用いることで、JavaScriptのプログラムから HTML に変更を加え出力することができます。
 
-[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。`ejs` パッケージを npm でインストールしてください。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。
+:::tip テンプレートエンジン
+上記のようにテンプレートリテラルを使って HTML を生成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
+[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は ejs をインストールしてください)
 
 ```javascript title=main.js
 const fs = require("fs");
@@ -168,10 +210,12 @@ app.listen(3000);
 
 テンプレート内の `<%` から `%>` で囲まれた部分は、JavaScript のプログラムとして実行されます。また、`<%=` から `%>` で囲まれた部分は JavaScript の式として評価され、最終的な結果に埋め込まれます。
 
+:::
+
 ## 課題
 
 - Express を用いて、`あなたは n 人目のお客様です。` とレスポンスする Web サーバーを作成してください。`n` はアクセスされるたびに 1 ずつ増えるようにしてください。
-- 上記プログラムに EJS を追加してみてください。
+- (発展) 上記プログラムに EJS を追加してみてください。
 - (重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。
   - この 2 つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
 
