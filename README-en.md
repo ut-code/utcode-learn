@@ -64,3 +64,7 @@ Copyright © 2023 ut.code();.
 ## Contributing
 
 Issue or PR is always welcome.
+
+## Deployment
+
+Create a GitHub Release to deploy the latest website.
