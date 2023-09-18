@@ -62,8 +62,8 @@ document.write([3, 2, 1][0]);
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
-for (const studentName of studentNames) {
-  document.write(studentName);
+for (const name of studentNames) {
+  document.write(name);
 }
 ```
 
@@ -154,9 +154,9 @@ const scores = { math: 90, science: 80 };
 document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
 ```
 
-:::tip オブジェクトのプロパティ
+:::tip オブジェクトのプロパティ名
 
-オブジェクトのプロパティに数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
+オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
 
 答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
 
