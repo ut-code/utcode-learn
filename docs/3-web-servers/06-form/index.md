@@ -40,6 +40,8 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
+<ViewSource url={import.meta.url} path="_samples/query-parameter" />
+
 :::tip JSON とは何か
 
 JSON は「JavaScript Object Notation」の略で JavaScript のオブジェクト表記法を倣ったデータ記述方法のことです。つまりデータの保存は<Term type="javascriptObject">オブジェクト</Term>の形式で行うという決まり事です。表記法の名前なので臆する必要はありません。
