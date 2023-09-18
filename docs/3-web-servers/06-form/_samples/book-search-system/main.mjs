@@ -1,6 +1,6 @@
-const fs = require("fs");
-const express = require("express");
-const ejs = require("ejs");
+import fs from "fs";
+import express from "express";
+import ejs from "ejs";
 
 const app = express();
 

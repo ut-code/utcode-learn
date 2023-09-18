@@ -40,8 +40,8 @@ HTTP リクエストのこのような区分を、<Term type="httpMethod" strong
 </html>
 ```
 
-```javascript title="main.js"
-const express = require("express");
+```javascript title="main.mjs"
+import express from "express";
 
 const app = express();
 

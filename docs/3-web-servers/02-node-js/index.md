@@ -115,13 +115,13 @@ Windows の WSL では、エクスプローラーのサイドパネルから `Li
 
 :::
 
-続いて、開いたフォルダに `main.js` ファイルを作成し、下のスクリプトを保存します。`console.log` 関数は、画面に文章を表示させるための関数です。
+続いて、開いたフォルダに `main.mjs` ファイルを作成し、下のスクリプトを保存します。拡張子が `.mjs` であることに気をつけてください。`console.log` 関数は、画面に文章を表示させるための関数です。
 
-```javascript title=main.js
+```javascript title=main.mjs
 console.log("Hello World");
 ```
 
-ターミナルを開き、`node main.js` コマンドを実行します。
+ターミナルを開き、`node main.mjs` コマンドを実行します。
 
 ![Hello Worldを実行](./run-hello-world.png)
 

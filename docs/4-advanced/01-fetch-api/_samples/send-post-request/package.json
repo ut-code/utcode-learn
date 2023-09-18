@@ -1,10 +1,10 @@
 {
   "name": "fetch-api",
   "version": "0.0.1",
-  "main": "server.js",
+  "main": "server.mjs",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.mjs"
   },
   "dependencies": {
     "express": "^4.18.2"
