@@ -92,7 +92,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
-出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](../../1-trial-session/14-deploy-application/index.md) などにアップロードすれば使用可能になるでしょう。
+出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](../../1-trial-session/16-deploy-application/index.md) などにアップロードすれば使用可能になるでしょう。
 
 <video src={buildVideo} controls />
 

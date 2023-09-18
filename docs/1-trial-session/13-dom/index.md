@@ -53,6 +53,6 @@ element.style.backgroundColor = "red";
 
 ## 課題
 
-[CSS の節](../09-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
+[CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
 <ViewSource url={import.meta.url} path="_samples/css" />

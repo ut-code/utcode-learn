@@ -10,7 +10,7 @@ import calculatorVideo from "./calculator.mp4";
 import objectEventVideo from "./object-event.mp4";
 import drawingVideo from "./drawing.mp4";
 
-この章では教材の「[オブジェクト](../../1-trial-session/10-object/index.md)」から「[プロジェクト](../../1-trial-session/13-project/index.md)」までの内容を扱っています。
+この章では教材の「[オブジェクト](../../1-trial-session/11-object/index.md)」から「[プロジェクト](../../1-trial-session/15-project/index.md)」までの内容を扱っています。
 
 ---
 
