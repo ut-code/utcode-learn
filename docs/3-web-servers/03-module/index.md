@@ -121,7 +121,7 @@ console.log(subtract(4, 3));
 
 さきほどのように `export` 文と `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行う JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
 
-ECMAScript モジュールの他に `exports` オブジェクトや `require` 関数を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行う [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。Node.js では、拡張子を `.js` にすることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
+ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
 
 `exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
