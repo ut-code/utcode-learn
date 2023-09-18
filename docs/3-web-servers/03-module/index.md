@@ -156,7 +156,7 @@ console.log(readFileSync("sample.txt", "utf-8"));
 Hello World
 ```
 
-<ViewSource url={import.meta.url} path="_samples/read-file-sync" />
+<ViewSource url={import.meta.url} path="_samples/read-file-sync" noCodeSandbox />
 
 :::tip 文字コード
 
