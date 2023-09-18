@@ -32,10 +32,10 @@ Web では、通常インターネットを介してデータをやり取りし�
 npm install express
 ```
 
-続いて、次のような `main.js` を作成しましょう。
+続いて、次のような `main.mjs` を作成しましょう。
 
 ```javascript title=main.js
-const express = require("express");
+import express from "express";
 const app = express();
 
 app.get("/", (request, response) => {
@@ -57,7 +57,7 @@ app.listen(3000);
 
 書いたコードを詳しく見てみましょう。
 
-まず、`require("express")` の戻り値は関数となっており、この関数を呼び出すことにより、[`express.Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
+`express` 関数を呼び出すことにより、[`express.Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
 
 [`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)は、クライアントから特定のパスに対してリクエストが来た時に実行される関数を追加するメソッドです。第 1 引数にはパスの文字列を、第 2 引数には実行される関数を指定します。
 
@@ -72,10 +72,10 @@ app.listen(3000);
 
 `http` 標準モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
 
-```javascript title=main.js
-const http = require("http");
+```javascript title=main.mjs
+import { Server } from "http";
 
-const server = new http.Server();
+const server = new Server();
 
 server.addListener("request", (request, response) => {
   response.write("Hello World");
@@ -110,21 +110,21 @@ Web サーバーにアクセスするために用いた http://localhost:3000/ �
 次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
 ```javascript
-const express = require("express");
-const fs = require("fs");
+import express from "express";
+import { readFileSync } from "fs";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send(fs.readFileSync("static/index.html", "utf-8"));
+  response.send(readFileSync("static/index.html", "utf-8"));
 });
 app.get("/script.js", (request, response) => {
-  response.send(fs.readFileSync("static/script.js", "utf-8"));
+  response.send(readFileSync("static/script.js", "utf-8"));
 });
 app.get("/sub/", (request, response) => {
-  response.send(fs.readFileSync("static/sub/index.html", "utf-8"));
+  response.send(readFileSync("static/sub/index.html", "utf-8"));
 });
 app.get("/sub/script.js", (request, response) => {
-  response.send(fs.readFileSync("static/sub/script.js", "utf-8"));
+  response.send(readFileSync("static/sub/script.js", "utf-8"));
 });
 
 app.listen(3000);
@@ -135,7 +135,7 @@ app.listen(3000);
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
 ```javascript
-const express = require("express");
+import express from "express";
 
 const app = express();
 app.use(express.static("static"));
@@ -157,7 +157,7 @@ app.listen(3000);
 前項のプログラムを書き換えて、複雑な HTML を出力できるようにしてみましょう。
 
 ```javascript
-const express = require("express");
+import express from "express";
 const app = express();
 
 const names = ["田中", "鈴木", "佐藤"];
@@ -197,16 +197,17 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 上記のようにテンプレートリテラルを使って HTML を生成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
 [EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は ejs をインストールしてください)
 
-```javascript title=main.js
-const fs = require("fs");
-const express = require("express");
-const ejs = require("ejs");
+```javascript title=main.mjs
+import { readFileSync } from "fs";
+import express from "express";
+import { render } from "ejs";
+
 const app = express();
 
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
-  const template = fs.readFileSync("template.ejs", "utf-8");
-  const html = ejs.render(template, {
+  const template = readFileSync("template.ejs", "utf-8");
+  const html = render(template, {
     listItems: names,
   });
   response.send(html);
@@ -236,7 +237,7 @@ app.listen(3000);
 
 イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `template.ejs` ファイルの内容を読み込んでいます。その次の行の [`ejs.render` 関数](https://ejs.co/#docs) がポイントです。この関数は、第 1 引数にテンプレートを文字列として受け取り、諸々の変換を行った後の文字列を返します。第 2 引数には、変換の際に埋め込みたいデータをオブジェクトの形式で指定します。
 
-このオブジェクトのキーと同じ名前の変数が、テンプレート内で利用できます。上の例の `template.ejs` における `listItems` は、`main.js` で指定した `{ listItems: names }` により `["田中", "鈴木", "佐藤"]` になります。
+このオブジェクトのキーと同じ名前の変数が、テンプレート内で利用できます。上の例の `template.ejs` における `listItems` は、`main.mjs` で指定した `{ listItems: names }` により `["田中", "鈴木", "佐藤"]` になります。
 
 テンプレート内の `<%` から `%>` で囲まれた部分は、JavaScript のプログラムとして実行されます。また、`<%=` から `%>` で囲まれた部分は JavaScript の式として評価され、最終的な結果に埋め込まれます。
 
@@ -245,7 +246,6 @@ app.listen(3000);
 ## 課題
 
 - Express を用いて、`あなたは n 人目のお客様です。` とレスポンスする Web サーバーを作成してください。`n` はアクセスされるたびに 1 ずつ増えるようにしてください。
-- (発展) 上記プログラムに EJS を追加してみてください。
 - (重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。
   - この 2 つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
 
@@ -254,9 +254,5 @@ app.listen(3000);
 <ViewSource url={import.meta.url} path="_samples/nth" />
 
 解答例 2:
-
-<ViewSource url={import.meta.url} path="_samples/nth-ejs" />
-
-解答例 3:
 
 <ViewSource url={import.meta.url} path="_samples/server-or-client" />
