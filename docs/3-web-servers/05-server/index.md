@@ -47,7 +47,7 @@ app.listen(3000);
 
 ファイルを保存したら、作成したファイルを実行し、ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
 
-![HTTPサーバー](./http-server.png)
+![サーバー](./express-server.png)
 
 :::caution Web サーバーの停止
 
