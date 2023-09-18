@@ -156,6 +156,8 @@ console.log(readFileSync("sample.txt", "utf-8"));
 Hello World
 ```
 
+<ViewSource url={import.meta.url} path="_samples/read-file-sync" />
+
 :::tip 文字コード
 
 **文字コード**とは、文字のコンピューターによる表現です。`UTF-8` や `Shift_JIS` などさまざまな方式が定義されていますが、現在では通常 `UTF-8` を選んでおけば問題ありません。間違った方式を選んでしまうと、意図と異なる文字として解釈されてしまう現象 (**文字化け**)が起こります。
