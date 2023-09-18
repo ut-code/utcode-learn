@@ -40,7 +40,7 @@ export default function App() {
 
   const fixTodo = () => {
     setTodos(
-      todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo))
+      todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo)),
     );
     setEdittingTodo({ id: -1, title: "" });
   };

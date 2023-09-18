@@ -37,7 +37,7 @@ import Details from "@theme/Details";
 - ブロックレベル要素の `height` やインライン要素の `width`, `height` の初期値は、中身の要素の大きさによって決まるので、`font-size` を変更することで大きさが変化します。また、開発者ツールで値を調べてみると、インライン要素の大きさは文字の大きさと同じになるのに対し、ブロックレベル要素の `height` は `font-size` の 1.5 倍になることがわかります。
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -286,7 +286,7 @@ article div.title {
 <Details summary={<summary>HTML</summary>}>
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

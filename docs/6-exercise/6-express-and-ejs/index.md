@@ -159,7 +159,7 @@ const app = express();
 const departments = facultyData.engineering.departments;
 app.get("/", (request, response) => {
   response.send(
-    departments.map((department) => `<li>${department}</li>`).join("")
+    departments.map((department) => `<li>${department}</li>`).join(""),
   );
 });
 
@@ -193,7 +193,7 @@ app.listen(3000);
 ```
 
 ```html title="template.ejs"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />

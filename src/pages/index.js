@@ -22,7 +22,7 @@ function Home() {
             <Link
               className={clsx(
                 "button button--secondary button--lg",
-                styles.getStarted
+                styles.getStarted,
               )}
               to={useBaseUrl("docs/")}
             >
