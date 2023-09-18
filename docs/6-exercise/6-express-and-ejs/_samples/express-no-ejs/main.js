@@ -5,7 +5,7 @@ const app = express();
 const departments = facultyData.engineering.departments;
 app.get("/", (request, response) => {
   response.send(
-    departments.map((department) => `<li>${department}</li>`).join("")
+    departments.map((department) => `<li>${department}</li>`).join(""),
   );
 });
 

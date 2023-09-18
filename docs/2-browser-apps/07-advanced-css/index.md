@@ -19,7 +19,7 @@ import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 
 ```html title=index.html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />

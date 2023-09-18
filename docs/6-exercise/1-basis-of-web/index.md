@@ -21,7 +21,7 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 <Answer>
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

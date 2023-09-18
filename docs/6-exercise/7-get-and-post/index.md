@@ -48,7 +48,7 @@ app.listen(3000);
 ```
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

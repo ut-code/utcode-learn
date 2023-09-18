@@ -135,7 +135,7 @@ React を使用するプロジェクトでは、通常 <Term type="jsx" strong>J
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 ```
 
@@ -759,7 +759,7 @@ const addTodo = () => {
 const removeTodo = (id: number) => {
   todos.splice(
     todos.findIndex((todo) => todo.id === id),
-    1
+    1,
   );
 };
 ```

@@ -24,7 +24,7 @@ HTTP リクエストのこのような区分を、<Term type="httpMethod" strong
 前頁の例を、POST リクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドの<Term type="httpRequestResponse">リクエスト</Term>を発行します。
 
 ```html title="static/index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -50,7 +50,7 @@ app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
   response.send(
-    `あなたの名前は${request.body.name}で、${request.body.age}歳ですね。`
+    `あなたの名前は${request.body.name}で、${request.body.age}歳ですね。`,
   );
 });
 app.listen(3000);

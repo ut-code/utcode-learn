@@ -16,7 +16,7 @@ app.use(express.static("static"));
 
 app.get("/send", (request, response) => {
   const selectedBooks = books.filter(
-    (book) => book.author === request.query.author
+    (book) => book.author === request.query.author,
   );
   const template = fs.readFileSync("template.ejs", "utf-8");
   const html = ejs.render(template, { selectedBooks: selectedBooks });
