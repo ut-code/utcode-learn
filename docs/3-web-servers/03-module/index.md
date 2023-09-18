@@ -228,6 +228,8 @@ import { format } from "date-fns";
 console.log(format(new Date(), "yyyy年MM月dd日"));
 ```
 
+<ViewSource url={import.meta.url} path="_samples/date-fns" />
+
 ![date-fns パッケージの利用](./use-package.png)
 
 ## 課題
