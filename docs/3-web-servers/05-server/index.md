@@ -181,6 +181,8 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
+<ViewSource url={import.meta.url} path="_samples/complex-html" />
+
 :::note `Array#join`
 
 [`Array#join` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
