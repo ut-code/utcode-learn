@@ -1,5 +1,5 @@
 {
-  "name": "send-request-query",
+  "name": "query-parameter",
   "version": "1.0.0",
   "main": "main.mjs",
   "scripts": {
