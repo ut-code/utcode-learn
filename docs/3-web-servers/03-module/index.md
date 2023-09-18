@@ -166,7 +166,18 @@ Hello World
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
-<ViewSource url={import.meta.url} path="_samples/fs-writeFileSync" noCodeSandbox />
+<Answer>
+
+第一引数にファイル名、第二引数に書き込む文字列を指定します。
+
+```javascript title=main.mjs
+import { writeFileSync } from "fs";
+writeFileSync("./sample.txt", "Hello World");
+```
+
+<ViewSource url={import.meta.url} path="_samples/write-file-sync" noCodeSandbox />
+
+</Answer>
 
 ## npm
 
