@@ -291,7 +291,7 @@ export default {
       definition:
         "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
-    },    
+    },
     javascriptClass: {
       name: "クラス (JavaScript)",
       definition:

@@ -76,7 +76,7 @@ app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
   response.send(
-    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`
+    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`,
   );
 });
 
@@ -121,7 +121,7 @@ app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
   response.send(
-    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`
+    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`,
   );
 });
 

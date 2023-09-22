@@ -6,7 +6,7 @@ sidebar_position: 1
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/09-css/index.md)」までの内容を扱っています。
+この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
 
 ---
 
@@ -21,7 +21,7 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 <Answer>
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

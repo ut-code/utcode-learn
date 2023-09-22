@@ -6,7 +6,7 @@ sidebar_position: 3
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-この章では教材の「[ブラウザの開発者ツール](../../2-browser-apps/01-inspector/index.md)」から「[無名関数](../../2-browser-apps/06-anonymous-function/index.md)」までの内容を扱っています。
+この章では教材の「[ブラウザの開発者ツール](../../2-browser-apps/01-inspector/index.md)」から「[無名関数](../../2-browser-apps/04-anonymous-function/index.md)」までの内容を扱っています。
 
 ---
 
@@ -70,7 +70,7 @@ answer.textContent += 1;
 次のコードは、ブラウザ上に動物の鳴き声を表示するプログラムです。
 
 ```html title=index.html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -312,7 +312,7 @@ const sato = {
 まずは、HTML で表のひな形を作ります。
 
 ```html title=index.html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

@@ -74,7 +74,7 @@ form 要素を使うとユーザーの入力からクエリパラメータを生
 以下のコードの、HTML ファイルと、JavaScript ファイルを作成して実行してみましょう。
 
 ```html title="static/index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -97,7 +97,7 @@ const app = express();
 app.use(express.static("static"));
 app.get("/send", (request, response) => {
   response.send(
-    `あなたの名前は${request.query.name}で、${request.query.age}歳ですね。`
+    `あなたの名前は${request.query.name}で、${request.query.age}歳ですね。`,
   );
 });
 app.listen(3000);

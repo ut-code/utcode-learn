@@ -67,7 +67,7 @@ function App() {
   // カテゴリを削除する関数
   const removeCategory = (existingCategory: string) => {
     setCategories(
-      categories.filter((category) => existingCategory != category)
+      categories.filter((category) => existingCategory != category),
     );
   };
 
@@ -140,7 +140,7 @@ function App() {
                     const todosLeft = todosCopy.filter(
                       (todo) =>
                         (todo.id != editingTodoId || todo.content != "") &&
-                        todo.category != category
+                        todo.category != category,
                     );
                     setTodos(todosLeft);
                     setEditingTodoId(-1);
@@ -151,7 +151,7 @@ function App() {
                   -
                 </button>
               </li>
-            )
+            ),
           )}
         </ul>
         <form
@@ -160,7 +160,7 @@ function App() {
             if (
               categoryInputInSideBar !== "" &&
               !categories.some(
-                (category) => category === categoryInputInSideBar
+                (category) => category === categoryInputInSideBar,
               )
             ) {
               addCategory(categoryInputInSideBar);
@@ -295,7 +295,7 @@ function App() {
                       />
                     </td>
                   </tr>
-                )
+                ),
               )
             )}
           </tbody>
@@ -313,7 +313,7 @@ function App() {
               categoryOfNewTodo = categoryInputInMainScreen;
               if (
                 !categories.some(
-                  (category) => category === categoryInputInMainScreen
+                  (category) => category === categoryInputInMainScreen,
                 )
               ) {
                 addCategory(categoryInputInMainScreen);

@@ -13,7 +13,7 @@ function welcome(user: User) {
   } else {
     // この中では user は Premium 型として扱われる
     console.log(
-      `ようこそ ${user.name}さん プレミアム会員の有効期間は残り${user.daysLeft}日です`
+      `ようこそ ${user.name}さん プレミアム会員の有効期間は残り${user.daysLeft}日です`,
     );
   }
 }
