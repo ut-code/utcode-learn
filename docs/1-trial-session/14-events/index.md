@@ -106,3 +106,5 @@ HTMLファイルに一工夫が必要です。見えない`<div>` タグを用�
 ```
 
 </Details>
+
+<ViewSource url={import.meta.url} path="_samples/" />
