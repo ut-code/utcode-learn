@@ -3,8 +3,12 @@ title: イベント
 ---
 
 import Term from "@site/src/components/Term";
+import Details from "@theme/Details";
+import CodeBlock from '@theme/CodeBlock';
+import ViewSource from "@site/src/components/ViewSource";
 
 import handleClickVideo from "./handle-click.mp4";
+import projectMovieForDom from "./project-movie-for-dom.mp4";
 
 ## <Term type="javascriptValue">値</Term>としての<Term type="javascriptFunction">関数</Term>
 
@@ -71,3 +75,36 @@ greetButton.onclick = clicked();
 上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、 `document.write` をすべての<Term type="element">要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term type="element">要素</Term>を一度削除するという挙動をとるためです。このため、現代の <Term type="javascript">JavaScript</Term> において、 `document.write` <Term type="javascriptFunction">関数</Term>が使用されることはほとんどありません。
 
 :::
+
+## 課題
+
+押すと大きく赤文字が表示される「びっくり箱」のようなボタンを作ってみましょう。
+
+<video src={projectMovieForDom} autoPlay muted loop controls />
+
+<Details summary={<summary>ヒント1：文字列の表示</summary>}>
+
+さっきは文字列の表示に`document.write()` を使いましたが、これでは文字色やサイズが変えられません。
+こんな書き方ならそれもできますが、あまりに乱暴ですよ。
+
+```javascript
+document.write("<div style='color:red; font-size:40px'>Hello world!</div>");
+```
+
+文字列をJavaScriptで操作する方法は前回の「DOM」の章で扱っています。
+
+</Details>
+
+<Details summary={<summary>ヒント2：HTMLファイルに…</summary>}>
+
+`<button>` タグのHTML属性を書き換えるとボタンの中に`Hello world!` を表示してしまいます。
+
+HTMLファイルに一工夫が必要です。見えない`<div>` タグを用意してあげましょう。
+
+```html
+<div id="greeting"></div>
+```
+
+</Details>
+
+<ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
