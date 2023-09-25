@@ -120,6 +120,39 @@ increment();
 
 :::
 
+## モジュール化
+
+複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
+```javascript
+// モジュール化前
+const string = "☆";
+for (let i = 0; i < 10; i++) {
+  let result = "";
+  for (let j = 0; j < i; j++) {
+     result += string;
+  }
+  document.write(result);
+  document.write("<br>");
+}
+```
+
+```javascript
+// モジュール化後
+function repeat(string, times) {
+  let result = "";
+  for (let j = 0; j < times; j++) {
+    result += string;
+  }
+  return result;
+}
+// 煩雑な処理を外部に委託することでコードが読みやすくなる
+for (let i = 0; i < 10; i++) {
+  document.write(repeat("☆", i));
+  document.write("<br>");
+}
+```
+この例における`repeat()`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し足したものを返します。
+
 ## 演習
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。

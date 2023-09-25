@@ -256,6 +256,10 @@ export default {
       definition: "変数が有効な範囲",
       referencePage: "/docs/trial-session/functions/",
     },
+    javascriptModularization: {
+      name: "モジュール化",
+      definition: "ひとまとまりの複雑なものや操作をを一つにまとめること。"
+    }
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
       definition:
