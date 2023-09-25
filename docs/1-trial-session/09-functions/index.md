@@ -107,18 +107,19 @@ increment();
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
-function calculateCost(monthlyBandwidth) {
+function calculateCost(monthlyDataUse) {
   // ここに処理を書く
 }
 
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyBandwidth` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUse` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
-> 月間転送量を _monthlyBandwidth_ (GB) とします。
+
 >
-> - _monthlyBandwidth_ < 5.0 のとき、携帯電話料金は _monthlyBandwidth_ × 600 (円)
-> - _monthlyBandwidth_ >= 5.0 のとき、携帯電話料金は 3000 (円)
+> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
+> - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
+>
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
