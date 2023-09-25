@@ -247,5 +247,15 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
+   <Answer>
 
-<ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />
+   [`mathjs.derivative` 関数](https://mathjs.org/docs/reference/functions/derivative.html)を用いると、微分した式を求めることができます。
+
+   ```javascript
+   import { derivative } from "mathjs";
+   console.log(derivative("log(x, e)", "x").toString());
+   ```
+
+   <ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />
+
+   </Answer>
