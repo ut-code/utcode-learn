@@ -84,7 +84,7 @@ greetButton.onclick = clicked();
 
 <Details summary={<summary>ヒント1：文字列の表示</summary>}>
 
-さっきは文字列の表示に`document.write();` を使いましたが、これでは文字色やサイズが変えられません。
+さっきは文字列の表示に`document.write()` を使いましたが、これでは文字色やサイズが変えられません。
 こんな書き方ならそれもできますが、あまりに乱暴ですよ。
 
 ```javascript
@@ -107,4 +107,4 @@ HTMLファイルに一工夫が必要です。見えない`<div>` タグを用�
 
 </Details>
 
-<ViewSource url={import.meta.url} path="_samples/" />
+<ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
