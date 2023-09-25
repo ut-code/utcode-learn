@@ -1,13 +1,13 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const fs = require("fs");
-const ejs = require("ejs");
+import express from "express";
+import cookieParser from "cookie-parser";
+import fs from "fs";
+import ejs from "ejs";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 app.get("/", (request, response) => {

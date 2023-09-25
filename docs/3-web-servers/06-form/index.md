@@ -30,8 +30,8 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 
 Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
 
-```javascript title="main.js"
-const express = require("express");
+```javascript title=main.mjs
+import express from "express";
 
 const app = express();
 app.get("/", (request, response) => {
@@ -90,8 +90,8 @@ form 要素を使うとユーザーの入力からクエリパラメータを生
 </html>
 ```
 
-```javascript title="main.js"
-const express = require("express");
+```javascript title="main.mjs"
+import express from "express";
 
 const app = express();
 app.use(express.static("static"));

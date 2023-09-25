@@ -1,9 +1,9 @@
 {
   "name": "send-data-to-server",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "main.mjs",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.mjs"
   },
   "license": "MIT",
   "dependencies": {

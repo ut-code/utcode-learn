@@ -1,14 +1,12 @@
 {
-  "name": "math-js",
+  "name": "mathjs",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.mjs"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
-    "mathjs": "^11.8.0"
+    "mathjs": "^11.11.0"
   }
 }
