@@ -68,3 +68,38 @@ document.write(price);
 <p><Term type="javascriptAssignment">代入</Term><Term type="javascriptOperator">演算子</Term>は、まず右辺の<Term type="javascriptExpression">式</Term>を<Term type="javascriptEvaluation">評価</Term>します。これにより、右辺は <code>100 / 2</code> となります。よって、最終的に<Term type="javascriptVariable">変数</Term> <code>price</code> の<Term type="javascriptValue">値</Term>は <code>50</code> となり、これは <code>price</code> を半分にする操作に対応します。</p>
 
 ![変数の再代入](./reassignment-evaluation.png)
+
+## constによる<Term type="javascriptVariable">変数</Term>の宣言
+
+変数の宣言には`let` だけでなく`const` も用いることができます。
+
+```javascript title="script.js"
+const myGrateName = "Becky Jones";
+document.write(myGrateName);
+```
+
+### constとletの違い
+
+`let` と`const` の違いは再<Term type="javascriptAssignment">代入</Term>ができるかどうかです。`let` を使う時には次のようなことができました。
+
+```javascript title="script.js"
+let mysteriousNumber = 0;
+mysteriousNumber = 1;
+mysteriousNumber = 2;
+document.write(mysteriousNumber);
+```
+
+変数に値を（再）<Term type="javascriptAssignment">代入</Term>することで、変数に保存されているデータを書き換えることができました。一方で、`const` を使った場合は変数に保存される値が固定され、書き換えができなくなります。上のコードを`const` に書き換えて実行しても、思った通りには表示されないはずです。
+
+:::info
+
+`const` を使う時には、宣言時に値を代入する必要があります。
+
+`let` と同じように`const 変数名;` と書くと、実行時にエラーが発生します。
+
+:::
+
+### constとletの用途
+
+`const` と`let` は用途によって使い分けがあります。基本的には、意図せず値を書き換えてしまうことを防ぐために`const` が使われます。`let` が必要な場合は様々ですが、状態を保存しておくための変数を宣言することに使われることが多いです。
+[繰り返し](./../08-loop/)の章にあるカウンタ変数がその一例です。他にも、変数の値を踏まえて条件分岐を行うなど、様々な用途があります。
