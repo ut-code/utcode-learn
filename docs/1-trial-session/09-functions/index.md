@@ -145,7 +145,7 @@ function repeat(string, times) {
   }
   return result;
 }
-// 煩雑な処理を外部に委託することでコードが読みやすくなる
+
 for (let i = 0; i < 10; i++) {
   document.write(repeat("☆", i));
   document.write("<br>");
