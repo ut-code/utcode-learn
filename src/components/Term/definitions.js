@@ -259,7 +259,7 @@ export default {
     javascriptModularization: {
       name: "モジュール化",
       definition: "ひとまとまりの複雑なものや操作をを一つにまとめること。"
-    }
+    },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
       definition:
