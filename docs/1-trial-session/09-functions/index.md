@@ -59,7 +59,25 @@ document.write(add(3, 4));
 
 上の例の 4 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `return a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、 `add` <Term type="javascriptFunction">関数</Term>は `7` を<Term type="javascriptReturn">返し</Term>、<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果は `7` となります。
 
-<video src={returnValueVideo} controls autoPlay muted loop />
+<!-- <video src={returnValueVideo} controls autoPlay muted loop />  Previewエラー出るので、いったんコメントアウト
+後でもどす-->
+
+:::tip <strong>return文</strong>が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/index.md#if--else-if--else)や [|| (OR) 演算子](../06-boolean/index.md/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+
+```javascript
+let age = 21;
+let hasDriverLicense = true;
+let isDrunk = true;
+function tryToDrive() {
+  // if文の実行する式が一行だけの場合、{}を省略できます。
+  if (age < 20) return;
+  if (hasDriveLicense === false) return;
+  if (isDrunk) return;
+  document.write("車を運転できます。");
+}
+
+```
+:::
 
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
@@ -117,9 +135,9 @@ document.write(calculateCost(3.5));
 `calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUse` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
 
->
+>　
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
->
+> 
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
