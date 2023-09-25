@@ -42,6 +42,27 @@ let myGreatName = "Becky Jones";
 document.write(myGreatName);
 ```
 
+:::tip
+
+<Term type="javascriptVariable">変数</Term>や<Term type="javascriptFunction">関数</Term>は適切に命名することが大切です。以下の例を見てみましょう。
+
+```javascript
+const a = 500;
+const b = 3;
+const c = a * b;
+document.write(c);
+```
+
+```javascript
+const pricePerItem = 500;
+const numberOfItems = 3;
+const paymentTotal = pricePerItem * numberOfItems;
+document.write(paymentTotal);
+```
+この二つでは、コードを通じて書きたいことの分かりやすさが全く違います。他人と開発を行うときや、過去のコードを自分が書き換えるときには、コードの可読性が求められます。変数名は多少長くなっても良いので、とにかく分かりやすいことを心がけましょう。
+
+:::
+
 ## <Term type="javascriptVariable">変数</Term>の性質
 
 <p><Term type="javascriptVariable">変数</Term>には、最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>のみを保持する性質があります。</p>
