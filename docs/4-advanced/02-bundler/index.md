@@ -92,7 +92,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
-出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](../../1-trial-session/14-deploy-application/index.md) などにアップロードすれば使用可能になるでしょう。
+出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](../../1-trial-session/16-deploy-application/index.md) などにアップロードすれば使用可能になるでしょう。
 
 <video src={buildVideo} controls />
 
@@ -114,52 +114,6 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 :::
 
-## ECMAScript <Term type="javascriptModule">モジュール</Term>
-
-Node.js では、通常 `require` 関数と `exports` オブジェクトを使用して<Term type="javascriptModule">モジュール</Term>を作成していました。しかしながら、この機能は Node.js に特有の機能で、標準的な JavaScript の仕様には含まれていません。
-
-JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。<Term type="transpile">トランスパイラ</Term>を用いることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
-
-<p>ECMAScript <Term type="javascriptModule">モジュール</Term>では、<code>export</code> 文や <code>import</code> 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやりとりを行います。</p>
-
-```javascript title="main.js"
-import { add } from "./sub";
-
-document.getElementById("app").textContent = add(3, 4);
-```
-
-```javascript title="sub.js"
-export function add(a, b) {
-  return a + b;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/es-modules" />
-
-**デフォルトエクスポート**は、各<Term type="javascriptModule">モジュール</Term>につき一度だけ使えるエクスポート方法です。
-
-```javascript title="main.js"
-import add from "./sub";
-
-document.getElementById("app").textContent = add(3, 4);
-```
-
-```javascript title="sub.js"
-export default function add(a, b) {
-  return a + b;
-}
-```
-
-:::tip ECMAScript モジュールの実装状況
-
-ECMAScript <Term type="javascriptModule">モジュール</Term>は、実際にはブラウザや Node.js でも利用可能です。ブラウザであれば [`script` 要素の `type` 属性に `module` を指定すれば良い](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html)ですし、Node.js であれば [`--esm` オプションや、拡張子の `.mjs` への変更など](https://nodejs.org/api/esm.html#enabling)によって対応できます。
-
-しかしながら、ブラウザでこういった機能を利用することは、<Term type="httpRequestResponse">HTTP リクエスト</Term>の増加を招きますし、Node.js の ECMAScript <Term type="javascriptModule">モジュール</Term>サポートは、2022 年現在、周辺エコシステムとの関係上、難しい場合が多いです。
-
-なお、`exports` オブジェクトや `require` 関数を使った<Term type="javascriptModule">モジュール</Term>システムを、[CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ぶ場合があります。
-
-:::
-
 ## npm のパッケージを Web ブラウザ上で利用する
 
 npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
@@ -169,7 +123,7 @@ import { format } from "date-fns";
 
 document.getElementById("app").textContent = format(
   new Date("2022-01-10"),
-  "yyyy年MM月dd日"
+  "yyyy年MM月dd日",
 );
 ```
 

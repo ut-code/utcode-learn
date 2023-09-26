@@ -75,3 +75,7 @@ Copyright © 2023 ut.code();.
 ## 貢献
 
 Issue や Pull request などはいつでもお待ちしています。
+
+## リリースについて
+
+GitHub の Release を作成すると GitHub Pages にデプロイされます。

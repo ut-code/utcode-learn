@@ -64,21 +64,66 @@ secret
 
 ## 別のファイルに書かれたプログラム
 
-Node.js では、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の `main.js` はエラーになります。
+Node.js では、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の `main.mjs` はエラーになります。
 
-```javascript title=sub.js
+```javascript title=sub.mjs
 function add(a, b) {
   return a + b;
 }
 ```
 
-```javascript title=main.js
+```javascript title=main.mjs
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
 別のファイルに書かれたプログラムを読み込むための手段として、Node.js では**<Term type="javascriptModule">モジュール</Term>**という仕組みが用意されています。JavaScript では、すべてのファイルが<Term type="javascriptModule">モジュール</Term>として扱われます。
 
-Node.js では、プログラム中で `exports` というオブジェクトが利用できます。`exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
+Node.js では、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやりとりを行います。
+
+```javascript title=sub.mjs
+export default function add(a, b) {
+  return a + b;
+}
+```
+
+```javascript title=main.mjs
+import add from "./sub.mjs";
+console.log(add(3, 4));
+```
+
+<ViewSource url={import.meta.url} path="_samples/default-export" />
+
+:::tip 名前付きエクスポート
+
+上のように**デフォルトエクスポート**を使うと各モジュールで複数の関数をエクスポートすることができません。その場合は、**名前付きエクスポート**を用いることができます。[**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)の記法を用いることで、オブジェクトからプロパティを取り出して変数に代入する操作を簡潔に記述しています。
+
+```javascript title=sub.mjs
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+```
+
+```javascript title=main.mjs
+import { add, subtract } from "./sub.mjs";
+console.log(add(3, 4));
+console.log(subtract(4, 3));
+```
+
+<ViewSource url={import.meta.url} path="_samples/named-export" />
+
+:::
+
+:::tip CommonJS モジュール
+
+さきほどのように `export` 文と `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行う JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
+
+ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
+
+`exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
 `require` 関数に別のファイルへの相対パスを指定すると、そのファイルを実行した後にできる `exports` オブジェクトを取得できます。
 
@@ -94,14 +139,7 @@ const add = sub.add;
 console.log(add(3, 4));
 ```
 
-:::tip 分割代入
-
-[**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) の記法を用いると、オブジェクトからプロパティを取り出して変数に代入する操作を簡潔に記述できます。この記法を使用すると、上のプログラムは次のように簡略化できます。
-
-```javascript title=main.js
-const { add } = require("./sub");
-console.log(add(3, 4));
-```
+<ViewSource url={import.meta.url} path="_samples/commonjs-module" />
 
 :::
 
@@ -109,14 +147,16 @@ console.log(add(3, 4));
 
 Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。[`fs.readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
 
-```javascript title=main.js
-const fs = require("fs");
-console.log(fs.readFileSync("sample.txt", "utf-8"));
+```javascript title=main.mjs
+import { readFileSync } from "fs";
+console.log(readFileSync("sample.txt", "utf-8"));
 ```
 
 ```plain title=sample.txt
 Hello World
 ```
+
+<ViewSource url={import.meta.url} path="_samples/read-file-sync" noCodeSandbox />
 
 :::tip 文字コード
 
@@ -128,7 +168,18 @@ Hello World
 
 [`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
-<ViewSource url={import.meta.url} path="_samples/fs-writeFileSync" noCodeSandbox />
+<Answer>
+
+第一引数にファイル名、第二引数に書き込む文字列を指定します。
+
+```javascript title=main.mjs
+import { writeFileSync } from "fs";
+writeFileSync("./sample.txt", "Hello World");
+```
+
+<ViewSource url={import.meta.url} path="_samples/write-file-sync" noCodeSandbox />
+
+</Answer>
 
 ## npm
 
@@ -186,16 +237,27 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 npm でダウンロードしたパッケージは、<Term type="javascriptModule">モジュール</Term>として `require` 関数に指定できます。
 
 ```javascript
-const dateFns = require("date-fns");
-const { format } = dateFns;
+import { format } from "date-fns";
 console.log(format(new Date(), "yyyy年MM月dd日"));
 ```
+
+<ViewSource url={import.meta.url} path="_samples/date-fns" noCodeSandbox />
 
 ![date-fns パッケージの利用](./use-package.png)
 
 ## 課題
 
-1. サンプルコードの dateFns 変数の中身をデバッガで観察してみましょう。
+1. サンプルコードの `dateFns` 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
+   <Answer>
 
-<ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />
+   [`mathjs.derivative` 関数](https://mathjs.org/docs/reference/functions/derivative.html)を用いると、微分した式を求めることができます。
+
+   ```javascript
+   import { derivative } from "mathjs";
+   console.log(derivative("log(x, e)", "x").toString());
+   ```
+
+   <ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />
+
+   </Answer>

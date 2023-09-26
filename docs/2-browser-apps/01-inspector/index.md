@@ -41,7 +41,7 @@ Google Chrome 以外のブラウザにも開発者ツールは搭載されてい
 デバッガを用いることで、プログラムが実行される様子を細かく観測することができます。次のプログラムで試してみましょう。
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />

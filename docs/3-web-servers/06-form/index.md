@@ -30,8 +30,8 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 
 Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
 
-```javascript title="main.js"
-const express = require("express");
+```javascript title=main.mjs
+import express from "express";
 
 const app = express();
 app.get("/", (request, response) => {
@@ -39,6 +39,8 @@ app.get("/", (request, response) => {
 });
 app.listen(3000);
 ```
+
+<ViewSource url={import.meta.url} path="_samples/query-parameter" />
 
 :::tip JSON とは何か
 
@@ -64,17 +66,17 @@ encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 
 ## サーバーにデータを送信する
 
-form 要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
+`form` 要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
 
-- form の action 属性: フォーム送信時に移動し、データを送信するページ
-- input 要素: テキストボックス
-- input の name 属性: クエリパラメータのキー
-- button 要素: form 内のボタンをクリックすると form の action に指定したページに遷移します（送信ボタンになります）
+- `form` の `action` 属性: フォーム送信時に移動し、データを送信するページ
+- `input` 要素: テキストボックス
+- `input` の `name` 属性: クエリパラメータのキー
+- `button` 要素: `form` 内のボタンをクリックすると `form` の `action` に指定したページに遷移します（送信ボタンになります）
 
 以下のコードの、HTML ファイルと、JavaScript ファイルを作成して実行してみましょう。
 
 ```html title="static/index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -90,14 +92,14 @@ form 要素を使うとユーザーの入力からクエリパラメータを生
 </html>
 ```
 
-```javascript title="main.js"
-const express = require("express");
+```javascript title="main.mjs"
+import express from "express";
 
 const app = express();
 app.use(express.static("static"));
 app.get("/send", (request, response) => {
   response.send(
-    `あなたの名前は${request.query.name}で、${request.query.age}歳ですね。`
+    `あなたの名前は${request.query.name}で、${request.query.age}歳ですね。`,
   );
 });
 app.listen(3000);

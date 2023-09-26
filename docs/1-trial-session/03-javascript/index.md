@@ -18,7 +18,7 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4"
 まずは、`index.html` を次のように書き換えます。
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />

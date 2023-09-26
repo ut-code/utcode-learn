@@ -18,7 +18,7 @@ Web 開発に必ず用いられる言語があります。<Term type="html" stro
 エディタの画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html` と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー ( `Cmd / Ctrl + S` ) を用いてください。
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -105,7 +105,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 すべての <Term type="html">HTML</Term> ファイルは、
 
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 ```
 
 という、「このファイルは <Term type="html">HTML</Term> ファイルだ！」と宣言する定型句から始まります。

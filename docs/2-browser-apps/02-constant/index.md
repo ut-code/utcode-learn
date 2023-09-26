@@ -46,9 +46,9 @@ person.name = "佐藤"; // OK
 
 ## 参照
 
-[オブジェクト](../../1-trial-session/10-object/index.md)で扱ったように、JavaScript の値はオブジェクトとプリミティブに分けられます。前回は、プリミティブを「それ以上分解できない値」のように説明しました。もう少し詳しくみてみましょう。
+[オブジェクト](../../1-trial-session/11-object/index.md)で扱ったように、JavaScript の値はオブジェクトとプリミティブに分けられます。前回は、プリミティブを「それ以上分解できない値」のように説明しました。もう少し詳しくみてみましょう。
 
-![オブジェクトとプリミティブ](../../1-trial-session/10-object/value-types-with-object.drawio.svg)
+![オブジェクトとプリミティブ](../../1-trial-session/11-object/value-types-with-object.drawio.svg)
 
 次のコードを実行してみてください。
 
@@ -84,7 +84,7 @@ const person = {
 };
 ```
 
-[以前](../../1-trial-session/10-object/index.md)にも記載した通り、オブジェクトのプロパティ名として使用可能なのは文字列のみですが、プロパティの値としては任意の JavaScript の値が使用できるのでした。
+[以前](../../1-trial-session/11-object/index.md)にも記載した通り、オブジェクトのプロパティ名として使用可能なのは文字列のみですが、プロパティの値としては任意の JavaScript の値が使用できるのでした。
 
 オブジェクトがネストされている場合、次のようにプロパティの値として別のオブジェクトへの参照が格納されていると考えることができます。
 
@@ -110,7 +110,7 @@ document.write(tanaka.age);
 
 <ViewSource url={import.meta.url} path="_samples/object-mutated-by-function" />
 
-このコードは、[オブジェクト](../../1-trial-session/10-object/index.md)の項で扱った課題でした。実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
+このコードは、[オブジェクト](../../1-trial-session/11-object/index.md)の項で扱った課題でした。実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
 
 `incrementAge` 関数の実装を変更し、関数に渡したオブジェクトが書き換えられないようにしてください。
 

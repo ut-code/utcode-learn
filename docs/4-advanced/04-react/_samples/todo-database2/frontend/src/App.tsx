@@ -74,7 +74,7 @@ export default function App() {
 
   const fixTodo = async () => {
     const newTodos = todos.map((todo) =>
-      todo.id === edittingTodo.id ? edittingTodo : todo
+      todo.id === edittingTodo.id ? edittingTodo : todo,
     );
     setTodos(newTodos);
     setEdittingTodo({ id: -1, title: "" });

@@ -410,9 +410,9 @@ Vite は、標準で TypeScript のトランスパイラが内蔵されていま
 4. 以下のコード
 
    ```typescript
-      function apply<T, U>(f: (x: T) => U, x: T): U {
-        return f(x);
-      }
+   function apply<T, U>(f: (x: T) => U, x: T): U {
+     return f(x);
+   }
    ```
 
    <ViewSource url={import.meta.url} path="_samples/apply" noCodeSandbox />

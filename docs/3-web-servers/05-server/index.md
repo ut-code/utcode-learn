@@ -223,7 +223,7 @@ app.listen(3000);
 ```
 
 ```html title=template.ejs
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />

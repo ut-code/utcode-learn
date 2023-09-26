@@ -74,7 +74,7 @@ const timer = new Timer(
     startButton.disabled = true;
     stopButton.disabled = false;
     createAudioIfNone();
-  }
+  },
 );
 
 // 音が出ていなければ音を出す
@@ -121,7 +121,7 @@ setButton.onclick = () => {
   timer.setTimeLeft(
     Number(hourInput.value) * 1000 * 60 * 60 +
       Number(minuteInput.value) * 1000 * 60 +
-      Number(secondInput.value) * 1000
+      Number(secondInput.value) * 1000,
   );
 };
 

@@ -42,7 +42,7 @@ model Course {
 まず講師一覧表示用の画面を用意します
 
 ```html title=index.ejs
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -89,7 +89,7 @@ model Course {
 講義一覧のページを用意します。
 
 ```html title=courses.ejs
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />

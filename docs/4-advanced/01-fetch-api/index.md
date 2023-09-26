@@ -37,8 +37,8 @@ document.getElementById("fetch-button").onclick = async () => {
 
 なお、<Term type="serverClient">サーバー</Term>では次のプログラムが動作しているものとします。
 
-```javascript title="/server.js (サーバーとして動く JavaScript)"
-const express = require("express");
+```javascript title="/server.mjs (サーバーとして動く JavaScript)"
+import express from "express";
 const app = express();
 
 app.use(express.static("static"));
@@ -67,8 +67,8 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
-```javascript title="/server.js"
-const express = require("express");
+```javascript title="/server.mjs"
+import express from "express";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -76,7 +76,7 @@ app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
   response.send(
-    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`
+    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`,
   );
 });
 
@@ -112,8 +112,8 @@ document.getElementById("send-button").onclick = async () => {
 
 サーバー側では、<Term type="httpHeaderBody">リクエストボディ</Term>の JSON を解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
 
-```javascript title="/server.js"
-const express = require("express");
+```javascript title="/server.mjs"
+import express from "express";
 const app = express();
 
 app.use(express.json());
@@ -121,7 +121,7 @@ app.use(express.static("static"));
 
 app.post("/send", (request, response) => {
   response.send(
-    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`
+    `あなたの名前は ${request.body.name}で、${request.body.age}歳ですね。`,
   );
 });
 

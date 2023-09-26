@@ -291,7 +291,7 @@ export default {
       definition:
         "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
-    },    
+    },
     javascriptClass: {
       name: "クラス (JavaScript)",
       definition:
@@ -329,7 +329,7 @@ export default {
     javascriptModule: {
       name: "モジュール (JavaScript)",
       definition:
-        "独立したプログラムの塊。JavaScript では、通常 1 つのファイルがモジュールとして扱われる。Node.js では require 関数を、ECMAScript モジュールが使用可能な環境では import 文を用いてインポートして利用する。",
+        "独立したプログラムの塊。JavaScript では、通常 1 つのファイルがモジュールとして扱われる。Node.js では、拡張子が .mjs の場合 import 文を用いてインポートして利用する。",
       referencePage: "/docs/web-servers/module/",
     },
     library: {
