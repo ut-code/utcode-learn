@@ -308,7 +308,7 @@ export default {
       definition: 
         "副作用を持たない関数。",
     },
-    javascriptReferentialTransparency: {
+    javascriptReferenceTransparency: {
       name: "参照透過性",
       definition: 
         "関数に一定の引数を与えると、常に一定の値を返すこと。デバッグがしやすく、キャッシュなどを使って自動で高速化することができる。",

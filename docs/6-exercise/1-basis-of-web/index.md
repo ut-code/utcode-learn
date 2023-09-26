@@ -310,28 +310,33 @@ function bubbleSort(array) {
 
 :::tip <Term strong type="javascriptReference">参照</Type>と<Term strong type="javascriptSideEffects">副作用</Term>の話
 本回答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
-(参照の節)[../browser-apps/constant/#参照]で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Type>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を**純粋関数**と呼びます。コードの可読性を向上させるためには関数は**純粋関数**であるべきであり、<Term strong type="javascriptSideEffects">副作用</Term>は可能な限り減らされるべきとされています。また関数の引数以外の可変変数を参照することは**参照透過性**の妨げになるため、これも避けるべきであるとされています。
-上のコードを純粋関数にするには、
+(参照の節)[../browser-apps/constant/#参照]で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Type>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。コードの可読性を向上させるためには関数は<Term strong type="javascriptPureFunction">純粋関数</Term>であるべきであり、<Term strong type="javascriptSideEffects">副作用</Term>は可能な限り減らされるべきとされています。また関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになるため、これも避けるべきであるとされています。
+上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>にするには、
 
 ```diff javascript
 function swapIndex(array, indexA, indexB) {
-  const temp = array[indexA];
-  array[indexA] = array[indexB];
-  array[indexB] = temp;
++  const arrayToSwap = array;
++  const temp = arrayToSwap[indexA];
++  arrayToSwap[indexA] = arrayToSwap[indexB];
++  arrayToSwap[indexB] = temp;
+-  const temp = array[indexA];
+-  array[indexA] = array[indexB];
+-  array[indexB] = temp;
 }
 function bubbleSort(array) {
-+  const willResult = array.slice(); // 配列の値をコピー
++  let willResult = array.slice(); // 配列の値をコピー
   for (let i = array.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
-+       if (array[j] > array[j + 1]) swapIndex(willResult, j, j+1);
++       if (array[j] > array[j + 1]) willResult = swapIndex(willResult, j, j+1);
 -       if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
     }
   }
++   return willResult;
 }
 ```
-
-:::
+とすればよいでしょう。
 
 <ViewSource url={import.meta.url} path="_samples/bubble-sort/pure/" />
+:::
 
 </Answer>
