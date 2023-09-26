@@ -45,6 +45,8 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
+<ViewSource url={import.meta.url} path="_samples/express-server" />
+
 ファイルを保存したら、作成したファイルを実行し、ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
 
 ![サーバー](./express-server.png)
