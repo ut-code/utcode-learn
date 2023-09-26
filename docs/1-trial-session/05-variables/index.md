@@ -90,6 +90,14 @@ document.write(price);
 
 ![変数の再代入](./reassignment-evaluation.png)
 
-### constとletの用途
+## constとletの用途
 
 `const` と`let` は用途によって使い分けがあります。基本的には、意図せず<Term type="javascriptValue">値</Term>を書き換えてしまうことを防ぐために`const` が使われます。`let` が必要な場合は様々ですが、状態を保存しておくための<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>することに使われることが多いです。[繰り返し](./../08-loop/)の章にあるカウンタ<Term type="javascriptVariable">変数</Term>がその一例です。他にも、<Term type="javascriptVariable">変数</Term>の値を踏まえて条件分岐を行うなど、様々な用途があります。
+
+```javascript title="script.js"
+let i = 0;
+while (i < 5) {
+  i += 1;
+  document.write("Hello world!");
+}
+```
