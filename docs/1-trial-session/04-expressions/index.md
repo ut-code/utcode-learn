@@ -22,11 +22,19 @@ document.write("Hello World");
 document.write(3);
 ```
 
+## <Term type="javascriptExpression">式</Term>と<Term type="javascriptEvaluation">評価</Term>
+
 <p><Term strong type="javascriptOperator">演算子</Term>を用いると、<Term type="javascriptValue">値</Term>を用いて計算をすることができます。例えば <code>+</code>（加算<Term type="javascriptOperator">演算子</Term>）で、足し算の計算を行うことができます。</p>
 
 ```javascript title="script.js"
 document.write(3 + 4);
 ```
+
+このコードにおける、`3 + 4` のようなものを<Term strong type="javascriptExpression">式</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term strong type="javascriptEvaluation">評価</Term>されるといいます。
+
+:::info
+実は、`3`や`"Hello"`などそれぞれの項もまた<Term type="javascriptExpression">式</Term>です。ソースコードの`3`が評価され、コンピュータ内部で解釈可能な3という値になります。
+:::info
 
 ## <Term type="javascriptOperator">演算子</Term>の<Term type="javascriptOperatorPriority">優先順位</Term>
 
@@ -37,8 +45,6 @@ document.write(3 + 4 * 5);
 ```
 
 `*`（乗算<Term type="javascriptOperator">演算子</Term>）は `+` より<Term type="javascriptOperatorPriority">優先順位</Term>が高く設定されているため、上記のコードの実行結果は `23` となります。
-
-このコードにおいて、`3 + 4 * 5` や、`4 * 5`、`4` を<Term strong type="javascriptExpression">式</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term strong type="javascriptEvaluation">評価</Term>されるといいます。
 
 `3 + 4 * 5` の<Term type="javascriptEvaluation">評価</Term>は、先に `4 * 5` が<Term type="javascriptEvaluation">評価</Term>されて `20` になり、次に `3 + 20` が<Term type="javascriptEvaluation">評価</Term>されることにより、`23` という<Term type="javascriptValue">値</Term>となると考えることができます。
 
@@ -73,3 +79,4 @@ document.write("Hello" + 1 + 2);
 | `-`    | 　引く   | `2 - 1` は `1`                        |
 | `*`    | 　掛ける | `2 * 2` は `4`                        |
 | `/`    | 　割る   | `4 / 2` は `2`                        |
+| `%`    | 　あまり   | `12 % 5` は `2`                     |
