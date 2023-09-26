@@ -83,11 +83,14 @@ const add3 = function (a, b) {
 このように、他の関数の引数として呼び出される関数のことを<Term type="callbackFunction" strong>コールバック関数</Term>と呼びます。
 
 ```javascript
-const rates = [3, 5, 1];
-const stars = rates.map((rate) => {
-  return "★".repeat(rate);
-});
-document.write(stars); // ★★★,★★★★★,★
+function doubleArray(arr) {
+  return arr.map((value) => value * 2);
+}
+
+const originalArray = [1, 2, 3, 4, 5];
+const doubledArray = doubleArray(originalArray);
+
+document.write(doubledArray); // [2, 4, 6, 8, 10]
 ```
 
 :::tip プリミティブ値のラッパーオブジェクト
