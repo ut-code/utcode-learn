@@ -259,7 +259,7 @@ export default {
     javascriptModularization: {
       name: "モジュール化",
       definition: "ひとまとまりの複雑なものや操作を一つにまとめること。",
-      referencePage: "/docs/1-trial-session/09-functions/index.md/#モジュール化",
+      referencePage: "/docs/trial-session/functions/index.md/#モジュール化",
     },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
