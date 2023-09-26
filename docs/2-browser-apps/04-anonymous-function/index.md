@@ -112,7 +112,6 @@ document.write(stars); // ★★★,★★★★★,★
 const stars = rates.map((rate) => "★".repeat(rate));
 ```
 
-![値の種類](./anonymous-function.drawio.svg)
 ![アロー関数の省略形](./arrow-function-abbreviation.png)
 
 ## 課題
