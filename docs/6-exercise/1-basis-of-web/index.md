@@ -264,3 +264,74 @@ if (box <= 30 && weight <= 2000) {
 <ViewSource url={import.meta.url} path="_samples/truck" />
 
 </Answer>
+
+## バブルソート
+
+引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を書きます。
+そのアルゴリズムは次の通りです。
+
+- ソート前配列のある要素を取り、その一つ後ろの要素と比較する
+  - もし一つ後ろの要素の方が小さければ、2項を入れ替える
+  - そうでなければ、何もしない
+- その操作を一番前の要素から一番後ろにたどり着くまで繰り返す
+  - これで一番後ろの要素が一番大きいものであると確定する
+- 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
+
+<anchor insertvideohere>
+
+:::info
+要素を入れ替えるとき、単に
+
+```javascript
+array[0] = array[1];
+array[1] = array[0];
+```
+
+とするだけでは両方が`array[1]`になってしまい、うまくいきません。どうすればよいでしょうか。
+
+<Answer>
+
+```javascript
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+function bubbleSort(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
+    }
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/normal/" />
+
+:::tip <Term strong type="javascriptReference">参照</Type>と<Term strong type="javascriptSideEffects">副作用</Term>の話
+本回答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
+(参照の節)[../browser-apps/constant/#参照]で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Type>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を**純粋関数**と呼びます。コードの可読性を向上させるためには関数は**純粋関数**であるべきであり、<Term strong type="javascriptSideEffects">副作用</Term>は可能な限り減らされるべきとされています。また関数の引数以外の可変変数を参照することは**参照透過性**の妨げになるため、これも避けるべきであるとされています。
+上のコードを純粋関数にするには、
+
+```diff javascript
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+function bubbleSort(array) {
++  const willResult = array.slice(); // 配列の値をコピー
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
++       if (array[j] > array[j + 1]) swapIndex(willResult, j, j+1);
+-       if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
+    }
+  }
+}
+```
+
+:::
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/pure/" />
+
+</Answer>

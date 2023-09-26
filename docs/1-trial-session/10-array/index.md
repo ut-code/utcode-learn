@@ -93,6 +93,7 @@ document.write(studentNames.length); // 3
 studentNames.push("内藤");
 document.write(studentNames.length); // 4
 ```
+
 ### `配列.push` 関数
 
 `関数.push`関数 [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、指定した配列の末尾に新しい値を追加する関数です。
@@ -103,13 +104,31 @@ studentNames.push("内藤");
 document.write(studentNames); // 田中,佐藤,鈴木,内藤
 ```
 
+## 基礎課題 連続表示
 
+- 引数に与えられた配列の要素を順番に表示する関数を、通常のfor文を使って作ってみましょう。
 
-### 課題
+:::tip ヒント
+引数でとった配列にも.length変数が存在します。
+最終項のインデックスは `配列の長さ-1` なので注意しましょう。
+:::
+<Answer>
+
+```javascript
+function printArray(array) {
+  for (let i = 0; i < array.length; i++) {
+    document.write(array[i]);
+  }
+}
+```
+<ViewSource url={import.meta.url} path="_samples/Array-printer" />
+
+</Answer>
+
+### 中級課題 フィボナッチ数列
 
 - `配列.push` 関数を用いて、フィボナッチ数列の配列を作ってみましょう。
 - 作成した配列の各要素を `for ～ of` 文を用いて出力してみましょう。
-- 作成した配列の各要素を、通常の `for` 文と `配列.length` 変数を用いて出力してみましょう。
 
 :::info ヒント
 
@@ -129,15 +148,13 @@ for (let i = 0; i < 100; i += 1) {
 for (const item of f) {
   document.write(item);
 }
-// 作成した配列の各要素を、通常の for 文と f.length 変数を用いて出力
-for (let i = 0; i < f.length; i += 1) {
-  document.write(f[i]);
-}
 ```
 
 <ViewSource url={import.meta.url} path="_samples/Array-class" />
 
 </Answer>
+
+## [発展課題 バブルソート](../../6-exercise/1-basis-of-web/index.md/#バブルソート)
 
 <!-- オブジェクトはまだ扱っていないためコメントアウト
 ## 配列とオブジェクト
