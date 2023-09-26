@@ -50,7 +50,7 @@ document.write("Hello World!");
 
 まず、この記述によって、 `script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが <Term type="javascript">JavaScript</Term> です。
 
-:::note
+:::info
 
 この講座の中では、`script` <Term type="element">要素</Term>を常に **`body` <Term type="element">要素</Term>の末尾**に記述するようにします。これは、<Term type="javascript">JavaScript</Term> が読み込まれるタイミングで他のすべての <Term type="element">HTML 要素</Term>がすでに表示されていることを保証するためです。
 
@@ -66,6 +66,12 @@ document.write("Hello World2");
 document.write("Hello World3");
 ```
 
+:::tip
+
+改行が表示されず困っていますか？`document.write`は HTML タグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
+
+:::
+
 ## コメント
 
 `//` から行末までの部分や、`/*` から `*/` で囲まれた部分は**コメント**とみなされ、プログラムの実行に影響を与えません。この講座内でもプログラムの意味を説明するのに利用していきます。
@@ -76,9 +82,3 @@ document.write("Hello World"); // この部分もコメントです
 /* この部分も
 やはりコメントです。 */
 ```
-
-:::tip
-
-改行が表示されず困っていますか？`document.write`は HTML タグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
-
-:::
