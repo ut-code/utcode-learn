@@ -86,7 +86,7 @@ i += 1;
 **インクリメント演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
 一方、**デクリメント演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
 
-`x++` は `x += 1` (＝ `x = x + 1`)、 `y--` は `y -= 1` (＝ `y = y - 1`) という意味になります。
+`x++` は `x = x + 1`（＝`x += 1`）、 `y--` は `y = y - 1` （＝`y -= 1`） という意味になります。
 インクリメント演算子を使うと、
 
 ```javascript
