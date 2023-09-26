@@ -32,6 +32,10 @@ document.write(3 + 4);
 
 このコードにおける、`3 + 4` のようなものを<Term strong type="javascriptExpression">式</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term strong type="javascriptEvaluation">評価</Term>されるといいます。
 
+:::info
+実は、`3`や`"Hello"`などそれぞれの項もまた<Term type="javascriptExpression">式</Term>です。ソースコードの`3`が評価され、コンピュータ内部で解釈可能な3という値になります。
+:::info
+
 ## <Term type="javascriptOperator">演算子</Term>の<Term type="javascriptOperatorPriority">優先順位</Term>
 
 <p><Term type="javascriptOperator">演算子</Term>には、<Term type="javascriptOperatorPriority">優先順位</Term>が設定されています。</p>
