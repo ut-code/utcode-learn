@@ -112,6 +112,7 @@ document.write(stars); // ★★★,★★★★★,★
 const stars = rates.map((rate) => "★".repeat(rate));
 ```
 
+![値の種類](./anonymous-function.drawio.svg)
 ![アロー関数の省略形](./arrow-function-abbreviation.png)
 
 ## 課題
@@ -136,7 +137,9 @@ const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
 ```javascript
 const students = ["Scarlett", "Hazel", "Daisy", "Dorian"];
 const listContainer = document.getElementById("list-container");
-listContainer.innerHTML = students.map((student) => `<li>${student}</li>`).join("");
+listContainer.innerHTML = students
+  .map((student) => `<li>${student}</li>`)
+  .join("");
 ```
 
 <ViewSource url={import.meta.url} path="_samples/map" />
