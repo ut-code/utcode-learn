@@ -119,21 +119,19 @@ const stars = rates.map((rate) => "★".repeat(rate));
 先ほどの[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)を用いてみましょう。`students` 変数に格納されている名前を箇条書きにしてください。
 
 ```javascript
-const students = ["Scarlett", "Hazel", "Daisy", "Dorian"];
+const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
 /* HTML要素を取得し、学生の名前をリストアイテムとして表示*/
 ```
 
 :::info ヒント
 
-- `innerHTML`により、HTML要素を取得・変更できます。
+- `innerHTML` プロパティにより、HTML要素を取得・変更できます。
 - 箇条書きには `ul` タグや `li` タグを使用します。
 - `join` メソッドを配列要素を指定された文字列で連結するのに使います。
 
 :::
 
 <Answer>
-
-`Array#every` メソッドを使うと、配列の全要素が指定された関数でテストできます
 
 ```javascript
 const students = ["Scarlett", "Hazel", "Daisy", "Dorian"];
