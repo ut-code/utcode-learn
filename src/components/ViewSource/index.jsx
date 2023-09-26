@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { BiLinkExternal } from "react-icons/bi";
 import { SiGithub } from "react-icons/si";
 import styles from "./styles.module.css";
+import { COMMIT_REF } from "../../env";
 
 /**
  * @param {Object} props
@@ -23,7 +24,7 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
         className={clsx("button button--secondary", styles.button)}
         target="_blank"
         rel="noopener"
-        href={`https://github.com/ut-code/utcode-learn/tree/master/${relativePath}`}
+        href={`https://github.com/ut-code/utcode-learn/tree/${COMMIT_REF}/${relativePath}`}
       >
         <SiGithub className={styles.icon} />
         GitHub で表示
@@ -33,7 +34,7 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
           className={clsx("button button--primary", styles.button)}
           target="_blank"
           rel="noopener"
-          href={`https://githubbox.com/ut-code/utcode-learn/tree/master/${relativePath}`}
+          href={`https://githubbox.com/ut-code/utcode-learn/tree/${COMMIT_REF}/${relativePath}`}
         >
           このプログラムを実行する
           <BiLinkExternal className={styles.icon} />

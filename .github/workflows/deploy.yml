@@ -14,6 +14,8 @@ jobs:
         with:
           fetch-depth: 0
       - run: npm ci && npm run build
+        env:
+          COMMIT_REF: ${{ github.sha }}
       - uses: actions/upload-pages-artifact@v2
         with:
           path: build
