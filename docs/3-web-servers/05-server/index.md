@@ -87,6 +87,8 @@ server.addListener("request", (request, response) => {
 server.listen(3000);
 ```
 
+<ViewSource path={import.meta.url} url="_samples/http-server" />
+
 [`http.Server` クラス](https://nodejs.org/api/http.html#class-httpserver) は、サーバーを作成するためのクラスです。このクラスの [`addListener` メソッド](https://nodejs.org/api/events.html#emitteraddlistenereventname-listener) は、イベントハンドラを追加するためのメソッドです。第 1 引数にイベントの名前、第 2 引数にイベントハンドラとなる関数オブジェクトを指定します。
 
 [`request` イベント](https://nodejs.org/api/http.html#event-request) は、クライアントからリクエストが来るたびに発生するイベントです。イベントハンドラの第 1 引数に受け取ったリクエストを表す [`http.IncomingMessage` クラス](https://nodejs.org/api/http.html#class-httpincomingmessage) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`http.ServerResponse` クラス](https://nodejs.org/api/http.html#class-httpserverresponse) のインスタンスが渡されます。
