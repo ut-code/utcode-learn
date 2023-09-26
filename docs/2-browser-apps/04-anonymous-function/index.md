@@ -40,10 +40,11 @@ document.getElementById("strange-button").onclick = () => {
 
 JavaScript における関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
 
+<!-- prettier-ignore -->
 ```javascript
 (引数1, 引数2) => {
   処理;
-};
+}
 ```
 
 :::tip 無名関数を用いて関数定義を書き換える
