@@ -1,4 +1,4 @@
-const students = ["Scarlett", "Hazel", "Daisy", "Dorian"];
+const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
 
 const studentList = document.getElementById("student-list");
 studentList.innerHTML = students
