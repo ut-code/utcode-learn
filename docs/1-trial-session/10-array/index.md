@@ -79,23 +79,13 @@ for (変数の宣言/変数名 of 配列) {
 
 配列の要素を順番に取り出し、 `of` の左側に指定された変数に設定してから、内部の処理を実行していきます。
 
-## `Array` クラス
+## 配列のプリセット変数/関数
 
-JavaScript の配列は、[`Array` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)のインスタンスであるオブジェクトです。`Array` クラスには、便利なメソッドやプロパティが定義されています。
+JavaScript の配列には、便利な変数や関数が定義されています。正確にはオブジェクトとクラスの回でそれぞれ扱う`プロパティ`、`メソッド`というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
-### `Array#push` メソッド
+### `配列.length` 変数
 
-[`Array#push` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、配列の末尾に新しい値を追加するメソッドです。
-
-```javascript
-const studentNames = ["田中", "佐藤", "鈴木"];
-studentNames.push("内藤");
-document.write(studentNames[3]); // 内藤
-```
-
-### `Array#length` プロパティ
-
-[`Array#length` プロパティ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length)は、配列の長さを自動的に反映するプロパティです。
+`配列.length` [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length)という変数には、指定した配列の長さが自動的に反映されます。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
@@ -103,23 +93,34 @@ document.write(studentNames.length); // 3
 studentNames.push("内藤");
 document.write(studentNames.length); // 4
 ```
+### `配列.push` 関数
+
+`関数.push`関数 [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、指定した配列の末尾に新しい値を追加する関数です。
+
+```javascript
+const studentNames = ["田中", "佐藤", "鈴木"];
+studentNames.push("内藤");
+document.write(studentNames); // 田中,佐藤,鈴木,内藤
+```
+
+
 
 ### 課題
 
-- `Array#push` メソッドを用いて、フィボナッチ数列の配列を作ってみましょう。
+- `配列.push` 関数を用いて、フィボナッチ数列の配列を作ってみましょう。
 - 作成した配列の各要素を `for ～ of` 文を用いて出力してみましょう。
-- 作成した配列の各要素を、通常の `for` 文と `Array#length` プロパティを用いて出力してみましょう。
+- 作成した配列の各要素を、通常の `for` 文と `配列.length` 変数を用いて出力してみましょう。
 
 :::info ヒント
 
-変数 `i` を 0 から `(作成した配列の length プロパティの値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+変数 `i` を 0 から `(作成した配列の length 変数の値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
 
 :::
 
 <Answer>
 
 ```javascript
-// Array#push メソッドを用いて、フィボナッチ数列の配列を作成
+// f.push 関数を用いて、フィボナッチ数列の配列を作成
 const f = [1, 1];
 for (let i = 0; i < 100; i += 1) {
   f.push(f[f.length - 1] + f[f.length - 2]);
@@ -128,7 +129,7 @@ for (let i = 0; i < 100; i += 1) {
 for (const item of f) {
   document.write(item);
 }
-// 作成した配列の各要素を、通常の for 文と Array#length プロパティを用いて出力
+// 作成した配列の各要素を、通常の for 文と f.length 変数を用いて出力
 for (let i = 0; i < f.length; i += 1) {
   document.write(f[i]);
 }
@@ -138,6 +139,7 @@ for (let i = 0; i < f.length; i += 1) {
 
 </Answer>
 
+<!-- オブジェクトはまだ扱っていないためコメントアウト
 ## 配列とオブジェクト
 
 配列はオブジェクトの一種です。しかしながら、JavaScript のオブジェクトとは、[オブジェクトの節](../../1-trial-session/11-object/index.md)で扱ったように、プロパティ名とプロパティ値の組み合わせでした。
@@ -166,3 +168,4 @@ document.write(studentNames["0"]); // 田中
 ```
 
 :::
+-->
