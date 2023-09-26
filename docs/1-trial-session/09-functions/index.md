@@ -69,12 +69,11 @@ let hasDriverLicense = true;
 let isDrunk = true;
 function tryToDrive() {
   // if文の実行する式が一行だけの場合、{}を省略できます。
-  if (age < 20) return;
+  if (age < 18) return;
   if (hasDriverLicense === false) return;
   if (isDrunk) return;
   document.write("車を運転できます。");
 }
-
 ```
 :::
 
