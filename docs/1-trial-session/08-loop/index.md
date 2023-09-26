@@ -16,7 +16,7 @@ while 文を用いると、ある条件が満たされている間実行され�
 let i = 0;
 while (i < 5) {
   document.write(i);
-  i += i + 1;
+  i = i + 1;
 }
 document.write("終了");
 ```
@@ -64,6 +64,7 @@ document.write(sum);
 <ViewSource url={import.meta.url} path="_samples/answer-while" />
 
 </Answer>
+
 :::tip 複合代入演算子、インクリメント演算子
 
 **複合代入演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
