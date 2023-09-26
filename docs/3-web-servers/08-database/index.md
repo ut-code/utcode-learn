@@ -12,36 +12,70 @@ import copySecretValuesVideo from "./copy-secret-values.mp4";
 import prismaDbPushVideo from "./prisma-db-push.mp4";
 import createRecordInDatabaseVideo from "./create-record-in-database.mp4";
 
-## リレーショナルデータベース
+これまでの演習では、アプリケーションで扱うデータは全て変数の中に記録してきました。例えば、前頁で作った掲示板アプリケーションでは、クライアントから送られてきた投稿の内容を配列に記録していました。しかし、これではサーバーが終了してしまうと、データがすべて消えてしまいます。
 
-データベースサーバーは、データを保存したり、参照したりするための専用のサーバーです。Web の世界では、ブラウザが直接データベースサーバーと通信することはほとんどなく、基本的には Node.js などのウェブサーバーがデータベースサーバーと通信します。リレーショナルデータベースは、データベースの中でも最も多く使われる種類のもので、Excel のような表形式でデータを保持するという特徴があります。
+それでは、送られてきたデータをファイルに記録すれば大丈夫でしょうか。確かに、サーバーが終了してもデータは残りそうです。ところが、もし皆さんが作ったサービスが大きく成長し、一つのサーバーではリクエストを捌ききれなくなったとしましょう。すると、ファイルに保存したデータは複数のサーバーで共有できないことが問題になります。また、記録されているデータが膨大になってくると、ファイルの内容を読み書きするだけでも大変そうです。
 
-次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
+**データベース**は、このようなデータに関する諸問題を解決するためのシステムです。データベースは、通常サーバーとして動作します。つまり、**データベースサーバー**は、保持しているデータに対する参照や更新のためのリクエスト (**クエリ**) を受け、その結果をレスポンスとしてクライアントに返します。
+
+データベースサーバーのクライアントは、通常 Web サービスの使用者ではなく、皆さんが Node.js などで開発するサーバーです。これまで開発してきたようなサーバーを、データベースサーバーと対比して**アプリケーションサーバー**と呼びます。
+
+![データベースとアプリケーションサーバー](./database-application-server.drawio.svg)
+
+データベースの中でも、**リレーショナルデータベース**は、データベースの中でも最も多く使われる種類のもので、データを Excel のような表形式でとらえます。次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
 
 ![リレーショナルデータベース](./relational-database-concept.png)
 
-## ElephantSQL で PostgreSQL を使用する
+リレーショナルデータベースに対するクエリは、通常 **SQL** と呼ばれる言語を用いて記述します。データベースクライアントとして用いるライブラリによっては、SQL を直接用いることなく、そのライブラリが提供する専用の関数等を用いてデータベースに対してクエリを発行できることがあります。
 
-[PostgreSQL](https://www.postgresql.org) は、代表的なリレーショナルデータベースです。[ElephantSQL](https://www.elephantsql.com) を利用すると、無料のアカウント登録のみで、PostgreSQL サーバーが利用できます。
+## 演習
 
-アカウント登録が完了したら、早速 PostgreSQL サーバーを起動しましょう。設定項目は多くないので簡単です。
+この演習では、Node.js のアプリケーションサーバーで、Prisma と呼ばれるライブラリを用い、リレーショナルデータベースの一つである PostgreSQL サーバーに保存されているデータを取得します。
 
-- Plan: `Tiny Turtle (Free)`
-- Data center: `AP-NorthEast-1 (Tokyo)`
+### 使用する技術・サービス
+
+#### [PostgreSQL](https://www.postgresql.org/)
+
+現在最もよく用いられるリレーショナルデータベースのひとつです。豊富な機能を持ちます。
+
+#### [DBeaver](https://dbeaver.io/)
+
+多くのデータベースをグラフィカルに操作できるソフトウェアです。PostgreSQL にも対応しています。
+
+#### [Prisma](https://www.prisma.io/)
+
+主にリレーショナルデータベースを操作するための Node.js の<Term type="library">ライブラリ</Term>です。複数の構成要素からなります。
+
+- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): 実行時に用いる npm のパッケージ。JavaScript プログラムから使用する。
+- [**`prisma` パッケージ**](https://www.npmjs.com/package/prisma): 開発時にのみ用いる npm のパッケージ。`npx` コマンドを通して実行する。
+- [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Code の拡張機能。`.prisma` ファイルに対する補完やフォーマットの機能を提供する。
+- [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイル。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させる。
+
+#### [ElephantSQL](https://www.elephantsql.com/)
+
+PostgreSQL サーバーを提供するサービスです。PostgreSQL サーバーは皆さんのコンピューター上にも構築できますが、この演習ではその手間を省くため外部のサービスを利用します。
+
+### ElephantSQL で PostgreSQL サーバーを構築する
+
+[ElephantSQL](https://www.elephantsql.com) のアカウントを作成しましょう。`Create New Instance` ボタンを押して必要な情報を入力し、新しい PostgreSQL サーバーを起動させてください。入力が必要な情報は次の通りです。
+
+- **Name**: 起動するサーバーにつける名前です。適当に設定して構いません。
+- **Plan**: 起動するサーバーの性能です。最も低い `Tiny Turtle (Free)` を選択すれば無料で使用できます。
+- **Data center**: 起動するサーバーの地理的な場所です。ここでは `AP-NorthEast-1 (Tokyo)` を選択しています。
 
 <video src={newPostgresqlInstanceVideo} controls />
 
-## DBeaver で PostgreSQL サーバーに接続する
+### DBeaver で PostgreSQL サーバーに接続する
 
-[DBeaver](https://dbeaver.io) は、無料で公開されている非常に高機能なデータベースクライアントです。ElephantSQL で表示できる認証情報を利用して、データベースに接続できることを確認しましょう。
+[DBeaver](https://dbeaver.io) をインストールしましょう。続いて、ElephantSQL の管理画面で接続情報を表示し、その情報を DBeaver に入力して前項で起動した PostgreSQL サーバーに接続しましょう。
 
 <video src={connectDbeaverToDatabaseVideo} controls />
 
-この時点ではまだテーブルが作成されていないため、実際にデータを操作することはできません。DBeaver 上で作成することもできますが、今回は Prisma を使用して作成することにします。
+この時点では、まだデータベース上にテーブルが作成されていません。DBeaver 上で作成することもできますが、今回は Prisma を使用して作成することにします。
 
-## Prisma でテーブル構造を作成する
+### Prisma でテーブル構造を作成する
 
-[Prisma](https://www.prisma.io) は、Node.js から主にリレーショナルデータベースを使用するためのライブラリです。Prisma を便利に使用するための拡張機能が VS Code 向けに用意されているので、先にダウンロードしておきましょう。
+VS Code 向けの Prisma 拡張機能をインストールしましょう。
 
 ![Prisma 拡張機能のインストール](./install-prisma-extension.png)
 
@@ -65,7 +99,7 @@ npx prisma init
 
 <video src={copySecretValuesVideo} controls muted autoPlay loop />
 
-`prisma/schema.prisma` ファイルを、次のように編集します。`schema.prisma` ファイルは、**データベースのテーブルとカラムの構造を定義するためのファイル**です。
+`prisma/schema.prisma` ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
@@ -96,118 +130,32 @@ npx prisma db push
 
 <video src={prismaDbPushVideo} controls />
 
-## DBeaver で Prisma が作成したテーブルにレコードを追加する
+### DBeaver で Prisma が作成したテーブルにレコードを追加する
 
 Prisma が作成したテーブルに、DBeaver を用いてレコードを追加しましょう。
 
 <video src={createRecordInDatabaseVideo} controls />
 
-## 非同期処理
+### Prisma でデータベースのデータを読み書きする
 
-Prisma を用いてデータベースの操作を行う場合には、<Term type="asynchronousProcess">非同期処理</Term>の概念を理解しておく必要があります。
-
-JavaScript のコードの実行やブラウザの画面への描写（レンダリング）は、メインスレッドと呼ばれる単一の<Term type="thread">スレッド</Term>において順次処理されていきます。このため、ファイルの読み書きやネットワーク通信などの比較的時間がかかる処理があると、Web ページの読み込みに時間がかかってしまいます。<Term type="asynchronousProcess">非同期処理</Term>を使うと、メインスレッドを停止させずに時間のかかる処理を並行して行うことができ、処理効率が高まるので、なめらかな画面切り替えが可能になります。データベースの操作では、データベースサーバーとの通信やデータベースにあるデータの読み書きを行うため、<Term type="asynchronousProcess">非同期処理</Term>が必要となります。
-
-まずは簡単な例で<Term type="asynchronousProcess">非同期処理</Term>を説明します。下のコードにおいて `sample.txt` を読み込む 3 つの関数 `sync`、`callback`、`asyncAwait` の挙動を比較してみましょう。なお、`sample.txt` には `これはサンプルです。` と記述されているものとします。
-
-```javascript
-const fs = require("fs");
-const fsPromises = require("fs/promises");
-
-function sync() {
-  const buffer = fs.readFileSync("sample.txt");
-  console.log(buffer.toString());
-}
-
-function callback() {
-  fs.readFile("sample.txt", (error, buffer) => {
-    console.log(buffer.toString());
-  });
-}
-
-async function asyncAwait() {
-  const buffer = await fsPromises.readFile("sample.txt");
-  console.log(buffer.toString());
-}
-
-console.log("Before sync()");
-sync();
-console.log("After sync()");
-
-console.log("Before callback()");
-callback();
-console.log("After callback()");
-
-console.log("Before asyncAwait()");
-asyncAwait();
-console.log("After asyncAwait()");
-```
-
-<ViewSource url={import.meta.url} path="_samples/async-operations" />
-
-このプログラムの結果は、次のようになります。
-
-```plain
-Before sync()
-これはサンプルです。
-After sync()
-Before callback()
-After callback()
-Before asyncAwait()
-After asyncAwait()
-これはサンプルです。
-これはサンプルです。
-```
-
-同期的な関数 `sync` では後続の `console.log("After sync()");` がファイルの中身が表示された後に実行されているのに対し、その他の 2 つでは後回しになっています。これは、この 2 つはファイルの読み込みを<Term type="asynchronousProcess">非同期処理</Term>で行っているからです。
-
-`fs.readFile` を用いる方法では、第 2 引数に<Term type="callbackFunction">コールバック関数</Term>を登録します。この関数はファイルの読み込みが完了したタイミングで実行されます。関数が呼び出されるまでの間は他の処理が割り込むことができます。
-
-`fs/promises` は `fs` と同じく Node.js の標準モジュールですが、`await` キーワードを用いて<Term type="asynchronousProcess">非同期処理</Term>を記述できるようになっています。`await` キーワードをつけると<Term type="asynchronousProcess">非同期処理</Term>の完了を待つことができ、その間に他の処理が割り込めます。なお、 **`await` キーワードは `async` キーワードを付けた関数内でしか使えません**。
-
-![非同期処理](./async-await.png)
-
-:::tip (発展) Promise
-
-`async` キーワードのついた関数は、戻り値として [`Promise` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)のインスタンスを返却するようになります。この Promise クラスを用いることにより、<Term type="callbackFunction">コールバック</Term>型の非同期関数を `await` を用いることができる形に変換できます。`await` キーワードをつけることで、`resolve` の引数 `buffer` の値が返ってきます。
-
-```javascript
-const fs = require("fs");
-
-// fsPromises.readFile を自分で実装する
-function myReadFileAsync(fileName) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(fileName, (error, buffer) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(buffer);
-      }
-    });
-  });
-}
-
-async function myAsyncAwait() {
-  const buffer = await myReadFileAsync("sample.txt");
-  console.log(buffer.toString());
-}
-
-console.log("Before myAsyncAwait()");
-myAsyncAwait();
-console.log("After myAsyncAwait()");
-```
-
-:::
-
-## Prisma でデータベースのデータを読み書きする
-
-Node.js から Prisma を利用してデータベースのデータを操作するためには、[`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。こちらも `fs/promises` と同様に `await` キーワードを用いて<Term type="asynchronousProcess">非同期処理</Term>を記述することができます。データの取得には、次の 3 つのメソッドが利用できます。
+Node.js から Prisma を利用してデータベースのデータを操作するためには、`@prisma/client` パッケージの [`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。
 
 - [`PrismaClient#[テーブル名].findMany` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
 - [`PrismaClient#[テーブル名].findFirst` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
 - [`PrismaClient#[テーブル名].findUnique` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを 1 つだけ取得
 
-`findMany` メソッドの戻り値を、デバッガを用いて確認してみましょう。
+:::caution 非同期処理
+
+上記の 3 つのメソッドは、<Term type="asynchronousProcess">**非同期処理**</Term>を行います。JavaScript における非同期処理とは、ファイルの入出力やネットワーク通信など、JavaScript の外側の時間のかかる処理の完了を待つ間、ほかの処理を実行できるようにする仕組みです。非同期処理を行う関数を使用するためには、次の 2 つを行います。
+
+- 非同期処理を行う関数を呼び出す関数を定義する際、`async` キーワードをつけること
+- 非同期処理を行う関数の戻り値に対し、`await` 演算子を適用すること
+
+非同期処理に関する詳細は、[MDN の記事](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Asynchronous)を参照してください。
+
+:::
+
+まずは、`findMany` メソッドの戻り値を、デバッガを用いて確認してみましょう。
 
 ```javascript
 const { PrismaClient } = require("@prisma/client");
@@ -222,7 +170,7 @@ main();
 
 ![findMany の戻り値](./find-many-result.png)
 
-また、[`PrismaClient#[テーブル名].create` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いることで、テーブルにレコードを作成することができます。
+続いて、[`PrismaClient#[テーブル名].create` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
 ```javascript
 const { PrismaClient } = require("@prisma/client");
@@ -239,6 +187,46 @@ main();
 
 ## 課題
 
-[前頁](../07-get-post/index.md)で作成した掲示板システムのアプリケーションのデータが、データベース上に保存できるようにしてみましょう。
+PostgreSQL にデータを保存する掲示板サービスを作ってみましょう。
+
+### 手順 1
+
+ElephantSQL で新しいデータベースを作成しましょう。演習の手順と同じ方法で、作成したデータベースに DBeaver から接続できることを確認しましょう。
+
+### 手順 2
+
+新しいプロジェクト用のディレクトリを作成し、演習の手順と同じ方法で、`npx prisma init` コマンドを実行し、Prisma のセットアップをしましょう。`.env` ファイルを編集し、Prisma がデータベースに接続できるようにしましょう。
+
+### 手順 3
+
+作成された `.prisma` ファイルを編集し、掲示板に投稿されたメッセージを保存するためのテーブルと、そのテーブルのカラムの定義を記述しましょう。`npx prisma db push` コマンドでテーブルとカラムの定義をデータベースに反映させましょう。
+
+### 手順 4
+
+DBeaver を用いて掲示板の投稿のサンプルデータをデータベースに登録しましょう。
+
+### 手順 5
+
+演習と同じ方法で Node.js のデバッガを用い、データベースのデータが Prisma で取得できることを確認しましょう。
+
+### 手順 6
+
+Express をインストールし、`/` への GET リクエストに対してデータベースのデータを HTML に整形してレスポンスとして返せるようにしましょう。
+
+### 手順 7
+
+掲示板を投稿するための HTML のフォームを表示できるようにしましょう。
+
+### 手順 8
+
+前の手順で作成した HTML のフォームの送信先を作成しましょう。データは POST リクエストとして送信するようにしましょう。送られてきたデータが正しいか Node.js のデバッガを用いて確認してみましょう。
+
+### 手順 9
+
+送られてきたデータをデータベースに登録できるようにしましょう。DBeaver を用いて、データが実際にデータベースに登録されていることを確認しましょう。
+
+### 手順 10
+
+Node.js のサーバーを再起動し、データが残っていることを確認しましょう。
 
 <ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />
