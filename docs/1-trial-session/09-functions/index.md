@@ -146,14 +146,14 @@ function repeat(stringToRepeat, times) {
   }
   return result;
 }
-
+// ここから下だけ考えればよい
 for (let i = 0; i < 10; i++) {
   document.write(repeat("☆", i));
   document.write("<br>");
 }
 ```
 
-この例における`repeat()`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し足したものを返します。
+この例における`repeat`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し足したものを返します。
 
 ## 演習
 
