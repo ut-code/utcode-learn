@@ -5,6 +5,7 @@ sidebar_position: 1
 
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
+import bubbleSortVideo from "./_samples/bubble-sort/bubble-sort-step-by-step";
 
 この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
 
@@ -277,7 +278,7 @@ if (box <= 30 && weight <= 2000) {
   - これで一番後ろの要素が一番大きいものであると確定する
 - 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
 
-<anchor insertvideohere>
+<video src={bubbleSortVideo} controls />
 
 :::info
 要素を入れ替えるとき、単に
@@ -338,9 +339,10 @@ function bubbleSort(array) {
 +   return willResult;
 }
 ```
+
 とすればよいです。
 
 <ViewSource url={import.meta.url} path="_samples/bubble-sort/pure/" />
-:::
-
 </Answer>
+
+:::
