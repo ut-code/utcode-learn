@@ -40,7 +40,7 @@ const six = 6;
 document.write(studentNames[six / 2 - 1]); // 鈴木
 ```
 
-### 課題
+### 確認問題
 
 次のプログラムを実行すると何と表示されるでしょうか。
 
@@ -150,7 +150,7 @@ for (const item of f) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/Array-class" />
+<ViewSource url={import.meta.url} path="_samples/Array-fibonacci" />
 
 </Answer>
 
