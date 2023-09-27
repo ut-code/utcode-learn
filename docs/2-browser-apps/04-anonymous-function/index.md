@@ -120,7 +120,7 @@ const stars = rates.map((rate) => "★".repeat(rate));
 
 ```javascript
 const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
-/* HTML要素を取得し、学生の名前をリストアイテムとして表示*/
+// ここで HTML 要素を取得し、学生の名前をリストアイテムとして表示
 ```
 
 :::info ヒント
