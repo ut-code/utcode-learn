@@ -269,7 +269,7 @@ if (box <= 30 && weight <= 2000) {
 
 ## 6. バブルソート
 
-引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を書きます。
+引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を作成しましょう。<br />
 そのアルゴリズムは次の通りです。
 
 - ソート前配列のある要素を取り、その一つ後ろの要素と比較する
@@ -320,28 +320,30 @@ function bubbleSort(array) {
 
 ### <Term strong type="javascriptReference">参照</Term>と<Term strong type="javascriptSideEffects">副作用</Term>の話
 
-本回答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？<br>
+本回答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？<br />
 (参照の節)[../browser-apps/constant/#参照]で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term type="javascriptSideEffects">副作用</Term>を防ぐために共用の関数は<Term type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示すべきであるとされています。関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
 上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>に書き直すと例えば、
 
 <Answer>
 
 ```diff javascript
-+ // swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスでしかなく、外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい
+   
++ /* swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスであり、
++    外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい */
 function swapIndex(array, indexA, indexB) {
   const temp = array[indexA];
   array[indexA] = array[indexB];
   array[indexB] = temp;
 }
-function bubbleSort(array) {
-+  let willResult = array.slice(); // 配列の値をコピー
+- function bubbleSort(array){
++ function bubbleSort(inputArray) {
++  let array = inputArray.slice(); // 配列の値をコピー
   for (let i = array.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
-+       if (willResult[j] > willResult[j + 1]) swapIndex(willResult, j, j+1);
--       if (array[j] > array[j + 1]) swapIndex(array, j, j+1);
+      if (array[j] > array[j + 1]) swapIndex(array, j, j+1);
     }
   }
-+   return willResult;
++   return array;
 }
 ```
 
