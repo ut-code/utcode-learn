@@ -121,6 +121,7 @@ function printArray(array) {
   }
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/Array-printer" />
 
 </Answer>
@@ -156,7 +157,7 @@ for (const item of f) {
 
 ## [発展課題 バブルソート](../../6-exercise/1-basis-of-web/index.md/#バブルソート)
 
-<!-- オブジェクトはまだ扱っていないためコメントアウト
+<!-- オブジェクトはまだ扱っていないためコメントアウト、オブジェクトの節にtipとして移動も可
 ## 配列とオブジェクト
 
 配列はオブジェクトの一種です。しかしながら、JavaScript のオブジェクトとは、[オブジェクトの節](../../1-trial-session/11-object/index.md)で扱ったように、プロパティ名とプロパティ値の組み合わせでした。
