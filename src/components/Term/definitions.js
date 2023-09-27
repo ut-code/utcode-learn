@@ -306,7 +306,7 @@ export default {
     javascriptPureFunction: {
       name: "純粋関数",
       definition: 
-        "副作用を持たない関数。",
+        "副作用を持たない関数。数学的な関数や写像により近い概念。",
     },
     javascriptReferenceTransparency: {
       name: "参照透過性",
