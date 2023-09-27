@@ -85,25 +85,24 @@ JavaScript の配列には、便利な変数や関数が定義されています
 
 ### `配列.length` 変数
 
-`配列.length` [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length)という変数には、指定した配列の長さが自動的に反映されます。
+[`配列.length`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length) という変数には、指定した配列の長さが自動的に反映されます。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
 document.write(studentNames.length); // 3
-studentNames.push("内藤");
-document.write(studentNames.length); // 4
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+document.write(studentNames.length); // 10
 ```
+
 ### `配列.push` 関数
 
-`関数.push`関数 [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、指定した配列の末尾に新しい値を追加する関数です。
+[`関数.push`関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push) は、指定した配列の末尾に新しい値を追加する関数です。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
 studentNames.push("内藤");
 document.write(studentNames); // 田中,佐藤,鈴木,内藤
 ```
-
-
 
 ### 課題
 
