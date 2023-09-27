@@ -8,6 +8,7 @@ export default {
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/functions/index.md/#モジュール化": "モジュール化",
     "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
