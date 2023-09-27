@@ -259,7 +259,7 @@ export default {
     },
     javascriptModularization: {
       name: "モジュール化",
-      definition: "ひとまとまりの複雑なものや操作を一つにまとめること。",
+      definition: "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
       referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
