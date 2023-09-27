@@ -91,7 +91,7 @@ JavaScript の配列には、便利な変数や関数が定義されています
 const studentNames = ["田中", "佐藤", "鈴木"];
 document.write(studentNames.length); // 3
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-document.write(studentNames.length); // 10
+document.write(numbers.length); // 10
 ```
 
 ### `配列.push` 関数
