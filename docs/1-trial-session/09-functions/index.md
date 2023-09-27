@@ -102,7 +102,29 @@ increment();
 
 :::
 
-## 演習
+## 基礎演習
+
+<p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> `max` を定義してください。</p>
+
+:::tip
+<Term type="javascriptIfStatement">if文</Term>を使って、aが大きい場合とbが大きい場合で処理を書き分けます。
+:::
+
+<Answer>
+
+```javascript
+function max(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/max" />
+</Answer>
+
+## 中級演習
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 

@@ -158,28 +158,13 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ## 4. フィボナッチ数列
 
-1. 引数を 2 つとり、そのうち大きい数を返す関数 `max` を定義してください。
-
-2. 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
+1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
 
 ### 解答例
 
 <Answer>
 
-1 の解答例
-
-```javascript
-function max(a, b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/max" />
-
-2 の解答例
+解答例
 
 ```javascript
 function fibonacci(n) {
@@ -325,7 +310,7 @@ function bubbleSort(array) {
 <Answer>
 
 ```diff javascript
-   
+
 + /* swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスであり、
 +    外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい */
 function swapIndex(array, indexA, indexB) {
