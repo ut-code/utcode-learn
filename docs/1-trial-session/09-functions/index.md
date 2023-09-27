@@ -47,7 +47,7 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で **return 文** を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
+<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong> を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
 
 ```javascript
 function add(a, b) {
@@ -61,7 +61,7 @@ document.write(add(3, 4));
 
 <video src={returnValueVideo} controls autoPlay muted loop />
 
-:::tip <strong>return文</strong>が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/#if--else-if--else)や [|| (OR) 演算子](../06-boolean/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+:::tip **return文**が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/#if--else-if--else)や [|| (OR) 演算子](../06-boolean/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
 
 ```javascript
 let age = 21;
