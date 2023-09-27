@@ -61,7 +61,8 @@ document.write(add(3, 4));
 
 <video src={returnValueVideo} controls autoPlay muted loop />
 
-:::tip **return文**が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/#if--else-if--else)や [|| (OR) 演算子](../06-boolean/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+:::tip 
+**return文**が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/#if--else-if--else)や [|| (OR) 演算子](../06-boolean/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
 
 ```javascript
 let age = 21;
