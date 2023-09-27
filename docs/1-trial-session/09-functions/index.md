@@ -169,8 +169,6 @@ document.write(calculateCost(3.5));
 
 `calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUse` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
->
->
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
 
