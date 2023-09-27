@@ -8,9 +8,6 @@ import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import bubbleSortVideo from "./\_samples/bubble-sort/bubble-sort-step-by-step.mp4";
 
-
-
-
 この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
 
 ---
@@ -295,6 +292,8 @@ array[1] = array[0];
 とするだけでは両方が`array[1]`になってしまい、うまくいきません。どうすればよいでしょうか。
 
 :::
+
+### 解答例
 
 <Answer>
 
