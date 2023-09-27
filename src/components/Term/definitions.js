@@ -16,6 +16,7 @@ export default {
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
     "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
+    "/docs/browser-apps/constant/#参照": "参照",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
@@ -36,6 +37,7 @@ export default {
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
     "/docs/advanced/react/": "React",
+    "/docs/exercise/basis-of-web/#参照と副作用の話": "副作用と純粋関数",
   },
   terms: {
     fileExtension: {
@@ -296,25 +298,25 @@ export default {
       name: "参照",
       definition: 
         "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
-      // referencePage: "/docs/browser-apps/constant/#参照",
+      referencePage: "/docs/browser-apps/constant/#参照",
     },
     javascriptSideEffects: {
       name: "副作用",
       definition:
         "関数などを実行したときに、返り値以外の変数に影響を及ぼすこと。",
-      // referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
     },
     javascriptPureFunction: {
       name: "純粋関数",
       definition: 
         "副作用を持たない関数。数学的な関数や写像により近い概念。",
-      // referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
     },
     javascriptReferenceTransparency: {
       name: "参照透過性",
       definition: 
         "関数に一定の引数を与えると、常に一定の値を返すこと。デバッグがしやすく、キャッシュなどを使って自動で高速化することができる。",
-      // referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
     },
     javascriptClass: {
       name: "クラス (JavaScript)",
