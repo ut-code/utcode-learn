@@ -47,7 +47,7 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong>を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
+<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong> を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
 
 ```javascript
 function add(a, b) {
@@ -60,6 +60,22 @@ document.write(add(3, 4));
 上の例の 4 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `return a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、 `add` <Term type="javascriptFunction">関数</Term>は `7` を<Term type="javascriptReturn">返し</Term>、<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果は `7` となります。
 
 <video src={returnValueVideo} controls autoPlay muted loop />
+
+:::tip **return文**が実行された時点で関数が終了するため、次のように書くことで [if ~ else 文](../07-if-statement/#if--else-if--else)や [|| (OR) 演算子](../06-boolean/#%E8%AB%96%E7%90%86%E6%BC%94%E7%AE%97%E5%AD%90)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+
+```javascript
+let age = 21;
+let hasDriverLicense = true;
+let isDrunk = true;
+function tryToDrive() {
+  // if文の実行する式が一行だけの場合、{}を省略できます。
+  if (age < 18) return;
+  if (hasDriverLicense === false) return;
+  if (isDrunk) return;
+  document.write("車を運転できます。");
+}
+```
+:::
 
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
@@ -102,23 +118,57 @@ increment();
 
 :::
 
+## モジュール化
+
+複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
+```javascript
+// モジュール化前
+const stringToRepeat = "☆";
+for (let i = 0; i < 10; i++) {
+  let result = "";
+  for (let j = 0; j < i; j++) {
+     result += stringToRepeat;
+  }
+  document.write(result);
+  document.write("<br>");
+}
+```
+
+```javascript
+// モジュール化後
+function repeat(stringToRepeat, times) {
+  let result = "";
+  for (let j = 0; j < times; j++) {
+    result += stringToRepeat;
+  }
+  return result;
+}
+
+for (let i = 0; i < 10; i++) {
+  document.write(repeat("☆", i));
+  document.write("<br>");
+}
+```
+この例における`repeat()`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し足したものを返します。
+
 ## 演習
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
-function calculateCost(monthlyBandwidth) {
+function calculateCost(monthlyDataUse) {
   // ここに処理を書く
 }
 
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyBandwidth` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUse` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
-> 月間転送量を _monthlyBandwidth_ (GB) とします。
->
-> - _monthlyBandwidth_ < 5.0 のとき、携帯電話料金は _monthlyBandwidth_ × 600 (円)
-> - _monthlyBandwidth_ >= 5.0 のとき、携帯電話料金は 3000 (円)
+
+>　
+> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
+> - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
+> 
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
