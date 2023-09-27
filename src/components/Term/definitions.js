@@ -166,7 +166,7 @@ export default {
     },
     javascriptExpression: {
       name: "式 (JavaScript)",
-      definition: "JavaScript において、値を生成するまとまり。",
+      definition: "JavaScript において、計算・処理されて値を生成するまとまり。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptEvaluation: {
