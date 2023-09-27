@@ -160,14 +160,14 @@ for (let i = 0; i < 10; i++) {
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
-function calculateCost(monthlyDataUse) {
+function calculateCost(monthlyDataUsage) {
   // ここに処理を書く
 }
 
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUse` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
