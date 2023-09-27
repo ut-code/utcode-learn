@@ -67,7 +67,7 @@ document.write(sum);
 
 :::tip 複合代入演算子、インクリメント演算子
 
-**複合代入演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
+[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
 
 `x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
 
@@ -83,8 +83,8 @@ i = i + 1;
 i += 1;
 ```
 
-**インクリメント演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
-一方、**デクリメント演算子** [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
+[**インクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
+一方、[**デクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
 
 `x++` は `x = x + 1`（＝`x += 1`）、 `y--` は `y = y - 1` （＝`y -= 1`） という意味になります。
 インクリメント演算子を使うと、
