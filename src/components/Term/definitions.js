@@ -4,6 +4,7 @@ export default {
     "/docs/trial-session/html/": "HTML",
     "/docs/trial-session/javascript/": "JavaScriptことはじめ",
     "/docs/trial-session/expressions/": "値と式と演算子",
+    "/docs/trial-session/expressions/#いろいろな演算子": "いろいろな演算子",
     "/docs/trial-session/variables/": "変数",
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
@@ -179,6 +180,11 @@ export default {
       definition:
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
       referencePage: "/docs/trial-session/expressions/",
+    },
+    javascriptStringAddition: {
+      name: "文字列の加算",
+      definition: "一個目の文字列の後ろに二個目の文字列を追加する。",
+      referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
       name: "変数",
