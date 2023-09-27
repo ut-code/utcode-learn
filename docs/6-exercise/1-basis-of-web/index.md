@@ -311,8 +311,10 @@ function bubbleSort(array) {
 
 </Answer>
 
-:::tip 
+:::tip
+
 ### <Term strong type="javascriptReference">参照</Type>と<Term strong type="javascriptSideEffects">副作用</Term>の話
+
 本回答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
 (参照の節)[../browser-apps/constant/#参照]で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Type>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term type="javascriptSideEffects">副作用</Term>を防ぐために共用の関数は<Term type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示すべきであるとされています。関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
 上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>に書き直すと例えば、
