@@ -235,8 +235,6 @@ main();
 
 <Answer>
 
-解答例
-
 ```javascript
 function fibonacci(n) {
   if (n <= 2) {
@@ -250,7 +248,7 @@ function fibonacci(n) {
 
 <ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
 
-別海
+### 別解
 
 もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
 
@@ -288,7 +286,7 @@ function fibonacci(n) {
 
 と表示されるプログラムを作ってみましょう。
 
-また、出発できる場合には文字を緑色で、出発できない場合には文字を赤色で表示するようにしましょう。
+また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
 
 ### 解答例
 
