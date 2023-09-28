@@ -72,6 +72,8 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 
 </Answer>
 
+---
+
 ## 2. 名前の長さ
 
 太郎くんは、名前を 4 文字以上 10 文字以下で入力して登録できるウェブサイトを作ろうとしています。そこで、名前の文字数を変数に入れておき、
@@ -156,7 +158,52 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ---
 
-## 4. 九九
+## 4. トラック
+
+引っ越しトラックを考えます。
+
+- 段ボール箱の数が 30 個以内
+- 合計の重量が 2000 kg 以内
+
+の両方の条件を満たすときに、トラックは出発できます。
+
+「箱の数」「合計の重量」の 2 つの変数の値によって、
+
+- 出発できる場合には「出発できます」
+- 箱が多すぎる場合には「箱の数を減らしてください」
+- 重量が大きすぎる場合には「重量を減らしてください」
+- 箱が多すぎかつ重量も重すぎる場合には「箱の数と重量を減らしてください」
+
+と表示されるプログラムを作ってみましょう。
+
+また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
+
+### 解答例
+
+<Answer>
+
+```javascript title=script.js
+let box = 25;
+let weight = 1000;
+
+if (box <= 30 && weight <= 2000) {
+  document.write('<p style="color: green">出発できます</p>');
+} else if (box > 30 && weight <= 2000) {
+  document.write('<p style="color: red">箱の数を減らしてください</p>');
+} else if (box <= 30 && weight > 2000) {
+  document.write('<p style="color: red">重量を減らしてください</p>');
+} else {
+  document.write('<p style="color: red">箱の数と重量を減らしてください</p>');
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/truck" />
+
+</Answer>
+
+---
+
+## 5. 九九
 
 [HTML の `table`, `tr`, `th`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
 
@@ -227,7 +274,9 @@ main();
 
 </Answer>
 
-## 5. フィボナッチ数列
+---
+
+## 6. フィボナッチ数列
 
 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
 
@@ -268,50 +317,7 @@ function fibonacci(n) {
 
 ---
 
-## 6. トラック
-
-引っ越しトラックを考えます。
-
-- 段ボール箱の数が 30 個以内
-- 合計の重量が 2000 kg 以内
-
-の両方の条件を満たすときに、トラックは出発できます。
-
-「箱の数」「合計の重量」の 2 つの変数の値によって、
-
-- 出発できる場合には「出発できます」
-- 箱が多すぎる場合には「箱の数を減らしてください」
-- 重量が大きすぎる場合には「重量を減らしてください」
-- 箱が多すぎかつ重量も重すぎる場合には「箱の数と重量を減らしてください」
-
-と表示されるプログラムを作ってみましょう。
-
-また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
-
-### 解答例
-
-<Answer>
-
-```javascript title=script.js
-let box = 25;
-let weight = 1000;
-
-if (box <= 30 && weight <= 2000) {
-  document.write('<p style="color: green">出発できます</p>');
-} else if (box > 30 && weight <= 2000) {
-  document.write('<p style="color: red">箱の数を減らしてください</p>');
-} else if (box <= 30 && weight > 2000) {
-  document.write('<p style="color: red">重量を減らしてください</p>');
-} else {
-  document.write('<p style="color: red">箱の数と重量を減らしてください</p>');
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/truck" />
-
-</Answer>
-
-## 6. バブルソート
+## 7. バブルソート
 
 引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を作成しましょう。<br />
 そのアルゴリズムは次の通りです。
