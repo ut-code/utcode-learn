@@ -143,9 +143,26 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 ## 基礎演習
 
+`1` から `10` までの数の積を求める `for` 文を書いてみましょう。
+
+:::tip
+:::
+
+### 解答例
+
+<Answer>
+
+```javascript
+
+```
+
+<ViewSource url={import.meta.url} path="_samples/is-prime" />
+
+</Answer>
+
 ## 中級演習
 
-ある整数値 `integer` が与えられたとき、その値が素数であるかどうか判定して表示する`for文`を書いてみましょう。
+ある整数の変数 `integer` が与えられたとき、その値が素数であるかどうか判定して表示する`for`文を書いてみましょう。
 
 そして、`integer`に6,11,57,89を入れてテストしてみましょう。
 
@@ -157,9 +174,11 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 （ヒント: 変数の性質を利用します）
 :::
 
-:::tip
+:::tip 豆知識
 自然数`integer`を`i`で割ったあまりは `integer % i`で求められます。
 :::
+
+### 解答例
 
 <Answer>
 
@@ -174,7 +193,7 @@ if (integer <= 1) {
 
 for (let i = 2; i < integer; i++) {
   if (integer % i == 0) {
-    isPrime = false; // 変数には最後に代入した値が保存される
+    isPrime = false; // 変数には最後に代入した値のみを保持する
   }
 }
 
@@ -186,5 +205,30 @@ if (isPrime) {
 ```
 
 <ViewSource url={import.meta.url} path="_samples/is-prime" />
+
+### 別解
+
+前項で割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
+
+```javascript
+let integer = 89; //任意の整数
+
+let isPrime = true;
+if (integer <= 1) {
+  // integerが1以下のときは素数でない
+  isPrime = false;
+}
+
+for (let i=2; i < integer; i++){
+  isPrime = isPrime && (integer % i != 0);
+}
+
+if (isPrime) {
+  document.write(`${integer} は素数です`);
+} else {
+  document.write(`${integer} は素数ではありません`);
+}
+```
+<ViewSource url={import.meta.url} path="_samples/is-prime-using-and" />
 
 </Answer>

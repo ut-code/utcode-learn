@@ -1,4 +1,4 @@
-let integer = 57; // 任意の整数
+let integer = 89; //任意の整数
 
 let isPrime = true;
 if (integer <= 1) {
@@ -6,10 +6,8 @@ if (integer <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integer; i++) {
-  if (integer % i == 0) {
-    isPrime = false; // 変数には最後に代入した値のみを保持する
-  }
+for (let i=2; i < integer; i++){
+  isPrime = isPrime && (integer % i == 0);
 }
 
 if (isPrime) {
