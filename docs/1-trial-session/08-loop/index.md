@@ -139,14 +139,50 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 :::
 
-## 中級問題
+## 基礎演習
 
-ある整数値`integer`が与えられたとき、その値が素数であるかどうか判定するfor文を書いてみましょう。
+## 中級演習
+
+ある整数値 `integer` が与えられたとき、その値が素数であるかどうか判定して表示する`for文`を書いてみましょう。
+
 そして、`integer`に6,11,57,89を入れてテストしてみましょう。
 
 :::info
 素数の定義は`1とその数以外の整数で割り切れない自然数`でしたね。
-`integer-2`個の<Term type="javascriptBoolean">真偽値</Term>の論理積 `&&` (AND) はどうやって評価すればよいでしょうか？
+
+`範囲内の全ての自然数 i に対して〇〇である` はどうやって評価すればよいでしょうか？
+
+（ヒント: 変数の性質を利用します）
 :::
 
+:::tip
+自然数`integer`を`i`で割ったあまりは `integer % i`で求められます。
+:::
 
+<Answer>
+
+```javascript
+let integer = 57; // 任意の整数
+
+let isPrime = true;
+if (integer <= 1) {
+  // integerが1以下のときは素数でない
+  isPrime = false;
+}
+
+for (let i = 2; i < integer; i++) {
+  if (integer % i == 0) {
+    isPrime = false; // 変数には最後に代入した値が保存される
+  }
+}
+
+if (isPrime) {
+  document.write(`${integer} は素数です`);
+} else {
+  document.write(`${integer} は素数ではありません`);
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/is-prime" />
+
+</Answer>
