@@ -147,27 +147,6 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 :::info
 素数の定義は`1とその数以外の整数で割り切れない自然数`でしたね。
 `integer-2`個の<Term type="javascriptBoolean">真偽値</Term>の論理積 `&&` (AND) はどうやって評価すればよいでしょうか？
+:::
 
-### 発展課題
 
-HTML の `table`, `tr`, `td` タグを用いて、九九の表を画面に表示させてみましょう。
-
-<Answer>
-
-開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
-
-```javascript
-document.write("<table>");
-for (let x = 1; x <= 9; x += 1) {
-  document.write("<tr>");
-  for (let y = 1; y <= 9; y += 1) {
-    document.write(`<td>${x * y}</td>`);
-  }
-  document.write("</tr>");
-}
-document.write("</table>");
-```
-
-<ViewSource url={import.meta.url} path="_samples/times-table" />
-
-</Answer>

@@ -156,7 +156,43 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ---
 
-## 4. フィボナッチ数列
+## 4. 九九
+
+[HTML の `table`, `tr`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
+
+:::tip ヒント
+
+`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
+
+```javascript title=script.js
+document.write('<p style="color: blue">Hello World!</p>');
+```
+
+![青い Hello World](./blue-hello-world.jpg)
+
+開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
+
+:::
+
+<Answer>
+
+```javascript
+document.write('<table rules="all", border="2px">');
+for (let x = 1; x <= 9; x += 1) {
+  document.write("<tr>");
+  for (let y = 1; y <= 9; y += 1) {
+    document.write(`<td>${x * y}</td>`);
+  }
+  document.write("</tr>");
+}
+document.write("</table>");
+```
+
+<ViewSource url={import.meta.url} path="_samples/times-table" />
+
+</Answer>
+
+## 5. フィボナッチ数列
 
 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
 
@@ -179,7 +215,7 @@ function fibonacci(n) {
 
 <ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
 
-2 の別解
+別海
 
 もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
 
@@ -199,7 +235,7 @@ function fibonacci(n) {
 
 ---
 
-## 5. トラック
+## 6. トラック
 
 引っ越しトラックを考えます。
 
@@ -218,16 +254,6 @@ function fibonacci(n) {
 と表示されるプログラムを作ってみましょう。
 
 また、出発できる場合には文字を緑色で、出発できない場合には文字を赤色で表示するようにしましょう。
-
-### ヒント
-
-`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
-
-```javascript title=script.js
-document.write('<p style="color: blue">Hello World!</p>');
-```
-
-![青い Hello World](./blue-hello-world.jpg)
 
 ### 解答例
 
