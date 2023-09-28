@@ -139,6 +139,7 @@ function max(a, b) {
   return b;
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/max-no-else" />
 
 </Answer>
