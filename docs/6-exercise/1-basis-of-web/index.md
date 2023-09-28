@@ -178,6 +178,18 @@ if (tanakaHandTotal > satoHandTotal) {
 
 また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
 
+:::info ヒント
+
+`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
+
+```javascript title=script.js
+document.write('<p style="color: blue">Hello World!</p>');
+```
+
+![青い Hello World](./blue-hello-world.jpg)
+
+:::
+
 ### 解答例
 
 <Answer>
@@ -207,19 +219,8 @@ if (box <= 30 && weight <= 2000) {
 
 [HTML の `table`, `tr`, `th`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
 
-:::tip ヒント
+:::tip
 
-`document.write()` は文字列だけでなく、HTML 要素を出力することができます。
-
-```javascript title=script.js
-document.write('<p style="color: blue">Hello World!</p>');
-```
-
-![青い Hello World](./blue-hello-world.jpg)
-
-:::
-
-:::info
 開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
 
 :::
@@ -229,7 +230,17 @@ document.write('<p style="color: blue">Hello World!</p>');
 <Answer>
 
 ```javascript
-//表の一列(横のヘッダー含む)を描画
+//表のヘッダー(上の列)を描画
+function writeHeaderRow() {
+  let header = "";
+  header += "<th> × </th>";
+  for (i = 1; i <= 9; i++) {
+    header += `<th> ${i} </th>`;
+  }
+  document.write(header);
+}
+
+//表の一行(横のヘッダー含む)を描画
 function writeRow(x) {
   let row = "<tr>";
   row += getSideHeader(x);
@@ -241,16 +252,6 @@ function writeRow(x) {
 }
 function getSideHeader(x) {
   return `<th> ${x} </th>`;
-}
-
-//表のヘッダー(上の列)を描画
-function writeHeaderRow() {
-  let header = "";
-  header += "<th> × </th>";
-  for (i = 1; i <= 9; i++) {
-    header += `<th> ${i} </th>`;
-  }
-  document.write(header);
 }
 
 //表のbodyと横のヘッダーを描画
