@@ -103,6 +103,8 @@ increment();
 
 :::
 
+---
+
 ## 基礎演習
 
 <p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
