@@ -158,7 +158,7 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ## 4. 九九
 
-[HTML の `table`, `tr`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
+[HTML の `table`, `tr`, `th`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
 
 :::tip ヒント
 
@@ -170,22 +170,57 @@ document.write('<p style="color: blue">Hello World!</p>');
 
 ![青い Hello World](./blue-hello-world.jpg)
 
+:::
+
+:::info
 開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
 
 :::
 
+### 解答例
+
 <Answer>
 
 ```javascript
-document.write('<table rules="all", border="2px">');
-for (let x = 1; x <= 9; x += 1) {
-  document.write("<tr>");
-  for (let y = 1; y <= 9; y += 1) {
-    document.write(`<td>${x * y}</td>`);
+//表の一列(横のヘッダー含む)を描画
+function writeRow(x) {
+  let row = "<tr>";
+  row += getSideHeader(x);
+  for (i = 1; i <= 9; i++) {
+    row += `<td> ${x * i} </td>`;
   }
-  document.write("</tr>");
+  row += "</tr>";
+  document.write(row);
 }
-document.write("</table>");
+function getSideHeader(x) {
+  return `<th> ${x} </th>`;
+}
+
+//表のヘッダー(上の列)を描画
+function writeHeaderRow() {
+  let header = "";
+  header += "<th> × </th>";
+  for (i = 1; i <= 9; i++) {
+    header += `<th> ${i} </th>`;
+  }
+  document.write(header);
+}
+
+//表のbodyと横のヘッダーを描画
+function writeBody() {
+  for (x = 1; x <= 9; x++) {
+    writeRow(x);
+  }
+}
+
+function main() {
+  document.write("<table>");
+  writeHeaderRow();
+  writeBody();
+  document.write("</table>");
+}
+
+main();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/times-table" />
