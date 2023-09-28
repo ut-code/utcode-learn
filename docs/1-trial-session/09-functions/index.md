@@ -125,6 +125,22 @@ function max(a, b) {
 
 <ViewSource url={import.meta.url} path="_samples/max" />
 
+:::note
+
+a > b が true の場合、if 文内部の return で関数実行が中断されるため、else キーワードは必ずしも必要ではない。そのため、下のように書くこともできる。
+
+:::
+
+```javascript
+function max(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
+```
+<ViewSource url={import.meta.url} path="_samples/max-no-else" />
+
 </Answer>
 
 ## 中級演習
