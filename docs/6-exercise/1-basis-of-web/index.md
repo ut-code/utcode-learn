@@ -330,6 +330,18 @@ function fibonacci(n) {
   - これで一番後ろの要素が一番大きいものであると確定する
 - 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
 
+:::note 
+テスト用に、以下のランダムに生成された配列を自由に使ってよいものとします。
+
+` [7, 1, 10, 4, 3, 5, 9, 2, 8, 6] `
+
+` [8, 2, 9, 14, 12, 1, 5, 13, 16, 3, 19, 17, 18, 10, 15, 7, 20, 11, 6, 4] `
+
+` [73, 39, 94, 57, 42, 78, 20, 55, 56, 77] `
+
+` [247, 785, 73, 879, 515, 545, 423, 617, 19, 600, 409, 547, 52, 66, 472, 670, 802, 271, 569, 316] `
+:::
+
 <video src={BubbleSortVideo} controls />
 
 :::info
@@ -360,6 +372,7 @@ function bubbleSort(array) {
       if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
     }
   }
+  return array;
 }
 ```
 
@@ -371,7 +384,7 @@ function bubbleSort(array) {
 
 本解答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
 
-[**参照の節**](../browser-apps/constant/#参照)で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term strong type="javascriptSideEffects">副作用</Term>を防ぐために共用の関数は<Term strong type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term strong type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示すべきであるとされています。関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
+[**参照の節**](../browser-apps/constant/#参照)で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term strong type="javascriptSideEffects">副作用</Term>を防ぐために有効範囲の広い関数は<Term strong type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term strong type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示すべきであるとされています。関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
 
 上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>に書き直すと例えば、
 
@@ -387,13 +400,13 @@ function swapIndex(array, indexA, indexB) {
 }
 - function bubbleSort(array){
 + function bubbleSort(inputArray) {
-+  let array = inputArray.slice(); // 配列の値をコピー
++  let array = inputArray.slice(); // 配列の値をコピーする
   for (let i = array.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
       if (array[j] > array[j + 1]) swapIndex(array, j, j+1);
     }
   }
-+   return array;
+  return array;
 }
 ```
 
