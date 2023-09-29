@@ -106,14 +106,14 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ---
 
-## 基礎課題 
+## 基礎課題
 
 ### 連続表示
 
 - 引数に与えられた配列の要素を順番に表示する関数を、通常のfor文を使って作ってみましょう。
 
 :::tip
-変数 `i` を 0 から `(作成した配列の length 変数の値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+変数 `i` を 0 から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` インデックスの要素を表示しましょう。
 :::
 
 <Answer>
@@ -126,7 +126,7 @@ function printArray(array) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/Array-printer" />
+<ViewSource url={import.meta.url} path="_samples/array-printer" />
 
 </Answer>
 
@@ -134,9 +134,69 @@ function printArray(array) {
 
 ### 最大値
 
+引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `arrayMax` を作成しましょう。
 
+:::note
 
-<!--- 修正前
+テスト用に、ランダムに生成された以下の配列を使ってよいものとします。<p />
+
+```javascript
+const array1 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
+
+const array2 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
+```
+
+:::
+
+:::info
+
+今までのように仮の初期値を置く方法では、配列の各値が非常に大きな負の値であった場合に仮の初期値が返ってきてしまいます。
+
+どうすればいいでしょうか？
+
+:::
+
+<Answer>
+
+配列の最初の値を初期値に設定することで解消します。
+
+```javascript
+function arrayMax(array) {
+  if (array == []) return; //空配列をエスケープ
+  let maxValue = array[0];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > maxValue) maxValue = array[i];
+  }
+  return maxValue;
+}
+```
+
+:::danger
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時にエスケープすることを忘れないでください！
+:::
+
+<ViewSource url={import.meta.url} path="_samples/array-max" />
+
+---
+
+:::info 別解 (参考)
+
+[`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) と [三項演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Conditional_operator) を使ってこのように書くこともできます。
+
+```javascript
+function max(a, b) {
+  return a > b ? a : b;
+}
+
+function arrayMax(array) {
+  if (array == []) return; //空配列をエスケープ
+  return array.reduce(max, array[0]);
+}
+```
+:::
+</Answer>
+
+<!--- 修正前 ...6-/1-/に移動
 
 ## 中級課題 フィボナッチ数列
 
