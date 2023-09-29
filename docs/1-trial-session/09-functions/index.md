@@ -3,6 +3,7 @@ title: 関数
 ---
 
 import Term from "@site/src/components/Term";
+import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import returnValueVideo from "./return-value.mp4";
 
@@ -102,12 +103,55 @@ increment();
 
 :::
 
-## 演習
+---
+
+## 基礎演習
+
+<p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
+
+:::tip
+<Term type="javascriptIfStatement">if文</Term>を使って、aが大きい場合とbが大きい場合で処理を書き分けます。
+:::
+
+<Answer>
+
+```javascript
+function max(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/max" />
+
+:::note
+
+a > b が true の場合、if 文内部の return で関数実行が中断されるため、else キーワードは必ずしも必要ではない。そのため、下のように書くこともできる。
+
+:::
+
+```javascript
+function max(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/max-no-else" />
+
+</Answer>
+
+## 中級演習
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
-function calculateCost(monthlyBandwidth) {
+function calculateCost(monthlyDataUsage) {
   // ここに処理を書く
 }
 
@@ -116,9 +160,22 @@ document.write(calculateCost(3.5));
 
 `calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyBandwidth` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
-> 月間転送量を _monthlyBandwidth_ (GB) とします。
->
-> - _monthlyBandwidth_ < 5.0 のとき、携帯電話料金は _monthlyBandwidth_ × 600 (円)
-> - _monthlyBandwidth_ >= 5.0 のとき、携帯電話料金は 3000 (円)
+> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
+> - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
+
+<Answer>
+
+```javascript
+function calculateCost(monthlyDataUsage) {
+  if (monthlyDataUsage < 5.0) {
+    return monthlyDataUsage * 600;
+  }
+  return 3000;
+}
+
+document.write(calculateCost(3.5));
+```
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
+
+</Answer>

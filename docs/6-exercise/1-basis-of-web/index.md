@@ -70,6 +70,8 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 
 </Answer>
 
+---
+
 ## 2. 名前の長さ
 
 太郎くんは、名前を 4 文字以上 10 文字以下で入力して登録できるウェブサイトを作ろうとしています。そこで、名前の文字数を変数に入れておき、
@@ -154,65 +156,7 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ---
 
-## 4. フィボナッチ数列
-
-1. 引数を 2 つとり、そのうち大きい数を返す関数 `max` を定義してください。
-
-2. 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
-
-### 解答例
-
-<Answer>
-
-1 の解答例
-
-```javascript
-function max(a, b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/max" />
-
-2 の解答例
-
-```javascript
-function fibonacci(n) {
-  if (n <= 2) {
-    return 1;
-  }
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-// このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
-```
-
-<ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
-
-2 の別解
-
-もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
-
-```javascript
-function fibonacci(n) {
-  let sequence = [0, 1];
-  for (let i = 2; i < n + 1; i += 1) {
-    sequence.push(sequence[i - 1] + sequence[i - 2]);
-  }
-  return sequence[n];
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/fibonacci/array" />
-
-</Answer>
-
----
-
-## 5. トラック
+## 4. トラック
 
 引っ越しトラックを考えます。
 
@@ -230,9 +174,9 @@ function fibonacci(n) {
 
 と表示されるプログラムを作ってみましょう。
 
-また、出発できる場合には文字を緑色で、出発できない場合には文字を赤色で表示するようにしましょう。
+また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
 
-### ヒント
+:::info ヒント
 
 `document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
@@ -241,6 +185,8 @@ document.write('<p style="color: blue">Hello World!</p>');
 ```
 
 ![青い Hello World](./blue-hello-world.jpg)
+
+:::
 
 ### 解答例
 
@@ -264,3 +210,193 @@ if (box <= 30 && weight <= 2000) {
 <ViewSource url={import.meta.url} path="_samples/truck" />
 
 </Answer>
+
+---
+
+## 5. 九九
+
+[HTML の `table`, `tr`, `th`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
+
+:::tip
+
+開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
+
+:::
+
+### 解答例
+
+<Answer>
+
+```javascript
+//表のヘッダー(上の列)を描画
+function writeHeaderRow() {
+  let header = "";
+  header += "<th> × </th>";
+  for (i = 1; i <= 9; i++) {
+    header += `<th> ${i} </th>`;
+  }
+  document.write(header);
+}
+
+//表の一行(横のヘッダー含む)を描画
+function writeRow(x) {
+  let row = "<tr>";
+  row += getSideHeader(x);
+  for (i = 1; i <= 9; i++) {
+    row += `<td> ${x * i} </td>`;
+  }
+  row += "</tr>";
+  document.write(row);
+}
+function getSideHeader(x) {
+  return `<th> ${x} </th>`;
+}
+
+//表のbodyと横のヘッダーを描画
+function writeBody() {
+  for (x = 1; x <= 9; x++) {
+    writeRow(x);
+  }
+}
+
+function main() {
+  document.write("<table>");
+  writeHeaderRow();
+  writeBody();
+  document.write("</table>");
+}
+
+main();
+```
+
+<ViewSource url={import.meta.url} path="_samples/times-table" />
+
+</Answer>
+
+---
+
+## 6. フィボナッチ数列
+
+1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
+
+### 解答例
+
+<Answer>
+
+```javascript
+function fibonacci(n) {
+  if (n <= 2) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
+```
+
+<ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
+
+### 別解
+
+もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
+
+```javascript
+function fibonacci(n) {
+  let sequence = [1, 1];
+  for (let i = 2; i < n; i += 1) {
+    sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+  return sequence[n - 1];
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/fibonacci/array" />
+
+</Answer>
+
+---
+
+## 7. バブルソート
+
+引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を作成しましょう。<br />
+そのアルゴリズムは次の通りです。
+
+- ソート前配列のある要素を取り、その一つ後ろの要素と比較する
+  - もし一つ後ろの要素の方が小さければ、二項を入れ替える
+  - そうでなければ、何もしない
+- その操作を一番前の要素から一番後ろにたどり着くまで繰り返す
+  - これで一番後ろの要素が一番大きいものであると確定する
+- 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
+
+<video src={bubbleSortVideo} controls />
+
+:::info
+要素を入れ替えるとき、単に
+
+```javascript
+array[0] = array[1];
+array[1] = array[0];
+```
+
+とするだけでは両方が`array[1]`になってしまい、うまくいきません。どうすればよいでしょうか。
+
+:::
+
+### 解答例
+
+<Answer>
+
+```javascript
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+function bubbleSort(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
+    }
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/normal/" />
+
+</Answer>
+
+:::tip <Term strong type="javascriptReference">参照</Term>と<Term strong type="javascriptSideEffects">副作用</Term>の話
+
+本解答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
+
+[**参照の節**](../browser-apps/constant/#参照)で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term strong type="javascriptSideEffects">副作用</Term>を防ぐために共用の関数は<Term strong type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term strong type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示すべきであるとされています。関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
+
+上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>に書き直すと例えば、
+
+<Answer>
+
+```diff javascript
++ /* swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスであり、
++    外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい */
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+- function bubbleSort(array){
++ function bubbleSort(inputArray) {
++  let array = inputArray.slice(); // 配列の値をコピー
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) swapIndex(array, j, j+1);
+    }
+  }
++   return array;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/pure/" />
+</Answer>
+となります。
+
+:::

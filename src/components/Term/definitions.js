@@ -219,6 +219,12 @@ export default {
         "JavaScriptにおける値の一種で、真偽を表すもの。true または false の2種類しかない。",
       referencePage: "/docs/trial-session/boolean/",
     },
+    javascriptIfStatement: {
+      name: "if文",
+      definition:
+        "与えられた真偽値が真である場合のみ{}ブロックの中の処理を実行する制御構造。",
+      referencePage: "/docs/trial-session/if-statement/",
+    },
     javascriptControlFlow: {
       name: "制御構造 (JavaScript)",
       definition:
@@ -291,6 +297,29 @@ export default {
       definition:
         "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
+    },
+    javascriptReference: {
+      name: "参照",
+      definition:
+        "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
+      referencePage: "/docs/browser-apps/constant/#参照",
+    },
+    javascriptSideEffects: {
+      name: "副作用",
+      definition:
+        "関数などを実行したときに、返り値以外の変数に影響を及ぼすこと。",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
+    },
+    javascriptPureFunction: {
+      name: "純粋関数",
+      definition: "副作用を持たない関数。数学的な関数や写像により近い概念。",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
+    },
+    javascriptReferenceTransparency: {
+      name: "参照透過性",
+      definition:
+        "関数に一定の引数を与えると、常に一定の値を返すこと。デバッグがしやすく、キャッシュなどを使って自動で高速化することができる。",
+      referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
     },
     javascriptClass: {
       name: "クラス (JavaScript)",
