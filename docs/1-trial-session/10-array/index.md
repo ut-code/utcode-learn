@@ -93,6 +93,7 @@ document.write(studentNames.length); // 3
 studentNames.push("内藤");
 document.write(studentNames.length); // 4
 ```
+
 ### `配列.push` 関数
 
 `関数.push`関数 [(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、指定した配列の末尾に新しい値を追加する関数です。
@@ -108,6 +109,9 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 ## 基礎課題 連続表示
 
 - 引数に与えられた配列の要素を順番に表示する関数を、通常のfor文を使って作ってみましょう。
+
+
+<Answer>
 
 ```javascript
 function printArray(array) {
@@ -128,9 +132,7 @@ function printArray(array) {
 - 作成した配列の各要素を、通常の `for` 文と `配列.length` 変数を用いて出力してみましょう。
 
 :::info ヒント
-
 変数 `i` を 0 から `(作成した配列の length 変数の値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
-
 :::
 
 <Answer>
