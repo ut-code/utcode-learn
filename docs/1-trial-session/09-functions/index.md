@@ -110,7 +110,7 @@ increment();
 <p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
 
 :::tip
-<Term type="javascriptIfStatement">if文</Term>を使って、aが大きい場合とbが大きい場合で処理を書き分けます。
+<Term type="javascriptIfStatement">if 文</Term> を使って、aが大きい場合とbが大きい場合で処理を書き分けます。
 :::
 
 <Answer>
@@ -129,7 +129,7 @@ function max(a, b) {
 
 :::note
 
-a > b が true の場合、if 文内部の return で関数実行が中断されるため、else キーワードは必ずしも必要ではない。そのため、下のように書くこともできる。
+a > b が true の場合、if 文内部の return で関数実行が中断されるため、else キーワードは必ずしも必要ではありません。そのため、以下のように書くこともできます。
 
 :::
 
@@ -158,7 +158,7 @@ function calculateCost(monthlyDataUsage) {
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyBandwidth` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost` は、<Term type="javascriptParameter">引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
