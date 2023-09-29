@@ -106,7 +106,9 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ---
 
-## 基礎課題 連続表示
+## 基礎課題 
+
+### 連続表示
 
 - 引数に与えられた配列の要素を順番に表示する関数を、通常のfor文を使って作ってみましょう。
 
@@ -127,6 +129,14 @@ function printArray(array) {
 <ViewSource url={import.meta.url} path="_samples/Array-printer" />
 
 </Answer>
+
+## 中級課題
+
+### 最大値
+
+
+
+<!--- 修正前
 
 ## 中級課題 フィボナッチ数列
 
@@ -157,6 +167,8 @@ for (let i = 0; i < f.length; i += 1) {
 <ViewSource url={import.meta.url} path="_samples/Array-class" />
 
 </Answer>
+
+-->
 
 <!-- オブジェクトはまだ扱っていないためコメントアウト
 ## 配列とオブジェクト

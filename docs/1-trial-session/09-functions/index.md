@@ -107,6 +107,8 @@ increment();
 
 ## 基礎演習
 
+### 最大値
+
 <p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
 
 :::tip
@@ -147,6 +149,8 @@ function max(a, b) {
 </Answer>
 
 ## 中級演習
+
+### 携帯電話料金
 
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
