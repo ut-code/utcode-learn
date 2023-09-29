@@ -143,9 +143,11 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 ## 基礎演習
 
-`1` から `10` までの数の積を求める `for` 文を書いてみましょう。
+`1` から `10` までの数の積を求めて画面に表示する、 `for` 文を含むコードを書いてみましょう。
 
 :::tip
+和を求めるときは和の初期値は `0` でしたが、積の初期値は `0` ではありません。
+いくつにすればよいでしょうか？
 :::
 
 ### 解答例
@@ -153,10 +155,28 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 <Answer>
 
 ```javascript
-
+let product = 1;
+for (let i = 1; i <= 10; i = i + 1) {
+  product = product * i;
+}
+document.write(product);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/is-prime" />
+<ViewSource url={import.meta.url} path="_samples/product" />
+
+### 別解
+
+複合演算子を使うと以下のようにも書けます。
+
+```javascript
+let product = 1;
+for (let i = 1; i <= 10; i++) {
+  product *= i;
+}
+document.write(product);
+```
+
+<ViewSource url = {import.meta.url} path="_samples/product-alt">
 
 </Answer>
 
@@ -219,8 +239,8 @@ if (integer <= 1) {
   isPrime = false;
 }
 
-for (let i=2; i < integer; i++){
-  isPrime = isPrime && (integer % i != 0);
+for (let i = 2; i < integer; i++) {
+  isPrime = isPrime && integer % i != 0;
 }
 
 if (isPrime) {
@@ -229,6 +249,7 @@ if (isPrime) {
   document.write(`${integer} は素数ではありません`);
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/is-prime-using-and" />
 
 </Answer>
