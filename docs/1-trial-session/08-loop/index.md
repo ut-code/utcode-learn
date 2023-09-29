@@ -176,7 +176,7 @@ for (let i = 1; i <= 10; i++) {
 document.write(product);
 ```
 
-<ViewSource url = {import.meta.url} path="_samples/product-alt">
+<ViewSource url = {import.meta.url} path="_samples/product-alt" />
 
 </Answer>
 
