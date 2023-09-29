@@ -5,6 +5,7 @@ sidebar_position: 1
 
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
+import BubbleSortVideo from "@site/docs/6-exercise/1-basis-of-web/bubble-sort-video.mp4";
 
 この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
 
@@ -328,7 +329,7 @@ function fibonacci(n) {
   - これで一番後ろの要素が一番大きいものであると確定する
 - 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
 
-<video src={bubbleSortVideo} controls />
+<video src={BubbleSortVideo} controls />
 
 :::info
 要素を入れ替えるとき、単に
