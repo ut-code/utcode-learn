@@ -3,6 +3,7 @@ title: Web プログラミングの初歩
 sidebar_position: 1
 ---
 
+import Term from "@site/src/components/Term";
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import BubbleSortVideo from "@site/docs/6-exercise/1-basis-of-web/bubble-sort-video.mp4";
