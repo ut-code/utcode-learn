@@ -380,7 +380,7 @@ function bubbleSort(array) {
 
 </Answer>
 
-:::tip <Term strong type="javascriptReference">参照</Term>と<Term strong type="javascriptSideEffects">副作用</Term>の話
+:::tip <Term strong type="javascriptSideEffects">副作用</Term>と<Term strong type="javascriptPureFunction">純粋関数</Term>の話
 
 本解答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
 
