@@ -83,6 +83,7 @@ i = i + 1;
 i += 1;
 ```
 
+<!-- 教えるかどうか議論
 [**インクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
 一方、[**デクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
 
@@ -99,7 +100,10 @@ i = i + 1;
 i++;
 ```
 
+-->
+
 :::
+
 
 ## for 文
 
@@ -151,8 +155,8 @@ document.write(sum);
 `for` 文や `while` 文は、ネストして使用することができます。次のプログラムは、`(x, y) = (0, 0)` から始まって `(x, y) = (4, 4)` まで画面に表示します。
 
 ```javascript
-for (let x = 0; x < 5; x++) {
-  for (let y = 0; y < 5; y++) {
+for (let x = 0; x < 5; x += 1) {
+  for (let y = 0; y < 5; y += 1) {
     document.write(`(x, y) = (${x}, ${y})<br>`);
   }
 }
