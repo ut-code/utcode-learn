@@ -22,22 +22,27 @@ export default function Term({ type, strong = false, children }) {
   const location = useLocation();
 
   const wrap = (content) => {
-    // 現在のページで用語が初出であればリンクを表示する必要がない
-    const shouldLinkToReferencePage = Boolean(
-      location.pathname !== term.referencePage &&
-        location.pathname + "/" !== term.referencePage,
-    );
+    const shouldLinkToReferencePage = () => {
+
+        // referencePageがundefinedならばリンクを表示しない (refPageTitleがundefでもデバッグの容易性のために表示する、直せ)
+      if(term.referencePage === undefined) return false;
+
+        // 現在のページで用語が初出であればリンクを表示する必要がない
+      if(location.pathname === term.referencePage) return false;
+      if(location.pathname + "/" === term.referencePage) return false;
+      return true;
+    }
 
     return (
       <Tippy
         theme="material"
-        interactive={shouldLinkToReferencePage}
+        interactive={shouldLinkToReferencePage()}
         appendTo={window.document.body}
         content={
           <div className={styles.tooltipContent}>
             <header className={styles.tooltipContentHeader}>{term.name}</header>
             <div>{term.definition}</div>
-            {shouldLinkToReferencePage && (
+            {shouldLinkToReferencePage() && (
               <Link className={styles.tooltipLink} to={term.referencePage}>
                 <span>{referencePageTitle} へ</span>
                 <MdArrowForward size="1.2rem" />
