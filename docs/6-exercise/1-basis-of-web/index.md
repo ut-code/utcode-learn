@@ -178,7 +178,7 @@ if (tanakaHandTotal > satoHandTotal) {
 
 また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
 
-:::info ヒント
+:::tip
 
 `document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
