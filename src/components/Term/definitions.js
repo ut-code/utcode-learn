@@ -17,7 +17,7 @@ export default {
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
     "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
     "/docs/browser-apps/constant/#参照": "定数とオブジェクトの参照",
-    "/docs/exercise/basis-of-web/#参照と副作用の話": "副作用と純粋関数",
+    "/docs/exercise/basis-of-web/#副作用と純粋関数の話": "副作用と純粋関数",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
