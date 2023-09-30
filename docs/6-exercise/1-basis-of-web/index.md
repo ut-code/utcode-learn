@@ -333,13 +333,12 @@ function fibonacci(n) {
 :::note 
 テスト用に、以下のランダムに生成された配列を自由に使ってよいものとします。
 
-` [7, 1, 10, 4, 3, 5, 9, 2, 8, 6] `
-
-` [8, 2, 9, 14, 12, 1, 5, 13, 16, 3, 19, 17, 18, 10, 15, 7, 20, 11, 6, 4] `
-
-` [73, 39, 94, 57, 42, 78, 20, 55, 56, 77] `
-
-` [247, 785, 73, 879, 515, 545, 423, 617, 19, 600, 409, 547, 52, 66, 472, 670, 802, 271, 569, 316] `
+```javascript 
+const array1 = [7, 1, 10, 4, 3, 5, 9, 2, 8, 6];
+const array2 = [8, 2, 9, 14, 12, 1, 5, 13, 16, 3, 19, 17, 18, 10, 15, 7, 20, 11, 6, 4];
+const array3 = [73, 39, 94, 57, 42, 78, 20, 55, 56, 77];
+const array4 = [247, 785, 73, 879, 515, 545, 423, 617, 19, 600, 409, 547, 52, 66, 472, 670, 802, 271, 569, 316];
+```
 :::
 
 <video src={BubbleSortVideo} controls />
@@ -400,7 +399,7 @@ function swapIndex(array, indexA, indexB) {
   array[indexA] = array[indexB];
   array[indexB] = temp;
 }
-- function bubbleSort(array){
+- function bubbleSort(array) {
 + function bubbleSort(inputArray) {
 +  let array = inputArray.slice(); // 配列の値をコピーする
   for (let i = array.length - 1; i > 0; i--) {
