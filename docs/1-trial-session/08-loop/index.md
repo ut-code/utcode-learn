@@ -43,7 +43,7 @@ while (条件式) {
 
 1 から 10 までの整数の合計を計算するプログラムを作ってみましょう。
 
-::: tip
+:::tip
 
 `1` から `10` まで順番に増えていく変数 `i` と、合計値を保存しておく変数 `sum` を用意しましょう。
 
@@ -65,7 +65,7 @@ document.write(sum);
 
 </Answer>
 
-:::tip 複合代入演算子、インクリメント演算子
+:::tip 複合代入演算子
 
 [**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
 
@@ -112,7 +112,7 @@ i++;
 先ほどのプログラムは、 `for` 文によって次のように書き換えられます。
 
 ```javascript
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i += 1) {
   document.write(i);
 }
 document.write("終了");
