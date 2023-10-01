@@ -110,7 +110,7 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ### 連続表示
 
-- 引数に与えられた配列の要素を順番に表示する関数を、通常のfor文を使って作ってみましょう。
+- 引数に与えられた配列の要素を、通常のfor文を使って順番に表示してみましょう。
 
 :::tip
 変数 `i` を 0 から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` インデックスの要素を表示しましょう。
@@ -119,14 +119,25 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 <Answer>
 
 ```javascript
-function printArray(array) {
-  for (let i = 0; i < array.length; i += 1) {
-    document.write(array[i]);
-  }
+const array = ["田中", "佐藤", "鈴木"];
+
+for (let i = 0; i < array.length; i += 1) {
+  document.write(array[i]);
 }
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-printer" />
+
+### 別解
+
+[`配列.join` メソッド(関数)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)を使うと、次のような書き方もできます。
+
+```javascript
+const array = ["田中", "佐藤", "鈴木"];
+
+const text = array.join("");
+document.write(text);
+```
 
 </Answer>
 
