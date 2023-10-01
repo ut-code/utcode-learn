@@ -69,7 +69,7 @@ let age = 21;
 let hasDriverLicense = true;
 let isDrunk = true;
 function tryToDrive() {
-  // if文の実行する式が一行だけの場合、{}を省略できます。
+  // if 構文で実行する式が一行だけの場合、{} を省略できます。
   if (age < 18) return;
   if (!hasDriverLicense) return;
   if (isDrunk) return;
