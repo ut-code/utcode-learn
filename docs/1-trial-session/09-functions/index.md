@@ -112,7 +112,7 @@ increment();
 <p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
 
 :::tip
-<Term type="javascriptIfStatement">if 文</Term> を使って、aが大きい場合とbが大きい場合で処理を書き分けます。
+<p><Term type="javascriptIfStatement">if 文</Term>を使って、<code>a</code> が大きい場合と <code>b</code> が大きい場合で処理を書き分けます。</p>
 :::
 
 <Answer>
