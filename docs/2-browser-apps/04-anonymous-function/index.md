@@ -116,6 +116,35 @@ const stars = rates.map((rate) => "★".repeat(rate));
 
 ## 課題
 
+先ほどの[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)を用いてみましょう。`students` 変数に格納されている名前を箇条書きにしてください。
+
+```javascript
+const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
+// ここで HTML 要素を取得し、学生の名前をリストアイテムとして表示
+```
+
+:::info ヒント
+
+- `innerHTML` プロパティにより、HTML要素を取得・変更できます。
+- 箇条書きには `ul` タグや `li` タグを使用します。
+- `join` メソッドを配列要素を指定された文字列で連結するのに使います。
+
+:::
+
+<Answer>
+
+```javascript
+const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
+const studentList = document.getElementById("student-list");
+studentList.innerHTML = students
+  .map((student) => `<li>${student}</li>`)
+  .join("");
+```
+
+<ViewSource url={import.meta.url} path="_samples/map" />
+
+</Answer>
+
 `scores` 変数には、各必修科目の点数が格納されているとします。全ての要素が 50 点以上であることを確認するには、何というメソッドを使うのが適切か調べてみてください。また、実際にそのメソッドを用いて点数を確認してみてください。
 
 ```javascript
