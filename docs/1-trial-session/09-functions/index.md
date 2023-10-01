@@ -51,7 +51,8 @@ greet("morning", "佐藤");
 
 ```javascript
 function add(a, b) {
-  return a + b;
+  const sum = a + b;
+  return sum;
 }
 
 document.write(add(3, 4));
