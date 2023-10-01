@@ -139,6 +139,8 @@ const text = array.join("");
 document.write(text);
 ```
 
+<ViewSource url={import.meta.url} path="_samples/array-printer-join" />
+
 </Answer>
 
 ## 中級課題
