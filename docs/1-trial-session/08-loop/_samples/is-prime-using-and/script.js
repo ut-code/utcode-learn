@@ -5,9 +5,9 @@ if (integer <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integer; i++) {
+for (let i = 2; i < integer; i += 1) {
   // integerが1以下のときは素数でない
-  isPrime = isPrime && (integer % i != 0);
+  isPrime = isPrime && integer % i != 0;
 }
 
 if (isPrime) {

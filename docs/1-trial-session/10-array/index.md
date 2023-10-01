@@ -120,7 +120,7 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ```javascript
 function printArray(array) {
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     document.write(array[i]);
   }
 }
@@ -164,7 +164,7 @@ const array2 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 function arrayMax(array) {
   if (array == []) return; //空配列をエスケープ
   let maxValue = array[0];
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
   }
   return maxValue;
