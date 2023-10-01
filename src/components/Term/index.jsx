@@ -23,17 +23,16 @@ export default function Term({ type, strong = false, children }) {
 
   const wrap = (content) => {
     const shouldLinkToReferencePage = () => {
+      // referencePageがundefinedならばリンクを表示しない (refPageTitleがundefでもデバッグの容易性のために表示する、直せ)
+      if (term.referencePage === undefined) return false;
 
-        // referencePageがundefinedならばリンクを表示しない (refPageTitleがundefでもデバッグの容易性のために表示する、直せ)
-      if(term.referencePage === undefined) return false;
-
-        // referencePageの#アンカーを除外
+      // referencePageの#アンカーを除外
       const referenceLink = term.referencePage.split("#")[0];
-        // 現在のページで用語が初出であればリンクを表示する必要がない
-      if(location.pathname === referenceLink) return false;
-      if(location.pathname + "/" === referenceLink) return false;
+      // 現在のページで用語が初出であればリンクを表示する必要がない
+      if (location.pathname === referenceLink) return false;
+      if (location.pathname + "/" === referenceLink) return false;
       return true;
-    }
+    };
 
     return (
       <Tippy
