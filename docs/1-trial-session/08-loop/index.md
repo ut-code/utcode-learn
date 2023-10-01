@@ -217,7 +217,7 @@ if (integer <= 1) {
 
 for (let i = 2; i < integer; i += 1) {
   if (integer % i == 0) {
-    isPrime = false; // 変数には最後に代入した値のみを保持する
+    isPrime = false; // 変数は最後に代入した値のみを保持する。
   }
 }
 
