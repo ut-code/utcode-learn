@@ -23,8 +23,14 @@ export default function Term({ type, strong = false, children }) {
 
   const wrap = (content) => {
     const shouldLinkToReferencePage = () => {
-      // referencePageがundefinedならばリンクを表示しない (refPageTitleがundefでもデバッグの容易性のために表示する、直せ)
+      // referencePageがundefinedならばリンクを表示しない
       if (term.referencePage === undefined) return false;
+
+      // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
+      if (term.referencePageTitle === undefined)
+        throw new Error(
+          `The page title of reference [ ${referencePage} ] is not defined in [ Term/definition.js, .referencePageTitles ]`,
+        );
 
       // referencePageの#アンカーを除外
       const referenceLink = term.referencePage.split("#")[0];
