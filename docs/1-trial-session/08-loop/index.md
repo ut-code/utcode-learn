@@ -172,7 +172,7 @@ document.write(product);
 
 ```javascript
 let product = 1;
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 10; i += 1) {
   product *= i;
 }
 document.write(product);
@@ -215,7 +215,7 @@ if (integer <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integer; i++) {
+for (let i = 2; i < integer; i += 1) {
   if (integer % i == 0) {
     isPrime = false; // 変数には最後に代入した値のみを保持する
   }
@@ -243,7 +243,7 @@ if (integer <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integer; i++) {
+for (let i = 2; i < integer; i += 1) {
   isPrime = isPrime && integer % i != 0;
 }
 
