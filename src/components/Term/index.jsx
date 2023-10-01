@@ -27,10 +27,11 @@ export default function Term({ type, strong = false, children }) {
       if (term.referencePage === undefined) return false;
 
       // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
-      if (term.referencePageTitle === undefined)
+      if (referencePageTitle === undefined) {
         throw new Error(
-          `The page title of reference [ ${referencePage} ] is not defined in [ Term/definition.js, .referencePageTitles ]`,
+          `The page title of the reference " ${term.referencePage} " \n is not defined in  \n[ src/components/Term/definition.js/,  referencePageTitles ]`,
         );
+      }
 
       // referencePageの#アンカーを除外
       const referenceLink = term.referencePage.split("#")[0];
