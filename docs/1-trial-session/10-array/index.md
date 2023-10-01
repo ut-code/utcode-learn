@@ -162,7 +162,7 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
 :::
 
-:::info
+:::tip
 
 今までのように仮の初期値を置く方法では、配列の各値が非常に大きな負の値であった場合に仮の初期値が返ってきてしまいます。
 
@@ -208,6 +208,8 @@ function arrayMax(array) {
   return array.reduce(max, array[0]);
 }
 ```
+
+<ViewSource url={import.meta.url} path="_samples/array-max-reduce" />
 
 :::
 </Answer>
