@@ -181,11 +181,12 @@ function arrayMax(array) {
 
 :::info 別解 (参考)
 
-[`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) と [三項演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Conditional_operator) を使ってこのように書くこともできます。
+[`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) を使ってこのように書くこともできます。
 
 ```javascript
 function max(a, b) {
-  return a > b ? a : b;
+  if (a > b) return a;
+  else return b;
 }
 
 function arrayMax(array) {
@@ -193,6 +194,7 @@ function arrayMax(array) {
   return array.reduce(max, array[0]);
 }
 ```
+
 :::
 </Answer>
 
