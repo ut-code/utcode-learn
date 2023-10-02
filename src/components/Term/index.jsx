@@ -29,7 +29,7 @@ export default function Term({ type, strong = false, children }) {
       // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
       if (referencePageTitle === undefined) {
         throw new Error(
-          `The page title of the reference " ${term.referencePage} " \n is not defined in  \n[ src/components/Term/definition.js/,  referencePageTitles ]`,
+          `The page title of the reference \n" ${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
         );
       }
 
