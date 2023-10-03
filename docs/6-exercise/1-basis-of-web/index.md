@@ -217,7 +217,7 @@ if (box <= 30 && weight <= 2000) {
 
 ## 5. 九九
 
-[HTML の `table`, `tr`, `th`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
+[HTML の `table`, `tr`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
 
 :::tip
 
@@ -230,45 +230,15 @@ if (box <= 30 && weight <= 2000) {
 <Answer>
 
 ```javascript
-//表のヘッダー(上の列)を描画
-function writeHeaderRow() {
-  let header = "";
-  header += "<th> × </th>";
-  for (i = 1; i <= 9; i++) {
-    header += `<th> ${i} </th>`;
+document.write("<table>");
+for (let i = 1; i <= 9; i++) {
+  document.write("<tr>");
+  for (let j = 1; j <= 9; j++) {
+    document.write(`<td> ${i * j} </td>`);
   }
-  document.write(header);
+  document.write("</tr>");
 }
-
-//表の一行(横のヘッダー含む)を描画
-function writeRow(x) {
-  let row = "<tr>";
-  row += getSideHeader(x);
-  for (i = 1; i <= 9; i++) {
-    row += `<td> ${x * i} </td>`;
-  }
-  row += "</tr>";
-  document.write(row);
-}
-function getSideHeader(x) {
-  return `<th> ${x} </th>`;
-}
-
-//表のbodyと横のヘッダーを描画
-function writeBody() {
-  for (x = 1; x <= 9; x++) {
-    writeRow(x);
-  }
-}
-
-function main() {
-  document.write("<table>");
-  writeHeaderRow();
-  writeBody();
-  document.write("</table>");
-}
-
-main();
+document.write("</table>");
 ```
 
 <ViewSource url={import.meta.url} path="_samples/times-table" />
@@ -330,15 +300,21 @@ function fibonacci(n) {
   - これで一番後ろの要素が一番大きいものであると確定する
 - 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
 
-:::note 
+:::note
 テスト用に、以下のランダムに生成された配列を自由に使ってよいものとします。
 
-```javascript 
+```javascript
 const array1 = [7, 1, 10, 4, 3, 5, 9, 2, 8, 6];
-const array2 = [8, 2, 9, 14, 12, 1, 5, 13, 16, 3, 19, 17, 18, 10, 15, 7, 20, 11, 6, 4];
+const array2 = [
+  8, 2, 9, 14, 12, 1, 5, 13, 16, 3, 19, 17, 18, 10, 15, 7, 20, 11, 6, 4,
+];
 const array3 = [73, 39, 94, 57, 42, 78, 20, 55, 56, 77];
-const array4 = [247, 785, 73, 879, 515, 545, 423, 617, 19, 600, 409, 547, 52, 66, 472, 670, 802, 271, 569, 316];
+const array4 = [
+  247, 785, 73, 879, 515, 545, 423, 617, 19, 600, 409, 547, 52, 66, 472, 670,
+  802, 271, 569, 316,
+];
 ```
+
 :::
 
 <video src={BubbleSortVideo} controls />
@@ -379,7 +355,7 @@ function bubbleSort(array) {
 
 </Answer>
 
-:::tip 
+:::tip
 
 <Term strong type="javascriptSideEffects">副作用</Term>と<Term strong type="javascriptPureFunction">純粋関数</Term>の話
 
