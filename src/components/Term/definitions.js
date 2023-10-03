@@ -320,7 +320,7 @@ export default {
     javascriptReferenceTransparency: {
       name: "参照透過性",
       definition:
-        "関数に一定の引数を与えると、常に一定の値を返すこと。デバッグがしやすく、キャッシュなどを使って自動で高速化することができる。",
+        "関数に一定の引数を与えると、常に一定の値を返すこと。考えることを減らすことができ、デバッグがしやすい。",
       referencePage: "/docs/exercise/basis-of-web/#参照と副作用の話",
     },
     javascriptClass: {
