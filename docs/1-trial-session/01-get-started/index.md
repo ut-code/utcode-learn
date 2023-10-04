@@ -10,7 +10,7 @@ import openFolderVideo from "./open-folder.mp4";
 
 **Visual Studio Code** (以下 VS Code) は、Microsoft 社が開発するテキストエディタです。多くの開発者に使用されています。
 
-Visual Studio Code は、[公式サイト](https://code.visualstudio.com/Download)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
+Visual Studio Code は、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
 <video src={installVscodeVideo} controls />
 
