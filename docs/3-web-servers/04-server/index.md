@@ -18,7 +18,7 @@ Web では、通常インターネットを介してデータをやり取りし�
 という二者の関係が発生します。また、その間で発生する通信を、その方向により
 
 - **リクエスト**: クライアントからサーバーに対する要求
-- **レスポンス**: リクエストに対する応答
+- **レスポンス**: リクエストに対するサーバーからクライアントへの応答
 
 のように区別して呼びます。それでは、Node.js で Web サーバーを作ってみましょう。
 
@@ -47,7 +47,13 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/express-server" />
 
-ファイルを保存したら、作成したファイルを実行し、ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
+ファイルを保存したら、作成したファイルを実行しましょう。
+
+```shell
+node main.mjs
+```
+
+ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
 
 ![サーバー](./express-server.png)
 
@@ -65,12 +71,12 @@ app.listen(3000);
 
 例えば今回であれば第 1 引数に `"/path"` を渡すと `http://localhost:3000/path` にリクエストが来たときに関数が実行されることになります。
 
-第 2 引数の関数を詳しく見てみましょう。この関数は２つの引数をとります。具体的には第 1 引数に受け取ったリクエストを表す [`express.Request` クラス](https://expressjs.com/ja/api.html#req) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`express.Response` クラス](https://expressjs.com/ja/api.html#res) のインスタンスが渡されます。
+第 2 引数の関数を詳しく見てみましょう。この関数は 2 つの引数をとります。具体的には第 1 引数に受け取ったリクエストを表す [`express.Request` クラス](https://expressjs.com/ja/api.html#req) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`express.Response` クラス](https://expressjs.com/ja/api.html#res) のインスタンスが渡されます。
 
 そして [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)により、クライアントが必要なデータを送信することができます。
 
 :::tip `http`標準<Term type="javascriptModule">モジュール</Term>
-`express` を使わずに Node.js 単体 で Web サーバーを作成するには、`http` 標準<Term type="javascriptModule">モジュール</Term>を使用します。  
+`express` を使わずに Node.js 単体 で Web サーバーを作成するには、`http` 標準<Term type="javascriptModule">モジュール</Term>を使用します。
 
 `http` 標準モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
 
@@ -87,15 +93,7 @@ server.addListener("request", (request, response) => {
 server.listen(3000);
 ```
 
-<ViewSource path={import.meta.url} url="_samples/http-server" />
-
-[`http.Server` クラス](https://nodejs.org/api/http.html#class-httpserver) は、サーバーを作成するためのクラスです。このクラスの [`addListener` メソッド](https://nodejs.org/api/events.html#emitteraddlistenereventname-listener) は、イベントハンドラを追加するためのメソッドです。第 1 引数にイベントの名前、第 2 引数にイベントハンドラとなる関数オブジェクトを指定します。
-
-[`request` イベント](https://nodejs.org/api/http.html#event-request) は、クライアントからリクエストが来るたびに発生するイベントです。イベントハンドラの第 1 引数に受け取ったリクエストを表す [`http.IncomingMessage` クラス](https://nodejs.org/api/http.html#class-httpincomingmessage) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`http.ServerResponse` クラス](https://nodejs.org/api/http.html#class-httpserverresponse) のインスタンスが渡されます。
-
-`express` パッケージと比較してみましょう。
-
-[`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)は、`http` 標準モジュールにおける `request` イベントハンドラの登録に相当する操作を行うためのメソッドです。イベントハンドラの引数に `request` と `response` が存在する点では一致していますが、Express では [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)が利用できます。これは、[`http.ServerResponse#write`](https://nodejs.org/api/http.html#responsewritechunk-encoding-callback) メソッドと、[`http.ServerResponse#end`](https://nodejs.org/api/http.html#responseenddata-encoding-callback) メソッドを順番に呼ぶ操作に対応します。
+<ViewSource url={import.meta.url} path="_samples/http-server" />
 
 :::
 
@@ -107,7 +105,7 @@ Web の世界で用いられるプロトコルは、通常 **HTTP** と呼ばれ
 
 ![HTTP](./basic-http.png)
 
-Web サーバーにアクセスするために用いた http://localhost:3000/ のうち、http はプロトコルを、localhost:3000 はサーバーの所在地を表しています (localhost は自分のコンピューターを指します)。
+Web サーバーにアクセスするために用いた `http://localhost:3000/` のうち、http はプロトコルを、localhost:3000 はサーバーの所在地を表しています (localhost は自分のコンピューターを指します)。
 
 ## 静的ホスティング
 
@@ -156,7 +154,7 @@ app.listen(3000);
 
 :::
 
-## 動的なウェブページ
+## 複雑なウェブページ
 
 前項のプログラムを書き換えて、複雑な HTML を出力できるようにしてみましょう。
 
@@ -197,11 +195,11 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 :::
 
-このようにテンプレートリテラルを用いることで、JavaScript のプログラムから HTML に変更を加え出力することができます。
+このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
 :::tip テンプレートエンジン
-上記のようにテンプレートリテラルを使って HTML を生成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
-[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は ejs をインストールしてください)
+上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
+[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は `ejs` をインストールしてください)
 
 ```javascript title=main.mjs
 import { readFileSync } from "fs";
@@ -223,7 +221,7 @@ app.listen(3000);
 ```
 
 ```html title=template.ejs
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -246,7 +244,6 @@ app.listen(3000);
 このオブジェクトのキーと同じ名前の変数が、テンプレート内で利用できます。上の例の `template.ejs` における `listItems` は、`main.mjs` で指定した `{ listItems: names }` により `["田中", "鈴木", "佐藤"]` になります。
 
 テンプレート内の `<%` から `%>` で囲まれた部分は、JavaScript のプログラムとして実行されます。また、`<%=` から `%>` で囲まれた部分は JavaScript の式として評価され、最終的な結果に埋め込まれます。
-
 :::
 
 ## 課題
