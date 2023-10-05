@@ -64,7 +64,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 <!-- prettier-ignore -->
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
