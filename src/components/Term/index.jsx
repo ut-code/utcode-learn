@@ -22,22 +22,35 @@ export default function Term({ type, strong = false, children }) {
   const location = useLocation();
 
   const wrap = (content) => {
-    // 現在のページで用語が初出であればリンクを表示する必要がない
-    const shouldLinkToReferencePage = Boolean(
-      location.pathname !== term.referencePage &&
-        location.pathname + "/" !== term.referencePage,
-    );
+    const shouldLinkToReferencePage = () => {
+      // referencePageがundefinedならばリンクを表示しない
+      if (term.referencePage === undefined) return false;
+
+      // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
+      if (referencePageTitle === undefined) {
+        throw new Error(
+          `The page title of the reference \n" ${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
+        );
+      }
+
+      // referencePageの#アンカーを除外
+      const referenceLink = term.referencePage.split("#")[0];
+      // 現在のページで用語が初出であればリンクを表示する必要がない
+      if (location.pathname === referenceLink) return false;
+      if (location.pathname + "/" === referenceLink) return false;
+      return true;
+    };
 
     return (
       <Tippy
         theme="material"
-        interactive={shouldLinkToReferencePage}
+        interactive={shouldLinkToReferencePage()}
         appendTo={window.document.body}
         content={
           <div className={styles.tooltipContent}>
             <header className={styles.tooltipContentHeader}>{term.name}</header>
             <div>{term.definition}</div>
-            {shouldLinkToReferencePage && (
+            {shouldLinkToReferencePage() && (
               <Link className={styles.tooltipLink} to={term.referencePage}>
                 <span>{referencePageTitle} へ</span>
                 <MdArrowForward size="1.2rem" />

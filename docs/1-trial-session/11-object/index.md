@@ -51,24 +51,9 @@ let person = {
 ドット記号を用いることで、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更できます。通常の<Term type="javascriptVariable">変数</Term>のように扱えます。
 
 ```javascript
-person.age = person.age + 1;
-document.write(person.age);
-```
-
-:::tip 複合代入演算子
-
-[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90)は、計算と代入を同時に行うことができる演算子です。
-
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
-
-複合代入演算子を用いると、先ほどのプログラムは以下のように書くことができます。
-
-```javascript
 person.age += 1;
 document.write(person.age);
 ```
-
-:::
 
 ## 課題
 
