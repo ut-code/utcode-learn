@@ -9,20 +9,20 @@ sidebar_position: 0
 
 ## 学習教材
 
-### 1. [Webプログラミングの基礎を学ぼう](/docs/trial-session/get-started)
+### 1. [Webプログラミングの基礎を学ぼう](/docs/trial-session/)
 
-### 2. [ブラウザで動作するアプリを構築しよう](/docs/browser-apps/inspector)
+### 2. [ブラウザで動作するアプリを構築しよう](/docs/browser-apps/)
 
-### 3. [Webサーバーが動作する仕組みを知ろう](/docs/web-servers/wsl-setup)
+### 3. [Webサーバーが動作する仕組みを知ろう](/docs/web-servers/)
 
-### 4. [現代のアプリを支える技術を学ぼう](/docs/advanced/fetch-api)
+### 4. [現代のアプリを支える技術を学ぼう](/docs/advanced/)
 
 ## 演習問題
 
-### 5. [演習問題集](/docs/exercise/basis-of-web)
+### 5. [演習問題集](/docs/exercise/)
 
 ## 参考資料
 
-### 6. [チーム開発を始める前に](/docs/team-development/git-workflow)
+### 6. [チーム開発を始める前に](/docs/team-development/)
 
 ### 7. [その他](/docs/other)
