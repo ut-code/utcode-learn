@@ -13,13 +13,13 @@ import Details from "@theme/Details";
 ## 基本構造
 
 ```javascript
-let age = 18;
+const age = 18;
 if (age < 20) {
   document.write("未成年者の場合は法定代理人の同意が必要です。");
 }
 ```
 
-このプログラムは、`未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `let age = 20;` に変更すると何も表示されなくなります。
+このプログラムは、`未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `const age = 20;` に変更すると何も表示されなくなります。
 
 2 行目の `if (age < 20) {` 部分がポイントです。ここに差し掛かると、括弧内の<Term type="javascriptExpression">式</Term> `age < 20` が<Term type="javascriptEvaluation">評価</Term>され、`true` になります。このため、直後の波括弧内の処理が実行されます。
 
@@ -48,7 +48,7 @@ if (式) {
 <p><Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が <code>true</code> であれば処理 1 が、<code>false</code> であれば処理 2 が実行されます。</p>
 
 ```javascript
-let age = 18;
+const age = 18;
 if (age >= 20) {
   document.write("大人です");
 } else {
@@ -79,7 +79,7 @@ if (式1) {
 自分の年齢を<Term type="javascriptVariable">変数</Term>に入れておきます。
 
 ```javascript
-let age = 20;
+const age = 20;
 ```
 
 下を満たすプログラムを作成してください。
