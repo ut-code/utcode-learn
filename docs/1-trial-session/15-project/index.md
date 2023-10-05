@@ -32,7 +32,7 @@ document.write(Math.random()); // 0.8924949384481442
 - 発生させた乱数を<Term type="javascriptVariable">変数</Term>に保存しておきましょう。この乱数は `[0, 1)` の一様分布に従うので、例えば `[0, 0.2)` に含まれる確率は 20% になります。
 
 ```javascript
-let r = Math.random();
+const r = Math.random();
 if (r < 0.2) {
   // 20%の確率で実行される
 } else if (条件式2) {
@@ -50,8 +50,8 @@ if (r < 0.2) {
 ```
 
 ```javascript title="script.js"
-let omikujiButton = document.getElementById("omikuji-button");
-let result = document.getElementById("result");
+const omikujiButton = document.getElementById("omikuji-button");
+const result = document.getElementById("result");
 
 function omikuji() {
   result.textContent = "結果";
@@ -95,7 +95,7 @@ function start() {
   setInterval(関数名, 1000);
 }
 
-let startButton = document.getElementById("start-button");
+const startButton = document.getElementById("start-button");
 startButton.onclick = start;
 ```
 
@@ -122,8 +122,8 @@ function stop() {
   clearInterval(timerId);
 }
 
-let startButton = document.getElementById("start-button");
-let stopButton = document.getElementById("stop-button");
+const startButton = document.getElementById("start-button");
+const stopButton = document.getElementById("stop-button");
 startButton.onclick = start;
 stopButton.onclick = stop;
 ```
