@@ -84,11 +84,12 @@ const add3 = function (a, b) {
 このように、他の関数の引数として呼び出される関数のことを<Term type="callbackFunction" strong>コールバック関数</Term>と呼びます。
 
 ```javascript
-const rates = [3, 5, 1];
-const stars = rates.map((rate) => {
-  return "★".repeat(rate);
+const originalPrices = [100, 200, 300, 400, 500];
+const taxRate = 0.1;
+const pricesWithTax = originalPrices.map((price) => {
+  return price * (1 + taxRate);
 });
-document.write(stars); // ★★★,★★★★★,★
+document.write(pricesWithTax); // [110, 220, 330, 440, 550]
 ```
 
 :::tip プリミティブ値のラッパーオブジェクト
@@ -110,10 +111,10 @@ document.write(stars); // ★★★,★★★★★,★
 アロー関数は、内部の処理が `return` 文のみの場合、波括弧を省略して式のみを記述できます。また、引数がひとつだけの場合、引数を囲む括弧を省略できます。前項のサンプルプログラムは、次のように省略可能です。本資料では、前者の省略記法のみを用いることにします。
 
 ```javascript
-const stars = rates.map((rate) => "★".repeat(rate));
+const pricesWithTax = originalPrices.map((price) => price * (1 + taxRate));
 ```
 
-![アロー関数の省略形](./arrow-function-abbreviation.png)
+![アロー関数の省略形](./arrow-function-abbreviation.drawio.svg)
 
 ## 課題
 
