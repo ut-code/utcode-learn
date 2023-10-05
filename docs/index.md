@@ -19,10 +19,10 @@ sidebar_position: 0
 
 ## 演習問題
 
-### 5. [演習問題集](http://localhost:3000/docs/exercise/basis-of-web)
+### 5. [演習問題集](/docs/exercise/basis-of-web)
 
 ## 参考資料
 
-### 6. [チーム開発を始める前に](http://localhost:3000/docs/team-development/git-workflow)
+### 6. [チーム開発を始める前に](/docs/team-development/git-workflow)
 
 ### 7. [その他](/docs/other)
