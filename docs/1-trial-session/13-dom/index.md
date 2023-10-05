@@ -16,7 +16,7 @@ import ViewSource from "@site/src/components/ViewSource";
 ```
 
 ```js title="script.js"
-let element = document.getElementById("greeting");
+const element = document.getElementById("greeting");
 element.textContent = "Hello DOM";
 ```
 
