@@ -3,7 +3,7 @@ title: ようこそ
 sidebar_position: 0
 ---
 
-## ut.code();  Learn へようこそ！
+## ut.code(); Learn へようこそ！
 
 本教材は４つの学習教材、１つの演習問題集、２つの参考資料 の計８章から成ります。
 
