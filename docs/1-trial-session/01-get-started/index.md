@@ -6,7 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installChromeOnWindowsVideo from "./install-chrome-on-windows.mp4";
-import installVscodeVideo from "./install-vscode.mp4";
+import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
+import installVscodeOnWindowsVideo from "./install-vscode-on-windows.mp4";
 import createFolderVideo from "./create-folder.mp4";
 import openFolderVideo from "./open-folder.mp4";
 
@@ -35,7 +36,18 @@ Google Chrome は、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)
 
 Visual Studio Code は、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
-<video src={installVscodeVideo} controls />
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
+
+<video src={installVscodeOnMacVideo} controls />
+
+  </TabItem>
+  <TabItem value="win" label="Windows">
+
+<video src={installVscodeOnWindowsVideo} controls />
+
+  </TabItem>
+</Tabs>
 
 ## プロジェクトを格納するフォルダを作成する
 
