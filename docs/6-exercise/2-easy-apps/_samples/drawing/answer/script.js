@@ -1,15 +1,15 @@
-let canvas = document.getElementById("canvas");
-let smallButton = document.getElementById("small-button");
-let bigButton = document.getElementById("big-button");
+const canvas = document.getElementById("canvas");
+const smallButton = document.getElementById("small-button");
+const bigButton = document.getElementById("big-button");
 
-let context = canvas.getContext("2d");
+const context = canvas.getContext("2d");
 let isBig = false;
 
 canvas.onclick = drawRect;
 
 function drawRect(e) {
-  let top = canvas.getBoundingClientRect().top;
-  let left = canvas.getBoundingClientRect().left;
+  const top = canvas.getBoundingClientRect().top;
+  const left = canvas.getBoundingClientRect().left;
   context.fillStyle = "green";
   if (isBig) {
     context.fillRect(e.pageX - left - 10, e.pageY - top - 10, 20, 20);

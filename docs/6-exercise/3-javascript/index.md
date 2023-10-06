@@ -26,7 +26,7 @@ import ViewSource from "@site/src/components/ViewSource";
 `a` を `b` で割った余りは `a % b` と表します。これを用いて `n` が偶数か奇数かを判定しましょう。
 
 ```javascript
-let n = 27;
+const n = 27;
 if (n % 2 === 0) {
   document.write("nは偶数です");
 } else {
