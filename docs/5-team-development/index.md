@@ -1,5 +1,5 @@
 ---
-title: チーム開発を始める前に
+title: チーム開発を始める前に（発展）
 ---
 
 import DocCardList from '@theme/DocCardList';

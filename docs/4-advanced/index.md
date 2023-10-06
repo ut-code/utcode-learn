@@ -1,5 +1,5 @@
 ---
-title: 現代のアプリを支える技術を学ぼう
+title: 現代のアプリを支える技術を学ぼう（発展）
 ---
 
 import DocCardList from '@theme/DocCardList';
