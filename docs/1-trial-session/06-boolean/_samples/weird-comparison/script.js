@@ -1,6 +1,6 @@
-const takaoHeight = 599;
-const everestHeight = 8849;
-const fujiHeight = 3776;
+let takaoHeight = 599;
+let everestHeight = 8849;
+let fujiHeight = 3776;
 document.write(takaoHeight < everestHeight < fujiHeight);
 // prettier-ignore
 document.write(takaoHeight = everestHeight);

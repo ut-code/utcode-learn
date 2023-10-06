@@ -65,9 +65,9 @@ const canRideRollerCoasters = age >= 10 && height >= 140; // true
 
 <!-- prettier-ignore -->
 ```javascript
-const takaoHeight = 599;
-const everestHeight = 8849;
-const fujiHeight = 3776;
+let takaoHeight = 599;
+let everestHeight = 8849;
+let fujiHeight = 3776;
 document.write(takaoHeight < everestHeight < fujiHeight);
 document.write(takaoHeight = everestHeight);
 ```
