@@ -260,7 +260,7 @@ export default {
     },
     javascriptScope: {
       name: "スコープ (JavaScript)",
-      definition: "変数が有効な範囲",
+      definition: "変数が有効な範囲。",
       referencePage: "/docs/trial-session/functions/",
     },
     javascriptObject: {
