@@ -27,8 +27,7 @@ export default {
     "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
     "/docs/web-servers/node-js/": "はじめての Node.js",
     "/docs/web-servers/module/": "モジュールと npm",
-    "/docs/web-servers/http-server/": "HTTP サーバー",
-    "/docs/web-servers/template-engine/": "Express とテンプレートエンジン",
+    "/docs/web-servers/server/": "Express によるサーバー構築",
     "/docs/web-servers/form/": "フォーム",
     "/docs/web-servers/get-post/": "GET リクエストと POST リクエスト",
     "/docs/web-servers/database/": "データベース",
@@ -373,7 +372,7 @@ export default {
       name: "サーバーとクライアント",
       definition:
         "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
-      referencePage: "/docs/web-servers/http-server/",
+      referencePage: "/docs/web-servers/server/",
     },
     json: {
       name: "JSON",
@@ -385,7 +384,7 @@ export default {
       name: "リクエストとレスポンス (HTTP)",
       definition:
         "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
-      referencePage: "/docs/web-servers/http-server/",
+      referencePage: "/docs/web-servers/server/",
     },
     queryString: {
       name: "クエリ文字列",

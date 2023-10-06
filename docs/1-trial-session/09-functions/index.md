@@ -52,13 +52,16 @@ greet("morning", "佐藤");
 
 ```javascript
 function add(a, b) {
-  return a + b;
+  const sum = a + b;
+  return sum;
 }
 
 document.write(add(3, 4));
 ```
 
-上の例の 4 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `return a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、 `add` <Term type="javascriptFunction">関数</Term>は `7` を<Term type="javascriptReturn">返し</Term>、<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果は `7` となります。
+上の例の 6 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `const sum = a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、`sum` に`7`が代入されます。
+次の行 `return sum;` で `add` <Term type="javascriptFunction">関数</Term>は <Term type="javascriptVariable">変数</Term> `sum` を<Term type="javascriptEvaluation">評価</Term>した結果である、`7` を<Term type="javascriptReturn">返します。</Term>
+そして<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果が `7` となります。
 
 <video src={returnValueVideo} controls autoPlay muted loop />
 

@@ -16,7 +16,7 @@ while 文を用いると、ある条件が満たされている間実行され�
 let i = 0;
 while (i < 5) {
   document.write(i);
-  i += 1;
+  i = i + 1;
 }
 document.write("終了");
 ```
@@ -43,7 +43,7 @@ while (条件式) {
 
 1 から 10 までの整数の合計を計算するプログラムを作ってみましょう。
 
-:::tip ヒント
+:::tip
 
 `1` から `10` まで順番に増えていく変数 `i` と、合計値を保存しておく変数 `sum` を用意しましょう。
 
@@ -55,8 +55,8 @@ while (条件式) {
 let i = 1;
 let sum = 0;
 while (i <= 10) {
-  sum += i;
-  i += 1;
+  sum = sum + i;
+  i = i + 1;
 }
 document.write(sum);
 ```
@@ -64,6 +64,46 @@ document.write(sum);
 <ViewSource url={import.meta.url} path="_samples/answer-while" />
 
 </Answer>
+
+:::tip 複合代入演算子
+
+[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
+
+`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
+
+複合代入演算子を用いると、
+
+```javascript
+i = i + 1;
+```
+
+は以下のように書き換えることができます。
+
+```javascript
+i += 1;
+```
+
+<!-- 教えるかどうか議論
+[**インクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
+一方、[**デクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
+
+`x++` は `x = x + 1`（＝`x += 1`）、 `y--` は `y = y - 1` （＝`y -= 1`） という意味になります。
+インクリメント演算子を使うと、
+
+```javascript
+i = i + 1;
+```
+
+は以下のように書き換えることができます。
+
+```javascript
+i++;
+```
+
+-->
+
+:::
+
 
 ## for 文
 
