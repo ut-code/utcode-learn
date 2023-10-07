@@ -197,19 +197,19 @@ export default {
     camelCase: {
       name: "キャメルケース",
       definition:
-        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則。例: camelCase",
       referencePage: "/docs/trial-session/variables/",
     },
     snakeCase: {
       name: "スネークケース",
       definition:
-        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則",
+        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則。例: snake_case",
       referencePage: "/docs/trial-session/variables/",
     },
     pascalCase: {
       name: "パスカルケース",
       definition:
-        "複数の単語にわたるフレーズを、先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、それぞれの単語の先頭の文字を大文字にして結合する命名規則。例: PascalCase",
       referencePage: "/docs/trial-session/variables/",
     },
     javascriptBoolean: {
