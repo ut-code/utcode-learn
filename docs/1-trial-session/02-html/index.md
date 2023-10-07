@@ -15,7 +15,7 @@ Web 開発に必ず用いられる言語があります。<Term type="html" stro
 
 ## <Term type="html">HTML</Term> を書き始める
 
-エディタの画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html` と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー ( `command / Ctrl + S` ) を用いてください。
+VS Code の画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html` と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー ( `Cmd / command + S` ) を用いてください。
 
 ```html title="index.html"
 <!doctype html>
@@ -64,7 +64,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 <!-- prettier-ignore -->
 ```html title="index.html"
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
