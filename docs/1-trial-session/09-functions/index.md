@@ -152,7 +152,7 @@ for (let i = 0; i < 10; i += 1) {
 }
 ```
 
-この例における`repeat`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し<Term type="javascriptStringAddition">足した</Term>ものを返します。
+この例における`repeat`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し<Term type="javascriptStringConcatenation">足した</Term>ものを返します。
 
 ## 演習
 
