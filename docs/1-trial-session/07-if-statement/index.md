@@ -4,7 +4,7 @@ title: 条件分岐
 
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
-import Details from "@theme/Details";
+import Answer from "@site/src/components/Answer";
 
 ## if 構文
 
@@ -88,34 +88,23 @@ let age = 20;
 - 18 歳以上 ～ 25 歳未満なら `投票に行けます` と表示する
 - 25 歳以上なら `衆議院議員に立候補できます` と表示する
 
-<Details summary={<summary>課題が解けたら…</summary>}>
+<Answer>
 
-課題は解けましたか？まずは動作することが大事ですが、慣れてきたら可読性の高い綺麗なコードを書くように心がけたいものです。おそらく、今回の課題を次のように書く人がいるのではないでしょうか。
+if ～ else if ～ else 構文を使うと、次のように書くことができます。
 
-```javascript showLineNumbers
+```javascript title=script.js showLineNumbers
+let age = 20;
 if (age < 18) {
-  document.write("選挙権はありません。");
-} else if (age >= 18 && age < 25) {
-  document.write("投票に行けます。");
-} else {
-  document.write("衆議院議員に立候補できます。");
-}
-```
-
-この問題のコードを書くのに、`&&` のような論理演算子は必要ありません。`if` 文の処理の仕方を理解していると、条件式を簡単に記述できます。
-
-```javascript showLineNumbers
-if (age < 18) {
-  document.write("選挙権はありません。");
+  document.write("選挙権はありません");
 } else if (age < 25) {
-  document.write("投票に行けます。");
+  document.write("投票に行けます");
 } else {
-  document.write("衆議院議員に立候補できます。");
+  document.write("衆議院議員に立候補できます");
 }
 ```
-
-`if` 文では、条件式が`true` ならば処理が実行されて`if` 文が終了し、`false` ならば次の条件式が評価される、という処理を繰り返します。したがって、「1行目の条件式が`false` だった場合」という意味の条件式を3行目にまで書き込む必要はないわけです。
-
-</Details>
 
 <ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
+
+4 行目の式は `age >= 18 && age < 25` ではないかと思うかもしれませんが、上のように `age < 25` としても同じ結果になります。これは、if ～ else if ～ else 構文では、一つ目の条件が満たされた場合、二つ目の条件は実行されないためです。
+
+</Answer>
