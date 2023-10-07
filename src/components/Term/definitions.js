@@ -182,7 +182,7 @@ export default {
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptStringAddition: {
-      name: "文字列の加算",
+      name: "文字列の結合",
       definition: "一個目の文字列の後ろに二個目の文字列を追加する。",
       referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
