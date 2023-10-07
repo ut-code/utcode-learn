@@ -181,7 +181,7 @@ export default {
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
       referencePage: "/docs/trial-session/expressions/",
     },
-    javascriptStringAddition: {
+    javascriptStringConcatenation: {
       name: "文字列の結合",
       definition: "一個目の文字列の後ろに二個目の文字列を追加する。",
       referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
