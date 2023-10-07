@@ -124,8 +124,9 @@ increment();
 
 複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
 
+モジュール化前:
+
 ```javascript
-// モジュール化前
 const stringToRepeat = "☆";
 for (let i = 0; i < 10; i += 1) {
   let result = "";
@@ -137,8 +138,9 @@ for (let i = 0; i < 10; i += 1) {
 }
 ```
 
+モジュール化後:
+
 ```javascript
-// モジュール化後
 function repeat(stringToRepeat, times) {
   let result = "";
   for (let j = 0; j < times; j += 1) {
