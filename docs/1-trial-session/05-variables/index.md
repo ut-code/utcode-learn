@@ -18,15 +18,15 @@ let myGreatName = "Becky Jones";
 document.write(myGreatName);
 ```
 
-`let` は、<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するためのキーワードです。 1 行目では、`myGrateName` という名前の<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>し、そこに`"Becky Jones"` という文字列を保存しています。<Term type="javascriptVariable">変数</Term>に`=` を使って<Term type="javascriptValue">値</Term>を保存することを<Term type="javascriptAssignment">代入</Term>と呼びます。
+`let` は、<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するためのキーワードです。 1 行目では、`myGreatName` という名前の<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>し、そこに`"Becky Jones"` という文字列を保存しています。<Term type="javascriptVariable">変数</Term>に`=` を使って<Term type="javascriptValue">値</Term>を保存することを<Term type="javascriptAssignment">代入</Term>と呼びます。
 
 2 行目では、<Term type="javascriptVariable">変数</Term> `myGreatName` が<Term type="javascriptEvaluation">評価</Term>され、<Term type="javascriptAssignment">代入</Term>されていた<Term type="javascriptString">文字列</Term><Term type="javascriptValue">値</Term> `"Becky Jones"` が画面に表示されます。
 
 <p><Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するキーワードには、<code>let</code> 以外にも<code>const</code> というものがあります。記法自体は<code>let</code> と同様です。</p>
 
 ```javascript title="script.js"
-const myGrateName = "Becky Jones";
-document.write(myGrateName);
+const myGreatName = "Becky Jones";
+document.write(myGreatName);
 ```
 
 ここまでの例では、`my great name` というフレーズを、`myGreatName` のように記述しています。
