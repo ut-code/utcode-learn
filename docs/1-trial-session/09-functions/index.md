@@ -129,7 +129,7 @@ increment();
 const stringToRepeat = "☆";
 for (let i = 0; i < 10; i += 1) {
   let result = "";
-  for (let j = 0; j < i; j++) {
+  for (let j = 0; j < i; j += 1) {
     result += stringToRepeat;
   }
   document.write(result);
