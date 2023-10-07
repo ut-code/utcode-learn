@@ -141,7 +141,7 @@ for (let i = 0; i < 10; i += 1) {
 // モジュール化後
 function repeat(stringToRepeat, times) {
   let result = "";
-  for (let j = 0; j < times; j++) {
+  for (let j = 0; j < times; j += 1) {
     result += stringToRepeat;
   }
   return result;
