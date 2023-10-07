@@ -183,7 +183,7 @@ export default {
     },
     javascriptStringConcatenation: {
       name: "文字列の結合",
-      definition: "一個目の文字列の後ろに二個目の文字列を追加する。",
+      definition: "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
       referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
