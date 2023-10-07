@@ -146,7 +146,6 @@ function repeat(stringToRepeat, times) {
   }
   return result;
 }
-// ここから下だけ考えればよい
 for (let i = 0; i < 10; i++) {
   document.write(repeat("☆", i));
   document.write("<br>");
