@@ -61,9 +61,9 @@ document.write(totalPrice);
 
 :::
 
-## <Term type="javascriptVariable">変数</Term>への再代入
+## <Term type="javascriptVariable">変数</Term>への再<Term type="javascriptAssignment">代入</Term>
 
-`let` と `const` の大きな違いは、再<Term type="javascriptAssignment">代入</Term>が可能かどうかです。`let` で宣言された変数には再<Term type="javascriptAssignment">代入</Term>が可能ですが、`const` で宣言された変数にはできません。次の例を見てみましょう。
+`let` と `const` の大きな違いは、再<Term type="javascriptAssignment">代入</Term>が可能かどうかです。`let` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>には再<Term type="javascriptAssignment">代入</Term>が可能ですが、`const` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>にはできません。次の例を見てみましょう。
 
 ```javascript title="script.js"
 let mysteriousNumber = 0;
@@ -72,11 +72,11 @@ mysteriousNumber = 2;
 document.write(mysteriousNumber); // 2
 ```
 
-変数には、最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>のみを保持する性質があります。そのため、<Term type="javascriptVariable">変数</Term> `mysteriousNumber` は 3 回代入が行われていますが、最後に<Term type="javascriptAssignment">代入</Term>された `2` が表示されます。
+<p><Term type="javascriptVariable">変数</Term>には、最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>のみを保持する性質があります。そのため、<Term type="javascriptVariable">変数</Term> <code>mysteriousNumber</code> は 3 回<Term type="javascriptAssignment">代入</Term>が行われていますが、最後に<Term type="javascriptAssignment">代入</Term>された <code> 2</code> が表示されます。</p>
 
 一方、`const` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>には、再<Term type="javascriptAssignment">代入</Term>ができません。そのため、上記のコードの `let` を `const` に置き換えることはできません。
 
-さらに、再代入について詳しく見てみましょう。それでは、以下の場合はどうでしょうか。
+さらに、再<Term type="javascriptAssignment">代入</Term>について詳しく見てみましょう。それでは、以下の場合はどうでしょうか。
 
 ```javascript title="script.js"
 let price = 100;
