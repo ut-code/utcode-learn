@@ -153,7 +153,7 @@ VS Code 標準の機能だけでも多くのことができますが、より便
 
 ### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
 
-コマンドパレット(`Cmd / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+コマンドパレット(`command / Ctrl + Shift + P`)に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
 
 ![GitGragh](./gitGraph.png)
 
