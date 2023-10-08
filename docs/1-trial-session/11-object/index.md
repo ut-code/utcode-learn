@@ -26,7 +26,7 @@ JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほ�
 <Term type="javascriptObject">オブジェクト</Term>は、複数の<Term strong type="javascriptProperty" strong>プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
 
 ```javascript
-let person = { name: "田中", age: 18 };
+const person = { name: "田中", age: 18 };
 ```
 
 ![プロパティ](properties.png)
@@ -34,7 +34,7 @@ let person = { name: "田中", age: 18 };
 <p><Term type="javascriptObject">オブジェクト</Term>の中に<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。</p>
 
 ```javascript
-let person = {
+const person = {
   name: "田中",
   scores: { math: 80, science: 90 },
 };
@@ -66,8 +66,8 @@ function incrementAge(person) {
   // ここに書く
 }
 
-let tanaka = { name: "田中", age: 18 };
-let nextYearTanaka = incrementAge(tanaka);
+const tanaka = { name: "田中", age: 18 };
+const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 

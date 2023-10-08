@@ -1,4 +1,4 @@
-let element = document.getElementById("foo");
+const element = document.getElementById("foo");
 element.style.border = "1px solid #aaa";
 element.style.borderRadius = "10px";
 element.style.margin = "30px";

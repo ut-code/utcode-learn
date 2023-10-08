@@ -1,8 +1,8 @@
-let omikujiButton = document.getElementById("omikuji-button");
-let result = document.getElementById("result");
+const omikujiButton = document.getElementById("omikuji-button");
+const result = document.getElementById("result");
 
 function omikuji() {
-  let r = Math.random();
+  const r = Math.random();
   if (r < 0.2) {
     result.textContent = "大吉";
     result.style.color = "red";

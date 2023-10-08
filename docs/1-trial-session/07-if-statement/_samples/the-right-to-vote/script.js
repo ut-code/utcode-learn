@@ -1,4 +1,4 @@
-let age = 20;
+const age = 20;
 if (age < 18) {
   document.write("選挙権はありません");
 } else if (age < 25) {

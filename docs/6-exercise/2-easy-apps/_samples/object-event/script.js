@@ -9,7 +9,7 @@ let tanaka = {
 function falsifyTanakaData() {
   tanaka.scores.math = 100;
   tanaka.scores.science = 100;
-  let academicPerformance = document.getElementById("academic-performance");
+  const academicPerformance = document.getElementById("academic-performance");
   academicPerformance.textContent =
     "成績:数学..." +
     tanaka.scores.math +
@@ -18,5 +18,5 @@ function falsifyTanakaData() {
     "点";
 }
 
-let trickbutton = document.getElementById("button");
+const trickbutton = document.getElementById("button");
 trickbutton.onclick = falsifyTanakaData;
