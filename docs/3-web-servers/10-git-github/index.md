@@ -125,7 +125,7 @@ git commit -m "コミットメッセージ"
 
 <video src={secondCommitVideo} muted autoPlay loop controls />
 
-これにより、2 つ目のコミットが作成されました。コミットの履歴を確認するために、先ほどインストールした `Git Graph` 拡張機能を起動してみましょう。`Cmd / Ctrl + Shift + P` キーを押してコマンドパレットを開き、`Git Graph: View Git Graph (git log)` を選択します。
+これにより、2 つ目のコミットが作成されました。コミットの履歴を確認するために、先ほどインストールした `Git Graph` 拡張機能を起動してみましょう。`command / Ctrl + Shift + P` キーを押してコマンドパレットを開き、`Git Graph: View Git Graph (git log)` を選択します。
 
 <video src={showGitHistoryVideo} muted autoPlay loop controls />
 

@@ -18,7 +18,7 @@ Google Chrome 以外のブラウザにも開発者ツールは搭載されてい
 
 :::
 
-開発者ツールは、`Cmd (Ctrl) + Opt (Shift) + I` キー、もしくは `F12` キーを押すことにより起動できます。
+開発者ツールは、`command (Ctrl) + option (Shift) + I` キー、もしくは `F12` キーを押すことにより起動できます。
 
 ![開発者ツールを起動した様子](open-inspector.png)
 
