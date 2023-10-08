@@ -4,6 +4,7 @@ title: 条件分岐
 
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import Answer from "@site/src/components/Answer";
 
 ## if 構文
 
@@ -87,4 +88,23 @@ let age = 20;
 - 18 歳以上 ～ 25 歳未満なら `投票に行けます` と表示する
 - 25 歳以上なら `衆議院議員に立候補できます` と表示する
 
+<Answer>
+
+if ～ else if ～ else 構文を使うと、次のように書くことができます。
+
+```javascript title=script.js showLineNumbers
+let age = 20;
+if (age < 18) {
+  document.write("選挙権はありません");
+} else if (age < 25) {
+  document.write("投票に行けます");
+} else {
+  document.write("衆議院議員に立候補できます");
+}
+```
+
 <ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
+
+4 行目の式は `age >= 18 && age < 25` ではないかと思うかもしれませんが、上のように `age < 25` としても同じ結果になります。これは、if ～ else if ～ else 構文では、一つ目の条件が満たされた場合、二つ目の条件は実行されないためです。
+
+</Answer>
