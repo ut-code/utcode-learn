@@ -1,7 +1,7 @@
 const questions = ["apple", "black", "cloud"];
 const answers = ["りんご", "黒", "雲"];
 
-let questionDisplay = document.getElementById("question");
+const questionDisplay = document.getElementById("question");
 
 const answer = document.getElementById("answer");
 let index = 0;

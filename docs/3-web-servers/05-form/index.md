@@ -56,7 +56,7 @@ JSON は「JavaScript Object Notation」の略で JavaScript のオブジェク�
 
 :::tip URL として使用できない文字の対処方法
 
-URL として使用できない文字（日本語文字など）は[URI エンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScript なら `encodeURIComponent` 関数で変換できます。
+URL として使用できない文字（日本語文字など）は[URL エンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScript なら `encodeURIComponent` 関数で変換できます。
 
 ```javascript
 encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"

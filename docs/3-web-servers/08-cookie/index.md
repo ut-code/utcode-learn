@@ -1,5 +1,5 @@
 ---
-title: Cookie と認証
+title: Cookie と認証（発展）
 ---
 
 import CodeBlock from '@theme/CodeBlock';

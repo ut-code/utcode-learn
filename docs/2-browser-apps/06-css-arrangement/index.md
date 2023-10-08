@@ -1,5 +1,5 @@
 ---
-title: CSS による配置
+title: CSS による配置（発展）
 ---
 
 import CodeBlock from '@theme/CodeBlock';

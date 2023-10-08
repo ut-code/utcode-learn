@@ -4,10 +4,12 @@ export default {
     "/docs/trial-session/html/": "HTML",
     "/docs/trial-session/javascript/": "JavaScriptことはじめ",
     "/docs/trial-session/expressions/": "値と式と演算子",
+    "/docs/trial-session/expressions/#いろいろな演算子": "いろいろな演算子",
     "/docs/trial-session/variables/": "変数",
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/functions/#モジュール化": "モジュール化",
     "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
@@ -166,7 +168,7 @@ export default {
     },
     javascriptExpression: {
       name: "式 (JavaScript)",
-      definition: "JavaScript において、値を生成するまとまり。",
+      definition: "JavaScript において、計算・処理されて値を生成するまとまり。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptEvaluation: {
@@ -179,6 +181,11 @@ export default {
       definition:
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
       referencePage: "/docs/trial-session/expressions/",
+    },
+    javascriptStringConcatenation: {
+      name: "文字列の結合",
+      definition: "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
+      referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
       name: "変数",
@@ -199,19 +206,19 @@ export default {
     camelCase: {
       name: "キャメルケース",
       definition:
-        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則。例: camelCase",
       referencePage: "/docs/trial-session/variables/",
     },
     snakeCase: {
       name: "スネークケース",
       definition:
-        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則",
+        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則。例: snake_case",
       referencePage: "/docs/trial-session/variables/",
     },
     pascalCase: {
       name: "パスカルケース",
       definition:
-        "複数の単語にわたるフレーズを、先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、それぞれの単語の先頭の文字を大文字にして結合する命名規則。例: PascalCase",
       referencePage: "/docs/trial-session/variables/",
     },
     javascriptBoolean: {
@@ -262,6 +269,11 @@ export default {
       name: "スコープ (JavaScript)",
       definition: "変数が有効な範囲。",
       referencePage: "/docs/trial-session/functions/",
+    },
+    javascriptModularization: {
+      name: "モジュール化",
+      definition: "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
+      referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",

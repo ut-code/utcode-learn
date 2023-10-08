@@ -85,7 +85,7 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 と表示されるプログラムを以下のように作成しました。
 
 ```javascript
-let nameLength = 7;
+const nameLength = 7;
 if (4 <= nameLength <= 10) {
   document.write("登録できます");
 }
@@ -103,7 +103,7 @@ if (nameLength === 0) {
 <Answer>
 
 ```javascript
-let nameLength = 7;
+const nameLength = 7;
 if (4 <= nameLength && nameLength <= 10) {
   // 比較演算子を2つ並べるのではなく、論理演算子&&を用います。
   document.write("登録できます");

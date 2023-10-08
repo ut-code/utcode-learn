@@ -18,7 +18,7 @@ Google Chrome 以外のブラウザにも開発者ツールは搭載されてい
 
 :::
 
-開発者ツールは、`Cmd (Ctrl) + Opt (Shift) + I` キー、もしくは `F12` キーを押すことにより起動できます。
+開発者ツールは、`command (Ctrl) + option (Shift) + I` キー、もしくは `F12` キーを押すことにより起動できます。
 
 ![開発者ツールを起動した様子](open-inspector.png)
 
@@ -59,8 +59,8 @@ function add(a, b) {
   return a + b;
 }
 
-let resultElement = document.getElementById("result");
-let sum = add(3, 4);
+const resultElement = document.getElementById("result");
+const sum = add(3, 4);
 resultElement.textContent = sum;
 ```
 
@@ -112,9 +112,9 @@ JavaScript の実行がブレークポイントを設定した地点に差し掛
 以下のプログラムは `x` と `y` の和を出力するプログラムですが、`console.log` を使ってプログラムの実行中に値の変化を確認したり、エラーが発生した際に原因を特定することができます。
 
 ```javascript
-let x = 5;
-let y = 10;
-let sum = x + y;
+const x = 5;
+const y = 10;
+const sum = x + y;
 console.log("x + y = ", sum);
 ```
 
@@ -129,6 +129,6 @@ function add(a, b) {
   return a + b;
 }
 
-let result = add(add(1, 2), add(3, 4));
+const result = add(add(1, 2), add(3, 4));
 document.write(result);
 ```

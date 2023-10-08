@@ -48,7 +48,7 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong>を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して関数の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
+<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong> を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して<Term type="javascriptFunction">関数</Term>の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
 
 ```javascript
 function add(a, b) {
@@ -64,6 +64,24 @@ document.write(add(3, 4));
 そして<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果が `7` となります。
 
 <video src={returnValueVideo} controls autoPlay muted loop />
+
+:::tip
+**return 文** が実行された時点で<Term type="javascriptFunction">関数</Term>の処理が終了するため、次のように書くことで [if ~ else 文](../if-statement/#if--else) や [&& (AND) 演算子](../boolean/#論理演算子)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+
+```javascript
+let age = 21;
+let hasDriverLicense = true;
+let isDrunk = true;
+function tryToDrive() {
+  // if 構文で実行する式が一行だけの場合、{} を省略できます。
+  if (age < 18) return;
+  if (!hasDriverLicense) return;
+  if (isDrunk) return;
+  document.write("車を運転できます。");
+}
+```
+
+:::
 
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
@@ -106,6 +124,48 @@ increment();
 
 :::
 
+## モジュール化
+
+複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
+また、どの部分がどの操作に対応しているのかが分かりやすくなるため、他の人がコードを読んだり、自分が後から読み返して変更を加えるのもやりやすくなります。
+:::caution
+あなたの記憶力はあなたが思っているほどよくありません！
+:::
+モジュール化前:
+
+```javascript
+const stringToRepeat = "☆";
+for (let i = 0; i < 10; i += 1) {
+  let result = "";
+  for (let j = 0; j < i; j += 1) {
+    result += stringToRepeat;
+  }
+  document.write(result);
+  document.write("<br>");
+}
+```
+
+モジュール化後:
+
+```javascript
+function repeat(stringToRepeat, times) {
+  let result = "";
+  for (let j = 0; j < times; j += 1) {
+    result += stringToRepeat;
+  }
+  return result;
+}
+
+for (let i = 0; i < 10; i += 1) {
+  document.write(repeat("☆", i));
+  document.write("<br>");
+}
+```
+
+:::note
+この例における`repeat`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し<Term type="javascriptStringConcatenation">足した</Term>ものを返します。
+:::
+
 ---
 
 ## 基礎演習
@@ -115,6 +175,7 @@ increment();
 <p><Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> <code>max</code> を定義してください。</p>
 
 :::tip
+
 <p><Term type="javascriptIfStatement">if 文</Term>を使って、<code>a</code> が大きい場合と <code>b</code> が大きい場合で処理を書き分けます。</p>
 :::
 
@@ -155,6 +216,8 @@ function max(a, b) {
 
 ### 携帯電話料金
 
+## 演習
+
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
@@ -169,6 +232,7 @@ document.write(calculateCost(3.5));
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
+>   <<<<<<< HEAD
 
 <Answer>
 
@@ -182,6 +246,10 @@ function calculateCost(monthlyDataUsage) {
 
 document.write(calculateCost(3.5));
 ```
+
+=======
+
+> > > > > > > master
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
 

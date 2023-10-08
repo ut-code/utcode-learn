@@ -35,12 +35,12 @@ import drawingVideo from "./drawing.mp4";
 ```
 
 ```javascript title=script.js
-let height = document.getElementById("height");
-let weight = document.getElementById("weight");
+const height = document.getElementById("height");
+const weight = document.getElementById("weight");
 
-let calcButton = document.getElementById("calc-button");
+const calcButton = document.getElementById("calc-button");
 
-let answer = document.getElementById("answer");
+const answer = document.getElementById("answer");
 
 calcButton.onclick = () => {
   answer.textContent = weight.value / (height.value / 100) ** 2;
@@ -78,7 +78,7 @@ calcButton.onclick = () => {
 - ただし、文字列として格納されているので、四則演算を行うには数値に変換する必要があります。文字列を数値に変換するには、`Number()` を使います。
 
   ```javascript
-  let number = Number("1"); // 1
+  const number = Number("1"); // 1
   ```
 
 - 2 つの入力欄とボタンを配置し、ボタンを押すと入力された 2 つの数の和が表示されるようにしてみましょう。
@@ -91,14 +91,14 @@ calcButton.onclick = () => {
   ```
 
   ```javascript title=script.js
-  let calculateButton = document.getElementById("calculate-button");
-  let number1 = document.getElementById("number1");
-  let number2 = document.getElementById("number2");
-  let result = document.getElementById("result");
+  const calculateButton = document.getElementById("calculate-button");
+  const number1 = document.getElementById("number1");
+  const number2 = document.getElementById("number2");
+  const result = document.getElementById("result");
 
   function calculate() {
-    let inputNumber1 = Number(number1.value);
-    let inputNumber2 = Number(number2.value);
+    const inputNumber1 = Number(number1.value);
+    const inputNumber2 = Number(number2.value);
     result.textContent = inputNumber1 + inputNumber2;
   }
   calculateButton.onclick = calculate;
@@ -121,7 +121,7 @@ calcButton.onclick = () => {
 - `select` 要素を `document.getElementById` 関数で取得します。返されたオブジェクトの `value` プロパティには、プルダウンメニューで選択されている選択肢の `value` 属性に指定されている文字列が格納されています。
 
   ```javascript title=script.js
-  let fruitSelect = document.getElementById("fruit-select");
+  const fruitSelect = document.getElementById("fruit-select");
 
   // "strawberry", "apple", "banana" のいずれか
   document.write(fruitSelect.value);
@@ -148,15 +148,15 @@ calcButton.onclick = () => {
 ```
 
 ```javascript title=script.js
-let calculateButton = document.getElementById("calculate-button");
-let number1 = document.getElementById("number1");
-let number2 = document.getElementById("number2");
-let operator = document.getElementById("operator");
-let result = document.getElementById("result");
+const calculateButton = document.getElementById("calculate-button");
+const number1 = document.getElementById("number1");
+const number2 = document.getElementById("number2");
+const operator = document.getElementById("operator");
+const result = document.getElementById("result");
 
 function calculate() {
-  let inputNumber1 = Number(number1.value);
-  let inputNumber2 = Number(number2.value);
+  const inputNumber1 = Number(number1.value);
+  const inputNumber2 = Number(number2.value);
   if (operator.value === "/" && inputNumber2 === 0) {
     result.textContent = "0で割ることはできません。";
     result.style.color = "red";
@@ -238,7 +238,7 @@ let tanaka = {
 function falsifyTanakaData() {
   tanaka.scores.math = 100;
   tanaka.scores.science = 100;
-  let academicPerformance = document.getElementById("academic-performance");
+  const academicPerformance = document.getElementById("academic-performance");
   academicPerformance.textContent =
     "成績:数学..." +
     tanaka.scores.math +
@@ -247,7 +247,7 @@ function falsifyTanakaData() {
     "点";
 }
 
-let trickbutton = document.getElementById("button");
+const trickbutton = document.getElementById("button");
 trickbutton.onclick = falsifyTanakaData;
 ```
 
@@ -273,8 +273,8 @@ trickbutton.onclick = falsifyTanakaData;
 ```
 
 ```javascript
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 ctx.fillStyle = "green";
 ctx.fillRect(10, 10, 100, 100);
 ```
@@ -291,10 +291,10 @@ ctx.fillRect(10, 10, 100, 100);
 ```
 
 ```javascript
-let button = document.getElementById("button");
-let tagNameDisplay = document.getElementById("tag-name-display");
-let displayX = document.getElementById("display-x");
-let displayY = document.getElementById("display-y");
+const button = document.getElementById("button");
+const tagNameDisplay = document.getElementById("tag-name-display");
+const displayX = document.getElementById("display-x");
+const displayY = document.getElementById("display-y");
 
 function displayNameAndLocation(e) {
   // e は event の略
@@ -325,18 +325,18 @@ button.onclick = displayNameAndLocation;
 ```
 
 ```javascript title=script.js
-let canvas = document.getElementById("canvas");
-let smallButton = document.getElementById("small-button");
-let bigButton = document.getElementById("big-button");
+const canvas = document.getElementById("canvas");
+const smallButton = document.getElementById("small-button");
+const bigButton = document.getElementById("big-button");
 
-let context = canvas.getContext("2d");
+const context = canvas.getContext("2d");
 let isBig = false;
 
 canvas.onclick = drawRect;
 
 function drawRect(e) {
-  let top = canvas.getBoundingClientRect().top;
-  let left = canvas.getBoundingClientRect().left;
+  const top = canvas.getBoundingClientRect().top;
+  const left = canvas.getBoundingClientRect().left;
   context.fillStyle = "green";
   if (isBig) {
     context.fillRect(e.pageX - left - 10, e.pageY - top - 10, 20, 20);
