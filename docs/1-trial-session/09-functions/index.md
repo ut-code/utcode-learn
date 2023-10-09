@@ -229,7 +229,6 @@ document.write(calculateCost(3.5));
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
->   <<<<<<< HEAD
 
 <Answer>
 
@@ -243,10 +242,6 @@ function calculateCost(monthlyDataUsage) {
 
 document.write(calculateCost(3.5));
 ```
-
-=======
-
-> > > > > > > master
 
 <ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
 
