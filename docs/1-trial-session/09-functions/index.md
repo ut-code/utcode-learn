@@ -152,7 +152,6 @@ function repeat(stringToRepeat, times) {
   }
   return result;
 }
-
 for (let i = 0; i < 10; i += 1) {
   document.write(repeat("☆", i));
   document.write("<br>");
