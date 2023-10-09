@@ -3,7 +3,7 @@ function max(a, b) {
 }
 
 function arrayMax(array) {
-  if (array == []) return; //空配列をエスケープ
+  if (array.length == 0) return; //空配列の例外処理
   return array.reduce(max, array[0]);
 }
 
