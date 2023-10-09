@@ -176,7 +176,7 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
 ```javascript
 function arrayMax(array) {
-  if (array == []) return; //空配列をエスケープ
+  if (array.length == 0) return; //空配列の例外処理
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
@@ -186,7 +186,7 @@ function arrayMax(array) {
 ```
 
 :::danger
-配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時にエスケープすることを忘れないでください！
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時に例外処理することを忘れないでください！
 :::
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />
@@ -204,7 +204,7 @@ function max(a, b) {
 }
 
 function arrayMax(array) {
-  if (array == []) return; //空配列をエスケープ
+  if (array.length == 0) return; //空配列をエスケープ
   return array.reduce(max, array[0]);
 }
 ```
