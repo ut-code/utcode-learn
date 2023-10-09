@@ -68,8 +68,6 @@ document.write(add(3, 4));
 :::tip
 **return 文** が実行された時点で<Term type="javascriptFunction">関数</Term>の処理が終了するため、次のように書くことで [if ~ else 文](../if-statement/#if--else) や [&& (AND) 演算子](../boolean/#論理演算子)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
 
-**Guard Clause** (日本語訳: ガード条件、ガード節)と呼ばれています。
-
 ```javascript
 let age = 21;
 let hasDriverLicense = true;
@@ -130,10 +128,6 @@ increment();
 
 複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
 
-また、どの部分がどの操作に対応しているのかが分かりやすくなるため、他の人がコードを読んだり、自分が後から読み返して変更を加えるのもやりやすくなります。
-:::caution
-あなたの記憶力はあなたが思っているほどよくありません！
-:::
 モジュール化前:
 
 ```javascript
