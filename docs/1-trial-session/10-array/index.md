@@ -136,6 +136,8 @@ document.write(`sum of array2: ${sumArray(array2)} <br>`);
 
 <ViewSource url={import.meta.url} path="_samples/array-sum" />
 
+</Answer>
+
 ## 中級課題
 
 ### 最大値
