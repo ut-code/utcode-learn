@@ -1,6 +1,6 @@
 ---
 title: 演習問題集
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 import DocCardList from '@theme/DocCardList';
