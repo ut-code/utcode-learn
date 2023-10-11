@@ -193,8 +193,6 @@ function max(a, b) {
 
 `a > b` が `true` の場合、if 構文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。そのため、以下のように書くこともできます。
 
-:::
-
 ```javascript
 function max(a, b) {
   if (a > b) {
@@ -205,6 +203,8 @@ function max(a, b) {
 ```
 
 <ViewSource url={import.meta.url} path="_samples/max-no-else" />
+
+:::
 
 </Answer>
 
