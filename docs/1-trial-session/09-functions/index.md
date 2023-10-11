@@ -212,8 +212,6 @@ function max(a, b) {
 
 ### 携帯電話料金
 
-## 演習
-
 携帯電話料金を計算する<Term type="javascriptFunction">関数</Term>を作ってみましょう。
 
 ```javascript
