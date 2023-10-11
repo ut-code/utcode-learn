@@ -126,7 +126,7 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 
 単一の HTML ファイルのみを使用して、遠足の持ち物リストを作成してみましょう。お弁当は何よりも重要なので太字にしましょう。
 
-<ViewSource url={import.meta.url} path="_samples/travel-list" />
+<ViewSource url={import.meta.url} path="_samples/excursion" />
 
 ![簡単な課題の例](./easier-task-sample.png)
 
