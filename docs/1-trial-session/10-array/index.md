@@ -110,20 +110,28 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ### 連続表示
 
-- 引数に与えられた配列の要素を、通常のfor文を使って順番に表示してみましょう。
+- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
 
 :::tip
-変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
 :::
 
 <Answer>
 
 ```javascript
-const array = ["田中", "佐藤", "鈴木"];
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 
-for (let i = 0; i < array.length; i += 1) {
-  document.write(array[i]);
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  return sum;
 }
+
+document.write(`sum of array1: ${sumArray(array1)} <br>`);
+document.write(`sum of array2: ${sumArray(array2)} <br>`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-printer" />
