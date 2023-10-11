@@ -208,7 +208,7 @@ document.write(product);
 
 ### 別解
 
-複合演算子を使うと以下のようにも書けます。
+複合代入演算子を使うと以下のようにも書けます。
 
 ```javascript
 let product = 1;
