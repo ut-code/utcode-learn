@@ -33,7 +33,7 @@ studentNames[1] = "内藤";
 
 :::
 
-`[` 〜 `]` の中には非負整数値になる任意の式を記述できます。変数を使用することも可能です。
+`[` 〜 `]` の中には非負整数値になる任意の式を記述できます。変数や関数呼び出しも式なので使用することが可能です。
 
 ```javascript
 const six = 6;
@@ -104,38 +104,120 @@ studentNames.push("内藤");
 document.write(studentNames); // 田中,佐藤,鈴木,内藤
 ```
 
-### 課題
+---
 
-- `配列.push` 関数を用いて、フィボナッチ数列の配列を作ってみましょう。
-- 作成した配列の各要素を `for ～ of` 文を用いて出力してみましょう。
-- 作成した配列の各要素を、通常の `for` 文と `配列.length` 変数を用いて出力してみましょう。
+## 基礎課題
 
-:::info ヒント
+### 連続表示
 
-変数 `i` を 0 から `(作成した配列の length 変数の値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
 
+:::tip
+変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
 :::
 
 <Answer>
 
 ```javascript
-// f.push 関数を用いて、フィボナッチ数列の配列を作成
-const f = [1, 1];
-for (let i = 0; i < 100; i += 1) {
-  f.push(f[f.length - 1] + f[f.length - 2]);
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  return sum;
 }
-// 作成した配列の各要素を for ～ of 文を用いて出力
-for (const item of f) {
-  document.write(item);
-}
-// 作成した配列の各要素を、通常の for 文と f.length 変数を用いて出力
-for (let i = 0; i < f.length; i += 1) {
-  document.write(f[i]);
+
+document.write(`sum of array1: ${sumArray(array1)} <br>`);
+document.write(`sum of array2: ${sumArray(array2)} <br>`);
+```
+
+<ViewSource url={import.meta.url} path="_samples/array-printer" />
+
+### 別解
+
+[`配列.join` メソッド(関数)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)を使うと、次のような書き方もできます。
+
+```javascript
+const array = ["田中", "佐藤", "鈴木"];
+
+const text = array.join("");
+document.write(text);
+```
+
+<ViewSource url={import.meta.url} path="_samples/array-printer-join" />
+
+</Answer>
+
+## 中級課題
+
+### 最大値
+
+引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `findMax` を作成しましょう。
+
+:::note
+
+テスト用に、ランダムに生成された以下の配列を使ってよいものとします。
+
+```javascript
+const array1 = [3, 6, 8, 5, 0];
+const array2 = [-8, -7, -3, -1, -5];
+const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
+const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
+```
+
+:::
+
+:::tip
+
+今までのように仮の初期値を置く方法では、配列の各値が非常に大きな負の値であった場合に仮の初期値が返ってきてしまいます。
+
+どうすればいいでしょうか？
+
+:::
+
+<Answer>
+
+配列の最初の値を初期値に設定することで解消します。
+
+```javascript
+function findMax(array) {
+  if (array.length === 0) return; // 空配列の例外処理
+  let maxValue = array[0];
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] > maxValue) maxValue = array[i];
+  }
+  return maxValue;
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/Array-class" />
+:::danger
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時に例外処理することを忘れないでください！
+:::
 
+<ViewSource url={import.meta.url} path="_samples/array-max" />
+
+:::info 別解 (参考)
+
+[`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) を使ってこのように書くこともできます。
+
+```javascript
+function max(a, b) {
+  if (a > b) return a;
+  else return b;
+}
+
+function findMax(array) {
+  if (array.length == 0) return; //空配列をエスケープ
+  return array.reduce(max, array[0]);
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/array-max-reduce" />
+
+:::
 </Answer>
 
 <!-- オブジェクトはまだ扱っていないためコメントアウト
