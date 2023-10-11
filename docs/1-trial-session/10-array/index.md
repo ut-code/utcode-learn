@@ -176,7 +176,7 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
 ```javascript
 function findMax(array) {
-  if (array.length == 0) return; //空配列の例外処理
+  if (array.length === 0) return; // 空配列の例外処理
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
