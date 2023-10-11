@@ -275,7 +275,7 @@ if (isPrime) {
 前項で割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
 
 ```javascript
-let integer = 89; //任意の整数
+let integer = 89; // 任意の整数
 
 let isPrime = true;
 if (integer <= 1) {
