@@ -134,22 +134,7 @@ document.write(`sum of array1: ${sumArray(array1)} <br>`);
 document.write(`sum of array2: ${sumArray(array2)} <br>`);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/array-printer" />
-
-### 別解
-
-[`配列.join` メソッド(関数)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)を使うと、次のような書き方もできます。
-
-```javascript
-const array = ["田中", "佐藤", "鈴木"];
-
-const text = array.join("");
-document.write(text);
-```
-
-<ViewSource url={import.meta.url} path="_samples/array-printer-join" />
-
-</Answer>
+<ViewSource url={import.meta.url} path="_samples/array-sum" />
 
 ## 中級課題
 
@@ -183,6 +168,11 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 配列の最初の値を初期値に設定することで解消します。
 
 ```javascript
+const array1 = [3, 6, 8, 5, 0];
+const array2 = [-8, -7, -3, -1, -5];
+const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
+const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
+
 function findMax(array) {
   if (array.length === 0) return; // 空配列の例外処理
   let maxValue = array[0];
@@ -191,6 +181,12 @@ function findMax(array) {
   }
   return maxValue;
 }
+
+document.write(`<p>配列 [${array1}] の最大値は${arrayMax(array1)} です。</p>`);
+document.write(`<p>配列 [${array2}] の最大値は${arrayMax(array2)} です。</p/>`);
+document.write(`<p>配列 [${array3}] の最大値は${arrayMax(array3)} です。</p>`);
+document.write(`<p>配列 [${array4}] の最大値は${arrayMax(array4)} です。</p>`);
+document.write(`<p>空の配列の最大値は ${arrayMax([])} です。</p/>`);
 ```
 
 :::danger
@@ -199,25 +195,6 @@ function findMax(array) {
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
-:::info 別解 (参考)
-
-[`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) を使ってこのように書くこともできます。
-
-```javascript
-function max(a, b) {
-  if (a > b) return a;
-  else return b;
-}
-
-function findMax(array) {
-  if (array.length == 0) return; //空配列をエスケープ
-  return array.reduce(max, array[0]);
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/array-max-reduce" />
-
-:::
 </Answer>
 
 <!-- オブジェクトはまだ扱っていないためコメントアウト
