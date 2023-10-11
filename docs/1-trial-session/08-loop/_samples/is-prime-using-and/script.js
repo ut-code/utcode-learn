@@ -1,17 +1,17 @@
-let integralNumber = 89; //任意の整数
+let n = 89; //任意の整数
 
 let isPrime = true;
-if (integralNumber <= 1) {
+if (n <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integralNumber; i += 1) {
-  // integralNumberが1以下のときは素数でない
-  isPrime = isPrime && integralNumber % i != 0;
+for (let i = 2; i < n; i += 1) {
+  // nが1以下のときは素数でない
+  isPrime = isPrime && n % i != 0;
 }
 
 if (isPrime) {
-  document.write(`${integralNumber} は素数です。`);
+  document.write(`${n} は素数です。`);
 } else {
-  document.write(`${integralNumber} は素数ではありません。`);
+  document.write(`${n} は素数ではありません。`);
 }

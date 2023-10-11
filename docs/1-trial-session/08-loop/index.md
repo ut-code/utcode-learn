@@ -225,9 +225,9 @@ document.write(product);
 
 ### 素数判定問題
 
-ある整数の変数 `integralNumber` が与えられたとき、その値が素数であるかどうか判定して表示する`for`文を書いてみましょう。
+ある整数の変数 `n` が与えられたとき、その値が素数であるかどうか判定して表示する`for`文を書いてみましょう。
 
-そして、`integralNumber`に 6, 11 ,57, 89 を入れてテストしてみましょう。
+そして、`n`に 6, 11 ,57, 89 を入れてテストしてみましょう。
 
 :::info
 素数の定義は「1とその数以外の整数で割り切れない自然数」でしたね。
@@ -238,7 +238,7 @@ document.write(product);
 :::
 
 :::tip 豆知識
-自然数`integralNumber`を`i`で割ったあまりは `integralNumber % i`で求められます。
+自然数`n`を`i`で割ったあまりは `n % i`で求められます。
 :::
 
 ### 解答例
@@ -246,24 +246,24 @@ document.write(product);
 <Answer>
 
 ```javascript
-let integralNumber = 57; // 任意の整数
+let n = 57; // 任意の整数
 
 let isPrime = true;
-if (integralNumber <= 1) {
-  // integralNumberが1以下のときは素数でない
+if (n <= 1) {
+  // nが1以下のときは素数でない
   isPrime = false;
 }
 
-for (let i = 2; i < integralNumber; i += 1) {
-  if (integralNumber % i == 0) {
+for (let i = 2; i < n; i += 1) {
+  if (n % i == 0) {
     isPrime = false; // 変数は最後に代入した値のみを保持する。
   }
 }
 
 if (isPrime) {
-  document.write(`${integralNumber} は素数です`);
+  document.write(`${n} は素数です`);
 } else {
-  document.write(`${integralNumber} は素数ではありません`);
+  document.write(`${n} は素数ではありません`);
 }
 ```
 
@@ -274,22 +274,22 @@ if (isPrime) {
 前項で割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
 
 ```javascript
-let integralNumber = 89; //任意の整数
+let n = 89; //任意の整数
 
 let isPrime = true;
-if (integralNumber <= 1) {
-  // integralNumberが1以下のときは素数でない
+if (n <= 1) {
+  // nが1以下のときは素数でない
   isPrime = false;
 }
 
-for (let i = 2; i < integralNumber; i += 1) {
-  isPrime = isPrime && integralNumber % i != 0;
+for (let i = 2; i < n; i += 1) {
+  isPrime = isPrime && n % i != 0;
 }
 
 if (isPrime) {
-  document.write(`${integralNumber} は素数です`);
+  document.write(`${n} は素数です`);
 } else {
-  document.write(`${integralNumber} は素数ではありません`);
+  document.write(`${n} は素数ではありません`);
 }
 ```
 

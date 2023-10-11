@@ -1,19 +1,19 @@
-let integralNumber = 57; // 任意の整数
+let n = 57; // 任意の整数
 
 let isPrime = true;
-if (integralNumber <= 1) {
-  // integralNumberが1以下のときは素数でない
+if (n <= 1) {
+  // nが1以下のときは素数でない
   isPrime = false;
 }
 
-for (let i = 2; i < integralNumber; i += 1) {
-  if (integralNumber % i == 0) {
+for (let i = 2; i < n; i += 1) {
+  if (n % i == 0) {
     isPrime = false; // 変数には最後に代入した値のみを保持する
   }
 }
 
 if (isPrime) {
-  document.write(`${integralNumber} は素数です`);
+  document.write(`${n} は素数です`);
 } else {
-  document.write(`${integralNumber} は素数ではありません`);
+  document.write(`${n} は素数ではありません`);
 }
