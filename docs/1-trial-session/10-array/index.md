@@ -33,7 +33,7 @@ studentNames[1] = "内藤";
 
 :::
 
-`[` 〜 `]` の中には非負整数値になる任意の式を記述できます。変数や`関数()`も式なので使用することが可能です。
+`[` 〜 `]` の中には非負整数値になる任意の式を記述できます。変数や関数呼び出しも式なので使用することが可能です。
 
 ```javascript
 const six = 6;
@@ -110,20 +110,28 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ### 連続表示
 
-- 引数に与えられた配列の要素を、通常のfor文を使って順番に表示してみましょう。
+- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
 
 :::tip
-変数 `i` を 0 から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` インデックスの要素を表示しましょう。
+変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
 :::
 
 <Answer>
 
 ```javascript
-const array = ["田中", "佐藤", "鈴木"];
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 
-for (let i = 0; i < array.length; i += 1) {
-  document.write(array[i]);
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  return sum;
 }
+
+document.write(`sum of array1: ${sumArray(array1)} <br>`);
+document.write(`sum of array2: ${sumArray(array2)} <br>`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-printer" />
@@ -147,7 +155,7 @@ document.write(text);
 
 ### 最大値
 
-引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `arrayMax` を作成しましょう。
+引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `findMax` を作成しましょう。
 
 :::note
 
@@ -175,8 +183,8 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 配列の最初の値を初期値に設定することで解消します。
 
 ```javascript
-function arrayMax(array) {
-  if (array.length == 0) return; //空配列の例外処理
+function findMax(array) {
+  if (array.length === 0) return; // 空配列の例外処理
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
@@ -191,8 +199,6 @@ function arrayMax(array) {
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
----
-
 :::info 別解 (参考)
 
 [`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) を使ってこのように書くこともできます。
@@ -203,7 +209,7 @@ function max(a, b) {
   else return b;
 }
 
-function arrayMax(array) {
+function findMax(array) {
   if (array.length == 0) return; //空配列をエスケープ
   return array.reduce(max, array[0]);
 }
