@@ -18,15 +18,15 @@ let myGreatName = "Becky Jones";
 document.write(myGreatName);
 ```
 
-`let` は、<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するためのキーワードです。 1 行目では、`myGrateName` という名前の<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>し、そこに`"Becky Jones"` という文字列を保存しています。<Term type="javascriptVariable">変数</Term>に`=` を使って<Term type="javascriptValue">値</Term>を保存することを<Term type="javascriptAssignment">代入</Term>と呼びます。
+`let` は、<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するためのキーワードです。 1 行目では、`myGreatName` という名前の<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>し、そこに`"Becky Jones"` という文字列を保存しています。<Term type="javascriptVariable">変数</Term>に値を保存する操作を<Term strong type="javascriptAssignment">代入</Term>と呼びます。<Term type="javascriptAssignment">代入</Term>をするときには`=` の記号を用います。左側に<Term type="javascriptVariable">変数</Term>、右側に保存する<Term type="javascriptValue">値</Term>を指定することで<Term type="javascriptAssignment">代入</Term>を行います。
 
 2 行目では、<Term type="javascriptVariable">変数</Term> `myGreatName` が<Term type="javascriptEvaluation">評価</Term>され、<Term type="javascriptAssignment">代入</Term>されていた<Term type="javascriptString">文字列</Term><Term type="javascriptValue">値</Term> `"Becky Jones"` が画面に表示されます。
 
-<p><Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するキーワードには、<code>let</code> 以外にも<code>const</code> というものがあります。記法自体は<code>let</code> と同様です。</p>
+<p><Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>するキーワードには、<code>let</code> 以外にも<code>const</code> があります。記法自体は<code>let</code> と同様です。</p>
 
 ```javascript title="script.js"
-const myGrateName = "Becky Jones";
-document.write(myGrateName);
+const myGreatName = "Becky Jones";
+document.write(myGreatName);
 ```
 
 ここまでの例では、`my great name` というフレーズを、`myGreatName` のように記述しています。
@@ -41,7 +41,7 @@ document.write(myGrateName);
 
 :::tip
 
-<Term type="javascriptVariable">変数</Term>や<Term type="javascriptFunction">関数</Term>は適切に命名することが大切です。以下の例を見てみましょう。
+<Term type="javascriptVariable">変数</Term>は適切に命名することが大切です。以下の例を見てみましょう。
 
 ```javascript
 const a = 500;
@@ -51,19 +51,19 @@ document.write(c);
 ```
 
 ```javascript
-const pricePerItem = 500;
-const numberOfItems = 3;
-const paymentTotal = pricePerItem * numberOfItems;
-document.write(paymentTotal);
+const itemPrice = 500;
+const countItem = 3;
+const totalPayment = itemPrice * countItem;
+document.write(totalPayment);
 ```
 
-この二つでは、前者は何を言いたいのかさっぱりですが、後者はコードを通じて書きたいことが分かりやすく、後から読み返しても困りません。他人と開発を行うときや、過去のコードを自分が書き換えるときには、コードの可読性が必要になります。変数名は多少長くなっても良いので、とにかく分かりやすいことを心がけましょう。
+一つ目のコードでは、`a` `b` `c` に何が保存されているのかが分かりにくいですね。二つ目のコードでは変数名がその変数の説明も兼ねているので、保存されている値が分かりやすいと思います。プログラムを書いているときには`a` に何が入っていたか覚えていても、後から読み返すときには忘れていることが多いです。コードを読み返すときや他人が読むときに備え、わかりやすい変数の命名を心がけましょう。
 
 :::
 
 ## <Term type="javascriptVariable">変数</Term>の再代入
 
-`let` と`const` の大きな違いは、再<Term type="javascriptAssignment">代入</Term>ができるかです。`let` では再<Term type="javascriptAssignment">代入</Term>が可能ですが、`const` はできません。
+`let` と`const` の大きな違いは、再<Term type="javascriptAssignment">代入</Term>ができるかどうかです。`let` では再<Term type="javascriptAssignment">代入</Term>が可能ですが、`const` ではできません。
 
 ```javascript title="script.js"
 let mysteriousNumber = 0;
@@ -72,9 +72,13 @@ mysteriousNumber = 2;
 document.write(mysteriousNumber); // 2
 ```
 
-上の例では、<Term type="javascriptVariable">変数</Term>の<Term type="javascriptValue">値</Term>が次々と変化しています。`let` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>のみを保持します。<Term type="javascriptVariable">変数</Term> `mysteriousNumber` は 3 回<Term type="javascriptAssignment">代入</Term>されていますが、最後に<Term type="javascriptAssignment">代入</Term>された `2` が表示されます。
+上の例では、<Term type="javascriptVariable">変数</Term>が`let` で<Term type="javascriptDeclaration">宣言</Term>され、<Term type="javascriptVariable">変数</Term>の<Term type="javascriptValue">値</Term>が次々と変化しています。このように、<Term type="javascriptVariable">変数</Term>に新たな<Term type="javascriptValue">値</Term>を<Term type="javascriptAssignment">代入</Term>することを再<Term type="javascriptAssignment">代入</Term>と呼びます。
 
-一方、`const` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、再<Term type="javascriptAssignment">代入</Term>ができません。すなわち、<Term type="javascriptValue">値</Term>の書き換えができません。上記のコードの`let` を`const` に置き換えると、エラーが発生します。
+`const` で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、再<Term type="javascriptAssignment">代入</Term>ができません。すなわち、<Term type="javascriptValue">値</Term>の書き換えができません。上記のコードの`let` を`const` に置き換えると、エラーが発生します。
+
+`const` で<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>した場合も、最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>が保存されます。`const` は再<Term type="javascriptAssignment">代入</Term>ができないので、実質的には<Term type="javascriptDeclaration">宣言</Term>時の<Term type="javascriptValue">値</Term>が保存されるということになります。
+
+<Term type="javascriptVariable">変数</Term>には最後に<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptValue">値</Term>のみを保存する性質があるので、上のコードの例では<Term type="javascriptVariable">変数</Term> <code>mysteriousNumber</code> に最後に<Term type="javascriptAssignment">代入</Term>された<code>2</code> が表示されます。
 
 `let` を使った<Term type="javascriptVariable">変数</Term>の<Term type="javascriptDeclaration">宣言</Term>について、もう少し見てみましょう。
 
@@ -92,12 +96,23 @@ document.write(price);
 
 ## constとletの用途
 
-`const` と`let` は用途によって使い分けがあります。基本的には、意図せず<Term type="javascriptValue">値</Term>を書き換えてしまうことを防ぐために`const` が使われます。`let` が必要な場合は様々ですが、状態を保存しておくための<Term type="javascriptVariable">変数</Term>を<Term type="javascriptDeclaration">宣言</Term>することに使われることが多いです。[繰り返し](./../08-loop/index.md)の章にあるカウンタ<Term type="javascriptVariable">変数</Term>がその一例です。他にも、<Term type="javascriptVariable">変数</Term>の値を踏まえて条件分岐を行うなど、様々な用途があります。
+`const` と`let` は用途によって使い分けがあります。基本的には、意図せず<Term type="javascriptValue">値</Term>を書き換えてしまうことを防ぐために`const` が使われます。
 
-```javascript title="script.js"
-let i = 0;
-while (i < 5) {
-  i += 1;
-  document.write("Hello world!");
-}
+```javascript
+const mysteriousNumber = 1;
+/* めちゃめちゃ長いコード
+--------------
+--------------
+--------------
+--------------
+めちゃめちゃ長いコード */
+document.write(mysteriousNumber);
 ```
+
+`mysteriousNumber` は何を表しているのかを読み取る場合を考えましょう。もしこれを`let` で<Term type="javascriptDeclaration">宣言</Term>した場合、`mysteriousNumber` は`/* めちゃめちゃ長いコード */` の中で書き換えられているかもしれません。そのため、変数の<Term type="javascriptValue">値</Term>を読み取るためにはコード全体を読み返す必要があります。しかし、このように`const` を用いることで`mysteriousNumber` の<Term type="javascriptValue">値</Term>は一意に決まります。`const` を使用できる場面では`const` を使用しましょう。
+
+:::info
+
+実際に開発をする場面では、`const` を使う場面がかなり多いです。この教材内でも基本的には`const` が用いられています。
+
+:::
