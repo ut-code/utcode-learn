@@ -147,7 +147,7 @@ document.write(text);
 
 ### 最大値
 
-引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `arrayMax` を作成しましょう。
+引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `findMax` を作成しましょう。
 
 :::note
 
@@ -175,7 +175,7 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 配列の最初の値を初期値に設定することで解消します。
 
 ```javascript
-function arrayMax(array) {
+function findMax(array) {
   if (array.length == 0) return; //空配列の例外処理
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
@@ -203,7 +203,7 @@ function max(a, b) {
   else return b;
 }
 
-function arrayMax(array) {
+function findMax(array) {
   if (array.length == 0) return; //空配列をエスケープ
   return array.reduce(max, array[0]);
 }
