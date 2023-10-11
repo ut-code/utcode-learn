@@ -191,8 +191,6 @@ function findMax(array) {
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
----
-
 :::info 別解 (参考)
 
 [`array.reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) を使ってこのように書くこともできます。
