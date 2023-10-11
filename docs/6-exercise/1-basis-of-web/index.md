@@ -3,8 +3,10 @@ title: Web プログラミングの初歩
 sidebar_position: 1
 ---
 
+import Term from "@site/src/components/Term";
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
+import BubbleSortVideo from "@site/docs/6-exercise/1-basis-of-web/bubble-sort-video.mp4";
 
 この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
 
@@ -69,6 +71,8 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 <ViewSource url={import.meta.url} path="_samples/html" />
 
 </Answer>
+
+---
 
 ## 2. 名前の長さ
 
@@ -154,65 +158,7 @@ if (tanakaHandTotal > satoHandTotal) {
 
 ---
 
-## 4. フィボナッチ数列
-
-1. 引数を 2 つとり、そのうち大きい数を返す関数 `max` を定義してください。
-
-2. 1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
-
-### 解答例
-
-<Answer>
-
-1 の解答例
-
-```javascript
-function max(a, b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/max" />
-
-2 の解答例
-
-```javascript
-function fibonacci(n) {
-  if (n <= 2) {
-    return 1;
-  }
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-// このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
-```
-
-<ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
-
-2 の別解
-
-もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
-
-```javascript
-function fibonacci(n) {
-  let sequence = [0, 1];
-  for (let i = 2; i < n + 1; i += 1) {
-    sequence.push(sequence[i - 1] + sequence[i - 2]);
-  }
-  return sequence[n];
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/fibonacci/array" />
-
-</Answer>
-
----
-
-## 5. トラック
+## 4. トラック
 
 引っ越しトラックを考えます。
 
@@ -230,9 +176,9 @@ function fibonacci(n) {
 
 と表示されるプログラムを作ってみましょう。
 
-また、出発できる場合には文字を緑色で、出発できない場合には文字を赤色で表示するようにしましょう。
+また、出発できる場合には文字を<font color="green">緑色</font>で、出発できない場合には文字を<font color="red">赤色</font>で表示するようにしましょう。
 
-### ヒント
+:::tip
 
 `document.write()` は文字列だけでなく、HTML 要素を出力することができます。
 
@@ -241,6 +187,8 @@ document.write('<p style="color: blue">Hello World!</p>');
 ```
 
 ![青い Hello World](./blue-hello-world.jpg)
+
+:::
 
 ### 解答例
 
@@ -264,3 +212,180 @@ if (box <= 30 && weight <= 2000) {
 <ViewSource url={import.meta.url} path="_samples/truck" />
 
 </Answer>
+
+---
+
+## 5. 九九
+
+[HTML の `table`, `tr`, `td` タグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table) を用いて、九九の表を画面に表示させてみましょう。
+
+:::tip
+
+開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
+
+:::
+
+### 解答例
+
+<Answer>
+
+```javascript
+document.write("<table>");
+for (let i = 1; i <= 9; i++) {
+  document.write("<tr>");
+  for (let j = 1; j <= 9; j++) {
+    document.write(`<td> ${i * j} </td>`);
+  }
+  document.write("</tr>");
+}
+document.write("</table>");
+```
+
+<ViewSource url={import.meta.url} path="_samples/times-table" />
+
+</Answer>
+
+---
+
+## 6. フィボナッチ数列
+
+1,1,2,3,5...というように、前 2 つの数を足すと次の数になるような数の並びをフィボナッチ数列と言います。引数 `n` に対してフィボナッチ数列の n 番目の数を返す関数を定義してください。ただし 1 番目と 2 番目の数は 1 とします。
+
+### 解答例
+
+<Answer>
+
+```javascript
+function fibonacci(n) {
+  if (n <= 2) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// このように、関数が自分自身を呼び出すときその関数を再帰関数と呼びます。
+```
+
+<ViewSource url={import.meta.url} path="_samples/fibonacci/recursion" />
+
+### 別解
+
+もし「配列」「繰り返し」という概念をすでに学習している場合、次のような書き方もできます。
+
+```javascript
+function fibonacci(n) {
+  let sequence = [1, 1];
+  for (let i = 2; i < n; i += 1) {
+    sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+  return sequence[n - 1];
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/fibonacci/array" />
+
+</Answer>
+
+---
+
+## 7. バブルソート
+
+引数に対して「バブルソート」という整列アルゴリズムを行い、整列済み配列を返す関数`bubbleSort()`を作成しましょう。<br />
+そのアルゴリズムは次の通りです。
+
+- ソート前配列のある要素を取り、その一つ後ろの要素と比較する
+  - もし一つ後ろの要素の方が小さければ、二項を入れ替える
+  - そうでなければ、何もしない
+- その操作を一番前の要素から一番後ろにたどり着くまで繰り返す
+  - これで一番後ろの要素が一番大きいものであると確定する
+- 上の操作を、全ての要素が後ろから大きい順に並ぶまで繰り返す
+
+:::note
+テスト用に、以下のランダムに生成された配列を自由に使ってよいものとします。
+
+```javascript
+const array1 = [7, 1, 10, 4, 3, 5, 9, 2, 8, 6];
+const array2 = [8, 2, 9, 14, 12, 1, 5, 13, 16, 3];
+const array3 = [73, 39, 94, 57, 42, 78, 20, 55, 56, 77];
+const array4 = [247, 785, 73, 879, 515, 545, 423, 617, 19, 600];
+```
+
+:::
+
+<video src={BubbleSortVideo} controls />
+
+:::info
+要素を入れ替えるとき、単に
+
+```javascript
+array[0] = array[1];
+array[1] = array[0];
+```
+
+とするだけでは両方が`array[1]`になってしまい、うまくいきません。どうすればよいでしょうか。
+
+:::
+
+### 解答例
+
+<Answer>
+
+```javascript
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+function bubbleSort(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) swapIndex(array, j, j + 1);
+    }
+  }
+  return array;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/normal/" />
+
+</Answer>
+
+:::tip
+
+<Term strong type="javascriptSideEffects">副作用</Term>と<Term strong type="javascriptPureFunction">純粋関数</Term>の話
+
+本解答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
+
+[**参照の節**](/docs/browser-apps/constant/#参照)で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term strong type="javascriptReference">参照</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term strong type="javascriptSideEffects">副作用</Term>と呼び、<Term strong type="javascriptSideEffects">副作用</Term>を持たない関数を<Term strong type="javascriptPureFunction">純粋関数</Term>と呼びます。思わぬ<Term strong type="javascriptSideEffects">副作用</Term>を防ぐために有効範囲の広い関数は<Term strong type="javascriptPureFunction">純粋関数</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term strong type="javascriptSideEffects">副作用</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示した方がよいとされています。
+
+また関数の引数以外の可変変数を参照することは<Term strong type="javascriptReferenceTransparency">参照透過性</Term>の妨げになり、デバッグが難しくなるといわれています。
+
+上の関数を<Term strong type="javascriptPureFunction">純粋関数</Term>に書き直すと例えば、
+
+<Answer>
+
+```diff javascript
++ /* swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスであり、
++    外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい */
+function swapIndex(array, indexA, indexB) {
+  const temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = temp;
+}
+- function bubbleSort(array) {
++ function bubbleSort(inputArray) {
++  let array = inputArray.slice(); // 配列の値をコピーする
+  for (let i = array.length - 1; i > 0; i--) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) swapIndex(array, j, j+1);
+    }
+  }
+  return array;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bubble-sort/pure/" />
+</Answer>
+となります。
+
+:::
