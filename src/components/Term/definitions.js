@@ -4,10 +4,12 @@ export default {
     "/docs/trial-session/html/": "HTML",
     "/docs/trial-session/javascript/": "JavaScriptことはじめ",
     "/docs/trial-session/expressions/": "値と式と演算子",
+    "/docs/trial-session/expressions/#いろいろな演算子": "いろいろな演算子",
     "/docs/trial-session/variables/": "変数",
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/functions/#モジュール化": "モジュール化",
     "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
@@ -16,6 +18,8 @@ export default {
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
     "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
+    "/docs/browser-apps/constant/#参照": "定数とオブジェクトの参照",
+    "/docs/exercise/basis-of-web/#副作用と純粋関数の話": "副作用と純粋関数",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
@@ -25,8 +29,7 @@ export default {
     "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
     "/docs/web-servers/node-js/": "はじめての Node.js",
     "/docs/web-servers/module/": "モジュールと npm",
-    "/docs/web-servers/http-server/": "HTTP サーバー",
-    "/docs/web-servers/template-engine/": "Express とテンプレートエンジン",
+    "/docs/web-servers/server/": "Express によるサーバー構築",
     "/docs/web-servers/form/": "フォーム",
     "/docs/web-servers/get-post/": "GET リクエストと POST リクエスト",
     "/docs/web-servers/database/": "データベース",
@@ -165,7 +168,7 @@ export default {
     },
     javascriptExpression: {
       name: "式 (JavaScript)",
-      definition: "JavaScript において、値を生成するまとまり。",
+      definition: "JavaScript において、計算・処理されて値を生成するまとまり。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptEvaluation: {
@@ -178,6 +181,11 @@ export default {
       definition:
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
       referencePage: "/docs/trial-session/expressions/",
+    },
+    javascriptStringConcatenation: {
+      name: "文字列の結合",
+      definition: "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
+      referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
       name: "変数",
@@ -198,19 +206,19 @@ export default {
     camelCase: {
       name: "キャメルケース",
       definition:
-        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則。例: camelCase",
       referencePage: "/docs/trial-session/variables/",
     },
     snakeCase: {
       name: "スネークケース",
       definition:
-        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則",
+        "複数の単語にわたるフレーズを、アンダーバー (_) によって結合する命名規則。例: snake_case",
       referencePage: "/docs/trial-session/variables/",
     },
     pascalCase: {
       name: "パスカルケース",
       definition:
-        "複数の単語にわたるフレーズを、先頭の文字を大文字にして結合する命名規則",
+        "複数の単語にわたるフレーズを、それぞれの単語の先頭の文字を大文字にして結合する命名規則。例: PascalCase",
       referencePage: "/docs/trial-session/variables/",
     },
     javascriptBoolean: {
@@ -218,6 +226,12 @@ export default {
       definition:
         "JavaScriptにおける値の一種で、真偽を表すもの。true または false の2種類しかない。",
       referencePage: "/docs/trial-session/boolean/",
+    },
+    javascriptIfStatement: {
+      name: "if文",
+      definition:
+        "与えられた真偽値が真である場合のみ{}ブロックの中の処理を実行する制御構造。",
+      referencePage: "/docs/trial-session/if-statement/",
     },
     javascriptControlFlow: {
       name: "制御構造 (JavaScript)",
@@ -253,8 +267,13 @@ export default {
     },
     javascriptScope: {
       name: "スコープ (JavaScript)",
-      definition: "変数が有効な範囲",
+      definition: "変数が有効な範囲。",
       referencePage: "/docs/trial-session/functions/",
+    },
+    javascriptModularization: {
+      name: "モジュール化",
+      definition: "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
+      referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
@@ -291,6 +310,29 @@ export default {
       definition:
         "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
+    },
+    javascriptReference: {
+      name: "参照",
+      definition:
+        "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
+      referencePage: "/docs/browser-apps/constant/#参照",
+    },
+    javascriptSideEffects: {
+      name: "副作用",
+      definition:
+        "関数などを実行したときに、返り値以外の変数に影響を及ぼすこと。",
+      referencePage: "/docs/exercise/basis-of-web/#副作用と純粋関数の話",
+    },
+    javascriptPureFunction: {
+      name: "純粋関数",
+      definition: "副作用を持たない関数。数学的な関数や写像により近い概念。",
+      referencePage: "/docs/exercise/basis-of-web/#副作用と純粋関数の話",
+    },
+    javascriptReferenceTransparency: {
+      name: "参照透過性",
+      definition:
+        "関数に一定の引数を与えると、常に一定の値を返すこと。考えることを減らすことができ、デバッグがしやすい。",
+      referencePage: "/docs/exercise/basis-of-web/#副作用と純粋関数の話",
     },
     javascriptClass: {
       name: "クラス (JavaScript)",
@@ -342,7 +384,7 @@ export default {
       name: "サーバーとクライアント",
       definition:
         "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
-      referencePage: "/docs/web-servers/http-server/",
+      referencePage: "/docs/web-servers/server/",
     },
     json: {
       name: "JSON",
@@ -354,7 +396,7 @@ export default {
       name: "リクエストとレスポンス (HTTP)",
       definition:
         "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
-      referencePage: "/docs/web-servers/http-server/",
+      referencePage: "/docs/web-servers/server/",
     },
     queryString: {
       name: "クエリ文字列",

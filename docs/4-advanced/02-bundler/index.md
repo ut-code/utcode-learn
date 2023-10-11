@@ -25,7 +25,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 ### <Term type="moduleBundler">モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](../../3-web-servers/04-http-server/index.md)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](../../3-web-servers/04-server/index.md)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
 [webpack](https://webpack.js.org) のような<Term type="moduleBundler" strong>モジュールバンドラ</Term>を用いることで、複数の JavaScript ファイルを統合できます。
 

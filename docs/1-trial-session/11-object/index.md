@@ -26,7 +26,7 @@ JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほ�
 <Term type="javascriptObject">オブジェクト</Term>は、複数の<Term strong type="javascriptProperty" strong>プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
 
 ```javascript
-let person = { name: "田中", age: 18 };
+const person = { name: "田中", age: 18 };
 ```
 
 ![プロパティ](properties.png)
@@ -34,7 +34,7 @@ let person = { name: "田中", age: 18 };
 <p><Term type="javascriptObject">オブジェクト</Term>の中に<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。</p>
 
 ```javascript
-let person = {
+const person = {
   name: "田中",
   scores: { math: 80, science: 90 },
 };
@@ -51,24 +51,9 @@ let person = {
 ドット記号を用いることで、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更できます。通常の<Term type="javascriptVariable">変数</Term>のように扱えます。
 
 ```javascript
-person.age = person.age + 1;
-document.write(person.age);
-```
-
-:::tip 複合代入演算子
-
-[複合代入演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90)は、計算と代入を同時に行うことができる演算子です。
-
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
-
-複合代入演算子を用いると、先ほどのプログラムは以下のように書くことができます。
-
-```javascript
 person.age += 1;
 document.write(person.age);
 ```
-
-:::
 
 ## 課題
 
@@ -81,8 +66,8 @@ function incrementAge(person) {
   // ここに書く
 }
 
-let tanaka = { name: "田中", age: 18 };
-let nextYearTanaka = incrementAge(tanaka);
+const tanaka = { name: "田中", age: 18 };
+const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 

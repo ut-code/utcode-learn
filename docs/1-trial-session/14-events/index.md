@@ -19,11 +19,11 @@ function greet() {
   document.write("Hello World");
 }
 
-let func = greet;
+const func = greet;
 func();
 ```
 
-上の例では、 `let func = greet;` の行で<Term type="javascriptVariable">変数</Term> `func` に<Term type="javascriptFunction">関数</Term> `greet` を<Term type="javascriptAssignment">代入</Term>しています。<Term type="javascriptFunction">関数</Term>を<Term type="javascriptValue">値</Term>として扱うときは、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の括弧は使用しません。これにより、<Term type="javascriptFunction">関数</Term>が<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptVariable">変数</Term>を経由してその<Term type="javascriptFunction">関数</Term>を実行できます。
+上の例では、 `const func = greet;` の行で<Term type="javascriptVariable">変数</Term> `func` に<Term type="javascriptFunction">関数</Term> `greet` を<Term type="javascriptAssignment">代入</Term>しています。<Term type="javascriptFunction">関数</Term>を<Term type="javascriptValue">値</Term>として扱うときは、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の括弧は使用しません。これにより、<Term type="javascriptFunction">関数</Term>が<Term type="javascriptAssignment">代入</Term>された<Term type="javascriptVariable">変数</Term>を経由してその<Term type="javascriptFunction">関数</Term>を実行できます。
 
 ## <Term type="eventHandler">イベントハンドラ</Term>
 
@@ -39,7 +39,7 @@ function clicked() {
   document.write("Hello World");
 }
 
-let greetButton = document.getElementById("greet-button");
+const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked;
 ```
 
@@ -56,7 +56,7 @@ function clicked() {
   document.write("Hello World");
 }
 
-let greetButton = document.getElementById("greet-button");
+const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked();
 ```
 

@@ -2,28 +2,36 @@ import React from "react";
 import clsx from "clsx";
 import { BiLinkExternal } from "react-icons/bi";
 import { SiGithub } from "react-icons/si";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./styles.module.css";
+
+const repositoryRootPathLength =
+  import.meta.url.split("/").slice(0, -4).join("/").length + 1;
 
 /**
  * @param {Object} props
+ * @param {string} props.url
  * @param {boolean} props.path
  * @param {boolean} props.noCodeSandbox
  */
 export default function ViewSource({ url, path, noCodeSandbox }) {
-  const fullPathSplit = url.split("/");
-  const docsIndex = fullPathSplit.indexOf("docs");
-  const srcIndex = fullPathSplit.indexOf("src");
-  const baseIndex = docsIndex !== -1 ? docsIndex : srcIndex;
-  const pathFromBase = fullPathSplit.slice(baseIndex);
-  const dirPath = pathFromBase.slice(0, pathFromBase.length - 1);
-  const relativePath = `${dirPath.join("/")}/${path}`;
+  const basePath = url.slice(repositoryRootPathLength);
+  const commitRef = useDocusaurusContext()?.siteConfig.customFields.commitRef;
+  const gitHubUrl = new URL(
+    path,
+    `https://github.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`,
+  );
+  const codeSandboxUrl = new URL(
+    path,
+    `https://githubbox.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`,
+  );
   return (
     <div className={styles.root}>
       <a
         className={clsx("button button--secondary", styles.button)}
         target="_blank"
         rel="noopener"
-        href={`https://github.com/ut-code/utcode-learn/tree/master/${relativePath}`}
+        href={gitHubUrl.toString()}
       >
         <SiGithub className={styles.icon} />
         GitHub で表示
@@ -33,7 +41,7 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
           className={clsx("button button--primary", styles.button)}
           target="_blank"
           rel="noopener"
-          href={`https://githubbox.com/ut-code/utcode-learn/tree/master/${relativePath}`}
+          href={codeSandboxUrl.toString()}
         >
           このプログラムを実行する
           <BiLinkExternal className={styles.icon} />

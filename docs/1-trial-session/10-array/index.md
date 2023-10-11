@@ -33,7 +33,7 @@ studentNames[1] = "内藤";
 
 :::
 
-`[` 〜 `]` の中には任意の式を記述できます。変数を使用することも可能です。
+`[` 〜 `]` の中には非負整数値になる任意の式を記述できます。変数や関数呼び出しも式なので使用することが可能です。
 
 ```javascript
 const six = 6;
@@ -79,65 +79,127 @@ for (変数の宣言/変数名 of 配列) {
 
 配列の要素を順番に取り出し、 `of` の左側に指定された変数に設定してから、内部の処理を実行していきます。
 
-## `Array` クラス
+## 配列のプリセット変数/関数
 
-JavaScript の配列は、[`Array` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)のインスタンスであるオブジェクトです。`Array` クラスには、便利なメソッドやプロパティが定義されています。
+JavaScript の配列には、便利な変数や関数が定義されています。正確にはオブジェクトとクラスの回でそれぞれ扱う`プロパティ`、`メソッド`というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
-### `Array#push` メソッド
+### `配列.length` 変数
 
-[`Array#push` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、配列の末尾に新しい値を追加するメソッドです。
-
-```javascript
-const studentNames = ["田中", "佐藤", "鈴木"];
-studentNames.push("内藤");
-document.write(studentNames[3]); // 内藤
-```
-
-### `Array#length` プロパティ
-
-[`Array#length` プロパティ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length)は、配列の長さを自動的に反映するプロパティです。
+[`配列.length`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length) という変数には、指定した配列の長さが自動的に反映されます。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
 document.write(studentNames.length); // 3
-studentNames.push("内藤");
-document.write(studentNames.length); // 4
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+document.write(numbers.length); // 10
 ```
 
-### 課題
+### `配列.push` 関数
 
-- `Array#push` メソッドを用いて、フィボナッチ数列の配列を作ってみましょう。
-- 作成した配列の各要素を `for ～ of` 文を用いて出力してみましょう。
-- 作成した配列の各要素を、通常の `for` 文と `Array#length` プロパティを用いて出力してみましょう。
+[`関数.push`関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push) は、指定した配列の末尾に新しい値を追加する関数です。
 
-:::info ヒント
+```javascript
+const studentNames = ["田中", "佐藤", "鈴木"];
+studentNames.push("内藤");
+document.write(studentNames); // 田中,佐藤,鈴木,内藤
+```
 
-変数 `i` を 0 から `(作成した配列の length プロパティの値) - 1` まで順番に増やしながら、配列の `i` 番目の要素を表示しましょう。
+---
 
+## 基礎課題
+
+### 連続表示
+
+- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
+
+:::tip
+変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
 :::
 
 <Answer>
 
 ```javascript
-// Array#push メソッドを用いて、フィボナッチ数列の配列を作成
-const f = [1, 1];
-for (let i = 0; i < 100; i += 1) {
-  f.push(f[f.length - 1] + f[f.length - 2]);
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  return sum;
 }
-// 作成した配列の各要素を for ～ of 文を用いて出力
-for (const item of f) {
-  document.write(item);
-}
-// 作成した配列の各要素を、通常の for 文と Array#length プロパティを用いて出力
-for (let i = 0; i < f.length; i += 1) {
-  document.write(f[i]);
-}
+
+document.write(`sum of array1: ${sumArray(array1)} <br>`);
+document.write(`sum of array2: ${sumArray(array2)} <br>`);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/Array-class" />
+<ViewSource url={import.meta.url} path="_samples/array-sum" />
 
 </Answer>
 
+## 中級課題
+
+### 最大値
+
+引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `findMax` を作成しましょう。
+
+:::note
+
+テスト用に、ランダムに生成された以下の配列を使ってよいものとします。
+
+```javascript
+const array1 = [3, 6, 8, 5, 0];
+const array2 = [-8, -7, -3, -1, -5];
+const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
+const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
+```
+
+:::
+
+:::tip
+
+今までのように仮の初期値を置く方法では、配列の各値が非常に大きな負の値であった場合に仮の初期値が返ってきてしまいます。
+
+どうすればいいでしょうか？
+
+:::
+
+<Answer>
+
+配列の最初の値を初期値に設定することで解消します。
+
+```javascript
+const array1 = [3, 6, 8, 5, 0];
+const array2 = [-8, -7, -3, -1, -5];
+const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
+const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
+
+function findMax(array) {
+  if (array.length === 0) return; // 空配列の例外処理
+  let maxValue = array[0];
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] > maxValue) maxValue = array[i];
+  }
+  return maxValue;
+}
+
+document.write(`<p>配列 [${array1}] の最大値は${arrayMax(array1)} です。</p>`);
+document.write(`<p>配列 [${array2}] の最大値は${arrayMax(array2)} です。</p/>`);
+document.write(`<p>配列 [${array3}] の最大値は${arrayMax(array3)} です。</p>`);
+document.write(`<p>配列 [${array4}] の最大値は${arrayMax(array4)} です。</p>`);
+document.write(`<p>空の配列の最大値は ${arrayMax([])} です。</p/>`);
+```
+
+:::danger
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時に例外処理することを忘れないでください！
+:::
+
+<ViewSource url={import.meta.url} path="_samples/array-max" />
+
+</Answer>
+
+<!-- オブジェクトはまだ扱っていないためコメントアウト
 ## 配列とオブジェクト
 
 配列はオブジェクトの一種です。しかしながら、JavaScript のオブジェクトとは、[オブジェクトの節](../../1-trial-session/11-object/index.md)で扱ったように、プロパティ名とプロパティ値の組み合わせでした。
@@ -166,3 +228,4 @@ document.write(studentNames["0"]); // 田中
 ```
 
 :::
+-->

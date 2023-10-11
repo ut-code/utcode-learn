@@ -18,11 +18,11 @@ import ViewSource from "@site/src/components/ViewSource";
 <p><Term type="javascriptBoolean">論理値</Term>に対して適用できる<Term type="javascriptOperator">演算子</Term>が存在します。</p>
 
 ```javascript
-let isMonsterBig = true;
-let isMonsterSmall = !true; // false
-let isHunterStrong = false;
-let shouldEscape = !isHunterStrong && isMonsterBig; // true
-let shouldFight = isHunterStrong || isMonsterSmall; // false
+const isMonsterBig = true;
+const isMonsterSmall = !true; // false
+const isHunterStrong = false;
+const shouldEscape = !isHunterStrong && isMonsterBig; // true
+const shouldFight = isHunterStrong || isMonsterSmall; // false
 ```
 
 詳細は以下の通りです。 `!` のみが作用する対象を 1 つしかとらないことに注意してください。
@@ -38,12 +38,12 @@ let shouldFight = isHunterStrong || isMonsterSmall; // false
 比較<Term type="javascriptOperator">演算子</Term>は、複数の<Term type="javascriptValue">値</Term>を比較して、単一の<Term type="javascriptBoolean">論理値</Term>を得ます。
 
 ```javascript
-let age = 15;
-let height = 155;
-let isFourteen = age === 14; // false
-let isNotFourteen = age !== 14; // true
-let isChild = age < 20; // true
-let canRideRollerCoasters = age >= 10 && height >= 140; // true
+const age = 15;
+const height = 155;
+const isFourteen = age === 14; // false
+const isNotFourteen = age !== 14; // true
+const isChild = age < 20; // true
+const canRideRollerCoasters = age >= 10 && height >= 140; // true
 ```
 
 各<Term type="javascriptOperator">演算子</Term>の詳細は、次の通りです。

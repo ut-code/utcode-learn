@@ -16,7 +16,7 @@ while 文を用いると、ある条件が満たされている間実行され�
 let i = 0;
 while (i < 5) {
   document.write(i);
-  i += 1;
+  i = i + 1;
 }
 document.write("終了");
 ```
@@ -43,7 +43,7 @@ while (条件式) {
 
 1 から 10 までの整数の合計を計算するプログラムを作ってみましょう。
 
-:::tip ヒント
+:::tip
 
 `1` から `10` まで順番に増えていく変数 `i` と、合計値を保存しておく変数 `sum` を用意しましょう。
 
@@ -55,8 +55,8 @@ while (条件式) {
 let i = 1;
 let sum = 0;
 while (i <= 10) {
-  sum += i;
-  i += 1;
+  sum = sum + i;
+  i = i + 1;
 }
 document.write(sum);
 ```
@@ -64,6 +64,45 @@ document.write(sum);
 <ViewSource url={import.meta.url} path="_samples/answer-while" />
 
 </Answer>
+
+:::tip 複合代入演算子
+
+[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
+
+`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
+
+複合代入演算子を用いると、
+
+```javascript
+i = i + 1;
+```
+
+は以下のように書き換えることができます。
+
+```javascript
+i += 1;
+```
+
+<!-- 教えるかどうか議論
+[**インクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Increment) は、与えられた変数に1を足します。
+一方、[**デクリメント演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Decrement) は、与えられた変数から1を引きます。
+
+`x++` は `x = x + 1`（＝`x += 1`）、 `y--` は `y = y - 1` （＝`y -= 1`） という意味になります。
+インクリメント演算子を使うと、
+
+```javascript
+i = i + 1;
+```
+
+は以下のように書き換えることができます。
+
+```javascript
+i++;
+```
+
+-->
+
+:::
 
 ## for 文
 
@@ -92,7 +131,7 @@ for (初期化; 条件式; 更新式) {
 
 ![for文の構造](./for-statement.drawio.svg)
 
-### 課題
+### 確認問題
 
 前項で書いた 1 から 10 までの整数の合計を計算するプログラムを for 文を用いて書き換えてみましょう。
 
@@ -139,26 +178,123 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 :::
 
-### 課題
+---
 
-HTML の `table`, `tr`, `td` タグを用いて、九九の表を画面に表示させてみましょう。
+## 基礎演習
+
+### 1 ~ 10 の積
+
+`1` から `10` までの数の積を求めて画面に表示する、 `for` 文を含むコードを書いてみましょう。
+
+:::tip
+和を求めるときは和の初期値は `0` でしたが、積の初期値は `0` ではありません。
+いくつにすればよいでしょうか？
+:::
+
+### 解答例
 
 <Answer>
 
-開きタグと閉じタグをどのタイミングで出力すべきかに注意しましょう。
-
 ```javascript
-document.write("<table>");
-for (let x = 1; x <= 9; x += 1) {
-  document.write("<tr>");
-  for (let y = 1; y <= 9; y += 1) {
-    document.write(`<td>${x * y}</td>`);
-  }
-  document.write("</tr>");
+let product = 1;
+for (let i = 1; i <= 10; i = i + 1) {
+  product = product * i;
 }
-document.write("</table>");
+document.write(product);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/times-table" />
+<ViewSource url={import.meta.url} path="_samples/product" />
+
+### 別解
+
+複合代入演算子を使うと以下のようにも書けます。
+
+```javascript
+let product = 1;
+for (let i = 1; i <= 10; i += 1) {
+  product *= i;
+}
+document.write(product);
+```
+
+<ViewSource url = {import.meta.url} path="_samples/product-alt" />
+
+</Answer>
+
+## 中級演習
+
+### 素数判定問題
+
+ある整数の変数 `n` が与えられたとき、その値が素数であるかどうか判定して表示する`for`文を書いてみましょう。
+
+そして、`n` に 6、11、57、89 を入れてテストしてみましょう。
+
+:::info
+素数の定義は「1より大きい自然数のうち、1とその数以外で割り切れないもの」でしたね。
+
+`範囲内の全ての自然数 i に対して〇〇である` はどうやって評価すればよいでしょうか？
+
+（ヒント: 変数の性質を利用します）
+:::
+
+:::tip 豆知識
+自然数`n`を`i`で割ったあまりは `n % i`で求められます。
+:::
+
+### 解答例
+
+<Answer>
+
+変数の、最後に代入した値のみを保持する性質を利用します。
+
+```javascript
+let n = 57; // 任意の整数
+
+let isPrime = true;
+if (n <= 1) {
+  // nが1以下のときは素数でない
+  isPrime = false;
+}
+
+for (let i = 2; i < integer; i += 1) {
+  if (n % i === 0) {
+    isPrime = false;
+  }
+}
+
+if (isPrime) {
+  document.write(`${n} は素数です`);
+} else {
+  document.write(`${n} は素数ではありません`);
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/is-prime" />
+
+### 別解
+
+前項で割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
+
+```javascript
+let n = 89; // 任意の整数
+
+let isPrime = true;
+if (n <= 1) {
+  // nが1以下のときは素数でない
+  isPrime = false;
+}
+
+for (let i = 2; i < n; i += 1) {
+  isPrime = isPrime && n % i != 0;
+}
+
+if (isPrime) {
+  document.write(`${n} は素数です`);
+} else {
+  document.write(`${n} は素数ではありません`);
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/is-prime-using-and" />
 
 </Answer>

@@ -1,3 +1,4 @@
+const { execSync } = require("node:child_process");
 const math = require("remark-math");
 const katex = require("rehype-katex");
 
@@ -17,6 +18,9 @@ module.exports = {
   },
   markdown: {
     mermaid: true,
+  },
+  customFields: {
+    commitRef: execSync("git rev-parse HEAD").toString().trim(),
   },
   themes: ["@docusaurus/theme-mermaid"],
   presets: [
