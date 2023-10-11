@@ -19,11 +19,11 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
   const commitRef = useDocusaurusContext()?.siteConfig.customFields.commitRef;
   const gitHubUrl = new URL(
     path,
-    `https://github.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`
+    `https://github.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`,
   );
   const codeSandboxUrl = new URL(
     path,
-    `https://githubbox.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`
+    `https://githubbox.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`,
   );
   return (
     <div className={styles.root}>
