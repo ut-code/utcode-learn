@@ -248,7 +248,7 @@ document.write(product);
 変数の、最後に代入した値のみを保持する性質を利用します。
 
 ```javascript
-let n = 57; // 任意の整数
+const n = 57; // 任意の整数
 
 let isPrime = true;
 if (n <= 1) {
@@ -276,7 +276,7 @@ if (isPrime) {
 前項で割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
 
 ```javascript
-let n = 89; // 任意の整数
+const n = 89; // 任意の整数
 
 let isPrime = true;
 if (n <= 1) {
