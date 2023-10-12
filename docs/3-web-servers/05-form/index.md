@@ -142,6 +142,10 @@ const userCredentials = {
 
 :::
 
+### 解答例
+
+<ViewSource url={import.meta.url} path="_samples/login" />
+
 ## 課題2
 
 書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
