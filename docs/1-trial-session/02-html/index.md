@@ -126,13 +126,15 @@ html <Term type="element">要素</Term>の直属の子<Term type="element">要�
 
 単一の HTML ファイルのみを使用して、遠足の持ち物リストを作成してみましょう。お弁当は何よりも重要なので太字にしましょう。
 
-<ViewSource url={import.meta.url} path="_samples/travel-list" />
-
 ![簡単な課題の例](./easier-task-sample.png)
 
 ### ヒント
 
-箇条書きを作るときに、そのまま「・」を打ってはいけません。分からなければ Google で「HTML 箇条書き」と検索してみましょう。
+箇条書きを作るときには、単に「・」と書くのではなく箇条書き用のタグを使います。「HTML 箇条書き」などと検索してみましょう。
+
+### 解答例
+
+<ViewSource url={import.meta.url} path="_samples/excursion" />
 
 ## 課題 (時間が余った場合)
 
