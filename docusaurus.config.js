@@ -5,7 +5,7 @@ const katex = require("rehype-katex");
 /** @type {import("@docusaurus/types").Config} */
 module.exports = {
   title: "ut.code(); Learn",
-  tagline: "ut.code(); Learn",
+  tagline: "ut.code(); 公式教材",
   url: "https://learn.utcode.net/",
   baseUrl: "/",
   onBrokenLinks: "throw",
