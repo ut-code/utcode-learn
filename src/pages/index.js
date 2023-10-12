@@ -9,10 +9,11 @@ import styles from "./styles.module.css";
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
+  console.log(context);
   return (
     <Layout
       title={`ut.code(); Learn`}
-      description="東京大学のソフトウェアエンジニアリングコミュニティ ut.code(); 内部向け学習資料です。"
+      description="東京大学のソフトウェアエンジニアリングコミュニティ ut.code(); の公式教材です。自由に利用可能です。"
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
@@ -32,8 +33,18 @@ function Home() {
         </div>
       </header>
       <main>
-        ut.code(); Learn は、東京大学のソフトウェアエンジニアリングコミュニティ
-        ut.code(); の内部向け学習資料です。
+        <p>
+          ut.code(); Learn
+          は、東京大学のソフトウェアエンジニアリングコミュニティである
+          ut.code(); の公式教材です。
+          <br />
+          この教材は、全くの未経験の状態からでも、自力で Web
+          サービスが開発できるようになれるようにするためのものであり、誰でも自由に利用可能です。
+        </p>
+        <footer>
+          ut.code();
+          は、非営利の大学のサークルであり、日本のWeb技術の発展をサポートしています。学習カリキュラムをオープンソースで公開しており、初心者からでも実際にサービスを開発できるようにしています。
+        </footer>
       </main>
     </Layout>
   );
