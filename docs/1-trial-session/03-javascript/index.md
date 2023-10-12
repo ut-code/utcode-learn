@@ -36,7 +36,7 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4"
 document.write("Hello World!");
 ```
 
-ブラウザで実行してみましょう。`Hello World!` と表示されましたか？
+**`index.html`** をダブルクリックして開いてください。`Hello World!` と表示されましたか？開くのは、`script.js` ではなく `index.html` なので、気をつけてください。
 
 <video src={helloWorldByJavascriptVideo} controls />
 
