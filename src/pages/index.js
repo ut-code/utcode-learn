@@ -9,7 +9,6 @@ import styles from "./styles.module.css";
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
-  console.log(context);
   return (
     <Layout
       title={`ut.code(); Learn`}
