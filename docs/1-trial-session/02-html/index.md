@@ -92,7 +92,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 <video src={reloadBrowserVideo} autoPlay muted loop controls />
 
-`<a href="https://www.google.com/">～</a>` は **a <Term type="element">要素</Term>** です。<Term type="startTag">開始タグ</Term>の中に `href="https://www.google.com/"` という部分があります。これが<Term strong type="attribute">属性</Term>です。<Term type="attribute">属性</Term>は、<Term type="startTag">開始タグ</Term> の中に `属性名="値"` のように記述され、<Term type="element">要素</Term>の特徴を表します。`a` <Term type="element">要素</Term>の **href <Term type="attribute">属性</Term>**は、ハイパーリンクのリンク先を表す<Term type="attribute">属性</Term>です。
+`<a href="https://www.google.com/">～</a>` は **`a` <Term type="element">要素</Term>** です。<Term type="startTag">開始タグ</Term>の中に `href="https://www.google.com/"` という部分があります。これが<Term strong type="attribute">属性</Term>です。<Term type="attribute">属性</Term>は、<Term type="startTag">開始タグ</Term> の中に `属性名="値"` のように記述され、<Term type="element">要素</Term>の特徴を表します。`a` <Term type="element">要素</Term>の **`href` <Term type="attribute">属性</Term>**は、ハイパーリンクのリンク先を表す<Term type="attribute">属性</Term>です。
 
 これにより、ハイパーリンクが設定されます。この例では `a` <Term type="element">要素</Term>の中に `strong` <Term type="element">要素</Term>が含まれています。このように、HTML タグは<Term strong type="htmlNest">ネスト</Term>させることにより、効果を重ね掛けすることができます。
 
@@ -110,9 +110,9 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 という、「このファイルは <Term type="html">HTML</Term> ファイルだ！」と宣言する定型句から始まります。
 
-続けて記述されるのは `<html lang="ja">` 、つまり **html <Term type="element">要素</Term>** です。<Term type="html">HTML</Term> は、この html <Term type="element">要素</Term>を根とした木構造になっています。このため、html <Term type="tag">タグ</Term>の閉じ<Term type="tag">タグ</Term>はファイルの末尾に現れます。
+続けて記述されるのは `<html lang="ja">` 、つまり **`html` <Term type="element">要素</Term>** です。<Term type="html">HTML</Term> は、この `html` <Term type="element">要素</Term>を根とした木構造になっています。このため、`html` <Term type="tag">タグ</Term>の閉じ<Term type="tag">タグ</Term>はファイルの末尾に現れます。
 
-html <Term type="element">要素</Term>の直属の子<Term type="element">要素</Term>は、**head <Term type="element">要素</Term>**と**body <Term type="element">要素</Term>**の二つだけです。このうち、後者 (body <Term type="element">要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
+`html` <Term type="element">要素</Term>の直属の子<Term type="element">要素</Term>は、**`head` <Term type="element">要素</Term>**と**`body` <Term type="element">要素</Term>**の二つだけです。このうち、後者 (`body` <Term type="element">要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
 
 ![HTMLの構造](./html-structure.drawio.svg)
 
