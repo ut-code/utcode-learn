@@ -73,7 +73,7 @@ let age = 21;
 let hasDriverLicense = true;
 let isDrunk = true;
 function tryToDrive() {
-  // if 構文で実行する式が一行だけの場合、{} を省略できます。
+  // if 文で実行する式が一行だけの場合、{} を省略できます。
   if (age < 18) return;
   if (!hasDriverLicense) return;
   if (isDrunk) return;
@@ -191,7 +191,7 @@ function max(a, b) {
 
 :::note
 
-`a > b` が `true` の場合、if 構文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。そのため、以下のように書くこともできます。
+`a > b` が `true` の場合、if 文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。そのため、以下のように書くこともできます。
 
 ```javascript
 function max(a, b) {
