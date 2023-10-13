@@ -1,4 +1,4 @@
-let n = 89; //任意の整数
+const n = 89; //任意の整数
 
 let isPrime = true;
 if (n <= 1) {

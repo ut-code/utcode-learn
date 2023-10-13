@@ -1,4 +1,4 @@
-let n = 57; // 任意の整数
+const n = 57; // 任意の整数
 
 let isPrime = true;
 if (n <= 1) {
