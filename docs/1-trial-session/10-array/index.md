@@ -110,31 +110,56 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ### 連続表示
 
-- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
+- 配列があります。その配列の要素の和を求めてみましょう。
 
 :::tip
-変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
+`for of` 文を使って、配列のそれぞれの要素に対して操作を実行します。
+:::
+
+:::note
+次の配列をテスト用に使ってください。
+
+```javascript
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+```
+
+```javascript
+const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+```
+
 :::
 
 <Answer>
 
 ```javascript
-const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function sumArray(array) {
-  let sum = 0;
-  for (let i = 0; i < array.length; i += 1) {
-    sum += array[i];
-  }
-  return sum;
+let sum = 0;
+for (const elem of array) {
+  sum += elem;
 }
 
-document.write(`sum of array1: ${sumArray(array1)} <br>`);
-document.write(`sum of array2: ${sumArray(array2)} <br>`);
+document.write("sum of array is: " + sum);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/array-sum" />
+<ViewSource url={import.meta.url} path="_samples/array-sum-for-of" />
+
+### 別解
+
+`for of` 文を使わず、次のように書くこともできます。
+
+```javascript
+const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+
+let sum = 0;
+for (let i = 0; i < array.length; i += 1) {
+  sum += array[i];
+}
+
+document.write();
+```
+
+<ViewSource url={import.meta.url} path="_samples/array-sum-simple-for" />
 
 </Answer>
 
@@ -229,3 +254,7 @@ document.write(studentNames["0"]); // 田中
 
 :::
 -->
+
+```
+
+```
