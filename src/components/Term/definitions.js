@@ -18,7 +18,6 @@ export default {
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
     "/docs/browser-apps/reference/": "オブジェクトの参照",
-    "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/exercise/basis-of-web/#副作用と純粋関数の話": "副作用と純粋関数",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
