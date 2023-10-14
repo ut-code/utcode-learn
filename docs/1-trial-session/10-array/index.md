@@ -79,11 +79,11 @@ for (変数の宣言/変数名 of 配列) {
 
 配列の要素を順番に取り出し、 `of` の左側に指定された変数に設定してから、内部の処理を実行していきます。
 
-## 配列のプリセット変数/関数
+## 配列の便利な機能
 
-JavaScript の配列には、便利な変数や関数が定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う <Term type="javascriptProperty">プロパティ</Term>、<Term type="javascriptMethod">メソッド</Term> というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
+JavaScript の配列には、便利な変数や関数のようなものが定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う <Term type="javascriptProperty">プロパティ</Term>、<Term type="javascriptMethod">メソッド</Term> というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
-### `配列.length` 変数
+### `配列.length`
 
 [`配列.length`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length) という変数には、指定した配列の長さが自動的に反映されます。
 
@@ -184,11 +184,11 @@ function findMax(array) {
   return maxValue;
 }
 
-document.write(`<p>配列 [${array1}] の最大値は${arrayMax(array1)} です。</p>`);
-document.write(`<p>配列 [${array2}] の最大値は${arrayMax(array2)} です。</p/>`);
-document.write(`<p>配列 [${array3}] の最大値は${arrayMax(array3)} です。</p>`);
-document.write(`<p>配列 [${array4}] の最大値は${arrayMax(array4)} です。</p>`);
-document.write(`<p>空の配列の最大値は ${arrayMax([])} です。</p/>`);
+document.write(`<p>配列 [${array1}] の最大値は${findMax(array1)} です。</p>`);
+document.write(`<p>配列 [${array2}] の最大値は${findMax(array2)} です。</p/>`);
+document.write(`<p>配列 [${array3}] の最大値は${findMax(array3)} です。</p>`);
+document.write(`<p>配列 [${array4}] の最大値は${findMax(array4)} です。</p>`);
+document.write(`<p>空の配列の最大値は ${findMax([])} です。</p/>`);
 ```
 
 :::danger
