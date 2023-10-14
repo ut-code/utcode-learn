@@ -81,7 +81,7 @@ for (変数の宣言/変数名 of 配列) {
 
 ## 配列のプリセット変数/関数
 
-JavaScript の配列には、便利な変数や関数が定義されています。正確にはオブジェクトとクラスの回でそれぞれ扱う`プロパティ`、`メソッド`というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
+JavaScript の配列には、便利な変数や関数が定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う <Term type="javascriptProperty">プロパティ</Term>、<Term type="javascriptMethod">メソッド</Term> というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
 ### `配列.length` 変数
 
