@@ -200,11 +200,13 @@ const array2 = [-8, -7, -3, -1, -5];
 const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
 const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
-function findMax(array) {
-  if (array.length === 0) return; // 空配列を除外
+function arrayMax(array) {
+  if (array.length == 0) return; //空配列を除外
   let maxValue = array[0];
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i] > maxValue) maxValue = array[i];
+  for (const value of array) {
+    if (maxValue < value) {
+      maxValue = value;
+    }
   }
   return maxValue;
 }
