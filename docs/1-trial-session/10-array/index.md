@@ -201,7 +201,7 @@ const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
 const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
 function findMax(array) {
-  if (array.length === 0) return; // 空配列の例外処理
+  if (array.length === 0) return; // 空配列を除外
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
@@ -217,7 +217,7 @@ document.write(`<p>空の配列の最大値は ${arrayMax([])} です。</p/>`);
 ```
 
 :::danger
-配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時に例外処理することを忘れないでください！
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を除外することを忘れないでください！
 :::
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />

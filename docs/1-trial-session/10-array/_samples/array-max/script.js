@@ -1,5 +1,5 @@
 function arrayMax(array) {
-  if (array.length == 0) return; //空配列の例外処理
+  if (array.length == 0) return; //空配列を除外
   let maxValue = array[0];
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] > maxValue) maxValue = array[i];
