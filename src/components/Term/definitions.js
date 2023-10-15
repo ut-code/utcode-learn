@@ -17,8 +17,7 @@ export default {
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
-    "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
-    "/docs/browser-apps/constant/#参照": "定数とオブジェクトの参照",
+    "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/exercise/basis-of-web/#副作用と純粋関数の話": "副作用と純粋関数",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
@@ -184,7 +183,8 @@ export default {
     },
     javascriptStringConcatenation: {
       name: "文字列の結合",
-      definition: "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
+      definition:
+        "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
       referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
@@ -272,7 +272,8 @@ export default {
     },
     javascriptModularization: {
       name: "モジュール化",
-      definition: "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
+      definition:
+        "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
       referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
@@ -315,7 +316,7 @@ export default {
       name: "参照",
       definition:
         "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
-      referencePage: "/docs/browser-apps/constant/#参照",
+      referencePage: "/docs/browser-apps/reference/",
     },
     javascriptSideEffects: {
       name: "副作用",
@@ -468,7 +469,7 @@ export default {
       name: "ミュータブルとイミュータブル",
       definition:
         "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。React などのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
-      referencePage: "/docs/browser-apps/constant/",
+      referencePage: "/docs/browser-apps/reference/",
     },
   },
 };

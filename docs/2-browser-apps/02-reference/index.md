@@ -1,48 +1,11 @@
 ---
-title: 定数とオブジェクトの参照
+title: オブジェクトの参照
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
-
-## 定数
-
-これまで、変数の宣言には `let` キーワードを使用してきました。ところが、JavaScript の変数は、大抵初回代入以降は再代入が行われません。
-
-再代入が行われない変数は `const` を用いて宣言することができます。このようにして宣言された変数を定数と呼び、定数への代入は宣言時にしか行えません。
-
-```javascript
-// let で宣言した変数は再代入できる
-let variable = 1;
-variable = 2;
-
-const constant = 1;
-// const で宣言した変数に再代入しようとするとエラー
-// constant = 2;
-```
-
-:::tip `let` と `const`
-
-ほとんどの場合、`const` が用いられたプログラムは `let` に書き換えても動作します。それでは、あえて `const` を用いる理由は何なのでしょうか。
-
-JavaScript において、それはコードを読んだ際に読みやすいからです。`const` で定義されている変数なら、宣言文さえ見れば変数の中に入っている値を知ることができます。`const` が使用できる場所では、基本的に全て `const` を用いるようにしましょう。
-
-:::
-
-:::info オブジェクトと `const`
-
-`const` による宣言で禁止されるのはその変数への代入だけであり、オブジェクトのプロパティへの代入はこれにあたりません。
-
-```javascript
-const person = { name: "田中", age: 18 };
-person.name = "佐藤"; // OK
-// 変数自体への再代入はできない
-// person = { name: "佐藤", age: 20 };
-```
-
-:::
 
 ## 参照
 
@@ -72,6 +35,12 @@ document.write(object1.age);
 これを踏まえて先ほどのコードを見直してみましょう。JavaScript で値として扱えるのは参照のみなので、1 行目で `object1` に代入されるのは、その本体への参照です。
 
 2 行目では、変数 `object1` に代入されている参照が `object2` にコピーされます。これにより、同じオブジェクトを参照する変数が 2 つできます。よって、`object1.age` と `object2.age` は同じものになるのです。
+
+:::tip
+上で説明したように、オブジェクトを変数に代入するとき、実際に代入されているのはオブジェクトの**参照**です。
+そのため、`const` による宣言で禁止されるのはその変数への代入だけであり、オブジェクトのプロパティへの代入はこれにあたりません。
+`const`で宣言しているにもかかわらず、そのプロパティが書き換わっていることがあるので注意しましょう。
+:::
 
 ## ネストされたオブジェクト
 
