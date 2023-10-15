@@ -200,7 +200,7 @@ const array2 = [-8, -7, -3, -1, -5];
 const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
 const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
-function arrayMax(numbers) {
+function findMax(numbers) {
   if (numbers.length == 0) return; //空配列を除外
   let maxNumber = numbers[0];
   for (const value of numbers) {
