@@ -1,8 +1,8 @@
-const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 
 let sum = 0;
-for (let i = 0; i < array.length; i += 1) {
-  sum += array[i];
+for (let i = 0; i < numbers.length; i += 1) {
+  sum += numbers[i];
 }
 
-document.write(`sum of array is: ${sum}`);
+document.write(`sum of numbers is: ${sum}`);

@@ -120,11 +120,11 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 次の配列をテスト用に使ってください。
 
 ```javascript
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ```
 
 ```javascript
-const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 ```
 
 :::
@@ -132,14 +132,14 @@ const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 <Answer>
 
 ```javascript
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let sum = 0;
-for (const elem of array) {
-  sum += elem;
+for (const number of numbers) {
+  sum += number;
 }
 
-document.write("sum of array is: " + sum);
+document.write("sum of numbers is: " + sum);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-sum-for-of" />
@@ -149,11 +149,11 @@ document.write("sum of array is: " + sum);
 `for of` 文を使わず、次のように書くこともできます。
 
 ```javascript
-const array = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
 
 let sum = 0;
-for (let i = 0; i < array.length; i += 1) {
-  sum += array[i];
+for (let i = 0; i < numbers.length; i += 1) {
+  sum += numbers[i];
 }
 
 document.write();
@@ -200,15 +200,15 @@ const array2 = [-8, -7, -3, -1, -5];
 const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
 const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
-function arrayMax(array) {
-  if (array.length == 0) return; //空配列を除外
-  let maxValue = array[0];
-  for (const value of array) {
-    if (maxValue < value) {
-      maxValue = value;
+function arrayMax(numbers) {
+  if (numbers.length == 0) return; //空配列を除外
+  let maxNumber = numbers[0];
+  for (const value of numbers) {
+    if (maxNumber < value) {
+      maxNumber = value;
     }
   }
-  return maxValue;
+  return maxNumber;
 }
 
 document.write(`<p>配列 [${array1}] の最大値は${arrayMax(array1)} です。</p>`);
