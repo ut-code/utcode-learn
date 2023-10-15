@@ -256,7 +256,3 @@ document.write(studentNames["0"]); // 田中
 
 :::
 -->
-
-```
-
-```
