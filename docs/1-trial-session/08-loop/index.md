@@ -256,7 +256,7 @@ if (n <= 1) {
   isPrime = false;
 }
 
-for (let i = 2; i < integer; i += 1) {
+for (let i = 2; i < n; i += 1) {
   if (n % i === 0) {
     isPrime = false;
   }
