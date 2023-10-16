@@ -5,4 +5,4 @@ for (let i = 0; i < numbers.length; i += 1) {
   sum += numbers[i];
 }
 
-document.write(`sum of numbers is: ${sum}`);
+document.write(`配列の合計値は: ${sum} です。`);
