@@ -203,9 +203,9 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 function findMax(numbers) {
   if (numbers.length === 0) return; // 空配列を除外
   let maxNumber = numbers[0];
-  for (const value of numbers) {
-    if (maxNumber < value) {
-      maxNumber = value;
+  for (const number of numbers) {
+    if (maxNumber < number) {
+      maxNumber = number;
     }
   }
   return maxNumber;
