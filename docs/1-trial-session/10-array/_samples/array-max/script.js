@@ -1,5 +1,5 @@
 function findMax(numbers) {
-  if (numbers.length == 0) return; //空配列を除外
+  if (numbers.length === 0) return; // 空配列を除外
   let maxNumber = numbers[0];
   for (const number of numbers) {
     if (maxNumber < number) {
