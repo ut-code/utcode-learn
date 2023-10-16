@@ -18,4 +18,4 @@ document.write(`<p>配列 [${array1}] の最大値は${findMax(array1)} です�
 document.write(`<p>配列 [${array2}] の最大値は${findMax(array2)} です。</p>`);
 document.write(`<p>配列 [${array3}] の最大値は${findMax(array3)} です。</p>`);
 document.write(`<p>配列 [${array4}] の最大値は${findMax(array4)} です。</p>`);
-document.write(`<p>空の配列の最大値は ${findMax([])} です。</p/>`);
+document.write(`<p>空の配列の最大値は ${findMax([])} です。</p>`);
