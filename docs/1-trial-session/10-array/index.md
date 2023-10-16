@@ -156,7 +156,7 @@ for (let i = 0; i < numbers.length; i += 1) {
   sum += numbers[i];
 }
 
-document.write();
+document.write(`配列の合計値は: ${sum} です。`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-sum-simple-for" />
