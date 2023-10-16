@@ -43,9 +43,9 @@ import todoVideo from "./todo.mp4";
     <title>Title</title>
   </head>
   <body>
-    <ul id="todoList"></ul>
-    <input id="todoInput" />
-    <button id="addButton">追加</button>
+    <ul id="todo-list"></ul>
+    <input id="todo-input" />
+    <button id="add-button">追加</button>
     <script src="./script.js"></script>
   </body>
 </html>
@@ -54,9 +54,9 @@ import todoVideo from "./todo.mp4";
 - 次に JavaScript ファイルを作成して追加ボタンを押したときの処理を記述しましょう。
 
 ```javascript title=script.js
-const todoList = document.getElementById("todoList");
-const todoInput = document.getElementById("todoInput");
-const addButton = document.getElementById("addButton");
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
   // 追加ボタンを押すとtodoを 1 つ追加する
@@ -82,18 +82,18 @@ todoList.appendChild(li);
     <title>Title</title>
   </head>
   <body>
-    <ul id="todoList"></ul>
-    <input id="todoInput" />
-    <button id="addButton">追加</button>
+    <ul id="todo-list"></ul>
+    <input id="todo-input" />
+    <button id="add-button">追加</button>
     <script src="./script.js"></script>
   </body>
 </html>
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("addButton");
-const todoList = document.getElementById("todoList");
-const todoInput = document.getElementById("todoInput");
+const addButton = document.getElementById("add-button");
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
 
 addButton.onclick = () => {
   const inputValue = todoInput.value;
@@ -131,18 +131,18 @@ todoList.removeChild(todoItem);
     <title>Title</title>
   </head>
   <body>
-    <ul id="todoList"></ul>
-    <input id="todoInput" />
-    <button id="addButton">追加</button>
+    <ul id="todo-list"></ul>
+    <input id="todo-input" />
+    <button id="add-button">追加</button>
     <script src="./script.js"></script>
   </body>
 </html>
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("addButton");
-const todoList = document.getElementById("todoList");
-const todoInput = document.getElementById("todoInput");
+const addButton = document.getElementById("add-button");
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
 
 addButton.onclick = () => {
   const inputValue = todoInput.value;
@@ -188,18 +188,18 @@ todoItem.replaceChild(confirmButton, editButton);
     <title>Title</title>
   </head>
   <body>
-    <ul id="todoList"></ul>
-    <input id="todoInput" />
-    <button id="addButton">追加</button>
+    <ul id="todo-list"></ul>
+    <input id="todo-input" />
+    <button id="add-button">追加</button>
     <script src="./script.js"></script>
   </body>
 </html>
 ```
 
 ```javascript title=script.js
-const todoList = document.getElementById("todoList");
-const todoInput = document.getElementById("todoInput");
-const addButton = document.getElementById("addButton");
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
   const inputValue = todoInput.value;
@@ -261,18 +261,18 @@ todoInput.oninput = () => {
     <title>Title</title>
   </head>
   <body>
-    <ul id="todoList"></ul>
-    <input id="todoInput" />
-    <button id="addButton">追加</button>
+    <ul id="todo-list"></ul>
+    <input id="todo-input" />
+    <button id="add-button">追加</button>
     <script src="./script.js"></script>
   </body>
 </html>
 ```
 
 ```javascript title=script.js
-const todoList = document.getElementById("todoList");
-const todoInput = document.getElementById("todoInput");
-const addButton = document.getElementById("addButton");
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.disabled = true;
 
