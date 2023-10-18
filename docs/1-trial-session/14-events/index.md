@@ -2,7 +2,6 @@
 title: イベント
 ---
 
-import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import Details from "@theme/Details";
 import CodeBlock from '@theme/CodeBlock';
@@ -108,21 +107,4 @@ HTMLファイルに一工夫が必要です。見えない`<div>` タグを用�
 
 </Details>
 
-<Answer type="びっくり箱">
-
-```js
-const greetingElement = document.getElementById("greeting");
-const buttonElement = document.getElementById("button");
-
-function onGreetingButtonClick() {
-  greetingElement.textContent = "Hello world!!";
-  greetingElement.style.color = "red";
-  greetingElement.style.fontSize = "40px";
-}
-
-buttonElement.onclick = onGreetingButtonClick;
-```
-
 <ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
-
-</Answer>
