@@ -55,4 +55,17 @@ element.style.backgroundColor = "red";
 
 [CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
+<Answer type="JSを用いたCSSスタイリング">
+
+```javascript
+const element = document.getElementById("foo");
+element.style.border = "1px solid #aaa";
+element.style.borderRadius = "10px";
+element.style.margin = "30px";
+element.style.padding = "30px";
+element.style.boxShadow = "0px 0px 2px 1px #aaa";
+```
+
 <ViewSource url={import.meta.url} path="_samples/css" />
+
+</Answer>
