@@ -2,6 +2,7 @@
 title: DOM
 ---
 
+import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
