@@ -139,7 +139,7 @@ for (const number of numbers) {
   sum += number;
 }
 
-document.write(`配列の合計値は: ${sum} です。`);
+document.write(`配列の合計値は ${sum} です。`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-sum-for-of" />
@@ -156,7 +156,7 @@ for (let i = 0; i < numbers.length; i += 1) {
   sum += numbers[i];
 }
 
-document.write(`配列の合計値は: ${sum} です。`);
+document.write(`配列の合計値は ${sum} です。`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-sum-simple-for" />
