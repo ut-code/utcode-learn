@@ -93,7 +93,7 @@ function tryToDrive() {
 let guestCount = 0;
 
 function greet() {
-  guestCount = guestCount + 1;
+  guestCount += 1;
   document.write("あなたは" + guestCount + "人目のお客様です。");
 }
 
@@ -112,8 +112,8 @@ let outer = 0;
 
 function increment() {
   let inner = 0;
-  outer = outer + 1;
-  inner = inner + 1;
+  outer += 1;
+  inner += 1;
   document.write(outer); // 1ずつ増える
   document.write(inner); // 常に1
 }
