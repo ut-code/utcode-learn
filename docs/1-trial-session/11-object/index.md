@@ -2,6 +2,7 @@
 title: オブジェクト
 ---
 
+import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
@@ -71,4 +72,19 @@ const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 
+<Answer type="年齢を増やす">
+
+```javascript
+function incrementAge(person) {
+  person.age = person.age + 1;
+  return person;
+}
+
+const tanaka = { name: "田中", age: 18 };
+const nextYearTanaka = incrementAge(tanaka);
+document.write(nextYearTanaka.age);
+```
+
 <ViewSource url={import.meta.url} path="_samples/incrementAge" />
+
+</Answer>
