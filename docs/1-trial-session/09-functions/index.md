@@ -48,7 +48,7 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong> を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して<Term type="javascriptFunction">関数</Term>の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
+<p><Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。<Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong>を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。この値を<Term strong type="javascriptReturnValue">戻り値</Term>と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して<Term type="javascriptFunction">関数</Term>の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term strong type="javascriptReturn">返す</Term>と表現します。</p>
 
 ```javascript
 function add(a, b) {
@@ -60,7 +60,7 @@ document.write(add(3, 4));
 ```
 
 上の例の 6 行目で、<Term type="javascriptExpression">式</Term> `add(3, 4)` が<Term type="javascriptEvaluation">評価</Term>されると、 `a = 3, b = 4` として `add` <Term type="javascriptFunction">関数</Term>が実行されます。`add`<Term type="javascript">関数</Term>の中で<Term type="javascriptStatement">文</Term> `const sum = a + b;` が実行されると、<Term type="javascriptExpression">式</Term> `a + b` が<Term type="javascriptEvaluation">評価</Term>され、`7` になります。これにより、`sum` に`7`が代入されます。
-次の行 `return sum;` で `add` <Term type="javascriptFunction">関数</Term>は <Term type="javascriptVariable">変数</Term> `sum` を<Term type="javascriptEvaluation">評価</Term>した結果である、`7` を<Term type="javascriptReturn">返します。</Term>
+次の行 `return sum;` で `add` <Term type="javascriptFunction">関数</Term>は<Term type="javascriptVariable">変数</Term> `sum` を<Term type="javascriptEvaluation">評価</Term>した結果である、`7` を<Term type="javascriptReturn">返します。</Term>
 そして<Term type="javascriptExpression">式</Term> `add(3, 4)` の<Term type="javascriptEvaluation">評価</Term>結果が `7` となります。
 
 <video src={returnValueVideo} controls autoPlay muted loop />
@@ -126,7 +126,7 @@ increment();
 
 ## パーツに分割する
 
-複雑な操作を複数の <Term type="javascriptFunction">関数</Term> ブロックに分解することで、コードの可読性を上げることができます。この操作を <Term strong type="javascriptModularization">モジュール化</Term> と呼びます。
+複雑な操作を複数の<Term type="javascriptFunction">関数</Term>ブロックに分解することで、コードの可読性を上げることができます。この操作を <Term strong type="javascriptModularization">モジュール化</Term> と呼びます。
 パーツに分割すると、次のようなメリットがあります。
 
 - ブロックあたりのコードが短くなるので、読みやすい
