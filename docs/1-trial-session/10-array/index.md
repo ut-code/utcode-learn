@@ -108,45 +108,70 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ## 基礎課題
 
-### 連続表示
+### 要素の和
 
-- 引数に与えられた配列の、要素の和を取る関数 `sumArray` を書いてみましょう。
+- 配列があります。その配列の要素の和を求めてみましょう。
 
 :::tip
-変数 `i` を `0` から `(作成した配列の長さ) - 1` まで順番に増やしながら、配列の `i` 番目の要素を足してみましょう。
+`for 〜 of` 文を使って、配列のそれぞれの要素に対して操作を実行します。
+:::
+
+:::note
+次の配列をテスト用に使ってください。
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+```
+
+```javascript
+const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+```
+
 :::
 
 <Answer>
 
 ```javascript
-const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const array2 = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function sumArray(array) {
-  let sum = 0;
-  for (let i = 0; i < array.length; i += 1) {
-    sum += array[i];
-  }
-  return sum;
+let sum = 0;
+for (const number of numbers) {
+  sum += number;
 }
 
-document.write(`sum of array1: ${sumArray(array1)} <br>`);
-document.write(`sum of array2: ${sumArray(array2)} <br>`);
+document.write(`配列の合計値は ${sum} です。`);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/array-sum" />
+<ViewSource url={import.meta.url} path="_samples/array-sum-for-of" />
+
+### 別解
+
+`for 〜 of` 文を使わず、次のように書くこともできます。
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let sum = 0;
+for (let i = 0; i < numbers.length; i += 1) {
+  sum += numbers[i];
+}
+
+document.write(`配列の合計値は ${sum} です。`);
+```
+
+<ViewSource url={import.meta.url} path="_samples/array-sum-simple-for" />
 
 </Answer>
 
 ## 中級課題
 
-### 最大値
+### 配列の最大値
 
-引数にひとつの配列が与えられたとき、その配列の最大値を求める関数 `findMax` を作成しましょう。
+引数に配列を一つ取り、その配列の最大値を求める関数 `findMaxNumber` を作成しましょう。
 
 :::note
 
-テスト用に、ランダムに生成された以下の配列を使ってよいものとします。
+テスト用に、ランダムに生成された次の配列を使ってください。
 
 ```javascript
 const array1 = [3, 6, 8, 5, 0];
@@ -175,24 +200,34 @@ const array2 = [-8, -7, -3, -1, -5];
 const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
 const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
-function findMax(array) {
-  if (array.length === 0) return; // 空配列の例外処理
-  let maxValue = array[0];
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i] > maxValue) maxValue = array[i];
+function findMaxNumber(numbers) {
+  if (numbers.length === 0) return; // 空配列を除外
+  let maxNumber = numbers[0];
+  for (const number of numbers) {
+    if (maxNumber < number) {
+      maxNumber = number;
+    }
   }
-  return maxValue;
+  return maxNumber;
 }
 
-document.write(`<p>配列 [${array1}] の最大値は${findMax(array1)} です。</p>`);
-document.write(`<p>配列 [${array2}] の最大値は${findMax(array2)} です。</p/>`);
-document.write(`<p>配列 [${array3}] の最大値は${findMax(array3)} です。</p>`);
-document.write(`<p>配列 [${array4}] の最大値は${findMax(array4)} です。</p>`);
-document.write(`<p>空の配列の最大値は ${findMax([])} です。</p/>`);
+document.write(
+  `<p>配列 [${array1}] の最大値は${findMaxNumber(array1)} です。</p>`,
+);
+document.write(
+  `<p>配列 [${array2}] の最大値は${findMaxNumber(array2)} です。</p>`,
+);
+document.write(
+  `<p>配列 [${array3}] の最大値は${findMaxNumber(array3)} です。</p>`,
+);
+document.write(
+  `<p>配列 [${array4}] の最大値は${findMaxNumber(array4)} です。</p>`,
+);
+document.write(`<p>空の配列の最大値は ${findMaxNumber([])} です。</p>`);
 ```
 
 :::danger
-配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を渡された時に例外処理することを忘れないでください！
+配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を除外することを忘れないでください！
 :::
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />

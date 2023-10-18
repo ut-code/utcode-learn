@@ -124,11 +124,16 @@ increment();
 
 :::
 
-## モジュール化
+## パーツに分割する
 
-複雑な操作を <Term type="javascriptFunction">関数</Term> として <Term strong type="javascriptModularization">モジュール化</Term> して複数のブロックに分解することで、コードの可読性を上げることができます。
+複雑な操作を複数の <Term type="javascriptFunction">関数</Term> ブロックに分解することで、コードの可読性を上げることができます。この操作を <Term strong type="javascriptModularization">モジュール化</Term> と呼びます。
+パーツに分割すると、次のようなメリットがあります。
 
-モジュール化前:
+- ブロックあたりのコードが短くなるので、読みやすい
+- パーツごとにテストができるので、デバッグがしやすい
+- 汎用性のあるパーツなら、使いまわしができる
+
+以下の例では、階段を表示する操作の中の、文字列を繰り返す操作を `repeat` 関数というパーツに分けています。
 
 ```javascript
 const stringToRepeat = "☆";
@@ -142,29 +147,24 @@ for (let i = 0; i < 10; i += 1) {
 }
 ```
 
-モジュール化後:
-
 ```javascript
-function repeat(stringToRepeat, times) {
+function repeat(stringToRepeat, count) {
   let result = "";
-  for (let j = 0; j < times; j += 1) {
+  for (let j = 0; j < count; j += 1) {
     result += stringToRepeat;
   }
   return result;
 }
+
 for (let i = 0; i < 10; i += 1) {
   document.write(repeat("☆", i));
   document.write("<br>");
 }
 ```
 
-:::note
-この例における`repeat`<Term type="javascriptFunction">関数</Term>は、第一<Term type="javascriptParameter">引数</Term>の<Term type="javascriptString">文字列</Term>を第二<Term type="javascriptParameter">引数</Term>回だけ繰り返し<Term type="javascriptStringConcatenation">足した</Term>ものを返します。
-:::
-
 ---
 
-## 基礎演習
+## 基礎課題
 
 ### 最大値
 
@@ -208,7 +208,7 @@ function max(a, b) {
 
 </Answer>
 
-## 中級演習
+## 中級課題
 
 ### 携帯電話料金
 
