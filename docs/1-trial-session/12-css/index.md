@@ -2,6 +2,7 @@
 title: ウェブサイトの見た目を整える
 ---
 
+import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
@@ -73,4 +74,31 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
 
+<Answer type="シンプルなボックス">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div
+      style="
+        border: 1px solid #aaa;
+        border-radius: 10px;
+        margin: 30px;
+        padding: 30px;
+        box-shadow: 0px 0px 2px 1px #aaa;
+      "
+    >
+      Foo
+    </div>
+  </body>
+</html>
+```
+
 <ViewSource url={import.meta.url} path="_samples/foo" />
+
+</Answer>
