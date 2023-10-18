@@ -93,7 +93,7 @@ const age = 20;
 if ～ else if ～ else 構文を使うと、次のように書くことができます。
 
 ```javascript title=script.js showLineNumbers
-let age = 20;
+const age = 20;
 if (age < 18) {
   document.write("選挙権はありません");
 } else if (age < 25) {
