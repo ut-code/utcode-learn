@@ -170,7 +170,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 - テキストボックスは `input` タグで作成できます。
 - 最後の箇条書きには `ul` タグや `li` タグを使用しています。
 
-<Answer>
+<Answer type="フォーム">
 
 ```html
 <!doctype html>
