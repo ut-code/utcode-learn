@@ -9,7 +9,7 @@ import Answer from "@site/src/components/Answer";
 
 ## 配列
 
-JavaScript における配列は、複数の値を並べて一つにまとめたオブジェクトです。`[` から `]` で囲まれた部分は配列を生成する式になります。
+JavaScript における配列は、複数の値を並べて一つにまとめた値です。`[` から `]` で囲まれた部分は配列を生成する式になります。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
