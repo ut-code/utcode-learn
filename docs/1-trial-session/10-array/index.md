@@ -9,7 +9,7 @@ import Answer from "@site/src/components/Answer";
 
 ## 配列
 
-JavaScript における配列は、複数の値を並べて一つにまとめたオブジェクトです。`[` から `]` で囲まれた部分は配列を生成する式になります。
+JavaScript における配列は、複数の値を並べて一つにまとめた値です。`[` から `]` で囲まれた部分は配列を生成する式になります。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
@@ -149,7 +149,7 @@ document.write(`配列の合計値は: ${sum} です。`);
 `for 〜 of` 文を使わず、次のように書くこともできます。
 
 ```javascript
-const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let sum = 0;
 for (let i = 0; i < numbers.length; i += 1) {
