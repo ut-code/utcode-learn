@@ -147,13 +147,13 @@ increment();
 
 <p><Term type="javascriptFunction">関数</Term>は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出すことにも用いることができます。</p>
 
-長い処理を複数のパーツに分割すると、次のようなメリットがあります。
+長い処理をパーツに分割すると、次のようなメリットがあります。
 
 - 考えるべきことが少なくなるので、読みやすい
 - パーツごとにテストができるので、デバッグがしやすい
 - パーツの使いまわしができる
 
-次の例は、`totalTicketCount` 枚のくじから `hitTicketCount` 枚を引いたときに、当たりが少なくとも 1 枚出る確率 `winningProbability` を、`■■■□□□□□□□` のようなグラフ形式で表示するプログラムです。
+次の例は、`totalTicketCount` 枚のうち `hitTicketCount` 枚の当たりがあるくじから `drawnTicketCount` 枚を引いたときに、当たりが少なくとも 1 枚出る確率 `winningProbability` を、`■■■□□□□□□□` のようなグラフ形式で表示するプログラムです。
 
 ```javascript
 const totalTicketCount = 10;
@@ -179,7 +179,14 @@ for (let p = 0; p < 1; p += 0.1) {
 このプログラムを、<Term type="javascriptFunction">関数</Term>を用いて確率を計算する部分とグラフとして表示する部分に分割すると、次のようになります。先頭の 2 行を読むだけでプログラム全体の処理の流れが追えるようになりました。
 
 ```javascript
-const winningProbability = calculateWinningProbability(10, 5, 3);
+const totalTicketCount = 10;
+const hitTicketCount = 5;
+const drawnTicketCount = 3;
+const winningProbability = calculateWinningProbability(
+  totalTicketCount,
+  hitTicketCount,
+  drawnTicketCount,
+);
 showProbabilityAsGraph(winningProbability);
 
 function calculateWinningProbability(
