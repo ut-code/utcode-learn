@@ -114,7 +114,7 @@ tanaka.introduceSelf();
 
 自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
 
-<Answer>
+<Answer title="年齢を増やすメソッド">
 
 ```javascript
 class Student {
@@ -275,7 +275,7 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
-<Answer>
+<Answer title="学生のClassの定義">
 
 ```javascript
 class Student {
@@ -346,6 +346,9 @@ document.write(false.toString()); // false
 :::
 
 ### 課題
+
+<!-- FIXME: 雑すぎるので修正してください
+Answerタグもその時に追加してください。 -->
 
 `document.getElementById` 関数で `div` 要素を取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが返されます。このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement) を継承しており、さらに `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
 

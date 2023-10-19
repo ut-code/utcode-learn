@@ -191,9 +191,7 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 いくつにすればよいでしょうか？
 :::
 
-### 解答例
-
-<Answer>
+<Answer title="10の階乗">
 
 ```javascript
 let product = 1;
@@ -241,9 +239,7 @@ document.write(product);
 自然数`n`を`i`で割ったあまりは `n % i`で求められます。
 :::
 
-### 解答例
-
-<Answer>
+<Answer title="素数判定">
 
 変数の、最後に代入した値のみを保持する性質を利用します。
 

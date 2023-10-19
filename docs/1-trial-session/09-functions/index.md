@@ -83,6 +83,25 @@ function tryToDrive() {
 
 :::
 
+### 確認課題
+
+引数を 2 つとり、その積を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> `multiply` を定義してください。
+
+<Answer type="2つの積">
+
+```javascript
+function multiply(a, b) {
+  const result = a * b;
+  return result;
+}
+
+document.write(multiply(3, 4));
+```
+
+<ViewSource url={import.meta.url} path="_samples/multiply" />
+
+</Answer>
+
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
 <p><Term type="javascriptFunction">関数</Term>内で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptFunction">関数</Term>内でのみ有効です。<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope" strong>スコープ</Term>と呼んでいます。</p>
@@ -175,7 +194,7 @@ for (let i = 0; i < 10; i += 1) {
 <p><Term type="javascriptIfStatement">if 文</Term>を使って、<code>a</code> が大きい場合と <code>b</code> が大きい場合で処理を書き分けます。</p>
 :::
 
-<Answer>
+<Answer title="大きい数">
 
 ```javascript
 function max(a, b) {
@@ -227,7 +246,7 @@ document.write(calculateCost(3.5));
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
 
-<Answer>
+<Answer title="携帯電話料金">
 
 ```javascript
 function calculateCost(monthlyDataUsage) {

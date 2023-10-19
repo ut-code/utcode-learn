@@ -2,6 +2,7 @@
 title: DOM
 ---
 
+import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
@@ -55,4 +56,31 @@ element.style.backgroundColor = "red";
 
 [CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
+<Answer title="JavaScriptを用いたCSSスタイリング">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="foo">Foo</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript
+const element = document.getElementById("foo");
+element.style.border = "1px solid #aaa";
+element.style.borderRadius = "10px";
+element.style.margin = "30px";
+element.style.padding = "30px";
+element.style.boxShadow = "0px 0px 2px 1px #aaa";
+```
+
 <ViewSource url={import.meta.url} path="_samples/css" />
+
+</Answer>

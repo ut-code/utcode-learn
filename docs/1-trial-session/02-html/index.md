@@ -2,6 +2,7 @@
 title: HTML
 ---
 
+import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import createFileVideo from "./create-file.mp4";
@@ -132,9 +133,30 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 箇条書きを作るときには、単に「・」と書くのではなく箇条書き用のタグを使います。「HTML 箇条書き」などと検索してみましょう。
 
-### 解答例
+<Answer title="持ち物リスト">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>遠足の持ち物</h1>
+    <ul>
+      <li><strong>お弁当</strong></li>
+      <li>水筒</li>
+      <li>タオル</li>
+      <li>レジャーシート</li>
+    </ul>
+  </body>
+</html>
+```
 
 <ViewSource url={import.meta.url} path="_samples/excursion" />
+
+</Answer>
 
 ## 課題 (時間が余った場合)
 
@@ -148,6 +170,35 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 - テキストボックスは `input` タグで作成できます。
 - 最後の箇条書きには `ul` タグや `li` タグを使用しています。
 
-### 解答例
+<Answer title="フォーム">
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>課題: HTMLのみを使用してフォームを作成する</title>
+  </head>
+  <body>
+    <p>新規登録</p>
+    <table>
+      <tr>
+        <th>ID</th>
+        <td><input type="text" /></td>
+      </tr>
+      <tr>
+        <th>パスワード</th>
+        <td><input type="password" /></td>
+      </tr>
+    </table>
+    <ul>
+      <li>IDは他のユーザーと重複させることはできません。</li>
+      <li>パスワードは8文字以上です。</li>
+    </ul>
+  </body>
+</html>
+```
 
 <ViewSource url={import.meta.url} path="_samples/form" />
+
+</Answer>
