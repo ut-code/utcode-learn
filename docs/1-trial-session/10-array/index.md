@@ -96,7 +96,7 @@ document.write(numbers.length); // 10
 
 ### `配列.push` 関数
 
-[`関数.push`関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push) は、指定した配列の末尾に新しい値を追加する関数です。
+[`配列.push` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push) は、指定した配列の末尾に新しい値を追加する関数です。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
