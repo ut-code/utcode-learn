@@ -161,7 +161,7 @@ const hitTicketCount = 5;
 const drawnTicketCount = 3;
 
 let losingProbability = 1;
-for (let i = 0; i < drawnTicketCount; i++) {
+for (let i = 0; i < drawnTicketCount; i += 1) {
   losingProbability *=
     (totalTicketCount - hitTicketCount - i) / (totalTicketCount - i);
 }
@@ -195,7 +195,7 @@ function calculateWinningProbability(
   drawnTicketCount,
 ) {
   let losingProbability = 1;
-  for (let i = 0; i < drawnTicketCount; i++) {
+  for (let i = 0; i < drawnTicketCount; i += 1) {
     losingProbability *=
       (totalTicketCount - hitTicketCount - i) / (totalTicketCount - i);
   }
