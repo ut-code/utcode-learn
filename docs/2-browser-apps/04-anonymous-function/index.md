@@ -133,7 +133,7 @@ const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
 
 :::
 
-<Answer type="箇条書き">
+<Answer title="箇条書き">
 
 ```javascript
 const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
@@ -162,7 +162,7 @@ if (/* すべての点数が 50 点以上なら */) {
 
 :::
 
-<Answer type="進級可能？">
+<Answer title="進級可能？">
 
 `Array#every` メソッドを使うと、配列の全要素が指定された関数でテストできます
 
@@ -185,7 +185,7 @@ const minScore = scores.reduce(/* コールバック関数 */);
 document.write(minScore); // 55
 ```
 
-<Answer type="Array#reduceの使い方">
+<Answer title="Array#reduceの使い方">
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];

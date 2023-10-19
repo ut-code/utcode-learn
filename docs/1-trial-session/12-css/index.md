@@ -74,7 +74,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 - 枠線の内側にも余白があります (padding)
 - ボックスに影がついています (box-shadow)
 
-<Answer type="シンプルなボックス">
+<Answer title="シンプルなボックス">
 
 ```html
 <!doctype html>

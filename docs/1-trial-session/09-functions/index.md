@@ -194,7 +194,7 @@ for (let i = 0; i < 10; i += 1) {
 <p><Term type="javascriptIfStatement">if 文</Term>を使って、<code>a</code> が大きい場合と <code>b</code> が大きい場合で処理を書き分けます。</p>
 :::
 
-<Answer type="大きい数">
+<Answer title="大きい数">
 
 ```javascript
 function max(a, b) {
@@ -246,7 +246,7 @@ document.write(calculateCost(3.5));
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
 
-<Answer type="携帯電話料金">
+<Answer title="携帯電話料金">
 
 ```javascript
 function calculateCost(monthlyDataUsage) {

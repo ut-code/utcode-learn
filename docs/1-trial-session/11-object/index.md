@@ -72,7 +72,7 @@ const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19 と表示されてほしい
 ```
 
-<Answer type="年齢を増やす">
+<Answer title="年齢を増やす">
 
 ```javascript
 function incrementAge(person) {
