@@ -87,7 +87,7 @@ function tryToDrive() {
 
 引数を 2 つとり、その積を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> `multiply` を定義してください。
 
-<Answer type="2つの積">
+<Answer title="2つの積">
 
 ```javascript
 function multiply(a, b) {
