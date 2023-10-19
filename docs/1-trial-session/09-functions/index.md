@@ -83,6 +83,25 @@ function tryToDrive() {
 
 :::
 
+### 確認課題
+
+引数を 2 つとり、その積を<Term type="javascriptReturnValue">戻り値</Term>として<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> `multiply` を定義してください。
+
+<Answer type="2つの積">
+
+```javascript
+function multiply(a, b) {
+  const result = a * b;
+  return result;
+}
+
+document.write(multiply(3, 4));
+```
+
+<ViewSource url={import.meta.url} path="_samples/multiply" />
+
+</Answer>
+
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
 <p><Term type="javascriptFunction">関数</Term>内で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptFunction">関数</Term>内でのみ有効です。<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope" strong>スコープ</Term>と呼んでいます。</p>
