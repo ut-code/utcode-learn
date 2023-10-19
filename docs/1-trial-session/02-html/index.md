@@ -133,7 +133,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 箇条書きを作るときには、単に「・」と書くのではなく箇条書き用のタグを使います。「HTML 箇条書き」などと検索してみましょう。
 
-<Answer type="持ち物リスト">
+<Answer title="持ち物リスト">
 
 ```html
 <!doctype html>
@@ -170,7 +170,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 - テキストボックスは `input` タグで作成できます。
 - 最後の箇条書きには `ul` タグや `li` タグを使用しています。
 
-<Answer type="フォーム">
+<Answer title="フォーム">
 
 ```html
 <!doctype html>
