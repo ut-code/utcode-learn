@@ -143,43 +143,64 @@ increment();
 
 :::
 
-## パーツに分割する
+## 処理の分割
 
-複雑な操作を複数の<Term type="javascriptFunction">関数</Term>ブロックに分解することで、コードの可読性を上げることができます。この操作を <Term strong type="javascriptModularization">モジュール化</Term> と呼びます。
-パーツに分割すると、次のようなメリットがあります。
+<p><Term type="javascriptFunction">関数</Term>は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出し、プログラム全体の見通しを良くするために用いることもできます。</p>
 
-- ブロックあたりのコードが短くなるので、読みやすい
-- パーツごとにテストができるので、デバッグがしやすい
-- 汎用性のあるパーツなら、使いまわしができる
-
-以下の例では、階段を表示する操作の中の、文字列を繰り返す操作を `repeat` 関数というパーツに分けています。
+次の例は、`totalTicketCount` 枚のくじから `hitTicketCount` 枚を引いたときに、当たりが少なくとも 1 枚出る確率 `winningProbability` を、`■■■□□□□□□□` のようなグラフ形式で表示するプログラムです。
 
 ```javascript
-const stringToRepeat = "☆";
-for (let i = 0; i < 10; i += 1) {
-  let result = "";
-  for (let j = 0; j < i; j += 1) {
-    result += stringToRepeat;
+const totalTicketCount = 10;
+const hitTicketCount = 5;
+const drawnTicketCount = 3;
+
+let losingProbability = 1;
+for (let i = 0; i < drawnTicketCount; i++) {
+  losingProbability *=
+    (totalTicketCount - hitTicketCount - i) / (totalTicketCount - i);
+}
+const winningProbability = 1 - losingProbability;
+
+for (let p = 0; p < 1; p += 0.1) {
+  if (p < winningProbability) {
+    document.write("■");
+  } else {
+    document.write("□");
   }
-  document.write(result);
-  document.write("<br>");
 }
 ```
 
+このプログラムを、<Term type="javascriptFunction">関数</Term>を用いて確率を計算する部分とグラフとして表示する部分に分割すると、次のようになります。先頭の 2 行を読むだけでプログラム全体の処理の流れが追えるようになりました。
+
 ```javascript
-function repeat(stringToRepeat, count) {
-  let result = "";
-  for (let j = 0; j < count; j += 1) {
-    result += stringToRepeat;
+const winningProbability = calculateWinningProbability(10, 5, 3);
+showProbabilityAsGraph(winningProbability);
+
+function calculateWinningProbability(
+  totalTicketCount,
+  hitTicketCount,
+  drawnTicketCount,
+) {
+  let losingProbability = 1;
+  for (let i = 0; i < drawnTicketCount; i++) {
+    losingProbability *=
+      (totalTicketCount - hitTicketCount - i) / (totalTicketCount - i);
   }
-  return result;
+  return 1 - losingProbability;
 }
 
-for (let i = 0; i < 10; i += 1) {
-  document.write(repeat("☆", i));
-  document.write("<br>");
+function showProbabilityAsGraph(probability) {
+  for (let p = 0; p < 1; p += 0.1) {
+    if (p < probability) {
+      document.write("■");
+    } else {
+      document.write("□");
+    }
+  }
 }
 ```
+
+このように、大きなプログラムを意味的に独立した小さなまとまりに分割する操作を、**<Term type="javascriptModularization">モジュール化</Term>**と呼ぶ場合があります。
 
 ---
 
