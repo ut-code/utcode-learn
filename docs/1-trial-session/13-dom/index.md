@@ -56,7 +56,7 @@ element.style.backgroundColor = "red";
 
 [CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
 
-<Answer title="JSを用いたCSSスタイリング">
+<Answer title="JavaScriptを用いたCSSスタイリング">
 
 ```html
 <!doctype html>
