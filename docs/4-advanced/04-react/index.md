@@ -2,10 +2,6 @@
 title: React
 ---
 
-import Term from "@site/src/components/Term";
-import Answer from "@site/src/components/Answer";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import createReactProjectVideo from "./create-react-project.mp4";
 import componentRenderingVideo from "./component-rendering.mp4";
 

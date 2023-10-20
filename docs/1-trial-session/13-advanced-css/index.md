@@ -2,12 +2,6 @@
 title: 高度な CSS
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
-
 ## CSS を別ファイルに分離する
 
 社会の要求の高まりに応えて CSS のプロパティの種類は増え続け、現在では数えきれないほどのプロパティが定義されています。

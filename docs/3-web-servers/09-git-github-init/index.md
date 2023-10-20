@@ -2,10 +2,6 @@
 title: Git と GitHub のセットアップ
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import installCommandLineDeveloperToolsVideo from "./install-command-line-developer-tools.mp4";
 import registerGitHubVideo from "./register-github.mp4";
 import setupGitVideo from "./setup-git.mp4";

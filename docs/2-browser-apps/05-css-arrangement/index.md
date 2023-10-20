@@ -2,19 +2,10 @@
 title: CSS による配置（発展）
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
-
 import absoluteScroll from "./position-absolute-scroll.mp4"
-
 import fixedScroll from "./position-fixed-scroll.mp4"
-
 import percentCss from "./percent-css.mp4"
-
 import maxMinWidth from "./max-width-min-width.mp4"
-
 import mediaQuery from "./mediaquery.mp4"
 
 ## CSS のボックスモデル

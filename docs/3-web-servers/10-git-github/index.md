@@ -2,10 +2,6 @@
 title: Git と GitHub
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import gitInitVideo from "./git-init.mp4";
 import gitInitWithCliVideo from "./git-init-with-cli.mp4";
 import stageChangesVideo from "./stage-changes.mp4";

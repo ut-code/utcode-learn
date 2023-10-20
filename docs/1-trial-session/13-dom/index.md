@@ -2,10 +2,6 @@
 title: DOM
 ---
 
-import Answer from "@site/src/components/Answer";
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## <Term type="html">HTML</Term> 要素を <Term type="javascript">JavaScript</Term> で取得する
 
 <p><Term strong type="dom">DOM</Term>（Document Object Model）は、<Term type="html">HTML</Term> 構造を <Term type="javascript">JavaScript</Term> の<Term type="javascriptObject">オブジェクト</Term>として扱うための枠組みです。<Term type="html">HTML</Term> と <Term type="css">CSS</Term> のほとんどの機能は <Term type="javascript">JavaScript</Term> から制御することができます。</p>

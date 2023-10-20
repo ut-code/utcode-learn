@@ -2,11 +2,6 @@
 title: 配列
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-
 ## 配列
 
 JavaScript における配列は、複数の値を並べて一つにまとめた値です。`[` から `]` で囲まれた部分は配列を生成する式になります。

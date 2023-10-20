@@ -2,9 +2,6 @@
 title: 関数
 ---
 
-import Term from "@site/src/components/Term";
-import Answer from "@site/src/components/Answer";
-import ViewSource from "@site/src/components/ViewSource";
 import returnValueVideo from "./return-value.mp4";
 
 ## 処理の共通化

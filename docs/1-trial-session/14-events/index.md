@@ -2,11 +2,6 @@
 title: イベント
 ---
 
-import Term from "@site/src/components/Term";
-import Details from "@theme/Details";
-import CodeBlock from '@theme/CodeBlock';
-import ViewSource from "@site/src/components/ViewSource";
-
 import handleClickVideo from "./handle-click.mp4";
 import projectMovieForDom from "./project-movie-for-dom.mp4";
 

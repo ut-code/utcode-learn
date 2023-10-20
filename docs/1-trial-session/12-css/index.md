@@ -2,10 +2,6 @@
 title: ウェブサイトの見た目を整える
 ---
 
-import Answer from "@site/src/components/Answer";
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 多くの<Term type="element">HTML 要素</Term>は、<Term strong type="styleAttribute" strong>style 属性</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
 ## <Term type="styleAttribute">style 属性</Term>

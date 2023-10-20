@@ -2,9 +2,6 @@
 title: 論理値と論理演算子
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## <Term type="javascriptBoolean">論理値</Term>
 
 <p><Term type="javascript">JavaScript</Term> で利用できる「<Term type="javascriptValue">値</Term>」として、これまで<Term type="javascriptString">文字列</Term>と<Term type="javascriptNumber">数値</Term>を扱いました。JavaScript ではこの他に、<Term strong type="javascriptBoolean">論理値</Term> と呼ばれる、「正しいか、正しくないか」を表すための<Term type="javascriptValue">値</Term>が存在します。</p>

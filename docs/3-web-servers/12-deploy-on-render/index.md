@@ -2,8 +2,6 @@
 title: Render へのデプロイ
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import registerRenderVideo from "./register-render.mp4";
 import connectGitHubVideo from "./connect-github.mp4";
 import staticSiteDeployVideo from "./static-site-deploy.mp4";
