@@ -7,18 +7,22 @@ This JS file is automatically imported on every page
 Paste your custom component here, and you can use it everywhere!
 */
 
-// Write down Libraries (I think) here
+// Write down Libraries here
+import Details from "@theme/Details";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import CodeBlock from "@theme/CodeBlock";
 // what's codeblock and why is it imported EVERYWHERE?
 //  i only find one being used in team-dev/fixing-conflict
 
-/* --- ATTENTION: import your custom components here --- */
+/*-------------------------------------------
+|                EDIT HERE                  |
+|  import your custom components down here! |
+-------------------------------------------*/
 import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
+import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
 // exporting
 export default {
@@ -26,14 +30,18 @@ export default {
   ...MDXComponents,
 
   // export Libs
+  Details,
   Tabs,
   TabItem,
-  ExternalVideoPlayer,
   CodeBlock,
 
+  /*-------------------------------------------
+  |                EDIT HERE                  |
+  |  export your custom components down here  |
+  -------------------------------------------*/
   // export custom Components
-  /* --- ATTENTION: write your components here and export them --- */
   Answer,
   Term,
   ViewSource,
+  ExternalVideoPlayer,
 };
