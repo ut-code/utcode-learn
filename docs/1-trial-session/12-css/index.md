@@ -100,6 +100,19 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
 これで、`Hello World!`の`World`の文字が赤くなりました。
+:::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
+`style.css`を作らずとも、HTMLファイル内に直接CSSを書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
+
+```html title="index.html"
+<p style="color: red">Hello CSS!</p>
+```
+
+<ViewSource url={import.meta.url} path="_samples/first-css" />
+
+「このプログラムを実行する」を押すと分かるとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
+
+しかし、この方法ではHTML要素に逐一CSSを書きこむ必要があるため、HTMLが大きくなると大変になります。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。また、HTMLは「構造」、CSSは「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+:::
 
 
 ## 初級課題1
@@ -116,19 +129,6 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 
 </Answer>
 
-:::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
-`style.css`を作らずとも、HTMLファイル内に直接CSSを書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
-
-```html title="index.html"
-<p style="color: red">Hello CSS!</p>
-```
-
-<ViewSource url={import.meta.url} path="_samples/first-css" />
-
-「このプログラムを実行する」を押すと解るとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
-
-しかし、この方法ではHTML要素に逐一CSSを書きこむ必要があるため、HTMLが大きくなると大変になります。さらに、社会の要求の高まりに応えて CSS のプロパティの種類は増え続け、現在では数えきれないほどのプロパティが定義されています。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
-:::
 
 ## CSSのプロパティ
 
