@@ -12,9 +12,6 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 
 <Term type="javascriptObject">オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term type="javascriptValue">値</Term>を複数まとめて一つの<Term type="javascriptValue">値</Term>として扱うことができます。
 
-
-
-
 ## <Term type="javascriptObject">オブジェクト</Term>の作成
 
 <Term type="javascriptObject">オブジェクト</Term>は、複数の<Term strong type="javascriptProperty" strong>プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
@@ -74,6 +71,35 @@ document.write(person.favoriteFood);
 
 :::
 
+## 配列とオブジェクト
+
+上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScript のオブジェクトとは、プロパティ名とプロパティ値の組み合わせでした。
+
+配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
+
+![配列のプロパティ](./array-properties.png)
+
+逆に、オブジェクトも配列と同じように使用することができます。この記法を**ブラケット記法**と呼び、プログラムの動作に応じて使用したいプロパティを切り替えるのに役立ちます。
+
+```javascript
+const subject = "math"; // ここを変えると表示される教科が変わる
+const scores = { math: 90, science: 80 };
+document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
+```
+
+:::tip オブジェクトのプロパティ名
+
+オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
+
+答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
+
+```javascript
+const studentNames = ["田中", "佐藤", "鈴木"];
+document.write(studentNames["0"]); // 田中
+```
+
+:::
+
 ## 課題
 
 ### 初級課題
@@ -105,7 +131,6 @@ document.write(tanaka.scores.japanese);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/editAndViewJapaneseScore" />
-
 
 2はプロパティの追加を利用しています。
 
