@@ -11,7 +11,7 @@ import ViewSource from "@site/src/components/ViewSource";
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
 
-CSS の書き方を勉強して、`World`の文字を赤くしてみましょう。
+CSS の書き方を学び、`World`の文字を赤くしてみましょう。
 ![Hello World!](./red-hello-world.png)
 ## <Term type="css">CSS</Term> の書き方
 
@@ -19,7 +19,7 @@ CSS の書き方を勉強して、`World`の文字を赤くしてみましょう
 
 CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 ![CSSを書き始める](./begin-css.png)
-先に完成コードを示しておきます。
+次の例では、<code>Hello World</code> の <code>World</code> の部分を赤色にしています。
 ```html title="index.html"
 <!doctype html>
 <html lang="ja">
@@ -38,7 +38,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
   color: red;
 }
 ```
-
+<ViewSource url={import.meta.url} path="_samples/red-hello-world" />
 
 
 ### <code>link</code> 要素
