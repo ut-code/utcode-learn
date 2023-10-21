@@ -21,17 +21,21 @@ export default function Term({ type, strong = false, children }) {
     definitions.referencePageTitles[term.referencePage];
   const location = useLocation();
 
+  // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
+  if (
+    typeof window === "object" &&
+    referencePage != undefined &&
+    referencePageTitle === undefined
+  ) {
+    throw new Error(
+      `The page title of the reference \n" ${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
+    );
+  }
+
   const wrap = (content) => {
     const shouldLinkToReferencePage = () => {
       // referencePageがundefinedならばリンクを表示しない
       if (term.referencePage === undefined) return false;
-
-      // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
-      if (referencePageTitle === undefined) {
-        throw new Error(
-          `The page title of the reference \n" ${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
-        );
-      }
 
       // referencePageの#アンカーを除外
       const referenceLink = term.referencePage.split("#")[0];
