@@ -73,6 +73,8 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 | `.element` | `class` 属性に `element` が含まれる要素 |
 | `element`  | タグ名が `element` である要素           |
 
+:::info 高度なセレクタ
+
 また、セレクタをスペースで区切ると子孫要素、`>`で区切ると直属の子要素を表すことができます。そのまま繋げば and 条件とみなされます。
 
 | セレクタ         | 意味                                                                           |
@@ -82,6 +84,8 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 | `#parent > div`  | `id` 属性が `parent` である要素の直属の子の `div` 要素                         |
 
 セレクタを上手に活用すると、変更に強くて柔軟な CSS を作成することができます。
+
+:::
 
 ## <Term type="cssProperty">プロパティ</Term>とプロパティ値
 
@@ -97,10 +101,10 @@ CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
-これで、`Hello World!`の`World`の文字が赤くなりました。
+これで、 `Hello World!` の `World` の文字が赤くなりました。
 
-:::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
-`style.css`を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
+:::tip HTMLの <Term type="styleAttribute">`style` 属性</Term>
+`style.css` を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、 `p` <Term type="element">要素</Term> の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
 
 ```html title="index.html"
 <p style="color: red">Hello CSS!</p>
