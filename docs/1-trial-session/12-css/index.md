@@ -183,6 +183,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
   background-color: black;
 }
 ```
+<ViewSource url={import.meta.url} path="_samples/yellow-hello-css" />
 
 </Answer>
 
