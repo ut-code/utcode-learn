@@ -11,19 +11,18 @@ import ViewSource from "@site/src/components/ViewSource";
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
 
-CSS の書き方を学び、`World`の文字を赤くしてみましょう。
+CSS の書き方を学び、「World」の文字を赤くしてみましょう。
 
 ![Hello World!](./red-hello-world.png)
 
-## <Term type="css">CSS</Term> の書き方
-
-### <Term type="css">CSS</Term> ファイルを作成する
+## <Term type="css">CSS</Term> ファイルを作成する
 
 CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 
 ![CSSを書き始める](./begin-css.png)
 
 次の例では、`Hello World` の `World` の部分を赤色にしています。
+
 ```html title="index.html"
 <!doctype html>
 <html lang="ja">
@@ -37,15 +36,17 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
   </body>
 </html>
 ```
+
 ```css title="style.css"
 #world {
   color: red;
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/red-hello-world" />
 
 
-### `link` 要素
+## `link` 要素
 
 ```html title="index.html"
 <link rel="stylesheet" href="style.css" />
@@ -53,7 +54,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 まず注目すべきは `link` 要素です。HTML で、`link` 要素を用いることにより、外部の CSS ファイルを読み込ませることができます。
 
-### セレクタとID
+## セレクタとID
 
 
 CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、 <code>index.html</code> の 9行目) 
@@ -82,7 +83,7 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 
 セレクタを上手に活用すると、変更に強くて柔軟な CSS を作成することができます。
 
-### <Term type="cssProperty">プロパティ</Term>とプロパティ値
+## <Term type="cssProperty">プロパティ</Term>とプロパティ値
 
 いよいよ仕上げです。
 
@@ -143,9 +144,9 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 :::
 
+## 課題
 
-
-## 初級課題1
+### 初級課題1
 
 次のような条件を満たす要素を選択するセレクタは何でしょうか。
 
@@ -160,7 +161,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 </Answer>
 
 
-## 初級課題2
+### 初級課題2
 
 下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
 
@@ -194,7 +195,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 </Answer>
 
-## 中級課題
+### 中級課題
 
 画像のようなシンプルなボックスを作ってみましょう。
 
