@@ -95,7 +95,7 @@ Hello <strong id="world">World</strong>!
 }
 ```
 
-CSSの波括弧{}内に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
+CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
