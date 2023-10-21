@@ -6,7 +6,11 @@ import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
-多くの<Term type="element">HTML 要素</Term>は、<Term type="css">CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
+今まではHTMLとJavaScriptを勉強してきました。今回はWeb開発で用いられるもう一つの言語、CSSについて学びましょう。多くの<Term type="element">HTML 要素</Term>は、<Term type="css">CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
+
+![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
+
+
 CSSの書き方を勉強して、`World`の文字を赤くしてみましょう。
 ![Hello World!](./red-hello-world.png)
 ## <Term type="css">CSS</Term>の書き方
@@ -37,7 +41,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 
 
-### link属性
+### link要素
 
 ```html title="index.html"
 <link rel="stylesheet" href="style.css" />
