@@ -12,14 +12,18 @@ import ViewSource from "@site/src/components/ViewSource";
 
 
 CSS の書き方を学び、`World`の文字を赤くしてみましょう。
+
 ![Hello World!](./red-hello-world.png)
+
 ## <Term type="css">CSS</Term> の書き方
 
 ### <Term type="css">CSS</Term> ファイルを作成する
 
 CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
+
 ![CSSを書き始める](./begin-css.png)
-次の例では、<code>Hello World</code> の <code>World</code> の部分を赤色にしています。
+
+次の例では、`Hello World` の `World` の部分を赤色にしています。
 ```html title="index.html"
 <!doctype html>
 <html lang="ja">
@@ -41,22 +45,22 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 <ViewSource url={import.meta.url} path="_samples/red-hello-world" />
 
 
-### <code>link</code> 要素
+### `link` 要素
 
 ```html title="index.html"
 <link rel="stylesheet" href="style.css" />
 ```
 
-まず注目すべきは `link` 要素です。HTML で、`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
+まず注目すべきは `link` 要素です。HTML で、`link` 要素を用いることにより、外部の CSS ファイルを読み込ませることができます。
 
 ### セレクタとID
 
 
-外部のファイルに記述された CSS では、その CSS を適用する要素を明示的に指定する必要があります。準備として、まず CSS を適用したい HTML 要素にIDを付けます。(上の例では、 <code>index.html</code> の 9行目) 
+CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、 <code>index.html</code> の 9行目) 
 
 ![セレクタ](selector.png)
 
-そして、CSS 側に書くのが **セレクタ**です。上の例では 、 <code>style.css</code> 1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
+そして、CSS 側に書くのが **セレクタ**です。上の例では、 <code>style.css</code> 1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
 
 `id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
 
@@ -103,12 +107,13 @@ CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</
 
 <ViewSource url={import.meta.url} path="_samples/first-css" />
 
-このプログラムを実行すると分かるとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
+このプログラムを実行すると、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
-しかし、 <code>style</code> 属性で HTML と CSS をごちゃ混ぜに書くよりも、 HTML は「構造」、 CSS は「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+しかし、 <code>style</code> 属性を用いて HTML と CSS を1つのファイルに混合するよりも、「構造」のファイル (HTML) 、「スタイル」のファイル (CSS) と役割をはっきり分離させたほうが、コードの可読性が上がり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 :::
 
 ## 複数のプロパティ
+
 ```css title="style.css"
 #element {
   color: red;
@@ -158,7 +163,9 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 ## 初級課題2
 
 下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
+
 ![Hello CSS!](yellow-hello-css.png)
+
 使用するプロパティは `color`  `background-color` です。
 
 <Answer>
