@@ -180,13 +180,13 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
     <title>Title</title>
   </head>
   <body>
-    <div id="div">Hello CSS!</div>
+    <div id="greeting">Hello CSS!</div>
   </body>
 </html>
 ```
 
 ```css title="style.css"
-#div {
+#greeting {
   color: yellow;
   background-color: black;
 }
