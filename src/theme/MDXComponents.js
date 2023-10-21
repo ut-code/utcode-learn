@@ -1,12 +1,12 @@
-import React from "react"; // idk if I really need it here, but docusaurus had it so I won't be deleting it until I understand everything
-// Import the original mapper
+import React from "react";
 import MDXComponents from "@theme-original/MDXComponents";
 
 /* 
+
 This JS file is automatically imported on every page
-Paste your custom component here, and you can use it everywhere.
 
 cf. https://docusaurus.io/docs/markdown-features/react#mdx-component-scope
+
 */
 
 // libraries
