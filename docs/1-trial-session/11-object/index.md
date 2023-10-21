@@ -12,15 +12,8 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 
 <Term type="javascriptObject">オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term type="javascriptValue">値</Term>を複数まとめて一つの<Term type="javascriptValue">値</Term>として扱うことができます。
 
-今まで扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term strong type="javascriptPrimitive">プリミティブ</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
 
-![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
 
-:::tip ほかの言語の経験者へ
-
-JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
-
-:::
 
 ## オブジェクトの作成
 
@@ -31,6 +24,12 @@ const person = { name: "田中", age: 18 };
 ```
 
 ![プロパティ](properties.png)
+
+:::tip ほかの言語の経験者へ
+
+JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
+
+:::
 
 <p><Term type="javascriptObject">オブジェクト</Term>の中に<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。</p>
 
@@ -56,7 +55,59 @@ person.age += 1;
 document.write(person.age);
 ```
 
+:::tip プロパティの追加
+プロパティは取得や変更のほかに、追加もできます。
+
+```javascript
+person.favoriteFood = "餃子";
+document.write(person.favoriteFood);
+// 餃子
+```
+
+:::
+
+この章よりも前に扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term strong type="javascriptPrimitive">プリミティブ</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
+
+![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
+
+
 ## 課題
+
+### 初級課題
+
+田中さんを表すオブジェクトを定義します。
+
+```javascript
+const tanaka = {
+  name: "田中",
+  scores: { math: 90, science: 80 },
+};
+```
+
+1.田中さんの算数の点数を表示してみましょう。
+
+2.scoresに国語の点数を追加して、表示してみましょう。
+<Answer>
+
+```javascript title="1の解答"
+document.write(tanaka.scores.math);
+```
+
+<ViewSource url={import.meta.url} path="_samples/viewMathScore" />
+
+```javascript title="2の解答"
+tanaka.scores.japanese = 50;
+document.write(tanaka.scores.japanese);
+```
+
+<ViewSource url={import.meta.url} path="_samples/editAndViewJapaneseScore" />
+
+
+2はプロパティの追加を利用しています。
+
+</Answer>
+
+### 中級課題
 
 <p><Term type="javascriptObject">オブジェクト</Term>も<Term type="javascriptValue">値</Term>の一種なので、<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">引数</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。</p>
 
