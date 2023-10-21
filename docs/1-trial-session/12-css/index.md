@@ -150,14 +150,14 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ## 課題
 
-### 初級課題1
+### 初級課題1 (セレクタ)
 
 次のような条件を満たす要素を選択するセレクタは何でしょうか。
 
 1. `id` 属性が `foo` の要素
 2. `class` 属性に `bar` が含まれる要素の子孫の要素のうち、`button` 要素であるもの
 
-<Answer>
+<Answer title="セレクタ">
 
 1. `#foo`
 2. `.bar button`
@@ -165,7 +165,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 </Answer>
 
 
-### 初級課題2
+### 初級課題2 (Hello CSS!)
 
 下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
 
@@ -173,7 +173,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 使用するプロパティは `color`  `background-color` です。
 
-<Answer>
+<Answer title="Hello CSS!">
 
 ```html title="index.html"
 <!doctype html>
