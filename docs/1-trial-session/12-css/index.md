@@ -57,6 +57,7 @@ Hello <strong id="world">World</strong>!
 
 ```css title="style.css"
 #world {
+  指定する見た目;
 }
 ```
 
