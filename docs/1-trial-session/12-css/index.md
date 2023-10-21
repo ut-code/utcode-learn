@@ -47,23 +47,16 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 <link rel="stylesheet" href="style.css" />
 ```
 
-まず注目すべきは `link` 要素です。HTML ファイルで、`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
+まず注目すべきは `link` 要素です。HTML で、`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
 
 ### セレクタとID
 
-```html title="index.html"
-Hello <strong id="world">World</strong>!
-```
 
-```css title="style.css"
-#world {
-  指定する見た目;
-}
-```
+外部のファイルに記述された CSS では、その CSS を適用する要素を明示的に指定する必要があります。準備として、まず CSS を適用したい HTML 要素にIDを付けます。(上の例では、 <code>index.html</code> の 9行目) 
 
-外部のファイルに記述された CSS では、その CSS を適用する要素を明示的に指定する必要があります。
 ![セレクタ](selector.png)
-このために用いるのが **セレクタ**です。上の例では `#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
+
+そして、CSS 側に書くのが **セレクタ**です。上の例では 、 <code>style.css</code> 1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
 
 `id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
 
@@ -83,9 +76,9 @@ Hello <strong id="world">World</strong>!
 | `#parent .child` | `id` 属性が `parent` である要素の子孫の、`class` 属性に `child` が含まれる要素 |
 | `#parent > div`  | `id` 属性が `parent` である要素の直属の子の `div` 要素                         |
 
-セレクタを上手に活用すると、HTML を最小限必要なものに抑えながら、変更に強くて柔軟な CSS を作成することができます。
+セレクタを上手に活用すると、変更に強くて柔軟な CSS を作成することができます。
 
-### <Term strong type="cssProperty">プロパティ</Term>とプロパティ値
+### <Term type="cssProperty">プロパティ</Term>とプロパティ値
 
 いよいよ仕上げです。
 
@@ -102,7 +95,7 @@ CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</
 これで、`Hello World!`の`World`の文字が赤くなりました。
 
 :::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
-`style.css`を作らずとも、 HTML ファイル内に直接 CSS を書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
+`style.css`を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
 
 ```html title="index.html"
 <p style="color: red">Hello CSS!</p>
@@ -110,9 +103,9 @@ CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</
 
 <ViewSource url={import.meta.url} path="_samples/first-css" />
 
-「このプログラムを実行する」を押すと分かるとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
+このプログラムを実行すると分かるとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
-しかし、この方法では HTML 要素に逐一 CSS を書きこむ必要があるため、 HTML が大きくなると大変になります。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。また、 HTML は「構造」、 CSS は「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+しかし、 <code>style</code> 属性で HTML と CSS をごちゃ混ぜに書くよりも、 HTML は「構造」、 CSS は「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 :::
 
 ## 複数のプロパティ
@@ -164,7 +157,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ## 初級課題2
 
-下のような、文字色が黄色、背景色が好きな色(この例では黒)の `Hello CSS!` をブラウザで表示してみましょう。
+下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
 ![Hello CSS!](yellow-hello-css.png)
 使用するプロパティは `color`  `background-color` です。
 
