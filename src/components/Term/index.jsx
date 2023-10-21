@@ -24,7 +24,7 @@ export default function Term({ type, strong = false, children }) {
   // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
   if (
     typeof window === "object" &&
-    referencePage != undefined &&
+    term.referencePage != undefined &&
     referencePageTitle === undefined
   ) {
     throw new Error(
