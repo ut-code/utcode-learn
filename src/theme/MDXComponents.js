@@ -14,8 +14,6 @@ import Details from "@theme/Details";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-// what's codeblock and why is it imported EVERYWHERE?
-//  i only find one being used in team-dev/fixing-conflict
 
 /*-------------------------------------------
 |                EDIT HERE                  |
