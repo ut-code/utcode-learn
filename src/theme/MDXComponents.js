@@ -9,7 +9,7 @@ Paste your custom component here, and you can use it everywhere.
 cf. https://docusaurus.io/docs/markdown-features/react#mdx-component-scope
 */
 
-// libraries here
+// libraries
 import Details from "@theme/Details";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -26,16 +26,12 @@ export default {
   // Re-use the default mapping
   ...MDXComponents,
 
-  // export Libs
+  // export libraries
   Details,
   Tabs,
   TabItem,
   CodeBlock,
 
-  /*-------------------------------------------
-  |                EDIT HERE                  |
-  |  export your custom components down here  |
-  -------------------------------------------*/
   // export custom Components
   Answer,
   Term,
