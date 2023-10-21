@@ -100,6 +100,7 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
 これで、`Hello World!`の`World`の文字が赤くなりました。
+
 :::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
 `style.css`を作らずとも、HTMLファイル内に直接CSSを書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
 
@@ -113,6 +114,37 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 
 しかし、この方法ではHTML要素に逐一CSSを書きこむ必要があるため、HTMLが大きくなると大変になります。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。また、HTMLは「構造」、CSSは「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 :::
+
+## 複数のプロパティ
+```css title="style.css"
+#element {
+  color: red;
+  font-size: 30px;
+}
+```
+
+複数の<Term type="cssProperty">プロパティ</Term>を指定する場合には、上のように `プロパティ: プロパティ値;` の組を並べて記述します。セミコロンの指定が必要であることに注意してください。
+
+CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾)等、数えきれないほどの種類が定義されています。
+
+:::tip どうやって調べたらいいの？
+
+プログラミングを始めたての間は、分からないことがあったときにどのように調べたら良いのか戸惑うことが多いと思います。そんなときは、次のような手順で調べてみましょう。例として、「文字を赤くする方法」を調べてみます。
+
+#### 1. タスクを細かく分割する
+
+現在持ち合わせている知識をもとに、やりたいことを可能な限り細かく分割します。「文字を赤くする」であれば、見た目に関することなので CSS を使えばいいのだろうと想像がつきます。加えて、色の指定方法について調べてみるとよいでしょう。
+
+#### 2. Google で検索してみる
+
+「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。Slackでどんどん質問しましょう。
+
+#### 3. 周辺知識を信頼できる情報源で調べる
+
+見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+
+:::
+
 
 
 ## 初級課題1
@@ -130,23 +162,10 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 </Answer>
 
 
-## CSSのプロパティ
-
-```css title="style.css"
-#element {
-  color: red;
-  font-size: 30px;
-}
-```
-
-複数の<Term type="cssProperty">プロパティ</Term>を指定する場合には、上のように `プロパティ: プロパティ値;` の組を並べて記述します。セミコロンの指定が必要であることに注意してください。
-
-CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾)等、数えきれないほどの種類が定義されています。
-
 ## 初級課題2
 
-下のような、文字色が緑、背景色が好きな色(この例では黒)の`Hello CSS!`をブラウザで表示してみましょう。
-![Hello CSS!](green-hello-css.png)
+下のような、文字色が黄色、背景色が好きな色(この例では黒)の`Hello CSS!`をブラウザで表示してみましょう。
+![Hello CSS!](yellow-hello-css.png)
 使用するプロパティは`color` `background-color`です。
 
 <Answer>
@@ -167,30 +186,12 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ```css title="style.css"
 #div {
-  color: green;
+  color: yellow;
   background-color: black;
 }
 ```
 
 </Answer>
-
-:::tip どうやって調べたらいいの？
-
-プログラミングを始めたての間は、分からないことがあったときにどのように調べたら良いのか戸惑うことが多いと思います。そんなときは、次のような手順で調べてみましょう。例として、「文字を赤くする方法」を調べてみます。
-
-#### 1. タスクを細かく分割する
-
-現在持ち合わせている知識をもとに、やりたいことを可能な限り細かく分割します。「文字を赤くする」であれば、見た目に関することなので CSS を使えばいいのだろうと想像がつきます。加えて、色の指定方法について調べてみるとよいでしょう。
-
-#### 2. Google で検索してみる
-
-「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。Slackでどんどん質問しましょう。
-
-#### 3. 周辺知識を信頼できる情報源で調べる
-
-見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
-
-:::
 
 ## 中級課題
 
