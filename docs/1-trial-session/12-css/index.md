@@ -6,16 +6,16 @@ import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
-今まではHTMLとJavaScriptを勉強してきました。今回はWeb開発で用いられるもう一つの言語、CSSについて学びましょう。多くの<Term type="element">HTML 要素</Term>は、<Term type="css">CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
+今までは HTML と JavaScript を勉強してきました。今回は Web 開発で用いられるもう一つの言語、CSS について学びましょう。CSS は Web サイトの「見た目」をつかさどる言語です。多くの <Term type="element">HTML 要素</Term> は、 <Term type="css">CSS</Term> を用いることで、その見た目を細かくカスタマイズすることができます。
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
 
-CSSの書き方を勉強して、`World`の文字を赤くしてみましょう。
+CSS の書き方を勉強して、`World`の文字を赤くしてみましょう。
 ![Hello World!](./red-hello-world.png)
-## <Term type="css">CSS</Term>の書き方
+## <Term type="css">CSS</Term> の書き方
 
-### <Term type="css">CSS</Term>用のファイルを作成する
+### <Term type="css">CSS</Term> ファイルを作成する
 
 CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 ![CSSを書き始める](./begin-css.png)
@@ -41,13 +41,13 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 
 
-### link要素
+### <code>link</code> 要素
 
 ```html title="index.html"
 <link rel="stylesheet" href="style.css" />
 ```
 
-まず注目すべきは `link` 要素です。HTMLファイルで、`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
+まず注目すべきは `link` 要素です。HTML ファイルで、`link` 要素の `href` 属性を指定することにより、外部の CSS ファイルを読み込ませることができます。
 
 ### セレクタとID
 
@@ -95,14 +95,14 @@ Hello <strong id="world">World</strong>!
 }
 ```
 
-CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
+CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
 これで、`Hello World!`の`World`の文字が赤くなりました。
 
 :::tip HTMLの<Term type="styleAttribute">`style` 属性</Term>
-`style.css`を作らずとも、HTMLファイル内に直接CSSを書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
+`style.css`を作らずとも、 HTML ファイル内に直接 CSS を書き込むこともできます。例えば、`p` <Term type="element">要素</Term>の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定します。
 
 ```html title="index.html"
 <p style="color: red">Hello CSS!</p>
@@ -112,7 +112,7 @@ CSSの<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</T
 
 「このプログラムを実行する」を押すと分かるとおり、<Term type="styleAttribute">style 属性</Term>を指定した<Term type="element">要素</Term>内のテキストが赤色で表示されます。
 
-しかし、この方法ではHTML要素に逐一CSSを書きこむ必要があるため、HTMLが大きくなると大変になります。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。また、HTMLは「構造」、CSSは「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+しかし、この方法では HTML 要素に逐一 CSS を書きこむ必要があるため、 HTML が大きくなると大変になります。このため、CSS をすべて<Term type="styleAttribute">`style` 属性</Term>で記述するのは現実的ではありません。数が多すぎて、見通しが悪くなってしまうからです。また、 HTML は「構造」、 CSS は「スタイル」と役割をはっきり分離させておけば、コードの可読性が上がったり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 :::
 
 ## 複数のプロパティ
@@ -137,7 +137,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 #### 2. Google で検索してみる
 
-「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。Slackでどんどん質問しましょう。
+「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。 Slack でどんどん質問しましょう。
 
 #### 3. 周辺知識を信頼できる情報源で調べる
 
@@ -164,9 +164,9 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ## 初級課題2
 
-下のような、文字色が黄色、背景色が好きな色(この例では黒)の`Hello CSS!`をブラウザで表示してみましょう。
+下のような、文字色が黄色、背景色が好きな色(この例では黒)の `Hello CSS!` をブラウザで表示してみましょう。
 ![Hello CSS!](yellow-hello-css.png)
-使用するプロパティは`color` `background-color`です。
+使用するプロパティは `color`  `background-color` です。
 
 <Answer>
 
