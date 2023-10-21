@@ -4,7 +4,9 @@ import MDXComponents from "@theme-original/MDXComponents";
 
 /* 
 This JS file is automatically imported on every page
-Paste your custom component here, and you can use it everywhere!
+Paste your custom component here, and you can use it everywhere.
+
+cf. https://docusaurus.io/docs/markdown-features/react#mdx-component-scope
 */
 
 // Write down Libraries here
@@ -17,7 +19,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 /*-------------------------------------------
 |                EDIT HERE                  |
-|  import your custom components down here! |
+|  import your custom components down here  |
 -------------------------------------------*/
 import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
