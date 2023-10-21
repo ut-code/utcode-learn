@@ -15,7 +15,7 @@ JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の
 
 
 
-## オブジェクトの作成
+## <Term type="javascriptObject">オブジェクト</Term>の作成
 
 <Term type="javascriptObject">オブジェクト</Term>は、複数の<Term strong type="javascriptProperty" strong>プロパティ</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
 
@@ -66,10 +66,13 @@ document.write(person.favoriteFood);
 
 :::
 
+:::note <Term type="javascriptObject">オブジェクト</Term>と「プリミティブ」
+
 この章よりも前に扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term strong type="javascriptPrimitive">プリミティブ</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
 
 ![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
 
+:::
 
 ## 課題
 
@@ -84,10 +87,11 @@ const tanaka = {
 };
 ```
 
-1.田中さんの算数の点数を表示してみましょう。
+1. 田中さんの算数の点数を表示してみましょう。
 
-2.scoresに国語の点数を追加して、表示してみましょう。
-<Answer>
+2. `scores` に国語の点数を追加して、表示してみましょう。
+
+<Answer title="成績表示">
 
 ```javascript title="1の解答"
 document.write(tanaka.scores.math);
