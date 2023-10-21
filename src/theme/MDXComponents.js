@@ -9,16 +9,13 @@ Paste your custom component here, and you can use it everywhere.
 cf. https://docusaurus.io/docs/markdown-features/react#mdx-component-scope
 */
 
-// Write down Libraries here
+// libraries here
 import Details from "@theme/Details";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-/*-------------------------------------------
-|                EDIT HERE                  |
-|  import your custom components down here  |
--------------------------------------------*/
+// custom components
 import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
