@@ -6,12 +6,14 @@ import Details from "@theme/Details";
  */
 export default function Answer({ title = undefined, children }) {
   return (
-    <Details
-      summary={
-        title ? <summary>解答例: {title}</summary> : <summary>解答例</summary>
-      }
-    >
-      {children}
-    </Details>
+    <p>
+      <Details
+        summary={
+          title ? <summary>解答例: {title}</summary> : <summary>解答例</summary>
+        }
+      >
+        {children}
+      </Details>
+    </p>
   );
 }

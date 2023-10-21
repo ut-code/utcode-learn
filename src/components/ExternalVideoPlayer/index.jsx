@@ -7,13 +7,15 @@ import styles from "./styles.module.css";
  */
 export default function ExternalVideoPlayer({ src }) {
   return (
-    <div className={styles.root}>
-      <iframe
-        className={styles.iframe}
-        src={src}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    </div>
+    <p>
+      <div className={styles.root}>
+        <iframe
+          className={styles.iframe}
+          src={src}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </p>
   );
 }

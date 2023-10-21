@@ -26,27 +26,29 @@ export default function ViewSource({ url, path, noCodeSandbox }) {
     `https://githubbox.com/ut-code/utcode-learn/tree/${commitRef}/${basePath}`,
   );
   return (
-    <div className={styles.root}>
-      <a
-        className={clsx("button button--secondary", styles.button)}
-        target="_blank"
-        rel="noopener"
-        href={gitHubUrl.toString()}
-      >
-        <SiGithub className={styles.icon} />
-        GitHub で表示
-      </a>
-      {!noCodeSandbox && (
+    <p>
+      <div className={styles.root}>
         <a
-          className={clsx("button button--primary", styles.button)}
+          className={clsx("button button--secondary", styles.button)}
           target="_blank"
           rel="noopener"
-          href={codeSandboxUrl.toString()}
+          href={gitHubUrl.toString()}
         >
-          このプログラムを実行する
-          <BiLinkExternal className={styles.icon} />
+          <SiGithub className={styles.icon} />
+          GitHub で表示
         </a>
-      )}
-    </div>
+        {!noCodeSandbox && (
+          <a
+            className={clsx("button button--primary", styles.button)}
+            target="_blank"
+            rel="noopener"
+            href={codeSandboxUrl.toString()}
+          >
+            このプログラムを実行する
+            <BiLinkExternal className={styles.icon} />
+          </a>
+        )}
+      </div>
+    </p>
   );
 }
