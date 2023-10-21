@@ -23,7 +23,7 @@ export default {
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
     "/docs/browser-apps/anonymous-function/": "無名関数",
-    "/docs/advanced/css/": "高度な CSS",
+    "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
     "/docs/browser-apps/git-github/": "Git と GitHub",
     "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
     "/docs/web-servers/node-js/": "はじめての Node.js",
