@@ -7,13 +7,35 @@ import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 
 多くの<Term type="element">HTML 要素</Term>は、<Term type="css">CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
+CSSの書き方を勉強して、`World`の文字を赤くしてみましょう。
+![Hello World!](./red-hello-world.png)
+## <Term type="css">CSS</Term>の書き方
 
-## <Term type="css">CSS</Term>用のファイルを作成する
+### <Term type="css">CSS</Term>用のファイルを作成する
 
-CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。CSSの書き方を勉強して、`World`の文字を赤くしてみましょう。先に完成コードを下に示しておきます。
+CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
 ![CSSを書き始める](./begin-css.png)
+先に完成コードを示しておきます。
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Title</title>
+  </head>
+  <body>
+    Hello <strong id="world">World</strong>!
+  </body>
+</html>
+```
+```css title="style.css"
+#world {
+  color: red;
+}
+```
 
-## CSSの書き方
+
 
 ### link属性
 
@@ -26,7 +48,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 ### セレクタとID
 
 ```html title="index.html"
-Hello, <strong id="world">World</strong>!
+Hello <strong id="world">World</strong>!
 ```
 
 ```css title="style.css"
@@ -72,8 +94,8 @@ CSSの波括弧{}内に、<Term strong type="cssProperty">プロパティ</Term>
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
-これで、`Hello, World!`の`World`の文字が赤くなりました。
-![Hello, World!](./red-hello-world.png)
+これで、`Hello World!`の`World`の文字が赤くなりました。
+
 
 ## 初級課題1
 
@@ -118,8 +140,8 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ## 初級課題2
 
-下のような、文字色が緑、背景色が好きな色(この例では黒)の`Hello, CSS!`をブラウザで表示してみましょう。
-![Hello, CSS!](green-hello-css.png)
+下のような、文字色が緑、背景色が好きな色(この例では黒)の`Hello CSS!`をブラウザで表示してみましょう。
+![Hello CSS!](green-hello-css.png)
 使用するプロパティは`color` `background-color`です。
 
 <Answer>
