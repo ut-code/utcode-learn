@@ -10,7 +10,6 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
-
 CSS の書き方を学び、「World」の文字を赤くしてみましょう。
 
 ![Hello World!](./red-hello-world.png)
@@ -45,7 +44,6 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 <ViewSource url={import.meta.url} path="_samples/red-hello-world" />
 
-
 ## `link` 要素
 
 ```html title="index.html"
@@ -56,8 +54,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 ## セレクタとID
 
-
-CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、 <code>index.html</code> の 9行目) 
+CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、 <code>index.html</code> の 9行目)
 
 ![セレクタ](selector.png)
 
@@ -164,14 +161,13 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 </Answer>
 
-
 ### 初級課題2 (Hello CSS!)
 
 下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
 
 ![Hello CSS!](yellow-hello-css.png)
 
-使用するプロパティは `color`  `background-color` です。
+使用するプロパティは `color`、`background-color` です。
 
 <Answer title="Hello CSS!">
 
@@ -195,6 +191,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
   background-color: black;
 }
 ```
+
 <ViewSource url={import.meta.url} path="_samples/yellow-hello-css" />
 
 </Answer>
