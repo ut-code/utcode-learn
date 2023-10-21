@@ -233,34 +233,3 @@ document.write(`<p>空の配列の最大値は ${findMaxNumber([])} です。</p
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
 </Answer>
-
-<!-- オブジェクトはまだ扱っていないためコメントアウト
-## 配列とオブジェクト
-
-配列はオブジェクトの一種です。しかしながら、JavaScript のオブジェクトとは、[オブジェクトの節](../../1-trial-session/11-object/index.md)で扱ったように、プロパティ名とプロパティ値の組み合わせでした。
-
-配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
-
-![配列のプロパティ](./array-properties.png)
-
-逆に、その他のオブジェクトも配列と同じように使用することができます。この記法を**ブラケット記法**と呼び、プログラムの動作に応じて使用したいプロパティを切り替えるのに役立ちます。
-
-```javascript
-const subject = "math"; // ここを変えると表示される教科が変わる
-const scores = { math: 90, science: 80 };
-document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
-```
-
-:::tip オブジェクトのプロパティ
-
-オブジェクトのプロパティに数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
-
-答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
-
-```javascript
-const studentNames = ["田中", "佐藤", "鈴木"];
-document.write(studentNames["0"]); // 田中
-```
-
-:::
--->
