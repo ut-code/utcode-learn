@@ -377,8 +377,8 @@ function wait(time) {
 function assertEven(number) {
   return new Promise((resolve, reject) => {
     wait(1000).then(() => {
-      if (number % 2 === 0) resolve(number);
-      else reject(number);
+      if (number % 2 === 0) resolve(` ${number} can be divided by two!`);
+      else reject(` ${number} cannot be divided by two!`);
     });
   });
 }
@@ -387,11 +387,11 @@ function render(number) {
   return assertEven(number)
     .then((result) => {
       console.log("-----------------------------");
-      console.log(` ${result} can be divided by two!`);
+      console.log(result);
     })
     .catch((error) => {
       console.log("-----------------------------");
-      console.log(` ${error} cannot be divided by two!`);
+      console.log(error);
     })
     .finally(() => {
       console.log("-----------------------------");
@@ -409,7 +409,7 @@ main();
 
 ### 別解
 
-`await`、`async` を用いてこのように書くこともできます。
+`await`、`async` を用いると、このように書くこともできます。
 
 ```js
 function wait(time) {
@@ -420,17 +420,18 @@ function wait(time) {
 
 async function assertEven(number) {
   await wait(1000);
-  return number % 2 === 0;
+  if (number % 2 === 0) return ` ${number} can be divided by two!`;
+  else throw ` ${number} cannot be divided by two!`;
 }
 
 async function render(number) {
   try {
-    const result = assertEven(number);
+    const result = await assertEven(number);
     console.log("-----------------------------");
-    console.log(` ${result} can be divided by two!`);
+    console.log(result);
   } catch (error) {
     console.log("-----------------------------");
-    console.log(` ${error} cannot be divided by two!`);
+    console.log(error);
   } finally {
     console.log("-----------------------------");
   }
