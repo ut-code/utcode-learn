@@ -1,11 +1,9 @@
 ---
-title: 非同期処理 (発展)
+title: 非同期処理
 description: await、async と Promise オブジェクト
 ---
 
 <!--
-
-TODO: Answer追加
 FIXME LATER: import削除
 -->
 
@@ -105,6 +103,22 @@ async myFunction() {
 
 :::
 
+:::caution
+`await` は `async` キーワードをつけた関数内部でしか適用できないため、関数以外では使用できません。
+上記のように関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
+
+```js
+(async () => {
+  console.log("Start");
+  const myWord = await myPromise(10);
+  console.log("End");
+  console.log(myWord);
+})();
+```
+
+(※実行環境によっては、top-level await といって関数にしなくても `await` をできることがあります)
+:::
+
 ## 並列の<Term type="asynchronousProcess">非同期処理</Term>
 
 これで並列処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を同時に計算できるはずです！
@@ -158,10 +172,10 @@ async function PromiseAll() {
   }
 
   // 配列を 数字 -> myPromise(数字) に map する
-  array.map((x) => myPromise(x));
+  const promiseArray = array.map((x) => myPromise(x));
 
   // await Promise.all(配列) とする
-  const result = await Promise.all(array);
+  const result = await Promise.all(promiseArray);
 
   // ここに結果を使う処理を書くことができる
   // 例: コンソールに表示する
@@ -170,36 +184,21 @@ async function PromiseAll() {
 PromiseAll();
 ```
 
-とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理をひとつにまとめることができるので、それを `await` します。
+とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理をひとつにまとめることができるので、それを `await` すると処理の結果の配列を得ることができます。
 
 :::tip
 
 #### staticメソッド
 
-`Promise.all` は、クラスの章で扱った「メソッド」です。
+`Promise.all` は、[クラスの章](/docs/browser-apps/class/)で扱った「メソッド」です。
 オブジェクトのインスタンスではなくクラスから呼び出しているので、違和感をおぼえるかもしれません。
 これは `static` メソッドと言って、各インスタンスではなくクラスに直接紐づいているメソッドです。
 ここでは重要ではないので、詳しくは [MDN](https://developer.mozilla.org/ja/docs/Glossary/Static_method) を参照してください。
 :::
 
-:::caution
-`await` は `async` キーワードをつけた関数内部でしか適用できないため、関数以外では使用できません。
-上記のように関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
-
-```js
-(async () => {
-  console.log("Start");
-  const myWord = await myPromise(10);
-  console.log("End");
-  console.log(myWord);
-})();
-```
-
-:::
-
 :::info 並列処理と非同期処理の違い
 並列処理と非同期処理はよく混同されがちですが、全くの別物です。
-並列処理がコンピューター内部で複数のスレッドを同時に動かして、計算量が大きく負荷のかかる処理を高速に行うことであるのに対し、非同期処理はファイルの読み書き、インターネットへのアクセスなどのスレッド外の処理の待ち時間に別の処理をすることです。
+並列処理がコンピューター内部で複数のCPUスレッドを同時に動かして、計算量が大きく負荷のかかる処理を高速に行うことであるのに対し、非同期処理はファイルの読み書き、インターネットへのアクセスなどのスレッド外の処理の待ち時間の間に別の処理をすることです。
 
 ![並列処理と非同期処理の画像](./async-and-parallel.png)
 
@@ -237,6 +236,8 @@ document.write("接続中...");
 
 </Answer>
 
+---
+
 ## Promise オブジェクト
 
 先ほどのコード
@@ -253,7 +254,9 @@ function myPromise(number) {
 
 をより深く理解してみましょう。
 
-```javascript
+ブラウザの開発者ツール (新規タブでF12を押すと開けます) のコンソール画面で、
+
+```javascript title="Console"
 function myPromise(number) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -266,23 +269,23 @@ const promise = myPromise(10);
 console.log(promise);
 ```
 
-を実行して、コンソールを確認してみましょう。 _`Promise {<pending>}`_ なるものが表示されるはずです。これは何でしょうか？
+を実行して、結果を確認してみましょう。 _`Promise {<pending>}`_ なるものが表示されるはずです。これは何でしょうか？
 
-先ほど「JavaScript外部で時間のかかる処理」と言っていたのは、実は`Promise` オブジェクトを返す処理でした。
+先ほど「JavaScript外部で時間のかかる処理」と言っていたのは、`Promise` オブジェクトを返す処理のことでした。
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
 主に第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
-`Promise` が成功した時には第一引数、失敗した時には第二引数にそれぞれ結果を渡して関数実行されます。
-`resolve` または `reject` 実行時にそれぞれの関数に渡された引数が `PromiseResult` に代入されます。
+`Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数実行されます。
 
-上の例では、「3秒後に `Foo: (数)` として `resolve`する」という操作を `Promise` オブジェクトに渡しています。
+**この `Promise` オブジェクト自体は、コンストラクタを実行するとすぐに生成されます。**
+**実は非同期的に処理されていたのは、 `Promise` オブジェクト内の `resolve`、`reject` です。**
 
-**実はこの `Promise` オブジェクト自体は、非同期処理をする関数を指定した瞬間に生成されます。**
-**非同期的に処理されるのは `Promise` オブジェクト内の `resolve`、`reject` です。**
+上の例では、「3秒後に `Foo: (数)` として `resolve`する」という操作を `Promise` コンストラクタに渡しています。
 
-`Promise`オブジェクトには、処理が終わった際の処理を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
+`Promise`オブジェクトには、処理が終わった後の、次の操作を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
 
 また、`Promise` オブジェクトには、プロミスの状態を表す `PromiseState` プロパティ、プロミスの結果を表す`PromiseResult`が定義されています。
 `PromiseState` プロパティは、`pending` (初期状態)、`fulfilled` (`resolve` が実行された後)、`rejected` (`reject` が実行された後)の 3 種類の値のうち 1 つをとります。
+`PromiseResult` には、`resolve` または `reject` が実行された時にそれぞれの関数に渡された引数が代入されます。
 しかし、この2つのプロパティは 内部プロパティなので、直接アクセスすることはできません。代わりに、これから述べるメソッドを使います。
 
 ## `then` メソッド
@@ -306,7 +309,8 @@ function alwaysSuccess() {
 
 alwaysSuccess()
   .then((result) => console.log(result)); // success! と表示される
-  .then((result) => console.log(result)); // undefined と表示される (1個めの .then で返り値を定義していないため)
+  .then((result) => console.log(result));
+    // undefined と表示される (1個目の .then で返り値を指定していないため)
 ```
 
 ## `catch` メソッド
@@ -324,21 +328,23 @@ alwaysSuccess()
 
 ```js
 /* stringが "success" ならば "Operation Success!" に resolve し、
-  そうでなければ string に reject する Promise を返す関数。 */
+  そうでなければ
+    `Operation failed with string: ${string}`
+      に reject する Promise を返す関数。 */
 function assertSuccess(string) {
   return new Promise((resolve, reject) => {
     if (string === "success") resolve("Operation Success!");
-    else reject(string);
+    else reject(`Operation failed with string: ${string}`);
   });
 }
 
 assertSuccess("success")
   .then((result) => console.log(result)) // Operation Success! と表示される
-  .catch((result) => console.log("Operation failed with string: ", result)); // 何も表示されない
+  .catch((error) => console.log(error)); // 何も表示されない
 
 assertSuccess("bar")
   .then((result) => console.log(result)) // 何も表示されない
-  .catch((result) => console.log("Operation failed with string: ", result));
+  .catch((error) => console.log)(error);
 // Operation failed with string: bar と表示される
 ```
 
@@ -347,6 +353,10 @@ assertSuccess("bar")
 `finally` メソッドは、引数に、引数をとらない関数 (コールバック関数) を 1 つとり、`Promise` オブジェクトの `PromiseState` が `pending` でなくなった後 (`fulfilled` または `reject` になった後)にコールバック関数を実行します。データベースとの接続の切断・ファイルの読み込み停止など、成功・失敗にかかわらず実行する処理に使用します。
 
 `finally` メソッドもまた、新しい `Promise` オブジェクトを返します。
+
+:::info
+上記の 3 つのメソッドは、全て `await`・`async` と、`return` `throw` `try ~ catch` などの一般的な文法要素を用いて書き換えることが可能です。
+:::
 
 ## 練習問題
 
@@ -366,6 +376,44 @@ assertSuccess("bar")
 ```
 
 <Answer title="Assert Even">
+
+```js
+function wait(time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), time);
+  });
+}
+
+async function assertEven(number) {
+  await wait(1000);
+  if (number % 2 === 0) return ` ${number} can be divided by two!`;
+  else throw ` ${number} cannot be divided by two!`;
+}
+
+async function render(number) {
+  try {
+    const result = await assertEven(number);
+    console.log("-----------------------------");
+    console.log(result);
+  } catch (error) {
+    console.log("-----------------------------");
+    console.log(error);
+  } finally {
+    console.log("-----------------------------");
+  }
+}
+
+(async () => {
+  await render(6);
+  await render(5);
+})();
+```
+
+<ViewSource url={import.meta.url} src="./_samples/assert-even-async-await" />
+
+### 別解
+
+`await`、`async` を用いずに、以下のように書くこともできます。
 
 ```js
 function wait(time) {
@@ -398,51 +446,9 @@ function render(number) {
     });
 }
 
-function main() {
-  render(6).then(() => render(5));
-}
-
-main();
+render(6).then(() => render(5)); // await 演算子を使っていないので、即時関数にする必要がない
 ```
 
 <ViewSource url={import.meta.url} src="./_samples/assert-even-promise-method" />
-
-### 別解
-
-`await`、`async` を用いると、このように書くこともできます。
-
-```js
-function wait(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), time);
-  });
-}
-
-async function assertEven(number) {
-  await wait(1000);
-  if (number % 2 === 0) return ` ${number} can be divided by two!`;
-  else throw ` ${number} cannot be divided by two!`;
-}
-
-async function render(number) {
-  try {
-    const result = await assertEven(number);
-    console.log("-----------------------------");
-    console.log(result);
-  } catch (error) {
-    console.log("-----------------------------");
-    console.log(error);
-  } finally {
-    console.log("-----------------------------");
-  }
-}
-
-async function main() {
-  await render(6);
-  await render(5);
-}
-
-main();
-```
 
 </Answer>
