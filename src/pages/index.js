@@ -12,7 +12,7 @@ function Home() {
   return (
     <Layout
       title={`ut.code(); Learn`}
-      description="東京大学のエンジニアリングコミュニティ ut.code(); の公式学習資料です。誰でも自由に利用可能です。"
+      description="東京大学のソフトウェアエンジニアリングコミュニティ ut.code(); の公式学習資料です。誰でも自由に利用可能です。"
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
@@ -32,8 +32,8 @@ function Home() {
         </div>
       </header>
       <main>
-        ut.code(); Learn は、東京大学のエンジニアリングコミュニティ ut.code();
-        の公式学習資料です。誰でも自由に利用可能です。
+        ut.code(); Learn は、東京大学のソフトウェアエンジニアリングコミュニティ
+        ut.code(); の公式学習資料です。誰でも自由に利用可能です。
       </main>
     </Layout>
   );
