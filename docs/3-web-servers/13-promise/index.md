@@ -16,10 +16,10 @@ import ViewSource from "@site/src/components/ViewSource";
 JavaScriptには、データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScriptの処理以外で時間のかかる操作が多数存在します。
 それぞれの処理のたびに処理を止めていては、ウェブサイトの読み込みにとてつもない時間がかかってしまいます。適切に最適化されたウェブサイトは「非同期処理」というものを利用して、読み込み時間を効果的に短縮しています。
 
-JavaScript では、`Promise` オブジェクトというものと、`async`、`await`という特別なキーワードを使うことで関数を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
+JavaScript では、`Promise` オブジェクトと、`async`、`await`というキーワードを使うことで、操作を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
 実際に<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
-次の 2 つのコードを同じJavaScriptファイルにコピーし、`nodejs` で実行してみてください。
+次の 2 つのコードを、`Node.js` で実行してみてください。
 
 ```js title="main.js"
 /* 補足: このコードでは、JavaScript外部での時間のかかる操作を
@@ -46,10 +46,6 @@ myFunction();
 console.log("Doing another work...");
 ```
 
-```shell title="TERMINAL"
-$ node main.js
-```
-
 上のコードを実行すると、コンソールに
 
 ```shell title="OUTPUT"
@@ -59,7 +55,7 @@ End
 Foo: 10
 ```
 
-と表示されるはずです。何が起こっているのでしょうか？
+と出力されます。何が起こっているのでしょうか？
 
 重要なのは、3 行目の
 
@@ -68,8 +64,8 @@ Foo: 10
   const myWord = await myPromise(10);
 ```
 
-です。このように、`await` キーワードを JavaScript 外部で時間のかかる処理につけると、関数の処理の実行を一時停止して、JavaScript外部の処理が終わるまで文字通り「待って」くれます。
-そのため、3 秒後に `Foo: 10` が返り値として返され、コンソールに `End` と `Foo: 10` が表示されます。
+です。このように、`await` キーワードを時間のかかる処理を実行する関数の戻り値に適用すると、親の関数の実行を一時停止して、JavaScript外部の処理が終わるまで文字通り「待って」くれます。
+そのため、3 秒後に式 `await myPromise(10)` が `Foo: 10` になり、コンソールに `End` と `Foo: 10` が表示されます。
 
 もう一つ重要なキーワードが、1 行目の
 
@@ -79,16 +75,16 @@ async function myFunction(){
 ```
 
 の `async` キーワードです。`await` を内部で使う関数は、定義するときに `function` の前に `async` とつけ、「この関数は<Term type="asynchronousProcess">非同期的に処理</Term>する」と宣言する**必要があります**。
-これにより、`myPromise` 関数で処理を一時停止したときにメインスレッドに戻って `Doing another work...` と表示することができます。
+これにより、`myPromise` 関数で処理を一時停止したときにメインの処理に戻って `Doing another work...` と表示することができます。
 
 このようにして、時間のかかる `myPromise` 関数のような処理を<Term type="asynchronousProcess">非同期処理</Term>して、ウェブサイトの読み込みにかかる時間を短縮しています。
 
 :::info
-`await` は、「時間のかかる処理」が解決されるまで現在の非同期関数の実行を一時停止させるキーワードです。
+`await` は、「時間のかかる処理を実行する関数の戻り値」が解決されるまで現在の非同期関数の実行を一時停止させるキーワードです。
 
-ここでいう「時間のかかる処理」というのは、実は `Promise` オブジェクトという値です。 (`Promise` オブジェクトの節で説明します)
+ここでいう「時間のかかる処理を実行する関数の戻り値」というのは、実は `Promise` オブジェクトという値です。 (`Promise` オブジェクトの節で説明します)
 
-そのため、`Promise` オブジェクトを変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数に渡すことも可能です。
+そのため、`Promise` オブジェクトを変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数の引数に指定することも可能です。
 
 ```js
 async myFunction() {
@@ -117,7 +113,7 @@ async myFunction() {
 
 ## 並列の<Term type="asynchronousProcess">非同期処理</Term>
 
-これで非同期処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を同時に計算できるはずです！
+これで非同期処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を非同期的に処理できるはずです！
 
 ```js
 // 以下、myPromise 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
@@ -132,7 +128,7 @@ async function repeatMyPromise() {
 repeatMyPromise();
 ```
 
-このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を並列に<Term type="asynchronousProcess">非同期処理</Term>できません。
+このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を非同期敵に処理できません。
 なぜでしょうか？
 
 これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
@@ -155,7 +151,7 @@ for (let i = 0; i < 10; i++) {
 
 ## `Promise.all`
 
-画面に表示したいだけなら上のように書けば十分ですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
+非同期的に処理した結果を画面に表示したいだけなら上のように書けば十分ですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
 
 そんなときは `Promise.all` 関数を使います。上にある例で例えると、
 
@@ -167,7 +163,7 @@ async function PromiseAll() {
     array.push(i);
   }
 
-  // 配列を 数字 -> myPromise(数字) に map する
+  // 配列を 数値 -> myPromise(数値) に map する
   const promiseArray = array.map((x) => myPromise(x));
 
   // await Promise.all(配列) とする
@@ -192,19 +188,19 @@ PromiseAll();
 ここでは重要ではないので、詳しくは [MDN](https://developer.mozilla.org/ja/docs/Glossary/Static_method) を参照してください。
 :::
 
-:::info 並列処理と非同期処理の違い
+<!-- :::info 並列処理と非同期処理の違い
 並列処理と非同期処理はよく混同されがちですが、全くの別物です。
 並列処理がコンピューター内部で複数のCPUスレッドを同時に動かして、計算量が大きく負荷のかかる処理を高速に行うことであるのに対し、非同期処理はファイルの読み書き、インターネットへのアクセスなどのスレッド外の処理の待ち時間の間に別の処理をすることです。
 
 ![並列処理と非同期処理の画像](./async-and-parallel.png)
 
 この図の緑色の矢印はメインの処理、黄色は別の処理です。
-:::
+::: -->
 
 ## 練習問題
 
 ```js
-function fetchDataFromDatabase() {
+function fetchUserData() {
   return new Promise((resolve, reject) => {
     const user = { name: "田中", age: 18 };
     setTimeout(() => {
@@ -221,7 +217,7 @@ function fetchDataFromDatabase() {
 ```js
 // 上のデータベース実装は省略
 async function showData() {
-  const user = await fetchDataFromDatabase();
+  const user = await fetchUserData();
   document.write(`ユーザーの名前は ${user.name} 、年齢は ${user.age} 歳です。`);
 }
 showData();
@@ -265,21 +261,21 @@ const promise = myPromise(10);
 console.log(promise);
 ```
 
-を実行して、結果を確認してみましょう。 _`Promise {<pending>}`_ なるものが表示されるはずです。これは何でしょうか？
+を実行して、結果を確認してみましょう。 _`Promise {<pending>}`_ と表示されるはずです。これは何でしょうか？
 
 先ほど「JavaScript外部で時間のかかる処理」と言っていたのは、`Promise` オブジェクトを返す処理のことでした。
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
-主に第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
+第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
 `Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数実行されます。
 
 **この `Promise` オブジェクト自体は、コンストラクタを実行するとすぐに生成されます。**
-**実は非同期的に処理されていたのは、 `Promise` オブジェクト内の `resolve`、`reject` です。**
+**実は非同期的に処理されていたのは、 `Promise` オブジェクトに渡されたコールバック関数です。**
 
 上の例では、「3秒後に `Foo: (数)` として `resolve`する」という操作を `Promise` コンストラクタに渡しています。
 
 `Promise`オブジェクトには、処理が終わった後の、次の操作を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
 
-また、`Promise` オブジェクトには、プロミスの状態を表す `PromiseState` プロパティ、プロミスの結果を表す`PromiseResult`が定義されています。
+また、`Promise` クラスには、プロミスの状態を表す `PromiseState` プロパティ、プロミスの結果を表す`PromiseResult`が定義されています。
 `PromiseState` プロパティは、`pending` (初期状態)、`fulfilled` (`resolve` が実行された後)、`rejected` (`reject` が実行された後)の 3 種類の値のうち 1 つをとります。
 `PromiseResult` には、`resolve` または `reject` が実行された時にそれぞれの関数に渡された引数が代入されます。
 しかし、この2つのプロパティは 内部プロパティなので、直接アクセスすることはできません。代わりに、これから述べるメソッドを使います。
