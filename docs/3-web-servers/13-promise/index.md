@@ -16,10 +16,10 @@ import ViewSource from "@site/src/components/ViewSource";
 JavaScriptには、データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScriptの処理以外で時間のかかる操作が多数存在します。
 それぞれの処理のたびに処理を止めていては、ウェブサイトの読み込みにとてつもない時間がかかってしまいます。適切に最適化されたウェブサイトは「非同期処理」というものを利用して、読み込み時間を効果的に短縮しています。
 
-JavaScript では、`Promise` オブジェクトと、`async`、`await`というキーワードを使うことで、操作を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
+JavaScript では、`Promise` オブジェクトというものと、`async`、`await`という特別なキーワードを使うことで関数を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
 実際に<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
-次の 2 つのコードを、`Node.js` で実行してみてください。
+次の 2 つのコードを同じJavaScriptファイルにコピーし、`nodejs` で実行してみてください。
 
 ```js title="main.js"
 /* 補足: このコードでは、JavaScript外部での時間のかかる操作を
