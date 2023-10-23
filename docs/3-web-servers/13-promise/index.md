@@ -6,7 +6,7 @@ description: await、async と Promise オブジェクト
 <!--
 
 TODO: Answer追加
-FIXME: import削除
+FIXME LATER: import削除
 -->
 
 import Term from "@site/src/components/Term";
@@ -112,14 +112,14 @@ async myFunction() {
 ```js
 // 以下、myPromise 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
 
-async function repeatFunction() {
+async function repeatMyPromise() {
   for (let i = 0; i < 10; i += 1) {
     const result = await myPromise(i);
     console.log(result);
   }
 }
 
-repeatFunction();
+repeatMyPromise();
 ```
 
 このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を並列に<Term type="asynchronousProcess">非同期処理</Term>できません。
@@ -128,7 +128,7 @@ repeatFunction();
 これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
 `await` キーワードの時点で処理が一時停止するので、同じ関数の中に`await` を連ねるだけでは結局10個の処理を待つことになってしまいます。
 
-代わりに、このように書くと並列で処理ができます。
+代わりに、このように書くと並列に処理ができます。
 
 ```js
 async function printPromise(number) {
@@ -225,9 +225,9 @@ function fetchDataFromDatabase() {
 
 ```js
 // 上のデータベース実装は省略
-async showData(){
-    const user = await fetchDataFromDatabase();
-    document.write(`ユーザーの名前は ${user.name} 、年齢は ${user.age} 歳です。`);
+async function showData() {
+  const user = await fetchDataFromDatabase();
+  document.write(`ユーザーの名前は ${user.name} 、年齢は ${user.age} 歳です。`);
 }
 showData();
 document.write("接続中...");
@@ -404,6 +404,8 @@ function main() {
 
 main();
 ```
+
+<ViewSource url={import.meta.url} src="./_samples/assert-even-promise-method" />
 
 ### 別解
 
