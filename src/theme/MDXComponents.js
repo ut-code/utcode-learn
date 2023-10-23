@@ -21,7 +21,6 @@ import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 
-// exporting
 export default {
   // Re-use the default mapping
   ...MDXComponents,
