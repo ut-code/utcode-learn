@@ -3,6 +3,12 @@ title: 非同期処理 (発展)
 description: await、async と Promise オブジェクト
 ---
 
+<!--
+
+TODO: Answer追加
+FIXME: import削除
+-->
+
 import Term from "@site/src/components/Term";
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
@@ -19,9 +25,9 @@ JavaScriptでは、データベースへの接続・別のウェブサイトか�
 実は、`Promise` オブジェクトというものと、`async`、`await`という特別なキーワードを使うことで関数を<Term type="asynchronousProcess">非同期的に処理</Term>しています。
 実際に<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
-次の 2 つのコードを同じJavaScriptファイルにコピーしてください。
+次の 2 つのコードを同じJavaScriptファイルにコピーし、`nodejs` で実行してみてください。
 
-```js
+```js title="main.js"
 /* 補足: このコードでは、JavaScript外部での時間のかかる操作を
    再現しています。のちの Promise オブジェクトのセクションで解説するので、
    今理解する必要はありません。 */
@@ -46,12 +52,18 @@ myFunction();
 console.log("Doing another work...");
 ```
 
+```shell title="TERMINAL"
+$ node main.js
+```
+
 上のコードを実行すると、コンソールに
 
-`Start`
-`Doing another work...`
-`End`
-`Foo: 10`
+```shell title="OUTPUT"
+Start
+Doing another work...
+End
+Foo: 10
+```
 
 と表示されるはずです。何が起こっているのでしょうか？
 
@@ -62,7 +74,7 @@ console.log("Doing another work...");
   const myWord = await myPromise(10);
 ```
 
-このように、`await` キーワードを JavaScript 外部で時間のかかる処理につけると、処理の実行を一時停止して、JavaScript外部の処理が終わるまで文字通り「待って」くれます。
+です。このように、`await` キーワードを JavaScript 外部で時間のかかる処理につけると、関数の処理の実行を一時停止して、JavaScript外部の処理が終わるまで文字通り「待って」くれます。
 そのため、3 秒後に `Foo: 10` が返り値として返され、コンソールに `End` と `Foo: 10` が表示されます。
 
 もう一つ重要なキーワードが、1 行目の
@@ -72,12 +84,28 @@ console.log("Doing another work...");
 async function myFunction(){
 ```
 
-の `async` キーワードです。`await` を内部で使う関数は、定義するときに `function` の前に `async` とつけ、「この関数は非同期的に処理する」と宣言する**必要があります。**
-これにより、`myPromise` 関数で処理を一時停止したときにメインスレッドに戻って `Doing another work...` と表示できます。
+の `async` キーワードです。`await` を内部で使う関数は、定義するときに `function` の前に `async` とつけ、「この関数は<Term type="asynchronousProcess">非同期的に処理</Term>する」と宣言する**必要があります**。
+これにより、`myPromise` 関数で処理を一時停止したときにメインスレッドに戻って `Doing another work...` と表示することができます。
 
 このようにして、時間のかかる `myPromise` 関数のような処理を<Term type="asynchronousProcess">非同期処理</Term>して、ウェブサイトの読み込みにかかる時間を短縮しています。
 
-## 並列の非同期処理
+:::info
+`await` は「自身の後ろに来る、時間のかかる処理を別のことをしながら待つ」という演算子です。
+
+ここでいう「時間のかかる処理」も実は値です。 (`Promise` オブジェクトの節で説明します)
+
+そのため、「時間のかかる処理」を変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数に渡すことも可能です。
+
+```js
+async myFunction() {
+  const promise = myPromise(10);
+  console.log(await promise);
+}
+```
+
+:::
+
+## 並列の<Term type="asynchronousProcess">非同期処理</Term>
 
 これで並列処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を同時に計算できるはずです！
 
@@ -94,7 +122,7 @@ async function repeatFunction() {
 repeatFunction();
 ```
 
-このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を並列に処理できません。
+このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を並列に<Term type="asynchronousProcess">非同期処理</Term>できません。
 なぜでしょうか？
 
 これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
@@ -113,11 +141,11 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-`printPromise` 関数は非同期的に処理する と宣言されているため、このように書くことで10個非同期的に処理することが可能になります。
+`printPromise` 関数は 非同期的に処理する と宣言されているため、このように書くことで10個の操作を非同期的に処理することが可能になります。
 
 ## `Promise.all`
 
-画面に表示したいだけなら上のように書けば十分ですが、結果を利用して別の処理を行いたいときもありますよね？
+画面に表示したいだけなら上のように書けば十分ですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
 
 そんなときは `Promise.all` 関数を使います。上にある例で例えると、
 
@@ -244,14 +272,17 @@ console.log(promise);
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
 主に第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
 `Promise` が成功した時には第一引数、失敗した時には第二引数にそれぞれ結果を渡して関数実行されます。
-関数実行時にそれぞれの関数に渡された引数が `PromiseResult` に代入されます。
+`resolve` または `reject` 実行時にそれぞれの関数に渡された引数が `PromiseResult` に代入されます。
 
 上の例では、「3秒後に `Foo: (数)` として `resolve`する」という操作を `Promise` オブジェクトに渡しています。
 
-`Promise`オブジェクトの処理が終わった際の処理を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
+**実はこの `Promise` オブジェクト自体は、非同期処理をする関数を指定した瞬間に生成されます。**
+**非同期的に処理されるのは `Promise` オブジェクト内の `resolve`、`reject` です。**
+
+`Promise`オブジェクトには、処理が終わった際の処理を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
 
 また、`Promise` オブジェクトには、プロミスの状態を表す `PromiseState` プロパティ、プロミスの結果を表す`PromiseResult`が定義されています。
-`PromiseState` プロパティは、`pending`、`fulfilled`、`rejected` の 3 種類の値のうち 1 つをとります。
+`PromiseState` プロパティは、`pending` (初期状態)、`fulfilled` (`resolve` が実行された後)、`rejected` (`reject` が実行された後)の 3 種類の値のうち 1 つをとります。
 しかし、この2つのプロパティは 内部プロパティなので、直接アクセスすることはできません。代わりに、これから述べるメソッドを使います。
 
 ## `then` メソッド
@@ -287,7 +318,7 @@ alwaysSuccess()
 
 `fulfilled` の状態にある `Promise` オブジェクトに `catch` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返します。そのため、`catch` メソッドの後に連続して `then` メソッドを記述することが可能です。
 
-`rejected` になる可能性のある `Promise` オブジェクトの は、`catch` メソッドによってハンドリングされる必要があります。
+`rejected` になる可能性のある `Promise` オブジェクトは、`catch` メソッドによってハンドリングされる必要があります。
 
 例:
 
@@ -337,9 +368,15 @@ assertSuccess("bar")
 <Answer title="Assert Even">
 
 ```js
+function wait(time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), time);
+  });
+}
+
 function assertEven(number) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    wait(1000).then(() => {
       if (number % 2 === 0) resolve(number);
       else reject(number);
     });
@@ -406,47 +443,3 @@ main();
 ```
 
 </Answer>
-
-## 発展: `await`、`async` と`Promise` オブジェクトのメソッド群
-
-`Promise` オブジェクトのメソッドは、すべて `await`・`async`と、`return` 文、`try ~ catch` 文、`throw` 文などの一般的な文法要素を利用して相互に書き換えることが可能です。
-
-つまり、実は`await` は実際に処理を待っているのではなく、処理が終わった後に実行する処理を指定するもので、
-`async` キーワードは関数の返り値を `Promise` オブジェクトにラップするという宣言であり、
-`async` で宣言された関数内部での `return` は `resolve` に、 `throw` は `reject` にそれぞれトランスパイルされていると考えることができます。
-
-そのため、
-
-```javascript
-async function myFunction(number) {
-  try {
-    const result = await assertEven(number);
-    console.log("Success! ", result, "can be divided by two.");
-    return result;
-  } catch (error) {
-    console.log("Failed. ", error, "cannot be divided by two.");
-    throw new Error(error);
-  } finally {
-    console.log("Finalizing...");
-  }
-}
-```
-
-は以下の JavaScript と等価です。
-
-```js
-function myFunction(number) {
-  return new Promise((resolve, reject) => {
-    assertEven(keyword)
-      .then((result) => {
-        console.log("Success! ", result, "can be divided by two");
-        resolve(number);
-      })
-      .catch((error) => {
-        console.log("Failed. ", error, "cannot be divided by two");
-        reject(new Error(error));
-      })
-      .finally(() => console.log("Finalizing..."));
-  });
-}
-```
