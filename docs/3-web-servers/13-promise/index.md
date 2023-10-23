@@ -379,8 +379,8 @@ assertSuccess("bar")
 
 ```js
 function wait(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), time);
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
   });
 }
 
@@ -417,8 +417,8 @@ async function render(number) {
 
 ```js
 function wait(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), time);
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
   });
 }
 
