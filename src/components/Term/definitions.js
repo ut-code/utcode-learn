@@ -427,7 +427,7 @@ export default {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
-      referencePage: "/docs/web-servers/async-process/",
+      referencePage: "/docs/web-servers/promise/",
     },
     api: {
       name: "API",
