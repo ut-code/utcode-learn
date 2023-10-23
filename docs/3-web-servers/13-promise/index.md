@@ -13,17 +13,13 @@ import ViewSource from "@site/src/components/ViewSource";
 
 ## await、async
 
-JavaScriptでは、データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScript処理以外で時間のかかる操作が多数存在します。
-それぞれの処理のたびに処理を止めていては、ウェブサイトの読み込みにとてつもない時間がかかってしまいます。
-(例えば、画像一枚の読み込みに500msかかると仮定すると、画像100枚の読み込みに50秒もかかってしまいます)
+JavaScriptには、データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScriptの処理以外で時間のかかる操作が多数存在します。
+それぞれの処理のたびに処理を止めていては、ウェブサイトの読み込みにとてつもない時間がかかってしまいます。適切に最適化されたウェブサイトは「非同期処理」というものを利用して、読み込み時間を効果的に短縮しています。
 
-しかし実際は、読み込みに50秒もかかるウェブサイトは存在しません。
-なぜでしょうか？
-
-実は、`Promise` オブジェクトというものと、`async`、`await`という特別なキーワードを使うことで関数を<Term type="asynchronousProcess">非同期的に処理</Term>しています。
+JavaScript では、`Promise` オブジェクトと、`async`、`await`というキーワードを使うことで、操作を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
 実際に<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
-次の 2 つのコードを同じJavaScriptファイルにコピーし、`nodejs` で実行してみてください。
+次の 2 つのコードを、`Node.js` で実行してみてください。
 
 ```js title="main.js"
 /* 補足: このコードでは、JavaScript外部での時間のかかる操作を
@@ -88,11 +84,11 @@ async function myFunction(){
 このようにして、時間のかかる `myPromise` 関数のような処理を<Term type="asynchronousProcess">非同期処理</Term>して、ウェブサイトの読み込みにかかる時間を短縮しています。
 
 :::info
-`await` は「自身の後ろに来る、時間のかかる処理を別のことをしながら待つ」という演算子です。
+`await` は、「時間のかかる処理」が解決されるまで現在の非同期関数の実行を一時停止させるキーワードです。
 
-ここでいう「時間のかかる処理」も実は値です。 (`Promise` オブジェクトの節で説明します)
+ここでいう「時間のかかる処理」というのは、実は `Promise` オブジェクトという値です。 (`Promise` オブジェクトの節で説明します)
 
-そのため、「時間のかかる処理」を変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数に渡すことも可能です。
+そのため、`Promise` オブジェクトを変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数に渡すことも可能です。
 
 ```js
 async myFunction() {
@@ -121,7 +117,7 @@ async myFunction() {
 
 ## 並列の<Term type="asynchronousProcess">非同期処理</Term>
 
-これで並列処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を同時に計算できるはずです！
+これで非同期処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を同時に計算できるはずです！
 
 ```js
 // 以下、myPromise 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
@@ -308,9 +304,9 @@ function alwaysSuccess() {
 }
 
 alwaysSuccess()
-  .then((result) => console.log(result)); // success! と表示される
+  .then((result) => console.log(result)) // success! と表示される
   .then((result) => console.log(result));
-    // undefined と表示される (1個目の .then で返り値を指定していないため)
+// undefined と表示される (1個目の .then で返り値を指定していないため)
 ```
 
 ## `catch` メソッド
@@ -344,7 +340,7 @@ assertSuccess("success")
 
 assertSuccess("bar")
   .then((result) => console.log(result)) // 何も表示されない
-  .catch((error) => console.log)(error);
+  .catch((error) => console.log(error));
 // Operation failed with string: bar と表示される
 ```
 
