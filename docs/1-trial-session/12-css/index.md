@@ -1,5 +1,5 @@
 ---
-title: ウェブサイトの見た目を整える
+title: CSS
 ---
 
 import Answer from "@site/src/components/Answer";

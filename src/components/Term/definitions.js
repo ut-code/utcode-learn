@@ -10,7 +10,7 @@ export default {
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
     "/docs/trial-session/functions/#モジュール化": "モジュール化",
-    "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
+    "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
     "/docs/trial-session/events/": "イベント",
