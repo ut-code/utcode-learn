@@ -34,6 +34,7 @@ export default {
     "/docs/web-servers/database/": "データベース",
     "/docs/web-servers/cookie/": "Cookie と認証",
     "/docs/web-servers/deploy-on-render/": "Render へのデプロイ",
+    "/docs/web-servers/promise/": "非同期処理",
     "/docs/advanced/fetch-api/": "Fetch API",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
