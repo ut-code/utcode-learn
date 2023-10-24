@@ -1,6 +1,6 @@
-function wait(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), time);
+function wait(time_ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time_ms);
   });
 }
 
@@ -23,9 +23,7 @@ async function render(number) {
   }
 }
 
-async function main() {
+(async () => {
   await render(6);
   await render(5);
-}
-
-main();
+})();

@@ -1,6 +1,6 @@
-function wait(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), time);
+function wait(time_ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time_ms);
   });
 }
 
@@ -28,8 +28,4 @@ function render(number) {
     });
 }
 
-function main() {
-  render(6).then(() => render(5));
-}
-
-main();
+render(6).then(() => render(5)); // await 演算子を使っていないので、即時関数にする必要がない

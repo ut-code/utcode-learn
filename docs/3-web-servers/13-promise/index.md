@@ -1,6 +1,6 @@
 ---
-title: 非同期処理
-description: await、async と Promise オブジェクト
+title: 非同期処理 (発展)
+description: Promise オブジェクトと await、async
 ---
 
 <!--
@@ -16,176 +16,92 @@ import ViewSource from "@site/src/components/ViewSource";
 JavaScriptには、データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScriptの処理以外で時間のかかる操作が多数存在します。
 それぞれの処理のたびに処理を止めていては、ウェブサイトの読み込みにとてつもない時間がかかってしまいます。適切に最適化されたウェブサイトは「非同期処理」というものを利用して、読み込み時間を効果的に短縮しています。
 
-JavaScript では、`Promise` オブジェクトと、`async`、`await`というキーワードを使うことで、操作を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
-実際に<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
+JavaScript では、`Promise` オブジェクトと、`await`、`async` というキーワードを使うことで、操作を<Term type="asynchronousProcess">非同期処理</Term>することが可能です。
+ファイルの読み取りを例にとって、<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
-次の 2 つのコードを、`Node.js` で実行してみてください。
+まずは次の 2 つのファイルを作り、`main.mjs` を `Node.js` で実行してみてください。
 
-```js title="main.js"
-/* 補足: このコードでは、JavaScript外部での時間のかかる操作を
-   再現しています。のちの Promise オブジェクトのセクションで解説するので、
-   今理解する必要はありません。 */
-function myPromise(number) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Foo: " + number);
-    }, 3000);
-  });
-}
+```text title="sample.txt"
+Sample Text
 ```
 
-```js
-async function myFunction() {
-  console.log("Start");
-  const myWord = await myPromise(10);
-  console.log("End");
-  console.log(myWord);
+```js title="main.mjs"
+import * as fs from "node:fs/promises";
+const text = fs.readFile("sample.txt", { encoding: "utf8" });
+console.log(text);
+```
+
+上のコードを実行しようとしても、`Promise { <pending> }` と表示され、読み取ったファイルを使うことができません。
+
+これは、`fs.readFile` 関数が `Promise` オブジェクトというものを返す関数だからです。`Promise` オブジェクトとは何でしょうか？
+
+`Promise` オブジェクトは、ファイルの読み取りのような時間のかかる処理を、非同期的に処理するためのオブジェクトです。
+`Promise` オブジェクトには、「状態」と「結果」の 2 種類のプロパティがあります。
+
+`Promise` オブジェクトの「状態」には「待機中」「成功」「失敗」の 3 種類の状態があり、「結果」には成功または失敗した時にその結果が代入されます。
+上の例で `Promise { <pending> }` と表示されたのは、`text` がファイルから読み取った文字列ではなく、待機中の `Promise` オブジェクトだったからです。
+
+では、`Promise` オブジェクトの「結果」を取得するにはどのようにしたらいいのでしょうか？
+
+```js title="main.mjs"
+import * as fs from "node:fs/promises";
+const promise = fs.readFile("sample.txt", { encoding: "utf8" });
+const awaitText = await promise;
+console.log(awaitText);
+```
+
+のように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(`fulfilled`) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができます。
+
+しかしこれでは、2 行目で全体の処理が止まってしまっているので、目的だった非同期処理ができません。そこで、関数に `async` キーワードをつけて宣言します。
+
+```js title="main.mjs"
+import * as fs from "node:fs/promises";
+
+async function logFile() {
+  const text = await fs.readFile("sample.txt", { encoding: "utf8" });
+  console.log(text);
 }
 
-myFunction();
+logFile();
 console.log("Doing another work...");
 ```
 
-上のコードを実行すると、コンソールに
+このように、関数の宣言の前に `async` キーワードを付けると、「この関数は非同期的に処理する」と宣言することができます。
 
-```shell title="OUTPUT"
-Start
-Doing another work...
-End
-Foo: 10
-```
-
-と出力されます。何が起こっているのでしょうか？
-
-重要なのは、3 行目の
-
-<!-- prettier-ignore-->
-```js
-  const myWord = await myPromise(10);
-```
-
-です。このように、`await` キーワードを時間のかかる処理を実行する関数の戻り値に適用すると、親の関数の実行を一時停止して、JavaScript外部の処理が終わるまで文字通り「待って」くれます。
-そのため、3 秒後に式 `await myPromise(10)` が `Foo: 10` になり、コンソールに `End` と `Foo: 10` が表示されます。
-
-もう一つ重要なキーワードが、1 行目の
-
-<!-- prettier-ignore-->
-```js
-async function myFunction(){
-```
-
-の `async` キーワードです。`await` を内部で使う関数は、定義するときに `function` の前に `async` とつけ、「この関数は<Term type="asynchronousProcess">非同期的に処理</Term>する」と宣言する**必要があります**。
-これにより、`myPromise` 関数で処理を一時停止したときにメインの処理に戻って `Doing another work...` と表示することができます。
-
-このようにして、時間のかかる `myPromise` 関数のような処理を<Term type="asynchronousProcess">非同期処理</Term>して、ウェブサイトの読み込みにかかる時間を短縮しています。
+これにより、`logFile` 関数で処理を一時停止したときにメインの処理に戻って `Doing another work...` と表示することができます。
 
 :::info
-`await` は、「時間のかかる処理を実行する関数の戻り値」が解決されるまで現在の非同期関数の実行を一時停止させるキーワードです。
+`Promise` オブジェクトの状態が「失敗」になると、`await` 演算子はエラーを投げます。
+`try ~ catch` 文を用いるとエラーを処理することができます。
 
-ここでいう「時間のかかる処理を実行する関数の戻り値」というのは、実は `Promise` オブジェクトという値です。 (`Promise` オブジェクトの節で説明します)
-
-そのため、`Promise` オブジェクトを変数に代入してから `await` することも、`await` 演算子の付いた式を直接別の関数の引数に指定することも可能です。
-
-```js
-async myFunction() {
-  const promise = myPromise(10);
-  console.log(await promise);
+```js title="main.mjs"
+import * as fs from "node:fs/promises";
+try {
+  const text = await fs.readFile("bar.txt", { encoding: "utf8" });
+  console.log(text);
+} catch (error) {
+  console.log("File: bar.txt might not exist.");
+  console.log(`Error message: ${error}`);
 }
 ```
 
 :::
 
 :::caution
-`await` は `async` キーワードをつけた関数内部でしか適用できないため、関数以外では使用できません。
-上記のように関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
+フロントエンド側の JavaScript では、`await` は `async` キーワードをつけた関数内部でしか適用できません。
+フロントエンドで `await` `async` を使うには、上記のように非同期の関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
 
 ```js
 (async () => {
   console.log("Start");
-  const myWord = await myPromise(10);
+  const myWord = await fs.readFile("sample.txt", { encoding: "utf8" });
   console.log("End");
   console.log(myWord);
 })();
+
+console.log("Async process");
 ```
 
-(※実行環境によっては、top-level await といって関数にしなくても `await` をできることがあります)
-:::
-
-## 並列の<Term type="asynchronousProcess">非同期処理</Term>
-
-これで非同期処理を完全にマスターしましたね！以下のように書けば 10 個の `myPromise` を非同期的に処理できるはずです！
-
-```js
-// 以下、myPromise 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
-
-async function repeatMyPromise() {
-  for (let i = 0; i < 10; i += 1) {
-    const result = await myPromise(i);
-    console.log(result);
-  }
-}
-
-repeatMyPromise();
-```
-
-このコードを実行すると分かりますが、このように書くだけでは 10 個の処理を非同期敵に処理できません。
-なぜでしょうか？
-
-これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
-`await` キーワードの時点で処理が一時停止するので、同じ関数の中に`await` を連ねるだけでは結局10個の処理を待つことになってしまいます。
-
-代わりに、このように書くと並列に処理ができます。
-
-```js
-async function printPromise(number) {
-  const result = await myPromise(number);
-  console.log(result);
-}
-
-for (let i = 0; i < 10; i++) {
-  printPromise(i);
-}
-```
-
-`printPromise` 関数は 非同期的に処理する と宣言されているため、このように書くことで10個の操作を非同期的に処理することが可能になります。
-
-## `Promise.all`
-
-非同期的に処理した結果を画面に表示したいだけなら上のように書けば十分ですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
-
-そんなときは `Promise.all` 関数を使います。上にある例で例えると、
-
-```js
-async function PromiseAll() {
-  // 配列を作成する [0, 1, 2, ... 8, 9]
-  const array = [];
-  for (let i = 0; i < 10; i++) {
-    array.push(i);
-  }
-
-  // 配列を 数値 -> myPromise(数値) に map する
-  const promiseArray = array.map((x) => myPromise(x));
-
-  // await Promise.all(配列) とする
-  const result = await Promise.all(promiseArray);
-
-  // ここに結果を使う処理を書くことができる
-  // 例: コンソールに表示する
-  console.log(result);
-}
-PromiseAll();
-```
-
-とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理をひとつにまとめることができるので、それを `await` すると処理の結果の配列を得ることができます。
-
-:::tip
-
-#### staticメソッド
-
-`Promise.all` は、[クラスの章](/docs/browser-apps/class/)で扱った「メソッド」です。
-オブジェクトのインスタンスではなくクラスから呼び出しているので、違和感をおぼえるかもしれません。
-これは `static` メソッドと言って、各インスタンスではなくクラスに直接紐づいているメソッドです。
-ここでは重要ではないので、詳しくは [MDN](https://developer.mozilla.org/ja/docs/Glossary/Static_method) を参照してください。
 :::
 
 <!-- :::info 並列処理と非同期処理の違い
@@ -199,94 +115,147 @@ PromiseAll();
 
 ## 練習問題
 
+3 秒かけて id からユーザーのデータを取得する、`Promise` オブジェクトを返す関数
+
 ```js
-function fetchUserData() {
+function fetchUserData(id) {
   return new Promise((resolve, reject) => {
-    const user = { name: "田中", age: 18 };
+    const users = [
+      { name: "田中", age: 18 },
+      { name: "鈴木", age: 20 },
+      { name: "佐藤", age: 19 },
+      { name: "高橋", age: 21 },
+      { name: "工藤", age: 17 },
+    ];
     setTimeout(() => {
-      resolve(user);
+      if (users[id]) resolve(users[id]);
+      else reject("User not found!");
     }, 3000);
   });
 }
 ```
 
-を使用して、ユーザーの名前と年齢を画面に表示してみましょう。
+を使用して、田中さんの名前と年齢を画面に表示してみましょう。
 
 <Answer title="データベース？">
 
 ```js
 // 上のデータベース実装は省略
-async function showData() {
-  const user = await fetchUserData();
-  document.write(`ユーザーの名前は ${user.name} 、年齢は ${user.age} 歳です。`);
+async function showData(id) {
+  const user = await fetchUserData(id);
+  console.log(
+    `id: ${id} の人の名前は ${user.name} 、年齢は ${user.age} 歳です。`,
+  );
 }
-showData();
-document.write("接続中...");
+showData(0);
+console.log("接続中...");
 ```
 
 <ViewSource url={import.meta.url} src="./_samples/fetch-db-data" />
 
 </Answer>
 
+## 複数の<Term type="asynchronousProcess">非同期処理</Term>
+
+これで非同期処理を完全にマスターしましたね！以下のように書けば 5 人分の `fetchUserData` を非同期的に処理できるはずです！
+
+```js
+// 以下、fetchUserData 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
+
+async function repeatAwait() {
+  for (let i = 0; i < 5; i += 1) {
+    const user = await fetchUserData(i);
+    console.log(user);
+  }
+}
+
+repeatAwait();
+```
+
+このコードを実行すると分かりますが、このように書くだけでは 5 個の処理を非同期的に処理できません。
+なぜでしょうか？
+
+これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
+`await` キーワードの時点で処理が一時停止するので、同じ関数の中に`await` を連ねるだけでは結局 5 個の処理を待つことになってしまいます。
+
+代わりに、このように書くと並列に処理ができます。
+
+```js
+async function logUser(id) {
+  const user = await fetchUserData(id);
+  console.log(user);
+}
+
+for (let i = 0; i < 5; i++) {
+  logUser(id);
+}
+```
+
+`logUser` 関数は 非同期的に処理する と宣言されているため、このように書くことで 5 個の操作を非同期的に処理することが可能になります。
+
+## `Promise.all`
+
+全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
+
+そんな時は、 `Promise.all` 関数を使うと、複数の `Promise` オブジェクトをひとつの `Promise` オブジェクトにまとめることができます。上にある例で例えると、
+
+```js
+async function promiseAll() {
+  const array = [0, 1, 2, 3, 4];
+
+  // 配列を Promise オブジェクトに map する
+  const promiseArray = array.map((x) => fetchUserData(x));
+
+  // await Promise.all(配列) とすると、Promise オブジェクトの配列を 1 つの Promise オブジェクトにできる
+  const users = await Promise.all(promiseArray);
+
+  // ここに全ての結果を使う処理を書くことができる
+  // 例: 平均年齢を得る
+  let sumAge = 0;
+  for (let user in users) {
+    sumAge += user.age;
+  }
+  console.log(`ユーザーの平均年齢は ${sumAge / users.length} 歳です。`);
+}
+PromiseAll();
+```
+
+とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理をひとつにまとめることができるので、それを `await` すると処理の結果の配列を得ることができます。
+
+:::tip
+
+#### staticメソッド
+
+`Promise.all` は、オブジェクトのインスタンスではなくクラスから呼び出しているので、違和感をおぼえるかもしれません。
+これは `static` メソッドと言って、各インスタンスではなくクラスに直接紐づいているメソッドです。
+ここでは重要ではないので、詳しくは [MDN](https://developer.mozilla.org/ja/docs/Glossary/Static_method) を参照してください。
+:::
+
 ---
 
-## Promise オブジェクト
+## `Promise` コンストラクタ
 
-先ほどのコード
-
-```javascript
-function myPromise(number) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Foo: " + number);
-    }, 3000);
-  });
-}
-```
-
-をより深く理解してみましょう。
-
-ブラウザの開発者ツール (新規タブでF12を押すと開けます) のコンソール画面で、
-
-```javascript title="Console"
-function myPromise(number) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Foo: " + number);
-    }, 3000);
-  });
-}
-
-const promise = myPromise(10);
-console.log(promise);
-```
-
-を実行して、結果を確認してみましょう。 _`Promise {<pending>}`_ と表示されるはずです。これは何でしょうか？
-
-先ほど「JavaScript外部で時間のかかる処理」と言っていたのは、`Promise` オブジェクトを返す処理のことでした。
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
 第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
 `Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数実行されます。
 
-**この `Promise` オブジェクト自体は、コンストラクタを実行するとすぐに生成されます。**
-**実は非同期的に処理されていたのは、 `Promise` オブジェクトに渡されたコールバック関数です。**
+上の `fetchUserData` では、
 
-上の例では、「3秒後に `Foo: (数)` として `resolve`する」という操作を `Promise` コンストラクタに渡しています。
+「3秒後に `users` の `id` 番目のユーザーを取得し、存在すれば `users[id]` に `resolve`し、存在しなければ `User not found!` として `reject` する」
 
-`Promise`オブジェクトには、処理が終わった後の、次の操作を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
+という操作を `Promise` コンストラクタに渡しています。
 
-また、`Promise` クラスには、プロミスの状態を表す `PromiseState` プロパティ、プロミスの結果を表す`PromiseResult`が定義されています。
-`PromiseState` プロパティは、`pending` (初期状態)、`fulfilled` (`resolve` が実行された後)、`rejected` (`reject` が実行された後)の 3 種類の値のうち 1 つをとります。
-`PromiseResult` には、`resolve` または `reject` が実行された時にそれぞれの関数に渡された引数が代入されます。
-しかし、この2つのプロパティは 内部プロパティなので、直接アクセスすることはできません。代わりに、これから述べるメソッドを使います。
+`Promise` クラスには、処理が終わった後の、次の操作を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
 
 ## `then` メソッド
 
-`then` メソッドは、引数にコールバック関数を 1 つとり、`Promise` オブジェクトの `PromiseState` が `fulfilled` になった後 (つまり `resolve` 関数が実行された後)にコールバック関数を実行します。
-コールバック関数の引数には `PromiseResult` が渡されます。
+`then` メソッドは、引数にコールバック関数を 1 つとり、`Promise` オブジェクトの 「状態」 が 「成功」 になった後 (つまり `resolve` 関数が実行された後)にコールバック関数を実行します。
+コールバック関数の引数には「結果」が渡されます。
 
-`then` メソッドは、`PromiseState` が `fulfilled`、`PromiseResult` がコールバック関数の返り値である新しい `Promise` オブジェクトを生成して返します。そのため、メソッドチェーンのような書き方をすることができます。
-`rejected` の状態にある `Promise` オブジェクトに 1 引数の `then` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返すので、一定数チェーンしてから `catch` でエラーハンドリングする、といったこともできます。
+<!-- FIXME: メソッドチェーン初出 -->
+
+`then` メソッドは、「結果」 がコールバック関数の返り値である新しい `Promise` オブジェクトを生成して返します。そのため、メソッドチェーンのような書き方をすることができます。
+`rejected` の状態にある `Promise` オブジェクトに引数が 1 つの `then` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返すので、一定数チェーンしてから `catch` でエラーハンドリングする、といったこともできます。
 
 `then` メソッドは第二引数にエラーハンドリング用の関数をとることもできますが、可読性が下がるので後述する `catch` メソッドを使いましょう。
 
@@ -307,12 +276,12 @@ alwaysSuccess()
 
 ## `catch` メソッド
 
-`catch` メソッドは、引数にコールバック関数を 1 つとり、`Promise` オブジェクトの `PromiseState` が `rejected` になった後 (つまり `reject` 関数が実行された後) にコールバック関数を実行します。`then` メソッドと同様に、コールバック関数の引数には `PromiseResult` が渡されます。
+`catch` メソッドは、引数にコールバック関数を 1 つとり、`Promise` オブジェクトの 「状態」 が 「失敗」 になった後 (つまり `reject` 関数が実行された後) にコールバック関数を実行します。`then` メソッドと同様に、コールバック関数の引数には 「結果」 が渡されます。
 `rejected` を文字通り「catch」するので、エラーハンドリングに使います。
 
-`catch` メソッドは、`PromiseState` が `fulfilled`、`PromiseResult` がコールバック関数の返り値である、新しい `Promise` オブジェクトを返します。そのため、`then` チェーンの途中に挟んでエラーハンドリングに使うことができます。
+`catch` メソッドは、「状態」 が 「成功」、「結果」 がコールバック関数の返り値である、新しい `Promise` オブジェクトを返します。そのため、`then` チェーンの途中に挟んでエラーハンドリングに使うことができます。
 
-`fulfilled` の状態にある `Promise` オブジェクトに `catch` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返します。そのため、`catch` メソッドの後に連続して `then` メソッドを記述することが可能です。
+「成功」 の状態にある `Promise` オブジェクトに `catch` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返します。そのため、「失敗」する可能性のある `Promise` オブジェクトに対し `catch` メソッドを適用した後に、連続して `then` メソッドを記述することが可能です。
 
 `rejected` になる可能性のある `Promise` オブジェクトは、`catch` メソッドによってハンドリングされる必要があります。
 
@@ -347,7 +316,7 @@ assertSuccess("bar")
 `finally` メソッドもまた、新しい `Promise` オブジェクトを返します。
 
 :::info
-上記の 3 つのメソッドは、全て `await`・`async` と、`return` `throw` `try ~ catch` などの一般的な文法要素を用いて書き換えることが可能です。
+上記の 3 つのメソッドは、全て `await`・`async` と、`return` `throw` `try ~ catch ~ finally` などの一般的な文法要素を用いて書き換えることが可能です。
 :::
 
 ## 練習問題
@@ -370,9 +339,9 @@ assertSuccess("bar")
 <Answer title="Assert Even">
 
 ```js
-function wait(time) {
+function wait(time_ms) {
   return new Promise((resolve) => {
-    setTimeout(resolve, time);
+    setTimeout(resolve, time_ms);
   });
 }
 
@@ -408,9 +377,9 @@ async function render(number) {
 `await`、`async` を用いずに、以下のように書くこともできます。
 
 ```js
-function wait(time) {
+function wait(time_ms) {
   return new Promise((resolve) => {
-    setTimeout(resolve, time);
+    setTimeout(resolve, time_ms);
   });
 }
 
