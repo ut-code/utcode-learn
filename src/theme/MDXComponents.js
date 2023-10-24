@@ -4,10 +4,6 @@ import MDXComponents from "@theme-original/MDXComponents";
 /* 
 Export components in this file,
 and they become available on every page.
-
-このファイルでコンポネントをexportすると、
-全てのページでimport宣言無しで使えるようになります。
-
 cf. https://docusaurus.io/docs/markdown-features/react#mdx-component-scope
 */
 
