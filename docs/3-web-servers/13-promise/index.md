@@ -153,6 +153,12 @@ console.log("接続中...");
 
 <ViewSource url={import.meta.url} src="./_samples/fetch-db-data" />
 
+---
+
+### 追加問題
+
+データベース実装のコードを書き換えて、名前からユーザーを検索できるようにしてみましょう。
+
 </Answer>
 
 ## 複数の<Term type="asynchronousProcess">非同期処理</Term>
@@ -195,7 +201,7 @@ for (let i = 0; i < 5; i++) {
 
 ## `Promise.all`
 
-全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
+非同期処理の結果を画面に表示したいだけなら上のように書けばいいですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
 
 そんな時は、 `Promise.all` 関数を使うと、複数の `Promise` オブジェクトをひとつの `Promise` オブジェクトにまとめることができます。上にある例で例えると、
 
@@ -206,7 +212,7 @@ async function promiseAll() {
   // 配列を Promise オブジェクトに map する
   const promiseArray = array.map((x) => fetchUserData(x));
 
-  // await Promise.all(配列) とすると、Promise オブジェクトの配列を 1 つの Promise オブジェクトにできる
+  // await Promise.all(配列) とすると、Promise オブジェクトの配列を 1 つの Promise オブジェクトにまとめられる
   const users = await Promise.all(promiseArray);
 
   // ここに全ての結果を使う処理を書くことができる
@@ -322,7 +328,7 @@ assertSuccess("bar")
 ## 練習問題
 
 1. `Promise`オブジェクトを使って、1 秒後に 引数が 2 で割り切れたら`resolve`、割り切れなかったら`reject` する関数 `assertEven` を定義してみましょう。
-2. 上の `assertEven` 関数を使い、コンソールに** 1 秒おきに**以下のような表示をしてみましょう。
+2. (難) 上の `assertEven` 関数を使い、コンソールに** 1 秒おきに**以下のような表示をしてみましょう。
 
 ```console
 -----------------------------
