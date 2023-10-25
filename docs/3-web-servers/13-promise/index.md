@@ -3,14 +3,6 @@ title: 非同期処理 (発展)
 description: Promise オブジェクトと await、async
 ---
 
-<!--
-FIXME LATER: import削除
--->
-
-import Term from "@site/src/components/Term";
-import Answer from "@site/src/components/Answer";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## await、async
 
 データベースへの接続・別のウェブサイトからの画像のダウンロード・ファイルの読み書き など、JavaScript外部の処理に時間のかかる操作は多数存在します。
