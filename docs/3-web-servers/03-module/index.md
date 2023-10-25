@@ -2,10 +2,6 @@
 title: モジュールと npm
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
 import commandsAnswerVideo from "./commands-answer.mp4";
 import npmInitVideo from "./npm-init.mp4";
 import npmInstallVideo from "./npm-install.mp4";

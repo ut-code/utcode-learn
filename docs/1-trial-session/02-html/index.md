@@ -2,9 +2,6 @@
 title: HTML
 ---
 
-import Answer from "@site/src/components/Answer";
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import createFileVideo from "./create-file.mp4";
 import openInBrowserVideo from "./open-in-browser.mp4";
 import showFileExtensionsVideo from "./show-file-extensions.mp4";

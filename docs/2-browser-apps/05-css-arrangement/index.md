@@ -2,19 +2,10 @@
 title: CSS による配置（発展）
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
-
 import absoluteScroll from "./position-absolute-scroll.mp4"
-
 import fixedScroll from "./position-fixed-scroll.mp4"
-
 import percentCss from "./percent-css.mp4"
-
 import maxMinWidth from "./max-width-min-width.mp4"
-
 import mediaQuery from "./mediaquery.mp4"
 
 ## CSS のボックスモデル
@@ -28,7 +19,7 @@ HTML の要素はすべて、一定の高さと幅を持った四角形だと考
 
 の 4 重構造になっています。
 
-[「ウェブサイトの見た目を整える」ページの課題](https://learn.utcode.net/docs/trial-session/css/#%E8%AA%B2%E9%A1%8C-%E6%99%82%E9%96%93%E3%81%8C%E4%BD%99%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88)を例に構造を見てみましょう（構造がわかりやすいよう、`border` を `10px` に変更しています）。
+[「CSS」のページの課題](https://learn.utcode.net/docs/trial-session/css/#%E8%AA%B2%E9%A1%8C-%E6%99%82%E9%96%93%E3%81%8C%E4%BD%99%E3%81%A3%E3%81%9F%E5%A0%B4%E5%90%88)を例に構造を見てみましょう（構造がわかりやすいよう、`border` を `10px` に変更しています）。
 
 ```html title=index.html
 <!doctype html>

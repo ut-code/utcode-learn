@@ -2,11 +2,6 @@
 title: WSL のセットアップ (Windows のみ)
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
-
 ## Linux と WSL
 
 現在、Web サービスを提供するコンピューターのほとんどに、**Linux** という名前の OS が搭載されています。このため、Web サービスを開発するには、Linux を用いて開発することが理想です。しかしながら、現在流通している一般的なコンピューターに搭載されている OS は、Windows または macOS です。

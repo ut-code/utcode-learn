@@ -3,11 +3,6 @@ title: TypeScript
 ---
 
 import { SiTypescript } from "react-icons/si";
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import typescriptDemoVideo from "./typescript-demo.mp4";
 import setupTypeScriptNodeVideo from "./setup-typescript-node.mp4";
 import typesPackageVideo from "./types-package.mp4";

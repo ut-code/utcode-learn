@@ -2,7 +2,6 @@
 title: JavaScript ことはじめ
 ---
 
-import Term from "@site/src/components/Term";
 import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4"
 
 ## <Term type="javascript">JavaScript</Term>

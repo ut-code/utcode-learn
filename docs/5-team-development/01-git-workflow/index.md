@@ -3,10 +3,6 @@ title: Git と GitHub を用いたワークフロー
 ---
 
 import outdent from "outdent";
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import branchedGraphVideo from "./branched-graph.mp4";
 import mergeVideo from "./merge.mp4";
 import editCommitMessageWithVim from "./edit-commit-message-with-vim.mp4";

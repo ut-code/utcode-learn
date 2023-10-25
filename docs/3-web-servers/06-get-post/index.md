@@ -2,9 +2,6 @@
 title: GET リクエストと POST リクエスト
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import postInDevelopment1 from "./postInDevelopment1.mp4";
 import postInDevelopment2 from "./postInDevelopment2.mp4";
 import postInDevelopment3 from "./postInDevelopment3.mp4";

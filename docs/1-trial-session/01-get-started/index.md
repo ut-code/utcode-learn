@@ -2,8 +2,6 @@
 title: はじめての Web 開発
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installChromeOnWindowsVideo from "./install-chrome-on-windows.mp4";
 import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";

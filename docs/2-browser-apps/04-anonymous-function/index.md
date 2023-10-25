@@ -2,10 +2,6 @@
 title: 無名関数
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-
 ## 無名関数
 
 [イベント](../../1-trial-session/14-events/index.md)の節で、関数もオブジェクトの一種であることを説明しました。このため、関数は通常の値と同じように変数やプロパティに代入したり、関数の引数や戻り値になったりできます。

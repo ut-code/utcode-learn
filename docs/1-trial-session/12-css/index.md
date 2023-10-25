@@ -1,10 +1,6 @@
 ---
-title: ウェブサイトの見た目を整える
+title: CSS
 ---
-
-import Answer from "@site/src/components/Answer";
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 
 今までは HTML と JavaScript を勉強してきました。今回は Web 開発で用いられるもう一つの言語、CSS について学びましょう。CSS は Web サイトの「見た目」をつかさどる言語です。多くの <Term type="element">HTML 要素</Term> は、 <Term type="css">CSS</Term> を用いることで、その見た目を細かくカスタマイズすることができます。
 

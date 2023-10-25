@@ -2,7 +2,6 @@
 title: 作ったウェブアプリを公開する
 ---
 
-import Term from "@site/src/components/Term";
 import deployOnNetlifyDropVideo from "./deploy-on-netlify-drop.mp4";
 
 ## Netlify Drop を用いてウェブアプリを公開する

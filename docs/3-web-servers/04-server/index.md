@@ -2,10 +2,6 @@
 title: Express によるサーバー構築
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## ウェブサイトが動作する仕組み
 
 [「Web プログラミングの基礎を学ぼう」](../../1-trial-session/index.md) の章では、ウェブサイトを表示するために HTML ファイルと JavaScript ファイルを作成し、ブラウザから開きました。しかしながら、通常のウェブサイトではこのような手順は踏まず、URL をブラウザに入力することにより閲覧することができます。
