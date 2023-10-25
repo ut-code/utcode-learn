@@ -57,23 +57,22 @@ document.write(person.age);
 
 ```javascript
 person.favoriteFood = "餃子";
-document.write(person.favoriteFood);
-// 餃子
+document.write(person.favoriteFood); // 餃子
 ```
 
 :::
 
-:::note <Term type="javascriptObject">オブジェクト</Term>と「プリミティブ」
+:::note <Term type="javascriptObject">オブジェクト</Term>とプリミティブ
 
 この章よりも前に扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term strong type="javascriptPrimitive">プリミティブ</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
 
-![値の種類・オブジェクト付き](./value-types-with-object.drawio.svg)
+![値の種類](./value-types-with-object.drawio.svg)
 
 :::
 
 ## 配列とオブジェクト
 
-上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScript のオブジェクトとは、プロパティ名とプロパティ値の組み合わせでした。
+上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScript のオブジェクトとは、プロパティ名とプロパティ値の組の集合でした。
 
 配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
 
@@ -123,16 +122,16 @@ const tanaka = {
 document.write(tanaka.scores.math);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/viewMathScore" />
+<ViewSource url={import.meta.url} path="_samples/view-math-score" />
 
 ```javascript title="2の解答"
 tanaka.scores.japanese = 50;
 document.write(tanaka.scores.japanese);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/editAndViewJapaneseScore" />
+<ViewSource url={import.meta.url} path="_samples/add-and-view-Japanese-score" />
 
-2はプロパティの追加を利用しています。
+2では、プロパティを自分で追加しています。
 
 </Answer>
 
