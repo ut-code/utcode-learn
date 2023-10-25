@@ -26,3 +26,9 @@ sidebar_position: 0
 ### 6. [チーム開発を始める前に](/docs/team-development/)
 
 ### 7. [その他](/docs/other)
+
+<Hint> HINT </Hint>
+
+:::tip
+tip
+:::

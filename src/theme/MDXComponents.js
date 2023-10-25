@@ -18,6 +18,7 @@ import Answer from "@site/src/components/Answer";
 import Term from "@site/src/components/Term";
 import ViewSource from "@site/src/components/ViewSource";
 import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
+import Hint from "@site/src/components/Hint";
 
 export default {
   // Re-use the default mapping
@@ -34,4 +35,5 @@ export default {
   Term,
   ViewSource,
   ExternalVideoPlayer,
+  Hint,
 };
