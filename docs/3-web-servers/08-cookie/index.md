@@ -2,9 +2,6 @@
 title: Cookie と認証（発展）
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import cookieCounterVideo from "./cookie-counter.mp4";
 
 ## HTTP ヘッダ

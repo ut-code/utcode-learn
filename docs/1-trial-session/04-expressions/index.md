@@ -2,8 +2,6 @@
 title: 値と式と演算子
 ---
 
-import Term from "@site/src/components/Term";
-
 ## <Term type="javascriptValue">値</Term>
 
 次のコードを実行すると、`Hello World` が画面に表示されました。

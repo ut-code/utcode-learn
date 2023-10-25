@@ -2,10 +2,6 @@
 title: オブジェクト
 ---
 
-import Answer from "@site/src/components/Answer";
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## <Term type="javascriptObject">オブジェクト</Term>
 
 JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の種類として、これまで<Term type="javascriptNumber">数値</Term>、<Term type="javascriptString">文字列</Term>、<Term type="javascriptBoolean">論理値</Term>を扱ってきました。<Term strong type="javascriptObject">オブジェクト</Term>もまた、<Term type="javascript">JavaScript</Term> の<Term type="javascriptValue">値</Term>ですが、今まで扱ってきた<Term type="javascriptValue">値</Term>とは少し性質が異なります。

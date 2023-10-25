@@ -2,10 +2,6 @@
 title: 条件分岐
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-
 ## if 文
 
 **if 文**は、<Term type="javascript">JavaScript</Term> の<Term strong type="javascriptControlFlow">制御構造</Term>で、特定の条件下のみで実行されるプログラムを記述することができます。

@@ -2,10 +2,6 @@
 title: トランスパイラとモジュールバンドラ
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import getStartedWithViteVideo from "./get-started-with-vite.mp4";
 import buildVideo from "./build.mp4";
 

@@ -2,10 +2,6 @@
 title: フォーム
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## クエリパラメータの利用
 
 入力した内容によって、次に移る（表示される）ページが異なるウェブページがあります。例として、Google で `utcode` と検索した際に表示される検索結果のページを考えてみましょう。

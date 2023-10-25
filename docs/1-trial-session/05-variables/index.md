@@ -2,9 +2,6 @@
 title: 変数
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-
 ## <Term type="javascriptVariable">変数</Term>とは
 
 <p><Term type="javascriptVariable">変数</Term>を用いると、<Term type="javascriptValue">値</Term>を一時的に保存し、再利用することができます。数学における変数は通常数値を表すものですが、プログラムにおける<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptString">文字列</Term>等を含め、全ての種類の「<Term type="javascriptValue">値</Term>」を格納することができます。</p>

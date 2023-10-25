@@ -2,10 +2,6 @@
 title: 繰り返し
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
 import whileLoopVideo from "./while-loop.mp4";
 
 ## while 文

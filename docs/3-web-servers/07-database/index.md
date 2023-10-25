@@ -2,9 +2,6 @@
 title: データベース
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import newPostgresqlInstanceVideo from "./new-postgresql-instance.mp4";
 import connectDbeaverToDatabaseVideo from "./connect-dbeaver-to-database.mp4";
 import prismaInitVideo from "./prisma-init.mp4";

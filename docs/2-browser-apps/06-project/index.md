@@ -2,9 +2,6 @@
 title: プロジェクト
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import calendarVideo from "./calendar.mp4";
 
 ここまでの知識を使って、今月分の予定管理アプリを作ってみましょう。

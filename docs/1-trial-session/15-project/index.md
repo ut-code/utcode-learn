@@ -2,8 +2,6 @@
 title: プロジェクト
 ---
 
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
 import omikujiVideo from "./omikuji.mp4";
 import stopwatchVideo from "./stopwatch.mp4";
 

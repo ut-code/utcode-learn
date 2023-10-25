@@ -2,11 +2,6 @@
 title: オブジェクトの参照
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import Answer from "@site/src/components/Answer";
-
 ## 参照
 
 [オブジェクト](../../1-trial-session/11-object/index.md)で扱ったように、JavaScript の値はオブジェクトとプリミティブに分けられます。前回は、プリミティブを「それ以上分解できない値」のように説明しました。もう少し詳しくみてみましょう。
