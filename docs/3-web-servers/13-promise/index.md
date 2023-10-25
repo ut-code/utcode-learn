@@ -28,7 +28,7 @@ console.log(text);
 これは、`fs.readFile` 関数が `Promise` オブジェクトというものを返す関数だからです。`Promise` オブジェクトとは何でしょうか？
 
 `Promise` オブジェクトは、ファイルの読み取りのような処理を非同期的に処理するための、「完了に時間のかかる処理を完了しないまま扱う」オブジェクトです。
-`Promise` オブジェクトには、「状態」と「結果」の 2 種類のプロパティがあります。
+`Promise` オブジェクトには、「状態」と「結果」の 2 種類の内部プロパティがあります。
 
 `Promise` オブジェクトの「状態」には「待機中」「成功」「失敗」の 3 種類の状態があり、「結果」には成功または失敗した時にその結果が代入されます。
 上の例で `Promise { <pending> }` と表示されたのは、`text` がファイルから読み取った文字列ではなく、待機中 (pending) の `Promise` オブジェクトだったからです。
@@ -42,7 +42,7 @@ const awaitText = await promise;
 console.log(awaitText);
 ```
 
-のように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(fulfilled) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができます。
+とすると「結果」のテキストを得ることができます。このように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(fulfilled) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができるのです。
 
 しかしこのままでは、3 行目で全体の処理が止まってしまっているので、目的だった非同期処理ができません。そこで、 `async` キーワードをつけた関数に入れます。
 
@@ -113,7 +113,7 @@ console.log("Async process");
 3 秒かけて id からユーザーのデータを取得する `Promise` オブジェクトを返す関数
 
 ```js
-const users = [
+const users_db_side = [
   { name: "田中", age: 18 },
   { name: "鈴木", age: 20 },
   { name: "佐藤", age: 19 },
@@ -121,12 +121,13 @@ const users = [
   { name: "工藤", age: 17 },
 ];
 
-/* 詳しくは Promise コンストラクタの節で説明するので、
+/* 新しい Promise オブジェクトを作成して返しています。
+   詳しくは Promise コンストラクタの節で説明するので、
    今は深く理解する必要はありません。 */
 function fetchUserData(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (users[id]) resolve(users[id]);
+      if (users_db_side[id]) resolve(users_db_side[id]);
       else reject("User not found!");
     }, 3000);
   });
@@ -159,6 +160,24 @@ console.log("接続中...");
 
 </Answer>
 
+:::info
+
+#### async 関数の返り値
+
+`async` に処理すると宣言した関数の返り値は何になるのでしょうか？
+
+```js title="main.mjs"
+// fetchUserData 関数の実装は省略
+async function asyncFunction() {
+  const suzuki = await fetchUserData(1);
+  return suzuki;
+}
+console.log(asyncFunction());
+```
+
+実行すると、`Promise { <pending> }` と表示されます。実は、`async` で宣言した関数はそれ自体が新しい `Promise` オブジェクトを返すのです。
+:::
+
 ## 複数の<Term type="asynchronousProcess">非同期処理</Term>
 
 これで非同期処理を完全にマスターしましたね！以下のように書けば 5 人分の `fetchUserData` を非同期的に処理できるはずです！
@@ -182,7 +201,7 @@ repeatAwait();
 これは、`await` キーワードの、時間のかかる処理をその場で待つ性質によります。
 `await` キーワードの時点で処理が一時停止するので、同じ関数の中に`await` を連ねるだけでは結局 5 個の処理を待つことになってしまいます。
 
-代わりに、このように書くと並列に処理ができます。
+代わりに、このように書くと各処理を非同期的に待機できます。
 
 ```js
 async function logUser(id) {
@@ -224,7 +243,7 @@ async function promiseAll() {
 promiseAll();
 ```
 
-とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理を 1 つの Promise オブジェクトにまとめることができるので、その返り値を `await` すると処理の結果の配列を得ることができます。
+とします。`Promise.all` 関数に配列を渡すとすると複数の時間のかかる処理を 1 つの Promise オブジェクトにまとめることができるので、それを `await` すると処理の結果の配列を得ることができます。
 
 :::tip
 
@@ -242,18 +261,10 @@ promiseAll();
 先ほどの例
 
 ```js
-const users = [
-  { name: "田中", age: 18 },
-  { name: "鈴木", age: 20 },
-  { name: "佐藤", age: 19 },
-  { name: "高橋", age: 21 },
-  { name: "工藤", age: 17 },
-];
-
 function fetchUserData(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (users[id]) resolve(users[id]);
+      if (users_db_side[id]) resolve(users_db_side[id]);
       else reject("User not found!");
     }, 3000);
   });
@@ -264,13 +275,14 @@ function fetchUserData(id) {
 
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
 第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
-`Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数実行されます。
+`Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数として実行されます。
+実は、非同期的に処理されていたのはこのコールバック関数でした。
 
 上の `fetchUserData` の例では、
 
-「3秒後に `users` の `id` 番目のユーザーを取得し、ユーザーが存在すれば `users[id]` に `resolve`し、存在しなければ `User not found!` として `reject` する」
+「3秒後に `users_db_side` の `id` 番目のユーザーを取得し、ユーザーが存在すれば `users_db_side[id]` に `resolve` し、存在しなければ `User not found!` として `reject` する」
 
-という操作を `Promise` コンストラクタに渡しています。
+という無名関数を `Promise` コンストラクタに渡しています。
 
 `Promise` クラスには、処理が終わった後の、次の操作を指定するための `then` メソッド、`catch` メソッド、`finally` メソッドが定義されています。
 
@@ -282,7 +294,7 @@ function fetchUserData(id) {
 <!-- FIXME: メソッドチェーン初出 -->
 
 `then` メソッドは、「結果」 がコールバック関数の返り値である新しい `Promise` オブジェクトを生成して返します。そのため、メソッドチェーンのような書き方をすることができます。
-`rejected` の状態にある `Promise` オブジェクトに引数が 1 つの `then` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返すので、一定数チェーンしてから `catch` でエラーハンドリングする、といったこともできます。
+`rejected` の状態にある `Promise` オブジェクトに引数が 1 つの `then` メソッドを適用すると、コールバック関数は実行されず同じ状態の `Promise` オブジェクトを返すので、一定数チェーンしてから次に説明する `catch` でエラーハンドリングする、といったこともできます。
 
 例:
 
