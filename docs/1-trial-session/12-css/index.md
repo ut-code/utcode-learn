@@ -98,7 +98,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term strong type=
 
 :::note
 
-<p><Term type="css">CSS</Term> の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="javascriptObject">オブジェクト</Term>における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
+<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>は、<Term type="javascriptObject">オブジェクト</Term>における<Term type="javascriptProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
 
 :::
 
