@@ -96,6 +96,12 @@ CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</
 
 これで、 `Hello World!` の `World` の文字が赤くなりました。
 
+:::note
+
+<p><Term type="css">CSS</Term> の<Term type="javascriptProperty">プロパティ</Term>は、<Term type="javascriptObject">オブジェクト</Term>における<Term type="cssProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
+
+:::
+
 :::tip HTMLの <Term type="styleAttribute">`style` 属性</Term>
 `style.css` を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、 `p` <Term type="element">要素</Term> の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
 
