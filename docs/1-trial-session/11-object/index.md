@@ -151,7 +151,7 @@ document.write(nextYearTanaka.age); // 19 と表示されてほしい
 
 ```javascript
 function incrementAge(person) {
-  person.age = person.age + 1;
+  person.age += 1;
   return person;
 }
 
