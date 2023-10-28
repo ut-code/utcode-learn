@@ -48,35 +48,101 @@ element.style.backgroundColor = "red";
 
 <p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
 
-## 課題
+## DOM に関連する便利な関数
 
-[CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
+### `element.appendChild` 関数
 
-<Answer title="JavaScriptを用いたCSSスタイリング">
+`DOM` 要素の後に `.appendChild` と続けて書く関数があります(正確には[クラスの章](/docs/browser-apps/class/)で説明する<Term type="javascriptMethod">メソッド</Term>というものです)。
+この関数の引数に別の `DOM` オブジェクトを渡すと、渡した `DOM` 要素を親の要素の子要素にすることができます。
 
-```html
+### `document.createElement` 関数
+
+`document.createElement` 関数に要素の種類を表す文字列を渡すと、新しい `HTML` 要素を作ることができます。
+新しく作った要素は文字(`textContent`)もなければ親要素も決まっていないので、作ったあとに指定する必要があります。
+
+例:
+
+```html title="HTML"
+<ul id="ul"></ul>
+```
+
+```js title="JavaScript"
+const list = document.getElementById("ul"); // id が ul であるものを取得する
+
+const item = document.createElement("li"); // li 要素を作る
+item.textContent = "ut.code(); Learn"; // li 要素の表示する文字を指定する
+list.appendChild(li); // 上で作った要素を ul の子要素に指定する
+```
+
+## 初級課題
+
+### 買い物リストの改ざん
+
+次の HTML ファイルから読み込んでいる JavaScript ファイルを書き換えて、「トマト」「レモン」「バジル」と表示されるようにしてみましょう。
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>買い物リスト</title>
+  </head>
+  <body>
+    <ul>
+      <li id="element1">トマト</li>
+      <li id="element2">ナス</li>
+      <li id="element3">バジル</li>
+    </ul>
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+<Answer title="買い物リストの改ざん">
+
+```js title="script.js"
+const pear = document.getElementById("element2");
+
+pear.textContent = "レモン";
+```
+
+<ViewSource url={import.meta.url} path="_samples/falsify-shopping-memo" />
+
+</Answer>
+
+## 中級課題
+
+### 配列をリストとして表示する
+
+配列があります。配列の中身を、順番にHTMLに表示してみましょう。
+
+<Answer title="配列のリスト表示">
+
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <title>Title</title>
+    <script src="script.js"></script>
   </head>
   <body>
-    <div id="foo">Foo</div>
-    <script src="./script.js"></script>
+    <ul id="wrapper"></ul>
   </body>
 </html>
 ```
 
-```javascript
-const element = document.getElementById("foo");
-element.style.border = "1px solid #aaa";
-element.style.borderRadius = "10px";
-element.style.margin = "30px";
-element.style.padding = "30px";
-element.style.boxShadow = "0px 0px 2px 1px #aaa";
+```js title="script.js"
+const listWrapper = document.getElementById("wrapper");
+const list = ["トマト", "レモン", "バジル"];
+
+for (const item of list) {
+  const element = document.createElement("li");
+  element.textContent = item;
+  listWrapper.appendChild(element);
+}
 ```
 
-<ViewSource url={import.meta.url} path="_samples/css" />
+<ViewSource url={import.meta.url} path="_samples/array-to-list" />
 
 </Answer>
