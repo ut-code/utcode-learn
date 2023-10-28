@@ -48,17 +48,25 @@ element.style.backgroundColor = "red";
 
 <p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
 
-## DOM に関連する便利な関数
+## DOM が提供する便利な関数
 
 ### `element.appendChild` 関数
 
-`DOM` 要素の後に `.appendChild` と続けて書く関数があります(正確には[クラスの章](/docs/browser-apps/class/)で説明する<Term type="javascriptMethod">メソッド</Term>というものです)。
-この関数の引数に別の `DOM` オブジェクトを渡すと、渡した `DOM` 要素を親の要素の子要素にすることができます。
+HTML 要素に対応するオブジェクトの後に `.appendChild` と続けて書く関数があります (正確には関数の中でも、[クラスの章](/docs/browser-apps/class/)で説明する<Term type="javascriptMethod">メソッド</Term>というものです)。
+この関数は、引数に渡されたオブジェクトに対応する HTML 要素を、先に書いたオブジェクトに対応する HTML 要素の子要素にすることができます。
+例えば
+
+```js
+elementA.appendChild(elementB);
+```
+
+とすると、要素 B を要素 A の子要素にすることができます。
 
 ### `document.createElement` 関数
 
-`document.createElement` 関数に要素の種類を表す文字列を渡すと、新しい `HTML` 要素を作ることができます。
-新しく作った要素は文字(`textContent`)もなければ親要素も決まっていないので、作ったあとに指定する必要があります。
+`document.createElement` 関数にタグ名を文字列として渡すと、新しい HTML 要素を作ることができます。
+`document.createElement` 関数の返り値は、作った HTML 要素に対応するオブジェクトです。
+新しく作った要素には `textContent` プロパティや親要素が定義されていないので、作った後に指定する必要があります。
 
 例:
 
@@ -74,9 +82,11 @@ item.textContent = "ut.code(); Learn"; // li 要素の表示する文字を指�
 list.appendChild(li); // 上で作った要素を ul の子要素に指定する
 ```
 
+この例では、新しく `li` 要素を作り、その要素の `textContent` を `"ut.code(); Learn"` にして、HTML から取得した `ul` 要素の子要素に指定しています。
+
 ## 初級課題
 
-### 買い物リストの改ざん
+### 買い物リストの書き換え
 
 次の HTML ファイルから読み込んでいる JavaScript ファイルを書き換えて、「トマト」「レモン」「バジル」と表示されるようにしてみましょう。
 
@@ -98,7 +108,7 @@ list.appendChild(li); // 上で作った要素を ul の子要素に指定する
 </html>
 ```
 
-<Answer title="買い物リストの改ざん">
+<Answer title="買い物リストの書き換え">
 
 ```js title="script.js"
 const pear = document.getElementById("element2");
@@ -114,7 +124,17 @@ pear.textContent = "レモン";
 
 ### 配列をリストとして表示する
 
-配列があります。配列の中身を、順番にHTMLに表示してみましょう。
+配列があります。配列の全ての要素を、順番にブラウザに表示してみましょう。
+
+:::note
+
+次の配列をテストに使ってください。
+
+```js
+const list = ["トマト", "レモン", "バジル"];
+```
+
+:::
 
 <Answer title="配列のリスト表示">
 
