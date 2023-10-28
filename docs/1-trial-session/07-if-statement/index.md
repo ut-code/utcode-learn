@@ -15,7 +15,7 @@ if (age < 20) {
 }
 ```
 
-このプログラムは、`未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `const age = 20;` に変更すると何も表示されなくなります。
+このプログラムは、 `未成年者の場合は法定代理人の同意が必要です。` と表示しますが、1 行目を `const age = 20;` に変更すると何も表示されなくなります。
 
 2 行目の `if (age < 20) {` 部分がポイントです。ここに差し掛かると、括弧内の<Term type="javascriptExpression">式</Term> `age < 20` が<Term type="javascriptEvaluation">評価</Term>され、`true` になります。このため、直後の波括弧内の処理が実行されます。
 
@@ -86,21 +86,36 @@ const age = 20;
 
 <Answer title="選挙権">
 
-if ～ else if ～ else 構文を使うと、次のように書くことができます。
+課題は解けましたか？解答例はこちらです。
 
-```javascript title=script.js showLineNumbers
+```javascript title="script.js" showLineNumbers
 const age = 20;
 if (age < 18) {
-  document.write("選挙権はありません");
+  document.write("選挙権はありません。");
 } else if (age < 25) {
-  document.write("投票に行けます");
+  document.write("投票に行けます。");
 } else {
-  document.write("衆議院議員に立候補できます");
+  document.write("衆議院議員に立候補できます。");
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
+まずは動作することが大事ですが、慣れてきたら可読性の高い綺麗なコードを書くように心がけたいものです。おそらく、今回の課題を次のように書く人がいるのではないでしょうか。
 
-4 行目の式は `age >= 18 && age < 25` ではないかと思うかもしれませんが、上のように `age < 25` としても同じ結果になります。これは、if ～ else if ～ else 構文では、一つ目の条件が満たされた場合、二つ目の条件は実行されないためです。
+```javascript title="script.js" showLineNumbers
+const age = 20;
+if (age < 18) {
+  document.write("選挙権はありません。");
+} else if (age >= 18 && age < 25) {
+  document.write("投票に行けます。");
+} else {
+  document.write("衆議院議員に立候補できます。");
+}
+```
+
+この問題のコードを書くのに、`&&` のような論理演算子は必要ありません。`if` 文の処理の仕方を理解していると、条件式を簡単に記述できます。
+
+if 〜　else if 〜　else 構文では、条件式が `true` ならば処理が実行されて`if` 文が終了し、`false` ならば次の条件式が評価される、という処理を繰り返します。したがって、「1行目の条件式が`false` だった場合」という意味の条件式を3行目にまで書き込む必要はないわけです。
 
 </Answer>
+
+<ViewSource url={import.meta.url} path="_samples/the-right-to-vote" />
