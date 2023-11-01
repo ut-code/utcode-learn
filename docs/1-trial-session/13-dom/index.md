@@ -91,78 +91,59 @@ body.appendChild(newElement);
 次の HTML ファイルから読み込んでいる JavaScript ファイルを書き換えて、「トマト」「レモン」「バジル」と表示されるようにしてみましょう。
 
 ```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>買い物リスト</title>
-  </head>
-  <body>
-    <ul>
-      <li id="element1">トマト</li>
-      <li id="element2">ナス</li>
-      <li id="element3">バジル</li>
-    </ul>
-    <script src="script.js"></script>
-  </body>
-</html>
+<ul>
+  <li id="tomato">トマト</li>
+  <li id="eggplant">ナス</li>
+  <li id="basil">バジル</li>
+</ul>
+<script src="script.js"></script>
 ```
 
 <Answer title="買い物リストの書き換え">
 
 ```js title="script.js"
-const pear = document.getElementById("element2");
+const element = document.getElementById("eggplant");
 
-pear.textContent = "レモン";
+element.textContent = "レモン";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/falsify-shopping-memo" />
+<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
 
 </Answer>
 
 ## 中級課題
 
-### 配列をリストとして表示する
+### 配列を箇条書きで表示する
 
-配列があります。配列の全ての要素を、順番にブラウザに表示してみましょう。
-
-:::note
-
-次の配列をテストに使ってください。
+購入する予定の果物を表す文字列が格納された配列が次のように用意されています。
 
 ```js
-const list = ["トマト", "レモン", "バジル"];
+const fruits = ["トマト", "レモン", "バジル"];
 ```
 
-:::
+`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。ただし、HTML ファイルには次のように記述されているものとします。
+
+```html title="index.html"
+<meta charset="utf-8" />
+<body>
+  <ul id="fruit-basket"></ul>
+  <script src="script.js"></script>
+</body>
+```
 
 <Answer title="配列のリスト表示">
 
-```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <ul id="wrapper"></ul>
-  </body>
-</html>
-```
-
 ```js title="script.js"
-const listWrapper = document.getElementById("wrapper");
+const basket = document.getElementById("fruit-basket");
 const list = ["トマト", "レモン", "バジル"];
 
-for (const item of list) {
-  const element = document.createElement("li");
-  element.textContent = item;
-  listWrapper.appendChild(element);
+for (const fruit of basket) {
+  const item = document.createElement("li");
+  item.textContent = fruit;
+  basket.appendChild(item);
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/array-to-list" />
+<ViewSource url={import.meta.url} path="_samples/fruit-basket" />
 
 </Answer>
