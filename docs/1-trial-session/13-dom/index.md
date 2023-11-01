@@ -135,9 +135,9 @@ const fruits = ["トマト", "レモン", "バジル"];
 
 ```js title="script.js"
 const basket = document.getElementById("fruit-basket");
-const list = ["トマト", "レモン", "バジル"];
+const fruits = ["トマト", "レモン", "バジル"];
 
-for (const fruit of basket) {
+for (const fruit of fruits) {
   const item = document.createElement("li");
   item.textContent = fruit;
   basket.appendChild(item);
