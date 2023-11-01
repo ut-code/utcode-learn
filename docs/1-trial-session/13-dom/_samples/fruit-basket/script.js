@@ -1,5 +1,5 @@
 const basket = document.getElementById("fruit-basket");
-const list = ["トマト", "レモン", "バジル"];
+const fruits = ["イチゴ", "スイカ", "バナナ"];
 
 for (const fruit of basket) {
   const item = document.createElement("li");

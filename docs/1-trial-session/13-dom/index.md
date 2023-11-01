@@ -50,7 +50,7 @@ element.style.backgroundColor = "red";
 
 ## DOM を用いて要素を追加する
 
-`document.createElement` 関数は、引数に渡されたタグの、新しい HTML 要素を作る関数です。`document.createElement` 関数の戻り値aは、新しく作った HTML 要素に対応するオブジェクトです。
+`document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。`document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
 
 ```js
 document.createElement("div");
@@ -82,7 +82,7 @@ newElement.textContent = "Hello World!";
 body.appendChild(newElement);
 ```
 
-これで、画面に `Hello World!` と表示されたはずです。親要素は任意の要素が指定できます。
+これで、画面に `Hello World!` と表示されたはずです。`body` 以外にも、ほとんどの要素の子要素にすることができます。
 
 ## 初級課題
 
@@ -118,24 +118,21 @@ element.textContent = "レモン";
 購入する予定の果物を表す文字列が格納された配列が次のように用意されています。
 
 ```js
-const fruits = ["トマト", "レモン", "バジル"];
+const fruits = ["イチゴ", "スイカ", "バナナ"];
 ```
 
-`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。ただし、HTML ファイルには次のように記述されているものとします。
+`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。ただし、HTML ファイルの body タグの中には次のように記述されているものとします。
 
 ```html title="index.html"
-<meta charset="utf-8" />
-<body>
-  <ul id="fruit-basket"></ul>
-  <script src="script.js"></script>
-</body>
+<ul id="fruit-basket"></ul>
+<script src="script.js"></script>
 ```
 
 <Answer title="フルーツバスケット">
 
 ```js title="script.js"
 const basket = document.getElementById("fruit-basket");
-const fruits = ["トマト", "レモン", "バジル"];
+const fruits = ["イチゴ", "スイカ", "バナナ"];
 
 for (const fruit of fruits) {
   const item = document.createElement("li");
