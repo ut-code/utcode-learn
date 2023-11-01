@@ -50,7 +50,7 @@ element.style.backgroundColor = "red";
 
 ## DOM を用いて要素を追加する
 
-`document.createElement` 関数は、引数に渡されたタグの、新しい HTML 要素を作る関数です。`document.createElement` 関数の返り値は、新しく作った HTML 要素に対応するオブジェクトです。
+`document.createElement` 関数は、引数に渡されたタグの、新しい HTML 要素を作る関数です。`document.createElement` 関数の戻り値aは、新しく作った HTML 要素に対応するオブジェクトです。
 
 ```js
 document.createElement("div");
