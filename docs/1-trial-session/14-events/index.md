@@ -86,7 +86,7 @@ greetButton.onclick = clicked();
 document.write("<div style='color:red; font-size:40px'>Hello world!</div>");
 ```
 
-文字列をJavaScriptで操作する方法は前回の「DOM」の章で扱っています。
+HTML 要素をJavaScriptで操作する方法は前回の「DOM」の章で扱っています。
 
 </Details>
 
@@ -94,7 +94,7 @@ document.write("<div style='color:red; font-size:40px'>Hello world!</div>");
 
 `<button>` タグのHTML属性を書き換えるとボタンの中に`Hello world!` を表示してしまいます。
 
-HTMLファイルに一工夫が必要です。見えない`<div>` タグを用意してあげましょう。
+HTMLファイルに一工夫が必要です。空の`<div>` タグを用意してあげましょう。
 
 ```html
 <div id="greeting"></div>
