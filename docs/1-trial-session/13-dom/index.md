@@ -51,12 +51,7 @@ element.style.backgroundColor = "red";
 ## DOM を用いて要素を追加する
 
 `document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。`document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
-
-```js
-document.createElement("div");
-```
-
-このままだと `textContent` が設定されていない (空文字列) ので、画面には何も表示されません。
+ただ、そのままだと `textContent` が設定されていない (空文字列) ので、画面には何も表示されません。
 `textContent` を `Hello World!` に設定してみましょう。
 
 ```js
@@ -64,7 +59,7 @@ const newElement = document.createElement("div");
 newElement.textContent = "Hello World!";
 ```
 
-これでもまだ新しく作った要素は画面に表示されません。
+しかし、新しく作った要素が画面に表示されていません。
 これは、作成した要素が画面に表示されている HTML のどこにも追加されていないからです。
 
 `要素1.appendChild(要素2)` とすることで、要素2を要素1の子要素に追加することができます。
