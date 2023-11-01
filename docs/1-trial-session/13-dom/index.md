@@ -113,7 +113,7 @@ element.textContent = "レモン";
 
 ## 中級課題
 
-### 配列を箇条書きで表示する
+### フルーツバスケット
 
 購入する予定の果物を表す文字列が格納された配列が次のように用意されています。
 
@@ -131,7 +131,7 @@ const fruits = ["トマト", "レモン", "バジル"];
 </body>
 ```
 
-<Answer title="配列のリスト表示">
+<Answer title="フルーツバスケット">
 
 ```js title="script.js"
 const basket = document.getElementById("fruit-basket");
