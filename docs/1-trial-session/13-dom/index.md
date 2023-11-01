@@ -64,25 +64,26 @@ const newElement = document.createElement("div");
 newElement.textContent = "Hello World!";
 ```
 
-これでもまだ新しく作った要素は画面に表示されません。これは、新しく作った要素の親の要素が設定されていないからです。
+これでもまだ新しく作った要素は画面に表示されません。
+これは、作成した要素が画面に表示されている HTML のどこにも追加されていないからです。
 
-`要素１.appendChild(要素２)` とすることで、要素２を要素１の子要素に追加することができます。
-今回は、body を親要素にしてみましょう。
+`要素1.appendChild(要素2)` とすることで、要素2を要素1の子要素に追加することができます。
+今回は、div 要素の子要素にしてみましょう。
 
 ```html
-<body id="body-id"></body>
-<script src="script.js"></script>
+<div id="div-element"></div>
 ```
 
 ```js
-const body = document.getElementById("body-id");
+const parent = document.getElementById("div-element");
 
 const newElement = document.createElement("div");
 newElement.textContent = "Hello World!";
-body.appendChild(newElement);
+parent.appendChild(newElement);
 ```
 
-これで、画面に `Hello World!` と表示されたはずです。`body` 以外にも、ほとんどの要素の子要素にすることができます。
+これで、画面に `Hello World!` と表示されたはずです。
+`div` 要素以外にも、ほとんどの要素の子要素にすることができます。
 
 ## 初級課題
 
@@ -96,7 +97,6 @@ body.appendChild(newElement);
   <li id="eggplant">ナス</li>
   <li id="basil">バジル</li>
 </ul>
-<script src="script.js"></script>
 ```
 
 <Answer title="買い物リストの書き換え">
