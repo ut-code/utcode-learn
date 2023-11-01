@@ -48,41 +48,41 @@ element.style.backgroundColor = "red";
 
 <p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
 
-## DOM が提供する便利な関数
+## DOM を用いて要素を追加する
 
-### `element.appendChild` 関数
-
-HTML 要素に対応するオブジェクトの後に `.appendChild` と続けて書く関数があります (正確には関数の中でも、[クラスの章](/docs/browser-apps/class/)で説明する<Term type="javascriptMethod">メソッド</Term>というものです)。
-この関数は、引数に渡されたオブジェクトに対応する HTML 要素を、先に書いたオブジェクトに対応する HTML 要素の子要素にすることができます。
-例えば
+`document.createElement` 関数は、引数に渡されたタグの、新しい HTML 要素を作る関数です。`document.createElement` 関数の返り値は、新しく作った HTML 要素に対応するオブジェクトです。
 
 ```js
-elementA.appendChild(elementB);
+document.createElement("div");
 ```
 
-とすると、要素 B を要素 A の子要素にすることができます。
+このままだと `textContent` が設定されていない (空文字列) ので、画面には何も表示されません。
+`textContent` を `Hello World!` に設定してみましょう。
 
-### `document.createElement` 関数
-
-`document.createElement` 関数にタグ名を文字列として渡すと、新しい HTML 要素を作ることができます。
-`document.createElement` 関数の返り値は、作った HTML 要素に対応するオブジェクトです。
-新しく作った要素には `textContent` プロパティや親要素が定義されていないので、作った後に指定する必要があります。
-
-例:
-
-```html title="HTML"
-<ul id="ul"></ul>
+```js
+const newElement = document.createElement("div");
+newElement.textContent = "Hello World!";
 ```
 
-```js title="JavaScript"
-const list = document.getElementById("ul"); // id が ul であるものを取得する
+これでもまだ新しく作った要素は画面に表示されません。これは、新しく作った要素の親の要素が設定されていない (`null`)からです。
 
-const item = document.createElement("li"); // li 要素を作る
-item.textContent = "ut.code(); Learn"; // li 要素の表示する文字を指定する
-list.appendChild(li); // 上で作った要素を ul の子要素に指定する
+`要素１.appendChild(要素２)` とすることで、要素２を要素１の子要素に追加することができます。
+今回は、body を親要素にしてみましょう。
+
+```html
+<body id="body-id"></body>
+<script src="script.js"></script>
 ```
 
-この例では、新しく `li` 要素を作り、その要素の `textContent` を `"ut.code(); Learn"` にして、HTML から取得した `ul` 要素の子要素に指定しています。
+```js
+const body = document.getElementById("body-id");
+
+const newElement = document.createElement("div");
+newElement.textContent = "Hello World!";
+body.appendChild(newElement);
+```
+
+これで、画面に `Hello World!` と表示されたはずです。親要素は任意の要素が指定できます。
 
 ## 初級課題
 
