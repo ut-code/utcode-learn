@@ -54,6 +54,7 @@ element.style.backgroundColor = "red";
 `document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
 `document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
 下の例では、新しい `span` 要素を作っています。
+
 中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
 
 ```js title="script.js"
