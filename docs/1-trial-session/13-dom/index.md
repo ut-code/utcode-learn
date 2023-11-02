@@ -53,15 +53,16 @@ element.style.backgroundColor = "red";
 
 `document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
 `document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
+下の例では、新しい `button` 要素を作っています。
 中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
 
 ```js title="script.js"
-const newElement = document.createElement("div");
-newElement.textContent = "Hello World!";
+const newButton = document.createElement("button");
+newButton.textContent = "Hello World!";
 ```
 
 そして、`要素1.appendChild(要素2)` とすることで、要素2を要素1の子要素に追加し、画面に表示することができます。
-今回は、div 要素の子要素にしてみましょう。
+今回は、`div` 要素の子要素にしてみましょう。
 
 ```html title="index.html"
 <div id="parent-element"></div>
@@ -70,13 +71,13 @@ newElement.textContent = "Hello World!";
 ```js title="script.js"
 const parent = document.getElementById("parent-element");
 
-const newElement = document.createElement("div");
-newElement.textContent = "Hello World!";
+const newButton = document.createElement("button");
+newButton.textContent = "Hello World!";
 
-parent.appendChild(newElement);
+parent.appendChild(newButton);
 ```
 
-これで、画面に `Hello World!` と表示されたはずです。
+これで、既存の `div` 要素の子要素に新しい `button` 要素が追加され、画面に `Hello World!` と書いてあるボタンが表示されます。
 
 ## 初級課題
 
