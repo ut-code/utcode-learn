@@ -46,11 +46,14 @@ element.style.backgroundColor = "red";
 
 ![JavaScriptからスタイルを操作する](./change-styles.png)
 
-<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
+<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。
+<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
 
 ## DOM を用いて要素を追加する
 
-`document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。`document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
+`document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
+`document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
+中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
 
 ```js
 const newElement = document.createElement("div");
@@ -111,7 +114,8 @@ targetItem.textContent = "レモン";
 const fruits = ["イチゴ", "スイカ", "バナナ"];
 ```
 
-`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。ただし、HTML ファイルの body タグの中には次のように記述されているものとします。
+`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。
+ただし、HTML ファイルの body タグの中には次のように記述されているものとします。
 
 ```html title="index.html"
 <ul id="fruit-basket"></ul>
