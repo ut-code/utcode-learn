@@ -9,7 +9,7 @@ description: Promise オブジェクトと await、async
 それぞれの待ち時間のたびに処理を止めていては、処理が完了するのににとてつもない時間がかかってしまいます。適切に最適化されたウェブサイトは「非同期処理」というものを利用して、読み込み時間を効果的に短縮しています。
 
 JavaScript では、`Promise` オブジェクトと、`await`、`async` というキーワードを使うことで、操作を非同期的に処理することが可能です。
-ファイルの読み取りを例にとって、<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
+ファイルの読み取りを非同期的に実行する `readFile` 関数を例にとって、<Term type="asynchronousProcess">非同期処理</Term>を書いてみましょう。
 
 まずは次の 2 つのファイルを作り、`main.mjs` を `Node.js` で実行してみてください。
 
@@ -44,7 +44,7 @@ console.log(awaitText);
 
 とすると「結果」のテキストを得ることができます。このように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(fulfilled) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができるのです。
 
-しかしこのままでは、3 行目で全体の処理が止まってしまっているので、目的だった非同期処理ができません。そこで、 `async` キーワードをつけた関数に入れます。
+しかしこのままでは、3 行目で全体の処理が止まってしまっているので、目的だった非同期処理ができません。そこで、 `async` キーワードをつけた関数を導入します。
 
 ```js title="main.mjs"
 import * as fs from "node:fs/promises";
@@ -82,7 +82,7 @@ try {
 
 :::caution
 フロントエンド側の JavaScript や CommonJS では、`await` は `async` キーワードをつけた関数内部でしか適用できません。
-フロントエンドで `await` `async` を使うには、上記のように非同期の関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
+フロントエンドなどで `await` `async` を使うには、上記のように非同期の関数に名前を付けて定義する以外にも、無名関数をその場で実行する即時関数というものを利用する方法もあります。
 
 ```js title="main.js / script.js"
 (async () => {
@@ -176,6 +176,7 @@ console.log(asyncFunction());
 ```
 
 実行すると、`Promise { <pending> }` と表示されます。実は、`async` で宣言した関数はそれ自体が新しい `Promise` オブジェクトを返すのです。
+
 :::
 
 ## 複数の<Term type="asynchronousProcess">非同期処理</Term>
@@ -183,7 +184,8 @@ console.log(asyncFunction());
 これで非同期処理を完全にマスターしましたね！以下のように書けば 5 人分の `fetchUserData` を非同期的に処理できるはずです！
 
 ```js
-// 以下、fetchUserData 関数の実装は省略します。必要に応じて上のコードをコピーしてください。
+// 以下、fetchUserData 関数の実装は省略します。
+// 必要に応じて上のコードをコピーしてください。
 
 async function repeatAwait() {
   for (let i = 0; i < 5; i += 1) {
@@ -218,7 +220,7 @@ for (let i = 0; i < 5; i++) {
 
 ## `Promise.all`
 
-非同期処理の結果を画面に表示したいだけなら上のように書けばいいですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもありますよね？
+非同期処理の結果を画面に表示したいだけなら上のように書けばいいですが、全ての<Term type="asynchronousProcess">非同期処理</Term>の結果を利用して別の処理を行いたいときもあります。
 
 そんな時は、 `Promise.all` 関数を使うと、複数の `Promise` オブジェクトをひとつの `Promise` オブジェクトにまとめることができます。上にある例で例えると、
 
@@ -229,7 +231,8 @@ async function promiseAll() {
   // 配列を Promise オブジェクトに map する
   const promiseArray = array.map((x) => fetchUserData(x));
 
-  // await Promise.all(配列) とすると、Promise オブジェクトの配列を 1 つの Promise オブジェクトにまとめられる
+  // Promise.all(配列) とすると、Promise オブジェクトの配列を
+  //  1 つの Promise オブジェクトにまとめられる
   const users = await Promise.all(promiseArray);
 
   // ここに全ての結果を使う処理を書くことができる
@@ -274,9 +277,11 @@ function fetchUserData(id) {
 をより深く理解してみましょう。
 
 `Promise` オブジェクトは、`Promise` クラスのコンストラクタにコールバック関数を渡して作られるインスタンスです。
-第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡されます。
+第一引数を `resolve`、第二引数を `reject` と命名した無名関数が渡され、コールバック関数はその場で実行が開始されます。
+
 `Promise` が成功した時には `resolve`、失敗した時には `reject` にそれぞれ結果を渡して関数として実行されます。
-実は、非同期的に処理されていたのはこのコールバック関数でした。
+
+実は、このコールバック関数が非同期的に処理されていたのでした。
 
 上の `fetchUserData` の例では、
 
@@ -361,7 +366,8 @@ assertSuccess("bar")
 ### 2 で割り切れる？
 
 1. `Promise`オブジェクトを使って、1 秒後に 引数が 2 で割り切れたら`resolve`、割り切れなかったら`reject` する関数 `assertEven` を定義してみましょう。
-2. 上の `assertEven` 関数を使い、コンソールに** 1 秒おきに**以下のような表示をしてみましょう。(難)
+2. 上の `assertEven` 関数を使い、コンソールに** 1 秒おきに** 下のような表示をしてみましょう。
+3. 上の `assertEven` 関数を非同期的に処理し、1秒後に 下のような表示が **同時に** 表示されるようにしてみましょう。
 
 ```console
 -----------------------------
@@ -446,7 +452,8 @@ function render(number) {
     });
 }
 
-render(6).then(() => render(5)); // await 演算子を使っていないので、即時関数にする必要がない
+render(6).then(() => render(5));
+// await 演算子を使っていないので、即時関数にする必要がない
 ```
 
 <ViewSource url={import.meta.url} src="./_samples/assert-even-promise-method" />
