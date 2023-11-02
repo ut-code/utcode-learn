@@ -1,3 +1,3 @@
-const pear = document.getElementById("element2");
+const targetItem = document.getElementById("item2");
 
-pear.textContent = "レモン";
+targetItem.textContent = "レモン";
