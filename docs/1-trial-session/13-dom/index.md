@@ -55,7 +55,7 @@ element.style.backgroundColor = "red";
 `document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
 中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
 
-```js
+```js title="script.js"
 const newElement = document.createElement("div");
 newElement.textContent = "Hello World!";
 ```
@@ -63,11 +63,11 @@ newElement.textContent = "Hello World!";
 そして、`要素1.appendChild(要素2)` とすることで、要素2を要素1の子要素に追加し、画面に表示することができます。
 今回は、div 要素の子要素にしてみましょう。
 
-```html
+```html title="index.html"
 <div id="parent-element"></div>
 ```
 
-```js
+```js title="script.js"
 const parent = document.getElementById("parent-element");
 
 const newElement = document.createElement("div");
