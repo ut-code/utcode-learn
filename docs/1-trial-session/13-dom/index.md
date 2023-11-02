@@ -116,7 +116,7 @@ const fruits = ["イチゴ", "スイカ", "バナナ"];
 ```
 
 `createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。
-ただし、HTML ファイルの body タグの中には次のように記述されているものとします。
+ただし、HTML ファイルには次のように記述されているものとします。
 
 ```html title="index.html"
 <ul id="fruit-basket"></ul>
