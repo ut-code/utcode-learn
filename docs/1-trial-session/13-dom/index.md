@@ -61,7 +61,7 @@ const newButton = document.createElement("button");
 newButton.textContent = "Hello World!";
 ```
 
-そして、`要素1.appendChild(要素2)` とすることで、要素2を要素1の子要素に追加し、画面に表示することができます。
+そして、`要素1.appendChild(要素2)` とすることで、要素1の子要素に要素2を追加し、画面に表示することができます。
 今回は、`div` 要素の子要素にしてみましょう。
 
 ```html title="index.html"
