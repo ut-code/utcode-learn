@@ -238,7 +238,7 @@ app.get("/users/:id", (request, response) => {
 <Answer>
 
 ```html title=index.ejs
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -256,14 +256,14 @@ app.get("/users/:id", (request, response) => {
       <tbody>
           <tr>
             <% for ( const item of items ){%>
-            <td><form action=<%= `/${item}` %>><button>購入</button></form></td>
+              <td><form action=<%= `/${item}` %>><button>購入</button></form></td>
             <% } %>
           </tr>
       </tbody>
     </table>
     <% if(recommended){ %>
       <div>あなたへのおすすめは<%= recommended %>です</div>
-      <% } %>
+    <% } %>
   </body>
 </html>
 

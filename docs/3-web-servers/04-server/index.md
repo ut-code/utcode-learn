@@ -161,7 +161,7 @@ const app = express();
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
   response.send(`
-    <!DOCTYPE html>
+    <!doctype html>
       <html lang="ja">
       <head>
         <meta charset="utf-8" />
