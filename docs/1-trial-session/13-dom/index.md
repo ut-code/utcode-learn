@@ -64,11 +64,11 @@ newElement.textContent = "Hello World!";
 今回は、div 要素の子要素にしてみましょう。
 
 ```html
-<div id="div-element"></div>
+<div id="parent-element"></div>
 ```
 
 ```js
-const parent = document.getElementById("div-element");
+const parent = document.getElementById("parent-element");
 
 const newElement = document.createElement("div");
 newElement.textContent = "Hello World!";
