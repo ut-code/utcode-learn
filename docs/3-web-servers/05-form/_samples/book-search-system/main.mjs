@@ -1,6 +1,4 @@
-import fs from "fs";
 import express from "express";
-import ejs from "ejs";
 
 const app = express();
 
@@ -18,9 +16,22 @@ app.get("/send", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );
-  const template = fs.readFileSync("template.ejs", "utf-8");
-  const html = ejs.render(template, { selectedBooks: selectedBooks });
-  response.send(html);
+  response.send(`
+    <!doctype html>
+    <html lang="ja">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+      </head>
+      <body>
+        <ul>
+          ${selectedBooks
+            .map((selectedBook) => `<li>${selectedBook.title}</li>`)
+            .join("")}
+        </ul>
+      </body>
+    </html>
+  `);
 });
 
 app.listen(3000);
