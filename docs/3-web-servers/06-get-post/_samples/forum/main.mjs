@@ -1,6 +1,4 @@
-import fs from "fs";
 import express from "express";
-import ejs from "ejs";
 
 const app = express();
 
@@ -9,9 +7,24 @@ const messages = [];
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (request, response) => {
-  const template = fs.readFileSync("template.ejs", "utf-8");
-  const html = ejs.render(template, { messages: messages });
-  response.send(html);
+  response.send(`
+    <!doctype html>
+    <html lang="ja">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+      </head>
+      <body>
+        <ul>
+          ${messages.map((message) => `<li>${message}</li>`).join("")}
+        </ul>
+        <form action="/send" method="post">
+          <input name="message" />
+          <button>送信</button>
+        </form>
+      </body>
+    </html>
+  `);
 });
 
 app.post("/send", (request, response) => {
