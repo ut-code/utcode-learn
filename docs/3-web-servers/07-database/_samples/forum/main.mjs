@@ -1,7 +1,7 @@
-const express = require("express");
-const fs = require("fs");
-const ejs = require("ejs");
-const { PrismaClient } = require("@prisma/client");
+import express from "express";
+import { readFileSync } from "fs";
+import ejs from "ejs";
+import { PrismaClient } from "@prisma/client";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.get("/", async (request, response) => {
   const messages = await (
     await client.forum.findMany()
   ).map((data) => data.message);
-  const template = fs.readFileSync("template.ejs", "utf-8");
+  const template = readFileSync("template.ejs", "utf-8");
   const html = ejs.render(template, {
     messages: messages,
   });
