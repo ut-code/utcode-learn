@@ -101,7 +101,7 @@ Web の世界で用いられるプロトコルは、通常 **HTTP** と呼ばれ
 
 ![HTTP](./basic-http.png)
 
-Web サーバーにアクセスするために用いた `http://localhost:3000/` のうち、http はプロトコルを、localhost:3000 はサーバーの所在地を表しています (localhost は自分のコンピューターを指します)。
+Web サーバーにアクセスするために用いた `http://localhost:3000/` のうち、`http` はプロトコルを、`localhost:3000` はサーバーの所在地を表しています (`localhost` は自分のコンピューターを指します)。
 
 ## 静的ホスティング
 
@@ -161,7 +161,7 @@ const app = express();
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
   response.send(`
-    <!DOCTYPE html>
+    <!doctype html>
       <html lang="ja">
       <head>
         <meta charset="utf-8" />
