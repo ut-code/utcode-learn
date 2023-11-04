@@ -157,7 +157,7 @@ app
 
 `express.static` により Vite が作成したディレクトリを指定すれば完成です。
 
-```javascript title="/server/main.js"
+```javascript title="server/main.js"
 const express = require("express");
 const app = express();
 
