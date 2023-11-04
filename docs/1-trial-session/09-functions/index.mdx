@@ -51,18 +51,10 @@ function greet(greetingType, myName) {
 greet("morning", "佐藤");
 ```
 
-<p>
-  <Term type="javascriptFunction">関数</Term>定義では、
-  <Term type="javascriptFunction">関数</Term>名直後のかっこ内に
-  <Term type="javascriptParameter">引数</Term>
-  名をコンマ区切りで設定できます。上のプログラムで <code>greet</code> <Term type="javascriptFunction">
-    関数
-  </Term>は、 <code>greetingType</code> や <code>myName</code> という名前の<Term type="javascriptParameter">
-    引数
-  </Term>
-  をとります。<Term type="javascriptFunction">関数</Term>定義の中では、これらは
-  <Term type="javascriptVariable">変数</Term>のように振舞います。
-</p>
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>定義では、<Term type="javascriptFunction">関数</Term>名直後のかっこ内に<Term type="javascriptParameter">引数</Term>名をコンマ区切りで設定できます。
+上のプログラムで `greet` <Term type="javascriptFunction">関数</Term>は、 `greetingType` や `myName` という名前の<Term type="javascriptParameter">引数</Term>をとります。
+<Term type="javascriptFunction">関数</Term>定義の中では、これらは<Term type="javascriptVariable">変数</Term>のように振舞います。
 
 呼び出し側では、括弧の中に<Term type="javascriptFunction">関数</Term>に<Term type="javascriptPass">渡す</Term><Term type="javascriptParameter">引数</Term>を指定します。このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
 
@@ -148,17 +140,14 @@ document.write(multiply(3, 4));
 
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
-<p>
-  <Term type="javascriptFunction">関数</Term>内で
-  <Term type="javascriptDeclaration">宣言</Term>された
-  <Term type="javascriptVariable">変数</Term>は、
-  <Term type="javascriptFunction">関数</Term>内でのみ有効です。
-  <Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その
-  <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">
-    <strong>スコープ</strong>
-  </Term>
-  と呼んでいます。
-</p>
+<Term type="javascriptFunction">関数</Term>内で
+<Term type="javascriptDeclaration">宣言</Term>された
+<Term type="javascriptVariable">変数</Term>は、
+<Term type="javascriptFunction">関数</Term>内でのみ有効です。
+<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その
+<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">
+  **スコープ**
+</Term>と呼んでいます。
 
 <p>
   <Term type="javascriptFunction">関数</Term>外で

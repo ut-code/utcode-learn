@@ -52,7 +52,7 @@ module.exports = {
       },
     },
     prism: {
-      theme: require("prism-react-renderer/themes/github"),
+      theme: require("prism-react-renderer").themes.github,
     },
     navbar: {
       title: "ut.code(); Learn",
