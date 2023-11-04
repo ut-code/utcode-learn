@@ -100,7 +100,7 @@ Windows 上での作業は、WSL のターミナルを利用するようにし�
 
 ## Node.js で Hello World
 
-まずは、新しいフォルダを作成し、Visual Studio Code で開きます。Mac の場合は[はじめての Web 開発](../../1-trial-session/01-get-started/index.md)で作成した `Projects` フォルダの中に別のフォルダを作れば問題ありませんが、Windows の場合は WSL 上にフォルダを作成します。
+まずは、新しいフォルダを作成し、Visual Studio Code で開きます。Mac の場合は[はじめての Web 開発](/docs/trial-session/get-started/)で作成した `Projects` フォルダの中に別のフォルダを作れば問題ありませんが、Windows の場合は WSL 上にフォルダを作成します。
 
 :::info WSL 上にプロジェクトフォルダを作る
 
@@ -124,7 +124,7 @@ console.log("Hello World");
 
 ## Node.js のデバッグ
 
-[ブラウザの開発者ツールを利用する](../../2-browser-apps/01-inspector/index.md) 節で JavaScript のデバッグを行ったのと同様に、Node.js では、VS Code 標準の機能を用いてデバッグを行えます。
+[ブラウザの開発者ツールを利用する](/docs/browser-apps/inspector/) 節で JavaScript のデバッグを行ったのと同様に、Node.js では、VS Code 標準の機能を用いてデバッグを行えます。
 
 Node.js のデバッグを開始するには、ブレークポイント等を設定したうえで、`F5` キーを押します。初回はデバッグ構成を選択するメニューが出現するので、`Node.js` を選択しましょう。デバッグが開始されると、VS Code 下部の青いバーが橙色に変化します。`console.log` は `DEBUG CONSOLE` タブに出力されるので注意しましょう。
 

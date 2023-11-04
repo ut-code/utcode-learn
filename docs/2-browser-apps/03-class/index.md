@@ -349,7 +349,7 @@ Answerタグもその時に追加してください。 -->
 
 ![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
 
-実は、[DOM](./../../1-trial-session/13-dom/index.md) の節で使用した `textContent` プロパティは、この `Node` クラスで定義されています。
+実は、[DOM](/docs/trial-session/dom/) の節で使用した `textContent` プロパティは、この `Node` クラスで定義されています。
 
 `HTMLDivElement` クラスを自分でインスタンス化し、`textContent` プロパティに適当な値を代入して、`document.body.appendChild` 関数を用いて、作成した `div` 要素を `body` 要素の中に追加しましょう。
 

@@ -21,7 +21,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 ### <Term type="moduleBundler">モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](../../3-web-servers/04-server/index.md)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
 [webpack](https://webpack.js.org) のような<Term type="moduleBundler" strong>モジュールバンドラ</Term>を用いることで、複数の JavaScript ファイルを統合できます。
 
@@ -88,7 +88,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
-出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](../../1-trial-session/16-deploy-application/index.md) などにアップロードすれば使用可能になるでしょう。
+出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](/docs/trial-session/deploy-application/) などにアップロードすれば使用可能になるでしょう。
 
 <video src={buildVideo} controls />
 
