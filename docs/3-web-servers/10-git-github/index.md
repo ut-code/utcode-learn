@@ -190,9 +190,11 @@ GitHub 上のリポジトリの URL には **HTTPS** と **SSH** の2種類が�
 
 SSH 鍵の登録を済ませているみなさんは基本的に SSH を使いましょう。
 もし自分の PC 上に紐付ける URL を間違えてHTTPSにしてしまった場合は、
+
 ```shell
 git remote set-url origin git@github.com:アカウント名/リポジトリ名.git
 ```
+
 で再設定ができます。
 
 :::
