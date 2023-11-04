@@ -3,7 +3,7 @@ const app = express();
 
 app.get("/", (request, response) => {
   response.send(`
-    <!DOCTYPE html>
+    <!doctype html>
       <html lang="ja">
       <head>
         <meta charset="utf-8" />
