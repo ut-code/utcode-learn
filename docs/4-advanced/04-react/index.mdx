@@ -123,7 +123,7 @@ React を新規プロジェクトではなく、既存のウェブプロジェ�
 
 ## <Term type="jsx">JSX</Term>
 
-React を使用するプロジェクトでは、通常 <Term type="jsx" strong>JSX</Term> と呼ばれる、JavaScript の拡張構文も用いられます。拡張子は `.jsx` で、TypeScript とともに用いるためには `.tsx` となります。Vite のテンプレートからプロジェクトを作成した場合には、`main.tsx` と `App.tsx` が作成されるはずです。
+React を使用するプロジェクトでは、通常 <Term type="jsx">**JSX**</Term> と呼ばれる、JavaScript の拡張構文も用いられます。拡張子は `.jsx` で、TypeScript とともに用いるためには `.tsx` となります。Vite のテンプレートからプロジェクトを作成した場合には、`main.tsx` と `App.tsx` が作成されるはずです。
 
 `main.tsx` は HTML から直接実行されるファイルで、`id` 属性に `root` を持つ要素の中を React により管理する旨を示しています。また、このファイルから `App.tsx` で定義された関数 `App` が読み込まれています。詳細は重要ではないのでここでは扱いません。
 
@@ -760,7 +760,7 @@ const removeTodo = (id: number) => {
 };
 ```
 
-オブジェクトの中身が変化しないとき、そのオブジェクトは<Term type="mutableImmutable" strong>イミュータブル</Term>であるといいます。一方、`Array#push` メソッドや `Array#splice` メソッドは、配列の中身を変化させます。このように、<Term type="mutableImmutable">ミュータブル</Term>な操作を伴う関数を、**破壊的**であるという場合があります。破壊的メソッドは React の状態に対して使用できません。
+オブジェクトの中身が変化しないとき、そのオブジェクトは<Term type="mutableImmutable">**イミュータブル**</Term>であるといいます。一方、`Array#push` メソッドや `Array#splice` メソッドは、配列の中身を変化させます。このように、<Term type="mutableImmutable">ミュータブル</Term>な操作を伴う関数を、**破壊的**であるという場合があります。破壊的メソッドは React の状態に対して使用できません。
 
 :::
 

@@ -11,10 +11,9 @@ import definitions from "./definitions";
 /**
  * @param {Object} props
  * @param {keyof typeof definitions} props.type
- * @param {boolean} props.strong
  * @param {React.ReactNode} props.children
  */
-export default function Term({ type, strong = false, children }) {
+export default function Term({ type, children }) {
   const term = definitions.terms[type];
   if (!term) throw new Error(`Type ${type} is not defined.`);
   const referencePageTitle =
@@ -64,8 +63,7 @@ export default function Term({ type, strong = false, children }) {
     );
   };
 
-  const Tag = strong ? "strong" : "span";
-  const content = <Tag className={styles.text}>{children}</Tag>;
+  const content = <span className={styles.text}>{children}</span>;
 
   return typeof window === "object" ? wrap(content) : content;
 }

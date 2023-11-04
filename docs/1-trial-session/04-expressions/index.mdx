@@ -10,7 +10,7 @@ title: 値と式と演算子
 document.write("Hello World");
 ```
 
-`"Hello World"` のように `"`（ダブルクォーテーション）で囲まれた<Term strong type="javascriptValue">値</Term>を、<Term strong type="javascriptString">文字列</Term>と呼びます。
+`"Hello World"` のように `"`（ダブルクォーテーション）で囲まれた<Term type="javascriptValue">**値**</Term>を、<Term type="javascriptString">**文字列**</Term>と呼びます。
 
 <Term type="javascriptString">文字列</Term>は
 <Term type="javascriptValue">値</Term>の一種です。
@@ -27,8 +27,8 @@ document.write(3);
 ```
 
 <p>
-  <Term strong type="javascriptOperator">
-    演算子
+  <Term type="javascriptOperator">
+    <strong>演算子</strong>
   </Term>
   を用いると、<Term type="javascriptValue">値</Term>
   を用いて計算をすることができます。例えば <code>+</code>（加算
@@ -53,7 +53,7 @@ document.write(3 + 4 * 5);
 
 `*`（乗算<Term type="javascriptOperator">演算子</Term>）は `+` より<Term type="javascriptOperatorPriority">優先順位</Term>が高く設定されているため、上記のコードの実行結果は `23` となります。
 
-このコードにおいて、`3 + 4 * 5` や、`4 * 5`、`4` を<Term strong type="javascriptExpression">式</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term strong type="javascriptEvaluation">評価</Term>されるといいます。
+このコードにおいて、`3 + 4 * 5` や、`4 * 5`、`4` を<Term type="javascriptExpression">**式**</Term>と呼びます。また、<Term type="javascriptExpression">式</Term>が計算され、その結果としての<Term type="javascriptValue">値</Term>が確定することを式が<Term type="javascriptEvaluation">**評価**</Term>されるといいます。
 
 `3 + 4 * 5` の<Term type="javascriptEvaluation">評価</Term>は、先に `4 * 5` が<Term type="javascriptEvaluation">評価</Term>されて `20` になり、次に `3 + 20` が<Term type="javascriptEvaluation">評価</Term>されることにより、`23` という<Term type="javascriptValue">値</Term>となると考えることができます。
 
