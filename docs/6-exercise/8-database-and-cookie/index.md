@@ -7,7 +7,7 @@ import trackingVideo from "./tracking.mp4"
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 
-この章では教材の「[データベース](../../3-web-servers/07-database/index.md)」「[Cookie と認証](../../3-web-servers/08-cookie/index.md)」の内容を扱っています。
+この章では教材の「[データベース](/docs/web-servers/database/)」「[Cookie と認証](/docs/web-servers/cookie/)」の内容を扱っています。
 
 ---
 

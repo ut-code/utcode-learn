@@ -7,7 +7,7 @@ import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import Details from "@theme/Details";
 
-この章では教材の「[はじめての Node.js](../../3-web-servers/02-node-js/index.md)」から「[Express によるサーバー構築](../../3-web-servers/04-server/index.md)」までの内容を扱っています。
+この章では教材の「[はじめての Node.js](/docs/web-servers/node-js/)」から「[Express によるサーバー構築](/docs/web-servers/server/)」までの内容を扱っています。
 
 ---
 

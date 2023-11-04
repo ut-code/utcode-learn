@@ -6,7 +6,7 @@ sidebar_position: 10
 import todoAppVideo from "./todo-app.mp4"
 import ViewSource from "@site/src/components/ViewSource";
 
-この章では教材の「[React](../../4-advanced/04-react/index.md)」の内容を扱っています。
+この章では教材の「[React](/docs/advanced/react/)」の内容を扱っています。
 
 ---
 
@@ -30,7 +30,7 @@ import ViewSource from "@site/src/components/ViewSource";
 
 いきなりデザインも機能も同時に本格的にするのは複雑なので、まずは最小限の機能に焦点を絞るのがよいでしょう。手始めに、カテゴリなどは考えず ToDo を追加・削除・編集するアプリを作ってみましょう。
 
-この教材の [React の章](../../4-advanced/04-react/index.md#課題-2)で簡単な ToDo アプリを実際に作っている箇所もあるので、そちらも参考にしてみましょう。
+この教材の [React の章](/docs/advanced/react/#課題-2)で簡単な ToDo アプリを実際に作っている箇所もあるので、そちらも参考にしてみましょう。
 
 #### ヒント２
 

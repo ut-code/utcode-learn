@@ -6,7 +6,7 @@ sidebar_position: 9
 import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 
-この章では教材の「[TypeScript](../../4-advanced/03-typescript/index.md)」の内容を扱っています。
+この章では教材の「[TypeScript](/docs/advanced/typescript/)」の内容を扱っています。
 
 ---
 

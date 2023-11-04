@@ -7,7 +7,7 @@ import componentRenderingVideo from "./component-rendering.mp4";
 
 ## 宣言的な UI
 
-これまで、JavaScript により HTML 要素を操作するために、[DOM](../../1-trial-session/13-dom/index.md) を用いることができることを学んできました。しかしながら、ナイーブな方法により DOM を使用すると、アプリケーションの規模の限界がすぐにやってきます。
+これまで、JavaScript により HTML 要素を操作するために、[DOM](/docs/trial-session/dom/) を用いることができることを学んできました。しかしながら、ナイーブな方法により DOM を使用すると、アプリケーションの規模の限界がすぐにやってきます。
 
 簡単な ToDo アプリケーションを例に考えてみましょう。
 
@@ -746,7 +746,7 @@ export default function App() {
 
 :::tip React とイミュータビリティ
 
-[オブジェクトの参照](../../2-browser-apps/02-reference/index.md)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
+[オブジェクトの参照](/docs/browser-apps/reference/)節で扱ったように、JavaScript オブジェクトは参照として扱われます。React では、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの `addTodo` 関数と `removeTodo` 関数は、次のように書き換えることはできません。これは、この方法では React が状態が変化したことを検知できないからです。
 
 ```tsx
 const addTodo = () => {

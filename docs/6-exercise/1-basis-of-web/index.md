@@ -8,7 +8,7 @@ import Answer from "@site/src/components/Answer";
 import ViewSource from "@site/src/components/ViewSource";
 import BubbleSortVideo from "@site/docs/6-exercise/1-basis-of-web/bubble-sort-video.mp4";
 
-この章では教材の「[初めてのウェブ開発](../../1-trial-session/01-get-started/index.md)」から「[ウェブサイトの見た目を整える](../../1-trial-session/12-css/index.md)」までの内容を扱っています。
+この章では教材の「[初めてのウェブ開発](/docs/trial-session/get-started/)」から「[ウェブサイトの見た目を整える](/docs/trial-session/css/)」までの内容を扱っています。
 
 ---
 
