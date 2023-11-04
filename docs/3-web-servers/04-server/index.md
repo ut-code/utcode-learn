@@ -30,7 +30,7 @@ npm install express
 
 続いて、次のような `main.mjs` を作成しましょう。
 
-```javascript title=main.js
+```javascript title=main.mjs
 import express from "express";
 const app = express();
 
@@ -107,7 +107,7 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 
 次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
-```javascript
+```javascript title=main.mjs
 import express from "express";
 import { readFileSync } from "fs";
 const app = express();
@@ -132,7 +132,7 @@ app.listen(3000);
 
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
-```javascript
+```javascript title=main.mjs
 import express from "express";
 
 const app = express();
@@ -154,7 +154,7 @@ app.listen(3000);
 
 前項のプログラムを書き換えて、複雑な HTML を出力できるようにしてみましょう。
 
-```javascript
+```javascript title=main.mjs
 import express from "express";
 const app = express();
 

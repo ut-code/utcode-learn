@@ -11,11 +11,11 @@ import chatAppVideo from "./chat-app.mp4";
 しかしながら、ブラウザ上で動く JavaScript から利用できる **Fetch <Term type="api">API</Term >** を用いると、任意のタイミングで<Term type="httpRequestResponse">リクエスト</Term>が発行できるようになります。<Term type="api">API</Term > は、アプリケーションプログラミングインターフェース(Application Programming Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term type="api">API</Term > に従い短いコードを記述するだけでその機能を利用することができます。
 <Term type="serverClient">サーバー</Term>と<Term type="serverClient">クライアント</Term>、どちらで動く JavaScript なのかに注意しながら、次のプログラムを実行してみましょう。
 
-```html title="/static/index.html の body 内"
+```html title="static/index.html の body 内"
 <button id="fetch-button">天気予報を見る</button>
 ```
 
-```javascript title="/static/script.js (ブラウザ上で動く JavaScript)"
+```javascript title="static/script.js (ブラウザ上で動く JavaScript)"
 document.getElementById("fetch-button").onclick = async () => {
   const response = await fetch("/weather");
   const weather = await response.text();
@@ -33,7 +33,7 @@ document.getElementById("fetch-button").onclick = async () => {
 
 なお、<Term type="serverClient">サーバー</Term>では次のプログラムが動作しているものとします。
 
-```javascript title="/server.mjs (サーバーとして動く JavaScript)"
+```javascript title="server.mjs (サーバーとして動く JavaScript)"
 import express from "express";
 const app = express();
 
@@ -52,7 +52,7 @@ app.listen(3000);
 
 このとき、<Term type="httpHeaderBody">リクエストボディ</Term>は、 `fetch` 関数の第 2 引数に指定したオブジェクトの `body` プロパティに指定します。
 
-```javascript title="/static/script.js"
+```javascript title="static/script.js"
 document.getElementById("send-button").onclick = async () => {
   const name = document.getElementById("name").value;
   const age = document.getElementById("age").value;
@@ -63,7 +63,7 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
-```javascript title="/server.mjs"
+```javascript title="server.mjs"
 import express from "express";
 const app = express();
 
@@ -91,7 +91,7 @@ HTML のフォームで送ったものと同じ形式でデータを送信する
 
 `fetch` 関数の第 2 引数の `headers` オプションでは、<Term type="httpHeaderBody">リクエストヘッダ</Term>を指定します。<Term type="httpHeaderBody">リクエストボディ</Term>に <Term type="json">JSON</Term> を指定する場合は、**`Content-Type` リクエストヘッダ**を `"application/json"` に指定します。
 
-```javascript title="/static/script.js"
+```javascript title="static/script.js"
 document.getElementById("send-button").onclick = async () => {
   const name = document.getElementById("name").value;
   const age = document.getElementById("age").value;
@@ -108,7 +108,7 @@ document.getElementById("send-button").onclick = async () => {
 
 サーバー側では、<Term type="httpHeaderBody">リクエストボディ</Term>の JSON を解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
 
-```javascript title="/server.mjs"
+```javascript title="server.mjs"
 import express from "express";
 const app = express();
 
@@ -153,7 +153,7 @@ app.listen(3000);
 
 [掲示板を作ったとき](../../3-web-servers/06-get-post/index.md) と同じく、`messages` という配列をサーバー側に用意し、メッセージが送信されたらその配列に要素を追加するようにしましょう。
 
-```javascript title="/server.js"
+```javascript title="server.mjs"
 const messages = [];
 app.post("/send", (request, response) => {
   // メッセージを追加
@@ -164,7 +164,7 @@ app.post("/send", (request, response) => {
 
 [`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって <Term type="json">JSON</Term> としたうえで<Term type="httpRequestResponse">レスポンス</Term>するためのメソッドです。このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
 
-```javascript title="/server.js"
+```javascript title="server.mjs"
 app.get("/messages", (request, response) => {
   response.json(messages);
 });
@@ -172,7 +172,7 @@ app.get("/messages", (request, response) => {
 
 新着メッセージを確認するために、定期的に `/messages` に対して `fetch` 関数を用いて<Term type="httpRequestResponse">リクエスト</Term>しましょう。`setInterval` 関数が利用できます。
 
-```javascript title="/static/script.js"
+```javascript title="static/script.js"
 setInterval(async () => {
   const response = await fetch("/messages");
   // レスポンスを処理する
@@ -181,11 +181,11 @@ setInterval(async () => {
 
 `innerHTML` プロパティを空文字列とすることで要素の子要素を全て削除できます。`document.createElement` 関数を用いて再び生成し直しましょう。
 
-```html title="/static/index.html"
+```html title="static/index.html"
 <ul id="message-list"></ul>
 ```
 
-```javascript title="/static/script.js"
+```javascript title="static/script.js"
 const messageList = document.getElementById("message-list");
 messageList.innerHTML = "";
 

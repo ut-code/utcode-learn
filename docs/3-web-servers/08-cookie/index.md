@@ -36,7 +36,7 @@ npm install cookie-parser
 
 を実行して、パッケージをインストールしましょう。Web サーバーのプログラムは次のようになります。
 
-```javascript
+```javascript title=main.mjs
 import express from "express";
 import cookieParser from "cookie-parser";
 
