@@ -1,6 +1,4 @@
 import express from "express";
-import { readFileSync } from "fs";
-import ejs from "ejs";
 import { PrismaClient } from "@prisma/client";
 
 const app = express();
@@ -13,11 +11,24 @@ app.get("/", async (request, response) => {
   const messages = await (
     await client.forum.findMany()
   ).map((data) => data.message);
-  const template = readFileSync("template.ejs", "utf-8");
-  const html = ejs.render(template, {
-    messages: messages,
-  });
-  response.send(html);
+  response.send(`
+    <!doctype html>
+    <html lang="ja">
+      <head>
+        <meta charset="utf-8" />
+        <title>Title</title>
+      </head>
+      <body>
+        <ul>
+          ${messages.map((message) => `<li>${message}</li>`).join("")}
+        </ul>
+        <form method="post" action="/send">
+          <input placeholder="ここに入力してください。" name="message" />
+          <button>送信</button>
+        </form>
+      </body>
+    </html>
+  `);
 });
 
 app.post("/send", async (request, response) => {
