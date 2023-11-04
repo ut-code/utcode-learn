@@ -21,27 +21,21 @@ greet();
 
 上のプログラムにおいて、`function` キーワードから始まる部分は<Term type="javascriptFunction">関数</Term>を定義するための<Term type="javascriptControlFlow">制御構文</Term>です。<Term type="javascriptFunction">関数</Term>定義では、 `function` キーワードに続けて<Term type="javascriptFunction">関数</Term>名、かっこを記述します。この後、<Term type="javascriptFunction">関数</Term>内で実行したい処理を波かっこの中に記述していきます。
 
-<p>
-  <Term type="javascriptFunction">関数</Term>を定義すると、
-  <Term type="javascriptFunction">関数</Term>
-  名に続けてかっこを記述することにより、その
-  <Term type="javascriptFunction">関数</Term>を実行できるようになります。
-</p>
+<Term type="javascriptFunction">関数</Term>を定義すると、
+<Term type="javascriptFunction">関数</Term>
+名に続けてかっこを記述することにより、その
+<Term type="javascriptFunction">関数</Term>を実行できるようになります。
 
 このプログラムでは、 `greet` <Term type="javascriptFunction">関数</Term>が 2 回呼び出されているので、ブラウザに `Hello World!` が 2 つ表示されます。
 
 ## <Term type="javascriptParameter">**引数**</Term>
 
-<p>
-  <Term type="javascriptFunction">関数</Term>
-  の振る舞いを呼び出し時に変更するため、
-  <Term type="javascriptFunction">関数</Term>に
-  <Term type="javascriptParameter">
-    <strong>引数</strong>
-  </Term>
-  を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の
-  <Term type="javascriptValue">値</Term>が指定できます。
-</p>
+<Term type="javascriptFunction">関数</Term>
+の振る舞いを呼び出し時に変更するため、
+<Term type="javascriptFunction">関数</Term>に
+<Term type="javascriptParameter">**引数**</Term>
+を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の
+<Term type="javascriptValue">値</Term>が指定できます。
 
 ```javascript
 function greet(greetingType, myName) {
@@ -62,29 +56,23 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<p>
-  <Term type="javascriptFunction">関数</Term>呼び出しは
-  <Term type="javascriptExpression">式</Term>の一種です。
-  <Term type="javascriptFunction">関数</Term>定義内で <strong>return 文</strong>
-  を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、
-  <Term type="javascriptFunction">関数</Term>呼び出し
-  <Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">
-    評価
-  </Term>結果が確定します。この値を
-  <Term type="javascriptReturnValue">
-    <strong>戻り値</strong>
-  </Term>
-  と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">
-    戻り値
-  </Term>として設定して
-  <Term type="javascriptFunction">関数</Term>の実行を終了することを、
-  <Term type="javascriptFunction">関数</Term>がその
-  <Term type="javascriptValue">値</Term>を
-  <Term type="javascriptReturn">
-    <strong>返す</strong>
-  </Term>
-  と表現します。
-</p>
+<Term type="javascriptFunction">関数</Term>呼び出しは
+<Term type="javascriptExpression">式</Term>の一種です。
+<Term type="javascriptFunction">関数</Term>定義内で **return 文** を用いると、
+<Term type="javascriptFunction">関数</Term>の実行が停止され、
+<Term type="javascriptFunction">関数</Term>呼び出し
+<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">
+  評価
+</Term>結果が確定します。この値を
+<Term type="javascriptReturnValue">**戻り値**</Term>
+と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">
+  戻り値
+</Term>として設定して
+<Term type="javascriptFunction">関数</Term>の実行を終了することを、
+<Term type="javascriptFunction">関数</Term>がその
+<Term type="javascriptValue">値</Term>を
+<Term type="javascriptReturn">**返す**</Term>
+と表現します。
 
 ```javascript
 function add(a, b) {
@@ -149,12 +137,10 @@ document.write(multiply(3, 4));
   **スコープ**
 </Term>と呼んでいます。
 
-<p>
-  <Term type="javascriptFunction">関数</Term>外で
-  <Term type="javascriptDeclaration">宣言</Term>された
-  <Term type="javascriptVariable">変数</Term>は
-  <Term type="javascriptFunction">関数</Term>内でも利用できます。
-</p>
+<Term type="javascriptFunction">関数</Term>外で
+<Term type="javascriptDeclaration">宣言</Term>された
+<Term type="javascriptVariable">変数</Term>は
+<Term type="javascriptFunction">関数</Term>内でも利用できます。
 
 ```javascript
 let guestCount = 0;
@@ -172,10 +158,8 @@ greet();
 
 :::caution <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">**スコープ**</Term>
 
-<p>
-  <Term type="javascriptScope">スコープ</Term>が終わった
-  <Term type="javascriptVariable">変数</Term>は、その時点で破棄されます。
-</p>
+<Term type="javascriptScope">スコープ</Term>が終わった
+<Term type="javascriptVariable">変数</Term>は、その時点で破棄されます。
 
 ```javascript
 let outer = 0;
@@ -196,10 +180,8 @@ increment();
 
 ## 処理の分割
 
-<p>
-  <Term type="javascriptFunction">関数</Term>
-  は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出すことにも用いることができます。
-</p>
+<Term type="javascriptFunction">関数</Term>
+は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出すことにも用いることができます。
 
 長い処理をパーツに分割すると、次のようなメリットがあります。
 
@@ -275,19 +257,15 @@ function showProbabilityAsGraph(probability) {
 
 ### 最大値
 
-<p>
-  <Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を
-  <Term type="javascriptReturn">返す</Term>
-  <Term type="javascriptFunction">関数</Term> <code>max</code>{" "}
-  を定義してください。
-</p>
+<Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を
+<Term type="javascriptReturn">返す</Term>
+<Term type="javascriptFunction">関数</Term> `max` を定義してください。
 
 :::tip
 
-<p>
-  <Term type="javascriptIfStatement">if 文</Term>を使って、<code>a</code>{" "}
-  が大きい場合と <code>b</code> が大きい場合で処理を書き分けます。
-</p>
+<Term type="javascriptIfStatement">if 文</Term>を使って、`a` が大きい場合と `b`
+が大きい場合で処理を書き分けます。
+
 :::
 
 <Answer title="大きい数">

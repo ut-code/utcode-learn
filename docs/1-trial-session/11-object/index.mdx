@@ -6,30 +6,24 @@ title: オブジェクト
 
 JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の種類として、これまで<Term type="javascriptNumber">数値</Term>、<Term type="javascriptString">文字列</Term>、<Term type="javascriptBoolean">論理値</Term>を扱ってきました。<Term type="javascriptObject">**オブジェクト**</Term>もまた、<Term type="javascript">JavaScript</Term> の<Term type="javascriptValue">値</Term>ですが、今まで扱ってきた<Term type="javascriptValue">値</Term>とは少し性質が異なります。
 
-<p>
-  <Term type="javascriptObject">オブジェクト</Term>
-  を用いると、これまで扱ってきたような単純な
-  <Term type="javascriptValue">値</Term>を複数まとめて一つの
-  <Term type="javascriptValue">値</Term>として扱うことができます。
-</p>
+<Term type="javascriptObject">オブジェクト</Term>
+を用いると、これまで扱ってきたような単純な
+<Term type="javascriptValue">値</Term>を複数まとめて一つの
+<Term type="javascriptValue">値</Term>として扱うことができます。
 
 ## <Term type="javascriptObject">オブジェクト</Term>の作成
 
-<p>
-  <Term type="javascriptObject">オブジェクト</Term>は、複数の
-  <Term type="javascriptProperty">
-    <strong>プロパティ</strong>
-  </Term>
-  と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。
-  <Term type="javascriptProperty">プロパティ</Term>
-  にはそれぞれ名前がついています。
-  <Term type="javascriptProperty">プロパティ</Term>
-  の名前には文字列しか指定できませんが、
-  <Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">
-    値
-  </Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての
-  <Term type="javascriptValue">値</Term>が使用可能です。
-</p>
+<Term type="javascriptObject">オブジェクト</Term>は、複数の
+<Term type="javascriptProperty">**プロパティ**</Term>
+と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。
+<Term type="javascriptProperty">プロパティ</Term>
+にはそれぞれ名前がついています。
+<Term type="javascriptProperty">プロパティ</Term>
+の名前には文字列しか指定できませんが、
+<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">
+  値
+</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての
+<Term type="javascriptValue">値</Term>が使用可能です。
 
 ```javascript
 const person = { name: "田中", age: 18 };
@@ -43,10 +37,8 @@ JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほ�
 
 :::
 
-<p>
-  <Term type="javascriptObject">オブジェクト</Term>の中に
-  <Term type="javascriptObject">オブジェクト</Term>を入れることもできます。
-</p>
+<Term type="javascriptObject">オブジェクト</Term>の中に
+<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。
 
 ```javascript
 const person = {
@@ -149,13 +141,11 @@ document.write(tanaka.scores.japanese);
 
 ### 中級課題
 
-<p>
-  <Term type="javascriptObject">オブジェクト</Term>も
-  <Term type="javascriptValue">値</Term>の一種なので、
-  <Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">
-    引数
-  </Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。
-</p>
+<Term type="javascriptObject">オブジェクト</Term>も
+<Term type="javascriptValue">値</Term>の一種なので、
+<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">
+  引数
+</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。
 
 `age` <Term type="javascriptProperty">プロパティ</Term>に 1 を加えた<Term type="javascriptObject">オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
 

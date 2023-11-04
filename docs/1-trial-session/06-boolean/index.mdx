@@ -20,10 +20,8 @@ title: 論理値と論理演算子
 
 ## 論理<Term type="javascriptOperator">演算子</Term>
 
-<p>
-  <Term type="javascriptBoolean">論理値</Term>に対して適用できる
-  <Term type="javascriptOperator">演算子</Term>が存在します。
-</p>
+<Term type="javascriptBoolean">論理値</Term>に対して適用できる
+<Term type="javascriptOperator">演算子</Term>が存在します。
 
 ```javascript
 const isMonsterBig = true;
@@ -35,11 +33,11 @@ const shouldFight = isHunterStrong || isMonsterSmall; // false
 
 詳細は以下の通りです。 `!` のみが作用する対象を 1 つしかとらないことに注意してください。
 
-| 演算子                    | 意味       | 詳細                                                                 |
-| ------------------------- | ---------- | -------------------------------------------------------------------- |
-| `!`                       | ～ではない | `true` ならば `false`、`false` ならば `true`                         |
-| `&&`                      | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false`  |
-| <code>&#124;&#124;</code> | または     | 両方 `false` ならば `false` 、どちらか 1 つでも `true` ならば `true` |
+| 演算子 | 意味       | 詳細                                                                 |
+| ------ | ---------- | -------------------------------------------------------------------- |
+| `!`    | ～ではない | `true` ならば `false`、`false` ならば `true`                         |
+| `&&`   | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false`  |
+| `\|\|` | または     | 両方 `false` ならば `false` 、どちらか 1 つでも `true` ならば `true` |
 
 ## 比較<Term type="javascriptOperator">演算子</Term>
 
