@@ -7,7 +7,7 @@ import openInBrowserVideo from "./open-in-browser.mp4";
 import showFileExtensionsVideo from "./show-file-extensions.mp4";
 import reloadBrowserVideo from "./reload-browser.mp4";
 
-Web 開発に必ず用いられる言語があります。<Term type="html" strong>HTML</Term> と CSS、そして JavaScript です。これらは互いに異なる役割をもっています。まずは最も基本となる <Term type="html">HTML</Term> から学んでいきましょう。
+Web 開発に必ず用いられる言語があります。<Term type="html">**HTML**</Term> と CSS、そして JavaScript です。これらは互いに異なる役割をもっています。まずは最も基本となる <Term type="html">HTML</Term> から学んでいきましょう。
 
 ![Web開発で用いられる言語](./web-development-languages.drawio.svg)
 
@@ -40,7 +40,7 @@ VS Code の画面左端には、ファイル一覧が表示されています。
 
 VS Code 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
 
-ファイル名の `.` (ピリオド) 以降の部分は<Term type="fileExtension" strong>拡張子</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term type="html">HTML</Term>ファイルであることを明示するためです。
+ファイル名の `.` (ピリオド) 以降の部分は<Term type="fileExtension">**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term type="html">HTML</Term>ファイルであることを明示するためです。
 
 実は Windows では、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
 
@@ -56,8 +56,8 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 <p>
   <Term type="html">HTML</Term> ファイルは、文書に意味を持たせるために、
-  <Term strong type="tag">
-    タグ
+  <Term type="tag">
+    <strong>タグ</strong>
   </Term>
   と呼ばれる構造を持つことができます。<Term type="tag">タグ</Term>は、
   <code>&lt;tag&gt;</code> のような、<code>&lt;</code>と<code>&gt;</code>
@@ -68,17 +68,17 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
   <Term type="tag">タグ</Term>は、 <code>&lt;tag&gt;内容&lt;/tag&gt;</code>{" "}
   のように、<Term type="tag">タグ</Term>
   名の先頭にスラッシュを付けるか否かの区別により
-  <Term strong type="startTag">
-    開始タグ
+  <Term type="startTag">
+    <strong>開始タグ</strong>
   </Term>
-  と<Term strong type="endTag">
-    終了タグ
+  と<Term type="endTag">
+    <strong>終了タグ</strong>
   </Term>
   に分かれ、内部にテキストや別のタグを挟み込むことができます。
   <Term type="startTag">開始タグ</Term>から<Term type="endTag">終了タグ</Term>
   までのまとまりを
-  <Term strong type="element">
-    要素
+  <Term type="element">
+    <strong>要素</strong>
   </Term>
   といいます。
 </p>
@@ -115,9 +115,9 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 <video src={reloadBrowserVideo} autoPlay muted loop controls />
 
-`<a href="https://www.google.com/">～</a>` は **`a` <Term type="element">要素</Term>** です。<Term type="startTag">開始タグ</Term>の中に `href="https://www.google.com/"` という部分があります。これが<Term strong type="attribute">属性</Term>です。<Term type="attribute">属性</Term>は、<Term type="startTag">開始タグ</Term> の中に `属性名="値"` のように記述され、<Term type="element">要素</Term>の特徴を表します。`a` <Term type="element">要素</Term>の **`href` <Term type="attribute">属性</Term>**は、ハイパーリンクのリンク先を表す<Term type="attribute">属性</Term>です。
+`<a href="https://www.google.com/">～</a>` は **`a` <Term type="element">要素</Term>** です。<Term type="startTag">開始タグ</Term>の中に `href="https://www.google.com/"` という部分があります。これが<Term type="attribute">**属性**</Term>です。<Term type="attribute">属性</Term>は、<Term type="startTag">開始タグ</Term> の中に `属性名="値"` のように記述され、<Term type="element">要素</Term>の特徴を表します。`a` <Term type="element">要素</Term>の **`href` <Term type="attribute">属性</Term>**は、ハイパーリンクのリンク先を表す<Term type="attribute">属性</Term>です。
 
-これにより、ハイパーリンクが設定されます。この例では `a` <Term type="element">要素</Term>の中に `strong` <Term type="element">要素</Term>が含まれています。このように、HTML タグは<Term strong type="htmlNest">ネスト</Term>させることにより、効果を重ね掛けすることができます。
+これにより、ハイパーリンクが設定されます。この例では `a` <Term type="element">要素</Term>の中に `strong` <Term type="element">要素</Term>が含まれています。このように、HTML タグは<Term type="htmlNest">**ネスト**</Term>させることにより、効果を重ね掛けすることができます。
 
 ![ネストされた要素](./nested-elements.png)
 
