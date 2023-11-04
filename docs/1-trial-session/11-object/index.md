@@ -136,11 +136,14 @@ function incrementAge(person) {
   // ここに書く
 }
 
-const tanaka = { name: "田中", age: 18 }, sato = { name: "佐藤", age: 22 };
+const tanaka = { name: "田中", age: 18 },
+  sato = { name: "佐藤", age: 22 };
 const nextYearTanaka = incrementAge(tanaka);
 const nextYearSato = incrementAge(sato); // 同じ関数を tanaka と sato に使い回せる
 // 19 歳、23 歳 と表示されてほしい
-document.write(`田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`);
+document.write(
+  `田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`,
+);
 ```
 
 <Answer title="年齢を増やす">
@@ -151,10 +154,13 @@ function incrementAge(person) {
   return person;
 }
 
-const tanaka = { name: "田中", age: 18 }, sato = { name: "佐藤", age: 22 };
+const tanaka = { name: "田中", age: 18 },
+  sato = { name: "佐藤", age: 22 };
 const nextYearTanaka = incrementAge(tanaka);
 const nextYearSato = incrementAge(sato);
-document.write(`田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`);
+document.write(
+  `田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`,
+);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/incrementAge" />
