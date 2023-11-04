@@ -3,7 +3,7 @@ title: データベースと Cookie
 sidebar_position: 7
 ---
 
-import trackingVideo from "./tracking.mp4"
+import trackingVideo from "./tracking.mp4";
 import ViewSource from "@site/src/components/ViewSource";
 import Answer from "@site/src/components/Answer";
 
@@ -191,7 +191,11 @@ app.post("/add-teacher", async (request, response) => {
 app.listen(3000);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/database/query-parameter" noCodeSandbox />
+<ViewSource
+  url={import.meta.url}
+  path="_samples/database/query-parameter"
+  noCodeSandbox
+/>
 
 </Answer>
 
@@ -219,7 +223,11 @@ app.get("/users/:id", (request, response) => {
 
 以下解答例となります。
 
-<ViewSource url={import.meta.url} path="_samples/database/path-parameter" noCodeSandbox />
+<ViewSource
+  url={import.meta.url}
+  path="_samples/database/path-parameter"
+  noCodeSandbox
+/>
 
 </details>
 
@@ -228,6 +236,7 @@ app.get("/users/:id", (request, response) => {
 ## 2. Cookie
 
 ショッピングサイトのトラッキングシステムを作ってみましょう。購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
+
 <video src={trackingVideo} controls muted autoPlay loop />
 
 - 購入ボタンを押した回数がクッキーに保存されるようにしてみましょう。
