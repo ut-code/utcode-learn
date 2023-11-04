@@ -168,7 +168,7 @@ GitHub を開き `Pull requests` を開いてください。
 コマンドラインからプルするには、次のコマンドを実行します。
 
 ```shell
-git pull
+git pull origin ブランチ名
 ```
 
 <video src={pullBranchWithCliVideo} muted controls />
