@@ -153,7 +153,7 @@ app.listen(3000);
 
 [掲示板を作ったとき](../../3-web-servers/06-get-post/index.md) と同じく、`messages` という配列をサーバー側に用意し、メッセージが送信されたらその配列に要素を追加するようにしましょう。
 
-```javascript title="server.js"
+```javascript title="server.mjs"
 const messages = [];
 app.post("/send", (request, response) => {
   // メッセージを追加
@@ -164,7 +164,7 @@ app.post("/send", (request, response) => {
 
 [`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって <Term type="json">JSON</Term> としたうえで<Term type="httpRequestResponse">レスポンス</Term>するためのメソッドです。このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
 
-```javascript title="server.js"
+```javascript title="server.mjs"
 app.get("/messages", (request, response) => {
   response.json(messages);
 });
