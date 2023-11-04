@@ -155,7 +155,7 @@ Node.js から Prisma を利用してデータベースのデータを操作す�
 まずは、`findMany` メソッドの戻り値を、デバッガを用いて確認してみましょう。
 
 ```javascript
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 async function main() {
@@ -170,7 +170,7 @@ main();
 続いて、[`PrismaClient#[テーブル名].create` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
 ```javascript
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 async function main() {
