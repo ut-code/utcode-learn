@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 import Tippy from "@tippyjs/react";
