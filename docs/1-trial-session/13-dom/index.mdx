@@ -4,14 +4,10 @@ title: DOM
 
 ## <Term type="html">HTML</Term> 要素を <Term type="javascript">JavaScript</Term> で取得する
 
-<Term type="dom">**DOM**</Term>
-（Document Object Model）は、<Term type="html">
-  HTML
-</Term> 構造を <Term type="javascript">JavaScript</Term> の
+{/* prettier-ignore */}
+<Term type="dom">**DOM**</Term>（Document Object Model）は、<Term type="html">HTML</Term> 構造を <Term type="javascript">JavaScript</Term> の
 <Term type="javascriptObject">オブジェクト</Term>として扱うための枠組みです。
-<Term type="html">HTML</Term> と <Term type="css">CSS</Term> のほとんどの機能は <Term type="javascript">
-  JavaScript
-</Term> から制御することができます。
+<Term type="html">HTML</Term> と <Term type="css">CSS</Term> のほとんどの機能は <Term type="javascript">JavaScript</Term> から制御することができます。
 
 `document.getElementById` <Term type="javascriptFunction">関数</Term>は、<Term type="javascriptParameter">引数</Term>として <Term type="element">HTML 要素</Term>の `id` <Term type="attribute">属性</Term>に指定された値を<Term type="javascriptString">文字列</Term>として<Term type="javascriptPass">渡す</Term>ことで、その<Term type="element">要素</Term>を表す<Term type="javascriptObject">オブジェクト</Term>を<Term type="javascriptReturn">返し</Term>ます。
 
@@ -26,11 +22,8 @@ element.textContent = "Hello DOM";
 
 <ViewSource url={import.meta.url} path="_samples/get-element-by-id" />
 
-<Term type="javascriptVariable">変数</Term> `element` には、 `index.html` に記述された
-`div` <Term type="element">要素</Term>に対応する
-<Term type="javascriptObject">オブジェクト</Term>が<Term type="javascriptAssignment">
-  代入
-</Term>されています。
+{/* prettier-ignore */}
+<Term type="javascriptVariable">変数</Term> `element` には、 `index.html` に記述された `div` <Term type="element">要素</Term>に対応する<Term type="javascriptObject">オブジェク</Term>が<Term type="javascriptAssignment">代入</Term>されています。
 
 ![DOM](./dom.png)
 

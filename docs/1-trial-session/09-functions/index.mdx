@@ -21,21 +21,17 @@ greet();
 
 上のプログラムにおいて、`function` キーワードから始まる部分は<Term type="javascriptFunction">関数</Term>を定義するための<Term type="javascriptControlFlow">制御構文</Term>です。<Term type="javascriptFunction">関数</Term>定義では、 `function` キーワードに続けて<Term type="javascriptFunction">関数</Term>名、かっこを記述します。この後、<Term type="javascriptFunction">関数</Term>内で実行したい処理を波かっこの中に記述していきます。
 
-<Term type="javascriptFunction">関数</Term>を定義すると、
-<Term type="javascriptFunction">関数</Term>
-名に続けてかっこを記述することにより、その
-<Term type="javascriptFunction">関数</Term>を実行できるようになります。
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>を定義すると、<Term type="javascriptFunction">関数</Term>名に続けてかっこを記述することにより、その<Term type="javascriptFunction">関数</Term>を実行できるようになります。
 
 このプログラムでは、 `greet` <Term type="javascriptFunction">関数</Term>が 2 回呼び出されているので、ブラウザに `Hello World!` が 2 つ表示されます。
 
 ## <Term type="javascriptParameter">**引数**</Term>
 
-<Term type="javascriptFunction">関数</Term>
-の振る舞いを呼び出し時に変更するため、
-<Term type="javascriptFunction">関数</Term>に
-<Term type="javascriptParameter">**引数**</Term>
-を与えることができます。<Term type="javascriptParameter">引数</Term>には任意の
-<Term type="javascriptValue">値</Term>が指定できます。
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>の振る舞いを呼び出し時に変更するため、<Term type="javascriptFunction">関数</Term>に<Term type="javascriptParameter">**引数**</Term>
+を与えることができます。
+<Term type="javascriptParameter">引数</Term>には任意の<Term type="javascriptValue">値</Term>が指定できます。
 
 ```javascript
 function greet(greetingType, myName) {
@@ -56,23 +52,11 @@ greet("morning", "佐藤");
 
 ## <Term type="javascriptReturnValue">戻り値</Term>
 
-<Term type="javascriptFunction">関数</Term>呼び出しは
-<Term type="javascriptExpression">式</Term>の一種です。
-<Term type="javascriptFunction">関数</Term>定義内で **return 文** を用いると、
-<Term type="javascriptFunction">関数</Term>の実行が停止され、
-<Term type="javascriptFunction">関数</Term>呼び出し
-<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">
-  評価
-</Term>結果が確定します。この値を
-<Term type="javascriptReturnValue">**戻り値**</Term>
-と呼びます。ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">
-  戻り値
-</Term>として設定して
-<Term type="javascriptFunction">関数</Term>の実行を終了することを、
-<Term type="javascriptFunction">関数</Term>がその
-<Term type="javascriptValue">値</Term>を
-<Term type="javascriptReturn">**返す**</Term>
-と表現します。
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>呼び出しは<Term type="javascriptExpression">式</Term>の一種です。
+<Term type="javascriptFunction">関数</Term>定義内で **return 文** を用いると、<Term type="javascriptFunction">関数</Term>の実行が停止され、<Term type="javascriptFunction">関数</Term>呼び出し<Term type="javascriptExpression">式</Term>の<Term type="javascriptEvaluation">評価</Term>結果が確定します。
+この値を<Term type="javascriptReturnValue">**戻り値**</Term>と呼びます。
+ある<Term type="javascriptValue">値</Term>を<Term type="javascriptReturnValue">戻り値</Term>として設定して<Term type="javascriptFunction">関数</Term>の実行を終了することを、<Term type="javascriptFunction">関数</Term>がその<Term type="javascriptValue">値</Term>を<Term type="javascriptReturn">**返す**</Term>と表現します。
 
 ```javascript
 function add(a, b) {
@@ -128,19 +112,12 @@ document.write(multiply(3, 4));
 
 ## <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">スコープ</Term>
 
-<Term type="javascriptFunction">関数</Term>内で
-<Term type="javascriptDeclaration">宣言</Term>された
-<Term type="javascriptVariable">変数</Term>は、
-<Term type="javascriptFunction">関数</Term>内でのみ有効です。
-<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その
-<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">
-  **スコープ**
-</Term>と呼んでいます。
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>内で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は、<Term type="javascriptFunction">関数</Term>内でのみ有効です。
+<Term type="javascriptVariable">変数</Term>が有効な範囲のことを、その<Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">**スコープ**</Term>と呼んでいます。
 
-<Term type="javascriptFunction">関数</Term>外で
-<Term type="javascriptDeclaration">宣言</Term>された
-<Term type="javascriptVariable">変数</Term>は
-<Term type="javascriptFunction">関数</Term>内でも利用できます。
+{/* prettier-ignore */}
+<Term type="javascriptFunction">関数</Term>外で<Term type="javascriptDeclaration">宣言</Term>された<Term type="javascriptVariable">変数</Term>は<Term type="javascriptFunction">関数</Term>内でも利用できます。
 
 ```javascript
 let guestCount = 0;
@@ -158,8 +135,8 @@ greet();
 
 :::caution <Term type="javascriptVariable">変数</Term>の<Term type="javascriptScope">**スコープ**</Term>
 
-<Term type="javascriptScope">スコープ</Term>が終わった
-<Term type="javascriptVariable">変数</Term>は、その時点で破棄されます。
+{/* prettier-ignore */}
+<Term type="javascriptScope">スコープ</Term>が終わった<Term type="javascriptVariable">変数</Term>は、その時点で破棄されます。
 
 ```javascript
 let outer = 0;
@@ -257,9 +234,8 @@ function showProbabilityAsGraph(probability) {
 
 ### 最大値
 
-<Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を
-<Term type="javascriptReturn">返す</Term>
-<Term type="javascriptFunction">関数</Term> `max` を定義してください。
+{/* prettier-ignore */}
+<Term type="javascriptParameter">引数</Term>を 2 つとり、そのうち大きい数を<Term type="javascriptReturn">返す</Term><Term type="javascriptFunction">関数</Term> `max` を定義してください。
 
 :::tip
 
