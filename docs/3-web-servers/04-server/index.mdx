@@ -53,7 +53,7 @@ node main.mjs
 
 ![サーバー](./express-server.png)
 
-:::warning Web サーバーの停止
+:::warning[Web サーバーの停止]
 
 このプログラムは、一度起動すると停止しません。サーバーにとって、クライアントからのリクエストはいつやってくるかわからないため、常に起動し続けている必要があるからです。Node.js プログラムを終了するには、ターミナル上で `Ctrl + C` を押します。
 
@@ -71,7 +71,7 @@ node main.mjs
 
 そして [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)により、クライアントが必要なデータを送信することができます。
 
-:::tip `http`標準<Term type="javascriptModule">モジュール</Term>
+:::tip[`http`標準<Term type="javascriptModule">モジュール</Term>]
 `express` を使わずに Node.js 単体 で Web サーバーを作成するには、`http` 標準<Term type="javascriptModule">モジュール</Term>を使用します。
 
 `http` 標準モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
@@ -144,7 +144,7 @@ app.listen(3000);
 
 これにより、リクエストのパスをもとに、`static` フォルダ内の適切なファイルが自動的に配信されます。
 
-:::tip `index.html` の省略
+:::tip[`index.html` の省略]
 
 `express.static` を用いる場合、`index.html` は省略可能になります。つまり、`/` へのリクエストで `static/index.html` が、`/sub` へのリクエストで `static/sub/index.html` にアクセスできるようになります。これは、Express や JavaScript に限ったことではなく、多くの Web サーバーの実装において、こういったルールが成り立ちます。
 
@@ -181,7 +181,7 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/complex-html" />
 
-:::note `Array#join`
+:::note[`Array#join`]
 
 [`Array#join` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
 
@@ -193,7 +193,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
-:::tip テンプレートエンジン
+:::tip[テンプレートエンジン]
 上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
 [EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は `ejs` をインストールしてください)
 

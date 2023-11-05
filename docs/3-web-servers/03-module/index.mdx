@@ -89,7 +89,7 @@ console.log(add(3, 4));
 
 <ViewSource url={import.meta.url} path="_samples/default-export" />
 
-:::tip 名前付きエクスポート
+:::tip[名前付きエクスポート]
 
 上のように**デフォルトエクスポート**を使うと各モジュールで複数の関数をエクスポートすることができません。その場合は、**名前付きエクスポート**を用いることができます。[**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)の記法を用いることで、オブジェクトからプロパティを取り出して変数に代入する操作を簡潔に記述しています。
 
@@ -113,7 +113,7 @@ console.log(subtract(4, 3));
 
 :::
 
-:::tip CommonJS モジュール
+:::tip[CommonJS モジュール]
 
 さきほどのように `export` 文と `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行う JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
 
@@ -158,7 +158,7 @@ Hello World
   noCodeSandbox
 />
 
-:::tip 文字コード
+:::tip[文字コード]
 
 **文字コード**とは、文字のコンピューターによる表現です。`UTF-8` や `Shift_JIS` などさまざまな方式が定義されていますが、現在では通常 `UTF-8` を選んでおけば問題ありません。間違った方式を選んでしまうと、意図と異なる文字として解釈されてしまう現象 (**文字化け**)が起こります。
 
@@ -205,7 +205,7 @@ npm install date-fns
 
 <video src={npmInstallVideo} controls muted autoPlay loop />
 
-:::tip JSON
+:::tip[JSON]
 
 npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、 JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
 

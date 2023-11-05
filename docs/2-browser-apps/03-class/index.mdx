@@ -42,7 +42,7 @@ document.write(tanaka.age); // age プロパティのデフォルト値は 18
 
 ![クラスとインスタンス](./class-instance.png)
 
-:::tip `undefined` という値
+:::tip[`undefined` という値]
 
 上で定義した `Student` <Term type="javascriptClass">クラス</Term>には、デフォルト値の指定されていない<Term type="javascriptProperty">プロパティ</Term> `name` が存在します。`new Student` をした直後の<Term type="javascriptObject">オブジェクト</Term>の `name` <Term type="javascriptProperty">プロパティ</Term>の値はどうなっているのでしょうか。
 
@@ -101,7 +101,7 @@ tanaka.age = 18;
 tanaka.introduceSelf();
 ```
 
-:::tip メソッドやプロパティの表記と `prototype`
+:::tip[メソッドやプロパティの表記と `prototype`]
 
 多くの言語で、<Term type="javascriptClass">クラス</Term> `Class` の<Term type="javascriptMethod">メソッド</Term>や<Term type="javascriptProperty">プロパティ</Term> `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されている<Term type="javascriptMethod">メソッド</Term>は `Student#introduceSelf` <Term type="javascriptMethod">メソッド</Term>です。
 
@@ -322,7 +322,7 @@ document.write(myBirthDay.getFullYear()); // 2014
 
 `getFullYear` <Term type="javascriptMethod">メソッド</Term>は、年となる数値を返す<Term type="javascriptMethod">メソッド</Term>です。
 
-:::tip `Object` クラス
+:::tip[`Object` クラス]
 
 JavaScript では、**全ての<Term type="javascriptObject">オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term type="javascriptObject">オブジェクト</Term>は `Object` <Term type="javascriptClass">クラス</Term>の<Term type="javascriptMethod">メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term type="javascriptMethod">メソッド</Term>を呼び出すと自動的に<Term type="javascriptObject">オブジェクト</Term>に変換されます。
 
