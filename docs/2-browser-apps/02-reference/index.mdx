@@ -101,4 +101,17 @@ document.write(tanaka.age);
 
 <ViewSource url={import.meta.url} path="_samples/answer" />
 
+### 別解
+
+上のコードでは、`person` の `age` と `name` 以外のプロパティが失われてしまいます。
+オブジェクトの全てのプロパティをコピーするには、[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)を使います。
+
+```js
+function incrementAge(person) {
+  const newPerson = { ...person };
+  newPerson.age += 1;
+  return newPerson;
+}
+```
+
 </Answer>
