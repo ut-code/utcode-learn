@@ -30,6 +30,7 @@ export default {
     jsModularization: "javascriptModularization",
     jsObject: "javascriptObject",
     jsObj: "javascriptObject",
+    obj: "javascriptObject",
     jsPrimitive: "javascriptPrimitive",
     jsProperty: "javascriptProperty",
     jsProp: "javascriptProperty",
