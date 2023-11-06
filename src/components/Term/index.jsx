@@ -6,6 +6,7 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/material.css";
 import styles from "./styles.module.css";
 import definitions from "./definitions";
+import shortDefinitions from "./short-definitions";
 
 /**
  * @param {Object} props
@@ -13,7 +14,8 @@ import definitions from "./definitions";
  * @param {React.ReactNode} props.children
  */
 export default function Term({ type, children }) {
-  const term = definitions.terms[type];
+  const term =
+    definitions.terms[type] || definitions.terms[shortDefinitions.target[type]];
   if (!term) throw new Error(`Type ${type} is not defined.`);
   const referencePageTitle =
     definitions.referencePageTitles[term.referencePage];
