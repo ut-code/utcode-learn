@@ -3,8 +3,8 @@ function incrementAge(person) {
   return person;
 }
 
-const tanaka = { name: "田中", age: 18 },
-  sato = { name: "佐藤", age: 22 };
+const tanaka = { name: "田中", age: 18 };
+const sato = { name: "佐藤", age: 22 };
 const nextYearTanaka = incrementAge(tanaka);
 const nextYearSato = incrementAge(sato);
 document.write(
