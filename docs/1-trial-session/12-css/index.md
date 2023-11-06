@@ -54,11 +54,11 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 
 ![セレクタ](selector.png)
 
-そして、CSS 側に書くのが **セレクタ**です。上の例では、 <code>style.css</code> 1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
+そして、CSS 側に書くのが **セレクタ**です。上の例では、 <code>style.css</code> の1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
 
 `id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
 
-また、`id` 属性と似た使い方ができる属性として、`class` 属性があります。この属性は、開発者が好きな値を設定できるのは同じですが、同じ値を複数の要素が持つことを許されています。また、スペース区切りで複数の値を設定することもできます。
+また、`id` 属性と似た使い方ができる属性として、`class` 属性があります。この属性は、開発者が好きな値を設定できるのは同じですが、複数の要素が同じ値を持つことが許されています。また、スペース区切りで複数の値を設定することもできます。
 
 | セレクタ   | 意味                                    |
 | ---------- | --------------------------------------- |
@@ -90,11 +90,17 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 }
 ```
 
-CSS の<code>{}</code>内に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
+CSS の `{` から `}` で囲まれたブロックの中に、<Term strong type="cssProperty">プロパティ</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
 これで、 `Hello World!` の `World` の文字が赤くなりました。
+
+:::note
+
+<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>は、<Term type="javascriptObject">オブジェクト</Term>における<Term type="javascriptProperty">プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。</p>
+
+:::
 
 :::tip HTMLの <Term type="styleAttribute">`style` 属性</Term>
 `style.css` を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、 `p` <Term type="element">要素</Term> の <Term type="styleAttribute"><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
@@ -176,13 +182,13 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
     <title>Title</title>
   </head>
   <body>
-    <div id="div">Hello CSS!</div>
+    <div id="greeting">Hello CSS!</div>
   </body>
 </html>
 ```
 
 ```css title="style.css"
-#div {
+#greeting {
   color: yellow;
   background-color: black;
 }

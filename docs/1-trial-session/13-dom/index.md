@@ -46,37 +46,96 @@ element.style.backgroundColor = "red";
 
 ![JavaScriptからスタイルを操作する](./change-styles.png)
 
-<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
+<p><Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である <code>background-color</code> は、内部にハイフンが含まれているため、<code>element.style.background-color</code>のように指定してしまうと、ハイフンが減算<Term type="javascriptOperator">演算子</Term>として解釈されてしまいます。
+<code>style</code> <Term type="javascriptProperty">プロパティ</Term>では、<Term type="css">CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term type="camelCase">キャメルケース</Term>として指定する必要があることに注意してください。</p>
 
-## 課題
+## DOM を用いて要素を追加する
 
-[CSS の節](../12-css/index.md)の課題を、<Term type="styleAttribute">style 属性</Term>を使用せずに JavaScript のみで実現してみましょう。
+`document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
+`document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
+下の例では、新しい `span` 要素を作っています。
 
-<Answer title="JavaScriptを用いたCSSスタイリング">
+中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
 
-```html
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <div id="foo">Foo</div>
-    <script src="./script.js"></script>
-  </body>
-</html>
+```js title="script.js"
+const newSpan = document.createElement("span");
+newSpan.textContent = "Hello World!";
 ```
 
-```javascript
-const element = document.getElementById("foo");
-element.style.border = "1px solid #aaa";
-element.style.borderRadius = "10px";
-element.style.margin = "30px";
-element.style.padding = "30px";
-element.style.boxShadow = "0px 0px 2px 1px #aaa";
+そして、`要素1.appendChild(要素2)` とすることで、要素1の子要素に要素2を追加し、画面に表示することができます。
+今回は、`div` 要素の子要素にしてみましょう。
+
+```html title="index.html"
+<div id="parent-element"></div>
 ```
 
-<ViewSource url={import.meta.url} path="_samples/css" />
+```js title="script.js"
+const parent = document.getElementById("parent-element");
+
+const newSpan = document.createElement("span");
+newSpan.textContent = "Hello World!";
+
+parent.appendChild(newSpan);
+```
+
+これで、既存の `div` 要素の子要素に新しい `span` 要素が追加され、画面に `Hello World!` と表示されます。
+
+## 初級課題
+
+### 買い物リストの書き換え
+
+次の HTML ファイルから読み込んでいる JavaScript ファイルを書き換えて、「トマト」「レモン」「バジル」と表示されるようにしてみましょう。
+
+```html title="index.html"
+<ul>
+  <li id="item1">トマト</li>
+  <li id="item2">ナス</li>
+  <li id="item3">バジル</li>
+</ul>
+```
+
+<Answer title="買い物リストの書き換え">
+
+```js title="script.js"
+const targetItem = document.getElementById("item2");
+
+targetItem.textContent = "レモン";
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
+
+</Answer>
+
+## 中級課題
+
+### フルーツバスケット
+
+購入する予定の果物を表す文字列が格納された配列が次のように用意されています。
+
+```js
+const fruits = ["イチゴ", "スイカ", "バナナ"];
+```
+
+`createElement` 関数や `appendChild` 関数を用い、`ul` 要素の中に各果物に対応する `li` 要素を作成することで、箇条書きを完成させましょう。
+ただし、HTML ファイルには次のように記述されているものとします。
+
+```html title="index.html"
+<ul id="fruit-basket"></ul>
+```
+
+<Answer title="フルーツバスケット">
+
+```js title="script.js"
+const basket = document.getElementById("fruit-basket");
+const fruits = ["イチゴ", "スイカ", "バナナ"];
+
+for (const fruit of fruits) {
+  const item = document.createElement("li");
+  item.textContent = fruit;
+  basket.appendChild(item);
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/fruit-basket" />
 
 </Answer>
