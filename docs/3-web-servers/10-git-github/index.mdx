@@ -24,7 +24,7 @@ Git では、**リポジトリ**と呼ばれる単位でソースコードを管
 
 <video src={gitInitVideo} controls autoPlay muted loop />
 
-:::info `git init` コマンド
+:::info[`git init` コマンド]
 
 Git の操作は、コマンドからも行うことが出来ます。カレントディレクトリを Git の管理下に置くには、次のコマンドを実行してください。
 
@@ -36,7 +36,7 @@ git init
 
 :::
 
-:::tip `.git` ディレクトリ
+:::tip[`.git` ディレクトリ]
 
 Git の管理下に置かれたディレクトリには `.git` という名前のディレクトリが生成されます。このディレクトリには過去のコミットの履歴など、Git が内部的に使用するファイルが格納されます。誤ったディレクトリで `git init` コマンドを実行してしまった場合、このディレクトリを削除しましょう。なお、ピリオドから始まるディレクトリやファイルは `ls` コマンドに `-a` というオプションをつけないといけないので注意が必要です。
 
@@ -60,7 +60,7 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 <video src={stageChangesVideo} loop muted autoPlay controls />
 
-:::info `git status` コマンド
+:::info[`git status` コマンド]
 
 現在の状況を確認するには、`git status` コマンドを使います。
 
@@ -74,7 +74,7 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 :::
 
-:::info `git add` コマンド
+:::info[`git add` コマンド]
 
 コマンドラインから変更をステージする場合には、`git add` コマンドを実行します。
 
@@ -95,7 +95,7 @@ $ git add -A # リポジトリ内部のすべてのファイルをステージ�
 
 変更がコミットとして記録されました。
 
-:::info `git commit` コマンド
+:::info[`git commit` コマンド]
 
 コマンドラインで実行するには、`git commit` コマンドを使用します。
 
@@ -109,7 +109,7 @@ git commit -m "コミットメッセージ"
 
 ある程度変更がまとまったら、ステージ、コミットを繰り返してプログラムを書き進めていきましょう。
 
-:::tip `.gitignore`
+:::tip[`.gitignore`]
 
 `.gitignore` ファイルで指定されたファイルは Git の管理下に置かれません。`npm install` で簡単にダウンロードできて容量が大きいのでバージョン管理するメリットのない `node_modules` や、機密情報や環境ごとに異なる情報を含む `.env` といったファイルが指定されます。
 
@@ -125,7 +125,7 @@ git commit -m "コミットメッセージ"
 
 <video src={showGitHistoryVideo} muted autoPlay loop controls />
 
-:::info `git log` コマンド
+:::info[`git log` コマンド]
 
 コマンドを用いて変更を表示するには、`git log` コマンドを使用します。
 
@@ -133,7 +133,7 @@ git commit -m "コミットメッセージ"
 
 :::
 
-:::info `git diff` コマンド
+:::info[`git diff` コマンド]
 
 コミットには一意の ID が割り当てられており、この ID を `git diff` コマンドに与えることで、コミット同士を比較することができます。
 
@@ -199,7 +199,7 @@ git remote set-url origin git@github.com:アカウント名/リポジトリ名.g
 
 :::
 
-:::info `git push` コマンド
+:::info[`git push` コマンド]
 
 コマンドラインから実行するには、`git push` コマンドを使います。
 

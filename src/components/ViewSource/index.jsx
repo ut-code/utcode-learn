@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import { BiLinkExternal } from "react-icons/bi";
 import { SiGithub } from "react-icons/si";

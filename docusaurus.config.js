@@ -1,9 +1,10 @@
-const { execSync } = require("node:child_process");
-const math = require("remark-math");
-const katex = require("rehype-katex");
+import { themes as prismThemes } from "prism-react-renderer";
+import { execSync } from "node:child_process";
+import math from "remark-math";
+import katex from "rehype-katex";
 
 /** @type {import("@docusaurus/types").Config} */
-module.exports = {
+const config = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); 公式学習教材",
   url: "https://learn.utcode.net/",
@@ -30,15 +31,15 @@ module.exports = {
       {
         docs: {
           showLastUpdateTime: true,
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: "./sidebars.js",
           editUrl: "https://github.com/ut-code/utcode-learn/blob/develop/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
         theme: {
           customCss: [
-            require.resolve("./node_modules/katex/dist/katex.min.css"),
-            require.resolve("./src/css/custom.css"),
+            "./node_modules/katex/dist/katex.min.css",
+            "./src/css/custom.css",
           ],
         },
       },
@@ -52,7 +53,7 @@ module.exports = {
       },
     },
     prism: {
-      theme: require("prism-react-renderer/themes/github"),
+      theme: prismThemes.github,
     },
     navbar: {
       title: "ut.code(); Learn",
@@ -95,3 +96,5 @@ module.exports = {
     },
   },
 };
+
+export default config;
