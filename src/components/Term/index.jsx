@@ -19,8 +19,7 @@ export default function Term({ type = null, children }) {
     if (typeof mdx === "string") return mdx;
     else return unwrap(mdx.props.children);
   }
-  if (type === null || type === undefined)
-    type = autoType.get(unwrap(children));
+  if (type === null) type = autoType.get(unwrapNode(children));
   if (!type)
     throw new Error(
       `Problem: Term ${children.textContent} is not defined in AutoType.
