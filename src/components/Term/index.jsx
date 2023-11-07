@@ -15,9 +15,9 @@ import autoType from "./auto-type.js";
  * @param {React.ReactNode} props.children
  */
 export default function Term({ type = null, children }) {
-  function unwrap(mdx) {
-    if (typeof mdx === "string") return mdx;
-    else return unwrap(mdx.props.children);
+  function unwrapNode(node) {
+    if (typeof node === "string") return node;
+    else return unwrapNode(node.props.children);
   }
   if (type === null) type = autoType.get(unwrapNode(children));
   if (!type)
