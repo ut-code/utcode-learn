@@ -23,7 +23,7 @@ export default function Term({ type = null, children }) {
     type = autoType.get(unwrap(children));
   if (!type)
     throw new Error(
-      `Problem: Term ${children.textContent} is not defined.
+      `Problem: Term ${children.textContent} is not defined in AutoType.
       Solution: explicitly specify term type, or add type definition to auto-type.js`,
     );
   const term =
