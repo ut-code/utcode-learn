@@ -23,8 +23,9 @@ export default function Term({ type = null, children }) {
   if (!type)
     throw new Error(
       `Problem: Term ${children.textContent} is not defined in type-map.js .
-      Solution: explicitly specify term type, or add type definition to auto-type.js`,
+      Solution: explicitly specify term type, or add type definition to type-map.js`,
     );
+
   const term =
     definitions.terms[type] || definitions.terms[shortDefinitions[type]];
   if (!term) throw new Error(`Type ${type} is not defined.`);
