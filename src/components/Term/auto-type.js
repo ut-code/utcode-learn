@@ -32,7 +32,7 @@ const autoType = new Map([
   ["式", "expression"],
   ["評価", "evaluation"],
   ["変数", "variable"],
-  ["宣言", "declaration"]
+  ["宣言", "declaration"],
   ["代入", "assignment"],
   ["キャメルケース", "camelCase"],
   ["スネークケース", "snakeCase"],
@@ -74,8 +74,8 @@ const autoType = new Map([
   ["非同期処理", "asyncProcess"],
   ["API", "api"],
   ["スレッド", "thread"],
-  ["トランスパイル", "transpile"]
+  ["トランスパイル", "transpile"],
   ["モジュールバンドラ", "moduleBundler"],
-  ["JSX", "jsx"],])
+  ["JSX", "jsx"]])
 
 export default autoType;

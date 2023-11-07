@@ -15,7 +15,12 @@ import autoType from "./auto-type.js";
  * @param {React.ReactNode} props.children
  */
 export default function Term({ type = null, children }) {
-  if (type === null) type = autoType.get(children.textContent);
+  function unwrap(mdx) {
+    if (typeof mdx === "string") return mdx;
+    else return unwrap(mdx.props.children);
+  }
+  if (type === null || type === undefined)
+    type = autoType.get(unwrap(children));
   if (!type)
     throw new Error(
       `Problem: Term ${children.textContent} is not defined.
