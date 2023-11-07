@@ -1,10 +1,13 @@
 /* 
 -----  Memo  -------
+  # Adding auto terms
 > both shortened / full type is allowed
 > only match literal terms,
   therefore not for explanation terms
 > doesn't need to be one text per tye,
   but has to be one type per text
+
+  # Usage
 > data is stored as Map. use Map#get
 */
 
