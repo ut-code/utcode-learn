@@ -7,7 +7,7 @@ import "tippy.js/themes/material.css";
 import styles from "./styles.module.css";
 import definitions from "./definitions";
 import shortDefinitions from "./short-definitions.js";
-import autoType from "./auto-type.js";
+import typeMap from "./type-map.js";
 
 /**
  * @param {Object} props
@@ -19,10 +19,10 @@ export default function Term({ type = null, children }) {
     if (typeof node === "string") return node;
     else return unwrapNode(node.props.children);
   }
-  if (type === null) type = autoType.get(unwrapNode(children));
+  if (type === null) type = typeMap.get(unwrapNode(children));
   if (!type)
     throw new Error(
-      `Problem: Term ${children.textContent} is not defined in AutoType.
+      `Problem: Term ${children.textContent} is not defined in type-map.js .
       Solution: explicitly specify term type, or add type definition to auto-type.js`,
     );
   const term =

@@ -11,7 +11,7 @@
 > data is stored as Map. use Map#get
 */
 
-const autoType = new Map([
+const typeMap = new Map([
   ["拡張子", "fileExtension"],
   ["フォーク", "fork"],
   ["Git", "git"],
@@ -82,4 +82,4 @@ const autoType = new Map([
   ["JSX", "jsx"],
 ]);
 
-export default autoType;
+export default typeMap;
