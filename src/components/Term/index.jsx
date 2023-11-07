@@ -6,14 +6,23 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/material.css";
 import styles from "./styles.module.css";
 import definitions from "./definitions";
+import shortDefinitions from "./short-definitions.js";
+import autoType from "./auto-type.js";
 
 /**
  * @param {Object} props
  * @param {keyof typeof definitions} props.type
  * @param {React.ReactNode} props.children
  */
-export default function Term({ type, children }) {
-  const term = definitions.terms[type];
+export default function Term({ type = null, children }) {
+  if (type === null) type = autoType.get(children.textContent);
+  if (!type)
+    throw new Error(
+      `Problem: Term ${children.textContent} is not defined.
+      Solution: explicitly specify term type, or add type definition to auto-type.js`,
+    );
+  const term =
+    definitions.terms[type] || definitions.terms[shortDefinitions[type]];
   if (!term) throw new Error(`Type ${type} is not defined.`);
   const referencePageTitle =
     definitions.referencePageTitles[term.referencePage];
