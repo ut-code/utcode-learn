@@ -73,5 +73,5 @@ export default {
   jsTruthy: "javascriptTruthyFalsy",
   jsFalsy: "javascriptTruthyFalsy",
   truthy: "javascriptTruthyFalsy",
-  falsy: "javascriptTruthyFalsy"
+  falsy: "javascriptTruthyFalsy",
 };

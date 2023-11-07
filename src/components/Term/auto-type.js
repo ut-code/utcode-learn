@@ -79,6 +79,7 @@ const autoType = new Map([
   ["スレッド", "thread"],
   ["トランスパイル", "transpile"],
   ["モジュールバンドラ", "moduleBundler"],
-  ["JSX", "jsx"]])
+  ["JSX", "jsx"],
+]);
 
 export default autoType;
