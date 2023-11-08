@@ -2,19 +2,19 @@
 title: オブジェクト
 ---
 
-## <Term type="javascriptObject">オブジェクト</Term>
+## <Term>オブジェクト</Term>
 
-JavaScript で扱うことのできる<Term type="javascriptValue">値</Term>の種類として、これまで<Term type="javascriptNumber">数値</Term>、<Term type="javascriptString">文字列</Term>、<Term type="javascriptBoolean">論理値</Term>を扱ってきました。<Term type="javascriptObject">**オブジェクト**</Term>もまた、<Term type="javascript">JavaScript</Term> の<Term type="javascriptValue">値</Term>ですが、今まで扱ってきた<Term type="javascriptValue">値</Term>とは少し性質が異なります。
-
-{/* prettier-ignore */}
-<Term type="javascriptObject">オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term type="javascriptValue">値</Term>を複数まとめて一つの<Term type="javascriptValue">値</Term>として扱うことができます。
-
-## <Term type="javascriptObject">オブジェクト</Term>の作成
+JavaScript で扱うことのできる<Term>値</Term>の種類として、これまで<Term>数値</Term>、<Term>文字列</Term>、<Term>論理値</Term>を扱ってきました。<Term>**オブジェクト**</Term>もまた、<Term>JavaScript</Term> の<Term>値</Term>ですが、今まで扱ってきた<Term>値</Term>とは少し性質が異なります。
 
 {/* prettier-ignore */}
-<Term type="javascriptObject">オブジェクト</Term>は、複数の<Term type="javascriptProperty">**プロパティ**</Term>と呼ばれる<Term type="javascriptValue">値</Term>を持ちます。
-<Term type="javascriptProperty">プロパティ</Term>にはそれぞれ名前がついています。
-<Term type="javascriptProperty">プロパティ</Term>の名前には文字列しか指定できませんが、<Term type="javascriptProperty">プロパティ</Term>の<Term type="javascriptValue">値</Term>としては <Term type="javascript">JavaScript</Term> で使用できるすべての<Term type="javascriptValue">値</Term>が使用可能です。
+<Term>オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term>値</Term>を複数まとめて一つの<Term>値</Term>として扱うことができます。
+
+## <Term>オブジェクト</Term>の作成
+
+{/* prettier-ignore */}
+<Term>オブジェクト</Term>は、複数の<Term>**プロパティ**</Term>と呼ばれる<Term>値</Term>を持ちます。
+<Term>プロパティ</Term>にはそれぞれ名前がついています。
+<Term>プロパティ</Term>の名前には文字列しか指定できませんが、<Term>プロパティ</Term>の<Term>値</Term>としては <Term>JavaScript</Term> で使用できるすべての<Term>値</Term>が使用可能です。
 
 ```javascript
 const person = { name: "田中", age: 18 };
@@ -24,12 +24,12 @@ const person = { name: "田中", age: 18 };
 
 :::tip[ほかの言語の経験者へ]
 
-JavaScript の<Term type="javascriptObject">オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term type="javascriptObject">オブジェクト</Term>は使用頻度が非常に高いです。
+JavaScript の<Term>オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term>オブジェクト</Term>は使用頻度が非常に高いです。
 
 :::
 
 {/* prettier-ignore */}
-<Term type="javascriptObject">オブジェクト</Term>の中に<Term type="javascriptObject">オブジェクト</Term>を入れることもできます。
+<Term>オブジェクト</Term>の中に<Term>オブジェクト</Term>を入れることもできます。
 
 ```javascript
 const person = {
@@ -38,9 +38,9 @@ const person = {
 };
 ```
 
-## <Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更する
+## <Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更する
 
-ドット記号を用いることで、<Term type="javascriptObject">オブジェクト</Term>の<Term type="javascriptProperty">プロパティ</Term>を取得・変更できます。通常の<Term type="javascriptVariable">変数</Term>のように扱えます。
+ドット記号を用いることで、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更できます。通常の<Term>変数</Term>のように扱えます。
 
 ```javascript
 person.age += 1;
@@ -57,9 +57,9 @@ document.write(person.favoriteFood); // 餃子
 
 :::
 
-:::note[<Term type="javascriptObject">オブジェクト</Term>とプリミティブ]
+:::note[<Term>オブジェクト</Term>とプリミティブ]
 
-この章よりも前に扱ってきたような「それ以上分解できない」<Term type="javascriptValue">値</Term>のことを<Term type="javascriptPrimitive">**プリミティブ**</Term>といい、<Term type="javascriptPrimitive">プリミティブ</Term>でない値はすべて<Term type="javascriptObject">オブジェクト</Term>です。
+この章よりも前に扱ってきたような「それ以上分解できない」<Term>値</Term>のことを<Term>**プリミティブ**</Term>といい、<Term>プリミティブ</Term>でない値はすべて<Term>オブジェクト</Term>です。
 
 ![値の種類](./value-types-with-object.drawio.svg)
 
@@ -133,9 +133,9 @@ document.write(tanaka.scores.japanese);
 ### 中級課題
 
 {/* prettier-ignore */}
-<Term type="javascriptObject">オブジェクト</Term>も<Term type="javascriptValue">値</Term>の一種なので、<Term type="javascriptFunction">関数</Term>の<Term type="javascriptParameter">引数</Term>や<Term type="javascriptReturnValue">戻り値</Term>として使用できます。
+<Term>オブジェクト</Term>も<Term>値</Term>の一種なので、<Term>関数</Term>の<Term>引数</Term>や<Term>戻り値</Term>として使用できます。
 
-`age` <Term type="javascriptProperty">プロパティ</Term>に 1 を加えた<Term type="javascriptObject">オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
+`age` <Term>プロパティ</Term>に 1 を加えた<Term>オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
 
 ```javascript
 function incrementAge(person) {
