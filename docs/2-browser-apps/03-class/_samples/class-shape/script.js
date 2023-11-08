@@ -1,43 +1,43 @@
 class Shape {
-  center_pos;
+  color;
+  constructor(color) {
+    this.color = color;
+  }
   getArea() {
-    // 個別の図形で再定義する (オーバーライド)
-    return undefined;
+    return 0;
+    // 個別のクラスで再定義 (オーバーライド) する
   }
 }
 
-class Trapezoid extends Shape {
+class Rectangle extends Shape {
   height;
-  upperBase;
-  lowerBase;
-  constructor(center_pos, height, upperBase, lowerBase) {
-    this.center_pos = center_pos;
+  base;
+  constructor(color, height, base) {
+    super(color);
     this.height = height;
-    this.upperBase = upperBase;
-    this.lowerBase = lowerBase;
+    this.base = base;
   }
   getArea() {
-    return (height * (upperBase + lowerBase)) / 2;
+    return height * base;
   }
 }
 
-class Rectangle extends Trapezoid {
-  // 台形のプロパティを流用する
-  constructor(center_pos, height, base) {
-    this.center_pos = center_pos;
-    this.height = height;
-    this.upperBase = base;
-    this.lowerBase = base;
+class Square extends Rectangle {
+  // 長方形のプロパティを流用する
+  constructor(color, sides) {
+    this.color = color;
+    this.height = sides;
+    this.base = sides;
   }
   getArea() {
-    return height * lowerBase;
+    return base ** 2;
   }
 }
 
 class Circle extends Shape {
   radius;
-  constructor(center_pos, radius) {
-    this.center_pos = center_pos;
+  constructor(color, radius) {
+    this.color = color;
     this.radius = radius;
   }
   getArea() {
