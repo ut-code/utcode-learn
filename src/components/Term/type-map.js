@@ -25,11 +25,11 @@
 
 const typeMap = new Map([
   ["拡張子", "fileExtension"],
-  ["フォーク", "fork"],
-  ["Git", "git"],
-  ["GitHub", "github"],
-  ["Gitpod", "gitpod"],
-  ["リポジトリ", "repository"],
+  ["フォーク", "fork"], // not found
+  ["Git", "git"], // not found
+  ["GitHub", "github"], // not found
+  ["Gitpod", "gitpod"], // not found
+  ["リポジトリ", "repository"], // not found
   ["HTML", "html"],
   ["JavaScript", "javascript"],
   ["開始タグ", "startTag"],
@@ -52,14 +52,16 @@ const typeMap = new Map([
   ["キャメルケース", "camelCase"],
   ["スネークケース", "snakeCase"],
   ["パスカルケース", "pascalCase"],
-  ["真偽値", "javascriptBoolean"],
+  ["論理値", "javascriptBoolean"],
   ["if 文", "javascriptIfStatement"],
   ["制御構造", "javascriptControlFlow"],
+  ["制御構文", "javascriptControlFlow"], // ここ 1-1 (Term以外では8-2) でした。とりあえず両方対応させます
   ["関数", "javascriptFunction"],
   ["引数", "javascriptParameter"],
   ["渡す", "javascriptPass"],
   ["戻り値", "javascriptReturnValue"],
   ["返す", "javascriptReturn"],
+  ["返し", "javascriptReturn"],
   ["スコープ", "javascriptScope"],
   ["モジュール化", "javascriptModularization"],
   ["オブジェクト", "javascriptObject"],
