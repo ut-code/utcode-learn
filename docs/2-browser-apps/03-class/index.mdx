@@ -309,19 +309,6 @@ tanaka.introduceSelf();
 
 </Answer>
 
-## `Date` クラス
-
-[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。このように、JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
-
-```javascript
-const myBirthDay = new Date("2014-05-06"); // Dateクラスをインスタンス化
-document.write(myBirthDay.getFullYear()); // 2014
-```
-
-`Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。省略された場合には現在の日時を用います。
-
-`getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
-
 :::tip[`Object` クラス]
 
 JavaScript では、**全ての<Term>オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term>オブジェクト</Term>は `Object` <Term>クラス</Term>の<Term>メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term>メソッド</Term>を呼び出すと自動的に<Term>オブジェクト</Term>に変換されます。
@@ -350,6 +337,33 @@ document.write(false.toString()); // false
 :::
 
 ## 課題
+
+## `Date` クラス
+
+JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+
+[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。
+
+ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って「その日の残り時間」を秒読み表示してみましょう。
+
+<Answer title="翌週の同じ時間">
+
+`Date#getHour`、`Date#getMinutes`、`Date#getSeconds` を使います。
+
+```js
+function count() {
+  const now = new Date();
+  const remainingHours = 24 - now.getHours();
+  const remainingsMinutes = 60 - now.getMinutes();
+  const remainingSeconds = 60 - now.getSeconds();
+  return `今日は残り${remainingHours}時間、${remainingsMinutes}分、${remainingSeconds}秒`;
+}
+const box = document.getElementById("box");
+
+setInterval(() => {
+  box.textContent = count();
+}, 1000);
+```
 
 ### 図形クラス
 
