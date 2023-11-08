@@ -1,14 +1,15 @@
 /* 
 -----  Memo  -------
-  # Adding auto terms
-> both shortened / full type is allowed
-> only match literal terms,
-  therefore not for explanation terms
-> doesn't need to be one text per tye,
-  but has to be one type per text
+  # term の追加
+> 文字列そのままの Term しか match しないので、
+  説明的な Term (Truthy と Falsy　など)は対応していません。
+> 名前の同じ Term は、使用頻度の高そうな方を優先してください。
 
-  # Usage
-> data is stored as Map. use Map#get
+  # 使い方
+> Mapとして保存されています。 Map#get を使ってください
+> 説明的な Term (Truthy と Falsy　など) や
+  名前の同じ Term (CSS のプロパティ -> JS のプロパティとして解釈する)
+  などは対応していないので、term を明示してください。
 */
 
 const typeMap = new Map([
