@@ -1,27 +1,23 @@
-/* 
------  Memo  -------
-  # term の追加
-> 文字列そのままの Term しか match しないので、
-  説明的な Term は対応していません。
-  例: "演算子の優先順位"、"Truthy と Falsy"
-
-> 名前の同じ Term は、使用頻度の高そうな方を優先してください。
-  例: "プロパティ" -> "jsProperty"
-
-> 英数字と日本語の間は半角を入れることになっているので、
-  半角が入っているもののみを記述してください。
-  例: 〇 "HTML 要素"  × "HTML要素"
-  
-
-  # 使い方
-> Mapとして保存されています。 Map#get を使ってください
-  例: const type = typeMap.get(termAsJapaneseString); // ./index.jsx
-
-> 説明的な Term (Truthy と Falsy　など) や
-  名前の同じ Term (CSS のプロパティ -> JS のプロパティとして解釈する)
-  などは対応していないので、term を明示してください。
-  例: CSS の<Term type="cssProperty">プロパティ</Term> // /docs/
-*/
+/*
+ * # term の追加
+ * > 文字列そのままの Term しか match しないので、
+ *   説明的な Term は対応していません。
+ *   例: "演算子の優先順位"、"Truthy と Falsy"
+ *
+ * > 名前の同じ Term は、使用頻度の高そうな方を優先してください。
+ *   例: "プロパティ" -> "javascriptProperty"
+ *
+ * > 英数字と日本語の間は半角スペースを入れることになっているので、
+ *   半角が入っているもののみを記述してください。
+ *   例: 〇 "HTML 要素"  × "HTML要素"
+ *
+ *
+ * # 使い方
+ * > 説明的な Term (Truthy と Falsy　など) や、
+ *   名前の同じ Term (CSS のプロパティ -> JS のプロパティとして解釈する)
+ *   などは対応していないので、term を明示してください。
+ *   例: CSS の<Term type="cssProperty">プロパティ</Term> // /docs/
+ */
 
 const typeMap = new Map([
   ["拡張子", "fileExtension"],
