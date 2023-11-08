@@ -32,7 +32,7 @@ const config = {
         docs: {
           showLastUpdateTime: true,
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/ut-code/utcode-learn/blob/develop/",
+          editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },

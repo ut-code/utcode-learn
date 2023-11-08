@@ -75,9 +75,7 @@ function incrementAge(person) {
 const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age);
-document.write(" ");
-// 19 と表示されてしまう
-document.write(tanaka.age);
+document.write(tanaka.age); // 19 と表示されてしまう
 ```
 
 <ViewSource url={import.meta.url} path="_samples/object-mutated-by-function" />
@@ -100,11 +98,11 @@ document.write(tanaka.age);
 function incrementAge(person) {
   return { name: person.name, age: person.age + 1 };
 }
+
 const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age);
-// 18
-document.write(tanaka.age);
+document.write(tanaka.age); // 18
 ```
 
 <ViewSource url={import.meta.url} path="_samples/answer" />
