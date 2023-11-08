@@ -349,11 +349,13 @@ document.write(false.toString()); // false
 
 :::
 
-## 課題 - 図形クラス
+## 課題
+
+### 図形クラス
 
 重心の座標 (`center_pos`) プロパティと面積を求めるメソッドを持つ `Shape` クラスを実装してみましょう。
 
-そして、 `Shape` クラスを継承する `Trapezoid`(台形) クラス、`Rectangle`(長方形) クラス、`Circle`(円) クラスを実装してみましょう。
+そして、`Shape` クラスを継承する `Trapezoid`(台形) クラス、`Rectangle`(長方形) クラス、`Circle`(円) クラスを実装してみましょう。
 
 <Answer title="図形クラス">
 
@@ -440,3 +442,11 @@ class Circle extends Shape {
 <ViewSource url={import.meta.url} path="_samples/class-shape-optimized" />
 
 </Answer>
+
+## 思考問題
+
+### 点と図形
+
+点 (`Point`) クラスを実装します。`Point` クラスは `Shape` クラスを継承するべきでしょうか？
+
+また、その理由を考えてみましょう。
