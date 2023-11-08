@@ -11,7 +11,7 @@ import typeMap from "./type-map.js";
 
 /**
  * @param {Object} props
- * @param {keyof typeof definitions} props.type
+ * @param {keyof typeof definitions | null} props.type
  * @param {React.ReactNode} props.children
  */
 export default function Term({ type = null, children }) {
