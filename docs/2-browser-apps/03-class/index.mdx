@@ -349,20 +349,93 @@ document.write(false.toString()); // false
 
 :::
 
-### 課題
+## 課題 - 図形クラス
 
-{/* FIXME: 雑すぎるので修正してください。Answerタグもその時に追加してください。 */}
+重心の座標 (center_pos) プロパティと面積を求めるメソッドを持つ `Shape` クラスを実装してみましょう。
+そして、 `Shape` クラスを継承する 台形 (`Trapezoid`) クラス、`Rectangle` クラス、`Circle` クラスを実装してみましょう。
 
-`document.getElementById` 関数で `div` 要素を取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが返されます。このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement) を継承しており、さらに `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+<Answer title="図形クラス">
 
-![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+```js
+class Shape {
+  center_pos;
+  getArea() {
+    // 個別の図形で再定義する (オーバーライド)
+    return undefined;
+  }
+}
 
-実は、[DOM](/docs/trial-session/dom/) の節で使用した `textContent` プロパティは、この `Node` クラスで定義されています。
+class Trapezoid extends Shape {
+  height;
+  upperBase;
+  lowerBase;
+  constructor(center_pos, height, upperBase, lowerBase) {
+    this.center_pos = center_pos;
+    this.height = height;
+    this.upperBase = upperBase;
+    this.lowerBase = lowerBase;
+  }
+  getArea() {
+    return (height * (upperBase + lowerBase)) / 2;
+  }
+}
 
-`HTMLDivElement` クラスを自分でインスタンス化し、`textContent` プロパティに適当な値を代入して、`document.body.appendChild` 関数を用いて、作成した `div` 要素を `body` 要素の中に追加しましょう。
+class Rectangle extends Trapezoid {
+  // 台形のプロパティを流用する
+  constructor(center_pos, height, base) {
+    this.center_pos = center_pos;
+    this.height = height;
+    this.upperBase = base;
+    this.lowerBase = base;
+  }
+  getArea() {
+    return height * lowerBase;
+  }
+}
 
-※ `HTMLDivElement` クラスをインスタンス化する際には `new HTMLDivElement` ではなく `document.createElement("div")` とします。
+class Circle extends Shape {
+  radius;
+  constructor(center_pos, radius) {
+    this.center_pos = center_pos;
+    this.radius = radius;
+  }
+  getArea() {
+    return Math.PI * radius ** 2;
+  }
+}
+```
 
-(発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
+<ViewSource url={import.meta.url} path="_samples/class-shape">
 
-<ViewSource url={import.meta.url} path="_samples/HTMLDivElement" />
+### 別解
+
+`getArea()` 関数を頻繁に使うようなら、`area` をプロパティに保存しておいてもいいでしょう。
+
+例:
+
+```js
+class Shape {
+  center_pos;
+  area = undefined;
+  getArea() {
+    if (this.area !== undefined) {
+      // area がすでに計算されているならそれを返す
+      return this.area;
+    } else {
+      // 計算されていないなら計算して代入してから返す
+      this.area = this.calculateArea();
+      return this.area;
+    }
+  }
+}
+class Circle extends Shape {
+  radius;
+  calculateArea() {
+    return Math.PI * this.area ** 2;
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/class-shape-optimized">
+
+</Answer>
