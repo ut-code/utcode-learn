@@ -7,7 +7,6 @@ import "tippy.js/themes/material.css";
 import { onlyText } from "react-children-utilities";
 import styles from "./styles.module.css";
 import definitions from "./definitions";
-import shortDefinitions from "./short-definitions.js";
 import typeMap from "./type-map.js";
 
 /**
@@ -23,8 +22,7 @@ export default function Term({ type = null, children }) {
       Solution: explicitly specify term type, or add type definition to type-map.js`,
     );
 
-  const term =
-    definitions.terms[type] || definitions.terms[shortDefinitions[type]];
+  const term = definitions.terms[type];
   if (!term) throw new Error(`Type ${type} is not defined.`);
   const referencePageTitle =
     definitions.referencePageTitles[term.referencePage];
