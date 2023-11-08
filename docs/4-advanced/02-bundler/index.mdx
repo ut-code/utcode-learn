@@ -11,21 +11,21 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 このため、現代では、JavaScript は事前に何らかの変換を行っておくことが一般的になっています。
 
-### <Term type="transpile">トランスパイラ</Term>
+### <Term>トランスパイラ</Term>
 
-<Term type="transpile">**トランスパイラ**</Term>
+<Term>**トランスパイラ**</Term>
 は、ソースコードを別のソースコードに変換するためのプログラムです。JavaScript においてトランスパイラが必要になるのは、主に
 2 つの理由によります。
 
-ひとつは、**最新の機能を使用するため**です。JavaScript の言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term type="transpile">トランスパイラ</Term>です。
+ひとつは、**最新の機能を使用するため**です。JavaScript の言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term>トランスパイラ</Term>です。
 
 もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 
-### <Term type="moduleBundler">モジュールバンドラ</Term>
+### <Term>モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ <Term type="httpRequestResponse">HTTP リクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ <Term>HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
-[webpack](https://webpack.js.org) のような<Term type="moduleBundler">**モジュールバンドラ**</Term>を用いることで、複数の JavaScript ファイルを統合できます。
+[webpack](https://webpack.js.org) のような<Term>**モジュールバンドラ**</Term>を用いることで、複数の JavaScript ファイルを統合できます。
 
 なお、Node.js の場合は、モジュールの読み込みはファイルの読み込みに過ぎず、ネットワークを経由することはないため、このプロセスは通常必要ありません。
 
@@ -35,7 +35,7 @@ JavaScript は、当初は Web サイトに簡易的な動きを追加させる�
 
 Web 開発の領域では、ブラウザ (クライアント) で動く JavaScript プログラムを**フロントエンド**、サーバーで動くプログラムを**バックエンド**と呼ぶことがあります。
 
-[Vite](https://vitejs.dev/) は、主にフロントエンドの領域における、<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>などの機能を持つソフトウェアです。
+[Vite](https://vitejs.dev/) は、主にフロントエンドの領域における、<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>などの機能を持つソフトウェアです。
 
 Vite を用いて新しくプロジェクトを作成してみましょう。
 
@@ -88,7 +88,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 ✓ built in 64ms
 ```
 
-これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term type="transpile">トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
+これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term>トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
 出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](/docs/trial-session/deploy-application/) などにアップロードすれば使用可能になるでしょう。
 
@@ -114,7 +114,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 ## npm のパッケージを Web ブラウザ上で利用する
 
-npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term type="transpile">トランスパイラ</Term>や<Term type="moduleBundler">モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
+npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
 
 ```javascript
 import { format } from "date-fns";

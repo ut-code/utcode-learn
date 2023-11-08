@@ -22,7 +22,7 @@ function formatDate(date) {
 
 上のような単純なプログラムならこういった問題は起きにくいですが、プログラムの規模が大きくなるにつれ、「どういった値がやりとりされているのか」という情報を把握することが重要になってきます。こういった情報を、**データ型**、あるいは単に**型**と呼びます。
 
-[TypeScript](https://www.typescriptlang.org/) を用いると、プログラム中にデータ型を記述できるようになります。TypeScript は、Microsoft 社によって開発された、JavaScript に<Term type="transpile">トランスパイル</Term>して用いられる言語です。
+[TypeScript](https://www.typescriptlang.org/) を用いると、プログラム中にデータ型を記述できるようになります。TypeScript は、Microsoft 社によって開発された、JavaScript に<Term>トランスパイル</Term>して用いられる言語です。
 
 TypeScript における型は、通常 `:` の記号に続けて記述します。例えば、先程のプログラムを TypeScript を用いて書き直すと、次のようになります。引数の部分に型指定が入っているところに注目してください。
 
@@ -70,7 +70,7 @@ console.log(`Hello ${language}!`);
 
 としました。
 
-TypeScript ファイルの作成が終わったら、<Term type="npxCommand">`npx` コマンド</Term>で [TypeScript パッケージを実行](https://www.typescriptlang.org/docs/handbook/compiler-options.html)し、TypeScript ファイルを JavaScript ファイルにトランスパイルします。パッケージ名と異なり、`tsc` となるので注意しましょう。
+TypeScript ファイルの作成が終わったら、<Term>`npx` コマンド</Term>で [TypeScript パッケージを実行](https://www.typescriptlang.org/docs/handbook/compiler-options.html)し、TypeScript ファイルを JavaScript ファイルにトランスパイルします。パッケージ名と異なり、`tsc` となるので注意しましょう。
 
 ```shell
 npx tsc main.ts
@@ -290,7 +290,7 @@ function identity(x: unknown) {
 identity(1).toString();
 ```
 
-TypeScript では、型パラメータを用いることで、この問題を解決できます。型パラメータは、通常の引数と異なり、型を指定するための特殊な引数です。JavaScript に<Term type="transpile">トランスパイル</Term>されるタイミングで削除されます。
+TypeScript では、型パラメータを用いることで、この問題を解決できます。型パラメータは、通常の引数と異なり、型を指定するための特殊な引数です。JavaScript に<Term>トランスパイル</Term>されるタイミングで削除されます。
 
 ```typescript
 // T は型パラメータ

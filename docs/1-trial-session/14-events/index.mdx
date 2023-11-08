@@ -22,14 +22,14 @@ func();
 
 上の例では、 `const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
 
-## <Term type="eventHandler">イベントハンドラ</Term>
+## <Term>イベントハンドラ</Term>
 
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>の<Term>プロパティ</Term>として<Term>関数</Term>を利用することもできます。
 `document.getElementById` が返す<Term>オブジェクト</Term>の `onclick` <Term>プロパティ</Term>には、<Term>要素</Term>がクリックされたときに実行される<Term>関数</Term>を指定できます。
 
 ボタンのクリック、フォームへの入力、ページの読み込みなど、Web ページ上で発生するあらゆるアクションを総称して<Term>イベント</Term>と呼びます。
-このような<Term>イベント</Term>の処理を行うのが<Term type="eventHandler">イベントハンドラ</Term>で、`onclick` 関数はその一例です。
+このような<Term>イベント</Term>の処理を行うのが<Term>イベントハンドラ</Term>で、`onclick` 関数はその一例です。
 
 ```html title="index.html"
 <button id="greet-button" type="button">クリック</button>

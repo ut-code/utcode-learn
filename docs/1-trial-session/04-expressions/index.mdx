@@ -14,7 +14,7 @@ document.write("Hello World");
 
 {/* prettier-ignore */}
 <Term>文字列</Term>は<Term>値</Term>の一種です。
-<Term type="javascriptNumber">数値</Term>は<Term>文字列</Term>と同じ<Term>値</Term>の一種ですが、プログラムの中に直接記述することができます。
+<Term>数値</Term>は<Term>文字列</Term>と同じ<Term>値</Term>の一種ですが、プログラムの中に直接記述することができます。
 
 ![値の種類](./value-types.drawio.svg)
 
@@ -48,7 +48,7 @@ document.write(3 + 4 * 5);
 ## いろいろな<Term>演算子</Term>
 
 {/* prettier-ignore */}
-<Term>演算子</Term>が適用できるのは、何も<Term type="javascriptNumber">数値</Term>だけではありません。
+<Term>演算子</Term>が適用できるのは、何も<Term>数値</Term>だけではありません。
 <Term>文字列</Term>に適用できる<Term>演算子</Term>もあります。 
 先ほどの `+`（加算<Term>演算子</Term>）は、<Term>文字列</Term>同士で使用された場合は、<Term>文字列</Term>結合<Term>演算子</Term>となります。
 
@@ -69,7 +69,7 @@ document.write("Hello" + 1 + 2);
 
 `+` の結合規則は左から右なので、`3 + 4 + "Hello"` は `(3 + 4) + "Hello"`、`"Hello" + 1 + 2` は`("Hello" + 1) + 2`と解釈されることになります。
 
-`+` は、両辺が<Term type="javascriptNumber">数値</Term>の場合のみ加算<Term>演算子</Term>として振る舞い、片方が<Term type="javascriptNumber">数値</Term>で片方が<Term>文字列</Term>の場合は<Term type="javascriptNumber">数値</Term>を<Term>文字列</Term>に変換してから<Term>文字列</Term>結合<Term>演算子</Term>として機能します。このため、最終的な<Term>式</Term>全体の<Term>評価</Term>結果は前者が `"7Hello"` 、後者が `"Hello12"` となるのです。
+`+` は、両辺が<Term>数値</Term>の場合のみ加算<Term>演算子</Term>として振る舞い、片方が<Term>数値</Term>で片方が<Term>文字列</Term>の場合は<Term>数値</Term>を<Term>文字列</Term>に変換してから<Term>文字列</Term>結合<Term>演算子</Term>として機能します。このため、最終的な<Term>式</Term>全体の<Term>評価</Term>結果は前者が `"7Hello"` 、後者が `"Hello12"` となるのです。
 
 ### 代表的な演算子
 
