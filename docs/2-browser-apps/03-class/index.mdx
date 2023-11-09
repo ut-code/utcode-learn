@@ -374,22 +374,20 @@ document.write(false.toString()); // false
 
 例:
 
-入力: 21時25分40秒に実行
-
-出力: 今日は残り2時間 34分 20秒です。
+21時25分40秒に実行されたとき、"今日は残り2時間 34分 20秒です。" と表示する
 
 <Answer title="翌週の同じ時間">
 
 `Date#getHour`、`Date#getMinutes`、`Date#getSeconds` を使います。
 
 ```js
+const countdownBox = document.getElementById("countdown-box");
+
 const now = new Date();
 const remainingHours = 24 - now.getHours();
 const remainingMinutes = 60 - now.getMinutes();
 const remainingSeconds = 60 - now.getSeconds();
-document.write(
-  `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`,
-);
+countdownBox.textContent = `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
@@ -420,8 +418,8 @@ class Rectangle extends Shape {
     this.height = height;
     this.width = width;
   }
-  getArea() {
-    return height * width;
+  calculateArea() {
+    return this.height * this.width;
   }
 }
 
@@ -437,8 +435,8 @@ class Circle extends Shape {
     super(color);
     this.radius = radius;
   }
-  getArea() {
-    return Math.PI * radius ** 2;
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
   }
 }
 ```

@@ -13,8 +13,8 @@ class Rectangle extends Shape {
     this.height = height;
     this.width = width;
   }
-  getArea() {
-    return height * width;
+  calculateArea() {
+    return this.height * this.width;
   }
 }
 
@@ -30,7 +30,7 @@ class Circle extends Shape {
     super(color);
     this.radius = radius;
   }
-  getArea() {
-    return Math.PI * radius ** 2;
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
   }
 }
