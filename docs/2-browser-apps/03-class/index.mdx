@@ -393,8 +393,9 @@ document.write(false.toString()); // false
 
 21時25分40秒に実行されたとき、
 
-````
-
+```
+今日は残り2時間34分20秒です。
+```
 
 と表示する
 
@@ -414,7 +415,7 @@ const remainingHours = 23 - now.getHours();
 const remainingMinutes = 59 - now.getMinutes();
 const remainingSeconds = 60 - now.getSeconds();
 countdownBox.textContent = `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`;
-````
+```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
 
