@@ -19,8 +19,8 @@ class Rectangle extends Shape {
 }
 
 class Square extends Rectangle {
-  constructor(color, sidesLength) {
-    super(color, sidesLength, sidesLength);
+  constructor(color, sideLength) {
+    super(color, sideLength, sideLength);
   }
 }
 
