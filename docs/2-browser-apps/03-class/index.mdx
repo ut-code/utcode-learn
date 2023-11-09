@@ -322,11 +322,11 @@ map1.set("a", 1);
 map1.set("b", 2);
 map1.set("c", 3);
 
-console.log(map1.get("a")); // 1
+document.write(map1.get("a")); // 1
 
 map1.set("a", 97);
 
-console.log(map1.get("a")); // 97
+document.write(map1.get("a")); // 97
 ```
 
 また、DOM を利用して `DIV` 要素を作成または取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが得られます。
@@ -372,14 +372,14 @@ document.write(false.toString()); // false
 
 [`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。
 
-ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って「その日の残り時間」を表示してみましょう。
+ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、その日の残り時間を表示してみましょう。
 
 例:
 
 21時25分40秒に実行されたとき、
 
 ```
-今日は残り 2時間 34分 20秒です。
+今日は残り2時間34分20秒です。
 ```
 
 と表示する
