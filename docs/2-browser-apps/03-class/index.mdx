@@ -310,9 +310,11 @@ tanaka.introduceSelf();
 
 </Answer>
 
-## `Date` クラス
+## 組み込みのクラス
 
-[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。このように、JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+
+例えば、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)という、日付や時刻を扱うための<Term>クラス</Term>があります。
 
 ```javascript
 const myBirthDay = new Date("2014-05-06"); // Dateクラスをインスタンス化
@@ -322,6 +324,34 @@ document.write(myBirthDay.getFullYear()); // 2014
 `Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。省略された場合には現在の日時を用います。
 
 `getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
+
+{/* prettier-ignore */}
+{/* TODO: 自分はこっちのほうがいいと思いますが...
+例えば [`Map` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map)は、キーと値のペアを保存するオブジェクトを提供します。
+
+```js
+const map1 = new Map();
+
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+document.write(map1.get("a")); // 1
+
+map1.set("a", 97);
+
+document.write(map1.get("a")); // 97
+```
+
+\*/}
+
+また、DOM を利用して `div` 要素を作成または取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが得られます。
+
+このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement)を継承しており、 `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+
+![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+
+実は、[DOM の節](/docs/trial-session/dom/)で使用した textContent プロパティは、この Node クラスで定義されています。
 
 :::tip[`Object` クラス]
 
@@ -350,20 +380,102 @@ document.write(false.toString()); // false
 
 :::
 
-### 課題
+## 課題
 
-{/* FIXME: 雑すぎるので修正してください。Answerタグもその時に追加してください。 */}
+### `Date` クラス
 
-`document.getElementById` 関数で `div` 要素を取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが返されます。このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement) を継承しており、さらに `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+上で説明したように、JavaScript では開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が用意されています。
 
-![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。
 
-実は、[DOM](/docs/trial-session/dom/) の節で使用した `textContent` プロパティは、この `Node` クラスで定義されています。
+ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、その日の残り時間を表示してみましょう。
 
-`HTMLDivElement` クラスを自分でインスタンス化し、`textContent` プロパティに適当な値を代入して、`document.body.appendChild` 関数を用いて、作成した `div` 要素を `body` 要素の中に追加しましょう。
+例:
 
-※ `HTMLDivElement` クラスをインスタンス化する際には `new HTMLDivElement` ではなく `document.createElement("div")` とします。
+21時25分40秒に実行されたとき、
 
-(発展) `document.body` は何のクラスのインスタンスなのでしょうか。`appendChild` メソッドはどのクラスに定義されているのでしょうか。
+````
 
-<ViewSource url={import.meta.url} path="_samples/HTMLDivElement" />
+
+と表示する
+
+:::tip
+`Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。
+:::
+
+<Answer title="その日の残り時間">
+
+`Date#getHour`、`Date#getMinutes`、`Date#getSeconds` を使います。
+
+```js
+const countdownBox = document.getElementById("countdown-box");
+
+const now = new Date();
+const remainingHours = 23 - now.getHours();
+const remainingMinutes = 59 - now.getMinutes();
+const remainingSeconds = 60 - now.getSeconds();
+countdownBox.textContent = `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`;
+````
+
+<ViewSource url={import.meta.url} path="_samples/count-down" />
+
+</Answer>
+
+### 図形クラス
+
+色を表す `color` プロパティと、面積を求める `getArea` メソッドを持つ `Shape` クラスを実装してみましょう。
+
+そして、`Shape` クラスを継承する `Rectangle` (長方形) クラス、`Square` (正方形) クラス、`Circle` (円) クラスを実装してみましょう。
+
+<Answer title="図形クラス">
+
+```js
+class Shape {
+  color;
+  constructor(color) {
+    this.color = color;
+  }
+}
+
+class Rectangle extends Shape {
+  height;
+  width;
+  constructor(color, height, width) {
+    super(color);
+    this.height = height;
+    this.width = width;
+  }
+  calculateArea() {
+    return this.height * this.width;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(color, sideLength) {
+    super(color, sideLength, sideLength);
+  }
+}
+
+class Circle extends Shape {
+  radius;
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/shape-class" />
+
+</Answer>
+
+## 思考問題
+
+### 点と図形
+
+点 (`Point`) クラスを実装します。`Point` クラスは `Shape` クラスを継承するべきでしょうか？
+
+また、その理由を考えてみましょう。
