@@ -4,16 +4,16 @@ title: JavaScript ことはじめ
 
 import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4";
 
-## <Term type="javascript">JavaScript</Term>
+## <Term>JavaScript</Term>
 
 {/* prettier-ignore */}
-<Term type="html">HTML</Term> がウェブサイトの構造を表す言語だとすれば、<Term type="javascript">**JavaScript**</Term> はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。
+<Term>HTML</Term> がウェブサイトの構造を表す言語だとすれば、<Term>**JavaScript**</Term> はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
-## <Term type="javascript">JavaScript</Term> で Hello World!
+## <Term>JavaScript</Term> で Hello World!
 
-プログラミングの世界では、まず画面に `Hello World!` と表示させることが慣例になっています。<Term type="javascript">JavaScript</Term> を用いて画面に `Hello World!` を表示してみましょう。
+プログラミングの世界では、まず画面に `Hello World!` と表示させることが慣例になっています。<Term>JavaScript</Term> を用いて画面に `Hello World!` を表示してみましょう。
 
 まずは、`index.html` を次のように書き換えます。
 
@@ -40,27 +40,27 @@ document.write("Hello World!");
 
 <video src={helloWorldByJavascriptVideo} controls />
 
-## <Term type="javascript">JavaScript</Term> が動く仕組み
+## <Term>JavaScript</Term> が動く仕組み
 
-<Term type="html">HTML</Term> ファイルの中に、以下のような記述があります。
+<Term>HTML</Term> ファイルの中に、以下のような記述があります。
 
 ```html title="index.html"
 <script src="./script.js"></script>
 ```
 
-まず、この記述によって、 `script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが <Term type="javascript">JavaScript</Term> です。
+まず、この記述によって、 `script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが <Term>JavaScript</Term> です。
 
 :::info
 
-この講座の中では、`script` <Term type="element">要素</Term>を常に **`body` <Term type="element">要素</Term>の末尾**に記述するようにします。これは、<Term type="javascript">JavaScript</Term> が読み込まれるタイミングで他のすべての <Term type="element">HTML 要素</Term>がすでに表示されていることを保証するためです。
+この講座の中では、`script` <Term>要素</Term>を常に **`body` <Term>要素</Term>の末尾**に記述するようにします。これは、<Term>JavaScript</Term> が読み込まれるタイミングで他のすべての <Term>HTML 要素</Term>がすでに表示されていることを保証するためです。
 
 :::
 
-## <Term type="javascript">JavaScript</Term> の基本文法
+## <Term>JavaScript</Term> の基本文法
 
 {/* prettier-ignore */}
-<Term type="javascript">JavaScript</Term> のプログラムで、セミコロンで区切られた部分を<Term type="javascriptStatement">文</Term>と呼びます。
-<Term type="javascript">JavaScript</Term> の実行環境は、プログラム中に含まれる<Term type="javascriptStatement">文</Term>を上から下に向けて順番に実行していきます。
+<Term>JavaScript</Term> のプログラムで、セミコロンで区切られた部分を<Term>文</Term>と呼びます。
+<Term>JavaScript</Term> の実行環境は、プログラム中に含まれる<Term>文</Term>を上から下に向けて順番に実行していきます。
 `document.write` はブラウザの画面に出力するための命令です。
 
 ```javascript title="script.js"
