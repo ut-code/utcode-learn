@@ -309,6 +309,34 @@ tanaka.introduceSelf();
 
 </Answer>
 
+## 既定クラス
+
+JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+
+例えば [`Map` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map)は、キーと値のペアを保存するオブジェクトを提供します。
+
+```js
+const map1 = new Map();
+
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+console.log(map1.get("a"));
+// 出力: 1
+
+map1.set("a", 97);
+
+console.log(map1.get("a"));
+// 出力: 97
+```
+
+また、DOM を利用して作成または取得した HTML 要素を表すオブジェクトは、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)を継承しています。
+
+このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement)を継承しており、 `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+
+実は、[DOM の節](/docs/trial-session/dom/)で使用した textContent プロパティは、この Node クラスで定義されています。
+
 :::tip[`Object` クラス]
 
 JavaScript では、**全ての<Term>オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term>オブジェクト</Term>は `Object` <Term>クラス</Term>の<Term>メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term>メソッド</Term>を呼び出すと自動的に<Term>オブジェクト</Term>に変換されます。
@@ -340,7 +368,7 @@ document.write(false.toString()); // false
 
 ## `Date` クラス
 
-JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+上で説明したように、JavaScript では開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が用意されています。
 
 [`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。
 
