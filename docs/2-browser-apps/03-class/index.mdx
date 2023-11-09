@@ -348,27 +348,22 @@ JavaScript では、開発者が定義しなくても最初から使用可能な
 
 例:
 
-input: 21:25'40 に実行
+入力: 21時25分40秒に実行
 
-output: 今日は残り2時間、34分、20秒です。
+出力: 今日は残り2時間 34分 20秒です。
 
 <Answer title="翌週の同じ時間">
 
 `Date#getHour`、`Date#getMinutes`、`Date#getSeconds` を使います。
 
 ```js
-function count() {
-  const now = new Date();
-  const remainingHours = 24 - now.getHours();
-  const remainingsMinutes = 60 - now.getMinutes();
-  const remainingSeconds = 60 - now.getSeconds();
-  return `今日は残り${remainingHours}時間、${remainingsMinutes}分、${remainingSeconds}秒`;
-}
-const box = document.getElementById("box");
-
-setInterval(() => {
-  box.textContent = count();
-}, 1000);
+const now = new Date();
+const remainingHours = 24 - now.getHours();
+const remainingMinutes = 60 - now.getMinutes();
+const remainingSeconds = 60 - now.getSeconds();
+document.write(
+  `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`,
+);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
