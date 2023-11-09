@@ -31,7 +31,7 @@ class Student {
 
 :::
 
-`new` 演算子を<Term>クラス</Term>に対して適用すると、設計図に基づいて<Term>オブジェクト</Term>が作成されます。こうしてできた<Term>オブジェクト</Term>を、もとになった<Term>クラス</Term>の**<Term>インスタンス</Term>**と呼びます。今回の `age` <Term>プロパティ</Term>のように、<Term>クラス</Term>の<Term>プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term>プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
+`new` 演算子を<Term>クラス</Term>に対して適用すると、設計図に基づいて<Term>オブジェクト</Term>が作成されます。こうしてできた<Term>オブジェクト</Term>を、もとになった<Term>クラス</Term>の<Term>**インスタンス**</Term>と呼びます。今回の `age` <Term>プロパティ</Term>のように、<Term>クラス</Term>の<Term>プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term>プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
 
 ```javascript
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
@@ -70,7 +70,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
 
-オブジェクトに対して定義されている関数を**<Term>メソッド</Term>**と呼びます。<Term>メソッド</Term>の定義は<Term>クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
+オブジェクトに対して定義されている関数を<Term>**メソッド**</Term>と呼びます。<Term>メソッド</Term>の定義は<Term>クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
 ```javascript
 class Student {
@@ -141,7 +141,8 @@ tanaka.introduceSelf();
 
 ## <Term>コンストラクタ</Term>
 
-**<Term>コンストラクタ</Term>**は、<Term>インスタンス</Term>を作成するタイミング（`new` 演算子を<Term>クラス</Term>に適用するタイミング）で実行される特殊な<Term>メソッド</Term>です。<Term>コンストラクタ</Term>となる<Term>メソッド</Term>は `constructor` という名前で定義する必要があります。<Term>コンストラクタ</Term>を定義すると、`new Student` を実行して<Term>インスタンス</Term>を生成するときに<Term>プロパティ</Term>の設定も同時に行うことができます。
+{/* prettier-ignore */}
+<Term>**コンストラクタ**</Term>は、<Term>インスタンス</Term>を作成するタイミング（`new` 演算子を<Term>クラス</Term>に適用するタイミング）で実行される特殊な<Term>メソッド</Term>です。<Term>コンストラクタ</Term>となる<Term>メソッド</Term>は `constructor` という名前で定義する必要があります。<Term>コンストラクタ</Term>を定義すると、`new Student` を実行して<Term>インスタンス</Term>を生成するときに<Term>プロパティ</Term>の設定も同時に行うことができます。
 
 ```javascript
 class Student {
