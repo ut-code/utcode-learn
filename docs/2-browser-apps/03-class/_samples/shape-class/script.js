@@ -3,10 +3,6 @@ class Shape {
   constructor(color) {
     this.color = color;
   }
-  getArea() {
-    return 0;
-    // 個別のクラスで再定義 (オーバーライド) する
-  }
 }
 
 class Rectangle extends Shape {
@@ -23,7 +19,6 @@ class Rectangle extends Shape {
 }
 
 class Square extends Rectangle {
-  // 長方形のプロパティ・メソッドを流用する
   constructor(color, sidesLength) {
     super(color, sidesLength, sidesLength);
   }
