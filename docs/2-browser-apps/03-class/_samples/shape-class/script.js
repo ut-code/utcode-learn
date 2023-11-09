@@ -11,33 +11,28 @@ class Shape {
 
 class Rectangle extends Shape {
   height;
-  base;
-  constructor(color, height, base) {
+  width;
+  constructor(color, height, width) {
     super(color);
     this.height = height;
-    this.base = base;
+    this.width = width;
   }
   getArea() {
-    return height * base;
+    return height * width;
   }
 }
 
 class Square extends Rectangle {
-  // 長方形のプロパティを流用する
-  constructor(color, sides) {
-    this.color = color;
-    this.height = sides;
-    this.base = sides;
-  }
-  getArea() {
-    return base ** 2;
+  // 長方形のプロパティ・メソッドを流用する
+  constructor(color, sidesLength) {
+    super(color, sidesLength, sidesLength);
   }
 }
 
 class Circle extends Shape {
   radius;
   constructor(color, radius) {
-    this.color = color;
+    super(color);
     this.radius = radius;
   }
   getArea() {
