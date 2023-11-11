@@ -16,22 +16,12 @@ app.get("/send", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );
-  response.send(`
-    <!doctype html>
-    <html lang="ja">
-      <head>
-        <meta charset="UTF-8" />
-        <title>Document</title>
-      </head>
-      <body>
-        <ul>
-          ${selectedBooks
-            .map((selectedBook) => `<li>${selectedBook.title}</li>`)
-            .join("")}
-        </ul>
-      </body>
-    </html>
-  `);
+  const html_template = fs.readFileSync("./send.html");
+  const html = html_template.replace(
+    "{books}",
+    selectedBooks.map((book) => `<li>${book.title}</li>`).join(""),
+  );
+  response.send(html);
 });
 
 app.listen(3000);
