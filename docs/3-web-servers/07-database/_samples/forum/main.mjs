@@ -1,6 +1,6 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import fs from "node:fs";
+import { readFileSync } from "fs";
 
 const app = express();
 
@@ -12,8 +12,8 @@ app.get("/", async (request, response) => {
   const messages = await (
     await client.forum.findMany()
   ).map((data) => data.message);
-  const index = fs.readFileSync("index.html", "utf-8");
-  const html = index.replace(
+  const template = readFileSync("index.html", "utf-8");
+  const html = template.replace(
     "{messages}",
     messages.map((msg) => `<li>${msg}</li>`).join(""),
   );
