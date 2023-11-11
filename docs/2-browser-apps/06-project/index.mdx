@@ -117,9 +117,7 @@ todoList.removeChild(todoItem);
 
 <Details summary='ステップ 2 の解答例'>
 
-<<<<<<< HEAD:docs/2-browser-apps/07-project/index.md
-
-````html title=index.html
+```html title=index.html
 <!doctype html>
 <html lang="ja">
   <head>
@@ -133,16 +131,7 @@ todoList.removeChild(todoItem);
     <script src="./script.js"></script>
   </body>
 </html>
-======= - 要素をクリックした時に実行される関数は要素の `onclick`
-<Term>プロパティ</Term>から設定することができます。 -
-イベントが発生して関数が呼び出されると、一番目の引数に発生したイベントの情報が格納された
-`Event` オブジェクトが渡されてきます。`Event` オブジェクトの `target`
-<Term>プロパティ</Term
->を用いることで、クリックした要素を取得することができます。取得した要素の種類によって関数を変えることで、予定の編集や追加の機能を実現できます。
-```html title="index.html"
-<button id="button">ここをクリック！</button>
->>>>>>> master:docs/2-browser-apps/06-project/index.mdx
-````
+```
 
 ```javascript title=script.js
 const addButton = document.getElementById("add-button");
