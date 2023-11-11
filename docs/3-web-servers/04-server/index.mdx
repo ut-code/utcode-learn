@@ -197,18 +197,17 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
 
-[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列 (または[正規表現](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/RegExp)) に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
-第一引数が文字列の場合は、最初に一致した場所のみを置き換えます。
+[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
+`String#replace` メソッドは、最初に一致した場所のみを置き換えます。
 一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) を使います。
 
 ```js
 const base = "ABCBCC";
 document.write(base.replace("BC", "EFG")); // AEFGBCC
 document.write(base.replaceAll("C", "T")); // ABTBTT
-document.write(base); // ABCBCC (元の文字列は変更されない)
 ```
 
-`String#replace` と `fs.readFileSync` 関数を用いることで、HTML を別のファイルに分けて保存することができるようになり、より簡単に管理することができます。
+`String#replace` を用いることで、長い HTML ファイルを見通しよく記述できるようになり、より簡単に管理することができます。
 
 ```html title="index.html"
 <!doctype html>
@@ -234,19 +233,19 @@ const app = express();
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
   const template = fs.readFileSync("./index.html", "utf-8");
-  const namesAsHTML = names.map((user) => `<li>${user}</li>`).join("");
-  const html = template.replace("{users}", namesAsHTML);
+  const html = template.replace(
+    "{users}",
+    names.map((name) => `<li>${name}</li>`).join(""),
+  );
   response.send(html);
 });
 
 app.listen(3000);
 ```
 
-イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として `index` に読み込んでいます。
+リクエストを受け取ったとき、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列としてに読み込んでいます。
 
-次の行では、配列である `names` を HTML として解釈可能な文字列の `namesAsHTML` に変換しています。
-
-その次の行の `index.replace` で、`index` の中の `"{users}"` が `namesAsHTML` に置換されます。
+次の行の `index.replace` で、読み込んだ HTML ファイルの文字列の中の `"{users}"` が `names` に対応する、箇条書きを表す文字列に置換されます。
 
 :::
 
