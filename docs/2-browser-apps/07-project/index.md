@@ -107,7 +107,7 @@ addButton.onclick = () => {
 
 ### ステップ 2
 
-次に削除ボタンをつける必要があります。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
+次に削除ボタンを追加します。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
 
 削除ボタンを押すと `li` 要素が 1 つ消える機能を実装するためには、ある要素から子要素を取り除く [`Node#removeChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) を使います。
 
