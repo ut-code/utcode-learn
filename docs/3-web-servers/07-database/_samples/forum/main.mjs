@@ -12,7 +12,7 @@ app.get("/", async (request, response) => {
   const messages = await (
     await client.forum.findMany()
   ).map((data) => data.message);
-  const index = fs.readFileSync("index.html");
+  const index = fs.readFileSync("index.html", "utf-8");
   const html = index.replace(
     "{messages}",
     messages.map((msg) => `<li>${msg}</li>`).join(""),

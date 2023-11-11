@@ -8,7 +8,7 @@ const messages = [];
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (request, response) => {
-  const template = fs.readFileSync("index.html");
+  const template = fs.readFileSync("index.html", "utf-8");
   const html = template.replace(
     "{messages}",
     messages.map((msg) => `<li>${msg}</li>`).join(""),
