@@ -13,10 +13,10 @@ import todoVideo from "./todo.mp4";
 
 ## ルール
 
-- todo の追加ができます。
-- todo の削除ができます。
-- todo の編集ができます。
-- 入力欄が空欄だと todo の追加ができなくなります。
+- ToDo の追加ができます。
+- ToDo の削除ができます。
+- ToDo の編集ができます。
+- 入力欄が空欄だと ToDo の追加ができなくなります。
 
 <video src={todoVideo} controls loop autoPlay muted />
 
@@ -24,16 +24,16 @@ import todoVideo from "./todo.mp4";
 
 いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにもあるように
 
-1. todo を追加できるようにする
-2. todo を削除できるようにする
-3. todo を編集できるようにする
-4. 空の todo を追加できないようにする
+1. ToDo を追加できるようにする
+2. ToDo を削除できるようにする
+3. ToDo を編集できるようにする
+4. 空の ToDo を追加できないようにする
 
 の4つの仕事があるので、まず 1 からやっていきましょう。
 
 ### ステップ 1
 
-- ひとまず todo の一覧、todo の入力欄、todo の追加ボタンが必要です。`ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
+- ひとまず ToDo の一覧、ToDo の入力欄、ToDo の追加ボタンが必要です。`ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
 
 ```html title=index.html
 <!doctype html>
@@ -59,7 +59,7 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  // 追加ボタンを押すとtodoを 1 つ追加する
+  // 追加ボタンを押すと todo を 1 つ追加する
 };
 ```
 
@@ -169,7 +169,7 @@ addButton.onclick = () => {
 
 - まずは編集ボタンをつけてみましょう。
 
-- 編集ボタンを押すと todo のテキストが入力欄に、編集ボタンが確定ボタンに入れ替わるわけですが、JavaScript においてある要素の子要素を別の要素に入れ替えるには [`Node#replaceChile` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使うことができます。
+- 編集ボタンを押すと ToDo のテキストが入力欄に、編集ボタンが確定ボタンに入れ替わるわけですが、JavaScript においてある要素の子要素を別の要素に入れ替えるには [`Node#replaceChile` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使うことができます。
 
 ```javascript
 const confirmButton = document.createElement("button");
