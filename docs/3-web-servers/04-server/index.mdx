@@ -197,7 +197,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
 
-[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列 (または[正規表現]) に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
+[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列 (または[正規表現](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/RegExp)) に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
 第一引数が文字列の場合は、最初に一致した場所のみを置き換えます。
 一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) を使います。
 元の文字列は変更されません。
