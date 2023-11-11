@@ -58,7 +58,7 @@ addButton.onclick = () => {
 };
 ```
 
-この時リストの項目として新たに `li` 要素を追加する必要がありますが、JavaScript から要素を生成するためには [`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うことができます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) を用いることで要素内に子要素を追加することができます。
+この時リストの項目として新たに `li` 要素を追加する必要があります。 [`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うと新しい要素を作成できます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) を用いることで既存の要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
@@ -107,9 +107,9 @@ addButton.onclick = () => {
 
 ### ステップ 2
 
-まずは削除ボタンをつける必要があります。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
+次に削除ボタンをつける必要があります。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
 
-削除ボタンを押すと `li` 要素が 1 つ消えて欲しいわけですが、JavaScript においてある要素から子要素を取り除くには [`Node#removeChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) を使うことができます。
+削除ボタンを押すと `li` 要素が 1 つ消える機能を実装するためには、ある要素から子要素を取り除く [`Node#removeChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) を使います。
 
 ```javascript
 // todoList から todoItem を取り除く
@@ -162,9 +162,9 @@ addButton.onclick = () => {
 
 ### ステップ 3
 
-まずは編集ボタンをつけてみましょう。
+編集ボタンをつけてみましょう。
 
-編集ボタンを押すと ToDo のテキストが入力欄に、編集ボタンが確定ボタンに入れ替わるわけですが、JavaScript においてある要素の子要素を別の要素に入れ替えるには [`Node#replaceChile` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使うことができます。
+編集ボタンを押されたときに ToDo のテキストを入力欄に、編集ボタンを確定ボタンに入れ替えます。[`Node#replaceChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使い、ある要素の子要素を別の要素にいれかえることができます。
 
 ```javascript
 const confirmButton = document.createElement("button");
@@ -235,7 +235,7 @@ addButton.onclick = () => {
 
 ### ステップ 4
 
-[`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要がありますが、[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録することでユーザーによって要素が変更されたときに実行される関数を定めることができます。
+[`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要があります。そのためには、[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録することでユーザーによって要素が変更されたときに実行される関数を定めることができます。
 
 ```javascript
 todoInput.oninput = () => {
