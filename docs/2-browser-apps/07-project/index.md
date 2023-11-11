@@ -28,7 +28,7 @@ import todoVideo from "./todo.mp4";
 
 ### ステップ 1
 
-- ひとまず ToDo の一覧、ToDo の入力欄、ToDo の追加ボタンが必要です。`ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
+ひとまず ToDo の一覧、ToDo の入力欄、ToDo の追加ボタンが必要です。`ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
 
 ```html title=index.html
 <!doctype html>
@@ -46,7 +46,7 @@ import todoVideo from "./todo.mp4";
 </html>
 ```
 
-- 次に JavaScript ファイルを作成して追加ボタンを押したときの処理を記述しましょう。
+次に JavaScript ファイルを作成して追加ボタンを押したときの処理を記述しましょう。
 
 ```javascript title=script.js
 const todoList = document.getElementById("todo-list");
@@ -58,14 +58,14 @@ addButton.onclick = () => {
 };
 ```
 
-- この時リストの項目として新たに `li` 要素を追加する必要がありますが、JavaScript から要素を生成するためには [`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うことができます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) を用いることで要素内に子要素を追加することができます。
+この時リストの項目として新たに `li` 要素を追加する必要がありますが、JavaScript から要素を生成するためには [`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うことができます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) を用いることで要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
 todoList.appendChild(li);
 ```
 
-- また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
+また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
 
 <Details summary='ステップ 1 の解答例'>
 
@@ -107,9 +107,9 @@ addButton.onclick = () => {
 
 ### ステップ 2
 
-- まずは削除ボタンをつける必要があります。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
+まずは削除ボタンをつける必要があります。[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
 
-- 削除ボタンを押すと `li` 要素が 1 つ消えて欲しいわけですが、JavaScript においてある要素から子要素を取り除くには [`Node#removeChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) を使うことができます。
+削除ボタンを押すと `li` 要素が 1 つ消えて欲しいわけですが、JavaScript においてある要素から子要素を取り除くには [`Node#removeChild` メソッド](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) を使うことができます。
 
 ```javascript
 // todoList から todoItem を取り除く
@@ -162,9 +162,9 @@ addButton.onclick = () => {
 
 ### ステップ 3
 
-- まずは編集ボタンをつけてみましょう。
+まずは編集ボタンをつけてみましょう。
 
-- 編集ボタンを押すと ToDo のテキストが入力欄に、編集ボタンが確定ボタンに入れ替わるわけですが、JavaScript においてある要素の子要素を別の要素に入れ替えるには [`Node#replaceChile` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使うことができます。
+編集ボタンを押すと ToDo のテキストが入力欄に、編集ボタンが確定ボタンに入れ替わるわけですが、JavaScript においてある要素の子要素を別の要素に入れ替えるには [`Node#replaceChile` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使うことができます。
 
 ```javascript
 const confirmButton = document.createElement("button");
@@ -235,7 +235,7 @@ addButton.onclick = () => {
 
 ### ステップ 4
 
-- [`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要がありますが、[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録することでユーザーによって要素が変更されたときに実行される関数を定めることができます。
+[`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要がありますが、[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録することでユーザーによって要素が変更されたときに実行される関数を定めることができます。
 
 ```javascript
 todoInput.oninput = () => {
