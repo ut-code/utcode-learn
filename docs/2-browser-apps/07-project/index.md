@@ -2,11 +2,6 @@
 title: プロジェクト
 ---
 
-import Details from "@theme/Details"
-import Answer from "@site/src/components/Answer"
-import Term from "@site/src/components/Term";
-import ViewSource from "@site/src/components/ViewSource";
-import ExternalVideoPlayer from "@site/src/components/ExternalVideoPlayer";
 import todoVideo from "./todo.mp4";
 
 ここまでの知識を使って、シンプルな ToDo アプリを作ってみましょう。
