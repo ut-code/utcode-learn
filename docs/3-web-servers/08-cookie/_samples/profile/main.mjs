@@ -24,7 +24,10 @@ app.post("/login", async (request, response) => {
     },
   });
   if (user === undefined) {
-    const html = index.replace("{warning}", "入力されたユーザー名は存在しません。");
+    const html = index.replace(
+      "{warning}",
+      "入力されたユーザー名は存在しません。",
+    );
     response.send(html);
   } else if (user.password === request.body.password) {
     const sessionId = await client.Session.findFirst({
@@ -49,7 +52,8 @@ app.get("/profile", async (request, response) => {
   const prof = await client.Profile.findUnique({
     where: { id: request.cookies.session },
   });
-  const html = profile.replace("{name}", prof.name)
+  const html = profile
+    .replace("{name}", prof.name)
     .replace("{age}", prof.age)
     .replace("{univ}", prof.univ);
   response.send(html);
@@ -70,11 +74,11 @@ app.post("/registered", async (request, response) => {
     },
   });
   if (
-    (request.body.username === "") ||
-    (request.body.password === "") ||
-    (request.body.name === "") ||
-    (request.body.age === "") ||
-    (request.body.univ === "")
+    request.body.username === "" ||
+    request.body.password === "" ||
+    request.body.name === "" ||
+    request.body.age === "" ||
+    request.body.univ === ""
   ) {
     const html = register.replace("{warning}", "未記入の項目があります。");
     response.send(html);
@@ -102,7 +106,10 @@ app.post("/registered", async (request, response) => {
     const html = index.replace("{warning}", "登録が完了しました。");
     response.send(html);
   } else {
-    const html = register.replace("{warning}", "入力されたユーザー名はすでに使用されています。別のユーザー名を入力してください。")
+    const html = register.replace(
+      "{warning}",
+      "入力されたユーザー名はすでに使用されています。別のユーザー名を入力してください。",
+    );
     response.send(html);
   }
 });
