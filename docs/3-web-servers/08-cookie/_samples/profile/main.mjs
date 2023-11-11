@@ -1,7 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import fs from "fs";
-import ejs from "ejs";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -11,25 +10,21 @@ import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 app.get("/", (request, response) => {
-  const index = fs.readFileSync("index.ejs", "utf-8");
-  const html = ejs.render(index, {
-    warning: "",
-  });
+  const index = fs.readFileSync("index.html", "utf-8");
+  const html = index.replace("{warning}", "");
   response.send(html);
 });
 
 app.post("/login", async (request, response) => {
-  const login = fs.readFileSync("login.ejs", "utf-8");
-  const index = fs.readFileSync("index.ejs", "utf-8");
+  const login = fs.readFileSync("login.html", "utf-8");
+  const index = fs.readFileSync("index.html", "utf-8");
   const user = await client.User.findUnique({
     where: {
       username: request.body.username,
     },
   });
   if (user === undefined) {
-    const html = ejs.render(index, {
-      warning: "入力されたユーザー名は存在しません。",
-    });
+    const html = index.replace("{warning}", "入力されたユーザー名は存在しません。");
     response.send(html);
   } else if (user.password === request.body.password) {
     const sessionId = await client.Session.findFirst({
@@ -41,57 +36,47 @@ app.post("/login", async (request, response) => {
       where: { id: sessionId.id },
     });
     response.cookie("session", sessionId.id);
-    const html = ejs.render(login, {
-      username: prof.name,
-    });
+    const html = login.replace("{username}", prof.username);
     response.send(html);
   } else {
-    const html = ejs.render(index, {
-      warning: "パスワードが違います。",
-    });
+    const html = index.replace("{warning}", "パスワードが違います。");
     response.send(html);
   }
 });
 
 app.get("/profile", async (request, response) => {
-  const profile = fs.readFileSync("profile.ejs", "utf-8");
+  const profile = fs.readFileSync("profile.html", "utf-8");
   const prof = await client.Profile.findUnique({
     where: { id: request.cookies.session },
   });
-  const html = ejs.render(profile, {
-    name: prof.name,
-    age: prof.age,
-    univ: prof.univ,
-  });
+  const html = profile.replace("{name}", prof.name)
+    .replace("{age}", prof.age)
+    .replace("{univ}", prof.univ);
   response.send(html);
 });
 
-app.get("/resister", (request, response) => {
-  const resister = fs.readFileSync("resister.ejs", "utf-8");
-  const html = ejs.render(resister, {
-    warning: "",
-  });
+app.get("/register", (request, response) => {
+  const register = fs.readFileSync("register.html", "utf-8");
+  const html = register.replace("{warning}", "");
   response.send(html);
 });
 
-app.post("/resistered", async (request, response) => {
-  const index = fs.readFileSync("index.ejs", "utf-8");
-  const resister = fs.readFileSync("resister.ejs", "utf-8");
+app.post("/registered", async (request, response) => {
+  const index = fs.readFileSync("index.html", "utf-8");
+  const register = fs.readFileSync("register.html", "utf-8");
   const user = await client.User.findUnique({
     where: {
       username: request.body.username,
     },
   });
   if (
-    (request.body.username === "") |
-    (request.body.password === "") |
-    (request.body.name === "") |
-    (request.body.age === "") |
+    (request.body.username === "") ||
+    (request.body.password === "") ||
+    (request.body.name === "") ||
+    (request.body.age === "") ||
     (request.body.univ === "")
   ) {
-    const html = ejs.render(resister, {
-      warning: "未記入の項目があります。",
-    });
+    const html = register.replace("{warning}", "未記入の項目があります。");
     response.send(html);
   } else if (user === undefined) {
     const new_user = await client.User.create({
@@ -114,15 +99,10 @@ app.post("/resistered", async (request, response) => {
         univ: request.body.univ,
       },
     });
-    const html = ejs.render(index, {
-      warning: "登録が完了しました。",
-    });
+    const html = index.replace("{warning}", "登録が完了しました。");
     response.send(html);
   } else {
-    const html = ejs.render(resister, {
-      warning:
-        "入力されたユーザー名はすでに使用されています。別のユーザー名を入力してください。",
-    });
+    const html = register.replace("{warning}", "入力されたユーザー名はすでに使用されています。別のユーザー名を入力してください。")
     response.send(html);
   }
 });
