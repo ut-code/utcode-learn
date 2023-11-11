@@ -210,6 +210,21 @@ document.write(base.replaceAll("C", "T")); // ABTBTT
 
 これと `fs.readFileSync` 関数を用いることで、HTML を別のファイルに分けて保存することができるようになり、より簡単に管理することができます。
 
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <ul>
+      {users}
+    </ul>
+  </body>
+</html>
+```
+
 ```js title="main.mjs"
 import express from "express";
 import fs from "fs";
@@ -225,21 +240,6 @@ app.get("/", (request, response) => {
 });
 
 app.listen(3000);
-```
-
-```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <ul>
-      {users}
-    </ul>
-  </body>
-</html>
 ```
 
 :::
