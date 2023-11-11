@@ -319,3 +319,220 @@ addButton.onclick = () => {
 <ViewSource url={import.meta.url} path="_samples/todo" />
 
 </Answer>
+
+## 追加ステップ: 読みやすいコード
+
+上の解答例でおしまいでもいいのですが、今後のメンテナンスをしやすいように<Term>モジュール化</Term>などをほどこして読みやすいコードにしてみましょう。
+
+まずは、関数を分けて `onclick` を宣言的に書き直します。
+
+<Answer title="関数の分離">
+
+```js
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
+
+todoInput.oninput = () => {
+  addButton.disabled = todoInput.value === "";
+};
+addButton.onclick = () => {
+  const todoItem = createTodo(todoInput.value).todoItem;
+  todoInput.value = "";
+  addButton.disabled = true;
+  todoList.appendChild(todoItem);
+};
+
+function createTodo(text) {
+  const todoItem = document.createElement("li");
+  const todoText = document.createElement("span");
+  const editButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  const self = {
+    todoItem,
+    todoText,
+    input: null,
+    editButton,
+    deleteButton,
+    confirmButton: null,
+  };
+  todoText.textContent = text;
+  editButton.textContent = "編集";
+  editButton.onclick = () => startEdit(self);
+  deleteButton.textContent = "削除";
+  deleteButton.onclick = deleteItem(self);
+  todoItem.appendChild(todoText);
+  todoItem.appendChild(editButton);
+  todoItem.appendChild(deleteButton);
+  return self;
+}
+
+function startEdit(self) {
+  const { todoItem, todoText, editButton, deleteButton } = self;
+  const input = document.createElement("input");
+  const confirmButton = document.createElement("button");
+  self.input = input;
+  self.confirmButton = confirmButton;
+  input.value = todoText.textContent;
+  input.oninput = () => validate(self);
+  confirmButton.textContent = "確定";
+  confirmButton.onclick = () => endEdit(self);
+  todoItem.replaceChild(input, todoText);
+  todoItem.replaceChild(confirmButton, editButton);
+}
+function endEdit(self) {
+  const { todoItem, todoText, input, editButton, confirmButton } = self;
+  todoText.textContent = input.value;
+  todoItem.replaceChild(todoText, input);
+  todoItem.replaceChild(editButton, confirmButton);
+}
+function deleteItem(self) {
+  const { todoItem } = self;
+  todoList.removeChild(todoItem);
+}
+function validate(self) {
+  const { confirmButton, todoInput } = self;
+  confirmButton.disabled = todoInput === "";
+}
+```
+
+</Answer>
+
+`self` が多く出てきて管理が面倒なので、クラスにまとめてしまいましょう。
+クラスにすればメソッドとして自身のプロパティを使う関数を簡単に記述することができます。
+
+<Answer title="クラスにまとめる">
+
+```js
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
+
+todoInput.oninput = () => {
+  addButton.disabled = todoInput.value === "";
+};
+addButton.onclick = () => {
+  const todoItem = new Todo(todoInput.value);
+  todoInput.value = "";
+  addButton.disabled = true;
+  todoList.appendChild(todoItem);
+};
+
+class Todo {
+  todoItem;
+  todotext;
+  input;
+  editButton;
+  confrimButton;
+  deleteButton;
+  constructor(text) {
+    this.todoItem = document.createElement("li");
+    this.todoText = document.createElement("span");
+    this.editButton = document.createElement("button");
+    this.deleteButton = document.createElement("button");
+    this.todoText.textContent = text;
+    this.editButton.textContent = "編集";
+    this.editButton.onclick = () => this.startEdit();
+    this.deleteButton.textContent = "削除";
+    this.deleteButton.onclick = () this.deleteSelf();
+    this.todoItem.appendChild(todoText);
+    this.todoItem.appendChild(editButton);
+    this.todoItem.appendChild(deleteButton);
+  }
+
+  startEdit() {
+    this.input = document.createElement("input");
+    this.confirmButton = document.createElement("button");
+    this.input.value = todoText.textContent;
+    this.confirmButton.textContent = "確定";
+    this.confirmButton.onclick = () => this.endEdit();
+    this.input.oninput = () => this.validate();
+    this.todoItem.replaceChild(this.input, this.todoText);
+    this.todoItem.replaceChild(this.confirmButton, this.editButton);
+  }
+  endEdit() {
+    this.todoText.textContent = input.value;
+    this.todoItem.replaceChild(this.todoText, this.input);
+    this.todoItem.replaceChild(this.editButton, this.confirmButton);
+  }
+  deleteSelf() {
+    todoList.removeChild(this.todoItem);
+  }
+  validate() {
+    this.confirmButton.disabled = this.input.value === "";
+  }
+}
+```
+
+</Answer>
+
+読みやすくなったことで、`startEdit` 関数が `endEdit` 関数より明らかに操作が多いことに気づきました。
+一部毎回実行する必要のないコードがまぎれているので、それをコンストラクタに移動しましょう。
+
+<Answer title="余計なコードの移動">
+
+```js
+const todoList = document.getElementById("todo-list");
+const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
+
+todoInput.oninput = () => {
+  addButton.disabled = todoInput.value === "";
+};
+addButton.onclick = () => {
+  const todoItem = new Todo(todoInput.value);
+  todoInput.value = "";
+  addButton.disabled = true;
+  todoList.appendChild(todoItem);
+};
+
+class Todo {
+  todoItem;
+  todotext;
+  input;
+  editButton;
+  confrimButton;
+  deleteButton;
+  constructor(text) {
+    this.todoItem = document.createElement("li");
+    this.todoText = document.createElement("span");
+    this.editButton = document.createElement("button");
+    this.confirmButton = document.createElement("button");
+    this.deleteButton = document.createElement("button");
+    this.input = document.createElement("input");
+
+    this.todoText.textContent = text;
+    this.editButton.textContent = "編集";
+    this.confirmButton.textContent = "確定";
+    this.deleteButton.textContent = "削除";
+
+    this.editButton.onclick = () => this.startEdit();
+    this.confirmButton.onclick = () => this.endEdit();
+    this.deleteButton.onclick = this.deleteSelf();
+    this.input.oninput = () => this.validate();
+
+    this.todoItem.appendChild(todoText);
+    this.todoItem.appendChild(editButton);
+    this.todoItem.appendChild(deleteButton);
+  }
+
+  startEdit() {
+    this.input.value = todoText.textContent;
+    this.todoItem.replaceChild(this.input, this.todoText);
+    this.todoItem.replaceChild(this.confirmButton, this.editButton);
+  }
+  endEdit() {
+    this.todoText.textContent = input.value;
+    this.todoItem.replaceChild(this.todoText, this.input);
+    this.todoItem.replaceChild(this.editButton, this.confirmButton);
+  }
+  deleteSelf() {
+    todoList.removeChild(this.todoItem);
+  }
+  validate() {
+    this.confirmButton.disabled = this.input.value === "";
+  }
+}
+```
+
+</Answer>
