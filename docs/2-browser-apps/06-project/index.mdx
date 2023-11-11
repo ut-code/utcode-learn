@@ -55,12 +55,13 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  // 追加ボタンを押すと todo を 1 つ追加する
+  // 追加ボタンを押すと ToDo を 1 つ追加する
 };
 ```
 
-この時リストの項目として新たに `li` 要素を追加する必要があります。
-[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うと新しい要素を作成できます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild) を用いることで既存の要素内に子要素を追加することができます。
+この時箇条書きの項目として新たに `li` 要素を追加する必要があります。
+[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うと新しい要素を作成できます。
+また、[`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild) を用いることで既存の要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
@@ -68,6 +69,12 @@ todoList.appendChild(li);
 ```
 
 また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
+
+```js
+button.onclick = () => {
+  console.log(inputElement.value); // ボタンを押したときに inputElement の内容が表示される
+};
+```
 
 <Details summary='ステップ 1 の解答例'>
 
@@ -88,16 +95,15 @@ todoList.appendChild(li);
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("add-button");
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   todoItem.appendChild(todoText);
   todoList.appendChild(todoItem);
 };
@@ -138,17 +144,16 @@ todoList.removeChild(todoItem);
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("add-button");
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
     todoList.removeChild(todoItem);
@@ -201,13 +206,12 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = document.createElement("input");
@@ -280,14 +284,13 @@ todoInput.oninput = () => {
 };
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   addButton.disabled = true;
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = document.createElement("input");
