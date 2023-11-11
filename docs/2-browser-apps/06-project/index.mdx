@@ -241,7 +241,7 @@ addButton.onclick = () => {
 [`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。
 入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。
 この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要があります。
-そのためには、[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録することでユーザーによって要素が変更されたときに実行される関数を定めることができます。
+[`HTMLElement#oninput` プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput) にイベントハンドラを登録すると、ユーザーによって要素に入力されたときに実行される関数を定めることができます。
 
 ```javascript
 todoInput.oninput = () => {
