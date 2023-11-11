@@ -9,7 +9,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (request, response) => {
   const template = fs.readFileSync("index.html");
-  const html = template.replace("{messages}", messages.map((msg) => `<li>${msg}</li>`).join(""));
+  const html = template.replace(
+    "{messages}",
+    messages.map((msg) => `<li>${msg}</li>`).join(""),
+  );
   response.send(html);
 });
 
