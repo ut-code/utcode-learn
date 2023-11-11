@@ -430,11 +430,14 @@ class Todo {
     this.todoText = document.createElement("span");
     this.editButton = document.createElement("button");
     this.deleteButton = document.createElement("button");
+
     this.todoText.textContent = text;
     this.editButton.textContent = "編集";
-    this.editButton.onclick = () => this.startEdit();
     this.deleteButton.textContent = "削除";
+
+    this.editButton.onclick = () => this.startEdit();
     this.deleteButton.onclick = () this.deleteSelf();
+
     this.todoItem.appendChild(todoText);
     this.todoItem.appendChild(editButton);
     this.todoItem.appendChild(deleteButton);
@@ -496,20 +499,20 @@ class Todo {
   constructor(text) {
     this.todoItem = document.createElement("li");
     this.todoText = document.createElement("span");
+    this.input = document.createElement("input");
     this.editButton = document.createElement("button");
     this.confirmButton = document.createElement("button");
     this.deleteButton = document.createElement("button");
-    this.input = document.createElement("input");
 
     this.todoText.textContent = text;
     this.editButton.textContent = "編集";
     this.confirmButton.textContent = "確定";
     this.deleteButton.textContent = "削除";
 
+    this.input.oninput = () => this.validate();
     this.editButton.onclick = () => this.startEdit();
     this.confirmButton.onclick = () => this.endEdit();
     this.deleteButton.onclick = this.deleteSelf();
-    this.input.oninput = () => this.validate();
 
     this.todoItem.appendChild(todoText);
     this.todoItem.appendChild(editButton);
