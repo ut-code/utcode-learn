@@ -242,6 +242,12 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
+イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として `index` に読み込んでいます。
+
+次の行では、配列である `names` を HTML として解釈可能な文字列の `namesAsHTML` に変換しています。
+
+その次の行の `index.replace` で、`index` の中の `"{users}"` が `namesAsHTML` に置換されます。
+
 :::
 
 {/* prettier-ignore */}
