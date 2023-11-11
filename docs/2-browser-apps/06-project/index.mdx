@@ -324,82 +324,7 @@ addButton.onclick = () => {
 
 上の解答例でおしまいでもいいのですが、今後のメンテナンスをしやすいように<Term>モジュール化</Term>などをほどこして読みやすいコードにしてみましょう。
 
-まずは、関数を分けて `onclick` を宣言的に書き直します。
-
-<Answer title="関数の分離">
-
-```js
-const todoList = document.getElementById("todo-list");
-const todoInput = document.getElementById("todo-input");
-const addButton = document.getElementById("add-button");
-
-todoInput.oninput = () => {
-  addButton.disabled = todoInput.value === "";
-};
-addButton.onclick = () => {
-  const todoItem = createTodo(todoInput.value).todoItem;
-  todoInput.value = "";
-  addButton.disabled = true;
-  todoList.appendChild(todoItem);
-};
-
-function createTodo(text) {
-  const todoItem = document.createElement("li");
-  const todoText = document.createElement("span");
-  const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
-  const self = {
-    todoItem,
-    todoText,
-    input: null,
-    editButton,
-    deleteButton,
-    confirmButton: null,
-  };
-  todoText.textContent = text;
-  editButton.textContent = "編集";
-  editButton.onclick = () => startEdit(self);
-  deleteButton.textContent = "削除";
-  deleteButton.onclick = deleteItem(self);
-  todoItem.appendChild(todoText);
-  todoItem.appendChild(editButton);
-  todoItem.appendChild(deleteButton);
-  return self;
-}
-
-function startEdit(self) {
-  const { todoItem, todoText, editButton, deleteButton } = self;
-  const input = document.createElement("input");
-  const confirmButton = document.createElement("button");
-  self.input = input;
-  self.confirmButton = confirmButton;
-  input.value = todoText.textContent;
-  input.oninput = () => validate(self);
-  confirmButton.textContent = "確定";
-  confirmButton.onclick = () => endEdit(self);
-  todoItem.replaceChild(input, todoText);
-  todoItem.replaceChild(confirmButton, editButton);
-}
-function endEdit(self) {
-  const { todoItem, todoText, input, editButton, confirmButton } = self;
-  todoText.textContent = input.value;
-  todoItem.replaceChild(todoText, input);
-  todoItem.replaceChild(editButton, confirmButton);
-}
-function deleteItem(self) {
-  const { todoItem } = self;
-  todoList.removeChild(todoItem);
-}
-function validate(self) {
-  const { confirmButton, todoInput } = self;
-  confirmButton.disabled = todoInput === "";
-}
-```
-
-</Answer>
-
-`self` が多く出てきて管理が面倒なので、クラスにまとめてしまいましょう。
-クラスにすればメソッドとして自身のプロパティを使う関数を簡単に記述することができます。
+まずは、クラスにまとめてみましょう。
 
 <Answer title="クラスにまとめる">
 
@@ -436,7 +361,7 @@ class Todo {
     this.deleteButton.textContent = "削除";
 
     this.editButton.onclick = () => this.startEdit();
-    this.deleteButton.onclick = () this.deleteSelf();
+    this.deleteButton.onclick = () => this.deleteSelf();
 
     this.todoItem.appendChild(todoText);
     this.todoItem.appendChild(editButton);
@@ -461,7 +386,7 @@ class Todo {
   deleteSelf() {
     todoList.removeChild(this.todoItem);
   }
-  validate() {
+  validateConfirmButton() {
     this.confirmButton.disabled = this.input.value === "";
   }
 }
@@ -514,13 +439,13 @@ class Todo {
     this.confirmButton.onclick = () => this.endEdit();
     this.deleteButton.onclick = this.deleteSelf();
 
-    this.todoItem.appendChild(todoText);
+    this.todoItem.appendChild(this.todoText);
     this.todoItem.appendChild(editButton);
     this.todoItem.appendChild(deleteButton);
   }
 
   startEdit() {
-    this.input.value = todoText.textContent;
+    this.input.value = this.todoText.textContent;
     this.todoItem.replaceChild(this.input, this.todoText);
     this.todoItem.replaceChild(this.confirmButton, this.editButton);
   }
@@ -532,7 +457,7 @@ class Todo {
   deleteSelf() {
     todoList.removeChild(this.todoItem);
   }
-  validate() {
+  validateConfirmButton() {
     this.confirmButton.disabled = this.input.value === "";
   }
 }
