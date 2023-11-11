@@ -1,20 +1,27 @@
-import React from "react";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 import Tippy from "@tippyjs/react";
 import { MdArrowForward } from "react-icons/md";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/material.css";
+import { onlyText } from "react-children-utilities";
 import styles from "./styles.module.css";
 import definitions from "./definitions";
+import typeMap from "./type-map.js";
 
 /**
  * @param {Object} props
- * @param {keyof typeof definitions} props.type
- * @param {boolean} props.strong
+ * @param {keyof typeof definitions | null} props.type
  * @param {React.ReactNode} props.children
  */
-export default function Term({ type, strong = false, children }) {
+export default function Term({ type = null, children }) {
+  if (type === null) type = typeMap.get(onlyText(children));
+  if (!type)
+    throw new Error(
+      `Problem: Term ${onlyText(children)} is not defined in type-map.js .
+      Solution: explicitly specify term type, or add type definition to type-map.js`,
+    );
+
   const term = definitions.terms[type];
   if (!term) throw new Error(`Type ${type} is not defined.`);
   const referencePageTitle =
@@ -64,8 +71,7 @@ export default function Term({ type, strong = false, children }) {
     );
   };
 
-  const Tag = strong ? "strong" : "span";
-  const content = <Tag className={styles.text}>{children}</Tag>;
+  const content = <span className={styles.text}>{children}</span>;
 
   return typeof window === "object" ? wrap(content) : content;
 }

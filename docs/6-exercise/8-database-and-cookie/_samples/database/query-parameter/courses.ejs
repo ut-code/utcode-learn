@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -15,11 +15,11 @@
       </thead>
       <tbody>
         <% for (const course of courses) {%>
-        <tr>
-          <td><%= course.name %></td>
-          <td><%= course.hasTest %></td>
-          <td><%= course.description %></td>
-        </tr>
+          <tr>
+            <td><%= course.name %></td>
+            <td><%= course.hasTest %></td>
+            <td><%= course.description %></td>
+          </tr>
         <% } %>
       </tbody>
     </table>

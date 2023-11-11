@@ -1,0 +1,87 @@
+---
+title: JavaScript ことはじめ
+---
+
+import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4";
+
+## <Term>JavaScript</Term>
+
+{/* prettier-ignore */}
+<Term>HTML</Term> がウェブサイトの構造を表す言語だとすれば、<Term>**JavaScript**</Term> はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。
+
+![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
+
+## <Term>JavaScript</Term> で Hello World!
+
+プログラミングの世界では、まず画面に `Hello World!` と表示させることが慣例になっています。<Term>JavaScript</Term> を用いて画面に `Hello World!` を表示してみましょう。
+
+まずは、`index.html` を次のように書き換えます。
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+続いて、`script.js`を作成し、内容として次の通りに保存します。
+
+```javascript title="script.js"
+document.write("Hello World!");
+```
+
+**`index.html`** をダブルクリックして開いてください。`Hello World!` と表示されましたか？開くのは、`script.js` ではなく `index.html` なので、気をつけてください。
+
+<video src={helloWorldByJavascriptVideo} controls />
+
+## <Term>JavaScript</Term> が動く仕組み
+
+<Term>HTML</Term> ファイルの中に、以下のような記述があります。
+
+```html title="index.html"
+<script src="./script.js"></script>
+```
+
+まず、この記述によって、 `script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが <Term>JavaScript</Term> です。
+
+:::info
+
+この講座の中では、`script` <Term>要素</Term>を常に **`body` <Term>要素</Term>の末尾**に記述するようにします。これは、<Term>JavaScript</Term> が読み込まれるタイミングで他のすべての <Term>HTML 要素</Term>がすでに表示されていることを保証するためです。
+
+:::
+
+## <Term>JavaScript</Term> の基本文法
+
+{/* prettier-ignore */}
+<Term>JavaScript</Term> のプログラムで、セミコロンで区切られた部分を<Term>文</Term>と呼びます。
+<Term>JavaScript</Term> の実行環境は、プログラム中に含まれる<Term>文</Term>を上から下に向けて順番に実行していきます。
+`document.write` はブラウザの画面に出力するための命令です。
+
+```javascript title="script.js"
+document.write("Hello World1");
+document.write("Hello World2");
+document.write("Hello World3");
+```
+
+:::tip
+
+改行が表示されず困っていますか？`document.write`は HTML タグを出力できます。`<br>`を用いたり、`p`タグで囲んでみたりしてみましょう。
+
+:::
+
+## コメント
+
+`//` から行末までの部分や、`/*` から `*/` で囲まれた部分は**コメント**とみなされ、プログラムの実行に影響を与えません。この講座内でもプログラムの意味を説明するのに利用していきます。
+
+```javascript title="script.js"
+// この部分はコメントです
+document.write("Hello World"); // この部分もコメントです
+/* この部分も
+やはりコメントです。 */
+```
