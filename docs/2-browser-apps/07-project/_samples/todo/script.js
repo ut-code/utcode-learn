@@ -2,8 +2,6 @@ const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
-addButton.disabled = true;
-
 todoInput.oninput = () => {
   addButton.disabled = todoInput.value === "";
 };
