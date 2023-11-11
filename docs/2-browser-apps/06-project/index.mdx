@@ -71,8 +71,11 @@ todoList.appendChild(li);
 また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
 
 ```js
-button.onclick = () => {
-  console.log(inputElement.value); // ボタンを押したときに inputElement の内容が表示される
+button1.onclick = () => {
+  console.log(inputElement.value); // ボタンを押したときに inputElement に入力された内容が表示される
+};
+button2.onclick = () => {
+  inputElement.value = "Hello World!"; // inputElement の入力内容を設定することもできる
 };
 ```
 
@@ -172,7 +175,7 @@ addButton.onclick = () => {
 
 編集ボタンをつけてみましょう。
 
-編集ボタンを押されたときに ToDo のテキストを入力欄に、編集ボタンを確定ボタンに入れ替えます。
+編集ボタンが押されたときに ToDo のテキストを入力欄に、編集ボタンを確定ボタンに入れ替えます。
 [`Node#replaceChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使い、ある要素の子要素を別の要素にいれかえることができます。
 
 ```javascript
