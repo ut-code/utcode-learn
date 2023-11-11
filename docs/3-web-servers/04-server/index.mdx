@@ -219,8 +219,8 @@ const app = express();
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
   const index = fs.readFileSync("./index.html", "utf-8");
-  const usersAsHTML = names.map((user) => `<li>${user}</li>`).join("");
-  const html = index.replace("{users}", usersAsHTML);
+  const namesAsHTML = names.map((user) => `<li>${user}</li>`).join("");
+  const html = index.replace("{users}", namesAsHTML);
   response.send(html);
 });
 
