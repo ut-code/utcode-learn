@@ -3,13 +3,12 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = document.createElement("input");

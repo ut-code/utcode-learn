@@ -1,20 +1,18 @@
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
-
 todoInput.oninput = () => {
   addButton.disabled = todoInput.value === "";
 };
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   addButton.disabled = true;
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = document.createElement("input");
