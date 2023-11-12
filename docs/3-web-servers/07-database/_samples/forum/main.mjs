@@ -12,10 +12,10 @@ app.get("/", async (request, response) => {
   const messages = await (
     await client.forum.findMany()
   ).map((data) => data.message);
-  const template = readFileSync("index.html", "utf-8");
+  const template = readFileSync("./index.html", "utf-8");
   const html = template.replace(
     "{messages}",
-    messages.map((msg) => `<li>${msg}</li>`).join(""),
+    messages.map((message) => `<li>${message}</li>`).join(""),
   );
   response.send(html);
 });
