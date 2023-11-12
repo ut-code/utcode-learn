@@ -71,11 +71,9 @@ todoList.appendChild(li);
 また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
 
 ```js
-button1.onclick = () => {
-  console.log(inputElement.value); // ボタンを押したときに inputElement に入力された内容が表示される
-};
-button2.onclick = () => {
-  inputElement.value = "Hello World!"; // inputElement の入力内容を設定することもできる
+addButton.onclick = () => {
+  console.log(todoInput.value);
+  todoInput.value = "";
 };
 ```
 
