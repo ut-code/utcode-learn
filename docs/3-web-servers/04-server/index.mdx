@@ -193,13 +193,13 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
-:::tip[`String#replace`]
+:::tip[`String#replace`] メソッド
 
 上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
 
 [`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
 `String#replace` メソッドは、最初に一致した場所のみを置き換えます。
-一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) を使います。
+一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) メソッドを使います。
 
 ```js
 const base = "ABCBCC";
@@ -207,7 +207,7 @@ document.write(base.replace("BC", "EFG")); // AEFGBCC
 document.write(base.replaceAll("C", "T")); // ABTBTT
 ```
 
-`String#replace` を用いることで、長い HTML ファイルを見通しよく記述できるようになり、より簡単に管理することができます。
+`String#replace` メソッドを用いることで、長い HTML を見通しよく記述できるようになります。
 
 ```html title="index.html"
 <!doctype html>
@@ -226,7 +226,7 @@ document.write(base.replaceAll("C", "T")); // ABTBTT
 
 ```js title="main.mjs"
 import express from "express";
-import fs from "fs";
+import { readFileSync } from "fs";
 
 const app = express();
 
@@ -243,64 +243,11 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-リクエストを受け取ったとき、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列としてに読み込んでいます。
+リクエストを受け取ったとき、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
 
-次の行の `index.replace` で、読み込んだ HTML ファイルの文字列の中の `"{users}"` が `names` に対応する、箇条書きを表す文字列に置換されます。
+次の行の `template.replace` で、読み込んだ HTML ファイルの中の `"{users}"` が `names` を箇条書きにした文字列に置換されます。
 
 :::
-
-{/* prettier-ignore */}
-{/* いったんコメントアウト、必要そうならいい感じにして戻してください
-:::tip[テンプレートエンジン]
-上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。  
-[EJS](https://ejs.co/) をはじめとした**テンプレートエンジン**は、プログラミング言語から HTML などを作成する作業を簡単にしてくれます。先ほどのプログラムを、EJS を用いて書き換えると、次のようになります。(手元で試したい場合は `ejs` をインストールしてください)
-
-```javascript title=main.mjs
-import { readFileSync } from "fs";
-import express from "express";
-import { render } from "ejs";
-
-const app = express();
-
-const names = ["田中", "鈴木", "佐藤"];
-app.get("/", (request, response) => {
-  const template = readFileSync("template.ejs", "utf-8");
-  const html = render(template, {
-    listItems: names,
-  });
-  response.send(html);
-});
-
-app.listen(3000);
-```
-
-```html title=template.ejs
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <ul>
-      <% for (const listItem of listItems) { %>
-      <li><%= listItem %></li>
-      <% } %>
-    </ul>
-  </body>
-</html>
-```
-
-<ViewSource url={import.meta.url} path="_samples/ejs-template-engine" />
-
-イベントハンドラの中で、プログラムではまず `fs.readFileSync` 関数を用いて `template.ejs` ファイルの内容を読み込んでいます。その次の行の [`ejs.render` 関数](https://ejs.co/#docs) がポイントです。この関数は、第 1 引数にテンプレートを文字列として受け取り、諸々の変換を行った後の文字列を返します。第 2 引数には、変換の際に埋め込みたいデータをオブジェクトの形式で指定します。
-
-このオブジェクトのキーと同じ名前の変数が、テンプレート内で利用できます。上の例の `template.ejs` における `listItems` は、`main.mjs` で指定した `{ listItems: names }` により `["田中", "鈴木", "佐藤"]` になります。
-
-テンプレート内の `<%` から `%>` で囲まれた部分は、JavaScript のプログラムとして実行されます。また、`<%=` から `%>` で囲まれた部分は JavaScript の式として評価され、最終的な結果に埋め込まれます。
-:::
-
-\*/}
 
 ## 課題
 
