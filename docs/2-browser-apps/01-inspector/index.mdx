@@ -105,14 +105,14 @@ JavaScript の実行がブレークポイントを設定した地点に差し掛
 
 :::tip[`console.log` 関数]
 
-デバッガを使わずに、`console.log` 関数を使ってデバッグすることもできます。`console.log` 関数は、ブラウザの開発者ツールの `Console` に値を出力する関数です。
-以下のプログラムは `x` と `y` の和を出力するプログラムですが、`console.log` 関数を使ってプログラムの実行中に値の変化を確認したり、エラーが発生した際に原因を特定することができます。
+`console.log` 関数は、メッセージをブラウザの開発者ツールの `Console` に出力します。
+`console.log` 関数を使ってプログラムの実行中に値の変化を確認したり、問題が発生した時に原因を特定したりすることができます。
 
 ```javascript
 const x = 5;
 const y = 10;
 const sum = x + y;
-console.log("x + y = ", sum);
+console.log("x + y は、", sum);
 ```
 
 :::
