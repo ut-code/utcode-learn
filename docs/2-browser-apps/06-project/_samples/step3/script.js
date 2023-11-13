@@ -11,17 +11,7 @@ addButton.onclick = () => {
   todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = document.createElement("input");
-    const confirmButton = document.createElement("button");
-    input.value = todoText.textContent;
-    confirmButton.textContent = "確定";
-    confirmButton.onclick = () => {
-      todoText.textContent = input.value;
-      todoItem.replaceChild(todoText, input);
-      todoItem.replaceChild(editButton, confirmButton);
-    };
-    todoItem.replaceChild(input, todoText);
-    todoItem.replaceChild(confirmButton, editButton);
+    todoText.textContent = prompt("編集内容を入力してください");
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
