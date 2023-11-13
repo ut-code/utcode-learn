@@ -363,7 +363,7 @@ class Todo {
     this.confirmButton.textContent = "確定";
     this.deleteButton.textContent = "削除";
 
-    this.input.oninput = () => this.validate();
+    this.input.oninput = () => this.validateConfirmButton();
     this.editButton.onclick = () => this.startEdit();
     this.confirmButton.onclick = () => this.endEdit();
     this.deleteButton.onclick = this.deleteSelf();
