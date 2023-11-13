@@ -62,7 +62,7 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 ### 課題
 
-`weight_tons` と `cost` をプロパティとして持ち、 `weight_tons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
+`weightInTons` と `cost` をプロパティとして持ち、 `weightInTons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
 <ViewSource url={import.meta.url} path="_samples/car-class" />
 
@@ -384,10 +384,6 @@ document.write(false.toString()); // false
 
 ### `Date` クラス
 
-上で説明したように、JavaScript では開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が用意されています。
-
-[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)は、JavaScript に標準で用意されている、日付や時刻を扱うための<Term>クラス</Term>です。
-
 ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、その日の残り時間を表示してみましょう。
 
 例:
@@ -415,7 +411,7 @@ const now = new Date();
 const remainingHours = 23 - now.getHours();
 const remainingMinutes = 59 - now.getMinutes();
 const remainingSeconds = 60 - now.getSeconds();
-countdownBox.textContent = `今日は残り${remainingHours}時間 ${remainingMinutes}分 ${remainingSeconds}秒です。`;
+countdownBox.textContent = `今日は残り${remainingHours}時間${remainingMinutes}分${remainingSeconds}秒です。`;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
