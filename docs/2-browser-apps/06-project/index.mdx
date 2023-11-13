@@ -366,7 +366,7 @@ class Todo {
     this.input.oninput = () => this.validateConfirmButton();
     this.editButton.onclick = () => this.startEdit();
     this.confirmButton.onclick = () => this.endEdit();
-    this.deleteButton.onclick = this.deleteSelf();
+    this.deleteButton.onclick = () => this.deleteSelf();
 
     this.todoItem.appendChild(this.todoText);
     this.todoItem.appendChild(editButton);
