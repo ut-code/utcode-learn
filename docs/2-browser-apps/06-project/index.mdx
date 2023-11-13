@@ -74,8 +74,11 @@ todoList.appendChild(li);
 
 ```js
 addButton.onclick = () => {
-  console.log(todoInput.value); // todoInput に入力された内容を console に表示する
+  const todoItem = document.createElement("li"); // li 要素を作る
+  const todoText = document.createElement("span"); // span 要素を作る
+  todoText.textContent = todoInput.value; // span 要素の textContent を todoInput の value にする
   todoInput.value = ""; // todoInput の入力を空にする
+  // 以下 Node#appendChild などを使い、整形する
 };
 ```
 
