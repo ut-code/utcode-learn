@@ -73,13 +73,8 @@ todoList.appendChild(li);
 また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
 
 ```js
-addButton.onclick = () => {
-  const todoItem = document.createElement("li"); // li 要素を作る
-  const todoText = document.createElement("span"); // span 要素を作る
-  todoText.textContent = todoInput.value; // span 要素の textContent を todoInput の value にする
-  todoInput.value = ""; // todoInput の入力を空にする
-  // 以下 Node#appendChild などを使い、整形する
-};
+todoText.textContent = todoInput.value; // span 要素の textContent を todoInput の value にする
+todoInput.value = ""; // todoInput の入力を空にする
 ```
 
 <Details summary='ステップ 1 の解答例'>
@@ -178,14 +173,12 @@ addButton.onclick = () => {
 
 編集ボタンをつけてみましょう。
 
-編集ボタンが押されたときに ToDo のテキストを入力欄に、編集ボタンを確定ボタンに入れ替えます。
-[`Node#replaceChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使い、ある要素の子要素を別の要素にいれかえることができます。
+編集ボタンが押されたときに、ユーザーにテキストを入力するように促すダイアログを表示します。
+[`prompt` 関数](https://developer.mozilla.org/ja/docs/Web/API/Window/prompt を使い、ユーザーに入力を求めることができます。
 
 ```javascript
-const confirmButton = document.createElement("button");
-confirmButton.textContent = "確定";
-// 編集ボタンを確定ボタンに入れ替え
-todoItem.replaceChild(confirmButton, editButton);
+// ユーザーに入力を求め、入力された値を todoText.textContent に代入する
+todoText.textContent = prompt("編集内容を入力してください");
 ```
 
 <Details summary='ステップ 3 の解答例'>
@@ -288,7 +281,8 @@ addButton.onclick = () => {
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = prompt("編集内容を入力してください");
-    if (input !== "") todoText.textContent = input;
+    // prompt が空で入力された場合は空文字列 ("")、キャンセルした場合は null を返す
+    if (input !== "" && input !== null) todoText.textContent = input;
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
