@@ -245,7 +245,7 @@ app.listen(3000);
 
 リクエストを受け取ったとき、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
 
-次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"{users}"` が `names` を箇条書きにした文字列に置換されます。
+次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"{users}"` を、 `names` を箇条書きにした文字列に置換します。
 
 :::
 
