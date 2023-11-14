@@ -269,7 +269,9 @@ const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
-todoInput.oninput = () => (addButton.disabled = todoInput === "");
+todoInput.oninput = () => {
+  addButton.disabled = todoInput.value === "";
+};
 
 addButton.onclick = () => {
   const todoItem = document.createElement("li");
@@ -281,7 +283,7 @@ addButton.onclick = () => {
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = prompt("編集内容を入力してください");
-    // prompt が空で入力された場合は空文字列 ("")、キャンセルされた場合は null を返す
+    // prompt で入力された文字列が空の場合は空文字列 ("")、キャンセルされた場合は null を返す
     if (input !== "" && input !== null) todoText.textContent = input;
   };
   deleteButton.textContent = "削除";
