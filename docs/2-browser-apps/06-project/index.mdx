@@ -17,16 +17,18 @@ import todoVideo from "./todo.mp4";
 
 ## ヒント
 
-いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにもあるように
+いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにある4つの課題をひとつずつ解決していきます。
 
-1. ToDo を追加できるようにする
-2. ToDo を削除できるようにする
-3. ToDo を編集できるようにする
-4. 空の ToDo を追加できないようにする
+## 課題の解決
+
+1. ToDo を追加できるようにする。
+2. ToDo を削除できるようにする。
+3. ToDo を編集できるようにする。
+4. 空の ToDo を追加できないようにする。
 
 の4つの仕事があるので、まず 1 からやっていきましょう。
 
-## ステップ 1: ToDo を追加する
+### ステップ 1: ToDo を追加する
 
 ひとまず ToDo の一覧、ToDo の入力欄、ToDo の追加ボタンが必要です。
 `ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
@@ -55,19 +57,25 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  // 追加ボタンを押すと todo を 1 つ追加する
+  // 追加ボタンを押すと ToDo を 1 つ追加する
 };
 ```
 
-この時リストの項目として新たに `li` 要素を追加する必要があります。
-[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うと新しい要素を作成できます。また、[`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild) を用いることで既存の要素内に子要素を追加することができます。
+この時箇条書きの項目として新たに `li` 要素を追加する必要があります。
+[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) を使うと新しい要素を作成できます。
+また、[`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild) を用いることで既存の要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
 todoList.appendChild(li);
 ```
 
-また、`HTMLInputElement#value` プロパティから入力欄への入力内容を取得できます。
+また、`HTMLInputElement#value` プロパティから、DOM に対応する input 要素の入力欄への入力内容を取得できます。
+
+```js
+const inputValue = todoInput.value; // todoInput の value を取得する
+todoInput.value = ""; // todoInput の入力欄を空にする
+```
 
 <Details summary='ステップ 1 の解答例'>
 
@@ -88,16 +96,15 @@ todoList.appendChild(li);
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("add-button");
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   todoItem.appendChild(todoText);
   todoList.appendChild(todoItem);
 };
@@ -107,7 +114,7 @@ addButton.onclick = () => {
 
 </Details>
 
-## ステップ 2: ToDo を削除する
+### ステップ 2: ToDo を削除する
 
 次に削除ボタンを追加します。
 [`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement) で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild) で要素内に追加しましょう。
@@ -138,17 +145,16 @@ todoList.removeChild(todoItem);
 ```
 
 ```javascript title=script.js
-const addButton = document.getElementById("add-button");
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
+const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
     todoList.removeChild(todoItem);
@@ -163,18 +169,16 @@ addButton.onclick = () => {
 
 </Details>
 
-## ステップ 3: ToDo を編集する
+### ステップ 3: ToDo を編集する
 
 編集ボタンをつけてみましょう。
 
-編集ボタンを押されたときに ToDo のテキストを入力欄に、編集ボタンを確定ボタンに入れ替えます。
-[`Node#replaceChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/replaceChild) を使い、ある要素の子要素を別の要素にいれかえることができます。
+編集ボタンが押されたときに、ユーザーにテキストを入力するように促すダイアログを表示します。
+[`prompt` 関数](https://developer.mozilla.org/ja/docs/Web/API/Window/prompt を使い、ユーザーに入力を求めることができます。
 
 ```javascript
-const confirmButton = document.createElement("button");
-confirmButton.textContent = "確定";
-// 編集ボタンを確定ボタンに入れ替え
-todoItem.replaceChild(confirmButton, editButton);
+// ユーザーに入力を求め、入力された値を todoText.textContent に代入する
+todoText.textContent = prompt("新しい内容を入力してください。");
 ```
 
 <Details summary='ステップ 3 の解答例'>
@@ -201,26 +205,15 @@ const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = document.createElement("input");
-    const confirmButton = document.createElement("button");
-    input.value = todoText.textContent;
-    confirmButton.textContent = "確定";
-    confirmButton.onclick = () => {
-      todoText.textContent = input.value;
-      todoItem.replaceChild(todoText, input);
-      todoItem.replaceChild(editButton, confirmButton);
-    };
-    todoItem.replaceChild(input, todoText);
-    todoItem.replaceChild(confirmButton, editButton);
+    todoText.textContent = prompt("編集内容を入力してください");
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
@@ -237,7 +230,7 @@ addButton.onclick = () => {
 
 </Details>
 
-## ステップ 4: 空の ToDo を入れさせない
+### ステップ 4: 空の ToDo を入れさせない
 
 [`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/HTMLButtonElement/disabled) が `true` の時、ボタンはクリックを受け付けなくなります。
 入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。
@@ -275,35 +268,23 @@ todoInput.oninput = () => {
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
+
 todoInput.oninput = () => {
   addButton.disabled = todoInput.value === "";
 };
 
 addButton.onclick = () => {
-  const inputValue = todoInput.value;
-  todoInput.value = "";
-  addButton.disabled = true;
   const todoItem = document.createElement("li");
   const todoText = document.createElement("span");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  todoText.textContent = inputValue;
+  todoText.textContent = todoInput.value;
+  todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = document.createElement("input");
-    const confirmButton = document.createElement("button");
-    input.value = todoText.textContent;
-    input.oninput = () => {
-      confirmButton.disabled = input.value === "";
-    };
-    confirmButton.textContent = "確定";
-    confirmButton.onclick = () => {
-      todoText.textContent = input.value;
-      todoItem.replaceChild(todoText, input);
-      todoItem.replaceChild(editButton, confirmButton);
-    };
-    todoItem.replaceChild(input, todoText);
-    todoItem.replaceChild(confirmButton, editButton);
+    const input = prompt("編集内容を入力してください");
+    // prompt で入力された文字列が空の場合は空文字列 ("")、キャンセルされた場合は null を返す
+    if (input !== "" && input !== null) todoText.textContent = input;
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
