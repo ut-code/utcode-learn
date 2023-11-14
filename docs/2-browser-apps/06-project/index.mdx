@@ -73,8 +73,8 @@ todoList.appendChild(li);
 また、`HTMLInputElement#value` プロパティから、DOM に対応する input 要素の入力欄への入力内容を取得できます。
 
 ```js
-todoText.textContent = todoInput.value; // todoInput の value を span 要素の textContent に代入する
-todoInput.value = ""; // todoInput の入力を空にする
+const inputValue = todoInput.value; // todoInput の value を取得する
+todoInput.value = ""; // todoInput の入力欄を空にする
 ```
 
 <Details summary='ステップ 1 の解答例'>
