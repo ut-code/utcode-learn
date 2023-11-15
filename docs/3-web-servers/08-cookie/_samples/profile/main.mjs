@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import fs from "fs";
+import { readFileSync } from "fs";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -10,14 +10,14 @@ import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 app.get("/", (request, response) => {
-  const index = fs.readFileSync("index.html", "utf-8");
+  const index = readFileSync("index.html", "utf-8");
   const html = index.replace("{message}", "");
   response.send(html);
 });
 
 app.post("/login", async (request, response) => {
-  const login = fs.readFileSync("login.html", "utf-8");
-  const index = fs.readFileSync("index.html", "utf-8");
+  const login = readFileSync("login.html", "utf-8");
+  const index = readFileSync("index.html", "utf-8");
   const user = await client.User.findUnique({
     where: {
       username: request.body.username,
@@ -48,7 +48,7 @@ app.post("/login", async (request, response) => {
 });
 
 app.get("/profile", async (request, response) => {
-  const profile = fs.readFileSync("profile.html", "utf-8");
+  const profile = readFileSync("profile.html", "utf-8");
   const prof = await client.Profile.findUnique({
     where: { id: request.cookies.session },
   });
@@ -60,14 +60,14 @@ app.get("/profile", async (request, response) => {
 });
 
 app.get("/register", (request, response) => {
-  const register = fs.readFileSync("register.html", "utf-8");
+  const register = readFileSync("register.html", "utf-8");
   const html = register.replace("{message}", "");
   response.send(html);
 });
 
 app.post("/registered", async (request, response) => {
-  const index = fs.readFileSync("index.html", "utf-8");
-  const register = fs.readFileSync("register.html", "utf-8");
+  const index = readFileSync("index.html", "utf-8");
+  const register = readFileSync("register.html", "utf-8");
   const user = await client.User.findUnique({
     where: {
       username: request.body.username,
