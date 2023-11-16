@@ -11,7 +11,7 @@ addButton.onclick = () => {
   todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    todoText.textContent = prompt("編集内容を入力してください。");
+    todoText.textContent = prompt("新しい内容を入力してください。");
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {

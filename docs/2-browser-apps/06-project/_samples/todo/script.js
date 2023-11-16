@@ -13,7 +13,7 @@ addButton.onclick = () => {
   todoInput.value = "";
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = prompt("編集内容を入力してください。");
+    const input = prompt("新しい内容を入力してください。");
     if (input !== "") todoText.textContent = input;
   };
   deleteButton.textContent = "削除";
