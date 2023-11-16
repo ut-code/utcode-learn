@@ -762,22 +762,6 @@ const removeTodo = (id: number) => {
 
 オブジェクトの中身が変化しないとき、そのオブジェクトは<Term type="mutableImmutable">**イミュータブル**</Term>であるといいます。一方、`Array#push` メソッドや `Array#splice` メソッドは、配列の中身を変化させます。このように、<Term type="mutableImmutable">ミュータブル</Term>な操作を伴う関数を、**破壊的**であるという場合があります。破壊的メソッドは React の状態に対して使用できません。
 
-:::
-
-:::tip[スプレッド構文]
-
-[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)は、配列やオブジェクトを、別の配列やオブジェクトに展開するための記法です。重複するプロパティがある場合は、後に記載されたものが優先されます。
-
-```typescript
-const array1 = [1, 2, 3];
-const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
-
-const object1 = { name: "田中", age: 18 };
-const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中", age: 19, address: "東京" }
-```
-
-:::
-
 ## 課題
 
 - ToDo リストの要素を上下に移動させる機能を追加しましょう

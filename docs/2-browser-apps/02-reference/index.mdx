@@ -101,11 +101,25 @@ document.write(tanaka.age); // 18
 
 <ViewSource url={import.meta.url} path="_samples/answer" />
 
-### 別解
+</Answer>
 
-上のコードでは、`person` の `age` と `name` 以外のプロパティが失われてしまいます。
-オブジェクトの全てのプロパティをコピーするには、[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)を使います。
+## スプレッド構文
 
+上のようなコードでは、`person` に `age` や `name` 以外のプロパティがあった場合、戻り値のオブジェクトにそれらのプロパティは含まれません。
+オブジェクトの全てのプロパティをコピーするには、[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)というものを使います。
+
+[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)は、配列やオブジェクトを、別の配列やオブジェクトに展開するための記法です。
+オブジェクトを展開した時は、重複するプロパティがある場合は後に記載されたものが優先されます。
+
+```js
+const array1 = [1, 2, 3];
+const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
+
+const object1 = { name: "田中", age: 18 };
+const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中", age: 19, address: "東京" }
+```
+
+<Answer title="スプレッド構文">
 ```js
 function incrementAge(person) {
   const newPerson = { ...person };
@@ -117,8 +131,10 @@ const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19
 document.write(tanaka.age); // 18
+
 ```
 
 <ViewSource url={import.meta.url} path="_samples/answer-spread" />
 
 </Answer>
+```
