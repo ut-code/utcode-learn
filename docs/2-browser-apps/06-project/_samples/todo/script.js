@@ -14,7 +14,7 @@ addButton.onclick = () => {
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = prompt("新しい内容を入力してください。");
-    if (input !== "") todoText.textContent = input;
+    if (input !== "" && input !== null) todoText.textContent = input;
   };
   deleteButton.textContent = "削除";
   deleteButton.onclick = () => {
