@@ -111,7 +111,7 @@ document.write(tanaka.age); // 18
 
 ## スプレッド構文
 
-上のようなコードでは、`person` に `age` や `name` 以外のプロパティがあった場合、戻り値のオブジェクトにそれらのプロパティは含まれません。
+上の解答例ようなコードでは、`person` に `age` や `name` 以外のプロパティがあった場合、戻り値のオブジェクトにそれらのプロパティが含まれません。
 オブジェクトの全てのプロパティをコピーするには、[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)というものを使います。
 
 [スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)は、配列やオブジェクトを、別の配列やオブジェクトに展開するための記法です。
@@ -121,11 +121,12 @@ document.write(tanaka.age); // 18
 const array1 = [1, 2, 3];
 const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
 
-const object1 = { name: "田中", age: 18 };
-const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中", age: 19, address: "東京" }
+const object1 = { a: 1, b: 2 };
+const object2 = { ...object1, b: 3, c: 4 }; // { a: 1, b: 3, c: 4 }
 ```
 
 <Answer title="スプレッド構文">
+
 ```js
 function incrementAge(person) {
   const newPerson = { ...person };
@@ -133,14 +134,27 @@ function incrementAge(person) {
   return newPerson;
 }
 
-const tanaka = { name: "田中", age: 18 };
+const tanaka = { name: "田中", age: 18, address: "東京" };
 const nextYearTanaka = incrementAge(tanaka);
 document.write(nextYearTanaka.age); // 19
-document.write(tanaka.age); // 18
-
+document.write(nextYearTanaka.address); // 東京
 ```
 
 <ViewSource url={import.meta.url} path="_samples/answer-spread" />
 
-</Answer>
+### 別解
+
+重複するプロパティを上書きする性質を利用して、このように書くこともできます。
+
+```js
+function incrementAge(person) {
+  return { ...person, age: person.age + 1 };
+}
+
+const tanaka = { name: "田中", age: 18 };
+const nextYearTanaka = incrementAge(tanaka);
+document.write(nextYearTanaka.age); // 19
+document.write(nextYearTanaka.address); // 東京
 ```
+
+</Answer>
