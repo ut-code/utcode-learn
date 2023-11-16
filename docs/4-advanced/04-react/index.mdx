@@ -121,9 +121,9 @@ React を新規プロジェクトではなく、既存のウェブプロジェ�
 
 :::
 
-## <Term type="jsx">JSX</Term>
+## <Term>JSX</Term>
 
-React を使用するプロジェクトでは、通常 <Term type="jsx">**JSX**</Term> と呼ばれる、JavaScript の拡張構文も用いられます。拡張子は `.jsx` で、TypeScript とともに用いるためには `.tsx` となります。Vite のテンプレートからプロジェクトを作成した場合には、`main.tsx` と `App.tsx` が作成されるはずです。
+React を使用するプロジェクトでは、通常 <Term>**JSX**</Term> と呼ばれる、JavaScript の拡張構文も用いられます。拡張子は `.jsx` で、TypeScript とともに用いるためには `.tsx` となります。Vite のテンプレートからプロジェクトを作成した場合には、`main.tsx` と `App.tsx` が作成されるはずです。
 
 `main.tsx` は HTML から直接実行されるファイルで、`id` 属性に `root` を持つ要素の中を React により管理する旨を示しています。また、このファイルから `App.tsx` で定義された関数 `App` が読み込まれています。詳細は重要ではないのでここでは扱いません。
 
@@ -172,13 +172,13 @@ export default function App() {
 
 :::tip[JSX 式のトランスパイル結果]
 
-JSX 式は、Vite などの<Term type="transpile">トランスパイラ</Term>により<Term type="transpile">トランスパイル</Term>されると、関数呼び出しになります。例えば、
+JSX 式は、Vite などの<Term>トランスパイラ</Term>により<Term>トランスパイル</Term>されると、関数呼び出しになります。例えば、
 
 ```tsx
 const message: JSX.Element = <div>Hello React</div>;
 ```
 
-は、次のように<Term type="transpile">トランスパイル</Term>されます。
+は、次のように<Term>トランスパイル</Term>されます。
 
 ```javascript
 const message = React.createElement("div", null, "Hello React");
@@ -320,7 +320,7 @@ JSX では、HTML において閉じタグが必須でない要素 (この例で
 
 :::
 
-このプログラムは、`age` 変数が `18` 以上である場合のみメッセージを表示します。これは、`&&` 演算子の挙動を利用した手法です。これまで、`&&` 演算子は両辺が `true` であれば `true` を返す演算子であるとしてきました。しかしながら、[`&&` 演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が [<Term type="javascriptTruthyFalsy">truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy) であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
+このプログラムは、`age` 変数が `18` 以上である場合のみメッセージを表示します。これは、`&&` 演算子の挙動を利用した手法です。これまで、`&&` 演算子は両辺が `true` であれば `true` を返す演算子であるとしてきました。しかしながら、[`&&` 演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が [<Term>truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy) であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
 
 ```typescript
 const a = 3 && 4; // 3 は truthy なので a は 4
@@ -457,7 +457,7 @@ export default function App() {
 }
 ```
 
-属性を指定した場合、属性名と属性の値の組み合わせからなるオブジェクトがコンポーネントの第 1 引数に渡されます。この引数は通常 `props` と命名されます。属性名は通常<Term type="camelCase">キャメルケース</Term>で表記されます。
+属性を指定した場合、属性名と属性の値の組み合わせからなるオブジェクトがコンポーネントの第 1 引数に渡されます。この引数は通常 `props` と命名されます。属性名は通常<Term>キャメルケース</Term>で表記されます。
 
 ```tsx title="App.tsx"
 type GreetingProps = { myName: string };
@@ -760,7 +760,7 @@ const removeTodo = (id: number) => {
 };
 ```
 
-オブジェクトの中身が変化しないとき、そのオブジェクトは<Term type="mutableImmutable">**イミュータブル**</Term>であるといいます。一方、`Array#push` メソッドや `Array#splice` メソッドは、配列の中身を変化させます。このように、<Term type="mutableImmutable">ミュータブル</Term>な操作を伴う関数を、**破壊的**であるという場合があります。破壊的メソッドは React の状態に対して使用できません。
+オブジェクトの中身が変化しないとき、そのオブジェクトは<Term>**イミュータブル**</Term>であるといいます。一方、`Array#push` メソッドや `Array#splice` メソッドは、配列の中身を変化させます。このように、<Term>ミュータブル</Term>な操作を伴う関数を、**破壊的**であるという場合があります。破壊的メソッドは React の状態に対して使用できません。
 
 ## 課題
 

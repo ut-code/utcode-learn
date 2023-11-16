@@ -72,9 +72,9 @@ function add(a, b) {
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
-別のファイルに書かれたプログラムを読み込むための手段として、Node.js では**<Term type="javascriptModule">モジュール</Term>**という仕組みが用意されています。JavaScript では、すべてのファイルが<Term type="javascriptModule">モジュール</Term>として扱われます。
+別のファイルに書かれたプログラムを読み込むための手段として、Node.js では<Term>**モジュール**</Term>という仕組みが用意されています。JavaScript では、すべてのファイルが<Term>モジュール</Term>として扱われます。
 
-Node.js では、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやりとりを行います。
+Node.js では、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term>モジュール</Term>とのやりとりを行います。
 
 ```javascript title=sub.mjs
 export default function add(a, b) {
@@ -115,9 +115,9 @@ console.log(subtract(4, 3));
 
 :::tip[CommonJS モジュール]
 
-さきほどのように `export` 文と `import` 文を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行う JavaScript 標準の<Term type="javascriptModule">モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
+さきほどのように `export` 文と `import` 文を用いて他の<Term>モジュール</Term>とのやり取りを行う JavaScript 標準の<Term>モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term>モジュール</Term>を用いてプログラムを記述できます。
 
-ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term type="javascriptModule">モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term type="javascriptModule">モジュール</Term>を用いてプログラムを記述できます。
+ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term>モジュール</Term>を用いてプログラムを記述できます。
 
 `exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
@@ -139,7 +139,7 @@ console.log(add(3, 4));
 
 :::
 
-## 標準<Term type="javascriptModule">モジュール</Term>
+## 標準<Term>モジュール</Term>
 
 Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。[`fs.readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
 
@@ -189,7 +189,7 @@ writeFileSync("./sample.txt", "Hello World");
 
 Node.js における**パッケージ**とは、主に JavaScript ファイルをまとめていろいろな場所で利用可能にしたものです。[npm](https://docs.npmjs.com/about-npm) (Node Package Manager) は、Node.js の**パッケージマネージャー**で、このソフトウェアを通してパッケージを管理できます。
 
-また、npm から利用されるパッケージを集積したサービス [npmjs.com](https://www.npmjs.com/) もまた、npm と呼ばれます。例として、日付や時刻の操作のために用いられる<Term type="library">ライブラリ</Term>である、[date-fns](https://www.npmjs.com/package/date-fns) パッケージを利用してみましょう。
+また、npm から利用されるパッケージを集積したサービス [npmjs.com](https://www.npmjs.com/) もまた、npm と呼ばれます。例として、日付や時刻の操作のために用いられる<Term>ライブラリ</Term>である、[date-fns](https://www.npmjs.com/package/date-fns) パッケージを利用してみましょう。
 
 npm を用いて開発を行うには、まず `npm init` コマンドを実行します。いくつか質問をされるので、Enter キーを押し続けて質問をスキップしましょう。完了すると、フォルダの中に `package.json` という名前のファイルが作成されます。このファイルは、npm によって管理されるフォルダに必ず 1 つ必要になるものです。
 
@@ -238,7 +238,7 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 
 ## npm のパッケージを Node.js から利用する
 
-npm でダウンロードしたパッケージは、<Term type="javascriptModule">モジュール</Term>として `require` 関数に指定できます。
+npm でダウンロードしたパッケージは、<Term>モジュール</Term>として `require` 関数に指定できます。
 
 ```javascript
 import { format } from "date-fns";
