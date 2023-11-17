@@ -377,8 +377,7 @@ export default {
     library: {
       name: "ライブラリ",
       definition:
-        "ほかのプログラムから利用され、単体では実行できないプログラム。",
-      referencePage: "/docs/web-servers/module/",
+        "汎用性の高い複数のプログラムを再利用可能な形でひとまとまりにしたもの。基本的に他のプログラムから利用され、単体では実行できない。",
     },
     serverClient: {
       name: "サーバーとクライアント",
