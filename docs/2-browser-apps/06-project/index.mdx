@@ -278,6 +278,7 @@ addButton.onclick = () => {
   const deleteButton = document.createElement("button");
   todoText.textContent = todoInput.value;
   todoInput.value = "";
+  addButton.disabled = true; // value への代入は oninput イベントを発火しない
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = prompt("新しい内容を入力してください"。);
