@@ -24,7 +24,7 @@ import drawingVideo from "./drawing.mp4";
 
 <Answer>
 
-```html title=index.html
+```html title="index.html"
 <h1>BMI計算アプリ</h1>
 <p><input id="height" /> cm</p>
 <p><input id="weight" /> kg</p>
@@ -34,7 +34,7 @@ import drawingVideo from "./drawing.mp4";
 <p>です！</p>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const height = document.getElementById("height");
 const weight = document.getElementById("weight");
 
@@ -70,7 +70,7 @@ calcButton.onclick = () => {
 
 - 入力欄は `input` タグで作成できます。`type` 属性に `number` を指定することで、入力を数値のみに限定することができます。
 
-  ```html title=index.html
+  ```html title="index.html"
   <input id="number1" type="number" />
   ```
 
@@ -83,14 +83,14 @@ calcButton.onclick = () => {
 
 - 2 つの入力欄とボタンを配置し、ボタンを押すと入力された 2 つの数の和が表示されるようにしてみましょう。
 
-  ```html title=index.html
+  ```html title="index.html"
   <input id="number1" type="number" />
   <input id="number2" type="number" />
   <button id="calculate-button" type="button">計算</button>
   <div id="result"></div>
   ```
 
-  ```javascript title=script.js
+  ```javascript title="script.js"
   const calculateButton = document.getElementById("calculate-button");
   const number1 = document.getElementById("number1");
   const number2 = document.getElementById("number2");
@@ -110,7 +110,7 @@ calcButton.onclick = () => {
 
 - プルダウンメニューは、`select` タグと `option` タグを使って実現できます。1 つ 1 つの選択肢を `option` タグで作成し、全体を `select` タグで囲みます。
 
-  ```html title=index.html
+  ```html title="index.html"
   <select id="fruit-select">
     <option value="strawberry">イチゴ</option>
     <option value="apple">リンゴ</option>
@@ -120,7 +120,7 @@ calcButton.onclick = () => {
 
 - `select` 要素を `document.getElementById` 関数で取得します。返されたオブジェクトの `value` プロパティには、プルダウンメニューで選択されている選択肢の `value` 属性に指定されている文字列が格納されています。
 
-  ```javascript title=script.js
+  ```javascript title="script.js"
   const fruitSelect = document.getElementById("fruit-select");
 
   // "strawberry", "apple", "banana" のいずれか
@@ -134,7 +134,7 @@ calcButton.onclick = () => {
 
 <Answer>
 
-```html title=index.html
+```html title="index.html"
 <input id="number1" type="number" />
 <select id="operator">
   <option value="+">+</option>
@@ -147,7 +147,7 @@ calcButton.onclick = () => {
 <div id="result"></div>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const calculateButton = document.getElementById("calculate-button");
 const number1 = document.getElementById("number1");
 const number2 = document.getElementById("number2");
@@ -221,12 +221,12 @@ HTML要素.textContent =
 
 <Answer>
 
-```html title=index.html
+```html title="index.html"
 <div id="academic-performance">成績:数学...80点、理科...90点</div>
 <button id="button" type="button">クリック</button>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 let tanaka = {
   name: "田中",
   scores: {
@@ -312,7 +312,7 @@ button.onclick = displayNameAndLocation;
 
 <Answer>
 
-```html title=index.html
+```html title="index.html"
 <canvas id="canvas" style="border: solid" width="360px" height="360px"
   >描画用キャンバス</canvas
 >
@@ -324,7 +324,7 @@ button.onclick = displayNameAndLocation;
 </div>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const canvas = document.getElementById("canvas");
 const smallButton = document.getElementById("small-button");
 const bigButton = document.getElementById("big-button");

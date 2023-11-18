@@ -8,11 +8,11 @@ title: 無名関数
 
 しかしながら、通常の記法で関数を記述することが煩わしい場合があります。イベントハンドラを登録する場合を考えてみましょう。
 
-```html title=index.html
+```html title="index.html"
 <button id="strange-button">Click me</button>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 function onStrangeButtonClick() {
   alert("こんにちは！"); // ダイアログボックスを表示
 }
@@ -26,7 +26,7 @@ document.getElementById("strange-button").onclick = onStrangeButtonClick;
 
 先ほどのプログラムを関数式を用いて書き換えると、次のようになります。
 
-```javascript title=script.js
+```javascript title="script.js"
 document.getElementById("strange-button").onclick = () => {
   alert("こんにちは！");
 };
