@@ -14,7 +14,7 @@ app.get("/", async (request, response) => {
   ).map((data) => data.message);
   const template = readFileSync("./index.html", "utf-8");
   const html = template.replace(
-    "{messages}",
+    "<!--messages-->",
     messages.map((message) => `<li>${message}</li>`).join(""),
   );
   response.send(html);
