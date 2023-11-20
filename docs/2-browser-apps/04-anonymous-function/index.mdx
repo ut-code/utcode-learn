@@ -104,13 +104,11 @@ document.write(pricesWithTax); // [110, 220, 330, 440, 550]
 
 ## アロー関数の省略形
 
-アロー関数は、内部の処理が `return` 文のみの場合、波括弧を省略して式のみを記述できます。また、引数がひとつだけの場合、引数を囲む括弧を省略できます。前項のサンプルプログラムは、次のように省略可能です。本資料では、前者の省略記法のみを用いることにします。
+アロー関数は、内部の処理が `return` 文のみの場合、波括弧を省略して式のみを記述できます。前項のサンプルプログラムは、次のように省略可能です。
 
 ```javascript
 const pricesWithTax = pricesWithoutTax.map((price) => price * (1 + taxRate));
 ```
-
-![アロー関数の省略形](./arrow-function-abbreviation.drawio.svg)
 
 ## 課題
 
