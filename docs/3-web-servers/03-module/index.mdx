@@ -141,7 +141,7 @@ console.log(add(3, 4));
 
 ## 標準<Term>モジュール</Term>
 
-Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。[`fs.readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
+Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
 
 ```javascript title="main.mjs"
 import { readFileSync } from "fs";
@@ -166,7 +166,7 @@ Hello World
 
 ### 課題
 
-[`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
+`fs` モジュールの [`writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
 <Answer>
 
