@@ -36,7 +36,7 @@ npm install cookie-parser
 
 を実行して、パッケージをインストールしましょう。Web サーバーのプログラムは次のようになります。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import express from "express";
 import cookieParser from "cookie-parser";
 
@@ -82,7 +82,7 @@ app.listen(3000);
 
 `schema.prisma` は次の通りとします。
 
-```javascript title=schema.prisma
+```javascript title="schema.prisma"
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
