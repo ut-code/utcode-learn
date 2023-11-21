@@ -11,7 +11,7 @@ const client = new PrismaClient();
 
 app.get("/", (request, response) => {
   const index = readFileSync("index.html", "utf-8");
-  const html = index.replace("<!--message-->", "");
+  const html = index.replace("<!-- message -->", "");
   response.send(html);
 });
 
@@ -25,7 +25,7 @@ app.post("/login", async (request, response) => {
   });
   if (user === undefined) {
     const html = index.replace(
-      "<!--message-->",
+      "<!-- message -->",
       "入力されたユーザー名は存在しません。",
     );
     response.send(html);
@@ -39,10 +39,10 @@ app.post("/login", async (request, response) => {
       where: { id: sessionId.id },
     });
     response.cookie("session", sessionId.id);
-    const html = login.replace("<!--username-->", prof.username);
+    const html = login.replace("<!-- username -->", prof.username);
     response.send(html);
   } else {
-    const html = index.replace("<!--message-->", "パスワードが違います。");
+    const html = index.replace("<!-- message -->", "パスワードが違います。");
     response.send(html);
   }
 });
@@ -53,15 +53,15 @@ app.get("/profile", async (request, response) => {
     where: { id: request.cookies.session },
   });
   const html = profile
-    .replace("<!--name-->", prof.name)
-    .replace("<!--age-->", prof.age)
-    .replace("<!--univ-->", prof.univ);
+    .replace("<!-- name -->", prof.name)
+    .replace("<!-- age -->", prof.age)
+    .replace("<!-- univ -->", prof.univ);
   response.send(html);
 });
 
 app.get("/register", (request, response) => {
   const register = readFileSync("register.html", "utf-8");
-  const html = register.replace("<!--message-->", "");
+  const html = register.replace("<!-- message -->", "");
   response.send(html);
 });
 
@@ -80,7 +80,7 @@ app.post("/registered", async (request, response) => {
     request.body.age === "" ||
     request.body.univ === ""
   ) {
-    const html = register.replace("<!--message-->", "未記入の項目があります。");
+    const html = register.replace("<!-- message -->", "未記入の項目があります。");
     response.send(html);
   } else if (user === undefined) {
     const new_user = await client.User.create({
@@ -103,11 +103,11 @@ app.post("/registered", async (request, response) => {
         univ: request.body.univ,
       },
     });
-    const html = index.replace("<!--message-->", "登録が完了しました。");
+    const html = index.replace("<!-- message -->", "登録が完了しました。");
     response.send(html);
   } else {
     const html = register.replace(
-      "<!--message-->",
+      "<!-- message -->",
       "入力されたユーザー名はすでに使用されています。別のユーザー名を入力してください。",
     );
     response.send(html);

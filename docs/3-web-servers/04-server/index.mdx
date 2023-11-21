@@ -218,7 +218,7 @@ document.write(base.replaceAll("C", "T")); // ABTBTT
   </head>
   <body>
     <ul>
-      <!--users-->
+      <!-- users -->
     </ul>
   </body>
 </html>
@@ -234,7 +234,7 @@ const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
   const template = readFileSync("./index.html", "utf-8");
   const html = template.replace(
-    "<!--users-->",
+    "<!-- users -->",
     names.map((name) => `<li>${name}</li>`).join(""),
   );
   response.send(html);
@@ -245,7 +245,7 @@ app.listen(3000);
 
 リクエストを受け取ったとき、プログラムではまず `readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
 
-次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"<!--users-->"` を、 `names` を箇条書きにした文字列に置換します。
+次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"<!-- users -->"` を、 `names` を箇条書きにした文字列に置換します。
 
 :::
 
