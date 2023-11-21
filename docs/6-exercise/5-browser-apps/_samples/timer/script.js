@@ -120,8 +120,8 @@ setButton.onclick = () => {
   errorConsole.textContent = "";
   timer.setTimeLeft(
     Number(hourInput.value) * 1000 * 60 * 60 +
-    Number(minuteInput.value) * 1000 * 60 +
-    Number(secondInput.value) * 1000,
+      Number(minuteInput.value) * 1000 * 60 +
+      Number(secondInput.value) * 1000,
   );
 };
 
