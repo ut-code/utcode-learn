@@ -270,14 +270,14 @@ class FreshmanStudent extends Student {
 }
 
 const tanaka = new FreshmanStudent("田中", "18", "ドイツ語");
-tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ語選択です。
+tanaka.introduceSelf(); // 私の名前は田中です。18 歳です。ドイツ語選択です。
 ```
 
 ### 課題
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
-<Answer title="学生のClassの定義">
+<Answer title="学生の Class の定義">
 
 ```javascript
 class Student {
@@ -317,7 +317,7 @@ JavaScript では、開発者が定義しなくても最初から使用可能な
 例えば、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)という、日付や時刻を扱うための<Term>クラス</Term>があります。
 
 ```javascript
-const myBirthDay = new Date("2014-05-06"); // Dateクラスをインスタンス化
+const myBirthDay = new Date("2014-05-06"); // Date クラスをインスタンス化
 document.write(myBirthDay.getFullYear()); // 2014
 ```
 
@@ -349,7 +349,7 @@ document.write(map1.get("a")); // 97
 
 このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement)を継承しており、 `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
 
-![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+![HTMLDivElement の継承関係](./html-inheritance.drawio.svg)
 
 実は、[DOM の節](/docs/trial-session/dom/)で使用した textContent プロパティは、この Node クラスで定義されています。
 
@@ -388,10 +388,10 @@ document.write(false.toString()); // false
 
 例:
 
-21時25分40秒に実行されたとき、
+21 時 25 分 40 秒に実行されたとき、
 
 ```
-今日は残り2時間34分20秒です。
+今日は残り 2 時間 34 分 20 秒です。
 ```
 
 と表示する
@@ -411,7 +411,7 @@ const now = new Date();
 const remainingHours = 23 - now.getHours();
 const remainingMinutes = 59 - now.getMinutes();
 const remainingSeconds = 60 - now.getSeconds();
-countdownBox.textContent = `今日は残り${remainingHours}時間${remainingMinutes}分${remainingSeconds}秒です。`;
+countdownBox.textContent = `今日は残り ${remainingHours} 時間 ${remainingMinutes} 分 ${remainingSeconds} 秒です。`;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />

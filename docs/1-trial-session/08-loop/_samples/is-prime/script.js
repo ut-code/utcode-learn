@@ -2,7 +2,7 @@ const n = 57; // 任意の整数
 
 let isPrime = true;
 if (n <= 1) {
-  // nが1以下のときは素数でない
+  // n が 1 以下のときは素数でない
   isPrime = false;
 }
 

@@ -1,7 +1,7 @@
 let tanakaHandTotal = 19;
 let satoHandTotal = 22;
 
-// 21を超えていた場合は0(最弱)として扱う
+// 21 を超えていた場合は 0 (最弱) として扱う
 if (tanakaHandTotal > 21) tanakaHandTotal = 0;
 if (satoHandTotal > 21) satoHandTotal = 0;
 

@@ -80,7 +80,7 @@ HTML を用いて次のようなウェブサイトを作ってみましょう。
 
 - 文字数が 4 文字以上 10 文字以下なら `登録できます`
 - 文字数が 0 文字なら `名前を入力してください`
-- それ以外の文字数(1 文字〜3 文字または 11 文字以上)なら `名前は4文字以上10文字以下で入力してください`
+- それ以外の文字数(1 文字 〜 3 文字または 11 文字以上)なら `名前は 4 文字以上 10 文字以下で入力してください`
 
 と表示されるプログラムを以下のように作成しました。
 
@@ -92,7 +92,7 @@ if (4 <= nameLength <= 10) {
 if (nameLength === 0) {
   document.write("名前を入力してください");
 } else {
-  document.write("名前は4文字以上10文字以下で入力してください");
+  document.write("名前は 4 文字以上 10 文字以下で入力してください");
 }
 ```
 
@@ -105,13 +105,13 @@ if (nameLength === 0) {
 ```javascript
 const nameLength = 7;
 if (4 <= nameLength && nameLength <= 10) {
-  // 比較演算子を2つ並べるのではなく、論理演算子&&を用います。
+  // 比較演算子を 2 つ並べるのではなく、論理演算子 && を用います。
   document.write("登録できます");
 } else if (nameLength === 0) {
   // else if の else が抜けていました。
   document.write("名前を入力してください");
 } else {
-  document.write("名前は4文字以上10文字以下で入力してください");
+  document.write("名前は 4 文字以上 10 文字以下で入力してください");
 }
 ```
 
@@ -139,7 +139,7 @@ if (4 <= nameLength && nameLength <= 10) {
 let tanakaHandTotal = 19;
 let satoHandTotal = 22;
 
-// 21を超えていた場合は0(最弱)として扱う
+// 21 を超えていた場合は 0 (最弱) として扱う
 if (tanakaHandTotal > 21) tanakaHandTotal = 0;
 if (satoHandTotal > 21) satoHandTotal = 0;
 
@@ -355,7 +355,7 @@ function bubbleSort(array) {
 <Term>**副作用**</Term>と<Term>**純粋関数**</Term>
 の話
 
-本解答例では返り値をarrayに代入していないにも関わらず、arrayの中身が変わってしまいます。なぜでしょうか？
+本解答例では返り値を array に代入していないにも関わらず、array の中身が変わってしまいます。なぜでしょうか？
 
 [**参照の節**](/docs/browser-apps/reference/)で説明したように、これは配列が評価されたときにそれ自身ではなく、配列の<Term>**参照**</Term>が得られるからです。関数を実行したときに返り値以外に関数外部に影響を与えることを<Term>**副作用**</Term>と呼び、<Term>**副作用**</Term>を持たない関数を<Term>**純粋関数**</Term>と呼びます。思わぬ<Term>**副作用**</Term>を防ぐために有効範囲の広い関数は<Term>**純粋関数**</Term>であることが望ましいとされています。また関数のマクロ的役割である「操作のまとまり」として、<Term>**副作用**</Term>である外部へのアクセス(画面への表示、インターネットのアクセス、ファイルの入出力など)をひとまとめにする場合は、専用の関数を作成し、それを明示した方がよいとされています。
 
@@ -366,7 +366,7 @@ function bubbleSort(array) {
 <Answer>
 
 ```diff javascript
-+ /* swapIndexは純粋関数ではないが、あくまでモジュール化のプロセスであり、
++ /* swapIndex は純粋関数ではないが、あくまでモジュール化のプロセスであり、
 +    外部では使わないので、予期せぬ副作用は発生しにくいためこのままでもよい */
 function swapIndex(array, indexA, indexB) {
   const temp = array[indexA];

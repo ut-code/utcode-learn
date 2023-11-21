@@ -75,8 +75,8 @@ TypeScript を用いて、以下の要件を満たす関数 `welcome` を作成�
 - 引数として `User` 型のオブジェクトを受け取る。`User` 型は、下にあるコードの通りに定義する。ここで、`type` プロパティはユーザーの種類 (ゲスト、一般会員、プレミアム会員)、`name` プロパティはユーザーの名前、`daysLeft` プロパティはプレミアム会員の有効期間である。
 - `type` プロパティの値に応じて、以下の内容をコンソールに表示する(`xxx` の部分には適切な情報を当てはめる)。
   - `type` が `"guest"` ならば、`ようこそ ゲストさん`
-  - `type` が `"general"` ならば、`ようこそ xxxさん`
-  - `type` が `"premium"` ならば、`ようこそ xxxさん プレミアム会員の有効期間は残りxxx日です`
+  - `type` が `"general"` ならば、`ようこそ xxx さん`
+  - `type` が `"premium"` ならば、`ようこそ xxx さん プレミアム会員の有効期間は残り xxx 日です`
 
 ```typescript
 type Guest = { type: "guest" };
@@ -91,7 +91,7 @@ function welcome(user: User) {
 // 使用例
 welcome({ type: "guest" }); // ようこそ ゲストさん
 welcome({ type: "general", name: "太郎" }); // ようこそ 太郎さん
-welcome({ type: "premium", name: "太郎", daysLeft: 30 }); // ようこそ 太郎さん プレミアム会員の有効期間は残り30日です
+welcome({ type: "premium", name: "太郎", daysLeft: 30 }); // ようこそ 太郎さん プレミアム会員の有効期間は残り 30 日です
 ```
 
 <Answer>

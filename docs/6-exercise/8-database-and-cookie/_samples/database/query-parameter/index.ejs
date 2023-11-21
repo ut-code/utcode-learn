@@ -8,29 +8,29 @@
     <table>
       <thead>
         <tr>
-          <th>講師ID</th>
+          <th>講師 ID</th>
           <th>氏名</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% for (const teacher of teachers) {%>
-          <tr>
-            <td><%= teacher.id %></td>
-            <td><%= teacher.name %></td>
-            <td>
-              <form action="/courses">
-                <button
-                  type="submit"
-                  name="teacherId"
-                  value="<%= teacher.id
+        <tr>
+          <td><%= teacher.id %></td>
+          <td><%= teacher.name %></td>
+          <td>
+            <form action="/courses">
+              <button
+                type="submit"
+                name="teacherId"
+                value="<%= teacher.id
         %>"
-                >
-                  講義を見る
-                </button>
-              </form>
-            </td>
-          </tr>
+              >
+                講義を見る
+              </button>
+            </form>
+          </td>
+        </tr>
         <% } %>
       </tbody>
     </table>

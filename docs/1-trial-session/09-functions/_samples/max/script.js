@@ -6,4 +6,4 @@ function max(a, b) {
   }
 }
 
-document.write(`4と7のうち大きいのは${max(4, 7)}です。`);
+document.write(`4 と 7 のうち大きいのは${max(4, 7)}です。`);

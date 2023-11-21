@@ -25,11 +25,11 @@ import drawingVideo from "./drawing.mp4";
 <Answer>
 
 ```html title="index.html"
-<h1>BMI計算アプリ</h1>
+<h1>BMI 計算アプリ</h1>
 <p><input id="height" /> cm</p>
 <p><input id="weight" /> kg</p>
-<button id="calc-button">BMIを計算する</button>
-<p>BMIは……</p>
+<button id="calc-button">BMI を計算する</button>
+<p>BMI は……</p>
 <p id="answer">？？</p>
 <p>です！</p>
 ```
@@ -158,7 +158,7 @@ function calculate() {
   const inputNumber1 = Number(number1.value);
   const inputNumber2 = Number(number2.value);
   if (operator.value === "/" && inputNumber2 === 0) {
-    result.textContent = "0で割ることはできません。";
+    result.textContent = "0 で割ることはできません。";
     result.style.color = "red";
   } else {
     if (operator.value === "+")

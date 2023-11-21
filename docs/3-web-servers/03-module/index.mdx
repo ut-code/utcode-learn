@@ -115,7 +115,7 @@ console.log(subtract(4, 3));
 
 :::tip[CommonJS モジュール]
 
-さきほどのように `export` 文と `import` 文を用いて他の<Term>モジュール</Term>とのやり取りを行う JavaScript 標準の<Term>モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term>モジュール</Term>を用いてプログラムを記述できます。
+さきほどのように `export` 文と `import` 文を用いて他の<Term>モジュール</Term>とのやり取りを行う JavaScript 標準の<Term>モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.js では、拡張子を `.mjs` にすることで、ECMAScript <Term>モジュール</Term>を用いてプログラムを記述できます。
 
 ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term>モジュール</Term>を用いてプログラムを記述できます。
 
@@ -242,7 +242,7 @@ npm でダウンロードしたパッケージは、<Term>モジュール</Term>
 
 ```javascript
 import { format } from "date-fns";
-console.log(format(new Date(), "yyyy年MM月dd日"));
+console.log(format(new Date(), "yyyy 年 MM 月 dd 日"));
 ```
 
 <ViewSource url={import.meta.url} path="_samples/date-fns" noCodeSandbox />

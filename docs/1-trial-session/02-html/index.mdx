@@ -9,7 +9,7 @@ import reloadBrowserVideo from "./reload-browser.mp4";
 
 Web 開発に必ず用いられる言語があります。<Term>**HTML**</Term> と CSS、そして JavaScript です。これらは互いに異なる役割をもっています。まずは最も基本となる <Term>HTML</Term> から学んでいきましょう。
 
-![Web開発で用いられる言語](./web-development-languages.drawio.svg)
+![Web 開発で用いられる言語](./web-development-languages.drawio.svg)
 
 ## <Term>HTML</Term> を書き始める
 
@@ -32,7 +32,7 @@ VS Code の画面左端には、ファイル一覧が表示されています。
 
 ## ブラウザで <Term>HTML</Term> ファイルを開く
 
-前頁で作成したフォルダを開き、`index.html` が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World`の部分だけ太字) が表示されましたか？
+前頁で作成したフォルダを開き、`index.html` が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World` の部分だけ太字) が表示されましたか？
 
 <video src={openInBrowserVideo} controls />
 
@@ -40,7 +40,7 @@ VS Code の画面左端には、ファイル一覧が表示されています。
 
 VS Code 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（Mac の場合は正しく表示されます）。なぜでしょうか？
 
-ファイル名の `.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term>HTML</Term>ファイルであることを明示するためです。
+ファイル名の `.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term>HTML</Term> ファイルであることを明示するためです。
 
 実は Windows では、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
 
@@ -114,7 +114,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 `html` <Term>要素</Term>の直属の子<Term>要素</Term>は、**`head` <Term>要素</Term>**と**`body` <Term>要素</Term>**の二つだけです。このうち、後者 (`body` <Term>要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
 
-![HTMLの構造](./html-structure.drawio.svg)
+![HTML の構造](./html-structure.drawio.svg)
 
 :::info
 
@@ -176,7 +176,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>課題: HTMLのみを使用してフォームを作成する</title>
+    <title>課題: HTML のみを使用してフォームを作成する</title>
   </head>
   <body>
     <p>新規登録</p>
@@ -191,8 +191,8 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
       </tr>
     </table>
     <ul>
-      <li>IDは他のユーザーと重複させることはできません。</li>
-      <li>パスワードは8文字以上です。</li>
+      <li>ID は他のユーザーと重複させることはできません。</li>
+      <li>パスワードは 8 文字以上です。</li>
     </ul>
   </body>
 </html>

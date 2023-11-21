@@ -308,7 +308,7 @@ export default function App() {
     <form>
       <input placeholder="お名前" />
       <button>送信</button>
-      {age < 18 && <p>18歳未満の場合は保護者の同意が必要です。</p>}
+      {age < 18 && <p>18 歳未満の場合は保護者の同意が必要です。</p>}
     </form>
   );
 }
@@ -327,7 +327,7 @@ const a = 3 && 4; // 3 は truthy なので a は 4
 const b = null && "Hello"; // null は falsy なので b は null
 ```
 
-つまり、`age < 18 && <p>18歳未満の...</p>` という式は、age が `18` 未満のとき `<p>18歳未満の...</p>` (`JSX.Element`) に、そうでないときに `false` になります。
+つまり、`age < 18 && <p>18 歳未満の...</p>` という式は、`age` が `18` 未満のとき `<p>18 歳未満の...</p>` (`JSX.Element`) に、そうでないときに `false` になります。
 
 さらに、React は、**JSX 中に現れた `false` や `null`、`undefined` といった値は無視します**。これにより、`if` に似た構造が表現できるわけです。
 

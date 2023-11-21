@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-// ToDoのデータ構造
+// ToDo のデータ構造
 type Todo = {
   id: number;
   category: string;
@@ -10,31 +10,31 @@ type Todo = {
 };
 
 function App() {
-  // ToDoのリスト
+  // ToDo のリスト
   const [todos, setTodos] = useState<Todo[]>([]);
-  // 現在編集中のToDoのid（編集していないときは-1）
+  // 現在編集中の ToDo の id（編集していないときは-1）
   const [editingTodoId, setEditingTodoId] = useState<number>(-1);
-  // 次に作成するToDoのid
+  // 次に作成する ToDo の id
   const [nextId, setNextId] = useState<number>(1);
-  // ToDoのカテゴリ（空文字はすべてのカテゴリ）
+  // ToDo のカテゴリ（空文字はすべてのカテゴリ）
   const [categories, setCategories] = useState<string[]>([""]);
   // 現在表示中のカテゴリ
   const [currentCategory, setCurrentCategory] = useState<string>("");
-  // input要素のvalue
+  // input 要素の value
   const [contentInput, setContentInput] = useState<string>("");
   const [categoryInputInMainScreen, setCategoryInputInMainScreen] =
     useState<string>("");
   const [categoryInputInSideBar, setCategoryInputInSideBar] =
     useState<string>("");
 
-  // ToDoを追加する関数
+  // ToDo を追加する関数
   const addTodo = (newTodo: Todo) => {
     const todosCopy = todos.slice();
     todosCopy.push(newTodo);
     setTodos(todosCopy);
   };
 
-  // ToDoの内容を更新する関数
+  // ToDo の内容を更新する関数
   const updateTodoContent = (id: number, newContent: string) => {
     const todosCopy = todos.slice();
     const todoUpdated = todosCopy.find((todoCopy) => todoCopy.id === id);
@@ -43,7 +43,7 @@ function App() {
     setTodos(todosCopy);
   };
 
-  // ToDoが完了したかどうかを変更する関数
+  // ToDo が完了したかどうかを変更する関数
   const updateTodoIsDone = (id: number) => {
     const todosCopy = todos.slice();
     const todoUpdated = todosCopy.find((todoCopy) => todoCopy.id === id);
@@ -52,7 +52,7 @@ function App() {
     setTodos(todosCopy);
   };
 
-  // ToDoを削除する関数
+  // ToDo を削除する関数
   const removeTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -85,7 +85,7 @@ function App() {
     setEditingTodoId(-1);
   };
 
-  // 現在表示中のカテゴリのToDo
+  // 現在表示中のカテゴリの ToDo
   const todosOfCurrentCategories =
     currentCategory === ""
       ? todos
@@ -192,7 +192,7 @@ function App() {
           </button>
         </form>
       </div>
-      {/* ToDoの表示部分 */}
+      {/* ToDo の表示部分 */}
       <div className="main">
         <table className="todo-table">
           {/** 表のヘッダー */}
@@ -203,9 +203,9 @@ function App() {
               <th className="header3">done</th>
             </tr>
           </thead>
-          {/** 各ToDoの表示部分 */}
+          {/** 各 ToDo の表示部分 */}
           <tbody>
-            {/** ToDoがあるときとないときで表示を分ける（三項演算子を利用） */}
+            {/** ToDo があるときとないときで表示を分ける（三項演算子を利用） */}
             {todos.length === 0 ? (
               <tr>
                 <td className="no-todo">there's no todo yet...</td>
@@ -214,7 +214,7 @@ function App() {
               </tr>
             ) : (
               todosOfCurrentCategories.map((todo) =>
-                // ToDoが編集中かどうかで表示を変える
+                // ToDo が編集中かどうかで表示を変える
                 editingTodoId === todo.id ? (
                   <tr>
                     <td className="editing-todo">
@@ -300,13 +300,13 @@ function App() {
             )}
           </tbody>
         </table>
-        {/** すべてのカテゴリを表示しているときは新規ToDoのカテゴリを指定して
-         * 追加するためにinput要素を表示  */}
+        {/** すべてのカテゴリを表示しているときは新規 ToDo のカテゴリを指定して
+         * 追加するために input 要素を表示  */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
             let categoryOfNewTodo: string;
-            // 新規ToDoのカテゴリを場合分けして設定
+            // 新規 ToDo のカテゴリを場合分けして設定
             if (currentCategory != "") {
               categoryOfNewTodo = currentCategory;
             } else {
@@ -342,7 +342,7 @@ function App() {
           <button
             className="add-button"
             disabled={
-              //ToDo編集中の時とinputが空欄の時は追加ボタンを無効化
+              //ToDo 編集中の時と input が空欄の時は追加ボタンを無効化
               editingTodoId != -1 ||
               (currentCategory === "" && categoryInputInMainScreen === "")
             }

@@ -25,11 +25,11 @@ import restaurantsVideo from "./restaurants.mp4";
 
   ```html title="index.html"
   <select id="rating-select">
-    <option value="5">☆5</option>
-    <option value="4">☆4</option>
-    <option value="3">☆3</option>
-    <option value="2">☆2</option>
-    <option value="1">☆1</option>
+    <option value="5">☆ 5</option>
+    <option value="4">☆ 4</option>
+    <option value="3">☆ 3</option>
+    <option value="2">☆ 2</option>
+    <option value="1">☆ 1</option>
   </select>
   ```
 
@@ -79,11 +79,11 @@ app.post("/rate", (request, response) => {
   restaurants[index].numRatings += 1;
 
   if (restaurants[index].numRatings !== 0) {
-    // 評価者が0人でないときは、平均点を計算
+    // 評価者が 0 人でないときは、平均点を計算
     restaurants[index].averageRating =
       restaurants[index].totalRating / restaurants[index].numRatings;
   } else {
-    // 評価者が0人のときは、平均点は0（ゼロ除算を防ぐため）
+    // 評価者が 0 人のときは、平均点は 0（ゼロ除算を防ぐため）
     restaurants[index].averageRating = 0;
   }
   response.end();
