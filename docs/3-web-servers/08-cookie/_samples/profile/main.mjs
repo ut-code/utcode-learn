@@ -80,7 +80,10 @@ app.post("/registered", async (request, response) => {
     request.body.age === "" ||
     request.body.univ === ""
   ) {
-    const html = register.replace("<!-- message -->", "未記入の項目があります。");
+    const html = register.replace(
+      "<!-- message -->",
+      "未記入の項目があります。",
+    );
     response.send(html);
   } else if (user === undefined) {
     const new_user = await client.User.create({
