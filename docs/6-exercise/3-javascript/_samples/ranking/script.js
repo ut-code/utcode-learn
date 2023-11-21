@@ -39,7 +39,7 @@ for (let i = 1; i < 4; i += 1) {
     const person_j = personalDataList[j];
 
     if (person_j.scores.total < person_i.scores.total) {
-      // １つ目のルールに従って入れ替え
+      // 1 つ目のルールに従って入れ替え
       swap(personalDataList, j, i);
     }
 
@@ -47,7 +47,7 @@ for (let i = 1; i < 4; i += 1) {
       person_j.scores.total == person_i.scores.total &&
       person_j.scores.math < person_i.scores.math
     ) {
-      // ２つ目のルールに従って入れ替え
+      // 2 つ目のルールに従って入れ替え
       swap(personalDataList, j, i);
     }
   }
