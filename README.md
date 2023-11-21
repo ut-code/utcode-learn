@@ -2,10 +2,10 @@
 
 <img alt="ロゴ" src="./static/img/logo.svg" height="200px" />
 
-[![MDX](https://img.shields.io/badge/MDX-1B1F24.svg?logo=mdx)](https://mdxjs.com/)
+[![language: MDX](https://img.shields.io/badge/MDX-1B1F24.svg?logo=mdx)](https://mdxjs.com/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-![license](https://img.shields.io/badge/license-MIT-informational.svg)
-![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![license: MIT](https://img.shields.io/badge/license-MIT-informational.svg)
+![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 [English README is here.](./README-en.md)
 
@@ -21,6 +21,9 @@ ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習�
   - [開発用サーバーの起動](#開発用サーバーの起動)
   - [ディレクトリ構成](#ディレクトリ構成)
   - [コードスタイル](#コードスタイル)
+  - [カスタムコンポネント](#カスタムコンポネント)
+  - [ビルドテスト](#ビルドテスト)
+  - [PR の前に](#pr-の前に)
 - [貢献](#貢献)
 
 ## 概要
@@ -58,14 +61,46 @@ npm start
 ### ディレクトリ構成
 
 `docs` フォルダ下に作られたファイルは自動でホスティングされます。
-`index.md` というファイルを編集することで、変更ができます。編集したい階層にある `index.md` ファイルを選んで編集してください。
-`index.md` は Markdown を拡張した MDX という非常に簡単な形式で書かれています。
+`index.mdx` というファイルを編集することで、変更ができます。編集したい階層にある `index.mdx` ファイルを選んで編集してください。
+`index.mdx` は Markdown を拡張した MDX という非常に簡単な形式で書かれています。
 
 ### コードスタイル
 
 ut.code(); Learn は、Prettier でフォーマットされています。
 
-VSCode 拡張機能で Prettier をインストールして、コマンドパレットから `Format Document` を選択すると自動でフォーマットすることができます。
+VSCode 拡張機能で Prettier をインストールして、コマンドパレットから `Format Document` を選択するか、
+
+```shell
+npm run format
+```
+
+を実行すると自動でフォーマットすることができます。
+
+### カスタムコンポネント
+
+ut.code(); Learn では、次のカスタムコンポネントが定義されています。
+
+- Term - 用語にポップアップの説明を自動で付ける
+- Answer - 解答例をプルダウンに隠す
+- ViewSource - GitHub と CodeSandbox で解答例を表示するボタンを付ける
+- ExternalVideoPlayer - 動画プレイヤーを表示する
+
+### ビルドテスト
+
+次のコマンドを実行することで、ビルドテストができます。サーバは起動されず、ビルドテストが終了し次第コマンドも終了します。
+
+```shell
+npm run build
+```
+
+### PR の前に
+
+PR の前に、次の項目を確認してください。
+
+- フォーマットがしてあるか
+- ビルドテストは通ったか
+- 誤字脱字はないか
+- コードは正常に動作するか
 
 ## ライセンス
 
