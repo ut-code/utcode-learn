@@ -19,7 +19,7 @@ app.get("/send", (request, response) => {
   );
   const template = readFileSync("./send.html", "utf-8");
   const html = template.replace(
-    "{books}",
+    "<!-- books -->",
     selectedBooks.map((book) => `<li>${book.title}</li>`).join(""),
   );
   response.send(html);
