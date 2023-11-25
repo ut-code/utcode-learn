@@ -30,7 +30,7 @@ npm install express
 
 続いて、次のような `main.mjs` を作成しましょう。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import express from "express";
 const app = express();
 
@@ -76,7 +76,7 @@ node main.mjs
 
 `http` 標準モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import { Server } from "http";
 
 const server = new Server();
@@ -107,7 +107,7 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 
 次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import express from "express";
 import { readFileSync } from "fs";
 const app = express();
@@ -132,7 +132,7 @@ app.listen(3000);
 
 `express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import express from "express";
 
 const app = express();
@@ -154,7 +154,7 @@ app.listen(3000);
 
 前項のプログラムを書き換えて、複雑な HTML を出力できるようにしてみましょう。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import express from "express";
 const app = express();
 
@@ -195,7 +195,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 :::tip[`String#replace` メソッド]
 
-上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がもっと長くなったり、さらに複雑なプログラムが必要になってきたらこのまま続けていくのは難しそうです。
+上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がさらに長くなったり、複雑なプログラムが必要になってきたりしたらこのまま続けていくのは難しそうです。
 
 [`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
 `String#replace` メソッドは、最初に一致した場所のみを置き換えます。
@@ -218,7 +218,7 @@ document.write(base.replaceAll("C", "T")); // ABTBTT
   </head>
   <body>
     <ul>
-      {users}
+      <!-- users -->
     </ul>
   </body>
 </html>
@@ -232,9 +232,9 @@ const app = express();
 
 const names = ["田中", "鈴木", "佐藤"];
 app.get("/", (request, response) => {
-  const template = fs.readFileSync("./index.html", "utf-8");
+  const template = readFileSync("./index.html", "utf-8");
   const html = template.replace(
-    "{users}",
+    "<!-- users -->",
     names.map((name) => `<li>${name}</li>`).join(""),
   );
   response.send(html);
@@ -243,9 +243,9 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-リクエストを受け取ったとき、プログラムではまず `fs.readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
+リクエストを受け取ったとき、プログラムではまず `readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
 
-次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"{users}"` を、 `names` を箇条書きにした文字列に置換します。
+次の行で `String#replace` メソッドを用いて、読み込んだ HTML ファイルの中の `"<!-- users -->"` を、 `names` を箇条書きにした文字列に置換します。
 
 :::
 
