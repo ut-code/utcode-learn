@@ -11,13 +11,13 @@ import componentRenderingVideo from "./component-rendering.mp4";
 
 簡単な ToDo アプリケーションを例に考えてみましょう。
 
-```html title=index.html
+```html title="index.html"
 <ul id="todos"></ul>
 <input id="message" />
 <button id="add-todo" type="button">追加</button>
 ```
 
-```js title=script.js
+```js title="script.js"
 const todoContainer = document.getElementById("todos");
 const messageInput = document.getElementById("message");
 const addTodoButton = document.getElementById("add-todo");
@@ -250,7 +250,7 @@ const max = a > b ? a : b; // 6
 
 条件演算子をネストして、条件分岐を表現します。
 
-```tsx title=App.tsx
+```tsx title="App.tsx"
 const score: number = 80;
 
 export default function App() {
@@ -274,7 +274,7 @@ export default function App() {
 
 次のように変数に JSX 要素を代入しておき、最後にその変数を返すという方法もあります。
 
-```tsx title=App.tsx
+```tsx title="App.tsx"
 const score: number = 80;
 
 export default function App() {
@@ -402,7 +402,7 @@ export default function App() {
 
 <Answer>
 
-```tsx title=App.tsx
+```tsx title="App.tsx"
 type Student = { id: string; name: string; age: number };
 
 const students: Student[] = [

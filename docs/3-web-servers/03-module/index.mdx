@@ -62,13 +62,13 @@ secret
 
 Node.js では、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の `main.mjs` はエラーになります。
 
-```javascript title=sub.mjs
+```javascript title="sub.mjs"
 function add(a, b) {
   return a + b;
 }
 ```
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
@@ -76,13 +76,13 @@ console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 
 Node.js では、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term>モジュール</Term>とのやりとりを行います。
 
-```javascript title=sub.mjs
+```javascript title="sub.mjs"
 export default function add(a, b) {
   return a + b;
 }
 ```
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import add from "./sub.mjs";
 console.log(add(3, 4));
 ```
@@ -93,7 +93,7 @@ console.log(add(3, 4));
 
 上のように**デフォルトエクスポート**を使うと各モジュールで複数の関数をエクスポートすることができません。その場合は、**名前付きエクスポート**を用いることができます。[**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)の記法を用いることで、オブジェクトからプロパティを取り出して変数に代入する操作を簡潔に記述しています。
 
-```javascript title=sub.mjs
+```javascript title="sub.mjs"
 export function add(a, b) {
   return a + b;
 }
@@ -103,7 +103,7 @@ export function subtract(a, b) {
 }
 ```
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import { add, subtract } from "./sub.mjs";
 console.log(add(3, 4));
 console.log(subtract(4, 3));
@@ -123,13 +123,13 @@ ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.or
 
 `require` 関数に別のファイルへの相対パスを指定すると、そのファイルを実行した後にできる `exports` オブジェクトを取得できます。
 
-```javascript title=sub.js
+```javascript title="sub.js"
 exports.add = (a, b) => {
   return a + b;
 };
 ```
 
-```javascript title=main.js
+```javascript title="main.js"
 const sub = require("./sub"); // sub = { add: (a, b) => { return a + b; } }
 const add = sub.add;
 console.log(add(3, 4));
@@ -141,14 +141,14 @@ console.log(add(3, 4));
 
 ## 標準<Term>モジュール</Term>
 
-Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。[`fs.readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
+Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルを指定し、第 2 引数には文字コードを指定します。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import { readFileSync } from "fs";
 console.log(readFileSync("sample.txt", "utf-8"));
 ```
 
-```plain title=sample.txt
+```plain title="sample.txt"
 Hello World
 ```
 
@@ -166,13 +166,13 @@ Hello World
 
 ### 課題
 
-[`fs.writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
+`fs` モジュールの [`writeFileSync` 関数](https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options)を用いて、ファイルに文字列を書き出してみましょう。
 
 <Answer>
 
 第一引数にファイル名、第二引数に書き込む文字列を指定します。
 
-```javascript title=main.mjs
+```javascript title="main.mjs"
 import { writeFileSync } from "fs";
 writeFileSync("./sample.txt", "Hello World");
 ```
@@ -238,7 +238,7 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 
 ## npm のパッケージを Node.js から利用する
 
-npm でダウンロードしたパッケージは、<Term>モジュール</Term>として `require` 関数に指定できます。
+npm でダウンロードしたパッケージは、<Term>モジュール</Term>として `import` 宣言に指定できます。
 
 ```javascript
 import { format } from "date-fns";

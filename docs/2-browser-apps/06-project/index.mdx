@@ -31,7 +31,7 @@ import todoVideo from "./todo.mp4";
 ひとまず ToDo の一覧、ToDo の入力欄、ToDo の追加ボタンが必要です。
 `ul` 要素と `input` 要素と `button` 要素を使ってみましょう。
 
-```html title=index.html
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -49,7 +49,7 @@ import todoVideo from "./todo.mp4";
 
 次に JavaScript ファイルを作成して追加ボタンを押したときの処理を記述しましょう。
 
-```javascript title=script.js
+```javascript title="script.js"
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
@@ -78,7 +78,7 @@ todoInput.value = ""; // input 要素の入力欄を空にする
 
 <Details summary='ステップ 1 の解答例'>
 
-```html title=index.html
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -94,7 +94,7 @@ todoInput.value = ""; // input 要素の入力欄を空にする
 </html>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
@@ -127,7 +127,7 @@ todoList.removeChild(todoItem);
 
 <Details summary='ステップ 2 の解答例'>
 
-```html title=index.html
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -143,7 +143,7 @@ todoList.removeChild(todoItem);
 </html>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
@@ -181,7 +181,7 @@ todoText.textContent = prompt("新しい内容を入力してください。"); 
 
 <Details summary='ステップ 3 の解答例'>
 
-```html title=index.html
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -197,7 +197,7 @@ todoText.textContent = prompt("新しい内容を入力してください。"); 
 </html>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
@@ -246,7 +246,7 @@ todoInput.oninput = () => {
 
 <Answer>
 
-```html title=index.html
+```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -262,7 +262,7 @@ todoInput.oninput = () => {
 </html>
 ```
 
-```javascript title=script.js
+```javascript title="script.js"
 const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
@@ -278,6 +278,7 @@ addButton.onclick = () => {
   const deleteButton = document.createElement("button");
   todoText.textContent = todoInput.value;
   todoInput.value = "";
+  addButton.disabled = true; // value への代入は oninput イベントを発火しない
   editButton.textContent = "編集";
   editButton.onclick = () => {
     const input = prompt("新しい内容を入力してください"。);
