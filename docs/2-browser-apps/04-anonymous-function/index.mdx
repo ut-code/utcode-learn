@@ -9,25 +9,25 @@ title: 無名関数
 しかしながら、通常の記法で関数を記述することが煩わしい場合があります。イベントハンドラを登録する場合を考えてみましょう。
 
 ```html title="index.html"
-<button id="strange-button">Click me</button>
+<button id="greet-button">Click me</button>
 ```
 
 ```javascript title="script.js"
-function onStrangeButtonClick() {
+function onGreetButtonClick() {
   alert("こんにちは！"); // ダイアログボックスを表示
 }
 
-document.getElementById("strange-button").onclick = onStrangeButtonClick;
+document.getElementById("greet-button").onclick = onGreetButtonClick;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/normal-event-handler" />
 
-この場合、関数 `onStrangeButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onStrangeButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
+この場合、関数 `onGreetButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onGreetButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
 
 先ほどのプログラムを関数式を用いて書き換えると、次のようになります。
 
 ```javascript title="script.js"
-document.getElementById("strange-button").onclick = () => {
+document.getElementById("greet-button").onclick = () => {
   alert("こんにちは！");
 };
 ```
