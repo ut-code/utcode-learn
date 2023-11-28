@@ -249,7 +249,24 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 ![date-fns パッケージの利用](./use-package.png)
 
-## 課題
+## 初級課題
+
+[`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node で絵文字を扱うことができるライブラリです。このライブラリを用いて、'I ❤️ ☕️!'　という文章をコンソールに出力してください。
+
+   <Answer>
+   
+   [`emojify` 関数]を用いると、文字列中の絵文字を表す部分を変換し、元の絵文字に直すことができます。
+   
+   ```javascript
+   import { emojify } from "node-emoji";
+   console.log(emojify("I :heart: :coffee:!"));
+   ```
+   
+   <ViewSource url={import.meta.url} path="_samples/node-emoji" noCodeSandbox />
+
+   </Answer>
+
+## 中級課題
 
 1. サンプルコードの `dateFns` 変数の中身をデバッガで観察してみましょう。
 2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
@@ -263,6 +280,6 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
    console.log(derivative("log(x, e)", "x").toString());
    ```
 
-   <ViewSource url={import.meta.url} path="_samples/math-js" noCodeSandbox />
+   <ViewSource url={import.meta.url} path="_samples/mathjs" noCodeSandbox />
 
    </Answer>
