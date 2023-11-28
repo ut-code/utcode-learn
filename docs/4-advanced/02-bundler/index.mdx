@@ -141,7 +141,7 @@ app
 ├── package.json
 ├── package-lock.json
 └── server
-    └── main.js
+    └── main.mjs
 ```
 
 <ViewSource url={import.meta.url} path="_samples/fullstack-app" />
@@ -151,7 +151,7 @@ app
 ```json title="/package.json"
 {
   "scripts": {
-    "start": "node server/main.js",
+    "start": "node server/main.mjs",
     "build": "vite build client --outDir ../dist"
   }
 }
@@ -159,8 +159,8 @@ app
 
 `express.static` により Vite が作成したディレクトリを指定すれば完成です。
 
-```javascript title="server/main.js"
-const express = require("express");
+```javascript title="server/main.mjs"
+import express from "express";
 const app = express();
 
 app.use(express.json());
