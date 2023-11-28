@@ -109,7 +109,7 @@ Web サーバーにアクセスするために用いた `http://localhost:3000/`
 
 ```javascript title="main.mjs"
 import express from "express";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 const app = express();
 
 app.get("/", (request, response) => {
@@ -226,7 +226,7 @@ document.write(base.replaceAll("C", "T")); // ABTBTT
 
 ```js title="main.mjs"
 import express from "express";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 const app = express();
 
