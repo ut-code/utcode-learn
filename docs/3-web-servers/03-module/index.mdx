@@ -251,9 +251,11 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 ## 初級課題
 
+### `node-emoji` パッケージ
+
 [`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node.js で絵文字を扱うことができるパッケージです。このパッケージを用いて、'I ❤️ ☕️!'　という文章を出力してください。
 
-<Answer>
+<Answer title="node-emoji パッケージ">
    
 `emojify` 関数を用いると、文字列中の絵文字を表す部分を絵文字に変換することができます。
    
@@ -268,18 +270,19 @@ console.log(emojify("I :heart: :coffee:!"));
 
 ## 中級課題
 
-1. サンプルコードの `dateFns` 変数の中身をデバッガで観察してみましょう。
-2. [`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
+### `mathjs` パッケージ
 
-   <Answer>
+[`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
 
-   [`mathjs.derivative` 関数](https://mathjs.org/docs/reference/functions/derivative.html)を用いると、微分した式を求めることができます。
+<Answer title="mathjs パッケージ">
 
-   ```javascript
-   import { derivative } from "mathjs";
-   console.log(derivative("log(x, e)", "x").toString());
-   ```
+[`mathjs.derivative` 関数](https://mathjs.org/docs/reference/functions/derivative.html)を用いると、微分した式を求めることができます。
 
-   <ViewSource url={import.meta.url} path="_samples/mathjs" noCodeSandbox />
+```javascript
+import { derivative } from "mathjs";
+console.log(derivative("log(x, e)", "x").toString());
+```
 
-   </Answer>
+<ViewSource url={import.meta.url} path="_samples/mathjs" noCodeSandbox />
+
+</Answer>
