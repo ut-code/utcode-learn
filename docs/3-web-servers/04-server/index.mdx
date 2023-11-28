@@ -251,14 +251,54 @@ app.listen(3000);
 
 ## 課題
 
-- Express を用いて、`あなたは n 人目のお客様です。` とレスポンスする Web サーバーを作成してください。`n` はアクセスされるたびに 1 ずつ増えるようにしてください。
-- (重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。
-  - この 2 つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
+### 訪問者カウンター
 
-解答例 1:
+Express を用いて、`あなたは n 人目のお客様です。` とレスポンスする Web サーバーを作成してください。`n` はアクセスされるたびに 1 ずつ増えるようにしてください。
+
+<Answer title="訪問者カウンター">
+
+```javascript
+let count = 0;
+app.get("/", (request, response) => {
+  count += 1;
+  response.send(`あなたは${count}人目のお客様です。`);
+});
+```
 
 <ViewSource url={import.meta.url} path="_samples/nth" />
 
-解答例 2:
+</Answer>
+
+### サーバー側とクライアント側
+
+(重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。また、この 2 つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
+
+<Answer title="サーバー側とクライアント側">
+
+```javascript
+app.get("/", (request, response) => {
+  response.send(`
+    <!doctype html>
+      <html lang="ja">
+      <head>
+        <meta charset="utf-8" />
+        <title>Title</title>
+      </head>
+      <body>
+        ${
+          // この部分はサーバーサイドで実行されます
+          new Date().toString()
+        }
+        <script>
+          // この部分はクライアントサイドで実行されます
+          document.write(new Date().toString());
+        </script>
+      </body>
+    </html>
+  `);
+});
+```
 
 <ViewSource url={import.meta.url} path="_samples/server-or-client" />
+
+</Answer>
