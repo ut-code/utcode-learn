@@ -21,7 +21,7 @@ GitHub を用いると簡単に共同開発ができます。[練習用のリポ
 git clone git@github.com:ut-code/readme_practice.git
 ```
 
-<video src={cloneRepositoryVideo} muted autoPlay loop controls />
+<video src={cloneRepositoryVideo} muted controls />
 
 複数のメンバーが並行して変更を加えていくために、Git にはブランチという仕組みが備わっています。まず変更を加えたい時には、メインのブランチから自分の作業専用のブランチを作成します。
 
@@ -56,7 +56,7 @@ gitGraph
 まずは、メインのブランチから自分の作業専用のブランチを作成しましょう。
 左下の `main` というボタンをクリックして、`Create new branch from...` を選択します。次に、分岐元のブランチを選択します。今回は `main` を選択します。最後に、新しいブランチの名前を入力します。新しいブランチ名には、変更の内容を端的に表す名前をつけてください。今回は `hello-自分のアカウント名` という名前にしてみましょう。左下の表示が新しいブランチ名に変わったことを確認してください。
 
-<video src={createNewBranchVideo} muted autoPlay loop controls />
+<video src={createNewBranchVideo} muted controls />
 
 :::info[`git switch` コマンド]
 
@@ -85,7 +85,7 @@ $ git branch
 * 新しいブランチ名
 ```
 
-<video src={createNewBranchWithCliVideo} muted autoPlay loop controls />
+<video src={createNewBranchWithCliVideo} muted controls />
 
 :::
 
@@ -93,7 +93,7 @@ $ git branch
 
 変更が終わったら、変更をリモートにも反映します。新しく作ったブランチをリモートリポジトリにプッシュします。
 
-<video src={pushNewBranchVideo} muted autoPlay loop controls />
+<video src={pushNewBranchVideo} muted controls />
 
 ```mermaid
 gitGraph
@@ -111,7 +111,7 @@ gitGraph
 git push origin ブランチ名
 ```
 
-<video src={pushNewBranchWithCliVideo} muted autoPlay loop controls />
+<video src={pushNewBranchWithCliVideo} muted controls />
 
 :::
 
