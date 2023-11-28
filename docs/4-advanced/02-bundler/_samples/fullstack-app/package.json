@@ -8,7 +8,7 @@
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "vite": "^4.2.1"
+    "vite": "^5.0.2"
   },
   "dependencies": {
     "express": "^4.18.2"
