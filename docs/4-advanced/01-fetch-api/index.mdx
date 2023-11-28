@@ -35,7 +35,7 @@ document.getElementById("fetch-button").onclick = async () => {
 
 なお、<Term>サーバー</Term>では次のプログラムが動作しているものとします。
 
-```javascript title="server.mjs (サーバーとして動く JavaScript)"
+```javascript title="main.mjs (サーバーとして動く JavaScript)"
 import express from "express";
 const app = express();
 
@@ -65,7 +65,7 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
-```javascript title="server.mjs"
+```javascript title="main.mjs"
 import express from "express";
 const app = express();
 
@@ -110,7 +110,7 @@ document.getElementById("send-button").onclick = async () => {
 
 サーバー側では、<Term>リクエストボディ</Term>の JSON を解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
 
-```javascript title="server.mjs"
+```javascript title="main.mjs"
 import express from "express";
 const app = express();
 
@@ -155,7 +155,7 @@ app.listen(3000);
 
 [掲示板を作ったとき](/docs/web-servers/get-post/) と同じく、`messages` という配列をサーバー側に用意し、メッセージが送信されたらその配列に要素を追加するようにしましょう。
 
-```javascript title="server.mjs"
+```javascript title="main.mjs"
 const messages = [];
 app.post("/send", (request, response) => {
   // メッセージを追加
@@ -166,7 +166,7 @@ app.post("/send", (request, response) => {
 
 [`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって <Term>JSON</Term> としたうえで<Term>レスポンス</Term>するためのメソッドです。このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
 
-```javascript title="server.mjs"
+```javascript title="main.mjs"
 app.get("/messages", (request, response) => {
   response.json(messages);
 });
