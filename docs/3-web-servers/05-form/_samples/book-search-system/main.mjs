@@ -1,5 +1,5 @@
 import express from "express";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 const app = express();
 

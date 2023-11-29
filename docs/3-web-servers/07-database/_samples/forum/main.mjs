@@ -1,6 +1,6 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 const app = express();
 
