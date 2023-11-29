@@ -6,15 +6,18 @@ import cookieCounterVideo from "./cookie-counter.mp4";
 
 ## HTTP ヘッダ
 
-HTTP におけるリクエストとレスポンスには、**ヘッダ**と呼ばれる Key-Value 型のデータ構造が毎回付加されています。Chrome の開発者ツールでの `Network` タブで確認できるので、確認してみましょう。
+HTTP におけるリクエストとレスポンスには、**ヘッダ**と呼ばれる Key-Value 型のデータ構造が毎回付加されています。
+Chrome の開発者ツールでの `Network` タブで確認できるので、確認してみましょう。
 
 ![HTTP ヘッダ](./http-headers.png)
 
 ## Cookie
 
-レスポンスヘッダに `set-cookie` ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの `cookie` ヘッダに入れて毎回送信します。この性質を利用することで、HTTP サーバーはクライアント毎に異なるサービスを提供できるようになります。
+レスポンスヘッダに `set-cookie` ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの `cookie` ヘッダに入れて毎回送信します。
+この性質を利用することで、HTTP サーバーはクライアント毎に異なるサービスを提供できるようになります。
 
-Cookie 自体も Key-Value のデータ構造となっているので、`set-cookie` ヘッダを複数回送信することにより、複数の cookie を 1 つのレスポンスで送信することができます。例として、[Yahoo! Japan のウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japan が送信する Cookie の中身を覗いてみましょう。
+Cookie 自体も Key-Value のデータ構造となっているので、`set-cookie` ヘッダを複数回送信することにより、複数の cookie を 1 つのレスポンスで送信することができます。
+例として、[Yahoo! Japan のウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japan が送信する Cookie の中身を覗いてみましょう。
 
 ![Yahoo! Japan の Cookie](./yahoo-cookies.png)
 
@@ -28,13 +31,15 @@ Cookie 自体も Key-Value のデータ構造となっているので、`set-coo
 
 ## Express で Cookie を利用する
 
-Express を用いてレスポンスヘッダに Cookie を付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser) パッケージを利用します。
+Express を用いてレスポンスヘッダに Cookie を付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。
+また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser) パッケージを利用します。
 
 ```shell
 npm install cookie-parser
 ```
 
-を実行して、パッケージをインストールしましょう。Web サーバーのプログラムは次のようになります。
+を実行して、パッケージをインストールしましょう。
+Web サーバーのプログラムは次のようになります。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -55,7 +60,8 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていた Cookie がオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていた Cookie がオブジェクト形式で保存されています。
+ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
 
 <video src={cookieCounterVideo} controls muted autoPlay loop />
 
@@ -70,9 +76,12 @@ app.listen(3000);
 
 ## Cookie を用いた認証
 
-ユーザー名とパスワードを用いて認証するタイプのアプリケーションを考えてみましょう。ユーザー名とパスワードを、そのまま Cookie に入れてしまうと、データが悪意のある第三者に奪われてしまうリスクが高まります。
+ユーザー名とパスワードを用いて認証するタイプのアプリケーションを考えてみましょう。
+ユーザー名とパスワードを、そのまま Cookie に入れてしまうと、データが悪意のある第三者に奪われてしまうリスクが高まります。
 
-このため、ログインが成功したタイミングで、クライアントに対してランダムな ID を発行し、Cookie に保存させておくことが一般的です（**セッション ID** と呼ばれる）。次回以降のアクセスでは、このセッション ID を用いて認証を行います。このフローを図にすると、次のようになります。
+このため、ログインが成功したタイミングで、クライアントに対してランダムな ID を発行し、Cookie に保存させておくことが一般的です（**セッション ID** と呼ばれる）。
+次回以降のアクセスでは、このセッション ID を用いて認証を行います。
+このフローを図にすると、次のようになります。
 
 ![セッション](./session.png)
 

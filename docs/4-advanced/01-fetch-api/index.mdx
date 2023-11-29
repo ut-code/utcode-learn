@@ -8,7 +8,13 @@ import chatAppVideo from "./chat-app.mp4";
 
 これまで、ブラウザが<Term>サーバー</Term>に対して<Term>リクエスト</Term>を送信するのは、リンクがクリックされたときや、フォームが送信されたときなど、ページの再読み込みが起こる場合のみでした。
 
-しかしながら、ブラウザ上で動く JavaScript から利用できる **Fetch <Term>API</Term>** を用いると、任意のタイミングで<Term>リクエスト</Term>が発行できるようになります。<Term>API</Term> は、アプリケーションプログラミングインターフェース(Application Programming Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term>API</Term> に従い短いコードを記述するだけでその機能を利用することができます。
+しかしながら、ブラウザ上で動く JavaScript から利用できる **Fetch <Term>API</Term>** を用いると、任意のタイミングで<Term>リクエスト</Term>が発行できるようになります。
+
+<Term>API</Term> は、アプリケーションプログラミングインターフェース(Application Programming
+Interface)の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。
+多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term>
+  API
+</Term> に従い短いコードを記述するだけでその機能を利用することができます。
 
 {/* prettier-ignore */}
 <Term>サーバー</Term>と<Term>クライアント</Term>、どちらで動く JavaScript なのかに注意しながら、次のプログラムを実行してみましょう。
@@ -29,7 +35,9 @@ document.getElementById("fetch-button").onclick = async () => {
 
 `async () => {}` は、<Term>非同期関数</Term>、つまり `async` キーワードのついた関数を生成するための<Term>アロー関数</Term>式です。
 
-[`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term>リクエスト</Term>を発行するための関数です。標準では<Term>GET リクエスト</Term>が発行されます。この関数の戻り値に `await 演算子` を適用すると、発行した<Term>リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch` 関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term>リクエスト</Term>を発行することができます。
+[`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term>リクエスト</Term>を発行するための関数です。
+標準では<Term>GET リクエスト</Term>が発行されます。
+この関数の戻り値に `await 演算子` を適用すると、発行した<Term>リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch` 関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term>リクエスト</Term>を発行することができます。
 
 [`Response#text` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)は、<Term>レスポンスボディ</Term>全体を文字列として読み込むための<Term>非同期関数</Term>です。
 
@@ -50,7 +58,8 @@ app.listen(3000);
 
 ## <Term>POST リクエスト</Term>を送信する
 
-何もオプションをつけずに呼び出された `fetch` 関数は、<Term>GET リクエスト</Term>を送信します。しかしながら、`fetch` 関数の第 2 引数に指定したオブジェクトの `method` プロパティに `"post"` を指定することで、<Term>POST リクエスト</Term>を送信できます。
+何もオプションをつけずに呼び出された `fetch` 関数は、<Term>GET リクエスト</Term>を送信します。
+しかしながら、`fetch` 関数の第 2 引数に指定したオブジェクトの `method` プロパティに `"post"` を指定することで、<Term>POST リクエスト</Term>を送信できます。
 
 このとき、<Term>リクエストボディ</Term>は、 `fetch` 関数の第 2 引数に指定したオブジェクトの `body` プロパティに指定します。
 
@@ -83,15 +92,23 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/send-post-request" />
 
-HTML のフォームで送ったものと同じ形式でデータを送信するには、[GET リクエストと POST リクエスト](/docs/web-servers/get-post/)節で扱ったように、<Term>リクエストボディ</Term>が<Term>クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term>クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term>リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
+HTML のフォームで送ったものと同じ形式でデータを送信するには、[GET リクエストと POST リクエスト](/docs/web-servers/get-post/)節で扱ったように、<Term>リクエストボディ</Term>が<Term>クエリ文字列</Term>の形式になっている必要があります。
+[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term>クエリ文字列</Term>を簡単に扱うことができます。
+この例では、<Term>リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
 
 ## <Term>リクエストボディ</Term>に <Term>JSON</Term> を使用する
 
 前項では、<Term>リクエストボディ</Term>に<Term>クエリ文字列</Term>の形式を用いましたが、<Term>JSON</Term> を用いることで、より複雑なデータを扱えるようになります。
 
-[`JSON.stringify` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)は、JavaScript オブジェクトを受け取って <Term>JSON</Term> 文字列を返す関数です。この値を<Term>リクエストボディ</Term>に指定しています。
+[`JSON.stringify` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)は、JavaScript オブジェクトを受け取って <Term>JSON</Term> 文字列を返す関数です。
+この値を<Term>リクエストボディ</Term>に指定しています。
 
-`fetch` 関数の第 2 引数の `headers` オプションでは、<Term>リクエストヘッダ</Term>を指定します。<Term>リクエストボディ</Term>に <Term>JSON</Term> を指定する場合は、**`Content-Type` リクエストヘッダ**を `"application/json"` に指定します。
+`fetch` 関数の第 2 引数の `headers` オプションでは、<Term>リクエストヘッダ</Term>を指定します。
+
+<Term>リクエストボディ</Term>に <Term>
+  JSON
+</Term> を指定する場合は、**`Content-Type` リクエストヘッダ**を
+`"application/json"` に指定します。
 
 ```javascript title="static/script.js"
 document.getElementById("send-button").onclick = async () => {
@@ -130,7 +147,8 @@ app.listen(3000);
 
 :::tip[`Content-Type` <Term type="httpHeaderBody">リクエスト・レスポンスヘッダ</Term>]
 
-`Content-Type` ヘッダは、<Term>リクエストボディ</Term>や<Term>レスポンスボディ</Term>の種類を識別するために使用されます。ここで使用する種類は、[**MIME タイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
+`Content-Type` ヘッダは、<Term>リクエストボディ</Term>や<Term>レスポンスボディ</Term>の種類を識別するために使用されます。
+ここで使用する種類は、[**MIME タイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
 
 代表的な MIME タイプとして、次のような値が定義されています。
 
@@ -164,7 +182,8 @@ app.post("/send", (request, response) => {
 
 `/messages` への <Term>GET リクエスト</Term>に対し、メッセージの一覧を <Term>JSON</Term> で応答するようにしてみましょう。
 
-[`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって <Term>JSON</Term> としたうえで<Term>レスポンス</Term>するためのメソッドです。このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
+[`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって <Term>JSON</Term> としたうえで<Term>レスポンス</Term>するためのメソッドです。
+このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
 
 ```javascript title="server.mjs"
 app.get("/messages", (request, response) => {

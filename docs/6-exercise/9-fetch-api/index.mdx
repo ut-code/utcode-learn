@@ -33,7 +33,8 @@ import restaurantsVideo from "./restaurants.mp4";
   </select>
   ```
 
-- `option` の `value` に入れられている数字は文字列のため、平均評価の算出をする前に数値に変換しておくと良いでしょう。以下では `Number` オブジェクトを用いる例を示します。
+- `option` の `value` に入れられている数字は文字列のため、平均評価の算出をする前に数値に変換しておくと良いでしょう。
+  以下では `Number` オブジェクトを用いる例を示します。
 
   ```javascript title="sample.js"
   const one = "1";
@@ -43,7 +44,8 @@ import restaurantsVideo from "./restaurants.mp4";
   console.log(Number(one) + Number(two)); // 3
   ```
 
-- 今回は、登録されているレストランの最新の情報を取得するため一定時間ごとに画面を描画し直すことが必要ですが、そのようにすると店名を選択する`select` 要素が操作できなくなってしまうことに注意が必要です。以下では、現在操作されている（フォーカスが当たっている）要素を取得する `document.activeElement` を用いて、料理店の評価の送信に必要な `select` 要素が操作されている際には再描画を行わないようにしています。
+- 今回は、登録されているレストランの最新の情報を取得するため一定時間ごとに画面を描画し直すことが必要ですが、そのようにすると店名を選択する`select` 要素が操作できなくなってしまうことに注意が必要です。
+  以下では、現在操作されている（フォーカスが当たっている）要素を取得する `document.activeElement` を用いて、料理店の評価の送信に必要な `select` 要素が操作されている際には再描画を行わないようにしています。
 
   ```javascript title="script.js"
   if (

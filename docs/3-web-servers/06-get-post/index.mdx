@@ -10,9 +10,12 @@ import postInDevelopment3 from "./postInDevelopment3.mp4";
 
 HTTP 上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも **GET リクエスト**と呼ばれるものになります。
 
-GET リクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>として URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、URL の長さの制限のため、大量の情報は送信できません。
+GET リクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>として URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。
+例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。
+また、URL の長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが **POST リクエスト**です。POST リクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
+そこで用いるのが **POST リクエスト**です。
+POST リクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
 HTTP リクエストのこのような区分を、<Term>**HTTP メソッド**</Term>と呼びます。
 
@@ -60,7 +63,9 @@ app.listen(3000);
 {/* prettier-ignore */}
 <Term>クエリパラメータ</Term>にアクセスするには、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query` プロパティ</a>)を使用しましたが、<Term>リクエストボディ</Term>を使用するには、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body` プロパティ</a>)を使用します。
 
-`app.use(express.urlencoded({ extended: true }));` は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
+`app.use(express.urlencoded({ extended: true }));` は、<Term>リクエストボディ</Term>の解釈方法を定めています。
+HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。
+[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
 
 このシステムでは、まず次のような画面が表示されます。
 
@@ -70,21 +75,25 @@ app.listen(3000);
 
 ![名前と年齢を入力 2](postRequest2.png)
 
-`http://localhost:3000/send` に移り、以下のような画面が表示されます。GET リクエストの時と違い、<Term>クエリパラメータ</Term>が URL に表示されていないことが分かります。
+`http://localhost:3000/send` に移り、以下のような画面が表示されます。
+GET リクエストの時と違い、<Term>クエリパラメータ</Term>が URL に表示されていないことが分かります。
 
 ![名前と年齢を入力 3](postRequest3.png)
 
 ## POST リクエストを開発者ツールで覗いてみる
 
-実際に POST リクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールを開き、文字を入力して送信してみます。
+実際に POST リクエストの中身がどうなっているか覗いてみましょう。
+まず開発者ツールを開き、文字を入力して送信してみます。
 
 <video src={postInDevelopment1} controls />
 
-そして `name` 欄の `send` をクリックし、 `Headers` を選択すると `general` 欄の `Requested method` が `POST` になっています。また、 `Headers` の横にある `Payload` を選択し `Form data` を見ると、 `name` と `age` の情報が載っています。
+そして `name` 欄の `send` をクリックし、 `Headers` を選択すると `general` 欄の `Requested method` が `POST` になっています。
+また、 `Headers` の横にある `Payload` を選択し `Form data` を見ると、 `name` と `age` の情報が載っています。
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。すると URL エンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
+ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。
+すると URL エンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 
@@ -94,7 +103,8 @@ app.listen(3000);
 
 ## 課題
 
-古き良き掲示板システムを作ってみましょう。次のようなページを作成してください。
+古き良き掲示板システムを作ってみましょう。
+次のようなページを作成してください。
 
 - `GET /`: 現在の投稿されているすべての記事を表示します。`/send` へ POST するためのフォームも同時に表示します。
 - `POST /send`: リクエストボディに含まれている記事の内容を記録します。
@@ -102,7 +112,8 @@ app.listen(3000);
 :::tip[ヒント]
 
 - イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
-- `GET /` では 配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
+- `GET /` では 配列の中身を一覧表示しましょう。
+  フォームも忘れずに表示しましょう。
 - `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
 
 :::

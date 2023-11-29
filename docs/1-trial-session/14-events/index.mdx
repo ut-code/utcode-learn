@@ -20,7 +20,12 @@ const func = greet;
 func();
 ```
 
-上の例では、 `const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
+上の例では、 `const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。
+
+<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し
+<Term>式</Term>の括弧は使用しません。 これにより、<Term>関数</Term>が
+<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>
+を実行できます。
 
 ## <Term>イベントハンドラ</Term>
 
@@ -44,13 +49,15 @@ const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked;
 ```
 
-この例では、<Term>HTML 要素</Term>の `id` <Term>属性</Term>に `greet-button` が指定されている <Term>HTML 要素</Term>を表す<Term>オブジェクト</Term>の `onclick` <Term>プロパティ</Term>に対し、<Term>関数</Term> `clicked` を<Term>代入</Term>しています。これにより、ボタンがクリックされたとき、`clicked` <Term>関数</Term>が実行されるようになります。
+この例では、<Term>HTML 要素</Term>の `id` <Term>属性</Term>に `greet-button` が指定されている <Term>HTML 要素</Term>を表す<Term>オブジェクト</Term>の `onclick` <Term>プロパティ</Term>に対し、<Term>関数</Term> `clicked` を<Term>代入</Term>しています。
+これにより、ボタンがクリックされたとき、`clicked` <Term>関数</Term>が実行されるようになります。
 
 <video src={handleClickVideo} autoPlay muted loop controls />
 
 :::info
 
-下のコードは意図したとおりに動作しません。何が間違っているのでしょうか。
+下のコードは意図したとおりに動作しません。
+何が間違っているのでしょうか。
 
 ```javascript
 function clicked() {
@@ -61,7 +68,10 @@ const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked();
 ```
 
-答えは、最後の行が `clicked` から `clicked()` に変わってしまっていることです。<Term>関数</Term>は、カッコをつけた<Term>式</Term>が<Term>評価</Term>されるタイミングで実行されます。このため、
+答えは、最後の行が `clicked` から `clicked()` に変わってしまっていることです。
+
+<Term>関数</Term>は、カッコをつけた<Term>式</Term>が<Term>評価</Term>
+されるタイミングで実行されます。 このため、
 
 ```javascript
 greetButton.onclick = clicked();
@@ -73,7 +83,9 @@ greetButton.onclick = clicked();
 
 :::warning
 
-上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、 `document.write` をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。このため、現代の <Term>JavaScript</Term> において、 `document.write` <Term>関数</Term>が使用されることはほとんどありません。
+上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。
+これは、 `document.write` をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。
+このため、現代の <Term>JavaScript</Term> において、 `document.write` <Term>関数</Term>が使用されることはほとんどありません。
 
 :::
 
@@ -100,7 +112,8 @@ HTML 要素を JavaScript で操作する方法は前回の「DOM」の章で扱
 
 `<button>` タグの HTML 属性を書き換えるとボタンの中に`Hello world!` を表示してしまいます。
 
-HTML ファイルに一工夫が必要です。空の`<div>` タグを用意してあげましょう。
+HTML ファイルに一工夫が必要です。
+空の`<div>` タグを用意してあげましょう。
 
 ```html
 <div id="greeting"></div>

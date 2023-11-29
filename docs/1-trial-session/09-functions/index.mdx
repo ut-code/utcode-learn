@@ -19,7 +19,11 @@ greet();
 greet();
 ```
 
-上のプログラムにおいて、`function` キーワードから始まる部分は<Term>関数</Term>を定義するための<Term>制御構文</Term>です。<Term>関数</Term>定義では、 `function` キーワードに続けて<Term>関数</Term>名、かっこを記述します。この後、<Term>関数</Term>内で実行したい処理を波かっこの中に記述していきます。
+上のプログラムにおいて、`function` キーワードから始まる部分は<Term>関数</Term>を定義するための<Term>制御構文</Term>です。
+
+<Term>関数</Term>定義では、 `function` キーワードに続けて<Term>関数</Term>
+名、かっこを記述します。 この後、<Term>関数</Term>
+内で実行したい処理を波かっこの中に記述していきます。
 
 {/* prettier-ignore */}
 <Term>関数</Term>を定義すると、<Term>関数</Term>名に続けてかっこを記述することにより、その<Term>関数</Term>を実行できるようになります。
@@ -46,7 +50,8 @@ greet("morning", "佐藤");
 上のプログラムで `greet` <Term>関数</Term>は、 `greetingType` や `myName` という名前の<Term>引数</Term>をとります。
 <Term>関数</Term>定義の中では、これらは<Term>変数</Term>のように振舞います。
 
-呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
+呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。
+このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
 
 ![引数](arguments.png)
 
@@ -67,7 +72,8 @@ function add(a, b) {
 document.write(add(3, 4));
 ```
 
-上の例の 6 行目で、<Term>式</Term> `add(3, 4)` が<Term>評価</Term>されると、 `a = 3, b = 4` として `add` <Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term> `const sum = a + b;` が実行されると、<Term>式</Term> `a + b` が<Term>評価</Term>され、`7` になります。これにより、`sum` に`7`が代入されます。
+上の例の 6 行目で、<Term>式</Term> `add(3, 4)` が<Term>評価</Term>されると、 `a = 3, b = 4` として `add` <Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term> `const sum = a + b;` が実行されると、<Term>式</Term> `a + b` が<Term>評価</Term>され、`7` になります。
+これにより、`sum` に`7`が代入されます。
 次の行 `return sum;` で `add` <Term>関数</Term>は<Term>変数</Term> `sum` を<Term>評価</Term>した結果である、`7` を<Term>返し</Term>ます。
 そして<Term>式</Term> `add(3, 4)` の<Term>評価</Term>結果が `7` となります。
 
@@ -189,7 +195,8 @@ for (let p = 0; p < 1; p += 0.1) {
 }
 ```
 
-このプログラムを、<Term>関数</Term>を用いて確率を計算する部分とグラフとして表示する部分に分割すると、次のようになります。先頭の 9 行を読むだけでプログラム全体の処理の流れが追えるようになりました。
+このプログラムを、<Term>関数</Term>を用いて確率を計算する部分とグラフとして表示する部分に分割すると、次のようになります。
+先頭の 9 行を読むだけでプログラム全体の処理の流れが追えるようになりました。
 
 ```javascript
 const totalTicketCount = 10;
@@ -260,7 +267,8 @@ function max(a, b) {
 
 :::note
 
-`a > b` が `true` の場合、if 文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。そのため、次のように書くこともできます。
+`a > b` が `true` の場合、if 文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。
+そのため、次のように書くこともできます。
 
 ```javascript
 function max(a, b) {
@@ -291,7 +299,8 @@ function calculateCost(monthlyDataUsage) {
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。
+携帯電話料金は、下のルールで決定されるとします。
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)

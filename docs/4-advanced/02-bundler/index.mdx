@@ -7,23 +7,28 @@ import buildVideo from "./build.mp4";
 
 ## 複雑化する Web 開発
 
-JavaScript は、当初は Web サイトに簡易的な動きを追加させるための言語として設計されました。しかしながら、高度な Web アプリケーションの台頭や、Node.js をはじめとしたブラウザにおける JavaScript のユースケースの広がりにより、標準的な JavaScript のみでの開発には限界があることがわかってきました。
+JavaScript は、当初は Web サイトに簡易的な動きを追加させるための言語として設計されました。
+しかしながら、高度な Web アプリケーションの台頭や、Node.js をはじめとしたブラウザにおける JavaScript のユースケースの広がりにより、標準的な JavaScript のみでの開発には限界があることがわかってきました。
 
 このため、現代では、JavaScript は事前に何らかの変換を行っておくことが一般的になっています。
 
 ### <Term>トランスパイラ</Term>
 
 <Term>**トランスパイラ**</Term>
-は、ソースコードを別のソースコードに変換するためのプログラムです。JavaScript においてトランスパイラが必要になるのは、主に
+は、ソースコードを別のソースコードに変換するためのプログラムです。 JavaScript においてトランスパイラが必要になるのは、主に
 2 つの理由によります。
 
-ひとつは、**最新の機能を使用するため**です。JavaScript の言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term>トランスパイラ</Term>です。
+ひとつは、**最新の機能を使用するため**です。
+JavaScript の言語仕様は、[Ecma International](https://www.ecma-international.org/) の [TC39](https://tc39.es/) によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。
+[Babel](https://babeljs.io/) は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term>トランスパイラ</Term>です。
 
-もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
+もうひとつは、**別の言語で書かれたプログラムを JavaScript に変換するため**です。
+次の章で扱う TypeScript は、トランスパイラを用いて JavaScript に変換されます。
 
 ### <Term>モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ <Term>HTTP リクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。
+HTML から複数の JavaScript を読み込むためには `script` タグを並べれば良いですが、[HTTP サーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ <Term>HTTP リクエスト</Term>が発行されてしまうため非効率的です。
 
 [webpack](https://webpack.js.org) のような<Term>**モジュールバンドラ**</Term>を用いることで、複数の JavaScript ファイルを統合できます。
 
@@ -49,9 +54,11 @@ Vite を用いて新しくプロジェクトを作成してみましょう。
 npm create vite@latest
 ```
 
-を実行します。`Select a framework` と尋ねられるので、`Vanilla` を選択してください。その後、`Select a variant` と尋ねられるので、`JavaScript` を選択してください。
+を実行します。`Select a framework` と尋ねられるので、`Vanilla` を選択してください。
+その後、`Select a variant` と尋ねられるので、`JavaScript` を選択してください。
 
-すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリを VS Code で開きましょう。
+すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。
+このディレクトリを VS Code で開きましょう。
 
 続いて、作成された `package.json` をもとに npm から必要なパッケージをダウンロードするため、
 
@@ -59,7 +66,8 @@ npm create vite@latest
 npm install
 ```
 
-を実行します。完了したら、
+を実行します。
+完了したら、
 
 ```shell
 npm run dev
@@ -90,15 +98,20 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term>トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
-出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと [Netlify Drop](/docs/trial-session/deploy-application/) などにアップロードすれば使用可能になるでしょう。
+出力されたファイルを元のファイルと比較してみましょう。
+元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。
+ディレクトリごと [Netlify Drop](/docs/trial-session/deploy-application/) などにアップロードすれば使用可能になるでしょう。
 
 <video src={buildVideo} controls />
 
 :::tip[`npm run` コマンド]
 
-`npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
+`npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。
+開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
 
-`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いたときのように、npm でインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
+`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。
+ここに記載されたコマンドでは、`npx` コマンドを用いたときのように、npm でインストールされたパッケージをそのまま実行できます。
+例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
 
 ```json title="package.json (一部抜粋)"
 {
@@ -114,7 +127,8 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 ## npm のパッケージを Web ブラウザ上で利用する
 
-npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。例として `date-fns` パッケージを使用してみましょう。
+npm のパッケージがブラウザ上での実行に対応している場合は、Vite をはじめとした<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>により、ブラウザ向けの JavaScript に変換させられます。
+例として `date-fns` パッケージを使用してみましょう。
 
 ```javascript
 import { format } from "date-fns";
@@ -131,7 +145,9 @@ document.getElementById("app").textContent = format(
 
 Vite などのツールによって出力されたブラウザ上で動くアプリケーションと、Node.js をはじめとしたサーバー向けのアプリケーションを統合するためには、複数の手法が考えられます。
 
-最も単純なアプローチは、ビルド時に統合することです。この方法のメリットは、本番環境にデプロイするのが簡単であることです。ディレクトリ構成は、例えば次のようになります。
+最も単純なアプローチは、ビルド時に統合することです。
+この方法のメリットは、本番環境にデプロイするのが簡単であることです。
+ディレクトリ構成は、例えば次のようになります。
 
 ```
 app
@@ -173,8 +189,10 @@ app.listen(3000);
 
 ## 課題
 
-- [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+- [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。
+  このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
+  {" "}
   <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 
 - Vite を用いて作成した Web フロントエンドと、Node.js のバックエンドが協調して動作するアプリケーションを Render にデプロイしてみましょう。

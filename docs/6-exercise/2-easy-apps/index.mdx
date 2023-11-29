@@ -75,7 +75,8 @@ calcButton.onclick = () => {
   ```
 
 - 入力された数値は、`document.getElementById` 関数が返すオブジェクトの `value` プロパティに格納されています。
-- ただし、文字列として格納されているので、四則演算を行うには数値に変換する必要があります。文字列を数値に変換するには、`Number()` を使います。
+- ただし、文字列として格納されているので、四則演算を行うには数値に変換する必要があります。
+  文字列を数値に変換するには、`Number()` を使います。
 
   ```javascript
   const number = Number("1"); // 1
@@ -108,7 +109,8 @@ calcButton.onclick = () => {
 
 次に、演算子を選択できるプルダウンメニューを作りましょう。
 
-- プルダウンメニューは、`select` タグと `option` タグを使って実現できます。1 つ 1 つの選択肢を `option` タグで作成し、全体を `select` タグで囲みます。
+- プルダウンメニューは、`select` タグと `option` タグを使って実現できます。
+  1 つ 1 つの選択肢を `option` タグで作成し、全体を `select` タグで囲みます。
 
   ```html title="index.html"
   <select id="fruit-select">
@@ -118,7 +120,8 @@ calcButton.onclick = () => {
   </select>
   ```
 
-- `select` 要素を `document.getElementById` 関数で取得します。返されたオブジェクトの `value` プロパティには、プルダウンメニューで選択されている選択肢の `value` 属性に指定されている文字列が格納されています。
+- `select` 要素を `document.getElementById` 関数で取得します。
+  返されたオブジェクトの `value` プロパティには、プルダウンメニューで選択されている選択肢の `value` 属性に指定されている文字列が格納されています。
 
   ```javascript title="script.js"
   const fruitSelect = document.getElementById("fruit-select");
@@ -200,7 +203,8 @@ let tanaka = {
 
 - HTML を読み込むと、`成績:数学...80点、理科...90点` と表示される
 - ボタンを押すと、`成績:数学...100点、理科...100点` と表示される
-- ただし、JavaScript は `tanaka` オブジェクトのみを参照する。新しい成績格納オブジェクトを作ってはならない。
+- ただし、JavaScript は `tanaka` オブジェクトのみを参照する。
+  新しい成績格納オブジェクトを作ってはならない。
 
 すなわち、
 
@@ -281,7 +285,8 @@ ctx.fillRect(10, 10, 100, 100);
 
 <ViewSource url={import.meta.url} path="_samples/drawing/canvas-demo" />
 
-また、DOM の onclick プロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。また、 [`MouseEvent#target` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
+また、DOM の onclick プロパティに格納された関数は、引数として [`MouseEvent` オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/MouseEvent) を受け取ります。
+また、 [`MouseEvent#target` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Event/target)にアクセスすることで、ユーザーがクリックしたオブジェクトの情報などを取得することができます。
 
 ```html
 <button id="button">押してください</button>

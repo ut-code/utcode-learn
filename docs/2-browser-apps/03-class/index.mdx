@@ -4,7 +4,10 @@ title: クラス
 
 ## <Term>クラス</Term>と<Term>インスタンス</Term>
 
-オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term>プロパティ</Term>(属性)を持つ<Term>オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term>オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term>プロパティ</Term>に持つとしましょう。
+オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。
+実世界においては、同じ<Term>プロパティ</Term>(属性)を持つ<Term>オブジェクト</Term>を多く扱う場合が多いです。
+例えば、学生を<Term>オブジェクト</Term>として表すことを考えてみましょう。
+学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term>プロパティ</Term>に持つとしましょう。
 
 ```javascript
 const tanaka = {
@@ -13,9 +16,19 @@ const tanaka = {
 };
 ```
 
-同じ属性を持つ<Term>オブジェクト</Term>を複数生成するときに役立つのが<Term>**クラス**</Term>です。<Term>クラス</Term>では、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を予め設定しておくだけでなく、下の<Term>メソッド</Term>の節で説明するように、<Term>プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term>クラス</Term>は、同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>を統一的に扱うための仕組みであり、<Term>オブジェクト</Term>の設計図と言えます。
+同じ属性を持つ<Term>オブジェクト</Term>を複数生成するときに役立つのが<Term>**クラス**</Term>です。
 
-次のコードでは、先ほど作った `tanaka` のように `name` や `age` という<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>の設計図として、<Term>クラス</Term> `Student` を定義しています。<Term>クラス</Term>では、この例の `age` <Term>プロパティ</Term>のように、デフォルトの値を設定することができます。
+<Term>クラス</Term>では、<Term>オブジェクト</Term>の<Term>プロパティ</Term>
+を予め設定しておくだけでなく、下の<Term>メソッド</Term>の節で説明するように、
+<Term>プロパティ</Term>を引数にもつような関数も設定しておくことができます。
+これにより、同じコードを何度も書く必要がなくなるというメリットがあります。
+<Term>クラス</Term>は、同じ<Term>プロパティ</Term>を持つ<Term>
+  オブジェクト
+</Term>を統一的に扱うための仕組みであり、<Term>オブジェクト</Term>の設計図と言えます。
+
+次のコードでは、先ほど作った `tanaka` のように `name` や `age` という<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>の設計図として、<Term>クラス</Term> `Student` を定義しています。
+
+<Term>クラス</Term>では、この例の `age` <Term>プロパティ</Term>のように、デフォルトの値を設定することができます。
 
 ```javascript
 class Student {
@@ -31,7 +44,10 @@ class Student {
 
 :::
 
-`new` 演算子を<Term>クラス</Term>に対して適用すると、設計図に基づいて<Term>オブジェクト</Term>が作成されます。こうしてできた<Term>オブジェクト</Term>を、もとになった<Term>クラス</Term>の<Term>**インスタンス**</Term>と呼びます。今回の `age` <Term>プロパティ</Term>のように、<Term>クラス</Term>の<Term>プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term>プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
+`new` 演算子を<Term>クラス</Term>に対して適用すると、設計図に基づいて<Term>オブジェクト</Term>が作成されます。
+こうしてできた<Term>オブジェクト</Term>を、もとになった<Term>クラス</Term>の<Term>**インスタンス**</Term>と呼びます。
+今回の `age` <Term>プロパティ</Term>のように、<Term>クラス</Term>の<Term>プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。
+もちろん、<Term>プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
 
 ```javascript
 const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
@@ -46,7 +62,8 @@ document.write(tanaka.age); // age プロパティのデフォルト値は 18
 
 上で定義した `Student` <Term>クラス</Term>には、デフォルト値の指定されていない<Term>プロパティ</Term> `name` が存在します。`new Student` をした直後の<Term>オブジェクト</Term>の `name` <Term>プロパティ</Term>の値はどうなっているのでしょうか。
 
-実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。これまで、JavaScript の値には数値、文字列、論理値、<Term>オブジェクト</Term>があるとしてきましたが、これらとはまた別の値です。
+実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。
+これまで、JavaScript の値には数値、文字列、論理値、<Term>オブジェクト</Term>があるとしてきましたが、これらとはまた別の値です。
 
 存在しない<Term>プロパティ</Term>の値、値を返さない関数の戻り値などは、すべて `undefined` となります。
 
@@ -68,9 +85,14 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 ## <Term>メソッド</Term>
 
-同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
+同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。
+例えば、学生はたいてい最初の授業で自己紹介をします。
+そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
 
-オブジェクトに対して定義されている関数を<Term>**メソッド**</Term>と呼びます。<Term>メソッド</Term>の定義は<Term>クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
+オブジェクトに対して定義されている関数を<Term>**メソッド**</Term>と呼びます。
+
+<Term>メソッド</Term>の定義は<Term>クラス</Term>
+定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
 ```javascript
 class Student {
@@ -103,9 +125,13 @@ tanaka.introduceSelf();
 
 :::tip[メソッドやプロパティの表記と `prototype`]
 
-多くの言語で、<Term>クラス</Term> `Class` の<Term>メソッド</Term>や<Term>プロパティ</Term> `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されている<Term>メソッド</Term>は `Student#introduceSelf` <Term>メソッド</Term>です。
+多くの言語で、<Term>クラス</Term> `Class` の<Term>メソッド</Term>や<Term>プロパティ</Term> `method` を、`#` 記号を用いて `Class#method` と表記します。
+本資料では他言語の慣習に習い、この表記を用いるものとします。
+たとえば、上の例で定義されている<Term>メソッド</Term>は `Student#introduceSelf` <Term>メソッド</Term>です。
 
-ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。
+これはより厳密な表記です。
+外部の資料を読む場合は注意してください。
 
 :::
 
@@ -142,7 +168,9 @@ tanaka.introduceSelf();
 ## <Term>コンストラクタ</Term>
 
 {/* prettier-ignore */}
-<Term>**コンストラクタ**</Term>は、<Term>インスタンス</Term>を作成するタイミング（`new` 演算子を<Term>クラス</Term>に適用するタイミング）で実行される特殊な<Term>メソッド</Term>です。<Term>コンストラクタ</Term>となる<Term>メソッド</Term>は `constructor` という名前で定義する必要があります。<Term>コンストラクタ</Term>を定義すると、`new Student` を実行して<Term>インスタンス</Term>を生成するときに<Term>プロパティ</Term>の設定も同時に行うことができます。
+<Term>**コンストラクタ**</Term>は、<Term>インスタンス</Term>を作成するタイミング（`new` 演算子を<Term>クラス</Term>に適用するタイミング）で実行される特殊な<Term>メソッド</Term>です。
+<Term>コンストラクタ</Term>となる<Term>メソッド</Term>は `constructor` という名前で定義する必要があります。
+<Term>コンストラクタ</Term>を定義すると、`new Student` を実行して<Term>インスタンス</Term>を生成するときに<Term>プロパティ</Term>の設定も同時に行うことができます。
 
 ```javascript
 class Student {
@@ -175,7 +203,8 @@ const tanaka = {
   name: "田中",
   age: 18,
   introduceSelf() {
-    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。
+<p>`);
   },
 };
 
@@ -183,7 +212,8 @@ const suzuki = {
   name: "鈴木",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。
+<p>`);
   },
 };
 
@@ -191,7 +221,8 @@ const sato = {
   name: "佐藤",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。
+<p>`);
   },
 };
 
@@ -200,7 +231,9 @@ suzuki.introduceSelf();
 sato.introduceSelf();
 ```
 
-オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
+オブジェクトの定義が長くなり、書くのも読むのも大変です。
+さらに人数が増えると、コードはどんどん長くなってしまいます。
+また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
 では、<Term>クラス</Term>と<Term>コンストラクタ</Term>を用いるとどうでしょうか。
 
 ```javascript
@@ -217,7 +250,8 @@ class Student {
 
   // メソッド introduceSelf を定義する
   introduceSelf() {
-    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。
+<p>`);
   }
 }
 
@@ -230,7 +264,8 @@ suzuki.introduceSelf();
 sato.introduceSelf();
 ```
 
-クラスの定義自体はやや長いものの、1 つの<Term>オブジェクト</Term>の定義はたった 1 行で済みます。これなら<Term>オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
+クラスの定義自体はやや長いものの、1 つの<Term>オブジェクト</Term>の定義はたった 1 行で済みます。
+これなら<Term>オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
 
 ## 継承
 
@@ -270,7 +305,9 @@ class FreshmanStudent extends Student {
 }
 
 const tanaka = new FreshmanStudent("田中", "18", "ドイツ語");
-tanaka.introduceSelf(); // 私の名前は田中です。18 歳です。ドイツ語選択です。
+tanaka.introduceSelf(); // 私の名前は田中です。
+18 歳です。
+ドイツ語選択です。
 ```
 
 ### 課題
@@ -321,7 +358,8 @@ const myBirthDay = new Date("2014-05-06"); // Date クラスをインスタン�
 document.write(myBirthDay.getFullYear()); // 2014
 ```
 
-`Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。省略された場合には現在の日時を用います。
+`Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。
+省略された場合には現在の日時を用います。
 
 `getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
 
@@ -355,9 +393,12 @@ document.write(map1.get("a")); // 97
 
 :::tip[`Object` クラス]
 
-JavaScript では、**全ての<Term>オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term>オブジェクト</Term>は `Object` <Term>クラス</Term>の<Term>メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term>メソッド</Term>を呼び出すと自動的に<Term>オブジェクト</Term>に変換されます。
+JavaScript では、**全ての<Term>オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。
+このため、全ての<Term>オブジェクト</Term>は `Object` <Term>クラス</Term>の<Term>メソッド</Term>を使用することができます。
+また、プリミティブな値でも、<Term>メソッド</Term>を呼び出すと自動的に<Term>オブジェクト</Term>に変換されます。
 
-`toString` <Term>メソッド</Term>はその一つで、<Term>オブジェクト</Term>の文字列表記を返します。この<Term>メソッド</Term>はオーバーライド可能で、たとえば `Date` <Term>クラス</Term>ではこの<Term>メソッド</Term>がオーバーライドされています。
+`toString` <Term>メソッド</Term>はその一つで、<Term>オブジェクト</Term>の文字列表記を返します。
+この<Term>メソッド</Term>はオーバーライド可能で、たとえば `Date` <Term>クラス</Term>ではこの<Term>メソッド</Term>がオーバーライドされています。
 
 ```javascript
 // 通常のオブジェクトの toString メソッドは "[object Object]" を返す

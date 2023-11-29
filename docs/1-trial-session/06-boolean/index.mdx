@@ -9,7 +9,9 @@ title: 論理値と論理演算子
 JavaScript ではこの他に、<Term>**論理値**</Term> と呼ばれる、「正しいか、正しくないか」を表すための<Term>値</Term>が存在します。
 
 {/* prettier-ignore */}
-<Term>論理値</Term>は、`true`（真）または `false`（偽）の 2 つだけです。ダブルクォーテーション `"` は必要ありません。通常の<Term>値</Term>ですので、<Term>変数</Term>に<Term>代入</Term>したり、計算に使ったりすることができます。
+<Term>論理値</Term>は、`true`（真）または `false`（偽）の 2 つだけです。
+ダブルクォーテーション `"` は必要ありません。
+通常の<Term>値</Term>ですので、<Term>変数</Term>に<Term>代入</Term>したり、計算に使ったりすることができます。
 
 ![値の種類・論理値付き](./value-types-with-boolean.drawio.svg)
 
@@ -26,7 +28,8 @@ const shouldEscape = !isHunterStrong && isMonsterBig; // true
 const shouldFight = isHunterStrong || isMonsterSmall; // false
 ```
 
-詳細は以下の通りです。 `!` のみが作用する対象を 1 つしかとらないことに注意してください。
+詳細は以下の通りです。
+`!` のみが作用する対象を 1 つしかとらないことに注意してください。
 
 | 演算子 | 意味       | 詳細                                                                 |
 | ------ | ---------- | -------------------------------------------------------------------- |
@@ -62,7 +65,8 @@ const canRideRollerCoasters = age >= 10 && height >= 140; // true
 
 ## 課題
 
-次のコードは何を表示するでしょうか。そしてそれはなぜでしょうか。
+次のコードは何を表示するでしょうか。
+そしてそれはなぜでしょうか。
 
 {/* prettier-ignore */}
 ```javascript
@@ -76,4 +80,5 @@ document.write(takaoHeight = everestHeight);
 <ViewSource url={import.meta.url} path="_samples/weird-comparison" />
 
 - JavaScript で、数値と論理値に比較<Term>演算子</Term>を適用すると、`true` は `1` として、`false` は `0` として比較されます。
-- `=` は代入演算子です。代入<Term>演算子</Term>の<Term>式</Term>が<Term>評価</Term>されると、右辺の<Term>値</Term>になります。
+- `=` は代入演算子です。
+  代入<Term>演算子</Term>の<Term>式</Term>が<Term>評価</Term>されると、右辺の<Term>値</Term>になります。

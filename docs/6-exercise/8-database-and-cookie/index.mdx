@@ -13,7 +13,8 @@ import Answer from "@site/src/components/Answer";
 
 ## 1. データベース
 
-ある学校のアプリで、データベースから先生たちのデータを取得して表示し、先生を 1 人選択するとその先生が持っている講義一覧が表示されるアプリを作ってみましょう。また、新たに先生の追加と講義の追加ができるようにしましょう。
+ある学校のアプリで、データベースから先生たちのデータを取得して表示し、先生を 1 人選択するとその先生が持っている講義一覧が表示されるアプリを作ってみましょう。
+また、新たに先生の追加と講義の追加ができるようにしましょう。
 
 ### 解答例
 
@@ -209,7 +210,8 @@ app.listen(3000);
 例えば
 `https://exapmle.com/users/:id` という URL の場合（`:id` は適当な数字）、id はそのサイト内で特定のユーザを参照するための変数となります。`https://exapmle.com/users/34` ならば、id が 34 のユーザを参照することになります。
 
-Express でパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
+Express でパスパラメータを使用する場合、`app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) の第一引数のパスに `:` を組み込むことによって、パスパラメータ名を決めることができます。
+また、[`express.Request#params` プロパティ](https://expressjs.com/en/4x/api.html#req.params) にパスパラメータが格納されます。
 
 ```javascript
 const app = express();
@@ -235,7 +237,8 @@ app.get("/users/:id", (request, response) => {
 
 ## 2. Cookie
 
-ショッピングサイトのトラッキングシステムを作ってみましょう。購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
+ショッピングサイトのトラッキングシステムを作ってみましょう。
+購入した回数が一番多い商品のおすすめが表示されるようにしてみましょう。
 
 <video src={trackingVideo} controls muted autoPlay loop />
 

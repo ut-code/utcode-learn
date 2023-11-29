@@ -18,7 +18,8 @@ let myGreatName = "Becky Jones";
 document.write(myGreatName);
 ```
 
-`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1 行目では、`myGreatName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"Becky Jones"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
+`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。
+1 行目では、`myGreatName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"Becky Jones"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
 
 2 行目では、<Term>変数</Term> `myGreatName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"Becky Jones"` が画面に表示されます。
 
@@ -47,7 +48,8 @@ document.write(myGreatName);
 :::tip
 
 {/* prettier-ignore */}
-<Term>変数</Term>に適切な命名をすることは非常に重要です。以下の例を見てみましょう。
+<Term>変数</Term>に適切な命名をすることは非常に重要です。
+以下の例を見てみましょう。
 
 ```javascript
 const a = 500;
@@ -63,13 +65,17 @@ const totalPrice = itemPrice * itemCount;
 document.write(totalPrice);
 ```
 
-前者と後者のコードは、同じ計算を行っています。しかし、前者のコードでは `a` や `b`、`c` という変数名が何を表しているのかがわかりません。一方、後者のコードでは、`itemPrice` や `itemCount`、`totalPrice` という変数名から、どのような計算を行っているのかがすぐに分かります。共同で開発を行うときや、後からコードを読み返すときに、変数名が適切に付けられていると、コードの理解が容易になります。
+前者と後者のコードは、同じ計算を行っています。
+しかし、前者のコードでは `a` や `b`、`c` という変数名が何を表しているのかがわかりません。
+一方、後者のコードでは、`itemPrice` や `itemCount`、`totalPrice` という変数名から、どのような計算を行っているのかがすぐに分かります。
+共同で開発を行うときや、後からコードを読み返すときに、変数名が適切に付けられていると、コードの理解が容易になります。
 
 :::
 
 ## <Term>変数</Term>への再<Term>代入</Term>
 
-`let` と `const` の大きな違いは、再<Term>代入</Term>が可能かどうかです。`let` で<Term>宣言</Term>された<Term>変数</Term>には再<Term>代入</Term>が可能ですが、`const` で<Term>宣言</Term>された<Term>変数</Term>にはできません。次の例を見てみましょう。
+`let` と `const` の大きな違いは、再<Term>代入</Term>が可能かどうかです。`let` で<Term>宣言</Term>された<Term>変数</Term>には再<Term>代入</Term>が可能ですが、`const` で<Term>宣言</Term>された<Term>変数</Term>にはできません。
+次の例を見てみましょう。
 
 ```javascript title="script.js"
 let mysteriousNumber = 0;
@@ -82,9 +88,11 @@ document.write(mysteriousNumber); // 2
 <Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があります。
 そのため、<Term>変数</Term> `mysteriousNumber` は 3 回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された `2` が表示されます。
 
-一方、`const` で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。そのため、上記のコードの `let` を `const` に置き換えることはできません。
+一方、`const` で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。
+そのため、上記のコードの `let` を `const` に置き換えることはできません。
 
-さらに、再<Term>代入</Term>について詳しく見てみましょう。それでは、以下の場合はどうでしょうか。
+さらに、再<Term>代入</Term>について詳しく見てみましょう。
+それでは、以下の場合はどうでしょうか。
 
 ```javascript title="script.js"
 let price = 100;
