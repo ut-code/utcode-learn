@@ -1,7 +1,7 @@
 {
   "name": "mathjs",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "main.mjs",
   "scripts": {
     "start": "node main.mjs"
   },

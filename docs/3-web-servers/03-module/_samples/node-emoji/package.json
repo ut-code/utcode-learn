@@ -1,13 +1,11 @@
 {
   "name": "emoji",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "main.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.mjs"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-emoji": "^2.1.3"
   }
