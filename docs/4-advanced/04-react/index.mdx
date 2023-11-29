@@ -524,13 +524,13 @@ export default function App() {
 
 :::tip[配列の分割代入]
 
-オブジェクトと同じように、配列でも分割代入の記法を用いることができます。先ほどのプログラムにおいて
+先ほどのプログラムにおいて
 
 ```tsx
 const [count, setCount] = useState(0);
 ```
 
-は、次のように動作します。
+は、[**分割代入**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)という記法であり、次のように動作します。
 
 ```tsx
 const useStateResult = useState(0);
