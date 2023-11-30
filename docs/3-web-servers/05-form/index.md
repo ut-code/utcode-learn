@@ -130,16 +130,17 @@ app.listen(3000);
 ユーザー名とパスワードを入力して、ログインボタンを押すと、`/login` に移動し、ログインに成功した場合は `ログインに成功しました。` と表示し、失敗した場合は `ログインに失敗しました。` と表示するようにしてください。(POSTリクエストを使ってみましょう。)
 
 :::tip
-ユーザとパスワードは以下のようにオブジェクトで管理してみましょう。
+ユーザとパスワードは以下のように配列で管理してみましょう。
 
 ```javascript
-const userCredentials = {
-  tanaka: "kfae12F@",
-  sato: "faewbnpE3b=",
-  endo: "fEnEoB131b",
-};
+const userCredentials = [
+  ["tanaka", "kfae12F@"],
+  ["sato", "faewbnpE3b="],
+  ["endo", "fEnEoB131b"],
+];
 ```
 
+`Array`の`find`メソッドを使って、ユーザ名とパスワードが一致する要素を探してみましょう。
 :::
 
 ### 解答例
