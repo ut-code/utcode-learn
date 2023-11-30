@@ -16,9 +16,9 @@ app.post("/login", (request, response) => {
   const { username, password } = request.body;
 
   if (userCredentials[username] === password) {
-    response.send("ログイン！");
+    response.send("ログインに成功しました。");
   } else {
-    response.send("ユーザーではありません。");
+    response.send("ログインに失敗しました。");
   }
 });
 
