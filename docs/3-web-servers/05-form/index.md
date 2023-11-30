@@ -134,9 +134,9 @@ app.listen(3000);
 
 ```javascript
 const userCredentials = {
-  user1: "test1",
-  user2: "test2",
-  user3: "test3",
+  tanaka: "kfae12F@",
+  sato: "faewbnpE3b=",
+  endo: "fEnEoB131b",
 };
 ```
 
