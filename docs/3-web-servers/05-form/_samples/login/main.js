@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3001;
+const PORT = 3000;
 
 const userCredentials = {
   user1: "test1",
