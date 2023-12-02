@@ -13,7 +13,8 @@ const userCredentials = [
 ];
 
 app.post("/login", (request, response) => {
-  const { username, password } = request.body;
+  const username = request.body.username;
+  const password = request.body.password;
 
   const user = userCredentials.find(
     (userCredential) =>
