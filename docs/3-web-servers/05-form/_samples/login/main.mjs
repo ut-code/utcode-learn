@@ -7,9 +7,9 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
 
 const userCredentials = [
-  ["tanaka", "kfae12F@"],
-  ["sato", "faewbnpE3b="],
-  ["endo", "fEnEoB131b"],
+  { username: "tanaka", password: "kfae12F@" },
+  { username: "sato", password: "faewbnpE3b=" },
+  { username: "endo", password: "fEnEoB131b" },
 ];
 
 app.post("/login", (request, response) => {
