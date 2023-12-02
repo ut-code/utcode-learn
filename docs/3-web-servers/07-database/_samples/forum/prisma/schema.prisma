@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Forum {
+model Post {
   id      Int    @id @default(autoincrement())
   message String
 }

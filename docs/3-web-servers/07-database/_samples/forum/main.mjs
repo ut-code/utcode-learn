@@ -1,28 +1,24 @@
+import { readFileSync } from "node:fs";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import { readFileSync } from "node:fs";
 
 const app = express();
-
 app.use(express.urlencoded({ extended: true }));
-
 const client = new PrismaClient();
 
+const template = readFileSync("./index.html", "utf-8");
 app.get("/", async (request, response) => {
-  const messages = await (
-    await client.forum.findMany()
-  ).map((data) => data.message);
-  const template = readFileSync("./index.html", "utf-8");
+  const posts = await client.post.findMany();
   const html = template.replace(
     "<!-- messages -->",
-    messages.map((message) => `<li>${message}</li>`).join(""),
+    posts.map((post) => `<li>${post.message}</li>`).join(""),
   );
   response.send(html);
 });
 
 app.post("/send", async (request, response) => {
-  await client.forum.create({ data: { message: request.body.message } });
-  response.send("投稿しました。");
+  await client.post.create({ data: { message: request.body.message } });
+  response.redirect("/");
 });
 
 app.listen(3000);
