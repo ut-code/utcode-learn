@@ -18,10 +18,10 @@ app.post("/login", (request, response) => {
   const user = userCredentials.find(
     (user) => user[0] == username && user[1] == password,
   );
-  if (user) {
-    response.send("ログインに成功しました。");
-  } else {
+  if (user === undefined) {
     response.send("ログインに失敗しました。");
+  } else {
+    response.send("ログインに成功しました。");
   }
 });
 
