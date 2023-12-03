@@ -1,0 +1,408 @@
+---
+title: GitHub を用いた共同開発
+---
+
+import addRemoteRepositoryVideo from "./add-remote-repository.mp4";
+import pushChangesVideo from "./push-changes.mp4";
+import cloneRepositoryVideo from "./clone-repository.mp4";
+import createNewBranchVideo from "./create-new-branch.mp4";
+import createNewBranchWithCliVideo from "./create-new-branch-with-cli.mp4";
+import pushNewBranchVideo from "./push-new-branch.mp4";
+import createPullRequestVideo from "./create-pull-request.mp4";
+import mergePullRequestVideo from "./merge-pull-request.mp4";
+import pullBranchVideo from "./pull-branch.mp4";
+import step1Video from "./step1.mp4";
+import step2Video from "./step2.mp4";
+import step3Video from "./step3.mp4";
+import step4Video from "./step4.mp4";
+import step5Video from "./step5.mp4";
+import step6Video from "./step6.mp4";
+
+## なぜ GitHub が必要なのか
+
+2 人で企画書の案を作成することを考えてみてください。
+1 人が企画書を書いた後、それを相手にメールで送り、相手はそれをさらに修正してまたメールで送り返すということを繰り返します。
+このようにすると、1 人が編集している間はもう一人は企画書を編集できなくなってしまいますし、メールで送り合うのは手間がかかりますし、やり取りが複雑になってしまいます。
+
+![バージョン管理の例](./versioning-example.png)
+
+## Git と GitHub を使った共同開発の仕組み
+
+Git と GitHub を用いることでこの問題を解決することができます。
+まず、GitHub 上にリポジトリを作成することで、メンバーに共有します。
+Git にはブランチという仕組みが備わっています。
+メンバーは変更を加えたい時には、メインのブランチからその変更を加えるための専用の作業場所であるブランチを作成します。
+そして、そこで変更を加えて、コミットを作成します。
+
+```mermaid
+gitGraph
+  commit id: "トップページを追加"
+  commit id: "会社情報ページを追加"
+  commit id: "製品情報ページを追加"
+  branch add-recruit-page
+  commit id: "採用情報ページを追加"
+```
+
+そして、作業が終わったら、メインのブランチに自分のブランチの変更を取り込みます。
+ここで、GitHub にはプルリクエストという機能があります。
+プルリクエストを作ることで、自分がどのような変更を加えようとしているのかを他の人に確認してもらうことができます。
+そして、その変更が良さそうだったら、メインのブランチに取り込みます。
+
+```mermaid
+gitGraph
+  commit id: "トップページを追加"
+  commit id: "会社情報ページを追加"
+  commit id: "製品情報ページを追加"
+  branch add-recruit-page
+  commit id: "採用情報ページを追加"
+  checkout main
+  merge add-recruit-page
+```
+
+このように、プロジェクトの本体に影響を与えずに同時並行で開発を進めることができるので、次の図のような複雑な開発も簡単に行うことができます。
+
+```mermaid
+gitGraph
+  commit id: "トップページを追加"
+  commit id: "会社情報ページを追加"
+  commit id: "製品情報ページを追加"
+  branch add-recruit-page
+  commit id: "採用情報ページを追加"
+  checkout main
+  branch add-contact-page
+  commit id: "お問い合わせページを追加"
+  checkout main
+  merge add-recruit-page
+  merge add-contact-page
+  branch update-product-page
+  commit id: "製品情報ページを更新"
+  checkout main
+  merge update-product-page
+```
+
+## Git と GitHub を用いて共同開発をする
+
+では、実際に Git と GitHub を用いて共同開発をしてみましょう。
+
+Git と GitHub を用いた共同開発は、大きく次のような流れで行います。
+
+1. GitHub のリポジトリにソースコードを保存する。
+1. 他のメンバーはそのリポジトリをクローンする。
+1. 変更を加えるために、ブランチを作成する。
+1. 変更を加えて、コミットを作成する。
+1. そのブランチをリモートリポジトリにプッシュする。
+1. プルリクエストを作成する。
+1. プルリクエストを確認してもらい、メインのブランチにマージする。
+
+2 回目以降は、メインのブランチに他のメンバーが変更を加えている可能性があるので、まずはメインのブランチに戻って、プルをすることでリモートの変更を取り込みます。
+その後は、3. 以降の手順を繰り返して新たなプルリクエストを作成します。
+
+では、それぞれについて見ていきましょう。
+
+### GitHub にソースコードを保存する
+
+自分のコンピューター上に作成したリポジトリと同期させるため、GitHub 上にもリポジトリを作成します。GitHub 上部のメニューから `New repository` を選択してください。
+
+![新しいリポジトリを作成](new-repository.png)
+
+必要な設定はリポジトリの名前と公開範囲です。
+公開するつもりがない場合は公開範囲は `Private` に設定するようにしましょう。
+
+![リポジトリの設定](./repository-settings.png)
+
+続いて、作成したリポジトリと自分の PC 上にあるリポジトリを紐づけます。
+GitHub 上に表示されている **SSH** の URL をコピーします。(**SSH** にするのを忘れないでください。) これが GitHub 上に作成したリポジトリを表す URL (リモートリポジトリの URL) になります。
+次のコマンドを実行して、このリモートリポジトリを `origin` (慣習的にリモートリポジトリが一つだけの場合はこの名前が用いられます) という名前で登録します。
+
+```shell
+git remote add origin git@github.com:アカウント名/リポジトリ名.git
+```
+
+<video src={addRemoteRepositoryVideo} muted controls />
+
+追加が完了したら、`origin` として登録したリモートリポジトリにコミットを送信します。
+この操作を**プッシュ**と呼びます。
+プッシュをするには、`Pull, Push` > `Push to...` > `origin` を押します。
+
+<video src={pushChangesVideo} muted controls />
+
+GitHub を開いているブラウザを更新して、プログラムが反映されていることを確認したら完了です。
+
+:::info
+
+この操作の際、初回は以下のような警告が出る場合があります。
+
+```plain
+"github.com" has fingerprint "SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdk4UvCOqU."
+Are you sure you want to continue connecting?
+```
+
+これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。
+家庭用のインターネット回線、UTokyo Wi-Fi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、`yes` と入力して続行させてください。
+
+:::
+
+:::info[`git push` コマンド]
+
+`git push` コマンドを使うことで、コマンドラインから、プッシュをすることもできます。
+
+```shell
+git push origin main
+```
+
+このコマンドの `main` というのは、メインのブランチの名前です。
+
+![コマンドラインでのプッシュ](./push-changes-with-cli.png)
+
+:::
+
+### リポジトリをクローンする
+
+自分が作成したリポジトリであれば、そのまま変更を加えることができますが、他の人が作成したリポジトリに変更を加える場合は、まずは自分の PC 上にそのリポジトリをクローンする必要があります。
+クローンするとは、リモートリポジトリを自分の PC 上に複製することです。
+
+本来は、他の人が作成したリポジトリをクローンしますが、ここではさきほど自分で作成したリポジトリをクローンしてみましょう。
+
+自分のリポジトリの **SSH** の URL をコピーして、次のコマンドを実行してください。
+その後、クローンしたリポジトリを VS Code で開いてください。
+
+```shell
+git clone git@github.com:アカウント名/リポジトリ名.git
+```
+
+<video src={cloneRepositoryVideo} muted controls />
+
+### ブランチを作成する
+
+```mermaid
+gitGraph
+  commit id: "既存のコミット1"
+  commit id: "既存のコミット2"
+  branch "ブランチ名"
+  commit id: "新たな変更"
+```
+
+まずは、メインのブランチから今回の作業専用のブランチを作成しましょう。
+左下の `main` というボタンをクリックして、`Create new branch from...` を選択します。
+次に、分岐元のブランチである `main` を選択します。
+最後に、新しいブランチの名前を入力します。
+新しいブランチの名前には、今回加えたい変更の内容を表す名前をつけましょう。
+左下の表示が `main` から新しいブランチの名前に変わったことを確認してください。
+
+<video src={createNewBranchVideo} muted controls />
+
+:::info[`git switch` コマンド]
+
+ブランチの作成をコマンドラインから行うこともできます。
+
+まずは、現在いるブランチを確認してみましょう。
+ターミナルで `git branch` コマンドを実行してください。
+
+```shell
+$ git branch
+* main
+```
+
+ここで、`*` から始まっているのが、現在いるブランチです。
+`main` となっているはずです。
+
+新しいブランチを作成して移動するには、`git switch` コマンドを使います。
+
+```shell
+git switch -c 新しいブランチ名
+```
+
+現在いるブランチを確認すると、`*` が移動しているはずです。
+
+```shell
+$ git branch
+* 新しいブランチ名
+  main
+```
+
+<video src={createNewBranchWithCliVideo} muted controls />
+
+:::
+
+### 変更を加えてコミットを作成する
+
+変更を加えて、コミットを作成しましょう。
+必要に応じて、コミットの履歴やコミットの差分を確認してください。
+
+### リモートリポジトリにプッシュする
+
+変更を加えたのは、自分の PC 上のリポジトリです。
+そのため、リモートリポジトリにその変更を反映させる必要があります。
+新しく作ったブランチをリモートリポジトリにプッシュします。
+
+<video src={pushNewBranchVideo} muted controls />
+
+:::info
+
+コマンドラインからプッシュするには、次のコマンドを実行します。
+
+```shell
+git push origin ブランチ名
+```
+
+:::
+
+### プルリクエストを作成する
+
+次に変更をメインのブランチに反映します。
+GitHub のプルリクエストという機能を使うことで、簡単に変更の内容を他の人に確認してもらい、メインのブランチに反映することができます。
+
+```mermaid
+gitGraph
+  commit id: "既存のコミット1"
+  commit id: "既存のコミット2"
+  branch "ブランチ名"
+  commit id: "新たな変更"
+  checkout main
+  merge "ブランチ名"
+```
+
+GitHub を開き `Pull requests` を開いてください。
+
+![プルリクエストを作成](./pull-requests-tab.png)
+
+`New pull request` を押してください。
+
+![ブランチ選択前](./compare-changes.png)
+
+`compare` と書いてある方のブランチを変更して、さきほど作成したブランチを選択してください。
+
+![ブランチ選択後](./comparing-changes.png)
+
+`Create pull request` を押してください。
+
+![プルリクエストの作成](./create-pull-request.png)
+
+確認画面が出るので、コメントを書いて `Create pull request` を押してください。
+これで、プルリクエストを作成することができました。
+
+<video src={createPullRequestVideo} muted controls />
+
+### マージする
+
+これから加える変更の差分は、`Files changed` タブから確認できます。
+変更が良さそうだったら、`Merge pull request` を押してください。これで、変更を反映できます。
+
+マージしたら、不要になったブランチは `Delete branch` を押して削除しておきましょう。
+
+![プルリクエストをマージ](./merge-pull-request.png)
+
+<video src={mergePullRequestVideo} muted controls />
+
+### 新たなプルリクエストを作成する
+
+これ以降プルリクエストを作る場合は、メインのブランチに他の人が変更を加えている可能性があるので、まずは `main` ブランチに戻って、プルをすることで自分の PC 上にリモートの変更を取り込みます。
+その後は、今までと同様に新しいブランチを作成して進めていきます。
+
+リモートの変更をプルするには、`Pull, Push` > `Pull from...` > `origin/main` を押してリモートの変更を取り込みます。
+
+<video src={pullBranchVideo} muted controls />
+
+:::info
+
+コマンドラインからプルするには、次のコマンドを実行します。
+
+```shell
+git pull origin main
+```
+
+![コマンドラインでのプル](./pull-branch-with-cli.png)
+
+:::
+
+## 課題
+
+Git を用いたバージョン管理の練習問題として、学部一覧ページを作成しました。
+このリポジトリを GitHub に保存して、各学部のウェブサイトの URL を追加するプルリクエストを作成してください。
+
+![学部一覧ページ](./faculties-with-link.png)
+
+### 手順 1
+
+GitHub のリポジトリにソースコードを保存しましょう。
+
+<Answer>
+
+<video src={step1Video} muted controls />
+
+</Answer>
+
+### 手順 2
+
+ブランチを作成しましょう。
+
+<Answer>
+
+<video src={step2Video} muted controls />
+
+</Answer>
+
+### 手順 3
+
+学部一覧ページに各学部のウェブサイトの URL を追加して、ステージをしてコミットを作成しましょう。
+
+<Answer>
+
+<video src={step3Video} muted controls />
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>学部一覧</title>
+  </head>
+  <body>
+    <h1>学部一覧</h1>
+    <ul>
+      <li><a href="https://www.j.u-tokyo.ac.jp/">法学部</a></li>
+      <li><a href="https://www.m.u-tokyo.ac.jp/">医学部</a></li>
+      <li><a href="https://www.t.u-tokyo.ac.jp/foe">工学部</a></li>
+      <li><a href="https://www.l.u-tokyo.ac.jp/">文学部</a></li>
+      <li><a href="https://www.s.u-tokyo.ac.jp/ja">理学部</a></li>
+      <li><a href="https://www.a.u-tokyo.ac.jp/">農学部</a></li>
+      <li><a href="https://www.e.u-tokyo.ac.jp/">経済学部</a></li>
+      <li><a href="https://www.c.u-tokyo.ac.jp/">教養学部</a></li>
+      <li><a href="https://www.p.u-tokyo.ac.jp/">教育学部</a></li>
+      <li><a href="https://www.f.u-tokyo.ac.jp/">薬学部</a></li>
+    </ul>
+  </body>
+</html>
+```
+
+</Answer>
+
+### 手順 4
+
+ブランチをリモートリポジトリにプッシュしましょう。
+
+<Answer>
+
+<video src={step4Video} muted controls />
+
+</Answer>
+
+### 手順 5
+
+プルリクエストを作成しましょう。
+
+<Answer>
+
+<video src={step5Video} muted controls />
+
+</Answer>
+
+### 手順 6
+
+差分を確認して、プルリクエストをマージしましょう。
+
+<Answer>
+
+<video src={step6Video} muted controls />
+
+</Answer>

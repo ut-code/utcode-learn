@@ -1,0 +1,309 @@
+---
+title: Git を用いたバージョン管理
+---
+
+import gitInitVideo from "./git-init.mp4";
+import stageChangesVideo from "./stage-changes.mp4";
+import stageChangesWithCliVideo from "./stage-changes-with-cli.mp4";
+import commitChangesVideo from "./commit-changes.mp4";
+import secondCommitVideo from "./second-commit.mp4";
+import showGitHistoryVideo from "./show-git-history.mp4";
+import showGitDiffWithCliVideo from "./show-git-diff-with-cli.mp4";
+import step1Video from "./step1.mp4";
+import step3Video from "./step3.mp4";
+import step4Video from "./step4.mp4";
+import step6Video from "./step6.mp4";
+import step7Video from "./step7.mp4";
+
+## なぜバージョン管理システムが必要なのか
+
+企画書の案を作成することを考えてみてください。
+案を修正する時に、最初の案を保存しておきたいと思うことがあると思います。
+そこで、ファイル名を工夫することによりバージョン管理をすると、次の画像のようになってしまいます。
+これだと、どのファイルが本当に最新であるのかがわからなくなってしまいます。
+
+![バージョン管理の例](./versioning-example.png)
+
+## Git によるバージョン管理の仕組み
+
+Git を使うことでこの問題を解決することができます。
+Git は、ファイルの変更を次の図のように**コミット**という形で記録します。
+このようにすることで、どのファイルが最新であるのかがわかりやすくなり、また、過去の状態に戻すことも簡単になります。
+
+```mermaid
+gitGraph
+  commit id: "トップページを追加"
+  commit id: "会社情報ページを追加"
+  commit id: "採用情報ページを追加"
+  commit id: "お問い合わせページを追加"
+  commit id: "採用情報ページを更新"
+```
+
+**コミット**は、ある時点での状態を表しています。
+ここでいう状態とは、Git で管理されているすべてのディレクトリやファイルの名前、その内容、変更日時などです。
+Git では、コミットを作成することにより、変更内容を記録します。
+
+## Git を使ったバージョン管理をする
+
+では、実際に Git を使ってバージョン管理をしてみましょう。
+
+Git を使ったバージョン管理は大きく次のような流れで行います。
+
+1. Git リポジトリを作成する。
+1. ファイルに変更を加える。
+1. 必要な変更のみをステージする。
+1. コミットを作成する。
+1. 正しくコミットを作成できているか確認する。
+
+2 回目からは、2. 以降の手順を繰り返すことで、新たなコミットを作成していきます。
+
+では、それぞれについて見ていきましょう。
+
+### Git リポジトリを作成する
+
+Git では、**リポジトリ**と呼ばれる単位でソースコードを管理します。
+リポジトリはひとつのディレクトリに相当し、そのディレクトリ以下の全てのファイルが Git による追跡対象となります。
+
+まずは Git で管理するためのディレクトリを作成し、VS Code で開きます。
+左側のアクティビティバーの `Source Control` パネル内の `Initialize Repository` ボタンを押してください。
+これで、カレントディレクトリを Git の管理下に置く (カレントディレクトリを Git リポジトリにする) ことができます。
+
+<video src={gitInitVideo} controls muted />
+
+:::info[`git init` コマンド]
+
+Git の操作は、コマンドラインからも行うことができます。
+次のコマンドを実行することで、カレントディレクトリを Git の管理下に置くこともできます。
+
+```shell
+git init
+```
+
+![コマンドラインでのリポジトリ作成](./git-init-with-cli.png)
+
+:::
+
+:::tip[`.git` ディレクトリ]
+
+Git の管理下に置かれたディレクトリには `.git` という名前のディレクトリが生成されます。
+このディレクトリには過去のコミットの履歴など、Git が内部的に使用するファイルが格納されます。
+誤ったディレクトリで `git init` コマンドを実行してしまった場合、このディレクトリを削除しましょう。
+なお、ピリオドから始まるディレクトリやファイルは `ls` コマンドに `-a` というオプションをつけないといけないので注意が必要です。
+
+```shell
+$ ls
+$ ls -a
+.  ..  .git
+$ ls .git
+branches  config  description  HEAD  hooks  info  objects  refs
+```
+
+:::
+
+### 変更をステージする
+
+コミットを作るためには、まず変更を**ステージ**する必要があります。
+ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。
+`Source Control` パネル内に表示されているファイルを押すとそのファイルにどのような変更が加えられたかを確認できます。
+ステージするには、コミットしたいファイルの横の `+` ボタンを押します。
+ファイルが `Changes` から `Staged Changes` に移ったら成功です。
+
+<video src={stageChangesVideo} muted controls />
+
+:::info[`git add` コマンド]
+
+`git add` コマンドを使うことで、コマンドラインから、変更をステージすることもできます。
+
+```shell
+git add ステージするファイルへのパス
+```
+
+`git add` コマンドを使う前後で、現在のリポジトリの状態を確認することができる `git status` コマンドを使うことで、ステージされたファイルとステージされていないファイルを確認することができます。
+
+<video src={stageChangesWithCliVideo} muted controls />
+
+:::
+
+### 最初のコミットを作成する
+
+それでは、最初のコミットを作成してみましょう。
+
+ステージされた変更からコミットを作成するには、**コミットメッセージ**を入力して `Commit` ボタンを押します。
+コミットメッセージには、そのコミットで行われた変更を説明する適切なメッセージを入力してください。
+
+変更がコミットとして記録されました。
+
+<video src={commitChangesVideo} muted controls />
+
+:::info[`git commit` コマンド]
+
+`git commit` コマンドを使うことで、コマンドラインから、コミットを作成することもできます。
+
+```shell
+git commit -m "コミットメッセージ"
+```
+
+![コマンドラインでのコミット](./commit-changes-with-cli.png)
+
+:::
+
+:::tip[`.gitignore`]
+
+`.gitignore` ファイルで指定されたファイルは Git の管理下に置かれません。
+`npm install` で簡単にダウンロードできて容量が大きいのでバージョン管理するメリットのない `node_modules` や、機密情報や環境ごとに異なる情報を含む `.env` といったファイルが指定されます。
+
+:::
+
+### 変更履歴を表示する
+
+先ほど作成したファイルを変更し、もう一つコミットを作ってみましょう。
+
+<video src={secondCommitVideo} muted controls />
+
+これにより、2 つ目のコミットが作成されました。
+それぞれのコミットでどのような変更がなされたのかを確認するために、先ほどインストールした `Git Graph` 拡張機能を使ってコミット履歴を確認しましょう。<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) キーを押してコマンドパレットを開き、`Git Graph: View Git Graph (git log)` を選択します。
+それぞれのコミットでどのような変更がなされたのかを確認することができます。
+
+<video src={showGitHistoryVideo} muted controls />
+
+:::info[`git log` コマンド]
+
+`git log` コマンドを使うことで、コマンドラインから、コミット履歴を確認することもできます。
+
+![コマンドラインでのコミット履歴の表示](./show-git-history-with-cli.png)
+
+:::
+
+:::info[`git diff` コマンド]
+
+`git diff` コマンドを使うことで、コマンドラインから、コミット同士の差分を確認することもできます。
+
+コミットには一意の ID が割り当てられており、この ID を `git diff` コマンドに与えることで、コミット同士を比較することができます。
+
+下の動画の最後で実行されている `git diff @ @~` は、最新のコミットとそのひとつ前のコミットを比較するためのコマンドです。
+`@` が最新のコミットを、`~` が「そのひとつ前」を表します。
+
+<video src={showGitDiffWithCliVideo} muted controls />
+
+:::
+
+## 課題
+
+大学の学部一覧ページを作成することで、Git の基本的な操作を学びましょう。
+まずは、法学部、医学部、工学部、文学部、理学部、農学部、経済学部を含めた学部一覧を作成しましょう。
+次に、教養学部、教育学部、薬学部を一覧に追加しましょう。
+
+![学部一覧](./faculties.png)
+
+### 手順 1
+
+Git リポジトリを作成しましょう。
+
+<Answer>
+
+<video src={step1Video} muted controls />
+
+</Answer>
+
+### 手順 2
+
+`index.html` を作成し、学部一覧ページを作成しましょう。
+
+<Answer>
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>学部一覧</title>
+  </head>
+  <body>
+    <h1>学部一覧</h1>
+    <ul>
+      <li>法学部</li>
+      <li>医学部</li>
+      <li>工学部</li>
+      <li>文学部</li>
+      <li>理学部</li>
+      <li>農学部</li>
+      <li>経済学部</li>
+    </ul>
+  </body>
+</html>
+```
+
+</Answer>
+
+### 手順 3
+
+差分を確認して、`index.html` をステージしましょう。
+
+<Answer>
+
+<video src={step3Video} muted controls />
+
+</Answer>
+
+### 手順 4
+
+コミットを作成しましょう。
+
+<Answer>
+
+<video src={step4Video} muted controls />
+
+</Answer>
+
+### 手順 5
+
+`index.html` を編集し、教養学部、教育学部、薬学部を追加しましょう。
+
+<Answer>
+
+```html
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>学部一覧</title>
+  </head>
+  <body>
+    <h1>学部一覧</h1>
+    <ul>
+      <li>法学部</li>
+      <li>医学部</li>
+      <li>工学部</li>
+      <li>文学部</li>
+      <li>理学部</li>
+      <li>農学部</li>
+      <li>経済学部</li>
+      <li>教養学部</li>
+      <li>教育学部</li>
+      <li>薬学部</li>
+    </ul>
+  </body>
+</html>
+```
+
+</Answer>
+
+### 手順 6
+
+差分を確認して、`index.html` をステージし、コミットを作成しましょう。
+
+<Answer>
+
+<video src={step6Video} muted controls />
+
+</Answer>
+
+### 手順 7
+
+コミットの履歴を確認して、変更が正しく記録されていることを確認しましょう。
+
+<Answer>
+
+<video src={step7Video} muted controls />
+
+</Answer>
