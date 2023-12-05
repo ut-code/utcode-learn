@@ -13,7 +13,7 @@ JavaScript では、`Promise` オブジェクトと、`await`、`async` とい�
 
 まずは次の 2 つのファイルを作り、`main.mjs` を `Node.js` で実行してみてください。
 
-```text title="sample.txt"
+```plaintext title="sample.txt"
 Sample Text
 ```
 
@@ -42,7 +42,7 @@ const awaitText = await promise;
 console.log(awaitText);
 ```
 
-とすると「結果」のテキストを得ることができます。このように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(fulfilled) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができるのです。
+とすると「結果」である `Sample Text` という文字列を得ることができます。このように `Promise` オブジェクトに `await` 演算子を適用すると、処理を一時停止して、`Promise` オブジェクトの状態が「成功」(fulfilled) になるまで文字通り「待つ」ことができるため、`sample.txt` の中身を出力することができるのです。
 
 しかしこのままでは、3 行目で全体の処理が止まってしまっているので、目的だった非同期処理ができません。そこで、 `async` キーワードをつけた関数を導入します。
 
