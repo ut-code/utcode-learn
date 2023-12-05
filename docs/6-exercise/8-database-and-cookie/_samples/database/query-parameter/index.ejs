@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -15,22 +15,22 @@
       </thead>
       <tbody>
         <% for (const teacher of teachers) {%>
-        <tr>
-          <td><%= teacher.id %></td>
-          <td><%= teacher.name %></td>
-          <td>
-            <form action="/courses">
-              <button
-                type="submit"
-                name="teacherId"
-                value="<%= teacher.id
-       %>"
-              >
-                講義を見る
-              </button>
-            </form>
-          </td>
-        </tr>
+          <tr>
+            <td><%= teacher.id %></td>
+            <td><%= teacher.name %></td>
+            <td>
+              <form action="/courses">
+                <button
+                  type="submit"
+                  name="teacherId"
+                  value="<%= teacher.id
+        %>"
+                >
+                  講義を見る
+                </button>
+              </form>
+            </td>
+          </tr>
         <% } %>
       </tbody>
     </table>

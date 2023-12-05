@@ -1,6 +1,5 @@
-import fs from "fs";
 import express from "express";
-import ejs from "ejs";
+import { readFileSync } from "node:fs";
 
 const app = express();
 
@@ -18,8 +17,11 @@ app.get("/send", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );
-  const template = fs.readFileSync("template.ejs", "utf-8");
-  const html = ejs.render(template, { selectedBooks: selectedBooks });
+  const template = readFileSync("./send.html", "utf-8");
+  const html = template.replace(
+    "<!-- books -->",
+    selectedBooks.map((book) => `<li>${book.title}</li>`).join(""),
+  );
   response.send(html);
 });
 

@@ -378,13 +378,12 @@ export default {
     library: {
       name: "ライブラリ",
       definition:
-        "ほかのプログラムから利用され、単体では実行できないプログラム。",
-      referencePage: "/docs/web-servers/module/",
+        "汎用性の高い複数のプログラムを再利用可能な形でひとまとまりにしたもの。基本的に他のプログラムから利用され、単体では実行できない。",
     },
     serverClient: {
       name: "サーバーとクライアント",
       definition:
-        "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
+        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
       referencePage: "/docs/web-servers/server/",
     },
     json: {
@@ -432,13 +431,13 @@ export default {
     api: {
       name: "API",
       definition:
-        "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
+        "あるコンピュータープログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
       referencePage: "/docs/advanced/fetch-api/",
     },
     thread: {
       name: "スレッド",
       definition:
-        "コンピュータがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
+        "コンピューターがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     transpile: {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -14,15 +14,15 @@
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <% for ( const item of items ){%>
+        <tr>
+          <% for ( const item of items ){%>
             <td><form action=<%= `/${item}` %>><button>購入</button></form></td>
-            <% } %>
-          </tr>
+          <% } %>
+        </tr>
       </tbody>
     </table>
     <% if(recommended){ %>
       <div>あなたへのおすすめは<%= recommended %>です</div>
-      <% } %>
+    <% } %>
   </body>
 </html>

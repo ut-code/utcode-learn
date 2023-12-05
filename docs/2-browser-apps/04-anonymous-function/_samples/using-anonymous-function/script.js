@@ -1,3 +1,3 @@
-document.getElementById("strange-button").onclick = () => {
+document.getElementById("greet-button").onclick = () => {
   alert("こんにちは！");
 };
