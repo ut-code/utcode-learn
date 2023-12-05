@@ -402,32 +402,16 @@ document.write(false.toString()); // false
 
 <Answer title="その日の残り時間">
 
-`Date#getTime` メソッドを使います。
+`Date#getHour`、`Date#getMinutes`、`Date#getSeconds` を使います。
 
 ```js
 const countdownBox = document.getElementById("countdown-box");
 
-function getRemainingTime() {
-  const now = new Date();
-  const endOfDay = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    23,
-    59,
-    59,
-    999,
-  );
-  const remainingTime = endOfDay.getTime() - now.getTime();
-
-  const hours = Math.floor(remainingTime / (1000 * 60 * 60));
-  const minutes = Math.floor(remainingTime / (1000 * 60)) % 60;
-  const seconds = Math.floor(remainingTime / 1000) % 60;
-
-  return `今日の残り時間： ${hours}時間 ${minutes}分 ${seconds}秒です。`;
-}
-
-countdownBox.textContent = getRemainingTime();
+const now = new Date();
+const remainingHours = 23 - now.getHours();
+const remainingMinutes = 59 - now.getMinutes();
+const remainingSeconds = 60 - now.getSeconds();
+countdownBox.textContent = `今日は残り${remainingHours}時間${remainingMinutes}分${remainingSeconds}秒です。`;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
