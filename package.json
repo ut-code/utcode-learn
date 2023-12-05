@@ -10,6 +10,7 @@
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "format": "prettier --write .",
+    "format:silent": "prettier --write . --log-level silent",
     "format:check": "prettier --check ."
   },
   "dependencies": {
