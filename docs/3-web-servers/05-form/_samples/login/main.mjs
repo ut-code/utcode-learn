@@ -16,11 +16,11 @@ app.post("/login", (request, response) => {
   const username = request.body.username;
   const password = request.body.password;
 
-  const user = userCredentials.find(
+  const userCredential = userCredentials.find(
     (userCredential) =>
       userCredential[0] == username && userCredential[1] == password,
   );
-  if (user === undefined) {
+  if (userCredential === undefined) {
     response.send("ログインに失敗しました。");
   } else {
     response.send("ログインに成功しました。");

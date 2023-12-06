@@ -130,13 +130,13 @@ app.listen(3000);
 
 ```javascript
 const userCredentials = [
-  ["tanaka", "kfae12F@"],
-  ["sato", "faewbnpE3b="],
-  ["endo", "fEnEoB131b"],
+  { username: "tanaka", password: "kfae12F@" },
+  { username: "sato", password: "faewbnpE3b=" },
+  { username: "endo", password: "fEnEoB131b" },
 ];
 ```
 
-`Array`#`find`メソッドを使って、ユーザー名とパスワードが一致する要素を探してみましょう。
+`Array`オブジェクトの`find`メソッドを使用して、ユーザー名とパスワードが一致する要素を探してみましょう。
 :::
 
 ### 解答例
