@@ -1,5 +1,5 @@
-function onStrangeButtonClick() {
+function onGreetButtonClick() {
   alert("こんにちは！"); // ダイアログボックスを表示
 }
 
-document.getElementById("strange-button").onclick = onStrangeButtonClick;
+document.getElementById("greet-button").onclick = onGreetButtonClick;

@@ -1,9 +1,0 @@
----
-title: Web プログラミングの基礎を学ぼう
----
-
-import DocCardList from '@theme/DocCardList';
-
-このセクションでは、HTML、CSS、JavaScript の基礎を学び、簡単なウェブアプリケーションを作ってみます。
-
-<DocCardList />

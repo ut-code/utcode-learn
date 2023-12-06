@@ -10,21 +10,19 @@ export default {
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
     "/docs/trial-session/functions/#モジュール化": "モジュール化",
-    "/docs/trial-session/css/": "ウェブサイトの見た目を整える",
+    "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
-    "/docs/browser-apps/constant/": "定数とオブジェクトの参照",
-    "/docs/browser-apps/constant/#参照": "定数とオブジェクトの参照",
+    "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/exercise/basis-of-web/#副作用と純粋関数の話": "副作用と純粋関数",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
     "/docs/browser-apps/anonymous-function/": "無名関数",
-    "/docs/advanced/css/": "高度な CSS",
     "/docs/browser-apps/git-github/": "Git と GitHub",
     "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
     "/docs/web-servers/node-js/": "はじめての Node.js",
@@ -184,7 +182,8 @@ export default {
     },
     javascriptStringConcatenation: {
       name: "文字列の結合",
-      definition: "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
+      definition:
+        "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
       referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
@@ -272,7 +271,8 @@ export default {
     },
     javascriptModularization: {
       name: "モジュール化",
-      definition: "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
+      definition:
+        "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
       referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
@@ -315,7 +315,7 @@ export default {
       name: "参照",
       definition:
         "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
-      referencePage: "/docs/browser-apps/constant/#参照",
+      referencePage: "/docs/browser-apps/reference/",
     },
     javascriptSideEffects: {
       name: "副作用",
@@ -377,13 +377,12 @@ export default {
     library: {
       name: "ライブラリ",
       definition:
-        "ほかのプログラムから利用され、単体では実行できないプログラム。",
-      referencePage: "/docs/web-servers/module/",
+        "汎用性の高い複数のプログラムを再利用可能な形でひとまとまりにしたもの。基本的に他のプログラムから利用され、単体では実行できない。",
     },
     serverClient: {
       name: "サーバーとクライアント",
       definition:
-        "サービスを提供する側のコンピュータやソフトウェアをサーバー、提供される側のコンピュータやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
+        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
       referencePage: "/docs/web-servers/server/",
     },
     json: {
@@ -431,13 +430,13 @@ export default {
     api: {
       name: "API",
       definition:
-        "あるコンピュータプログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
+        "あるコンピュータープログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
       referencePage: "/docs/advanced/fetch-api/",
     },
     thread: {
       name: "スレッド",
       definition:
-        "コンピュータがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
+        "コンピューターがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     transpile: {
@@ -468,7 +467,7 @@ export default {
       name: "ミュータブルとイミュータブル",
       definition:
         "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。React などのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
-      referencePage: "/docs/browser-apps/constant/",
+      referencePage: "/docs/browser-apps/reference/",
     },
   },
 };

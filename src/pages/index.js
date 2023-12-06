@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
@@ -12,7 +11,7 @@ function Home() {
   return (
     <Layout
       title={`ut.code(); Learn`}
-      description="東京大学のソフトウェアエンジニアリングコミュニティ ut.code(); 内部向け学習資料です。"
+      description="東京大学のソフトウェアエンジニアリングコミュニティ ut.code(); の公式学習資料です。誰でも自由に利用可能です。"
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
@@ -33,7 +32,7 @@ function Home() {
       </header>
       <main>
         ut.code(); Learn は、東京大学のソフトウェアエンジニアリングコミュニティ
-        ut.code(); の内部向け学習資料です。
+        ut.code(); の公式学習資料です。誰でも自由に利用可能です。
       </main>
     </Layout>
   );

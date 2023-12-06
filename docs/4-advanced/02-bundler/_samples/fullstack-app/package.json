@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "node server/main.js",
+    "start": "node server/main.mjs",
     "build": "vite build client --outDir ../dist",
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "vite": "^4.2.1"
+    "vite": "^5.0.2"
   },
   "dependencies": {
     "express": "^4.18.2"

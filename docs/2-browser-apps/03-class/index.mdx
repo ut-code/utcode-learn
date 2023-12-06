@@ -1,0 +1,494 @@
+---
+title: クラス
+---
+
+## <Term>クラス</Term>と<Term>インスタンス</Term>
+
+オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term>プロパティ</Term>(属性)を持つ<Term>オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term>オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term>プロパティ</Term>に持つとしましょう。
+
+```javascript
+const tanaka = {
+  name: "田中",
+  age: 18,
+};
+```
+
+同じ属性を持つ<Term>オブジェクト</Term>を複数生成するときに役立つのが<Term>**クラス**</Term>です。<Term>クラス</Term>では、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を予め設定しておくだけでなく、下の<Term>メソッド</Term>の節で説明するように、<Term>プロパティ</Term>を引数にもつような関数も設定しておくことができます。これにより、同じコードを何度も書く必要がなくなるというメリットがあります。<Term>クラス</Term>は、同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>を統一的に扱うための仕組みであり、<Term>オブジェクト</Term>の設計図と言えます。
+
+次のコードでは、先ほど作った `tanaka` のように `name` や `age` という<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>の設計図として、<Term>クラス</Term> `Student` を定義しています。<Term>クラス</Term>では、この例の `age` <Term>プロパティ</Term>のように、デフォルトの値を設定することができます。
+
+```javascript
+class Student {
+  name; // name プロパティを作成する
+  age = 18; // age プロパティのデフォルト値として `18` を使用する
+}
+```
+
+:::info
+
+{/* prettier-ignore */}
+<Term>クラス</Term>の名前は、通常の<Term>キャメルケース</Term>の最初の文字を大文字にした<Term>パスカルケース</Term>で記述するのが普通です。
+
+:::
+
+`new` 演算子を<Term>クラス</Term>に対して適用すると、設計図に基づいて<Term>オブジェクト</Term>が作成されます。こうしてできた<Term>オブジェクト</Term>を、もとになった<Term>クラス</Term>の<Term>**インスタンス**</Term>と呼びます。今回の `age` <Term>プロパティ</Term>のように、<Term>クラス</Term>の<Term>プロパティ</Term>にデフォルトの値が設定されている場合、新たな値を代入するまではデフォルト値が入ります。もちろん、<Term>プロパティ</Term>に新たな値を代入してデフォルト値を書き換えることもできます。
+
+```javascript
+const tanaka = new Student(); // Student クラスをもとにオブジェクトを作成する
+
+tanaka.name = "田中"; // name プロパティに代入
+document.write(tanaka.age); // age プロパティのデフォルト値は 18
+```
+
+![クラスとインスタンス](./class-instance.png)
+
+:::tip[`undefined` という値]
+
+上で定義した `Student` <Term>クラス</Term>には、デフォルト値の指定されていない<Term>プロパティ</Term> `name` が存在します。`new Student` をした直後の<Term>オブジェクト</Term>の `name` <Term>プロパティ</Term>の値はどうなっているのでしょうか。
+
+実は、JavaScript には、未定義であることを表す特殊な値 `undefined` が存在しています。これまで、JavaScript の値には数値、文字列、論理値、<Term>オブジェクト</Term>があるとしてきましたが、これらとはまた別の値です。
+
+存在しない<Term>プロパティ</Term>の値、値を返さない関数の戻り値などは、すべて `undefined` となります。
+
+```javascript
+const emptyObject = {};
+function emptyFunction() {}
+
+document.write(emptyObject.unknownProperty); // 存在しないプロパティは undefined
+document.write(emptyFunction()); // 値を返さない関数の戻り値は undefined
+```
+
+:::
+
+### 課題
+
+`weightInTons` と `cost` をプロパティとして持ち、 `weightInTons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
+
+<ViewSource url={import.meta.url} path="_samples/car-class" />
+
+## <Term>メソッド</Term>
+
+同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
+
+オブジェクトに対して定義されている関数を<Term>**メソッド**</Term>と呼びます。<Term>メソッド</Term>の定義は<Term>クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
+
+```javascript
+class Student {
+  name;
+  age;
+
+  // メソッド introduceSelf を定義する
+  introduceSelf() {
+    // this は作成されたインスタンスを指す
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
+  }
+}
+```
+
+{/* prettier-ignore */}
+<Term>クラス</Term>自体は単なる設計図でしかないため、実際の<Term>オブジェクト</Term>が存在するわけではありません。
+そこで、<Term>メソッド</Term>内では、設計図から作成された<Term>インスタンス</Term>自身を指す特殊な変数 `this` が使用できます。
+
+{/* prettier-ignore */}
+<Term>メソッド</Term>を使用するには、<Term>プロパティ</Term>へのアクセス時と同じく、<Term>インスタンス</Term>に対して `.`（ドット）記号を用います。
+
+```javascript
+const tanaka = new Student();
+tanaka.name = "田中";
+tanaka.age = 18;
+
+// introduceSelf メソッド内では this は tanaka に格納されたオブジェクトになる
+tanaka.introduceSelf();
+```
+
+:::tip[メソッドやプロパティの表記と `prototype`]
+
+多くの言語で、<Term>クラス</Term> `Class` の<Term>メソッド</Term>や<Term>プロパティ</Term> `method` を、`#` 記号を用いて `Class#method` と表記します。本資料では他言語の慣習に習い、この表記を用いるものとします。たとえば、上の例で定義されている<Term>メソッド</Term>は `Student#introduceSelf` <Term>メソッド</Term>です。
+
+ただし、JavaScript においては `prototype` という語を用いて `Class.prototype.method` とされる場合があります。これはより厳密な表記です。外部の資料を読む場合は注意してください。
+
+:::
+
+### 課題
+
+自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
+
+<Answer title="年齢を増やすメソッド">
+
+```javascript
+class Student {
+  name;
+  age = 18;
+  introduceSelf() {
+    document.write(`私の名前は${this.name}です。`);
+    document.write(`${this.age}歳です`);
+  }
+  incrementAge() {
+    this.age += 1;
+  }
+}
+const tanaka = new Student();
+tanaka.name = "田中";
+tanaka.age = 19;
+tanaka.introduceSelf();
+tanaka.incrementAge();
+tanaka.introduceSelf();
+```
+
+<ViewSource url={import.meta.url} path="_samples/method-incrementAge" />
+
+</Answer>
+
+## <Term>コンストラクタ</Term>
+
+{/* prettier-ignore */}
+<Term>**コンストラクタ**</Term>は、<Term>インスタンス</Term>を作成するタイミング（`new` 演算子を<Term>クラス</Term>に適用するタイミング）で実行される特殊な<Term>メソッド</Term>です。<Term>コンストラクタ</Term>となる<Term>メソッド</Term>は `constructor` という名前で定義する必要があります。<Term>コンストラクタ</Term>を定義すると、`new Student` を実行して<Term>インスタンス</Term>を生成するときに<Term>プロパティ</Term>の設定も同時に行うことができます。
+
+```javascript
+class Student {
+  name;
+  age;
+
+  // コンストラクタを定義する
+  constructor(name, birthYear, currentYear) {
+    // this.name は作成されたインスタンスのプロパティ
+    // name はコンストラクタに渡された引数
+    this.name = name;
+    this.age = currentYear - birthYear;
+  }
+
+  introduceSelf() {
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
+  }
+}
+
+const tanaka = new Student("田中", 2004, 2022);
+tanaka.introduceSelf();
+```
+
+{/* prettier-ignore */}
+<Term>クラス</Term>と<Term>コンストラクタ</Term>のメリットを理解するために、<Term>クラス</Term>の<Term>インスタンス</Term>を複数生成する場合を考えましょう。
+例えば、田中さん、鈴木さん、佐藤さんが続けて自己紹介する場合、<Term>クラス</Term>を使わないでコードを書くと以下のようになります。
+
+```javascript
+const tanaka = {
+  name: "田中",
+  age: 18,
+  introduceSelf() {
+    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+  },
+};
+
+const suzuki = {
+  name: "鈴木",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+  },
+};
+
+const sato = {
+  name: "佐藤",
+  age: 20,
+  introduceSelf() {
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+  },
+};
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
+```
+
+オブジェクトの定義が長くなり、書くのも読むのも大変です。さらに人数が増えると、コードはどんどん長くなってしまいます。また、`introduceSelf()` 関数の定義はほとんど同じコードが 3 回繰り返されています。
+では、<Term>クラス</Term>と<Term>コンストラクタ</Term>を用いるとどうでしょうか。
+
+```javascript
+class Student {
+  name;
+  age;
+
+  // コンストラクタを定義する
+  constructor(name, age) {
+    // this は作成されたインスタンスを指す
+    this.name = name;
+    this.age = age;
+  }
+
+  // メソッド introduceSelf を定義する
+  introduceSelf() {
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+  }
+}
+
+const tanaka = new Student("田中", 18);
+const suzuki = new Student("鈴木", 20);
+const sato = new Student("佐藤", 20);
+
+tanaka.introduceSelf();
+suzuki.introduceSelf();
+sato.introduceSelf();
+```
+
+クラスの定義自体はやや長いものの、1 つの<Term>オブジェクト</Term>の定義はたった 1 行で済みます。これなら<Term>オブジェクト</Term>の数が増えても安心です。`introduceSelf()` 関数の定義を繰り返す必要もなくなり、読みやすく編集しやすいコードになりました。
+
+## 継承
+
+クラス定義の際に `extends` キーワードを用いて別の<Term>クラス</Term>を指定すると、指定された<Term>クラス</Term>の<Term>プロパティ</Term>と<Term>メソッド</Term>を全て受け継いだ新たな<Term>クラス</Term>を定義することができます。
+
+```javascript
+class Student {
+  name;
+  age;
+
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  introduceSelf() {
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
+  }
+}
+
+// Student を継承したクラス FreshmanStudent を定義
+class FreshmanStudent extends Student {
+  selectedLanguage;
+
+  constructor(name, age, selectedLanguage) {
+    // コンストラクタ内では super キーワードで親クラスのコンストラクタを呼ぶ必要がある
+    super(name, age);
+    this.selectedLanguage = selectedLanguage;
+  }
+
+  // 継承元のクラスと同じ名前のメソッドを定義（オーバーライド）すると、継承元のクラスのメソッドは覆い隠されてしまう
+  introduceSelf() {
+    // super キーワードを使えば覆い隠された同名のメソッドを呼び出せる
+    super.introduceSelf();
+    document.write(`${this.selectedLanguage}選択です。`);
+  }
+}
+
+const tanaka = new FreshmanStudent("田中", "18", "ドイツ語");
+tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ語選択です。
+```
+
+### 課題
+
+`Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
+
+<Answer title="学生のClassの定義">
+
+```javascript
+class Student {
+  name;
+  age;
+
+  introduceSelf() {
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
+  }
+}
+class SeniorStudent extends Student {
+  researchQuestion;
+
+  introduceSelf() {
+    super.introduceSelf();
+    document.write(`研究テーマは${this.researchQuestion}です。`);
+  }
+}
+const tanaka = new SeniorStudent();
+tanaka.age = 22;
+tanaka.name = "田中";
+tanaka.researchQuestion = "量子力学";
+tanaka.introduceSelf();
+```
+
+<ViewSource
+  url={import.meta.url}
+  path="_samples/inheritance-class-SeniorStudent"
+/>
+
+</Answer>
+
+## 組み込みのクラス
+
+JavaScript では、開発者が定義しなくても最初から使用可能な<Term>クラス</Term>が数多く用意されています。
+
+例えば、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)という、日付や時刻を扱うための<Term>クラス</Term>があります。
+
+```javascript
+const myBirthDay = new Date("2014-05-06"); // Dateクラスをインスタンス化
+document.write(myBirthDay.getFullYear()); // 2014
+```
+
+`Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。省略された場合には現在の日時を用います。
+
+`getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
+
+{/* prettier-ignore */}
+{/* TODO: 自分はこっちのほうがいいと思いますが...
+例えば [`Map` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map)は、キーと値のペアを保存するオブジェクトを提供します。
+
+```js
+const map1 = new Map();
+
+map1.set("a", 1);
+map1.set("b", 2);
+map1.set("c", 3);
+
+document.write(map1.get("a")); // 1
+
+map1.set("a", 97);
+
+document.write(map1.get("a")); // 97
+```
+
+\*/}
+
+また、DOM を利用して `div` 要素を作成または取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが得られます。
+
+このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement)を継承しており、 `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
+
+![HTMLDivElementの継承関係](./html-inheritance.drawio.svg)
+
+実は、[DOM の節](/docs/trial-session/dom/)で使用した textContent プロパティは、この Node クラスで定義されています。
+
+:::tip[`Object` クラス]
+
+JavaScript では、**全ての<Term>オブジェクト</Term>は[`Object` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object)を自動的に継承します**。このため、全ての<Term>オブジェクト</Term>は `Object` <Term>クラス</Term>の<Term>メソッド</Term>を使用することができます。また、プリミティブな値でも、<Term>メソッド</Term>を呼び出すと自動的に<Term>オブジェクト</Term>に変換されます。
+
+`toString` <Term>メソッド</Term>はその一つで、<Term>オブジェクト</Term>の文字列表記を返します。この<Term>メソッド</Term>はオーバーライド可能で、たとえば `Date` <Term>クラス</Term>ではこの<Term>メソッド</Term>がオーバーライドされています。
+
+```javascript
+// 通常のオブジェクトの toString メソッドは "[object Object]" を返す
+document.write({ name: "田中" }.toString()); // [object Object]
+
+// Date クラスは toString メソッドをオーバーライドしている
+document.write(new Date().toString()); // Fri Apr 01 2022 10:00:00 GMT+0900 (Japan Standard Time)
+
+// 関数もオブジェクトの一種なのでやはり Object クラスを継承している
+function add(a, b) {
+  return a + b;
+}
+document.write(add.toString()); // function add(a, b) { return a + b; }
+
+// 数値や文字列、論理値はメソッドを呼び出すときに自動的にオブジェクトに変換される
+document.write((123).toString()); // 123
+document.write("Hello World!".toString()); // Hello World!
+document.write(false.toString()); // false
+```
+
+:::
+
+## 課題
+
+### `Date` クラス
+
+ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、その日の残り時間を表示してみましょう。
+
+例:
+
+21時25分40秒に実行されたとき、
+
+```
+今日は残り2時間34分20秒です。
+```
+
+と表示する
+
+:::tip
+`Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。
+:::
+
+<Answer title="その日の残り時間">
+
+`Date#getTime` メソッドを使います。
+
+```js
+const countdownBox = document.getElementById("countdown-box");
+
+function getRemainingTime() {
+  const now = new Date();
+  const endOfDay = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    23,
+    59,
+    59,
+    999,
+  );
+  const remainingTime = endOfDay.getTime() - now.getTime();
+
+  const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+  const minutes = Math.floor(remainingTime / (1000 * 60)) % 60;
+  const seconds = Math.floor(remainingTime / 1000) % 60;
+
+  return `今日の残り時間： ${hours}時間 ${minutes}分 ${seconds}秒です。`;
+}
+
+countdownBox.textContent = getRemainingTime();
+```
+
+<ViewSource url={import.meta.url} path="_samples/count-down" />
+
+</Answer>
+
+### 図形クラス
+
+色を表す `color` プロパティと、面積を求める `calculateArea` メソッドを持つ `Shape` クラスを実装してみましょう。
+
+そして、`Shape` クラスを継承する `Rectangle` (長方形) クラス、`Square` (正方形) クラス、`Circle` (円) クラスを実装してみましょう。
+
+<Answer title="図形クラス">
+
+```js
+class Shape {
+  color;
+  constructor(color) {
+    this.color = color;
+  }
+}
+
+class Rectangle extends Shape {
+  height;
+  width;
+  constructor(color, height, width) {
+    super(color);
+    this.height = height;
+    this.width = width;
+  }
+  calculateArea() {
+    return this.height * this.width;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(color, sideLength) {
+    super(color, sideLength, sideLength);
+  }
+}
+
+class Circle extends Shape {
+  radius;
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/shape-class" />
+
+</Answer>
+
+## 思考問題
+
+### 点と図形
+
+点 (`Point`) クラスを実装します。`Point` クラスは `Shape` クラスを継承するべきでしょうか？
+
+また、その理由を考えてみましょう。

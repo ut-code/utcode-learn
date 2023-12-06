@@ -1,7 +1,0 @@
----
-title: Web サーバーが動作する仕組みを知ろう
----
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />

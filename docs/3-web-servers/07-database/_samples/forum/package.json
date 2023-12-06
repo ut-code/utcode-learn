@@ -1,19 +1,17 @@
 {
   "name": "forum",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "main": "main.mjs",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.mjs"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
-    "@prisma/client": "^4.12.0",
+    "@prisma/client": "^5.5.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2"
   },
   "devDependencies": {
-    "prisma": "^4.12.0"
+    "prisma": "^5.5.2"
   }
 }
