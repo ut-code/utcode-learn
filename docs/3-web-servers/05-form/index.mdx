@@ -117,7 +117,33 @@ app.listen(3000);
 このページの URL を見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
 ![URLのクエリパラメータ](form-url.png)
 
-## 課題
+## 課題1
+
+ログイン画面を作ってみましょう。以下のような画面を作成してください。
+
+![ログイン画面](./work1.png)
+
+ユーザー名とパスワードを入力して、ログインボタンを押すと、`/login` に移動し、ログインに成功した場合は `ログインに成功しました。` と表示し、失敗した場合は `ログインに失敗しました。` と表示するようにしてください。(POSTリクエストを使ってみましょう。)
+
+:::tip
+ユーザー名とパスワードは以下のように配列で管理してみましょう。
+
+```javascript
+const userCredentials = [
+  { username: "tanaka", password: "kfae12F@" },
+  { username: "sato", password: "faewbnpE3b=" },
+  { username: "endo", password: "fEnEoB131b" },
+];
+```
+
+`Array`オブジェクトの`find`メソッドを使用して、ユーザー名とパスワードが一致する要素を探してみましょう。
+:::
+
+### 解答例
+
+<ViewSource url={import.meta.url} path="_samples/login" />
+
+## 課題2
 
 書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
 
