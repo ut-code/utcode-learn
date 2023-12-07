@@ -4,8 +4,6 @@ const app = express();
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3000;
-
 const userCredentials = [
   { username: "tanaka", password: "kfae12F@" },
   { username: "sato", password: "faewbnpE3b=" },
@@ -18,8 +16,8 @@ app.post("/login", (request, response) => {
 
   const userCredential = userCredentials.find(
     (userCredential) =>
-      userCredential.username == username &&
-      userCredential.password == password,
+      userCredential.username === username &&
+      userCredential.password === password,
   );
   if (userCredential === undefined) {
     response.send("ログインに失敗しました。");
@@ -28,4 +26,4 @@ app.post("/login", (request, response) => {
   }
 });
 
-app.listen(PORT);
+app.listen(3000);
