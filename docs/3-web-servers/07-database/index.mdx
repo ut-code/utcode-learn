@@ -12,7 +12,7 @@ import forumVideo from "./forum.mp4";
 
 ## データ管理の限界
 
-これまで作成してきたアプリケーションでは、次のように、データを全て Node.js 内の変数に記録していました。しかし、このような方法では、<Term>サーバー</Term>が終了するたびにデータが消えてしまいます。
+これまで作成してきたアプリケーションでは、次のように、データを全て Node.js アプリケーション上の変数に記録していました。しかし、このような方法では、<Term>サーバー</Term>が終了するたびにデータが消えてしまいます。
 
 ```javascript
 const messages = [];
@@ -25,7 +25,7 @@ app.post((request, response) => {
 データをファイルに記録することはできますが、後述するような複数の問題があります。
 
 ```javascript
-import { writeFileSync } from "fs";
+import { writeFileSync } from "node:fs";
 app.post((request, response) => {
   writeFileSync("messages.txt", request.body.message);
   // 省略
@@ -72,14 +72,14 @@ app.post((request, response) => {
 
 主にリレーショナルデータベースを操作するための Node.js の<Term>ライブラリ</Term>です。複数の構成要素からなります。
 
-- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーからインポートして用いられる npm のパッケージ。JavaScript プログラムから使用する。
+- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いる npm のパッケージ。JavaScript プログラムから使用する。
 - [**`prisma` パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いる npm のパッケージ。`npx` コマンドを通して実行する。
 - [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイル。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させる。
 - [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Code の拡張機能。`.prisma` ファイルに対する補完やフォーマットの機能を提供する。
 
 #### [ElephantSQL](https://www.elephantsql.com/)
 
-PostgreSQL サーバーを提供するサービスです。PostgreSQL サーバーは皆さんのコンピューター上にも構築できますが、この演習ではその手間を省くため外部のサービスを利用します。
+PostgreSQL サーバーを提供するサービスです。PostgreSQL サーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
 
 ### ElephantSQL で PostgreSQL サーバーを構築する
 
@@ -115,7 +115,7 @@ npx prisma init
 
 <video src={prismaInitVideo} controls muted />
 
-:::tip[<Term>`npx` コマンド</Term>]
+:::tip[`npx` コマンド]
 
 <Term>`npx` コマンド</Term>は、npm
 のパッケージを、プログラムからではなく直接実行するためのコマンドです。npm には
@@ -215,15 +215,27 @@ PostgreSQL にデータを保存する掲示板サービスを作ってみまし
 
 ### 手順 1
 
-ElephantSQL で新しいデータベースを作成しましょう。演習の手順と同じ方法で、作成したデータベースに DBeaver から接続できることを確認しましょう。
+ElephantSQL で新しいデータベースを作成しましょう。作成したデータベースに DBeaver から接続できることを確認しましょう。
 
 ### 手順 2
 
-新しいプロジェクト用のディレクトリを作成し、演習の手順と同じ方法で、`npx prisma init` コマンドを実行し、Prisma のセットアップをしましょう。`.env` ファイルを編集し、Prisma がデータベースに接続できるようにしましょう。
+新しいプロジェクト用のディレクトリを作成し、`npx prisma init` コマンドを実行して、Prisma のセットアップをしましょう。`.env` ファイルを編集し、Prisma がデータベースに接続できるようにしましょう。
 
 ### 手順 3
 
 作成された `.prisma` ファイルを編集し、掲示板に投稿されたメッセージを保存するためのテーブルと、そのテーブルのカラムの定義を記述しましょう。`npx prisma db push` コマンドでテーブルとカラムの定義をデータベースに反映させましょう。
+
+:::info[テーブルの定義]
+掲示板サービスに必要なテーブルの構造を考えてみましょう。例えば、次の例では、掲示板の投稿を保存するための `Post` テーブルを定義しており、このテーブルには `id` と `message` の 2 つのカラムが存在しています。他にも、投稿のタイトルを保存するための `title` カラムや、投稿者名を保存するための `author` カラムなどを定義するなどの工夫が考えられます。
+
+```javascript title="prisma/schema.prisma の抜粋"
+model Post {
+  id      Int    @id @default(autoincrement())
+  message String
+}
+```
+
+:::
 
 ### 手順 4
 
@@ -231,26 +243,133 @@ DBeaver を用いて掲示板の投稿のサンプルデータをデータベー
 
 ### 手順 5
 
-演習と同じ方法で Node.js のデバッガを用い、データベースのデータが Prisma で取得できることを確認しましょう。
+Node.js のデバッガを用いて、データベースのデータが Prisma で取得できることを確認しましょう。
 
 ### 手順 6
 
-Express をインストールし、`/` への GET リクエストに対してデータベースのデータを HTML に整形してレスポンスとして返せるようにしましょう。
+Express をインストールし、`/` への GET リクエストに対して、データベースのデータを HTML に整形したレスポンスを返せるようにしましょう。
+
+:::info[ヒント]
+Prisma の `findMany` メソッドを用いて、テーブル内にある全てのレコードを取得できます。
+
+```javascript
+const posts = await client.post.findMany();
+// [
+//   { id: 1, message: "おはようございます" },
+//   { id: 2, message: "こんにちは" },
+// ]
+```
+
+このメソッドの戻り値は、各カラムの値をプロパティとして持つオブジェクトの配列です。`Array#map` メソッドや `Array#join` メソッドを用い、適切な HTML に変換してレスポンスを生成しましょう。
+:::
+
+<Answer title="手順 6 まで">
+
+```javascript title="main.mjs の抜粋"
+const template = readFileSync("./index.html", "utf-8");
+app.get("/", async (request, response) => {
+  const posts = await client.post.findMany();
+  const html = template.replace(
+    "<!-- messages -->",
+    posts.map((post) => `<li>${post.message}</li>`).join(""),
+  );
+  response.send(html);
+});
+```
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>掲示板</title>
+  </head>
+  <body>
+    <ul>
+      <!-- messages -->
+    </ul>
+  </body>
+</html>
+```
+
+</Answer>
 
 ### 手順 7
 
-掲示板を投稿するための HTML のフォームを表示できるようにしましょう。
+掲示板を投稿するための HTML のフォームを表示できるようにしましょう。入力されたデータは `/post` への POST リクエストとして送信されるようにしてみましょう。
+
+:::info[ヒント]
+手順 6 で作成したテンプレートとなる HTML ファイルを編集し、フォームを追加しましょう。
+:::
+
+<Answer title="手順 7 まで">
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>掲示板</title>
+  </head>
+  <body>
+    <ul>
+      <!-- messages -->
+    </ul>
+    <form method="post" action="/send">
+      <input placeholder="メッセージ" name="message" />
+      <button type="submit">送信</button>
+    </form>
+  </body>
+</html>
+```
+
+</Answer>
 
 ### 手順 8
 
-前の手順で作成した HTML のフォームの送信先を作成しましょう。データは POST リクエストとして送信するようにしましょう。送られてきたデータが正しいか Node.js のデバッガを用いて確認してみましょう。
+前の手順で作成した HTML のフォームの送信先 (`/send` への POST リクエスト) を作成しましょう。送られてきたデータが正しいか、Node.js のデバッガを用いて確認してみましょう。
+
+<Answer title="手順 8 まで">
+
+```javascript title="main.mjs の抜粋"
+app.use(express.urlencoded({ extended: true }));
+app.post("/send", async (request, response) => {
+  debugger; // ここで request オブジェクトの中身を確認
+});
+```
+
+</Answer>
 
 ### 手順 9
 
-送られてきたデータをデータベースに登録できるようにしましょう。DBeaver を用いて、データが実際にデータベースに登録されていることを確認しましょう。
+送られてきたデータをデータベースに保存できるようにしましょう。データベースに投稿が保存された後、ブラウザは自動的に `/` に戻るようにしてみましょう。
+
+:::info[ヒント]
+サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。Express を用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
+
+```javascript
+app.post("/send", async (request, response) => {
+  // 省略
+  response.redirect("/");
+});
+```
+
+:::
+
+<Answer title="手順 9 まで">
+
+```javascript title="main.mjs の抜粋"
+app.use(express.urlencoded({ extended: true }));
+app.post("/send", async (request, response) => {
+  await client.post.create({ data: { message: request.body.message } });
+  response.redirect("/");
+});
+```
+
+</Answer>
 
 ### 手順 10
 
-Node.js のサーバーを再起動し、データが残っていることを確認しましょう。
+DBeaver を用いて、掲示板への投稿がデータベースに保存されていることを確認しましょう。また、Node.js のサーバーを再起動しても、データが残っていることを確認しましょう。
 
 <ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />
