@@ -84,7 +84,7 @@ npx prisma init
 
 コマンドを実行します。パッケージを実行しても良いか尋ねられる場合は、`y` を入力して許可しましょう。
 
-<video src={prismaInitVideo} controls muted autoPlay loop />
+<video src={prismaInitVideo} controls muted />
 
 :::tip[<Term>`npx` コマンド</Term>]
 
@@ -96,7 +96,7 @@ npx prisma init
 
 続いて、ElephantSQL からデータベースへの接続情報を `.env` ファイルにコピーします。これにより、Prisma は ElephantSQL 上の PostgreSQL サーバーと接続できるようになります。
 
-<video src={copySecretValuesVideo} controls muted autoPlay loop />
+<video src={copySecretValuesVideo} controls muted />
 
 `prisma/schema.prisma` ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
 
