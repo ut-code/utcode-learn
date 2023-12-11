@@ -382,7 +382,7 @@ export default {
     serverClient: {
       name: "サーバーとクライアント",
       definition:
-        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは代表的なクライアントソフトウェアである。",
+        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは、Web における代表的なクライアントソフトウェアである。",
       referencePage: "/docs/web-servers/server/",
     },
     json: {
@@ -391,8 +391,8 @@ export default {
         "複雑なデータ構造を JavaScript オブジェクトに似た形式で文字列として表現するための記法。",
       referencePage: "/docs/web-servers/module/",
     },
-    httpRequestResponse: {
-      name: "リクエストとレスポンス (HTTP)",
+    requestResponse: {
+      name: "リクエストとレスポンス",
       definition:
         "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
       referencePage: "/docs/web-servers/server/",
