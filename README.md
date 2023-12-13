@@ -2,10 +2,10 @@
 
 <img alt="ロゴ" src="./static/img/logo.svg" height="200px" />
 
-[![MDX](https://img.shields.io/badge/MDX-1B1F24.svg?logo=mdx)](https://mdxjs.com/)
+[![language: MDX](https://img.shields.io/badge/MDX-1B1F24.svg?logo=mdx)](https://mdxjs.com/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-![license](https://img.shields.io/badge/license-MIT-informational.svg)
-![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![license: MIT](https://img.shields.io/badge/license-MIT-informational.svg)
+![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 [English README is here.](./README-en.md)
 
@@ -20,7 +20,8 @@ ut.code(); Learn は、ut.code(); によって作られた Web 技術の学習�
   - [環境構築](#環境構築)
   - [開発用サーバーの起動](#開発用サーバーの起動)
   - [ディレクトリ構成](#ディレクトリ構成)
-  - [コードスタイル](#コードスタイル)
+  - [カスタムコンポーネント](#カスタムコンポーネント)
+  - [コミットの前に](#コミットの前に)
 - [貢献](#貢献)
 
 ## 概要
@@ -58,14 +59,33 @@ npm start
 ### ディレクトリ構成
 
 `docs` フォルダ下に作られたファイルは自動でホスティングされます。
-`index.md` というファイルを編集することで、変更ができます。編集したい階層にある `index.md` ファイルを選んで編集してください。
-`index.md` は Markdown を拡張した MDX という非常に簡単な形式で書かれています。
+`index.mdx` というファイルを編集することで、変更ができます。編集したい階層にある `index.mdx` ファイルを選んで編集してください。
+`index.mdx` は Markdown を拡張した MDX という非常に簡単な形式で書かれています。
 
-### コードスタイル
+### カスタムコンポーネント
 
-ut.code(); Learn は、Prettier でフォーマットされています。
+ut.code(); Learn では、次のカスタムコンポーネントが定義されています。
 
-VSCode 拡張機能で Prettier をインストールして、コマンドパレットから `Format Document` を選択すると自動でフォーマットすることができます。
+- Term - 用語にポップアップの説明を付ける
+- Answer - 解答例を折りたたんで隠す
+- ViewSource - GitHub と CodeSandbox で解答例を表示するボタンを表示する
+- ExternalVideoPlayer - 動画プレイヤーを表示する
+
+### コミットの前に
+
+コミットの前に、
+
+```shell
+npm run format
+```
+
+でフォーマットして、
+
+```shell
+npm run build
+```
+
+でビルドが通ることを確認してください。
 
 ## ライセンス
 
