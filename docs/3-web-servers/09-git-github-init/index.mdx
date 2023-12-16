@@ -13,11 +13,11 @@ import addSshKeyVideo from "./add-ssh-key.mp4";
 
 **Git** は、現在最もよく使われるバージョン管理システムです。軽量ながらも多機能であり、周辺のエコシステムも非常に充実しています。
 
-## Git をインストールする
+## Git のインストール
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    macOS の場合は、コマンドラインデベロッパツールが必要です。
+    macOS の場合は、コマンドラインデベロッパツールが必要な場合があります。
 
     <video src={installCommandLineDeveloperToolsVideo} controls muted />
 
@@ -26,6 +26,24 @@ import addSshKeyVideo from "./add-ssh-key.mp4";
     WSL を利用する場合は Git は標準搭載なので追加でインストールする必要はありません。
   </TabItem>
 </Tabs>
+
+## Git の拡張機能のインストール
+
+VS Code 標準の機能だけでも多くのことができますが、より便利に利用するために拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
+
+### [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+コミットの差分などが見やすくなり便利
+
+![GitLens](./gitLens.png)
+
+### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+コマンドパレット (<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) ) に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+
+![GitGragh](./gitGraph.png)
+
+![GitGragh拡張機能の様子](./gitGraph-view.png)
 
 ## GitHub への登録
 
@@ -41,33 +59,39 @@ GitHub のアカウント名は、開発者コミュニティにおける自分�
 
 <video src={registerGitHubVideo} controls muted />
 
-## Git の初期設定
+## Git と GitHub の初期設定
 
-Git では、ファイルの変更だけでなく、その変更を行ったのが誰なのかも記録します。Git に対して自分の情報を登録しておきます。必要な情報は名前とメールアドレスです。
+### ユーザー情報の登録
 
-:::warning[プライバシーの注意]
+Git では、ファイルの変更だけでなく、その変更を行ったのが誰なのかも記録します。Git に対して名前とメールアドレスを登録しましょう。
 
-自分が書いたプログラムを GitHub を用いて公開する場合、ここで設定した名前とメールアドレスが公開されます。
+- 名前: 必ず GitHub のアカウント名と一致させるようにしてください。
 
-:::
+- メールアドレス: GitHub の登録の際に設定したメールアドレスが推奨されますが、メールアドレスを公開したくない場合は、次のようにダミーのメールアドレスを取得することもできます。
 
-名前は必ず GitHub のアカウント名と一致させるようにしてください。メールアドレスは GitHub の登録の際に設定したメールアドレスが推奨されますが、メールアドレスを公開したくない場合は、[GitHub のメール設定](https://github.com/settings/emails)から
+  [GitHub のメール設定](https://github.com/settings/emails)から `Keep my email addresses private` を有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では `112743782+sample-ma9qke@users.noreply.github.com`) を Git に指定してください。
 
-- `Keep my email addresses private`
-- `Block command line pushes that expose my email`
-
-を必要に応じて有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では `112743782+sample-ma9qke@users.noreply.github.com`) を Git に指定してください。
-
-![メールアドレスを隠す](./hide-email-address.png)
+  ![メールアドレスを隠す](./hide-email-address.png)
 
 名前とメールアドレスを登録するために、次の 2 つのコマンドを実行しましょう。
 
 ```shell
-$ git config --global user.name 名前
-$ git config --global user.email メールアドレス
+git config --global user.name 名前
 ```
 
+```shell
+git config --global user.email メールアドレス
+```
+
+:::danger[プライバシーの注意]
+
+自分が書いたプログラムを GitHub を用いて公開する場合、ここで設定した名前とメールアドレスが公開されます。メールアドレスを公開したくない場合は、上記で取得したダミーのメールアドレスを設定してください。
+
+:::
+
 <video src={setupGitVideo} controls muted />
+
+### デフォルトブランチの設定
 
 現在 WSL 上の Ubuntu の Git では、デフォルトブランチというものが `master` に設定されていますが、macOS では `main` になっています。また、GitHub ではデフォルトブランチが `main` になっています。これらを統一するために、次のコマンドを実行してください。
 
@@ -75,7 +99,7 @@ $ git config --global user.email メールアドレス
 git config --global init.defaultBranch main
 ```
 
-## 公開鍵・秘密鍵ペアの作成と GitHub への登録
+### 公開鍵・秘密鍵ペアの作成と GitHub への登録
 
 GitHub にブラウザからログインする際にはメールアドレスとパスワードを用いますが、Git のコマンドを用いて GitHub を使用する場合には、公開鍵・秘密鍵のペアを使用します。
 
@@ -133,21 +157,3 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 ![SSHキーを追加](./add-ssh-key.png)
 
 上記のようなページが表示されたら、`Title` に適切な名前、`Key` には先ほどターミナルで表示した公開鍵を入力して登録しましょう。
-
-## Git の拡張機能をインストールする
-
-VS Code 標準の機能だけでも多くのことができますが、より便利に利用するために拡張機能を併用していきます。次の拡張機能をインストールしておきましょう。
-
-### [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-
-コミットの差分などが見やすくなり便利
-
-![GitLens](./gitLens.png)
-
-### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-
-コマンドパレット (<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) ) に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
-
-![GitGragh](./gitGraph.png)
-
-![GitGragh拡張機能の様子](./gitGraph-view.png)
