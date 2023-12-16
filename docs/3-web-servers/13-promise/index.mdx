@@ -104,10 +104,10 @@ console.log("Async process");
 
 ### データベース？
 
-3 秒かけて id からユーザーのデータを取得する `Promise` オブジェクトを返す関数
+3 秒かけて id からユーザーのデータを取得する `Promise` オブジェクトを返すモジュール
 
-```js
-const users_db_side = [
+```js title="database.mjs"
+const users = [
   { name: "田中", age: 18 },
   { name: "鈴木", age: 20 },
   { name: "佐藤", age: 19 },
@@ -118,10 +118,10 @@ const users_db_side = [
 /* 新しい Promise オブジェクトを作成して返しています。
    詳しくは Promise コンストラクタの節で説明するので、
    今は深く理解する必要はありません。 */
-function fetchUserData(id) {
+export default function fetchUserData(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (users_db_side[id]) resolve(users_db_side[id]);
+      if (users[id]) resolve(users_db_side[id]);
       else reject("User not found!");
     }, 3000);
   });
@@ -132,8 +132,8 @@ function fetchUserData(id) {
 
 <Answer title="データベース？">
 
-```js
-// 上のデータベース実装は省略
+```js title="main.mjs";
+import fetchUserData from "./database.mjs";
 async function showData(id) {
   const user = await fetchUserData(id);
   console.log(
@@ -151,6 +151,10 @@ console.log("接続中...");
 ### 追加問題
 
 データベース実装のコードを書き換えて、名前からユーザーを検索できるようにしてみましょう。
+
+解答例:
+
+<ViewSource url={import.meta.url} src="./_samples/find-user-from-name" />
 
 </Answer>
 
@@ -176,11 +180,8 @@ console.log(asyncFunction());
 
 ## 複数の<Term>非同期処理</Term>
 
-これで非同期処理を完全にマスターしましたね！以下のように書けば 5 人分の `fetchUserData` を非同期的に処理できるはずです！
-
 ```js
-// 以下、fetchUserData 関数の実装は省略します。
-// 必要に応じて上のコードをコピーしてください。
+import fetchUserData from "./database.mjs";
 
 async function repeatAwait() {
   for (let i = 0; i < 5; i += 1) {
@@ -201,6 +202,8 @@ repeatAwait();
 代わりに、このように書くと各処理を非同期的に待機できます。
 
 ```js
+import fetchUserData from "./database.mjs";
+
 async function logUser(id) {
   const user = await fetchUserData(id);
   console.log(user);
@@ -221,6 +224,8 @@ for (let i = 0; i < 5; i++) {
 上にある例で例えると、
 
 ```js
+import fetchUserData from "./database.mjs";
+
 async function promiseAll() {
   const array = [0, 1, 2, 3, 4];
 
