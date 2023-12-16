@@ -149,13 +149,34 @@ console.log("Hello World");
 
 ターミナルに `Hello World` が表示されれば成功です。
 
+:::tip `'MODULE_NOT_FOUND'`
+`'MODULE_NOT_FOUND'` というエラーが出る場合、開いているディレクトリが違う可能性があります。
+
+```shell
+ls
+```
+
+や
+
+```shell
+pwd
+```
+
+で、正しいディレクトリにいることを確認してください。
+:::
+
 ## Node.js のデバッグ
 
 [ブラウザの開発者ツールを利用する](/docs/browser-apps/inspector/) 節で JavaScript のデバッグを行ったのと同様に、Node.js では、VS Code 標準の機能を用いてデバッグを行えます。
 
-Node.js のデバッグを開始するには、ブレークポイント等を設定したうえで、`F5` キーを押します。初回はデバッグ構成を選択するメニューが出現するので、`Node.js` を選択しましょう。デバッグが開始されると、VS Code 下部の青いバーが橙色に変化します。`console.log` は `DEBUG CONSOLE` タブに出力されるので注意しましょう。
+Node.js のデバッグを開始するには、ブレークポイント等を設定したうえで、<kbd>F5</kbd> キー (または <kbd>Fn</kbd> + <kbd>F5</kbd>) を押します。初回はデバッグ構成を選択するメニューが出現するので、`Node.js` を選択しましょう。デバッグが開始されると、VS Code 下部の青いバーが橙色に変化します。`console.log` は `DEBUG CONSOLE` タブに出力されるので注意しましょう。
 
 ステップ実行、コールスタックなど、基本的な機能はブラウザに搭載されているものとほとんど同じです。
+
+:::warning
+Node.js をインストールした直後は、「Node バイナリが見つかりません。」のようなエラーメッセージが出る場合があります。
+VS Code を再起動 (macOS の場合は <kbd>command</kbd> + <kbd>Q</kbd>)しましょう。
+:::
 
 <video src={debuggingVideo} controls />
 
