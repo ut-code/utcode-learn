@@ -22,7 +22,7 @@ Git では、**リポジトリ**と呼ばれる単位でソースコードを管
 
 まずは Git で管理するためのディレクトリを作成し、VS Code で開きます。左側のアクティビティバーの `Source Control` パネル内の `Initialize Repository` ボタンを押してください。これで、カレントディレクトリを Git の管理下に置く (カレントディレクトリを Git リポジトリにする) ことができます。
 
-<video src={gitInitVideo} controls autoPlay muted loop />
+<video src={gitInitVideo} controls muted />
 
 :::info[`git init` コマンド]
 
@@ -32,7 +32,7 @@ Git の操作は、コマンドからも行うことが出来ます。カレン�
 git init
 ```
 
-<video src={gitInitWithCliVideo} controls autoPlay muted loop />
+<video src={gitInitWithCliVideo} controls muted />
 
 :::
 
@@ -58,7 +58,7 @@ branches  config  description  HEAD  hooks  info  objects  refs
 
 コミットを作成する前に、変更を**ステージ**する必要があります。ステージとはコミットの直前の状態で、Git に対して該当ファイルをコミットする意思があることを伝えるためのものです。`Source Control` パネル内の変更したファイルの横の `+` ボタンを押します。ファイルが `Changes` から `Staged Changes` に移ったら成功です。
 
-<video src={stageChangesVideo} loop muted autoPlay controls />
+<video src={stageChangesVideo} muted controls />
 
 :::info[`git status` コマンド]
 
@@ -85,13 +85,13 @@ $ git add -A # リポジトリ内部のすべてのファイルをステージ�
 
 `git add` コマンドを使う前後で `git status` コマンドの結果が変化していることを確認しましょう。
 
-<video src={stageChangesWithCliVideo} loop muted autoPlay controls />
+<video src={stageChangesWithCliVideo} muted controls />
 
 :::
 
 ステージされた変更からコミットを作成するには、**コミットメッセージ**を入力して `Commit` ボタンを押します。コミットメッセージには、そのコミットで行われた変更を説明する簡潔なメッセージを入力してください。(日本語も使うことが出来ます。)
 
-<video src={commitChangesVideo} muted autoPlay loop controls />
+<video src={commitChangesVideo} muted controls />
 
 変更がコミットとして記録されました。
 
@@ -103,7 +103,7 @@ $ git add -A # リポジトリ内部のすべてのファイルをステージ�
 git commit -m "コミットメッセージ"
 ```
 
-<video src={commitChangesWithCliVideo} muted autoPlay loop controls />
+<video src={commitChangesWithCliVideo} muted controls />
 
 :::
 
@@ -119,17 +119,17 @@ git commit -m "コミットメッセージ"
 
 先ほど作成したファイルを変更し、ステージした後、もう一度コミットを作ってみましょう。
 
-<video src={secondCommitVideo} muted autoPlay loop controls />
+<video src={secondCommitVideo} muted controls />
 
-これにより、2 つ目のコミットが作成されました。コミットの履歴を確認するために、先ほどインストールした `Git Graph` 拡張機能を起動してみましょう。`command / Ctrl + Shift + P` キーを押してコマンドパレットを開き、`Git Graph: View Git Graph (git log)` を選択します。
+これにより、2 つ目のコミットが作成されました。コミットの履歴を確認するために、先ほどインストールした `Git Graph` 拡張機能を起動してみましょう。<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) キーを押してコマンドパレットを開き、`Git Graph: View Git Graph (git log)` を選択します。
 
-<video src={showGitHistoryVideo} muted autoPlay loop controls />
+<video src={showGitHistoryVideo} muted controls />
 
 :::info[`git log` コマンド]
 
 コマンドを用いて変更を表示するには、`git log` コマンドを使用します。
 
-<video src={showGitHistoryWithCliVideo} muted autoPlay loop controls />
+<video src={showGitHistoryWithCliVideo} muted controls />
 
 :::
 
@@ -139,7 +139,7 @@ git commit -m "コミットメッセージ"
 
 下の動画の最後で実行されている `git diff @ @~` は、最新のコミットとそのひとつ前のコミットを比較するためのコマンドです。`@` が最新のコミットを、`~` が「そのひとつ前」を表します。
 
-<video src={showGitDiffWithCliVideo} muted autoPlay loop controls />
+<video src={showGitDiffWithCliVideo} muted controls />
 
 :::
 
@@ -163,7 +163,7 @@ git remote add origin git@github.com:アカウント名/リポジトリ名.git
 
 追加が完了したら、`origin` として登録したリモートリポジトリにコミットを送信します。この操作を**プッシュ**と呼びます。プッシュをするには、`Publish Branch` を押します。
 
-<video src={pushChangesVideo} muted autoPlay loop controls />
+<video src={pushChangesVideo} muted controls />
 
 :::info
 

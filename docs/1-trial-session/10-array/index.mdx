@@ -118,10 +118,6 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ```
 
-```javascript
-const numbers = [-3, -1, 9, -10, 3, 7, 6, 1, 0, 5];
-```
-
 :::
 
 <Answer title="配列の要素の和">
@@ -171,8 +167,6 @@ document.write(`配列の合計値は ${sum} です。`);
 ```javascript
 const array1 = [3, 6, 8, 5, 0];
 const array2 = [-8, -7, -3, -1, -5];
-const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
-const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 ```
 
 :::
@@ -192,8 +186,6 @@ const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 ```javascript
 const array1 = [3, 6, 8, 5, 0];
 const array2 = [-8, -7, -3, -1, -5];
-const array3 = [5986, 7202, 9347, 3593, 8166, 662, 2235, 9323, 2240, 943];
-const array4 = [-878, -40, -324, -410, -592, -610, -880, -65, -423, -32];
 
 function findMaxNumber(numbers) {
   if (numbers.length === 0) return; // 空配列を除外
@@ -212,13 +204,6 @@ document.write(
 document.write(
   `<p>配列 [${array2}] の最大値は${findMaxNumber(array2)} です。</p>`,
 );
-document.write(
-  `<p>配列 [${array3}] の最大値は${findMaxNumber(array3)} です。</p>`,
-);
-document.write(
-  `<p>配列 [${array4}] の最大値は${findMaxNumber(array4)} です。</p>`,
-);
-document.write(`<p>空の配列の最大値は ${findMaxNumber([])} です。</p>`);
 ```
 
 :::danger
@@ -228,37 +213,3 @@ document.write(`<p>空の配列の最大値は ${findMaxNumber([])} です。</p
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
 </Answer>
-
-{/* prettier-ignore */}
-{/* オブジェクトはまだ扱っていないためコメントアウト
-
-## 配列とオブジェクト
-
-配列はオブジェクトの一種です。しかしながら、JavaScript のオブジェクトとは、[オブジェクトの節](/docs/trial-session/object/)で扱ったように、プロパティ名とプロパティ値の組み合わせでした。
-
-配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
-
-![配列のプロパティ](./array-properties.png)
-
-逆に、その他のオブジェクトも配列と同じように使用することができます。この記法を**ブラケット記法**と呼び、プログラムの動作に応じて使用したいプロパティを切り替えるのに役立ちます。
-
-```javascript
-const subject = "math"; // ここを変えると表示される教科が変わる
-const scores = { math: 90, science: 80 };
-document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
-```
-
-:::tip[オブジェクトのプロパティ]
-
-オブジェクトのプロパティに数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
-
-答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
-
-```javascript
-const studentNames = ["田中", "佐藤", "鈴木"];
-document.write(studentNames["0"]); // 田中
-```
-
-:::
-
-\*/}
