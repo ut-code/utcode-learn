@@ -47,6 +47,36 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 nvm のインストールが終わったら、ターミナルに nvm を認識させるためにターミナルアプリケーションを再起動してください。
 
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
+
+    macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。
+
+    ```shell
+    touch ~/.zshrc
+    ```
+    </TabItem><TabItem value="win" label="Windows (WSL)">
+
+WSL の場合は、
+
+```shell title="WSL"
+exit
+```
+
+を実行して WSL を退出した後、Windows 側で
+
+```shell title="Command Prompt"
+wsl --shutdown
+```
+
+を実行すると WSL をシャットダウンすることができます。
+
+シャットダウンした後は、再度 WSL にサインインしてください。
+
+</TabItem>
+</Tabs>
+---
+
 続いて、nvm のインストールが成功していることを確認するため、次のコマンドを実行します。
 
 ```shell
@@ -66,7 +96,9 @@ $ nvm -v
 nvm install --lts
 ```
 
-完了したら、Node.js のインストールが完了しているか確認するため、次のコマンドを実行します。
+完了したら、 nvm インストール時と同様に、ターミナルを再起動してください。
+
+Node.js のインストールが完了しているか確認するため、次のコマンドを実行します。
 
 ```shell
 node -v
@@ -81,17 +113,12 @@ v20.10.0
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
-    macOS の場合、インストールコマンドを実行してターミナルを再起動しても、`nvm` が使用できない場合があります。その場合、次のコマンドを実行してみてください。
-
-    ```shell
-    touch ~/.zshrc
-    ```
 
     <video src={installNvmInMacVideo} controls />
 
   </TabItem>
   <TabItem value="win" label="Windows (WSL)">
-    Windows 上での作業は、WSL のターミナルを利用するようにしましょう。
+    Windows での作業は、WSL のターミナルを利用するようにしましょう。
 
     <video src={installNvmInWslVideo} controls />
 
