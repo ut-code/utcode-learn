@@ -117,7 +117,7 @@ app.listen(3000);
 このページの URL を見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
 ![URLのクエリパラメータ](form-url.png)
 
-## 課題1
+## 初級課題
 
 ログイン画面を作ってみましょう。以下のような画面を作成してください。
 
@@ -139,11 +139,53 @@ const userCredentials = [
 [`Array#find` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/find)を使用して、ユーザー名とパスワードが一致する要素を探してみましょう。
 :::
 
-### 解答例
+<Answer title="ログイン画面">
+
+```html title="static/index.html"
+<form action="/login" method="post">
+  <input type="text" name="username" placeholder="ユーザー名" />
+  <input type="password" name="password" placeholder="パスワード" />
+  <button>ログイン</button>
+</form>
+```
+
+```javascript title="main.mjs"
+import express from "express";
+const app = express();
+
+app.use(express.static("static"));
+app.use(express.urlencoded({ extended: true }));
+
+const userCredentials = [
+  { username: "tanaka", password: "kfae12F@" },
+  { username: "sato", password: "faewbnpE3b=" },
+  { username: "endo", password: "fEnEoB131b" },
+];
+
+app.post("/login", (request, response) => {
+  const username = request.body.username;
+  const password = request.body.password;
+
+  const userCredential = userCredentials.find(
+    (userCredential) =>
+      userCredential.username === username &&
+      userCredential.password === password,
+  );
+  if (userCredential === undefined) {
+    response.send("ログインに失敗しました。");
+  } else {
+    response.send("ログインに成功しました。");
+  }
+});
+
+app.listen(3000);
+```
 
 <ViewSource url={import.meta.url} path="_samples/login" />
 
-## 課題2
+</Answer>
+
+## 中級課題
 
 書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
 
@@ -172,8 +214,46 @@ const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
 :::
 
-### 解答例
+<Answer>
 
-解答例は以下を参照してください
+```html title="static/index.html"
+<form action="/send">
+  <input name="author" />
+  <button>送信</button>
+</form>
+```
+
+```javascript title="main.mjs"
+import express from "express";
+import { readFileSync } from "node:fs";
+
+const app = express();
+
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊つちやん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+
+app.use(express.static("static"));
+
+app.get("/send", (request, response) => {
+  const selectedBooks = books.filter(
+    (book) => book.author === request.query.author,
+  );
+  const template = readFileSync("./send.html", "utf-8");
+  const html = template.replace(
+    "<!-- books -->",
+    selectedBooks.map((book) => `<li>${book.title}</li>`).join(""),
+  );
+  response.send(html);
+});
+
+app.listen(3000);
+```
 
 <ViewSource url={import.meta.url} path="_samples/book-search-system" />
+
+</Answer>
