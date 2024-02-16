@@ -1,14 +1,13 @@
-import express from "express";
 import { readFileSync } from "node:fs";
+import express from "express";
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 const messages = [];
 
-app.use(express.urlencoded({ extended: true }));
-
+const template = readFileSync("./index.html", "utf-8");
 app.get("/", (request, response) => {
-  const template = readFileSync("./index.html", "utf-8");
   const html = template.replace(
     "<!-- messages -->",
     messages.map((message) => `<li>${message}</li>`).join(""),
@@ -18,7 +17,7 @@ app.get("/", (request, response) => {
 
 app.post("/send", (request, response) => {
   messages.push(request.body.message);
-  response.send("送信しました。");
+  response.redirect("/");
 });
 
 app.listen(3000);
