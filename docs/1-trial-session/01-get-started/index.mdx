@@ -6,8 +6,10 @@ import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installChromeOnWindowsVideo from "./install-chrome-on-windows.mp4";
 import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
 import installVscodeOnWindowsVideo from "./install-vscode-on-windows.mp4";
-import createFolderVideo from "./create-folder.mp4";
-import openFolderVideo from "./open-folder.mp4";
+import createFolderOnMacVideo from "./create-folder-on-mac.mp4";
+import createFolderOnWindowsVideo from "./create-folder-on-windows.mp4";
+import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
+import openFolderOnWindowsVideo from "./open-folder-on-windows.mp4";
 
 ## Google Chrome のインストール
 
@@ -41,17 +43,37 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 
 ## プロジェクトを格納するフォルダを作成する
 
-これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ドキュメントフォルダの中に `Projects` という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。
+これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ホームフォルダの中に `projects` という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。
 
 次の例では、`hello-world` の名前でプロジェクト用のフォルダを作成しています。
 
-<video src={createFolderVideo} controls />
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
+    <video src={createFolderOnMacVideo} controls />
+  </TabItem>
+  <TabItem value="win" label="Windows">
+    <video src={createFolderOnWindowsVideo} controls />
+  </TabItem>
+</Tabs>
+
+:::info
+
+これから作成するプログラムは、さきほど作成したホームフォルダの中の `projects` フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Code などの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
+
+:::
 
 ## Visual Studio Code でプロジェクトフォルダを開く
 
 `File` メニューから `Open Folder...` をクリックして、先ほど作成したフォルダを VS Code で開きます。
 
-<video src={openFolderVideo} controls />
+<Tabs groupId="os">
+  <TabItem value="mac" label="macOS">
+    <video src={openFolderOnMacVideo} controls />
+  </TabItem>
+  <TabItem value="win" label="Windows">
+    <video src={openFolderOnWindowsVideo} controls />
+  </TabItem>
+</Tabs>
 
 :::info
 
