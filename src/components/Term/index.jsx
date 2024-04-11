@@ -36,7 +36,7 @@ export default function Term({ type = null, children }) {
       // referencePageTitleがundefinedならばエラーを投げる (明らかに人的ミスのため)
       if (referencePageTitle === undefined) {
         throw new Error(
-          `The page title of the reference \n" ${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
+          `The page title of the reference \n"${term.referencePage} " \n is not defined in referencePageTitles in "src/components/Term/definition.js"`,
         );
       }
 
