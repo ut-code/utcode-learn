@@ -17,6 +17,7 @@ export default {
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
+    "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
@@ -308,6 +309,12 @@ export default {
       definition:
         "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
+    },
+    javascriptReference: {
+      name: "参照",
+      definition:
+        "値のコピーではなくメモリの場所を指し示す値の形式。オブジェクトや配列を直接評価すると得られる。代入演算子で参照値を渡した場合、二つの変数が同じものを指し示していることになるため、片方を変更するともう片方も変更されてしまう。",
+      referencePage: "/docs/browser-apps/reference/",
     },
     javascriptClass: {
       name: "クラス (JavaScript)",
