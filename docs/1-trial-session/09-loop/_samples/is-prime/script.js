@@ -9,7 +9,6 @@ function checkPrime(n) {
       return false;
     }
   }
-  // 2..n-1 までのすべてのiで割り切れなかった時のみ到達する
   return true;
 }
 
