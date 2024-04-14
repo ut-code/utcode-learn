@@ -108,4 +108,35 @@ HTMLファイルに一工夫が必要です。空の`<div>` タグを用意し�
 
 </Details>
 
+<Answer title="びっくり箱">
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="greeting"></div>
+    <button id="button">ボタン</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```js title="script.js"
+const greetingElement = document.getElementById("greeting");
+const buttonElement = document.getElementById("button");
+
+function onGreetingButtonClick() {
+  greetingElement.textContent = "Hello world!!";
+  greetingElement.style.color = "red";
+  greetingElement.style.fontSize = "40px";
+}
+
+buttonElement.onclick = onGreetingButtonClick;
+```
+
 <ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
+
+</Answer>
