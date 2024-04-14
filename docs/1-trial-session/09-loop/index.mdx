@@ -61,26 +61,6 @@ document.write(sum);
 
 </Answer>
 
-:::tip[複合代入演算子]
-
-[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
-
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
-
-複合代入演算子を用いると、
-
-```javascript
-i = i + 1;
-```
-
-は以下のように書き換えることができます。
-
-```javascript
-i += 1;
-```
-
-:::
-
 ## for 文
 
 `for` 文は、`while` 文にほんの少しだけ機能を追加したものになります。
@@ -197,14 +177,10 @@ document.write(product);
 
 ある整数の変数 `n` が与えられたとき、その値が素数であるかどうか判定するプログラムを作成してください。
 
-そして、`n` に 6、11、57、89 を入れてテストしてみましょう。
-
 :::info
 素数の定義は「1より大きい自然数のうち、1とその数以外で割り切れないもの」でしたね。
 
 `範囲内の全ての自然数 i に対して〇〇である` はどうやって評価すればよいでしょうか？
-
-（ヒント: 変数の性質を利用します）
 :::
 
 :::tip[豆知識]
@@ -213,56 +189,28 @@ document.write(product);
 
 <Answer title="素数判定">
 
-変数の、最後に代入した値のみを保持する性質を利用します。
+関数の、`return` 文が実行されたときに終了する性質を利用します。
 
-```javascript
-const n = 57; // 任意の整数
-
-let isPrime = true;
-if (n <= 1) {
-  // nが1以下のときは素数でない
-  isPrime = false;
-}
-
-for (let i = 2; i < n; i += 1) {
-  if (n % i === 0) {
-    isPrime = false;
+```js
+function checkPrime(n) {
+  if (n <= 1) {
+    // nが1以下のときは素数ではない
+    return false;
   }
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      // nはiで割り切れる
+      return false;
+    }
+  }
+  return true;
 }
 
-if (isPrime) {
-  document.write(`${n} は素数です`);
-} else {
-  document.write(`${n} は素数ではありません`);
-}
+document.write(checkPrime(7)); // true
+document.write(checkPrime(57)); // false
+document.write(checkPrime(-1)); // false
 ```
 
 <ViewSource url={import.meta.url} path="_samples/is-prime" />
-
-### 別解
-
-前項までで割ったあまりが0でないこととの `&&` (AND) をとることで帰納的に求めることもできます。
-
-```javascript
-const n = 89; // 任意の整数
-
-let isPrime = true;
-if (n <= 1) {
-  // nが1以下のときは素数でない
-  isPrime = false;
-}
-
-for (let i = 2; i < n; i += 1) {
-  isPrime = isPrime && n % i != 0;
-}
-
-if (isPrime) {
-  document.write(`${n} は素数です`);
-} else {
-  document.write(`${n} は素数ではありません`);
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/is-prime-using-and" />
 
 </Answer>
