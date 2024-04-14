@@ -2,9 +2,9 @@
 title: CSS
 ---
 
-今までは HTML と JavaScript を勉強してきました。今回は Web 開発で用いられるもう一つの言語、CSS について学びましょう。CSS は Web サイトの「見た目」をつかさどる言語です。多くの <Term>HTML 要素</Term> は、 <Term>CSS</Term> を用いることで、その見た目を細かくカスタマイズすることができます。
+今までは HTML と JavaScript を勉強してきました。今回は Web 開発で用いられるもう一つの言語、CSS について学びましょう。CSS は Web サイトの「見た目」をつかさどる言語です。多くの <Term>HTML 要素</Term> は、<Term>CSS</Term> を用いることで、その見た目を細かくカスタマイズすることができます。
 
-![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
+![Web 開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
 CSS の書き方を学び、「World」の文字を赤くしてみましょう。
 
@@ -50,11 +50,11 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 ## セレクタとID
 
-CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、 <code>index.html</code> の 9行目)
+CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、`index.html` の 9行目)
 
 ![セレクタ](selector.png)
 
-そして、CSS 側に書くのが **セレクタ**です。上の例では、 <code>style.css</code> の1行目の`#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
+そして、CSS 側に書くのが**セレクタ**です。上の例では、`style.css` の 1 行目の `#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
 
 `id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
 
@@ -68,7 +68,7 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 
 :::info[高度なセレクタ]
 
-また、セレクタをスペースで区切ると子孫要素、`>`で区切ると直属の子要素を表すことができます。そのまま繋げば and 条件とみなされます。
+また、セレクタをスペースで区切ると子孫要素、`>` で区切ると直属の子要素を表すことができます。そのまま繋げば and 条件とみなされます。
 
 | セレクタ         | 意味                                                                           |
 | ---------------- | ------------------------------------------------------------------------------ |
@@ -94,7 +94,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
-これで、 `Hello World!` の `World` の文字が赤くなりました。
+これで、`Hello World!` の `World` の文字が赤くなりました。
 
 :::note
 
@@ -104,7 +104,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 :::
 
 :::tip[HTMLの <Term>`style` 属性</Term>]
-`style.css` を作らずとも、 HTML 内に直接 CSS を指定することもできます。例えば、 `p` <Term>要素</Term> の <Term><code>style</code> 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
+`style.css` を作らずとも、HTML 内に直接 CSS を指定することもできます。例えば、`p` <Term>要素</Term> の <Term>`style` 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
 
 ```html title="index.html"
 <p style="color: red">Hello CSS!</p>
@@ -114,7 +114,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 
 このプログラムを実行すると、<Term>style 属性</Term>を指定した<Term>要素</Term>内のテキストが赤色で表示されます。
 
-しかし、 <code>style</code> 属性を用いて HTML と CSS を1つのファイルに混合するよりも、「構造」のファイル (HTML) 、「スタイル」のファイル (CSS) と役割をはっきり分離させたほうが、コードの可読性が上がり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+しかし、`style` 属性を用いて HTML と CSS を 1 つのファイルに混合するよりも、「構造」のファイル (HTML)、「スタイル」のファイル (CSS) と役割をはっきり分離させたほうが、コードの可読性が上がり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
 :::
 
 ## 複数のプロパティ
@@ -128,7 +128,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 
 複数の<Term type="cssProperty">プロパティ</Term>を指定する場合には、上のように `プロパティ: プロパティ値;` の組を並べて記述します。セミコロンの指定が必要であることに注意してください。
 
-CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾)等、数えきれないほどの種類が定義されています。
+CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾) 等、数えきれないほどの種類が定義されています。
 
 :::tip[どうやって調べたらいいの？]
 
@@ -144,7 +144,7 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 #### 3. 周辺知識を信頼できる情報源で調べる
 
-見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/) が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
 
 :::
 

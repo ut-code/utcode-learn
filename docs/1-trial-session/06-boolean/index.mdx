@@ -6,7 +6,7 @@ title: 論理値と論理演算子
 
 {/* prettier-ignore */}
 <Term>JavaScript</Term> で利用できる「<Term>値</Term>」として、これまで<Term>文字列</Term>と<Term>数値</Term>を扱いました。
-JavaScript ではこの他に、<Term>**論理値**</Term> と呼ばれる、「正しいか、正しくないか」を表すための<Term>値</Term>が存在します。
+JavaScript ではこの他に、<Term>**論理値**</Term>と呼ばれる、「正しいか、正しくないか」を表すための<Term>値</Term>が存在します。
 
 {/* prettier-ignore */}
 <Term>論理値</Term>は、`true`（真）または `false`（偽）の 2 つだけです。ダブルクォーテーション `"` は必要ありません。通常の<Term>値</Term>ですので、<Term>変数</Term>に<Term>代入</Term>したり、計算に使ったりすることができます。
@@ -26,13 +26,13 @@ const shouldEscape = !isHunterStrong && isMonsterBig; // true
 const shouldFight = isHunterStrong || isMonsterSmall; // false
 ```
 
-詳細は以下の通りです。 `!` のみが作用する対象を 1 つしかとらないことに注意してください。
+詳細は以下の通りです。`!` のみが作用する対象を 1 つしかとらないことに注意してください。
 
-| 演算子 | 意味       | 詳細                                                                 |
-| ------ | ---------- | -------------------------------------------------------------------- |
-| `!`    | ～ではない | `true` ならば `false`、`false` ならば `true`                         |
-| `&&`   | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false`  |
-| `\|\|` | または     | 両方 `false` ならば `false` 、どちらか 1 つでも `true` ならば `true` |
+| 演算子 | 意味       | 詳細                                                                |
+| ------ | ---------- | ------------------------------------------------------------------- |
+| `!`    | ～ではない | `true` ならば `false`、`false` ならば `true`                        |
+| `&&`   | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false` |
+| `\|\|` | または     | 両方 `false` ならば `false`、どちらか 1 つでも `true` ならば `true` |
 
 ## 比較<Term>演算子</Term>
 
