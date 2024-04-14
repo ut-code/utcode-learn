@@ -24,13 +24,12 @@ greet();
 {/* prettier-ignore */}
 <Term>関数</Term>を定義すると、<Term>関数</Term>名に続けてかっこを記述することにより、その<Term>関数</Term>を実行できるようになります。
 
-このプログラムでは、 `greet` <Term>関数</Term>が 2 回呼び出されているので、ブラウザに `Hello World!` が 2 つ表示されます。
+このプログラムでは、`greet` <Term>関数</Term>が 2 回呼び出されているので、ブラウザに `Hello World!` が 2 つ表示されます。
 
 ## <Term>**引数**</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>
-を与えることができます。
+<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>を与えることができます。
 <Term>引数</Term>には任意の<Term>値</Term>が指定できます。
 
 ```javascript
@@ -43,7 +42,7 @@ greet("morning", "佐藤");
 
 {/* prettier-ignore */}
 <Term>関数</Term>定義では、<Term>関数</Term>名直後のかっこ内に<Term>引数</Term>名をコンマ区切りで設定できます。
-上のプログラムで `greet` <Term>関数</Term>は、 `greetingType` や `myName` という名前の<Term>引数</Term>をとります。
+上のプログラムで `greet` <Term>関数</Term>は、`greetingType` や `myName` という名前の<Term>引数</Term>をとります。
 <Term>関数</Term>定義の中では、これらは<Term>変数</Term>のように振舞います。
 
 呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
@@ -67,14 +66,14 @@ function add(a, b) {
 document.write(add(3, 4));
 ```
 
-上の例の 6 行目で、<Term>式</Term> `add(3, 4)` が<Term>評価</Term>されると、 `a = 3, b = 4` として `add` <Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term> `const sum = a + b;` が実行されると、<Term>式</Term> `a + b` が<Term>評価</Term>され、`7` になります。これにより、`sum` に`7`が代入されます。
+上の例の 6 行目で、<Term>式</Term> `add(3, 4)` が<Term>評価</Term>されると、`a = 3, b = 4` として `add` <Term>関数</Term>が実行されます。`add` <Term>関数</Term>の中で<Term>文</Term> `const sum = a + b;` が実行されると、<Term>式</Term> `a + b` が<Term>評価</Term>され、`7` になります。これにより、`sum` に `7` が代入されます。
 次の行 `return sum;` で `add` <Term>関数</Term>は<Term>変数</Term> `sum` を<Term>評価</Term>した結果である、`7` を<Term>返し</Term>ます。
 そして<Term>式</Term> `add(3, 4)` の<Term>評価</Term>結果が `7` となります。
 
 <video src={returnValueVideo} controls muted />
 
 :::tip
-**return 文** が実行された時点で<Term>関数</Term>の処理が終了するため、次のように書くことで [if ~ else 文](../if-statement/#if--else) や [&& (AND) 演算子](../boolean/#論理演算子)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
+**return 文** が実行された時点で<Term>関数</Term>の処理が終了するため、次のように書くことで [if 〜 else 文](../if-statement/#if--else) や [&& (AND) 演算子](../boolean/#論理演算子)の繰り返しを避けつつ、複数の条件のついた処理を実行することができます。
 
 ```javascript
 let age = 21;
@@ -137,7 +136,7 @@ greet(); // あなたは2人目のお客様です。
 
 [**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
 
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は`x = x - y`、`x *= y` は`x = x * y` という意味になります。
+`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は `x = x - y`、`x *= y` は `x = x * y` という意味になります。
 
 ```javascript
 guestCount += 1;
@@ -175,8 +174,8 @@ increment();
 
 ## 処理の分割
 
-<Term>関数</Term>
-は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出すことにも用いることができます。
+{/* prettier-ignore */}
+<Term>関数</Term>は、複数回使用する処理を簡便に記述するためだけでなく、複雑で長い処理の一部を切り出すことにも用いることができます。
 
 長い処理をパーツに分割すると、次のようなメリットがあります。
 
@@ -257,8 +256,8 @@ function showProbabilityAsGraph(probability) {
 
 :::tip
 
-<Term>if 文</Term>を使って、`a` が大きい場合と `b`
-が大きい場合で処理を書き分けます。
+{/* prettier-ignore */}
+<Term>if 文</Term>を使って、`a` が大きい場合と `b` が大きい場合で処理を書き分けます。
 
 :::
 
@@ -311,7 +310,7 @@ document.write(calculateCost(3.5));
 
 `calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
-> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円/GB)
+> - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円 / GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
 
 <Answer title="携帯電話料金">
