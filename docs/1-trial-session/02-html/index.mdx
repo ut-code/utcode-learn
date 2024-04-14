@@ -32,15 +32,15 @@ VS Code の画面左端には、ファイル一覧が表示されています。
 
 ## ブラウザで <Term>HTML</Term> ファイルを開く
 
-前頁で作成したフォルダを開き、`index.html` が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World`の部分だけ太字) が表示されましたか？
+前頁で作成したフォルダを開き、`index.html` が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World` の部分だけ太字) が表示されましたか？
 
 <video src={openInBrowserVideo} controls />
 
 :::info[拡張子]
 
-VS Code 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません（macOS の場合は正しく表示されます）。なぜでしょうか？
+VS Code 上で作成したファイルは `index.html` でした。しかしながら、Windows でフォルダの中身を見ると `index` しか表示されません (macOS の場合は正しく表示されます)。なぜでしょうか？
 
-ファイル名の `.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term>HTML</Term>ファイルであることを明示するためです。
+ファイル名の `.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term>HTML</Term> ファイルであることを明示するためです。
 
 実は Windows では、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
 
@@ -82,7 +82,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 :::tip[ショートカットキー]
 
-ショートカットキーがうまく押せませんか？ <kbd>command</kbd> + <kbd>S</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>S</kbd> (Windows) はよく、「<kbd>command</kbd> (macOS) または <kbd>Ctrl</kbd> (Windows) キーと <kbd>S</kbd> キーを同時に押す」と言われますが、実は同時に押すと半分くらいの確率で失敗します。<kbd>command</kbd> (macOS) / <kbd>Ctrl</kbd> (Windows) キーを押した後、キーから指を離す前に <kbd>S</kbd> キーを押しましょう。
+ショートカットキーがうまく押せませんか？<kbd>command</kbd> + <kbd>S</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>S</kbd> (Windows) はよく、「<kbd>command</kbd> (macOS) または <kbd>Ctrl</kbd> (Windows) キーと <kbd>S</kbd> キーを同時に押す」と言われますが、実は同時に押すと半分くらいの確率で失敗します。<kbd>command</kbd> (macOS) / <kbd>Ctrl</kbd> (Windows) キーを押した後、キーから指を離す前に <kbd>S</kbd> キーを押しましょう。
 
 ショートカットキーを使いこなせるようになると、パソコンの操作速度が飛躍的に上昇します。慣れている人がパソコンを操作しているのを見たら、ぜひ後ろから覗き込んでみましょう。便利そうなショートカットキーを使っている人がいたら身に付けるようにすると良いです。
 
@@ -110,7 +110,7 @@ VS Code 上で作成したファイルは `index.html` でした。しかしな�
 
 という、「このファイルは <Term>HTML</Term> ファイルだ！」と宣言する定型句から始まります。
 
-続けて記述されるのは `<html lang="ja">` 、つまり **`html` <Term>要素</Term>** です。<Term>HTML</Term> は、この `html` <Term>要素</Term>を根とした木構造になっています。このため、`html` <Term>タグ</Term>の閉じ<Term>タグ</Term>はファイルの末尾に現れます。
+続けて記述されるのは `<html lang="ja">`、つまり **`html` <Term>要素</Term>** です。<Term>HTML</Term> は、この `html` <Term>要素</Term>を根とした木構造になっています。このため、`html` <Term>タグ</Term>の閉じ<Term>タグ</Term>はファイルの末尾に現れます。
 
 `html` <Term>要素</Term>の直属の子<Term>要素</Term>は、 **`head` <Term>要素</Term>** と **`body` <Term>要素</Term>** の二つだけです。このうち、後者 (`body` <Term>要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
 
