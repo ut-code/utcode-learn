@@ -62,7 +62,7 @@ const person = {
 
 ![ネストされた参照](./nested-reference.drawio.svg)
 
-## 課題
+## スプレッド構文
 
 参照の仕組みが特に問題になってくる場合として、オブジェクトの参照先が別の関数によって書き換えられる場合があります。次のコードを実行してみましょう。
 
@@ -80,31 +80,51 @@ document.write(tanaka.age); // 19 と表示されてしまう
 
 <ViewSource url={import.meta.url} path="_samples/object-mutated-by-function" />
 
-このコードは、[オブジェクト](/docs/trial-session/object/)の項で扱った課題でした。実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
+このコードは、[オブジェクト](/docs/trial-session/object/)の項で扱った課題でした。
+実はこのコードには問題があり、`tanaka` に対して `incrementAge` を適用すると、関数が適用された `tanaka` にも影響が及んでしまいます。
+これは、関数に渡される値はオブジェクトへの参照で、このオブジェクトは呼び出し元の変数が参照するものと同一のものだからです。
 
-`incrementAge` 関数の実装を変更し、関数に渡したオブジェクトが書き換えられないようにしてください。
+オブジェクトの全てのプロパティをコピーして新しいオブジェクトを生成するために、[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)というものを使うことができます。
 
-:::tip
+[スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)は、配列やオブジェクトを、別の配列やオブジェクトに展開するための記法です。
+オブジェクトを展開した時は、重複するプロパティがある場合は後に記載されたものが優先されます。
 
-オブジェクトが書き換えられないようにするためには、オブジェクトを新しく作り直す必要があります。
+```js
+const array1 = [1, 2, 3];
+const array2 = [...array1, 4, 5]; // [1, 2, 3, 4, 5]
 
-:::
+const object1 = { a: 1, b: 2 };
+const object2 = { ...object1, b: 3, c: 4 }; // { a: 1, b: 3, c: 4 }
+```
 
-<Answer>
+## 演習
 
-オブジェクトを新しく生成して、生成したオブジェクトを返しましょう。
+では、スプレッド構文を使って、オブジェクトの項で扱った課題を、もとのオブジェクトを変更しないように書き換えてみましょう。
 
-```javascript
+```js
 function incrementAge(person) {
-  return { name: person.name, age: person.age + 1 };
+  ...
 }
 
 const tanaka = { name: "田中", age: 18 };
 const nextYearTanaka = incrementAge(tanaka);
-document.write(nextYearTanaka.age);
-document.write(tanaka.age); // 18
+document.write(nextYearTanaka.age); // 19
+document.write(tanaka.age); // 18 と表示されてほしい
 ```
 
-<ViewSource url={import.meta.url} path="_samples/answer" />
+<Answer title="スプレッド構文">
+
+```js
+function incrementAge(person) {
+  return { ...person, age: person.age + 1 };
+}
+
+const tanaka = { name: "田中", age: 18 };
+const nextYearTanaka = incrementAge(tanaka);
+document.write(nextYearTanaka.age); // 19
+document.write(nextYearTanaka.address); // 東京
+```
+
+<ViewSource url={import.meta.url} path="_samples/answer-spread" />
 
 </Answer>
