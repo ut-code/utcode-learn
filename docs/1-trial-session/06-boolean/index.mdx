@@ -19,14 +19,13 @@ JavaScript ではこの他に、<Term>**論理値**</Term>と呼ばれる、「�
 <Term>論理値</Term>に対して適用できる<Term>演算子</Term>が存在します。
 
 ```javascript
-const isMonsterBig = true;
-const isMonsterSmall = !true; // false
-const isHunterStrong = false;
-const shouldEscape = !isHunterStrong && isMonsterBig; // true
-const shouldFight = isHunterStrong || isMonsterSmall; // false
+document.write(true); // true
+document.write(!false); // true
+document.write(true && false); // false
+document.write(true || false); // true
 ```
 
-詳細は以下の通りです。`!` のみが作用する対象を 1 つしかとらないことに注意してください。
+各<Term>演算子</Term>の意味は次の通りです。`!` のみが作用する対象を 1 つしかとらないことに注意してください。
 
 | 演算子 | 意味       | 詳細                                                                |
 | ------ | ---------- | ------------------------------------------------------------------- |
@@ -34,31 +33,49 @@ const shouldFight = isHunterStrong || isMonsterSmall; // false
 | `&&`   | かつ       | 両方 `true` ならば `true`、どちらか 1 つでも `false` ならば `false` |
 | `\|\|` | または     | 両方 `false` ならば `false`、どちらか 1 つでも `true` ならば `true` |
 
+具体的な使用例を考えてみましょう。
+
+モンスターが大きいかどうかを表す<Term>変数</Term> `isMonsterBig` と、ハンターが強いかどうかを表す<Term>変数</Term> `isHunterStrong` が用意されています。このとき、ハンターがモンスターと戦うべきかどうかを表す<Term>変数</Term> `shouldFight` を作りたいとします。ハンターは自分が強いときかモンスターが小さいときに戦うべきだとしたら、<Term>変数</Term> `shouldFight` は次のようになるでしょう。
+
+```javascript
+const isMonsterBig = true;
+const isHunterStrong = false;
+const shouldFight = isHunterStrong || !isMonsterBig; // false
+```
+
 ## 比較<Term>演算子</Term>
 
 比較<Term>演算子</Term>は、複数の<Term>値</Term>を比較して、単一の<Term>論理値</Term>を得ます。
 
 ```javascript
-const age = 15;
-const height = 155;
-const isFourteen = age === 14; // false
-const isNotFourteen = age !== 14; // true
-const isChild = age < 20; // true
-const canRideRollerCoasters = age >= 10 && height >= 140; // true
+document.write(3 === 3); // true
+document.write(3 === 4); // false
+document.write("Hello" === "Hello"); // true
+document.write(3 !== 3); // false
 ```
 
-各<Term>演算子</Term>の詳細は、次の通りです。
+各<Term>演算子</Term>の意味は次の通りです。
 
 | 演算子 | 意味       | 詳細                            |
 | ------ | ---------- | ------------------------------- |
-| `===`  | 等しい     |                                 |
-| `!==`  | 等しくない |                                 |
+| `===`  | 等しい     | 左辺と右辺が等しければ `true`   |
+| `!==`  | 等しくない | 左辺と右辺が等しければ `false`  |
 | `<`    | 小なり     | 左辺が右辺より小さければ `true` |
 | `<=`   | 以下       | 左辺が右辺以下ならば `true`     |
 | `>`    | 大なり     | 左辺が右辺より大きければ `true` |
 | `>=`   | 以上       | 左辺が右辺以上ならば `true`     |
 
-`&&` や `||` よりも比較<Term>演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、最後の例のように複数の条件を「かつ」「または」などで組み合わせることは容易です。
+具体的な使用例を考えてみましょう。
+
+ジェットコースターに乗れるかどうかを表す変数 `canRideRollerCoasters` を考えます。年齢を表す変数 `age` と身長を表す変数 `height` が与えられたとして、10 歳以上かつ身長が 120cm 以上でないと乗れないとしたら以下のようになるでしょう。
+
+```javascript
+const age = 15;
+const height = 155;
+const canRideRollerCoasters = age >= 10 && height >= 120; // true
+```
+
+`&&` や `||` よりも比較<Term>演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、複数の条件を「かつ」「または」などで組み合わせることは容易です。
 
 ## 課題
 
