@@ -47,12 +47,16 @@ const shouldFight = isHunterStrong || !isMonsterBig; // false
 
 比較<Term>演算子</Term>は、複数の<Term>値</Term>を比較して、単一の<Term>論理値</Term>を得ます。
 
-```javascript
-document.write(3 === 3); // true
-document.write(3 === 4); // false
-document.write("Hello" === "Hello"); // true
-document.write(3 !== 3); // false
+年齢を判定するプログラムを考えましょう。
+
+```javascript showLineNumbers
+const age = 14;
+document.write(age === 15); // false
+document.write(age === 14); // true
 ```
+
+`===` は左辺と右辺が等しいかどうか判定する比較<Term>演算子</Term>です。
+2 行目では `age` と 15 とは等しくないので `false` が、3 行目では `age` と 14 とは等しいので `true` が表示されます。
 
 各<Term>演算子</Term>の意味は次の通りです。
 
@@ -65,7 +69,7 @@ document.write(3 !== 3); // false
 | `>`    | 大なり     | 左辺が右辺より大きければ `true` |
 | `>=`   | 以上       | 左辺が右辺以上ならば `true`     |
 
-具体的な使用例を考えてみましょう。
+さらに具体的な使用例を考えてみましょう。
 
 ジェットコースターに乗れるかどうかを表す変数 `canRideRollerCoasters` を考えます。年齢を表す変数 `age` と身長を表す変数 `height` が与えられたとして、10 歳以上かつ身長が 120cm 以上でないと乗れないとしたら以下のようになるでしょう。
 
