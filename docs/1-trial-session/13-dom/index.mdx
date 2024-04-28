@@ -57,32 +57,36 @@ element.style.backgroundColor = "red";
 
 `document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
 `document.createElement` 関数の戻り値は、新しく作った HTML 要素に対応するオブジェクトです。
-下の例では、新しい `span` 要素を作っています。
+下の例では、新しい `li` 要素を作っています。
 
-中身のない空の要素が作成されるので、`textContent` を `Hello World!` に設定してみましょう。
+中身のない空の要素が作成されるので、`textContent` を `おやつ` に設定してみましょう。
 
 ```js title="script.js"
-const newSpan = document.createElement("span");
-newSpan.textContent = "Hello World!";
+const newItem = document.createElement("li");
+newItem.textContent = "おやつ";
 ```
 
 そして、`要素1.appendChild(要素2)` とすることで、要素 1 の子要素に要素 2 を追加し、画面に表示することができます。
-今回は、`div` 要素の子要素にしてみましょう。
+今回は、遠足の持ち物リストに新しい項目を追加してみましょう。
 
 ```html title="index.html"
-<div id="parent-element"></div>
+<ul id="packing-list">
+  <li>お弁当</li>
+  <li>水筒</li>
+  <li>タオル</li>
+  <li>レジャーシート</li>
+</ul>
 ```
 
 ```js title="script.js"
-const parent = document.getElementById("parent-element");
+const newItem = document.createElement("li");
+newItem.textContent = "おやつ";
 
-const newSpan = document.createElement("span");
-newSpan.textContent = "Hello World!";
-
-parent.appendChild(newSpan);
+const packingList = document.getElementById("packing-list");
+packingList.appendChild(newItem);
 ```
 
-これで、既存の `div` 要素の子要素に新しい `span` 要素が追加され、画面に `Hello World!` と表示されます。
+これで、既存の `ul` 要素の子要素に新しい `li` 要素が追加され、「おやつ」が加わった持ち物リストが表示されます。
 
 ## 初級課題
 
