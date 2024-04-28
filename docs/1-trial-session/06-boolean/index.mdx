@@ -81,7 +81,7 @@ const canRideRollerCoasters = age >= 10 && height >= 120; // true
 
 `&&` や `||` よりも比較<Term>演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、複数の条件を「かつ」「または」などで組み合わせることは容易です。
 
-## 課題
+:::info
 
 次のコードは何を表示するでしょうか。そしてそれはなぜでしょうか。
 
@@ -98,3 +98,43 @@ document.write(takaoHeight = everestHeight);
 
 - JavaScript で、数値と論理値に比較<Term>演算子</Term>を適用すると、`true` は `1` として、`false` は `0` として比較されます。
 - `=` は代入演算子です。代入<Term>演算子</Term>の<Term>式</Term>が<Term>評価</Term>されると、右辺の<Term>値</Term>になります。
+
+:::
+
+## 演習
+
+クイズ番組で自分とライバルが戦っています。
+自分の点数が `myScore` で、ライバルの点数が `opponentScore` で用意されています。
+
+自分の点数が 100 点以上で、かつライバルより 20 点以上高い点数の場合に勝ちとします。
+自分が勝ちかどうかを表す変数 `iWon` を作成してください。
+
+```javascript
+const myScore = 120;
+const opponentScore = 80;
+const iWon = /* ここに式を書いてください */;
+document.write(iWon); // true
+```
+
+:::tip
+
+`+`, `-`, `*`, `/` などの算術演算子は、比較演算子よりも先に計算されます。
+
+```javascript
+const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
+```
+
+:::
+
+<Answer title="クイズ番組">
+
+```javascript
+const myScore = 120;
+const opponentScore = 80;
+const iWon = myScore >= 100 && myScore - opponentScore >= 20;
+document.write(iWon); // true
+```
+
+<ViewSource url={import.meta.url} path="_samples/quiz-show" />
+
+</Answer>
