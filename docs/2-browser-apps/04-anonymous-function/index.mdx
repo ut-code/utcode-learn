@@ -4,7 +4,7 @@ title: 無名関数
 
 ## 無名関数
 
-[イベント](/docs/trial-session/events/)の節で、関数もオブジェクトの一種であることを説明しました。このため、関数は通常の値と同じように変数やプロパティに代入したり、関数の引数や戻り値になったりできます。
+[イベント](/docs/trial-session/events/)の節で、関数も値の一種であることを説明しました。このため、関数は変数やプロパティに代入したり、関数の引数や戻り値になったりできます。
 
 しかしながら、通常の記法で関数を記述することが煩わしい場合があります。イベントハンドラを登録する場合を考えてみましょう。
 
@@ -75,7 +75,7 @@ const add3 = function (a, b) {
 
 ## 無名関数を用いると便利な関数
 
-[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)は、関数オブジェクトの引数をひとつとり、配列の各要素に適用した上で、その戻り値からなる新しい配列を返します。
+[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)は、引数として値としての関数をひとつとり、配列の各要素に適用した上で、その戻り値からなる新しい配列を返します。
 
 このように、他の関数の引数として呼び出される関数のことを<Term>**コールバック関数**</Term>と呼びます。
 
@@ -98,8 +98,6 @@ document.write(pricesWithTax); // 120,240,360,480,600
 | 文字列         | [String](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)   |
 | 論理値         | [Boolean](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
 
-上のプログラムで使用されているのは[`String#repeat` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)で、文字列を指定された回数繰り返した文字列を返すメソッドです。
-
 :::
 
 ## アロー関数の省略形
@@ -110,7 +108,9 @@ document.write(pricesWithTax); // 120,240,360,480,600
 const pricesWithTax = pricesWithoutTax.map((price) => price * (1 + taxRate));
 ```
 
-## 課題
+## 演習問題
+
+### 問題 1
 
 先ほどの[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)を用いてみましょう。`students` 変数に格納されている名前を箇条書きにしてください。
 
@@ -140,6 +140,8 @@ studentList.innerHTML = students
 <ViewSource url={import.meta.url} path="_samples/map" />
 
 </Answer>
+
+### 問題 2
 
 `scores` 変数には、各必修科目の点数が格納されているとします。全ての要素が 50 点以上であることを確認するには、何というメソッドを使うのが適切か調べてみてください。また、実際にそのメソッドを用いて点数を確認してみてください。
 
@@ -171,7 +173,9 @@ if (scores.every((score) => score >= 50)) {
 
 </Answer>
 
-(発展) [`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
+### 問題 3 (発展)
+
+[`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];
