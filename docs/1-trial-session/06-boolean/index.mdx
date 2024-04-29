@@ -118,7 +118,7 @@ document.write(iWon); // true
 
 :::tip
 
-`+`, `-`, `*`, `/` などの算術演算子は、比較演算子よりも先に計算されます。
+`+`, `-`, `*`, `/` などの算術演算子は、比較演算子よりも<Term type="javascriptOperatorPriority">優先順位</Term>が高いです。
 
 ```javascript
 const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
@@ -131,8 +131,8 @@ const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
 ```javascript
 const myScore = 120;
 const opponentScore = 80;
-const iWon = myScore >= 100 && myScore - opponentScore >= 20;
-document.write(iWon); // true
+const amITheWinner = myScore >= 100 && myScore - opponentScore >= 20;
+document.write(amITheWinner); // true
 ```
 
 <ViewSource url={import.meta.url} path="_samples/quiz-show" />
