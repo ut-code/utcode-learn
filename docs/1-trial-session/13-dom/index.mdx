@@ -37,6 +37,34 @@ element.textContent = "Hello DOM";
 
 `textContent` <Term>プロパティ</Term>は、<Term>HTML 要素</Term>の内部のテキストを表します。<Term>オブジェクト</Term>の<Term>プロパティ</Term>は通常の<Term>変数</Term>のように取得や<Term>代入</Term>が可能で、上の例では `textContent` <Term>プロパティ</Term>に対して `"Hello DOM"` という<Term>文字列</Term>を代入することで、`div` <Term>要素</Term>の内部のテキストを変更しています。
 
+### 確認問題
+
+下のような HTML が記述されています。
+
+```html title="index.html"
+<div>Good <strong id="greeting-type">morning</strong>!</div>
+```
+
+JavaScript を使って、`Good evening!` (`evening` は太字) と表示されるようにしてください。
+
+:::warning
+
+- 読みやすさのため、`body` 要素の内部の、さらに `script` 要素以外の部分だけを抽出して表記しています。実際にはそれらの部分を含めて記述する必要があるので注意してください。これ以降もこのように省略して記述します。
+- `script` 要素は `body` 要素の内部のいちばん下に配置するようにしてください。
+
+:::
+
+<Answer>
+
+```js title="script.js"
+const greetingType = document.getElementById("greeting-type");
+greetingType.textContent = "evening";
+```
+
+<ViewSource url={import.meta.url} path="_samples/good-evening" />
+
+</Answer>
+
 ## <Term>HTML 要素</Term>のスタイルを変更する
 
 `document.getElementById` <Term>関数</Term>が返す<Term>オブジェクト</Term>の `style` <Term>プロパティ</Term>は、その要素の <Term>`style` 属性</Term>と対応します。 **`style` <Term>プロパティ</Term>に格納されている<Term>値</Term>自体も<Term>オブジェクト</Term>** となっており、その各<Term>プロパティ</Term>が CSS の<Term type="cssProperty">プロパティ</Term>に対応します。
@@ -52,6 +80,30 @@ element.style.backgroundColor = "red";
 {/* prettier-ignore */}
 <Term>CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である `background-color` は、内部にハイフンが含まれているため、`element.style.background-color` のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。
 `style` <Term>プロパティ</Term>では、<Term>CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
+
+### 確認問題
+
+下のような HTML ファイルがあります。
+
+```html title="index.html"
+<div id="greeting">Hello World!</div>
+```
+
+JavaScript を使って、文字色が黄色、背景色が好きな色 (この例では黒) で `Hello World!` が表示されるようにしてください。
+
+![文字色が黄色、背景色が黒色の Hello World!](./yellow-hello-world.png)
+
+<Answer>
+
+```js title="script.js"
+const greetingElement = document.getElementById("greeting");
+greetingElement.style.color = "yellow";
+greetingElement.style.backgroundColor = "black";
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-styles" />
+
+</Answer>
 
 ## DOM を用いて要素を追加する
 
@@ -87,6 +139,39 @@ packingList.appendChild(newItem);
 ```
 
 これで、既存の `ul` 要素の子要素に新しい `li` 要素が追加され、「おやつ」が加わった持ち物リストが表示されます。
+
+### 確認問題
+
+遠足の持ち物リストがあります。
+
+```html title="index.html"
+<ul id="packing-list">
+  <li>お弁当</li>
+  <li>水筒</li>
+  <li>タオル</li>
+  <li>レジャーシート</li>
+</ul>
+```
+
+このリストに新しい項目として「おやつ」を追加してください。ただし、「おやつ」は `strong` 要素を用いて太字で表示されるようにしてください。
+
+![おやつが太字になった持ち物リスト](./add-strong-snack.png)
+
+<Answer>
+
+```js title="script.js"
+const newItem = document.createElement("li");
+const strongPart = document.createElement("strong");
+strongPart.textContent = "おやつ";
+newItem.appendChild(strongPart);
+
+const packingList = document.getElementById("packing-list");
+packingList.appendChild(newItem);
+```
+
+<ViewSource url={import.meta.url} path="_samples/add-snack" />
+
+</Answer>
 
 ## 初級演習
 
