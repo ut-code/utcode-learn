@@ -116,9 +116,9 @@ addButton.onclick = () => {
 ### ステップ 2: ToDo を削除する
 
 次に削除ボタンを追加します。
-`document.createElement` 関数で要素内に追加しましょう。
+`document.createElement` 関数で `button` 要素を生成し削除ボタンにしてから `Node#appendChild` メソッドで要素内に追加しましょう。
 
-削除ボタンを押すと `li` 要素が 1 つ消える機能を実装するためには、ある要素から子要素を取り除く [`Node#removeChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/removeChild) を使います。
+削除ボタンを押すと `li` 要素が 1 つ消える機能を実装するためには、ある要素から子要素を取り除く [`Node#removeChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/removeChild)を使います。
 
 ```javascript
 // todoList から todoItem を取り除く
@@ -173,7 +173,7 @@ addButton.onclick = () => {
 編集ボタンをつけてみましょう。
 
 編集ボタンが押されたときに、ユーザーにテキストを入力するように促すダイアログを表示します。
-[`prompt` 関数](https://developer.mozilla.org/ja/docs/Web/API/Window/prompt) を使い、ユーザーに入力を求めることができます。
+[`prompt` 関数](https://developer.mozilla.org/ja/docs/Web/API/Window/prompt)を使い、ユーザーに入力を求めることができます。
 
 ```javascript
 todoText.textContent = prompt("新しい内容を入力してください。"); // ユーザーに入力を求める
