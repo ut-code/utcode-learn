@@ -103,17 +103,17 @@ document.write(takaoHeight = everestHeight);
 
 ## 演習
 
-クイズ番組で自分とライバルが戦っています。
-自分の点数が `myScore` で、ライバルの点数が `opponentScore` で用意されています。
+クイズ番組で田中さんと佐藤さんが戦っています。
+田中さんの点数が `tanakaScore` で、佐藤さんの点数が `satoScore` で用意されています。
 
-自分の点数が 100 点以上で、かつライバルより 20 点以上高い点数の場合に勝ちとします。
-自分が勝ちかどうかを表す変数 `iWon` を作成してください。
+点数が 100 点以上で、かつ相手より 20 点以上高い点数の場合に勝ちとします。
+田中さんが勝ちかどうかを表す変数 `isTanakaWinner` を作成してください。
 
 ```javascript
-const myScore = 120;
-const opponentScore = 80;
-const iWon = /* ここに式を書いてください */;
-document.write(iWon); // true
+const tanakaScore = 120;
+const satoScore = 80;
+const isTanakaWinner = /* ここに式を書いてください */;
+document.write(isTanakaWinner); // true
 ```
 
 :::tip
@@ -129,10 +129,10 @@ const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true
 <Answer title="クイズ番組">
 
 ```javascript
-const myScore = 120;
-const opponentScore = 80;
-const amITheWinner = myScore >= 100 && myScore - opponentScore >= 20;
-document.write(amITheWinner); // true
+const tanakaScore = 120;
+const satoScore = 80;
+const isTanakaWinner = tanakaScore >= 100 && tanakaScore - satoScore >= 20;
+document.write(isTanakaWinner); // true
 ```
 
 <ViewSource url={import.meta.url} path="_samples/quiz-show" />

@@ -1,4 +1,4 @@
-const myScore = 120;
-const opponentScore = 80;
-const amITheWinner = myScore >= 100 && myScore - opponentScore >= 20;
-document.write(amITheWinner); // true
+const tanakaScore = 120;
+const satoScore = 80;
+const isTanakaWinner = tanakaScore >= 100 && tanakaScore - satoScore >= 20;
+document.write(isTanakaWinner); // true
