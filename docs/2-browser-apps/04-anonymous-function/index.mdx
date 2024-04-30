@@ -88,18 +88,6 @@ const pricesWithTax = pricesWithoutTax.map((price) => {
 document.write(pricesWithTax); // 120,240,360,480,600
 ```
 
-:::tip[プリミティブ値のラッパーオブジェクト]
-
-数値や文字列、論理値には、それぞれ対応するクラスが存在し、そのクラスのメソッドが使用できます。[クラスとインスタンスの節](/docs/browser-apps/class/)でこうしたプリミティブ値に対して `toString` メソッドが使用できたのは、これらのクラスが `Object` クラスを継承しているからです。
-
-| プリミティブ値 | 対応するクラス                                                                                   |
-| -------------- | ------------------------------------------------------------------------------------------------ |
-| 数値           | [Number](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number)   |
-| 文字列         | [String](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String)   |
-| 論理値         | [Boolean](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
-
-:::
-
 ## アロー関数の省略形
 
 アロー関数は、内部の処理が `return` 文のみの場合、波括弧と `return` キーワードを省略して式のみを記述することもできます。前項のサンプルプログラムは、次のように省略可能です。
