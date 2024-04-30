@@ -11,7 +11,17 @@ title: DOM
 `document.getElementById` <Term>関数</Term>は、<Term>引数</Term>として <Term>HTML 要素</Term>の `id` <Term>属性</Term>に指定された値を<Term>文字列</Term>として<Term>渡す</Term>ことで、その<Term>要素</Term>を表す<Term>オブジェクト</Term>を<Term>返し</Term>ます。
 
 ```html title="index.html"
-<div id="greeting">Hello World</div>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="greeting">Hello World</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
 ```
 
 ```js title="script.js"
