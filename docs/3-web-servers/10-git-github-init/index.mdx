@@ -170,7 +170,10 @@ ssh -T git@github.com
 
 この操作の際、初回は以下のような警告が出る場合があります。
 
-{/\* ここは警告メッセージが変わっていた。古いからなのか、OS によって違う？
+{/* prettier-ignore-start */}
+
+{/*
+ここは警告メッセージが変わっていた。古いからなのか、OS によって違う？
 OS によって違ったら変えないほうがいいので、一応残しておく。確認が取れ次第消すこと。
 
 ```plain
@@ -178,7 +181,9 @@ OS によって違ったら変えないほうがいいので、一応残して�
 Are you sure you want to continue connecting?
 ```
 
-\*/}
+*/}
+
+{/* prettier-ignore-end */}
 
 ```plain
 The authenticity of host 'github.com ((github.com の ip アドレス))' can't be established.
