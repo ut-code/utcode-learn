@@ -157,3 +157,46 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 ![SSHキーを追加](./add-ssh-key.png)
 
 上記のようなページが表示されたら、`Title` に適切な名前、`Key` には先ほどターミナルで表示した公開鍵を入力して登録しましょう。
+
+### GitHub への SSH のテスト接続
+
+GitHub に SSH キーを登録できたら、SSH を使ってテスト接続をしてみましょう。
+
+```sh
+ssh -T git@github.com
+```
+
+:::info
+
+この操作の際、初回は以下のような警告が出る場合があります。
+
+{/* ここは警告メッセージが変わっていた。古いからなのか、OS によって違う？
+OS によって違ったら変えないほうがいいので、一応残しておく。確認が取れ次第消すこと。
+
+```plain
+"github.com" has fingerprint "SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdk4UvCOqU."
+Are you sure you want to continue connecting?
+```
+
+*/}
+
+```plain
+The authenticity of host 'github.com ((github.com の ip アドレス))' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+```
+
+これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。
+家庭用のインターネット回線、UTokyo Wi-Fi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、`yes` と入力して続行させてください。
+
+:::
+
+
+```sh
+Hi (ユーザー名)! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+と表示されたら成功です。
+
+
