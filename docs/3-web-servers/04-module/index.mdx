@@ -92,11 +92,11 @@ Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用�
 
 ```javascript title="main.mjs"
 import { readFileSync } from "node:fs";
-console.log(readFileSync("sample.txt", "utf-8"));
+console.log(readFileSync("./sample.txt", "utf-8"));
 ```
 
 ```plain title="sample.txt"
-Hello World
+Hello World!
 ```
 
 <ViewSource
@@ -121,7 +121,7 @@ Hello World
 
 ```javascript title="main.mjs"
 import { writeFileSync } from "node:fs";
-writeFileSync("./sample.txt", "Hello World");
+writeFileSync("./sample.txt", "Hello World!");
 ```
 
 <ViewSource
