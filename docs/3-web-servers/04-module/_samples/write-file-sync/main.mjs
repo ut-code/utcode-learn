@@ -1,2 +1,3 @@
 import { writeFileSync } from "node:fs";
-writeFileSync("./sample.txt", "Hello World");
+writeFileSync("./sample.txt", "Hello World!");
+
