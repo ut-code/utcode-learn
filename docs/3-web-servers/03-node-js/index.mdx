@@ -2,6 +2,7 @@
 title: はじめての Node.js
 ---
 
+import installCommandLineDeveloperToolsVideo from "./install-command-line-developer-tools.mp4";
 import installNvmInWslVideo from "./install-nvm-in-wsl.mp4";
 import installNvmInMacVideo from "./install-nvm-in-mac.mp4";
 import openFolderInWslVideo from "./open-folder-in-wsl.mp4";
@@ -12,6 +13,14 @@ import debuggingVideo from "./debugging.mp4";
 これまで、JavaScript といえば、ブラウザ上で動作するプログラミング言語でした。**Node.js** は、JavaScript をブラウザ外で動作させるための実行エンジンです。
 
 Node.js をインストールする方法は様々ですが、現在は [nvm](https://github.com/nvm-sh/nvm) と呼ばれるツールが用いられることが多いようです。
+
+macOS の場合は、先に次のコマンドを実行してコマンドラインデベロッパツールをインストールする必要があります。
+
+```shell
+xcode-select --install
+```
+
+<video src={installCommandLineDeveloperToolsVideo} controls />
 
 まずは、[nvm のウェブサイトの `Install & Update Script` セクション](https://github.com/nvm-sh/nvm#install--update-script)に書かれているスクリプトを実行しましょう。2024 年 5 月現在では、次の通りです。
 
