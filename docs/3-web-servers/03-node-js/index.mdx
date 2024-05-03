@@ -7,32 +7,6 @@ import installNvmInMacVideo from "./install-nvm-in-mac.mp4";
 import openFolderInWslVideo from "./open-folder-in-wsl.mp4";
 import debuggingVideo from "./debugging.mp4";
 
-## ターミナル
-
-**ターミナル** は、文字を用いてコンピューターと会話するためのソフトウェアです。macOS だと標準搭載の `ターミナル` が、Windows だと [`Windows Terminal` アプリ](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)が利用できますが、VS Code 内蔵のターミナルもなかなか便利です。
-
-VS Code 内蔵のターミナルを起動させるには、メニューの `Terminal` から `New Terminal` をクリックします。
-
-![新しいターミナルを開く](./open-new-terminal.png)
-
-:::tip[コマンド パレット]
-
-VS Code の**コマンド パレット**は、現在 VS Code 上で使用できる全ての機能を一覧表示する機能です。<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) キーを押すことにより起動できます。
-
-次の画像は、コマンド パレットを用いて新しいターミナルを作成する例です。コマンド パレットを使用することで、ショートカットキーを知らなくても、キーボードのみで VS Code が操作できるようになります。
-
-![コマンド パレット](./command-palette.png)
-
-:::
-
-:::info[Windows 環境でターミナルを使用する場合の注意]
-
-WSL 拡張機能を用いて WSL に接続されている場合、起動するターミナルは自動的に WSL のものになります。外部のターミナルアプリケーションを使用する場合は、明示的に WSL を起動させるようにしましょう。
-
-![統合ターミナル](./wsl-integrated-terminal.png)
-
-:::
-
 ## ブラウザ外で動作する JavaScript
 
 これまで、JavaScript といえば、ブラウザ上で動作するプログラミング言語でした。**Node.js** は、JavaScript をブラウザ外で動作させるための実行エンジンです。
@@ -130,6 +104,6 @@ Node.js のデバッグを開始するには、ブレークポイント等を設
 
 <video src={debuggingVideo} controls />
 
-### 課題
+### 演習
 
 Node.js のデバッガを用いて、`console` オブジェクトにどのようなプロパティがあるのか調べてみましょう。
