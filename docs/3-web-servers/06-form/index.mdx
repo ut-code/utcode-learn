@@ -117,6 +117,53 @@ app.listen(3000);
 このページの URL を見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
 ![URLのクエリパラメータ](form-url.png)
 
+## 初級演習
+
+### node-emoji フォーム
+
+[npm の章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8) で扱った `node-emoji` パッケージの `emojify` 関数を送られた文字列に適用するサーバーを作ってみましょう。
+
+また、文字列を簡単にサーバーに送れるようにフォームも作りましょう。
+
+<Answer title="node-emoji フォーム">
+
+`npm install node-emoji express` とするのを忘れないようにしましょう。
+
+```html title="static/index.html"
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>node-emoji フォームの解答例</title>
+  </head>
+
+  <body>
+    <form action="/emojify">
+      <input name="text" />
+      <button type="submit">送信</button>
+    </form>
+  </body>
+</html>
+```
+
+```js title="main.mjs"
+import express from "express";
+import { emojify } from "node-emoji";
+
+const app = express();
+app.use(express.static("./static"));
+
+app.get("/emojify", (request, response) => {
+  const text = request.query.text;
+  const emoji = emojify(text);
+  response.send(emoji);
+});
+
+app.listen(3000);
+```
+
+</Answer>
+
 ## 中級演習
 
 書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
