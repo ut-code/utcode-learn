@@ -27,7 +27,7 @@ app.post((request, response) => {
 ```javascript
 import { writeFileSync } from "node:fs";
 app.post((request, response) => {
-  writeFileSync("messages.txt", request.body.message);
+  writeFileSync("./messages.txt", request.body.message);
   // 省略
 });
 ```
