@@ -119,36 +119,23 @@ app.listen(3000);
 
 ## 初級演習
 
-### node-emoji フォーム
+### node-emoji
 
-[npm の章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)で扱った `node-emoji` パッケージの `emojify` 関数を送られた文字列に適用するサーバーを作ってみましょう。
+[npm の章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)で扱った `node-emoji` パッケージの `emojify` 関数を使って、送られた文字列に `emojify` 関数を適用するサーバーを作ってみましょう。
 
 また、文字列を簡単にサーバーに送れるようにフォームも作りましょう。
 
-入力例:
+<Answer title="node-emoji">
 
-```plain
-I :heart: :coffee:
-```
-
-出力例:
-
-```plain
-I ❤️ ☕
-```
-
-<Answer title="node-emoji フォーム">
-
-`npm install node-emoji express` とするのを忘れないようにしましょう。
+`node-emoji` と `express` をインストールするのを忘れないようにしましょう。
 
 ```html title="static/index.html"
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>node-emoji フォームの解答例</title>
+    <title>node-emoji (フォーム) の解答例</title>
   </head>
-
   <body>
     <form action="/emojify">
       <input name="text" />
@@ -163,12 +150,12 @@ import express from "express";
 import { emojify } from "node-emoji";
 
 const app = express();
-app.use(express.static("./static"));
+app.use(express.static("static"));
 
 app.get("/emojify", (request, response) => {
   const text = request.query.text;
-  const emoji = emojify(text);
-  response.send(emoji);
+  const emojified = emojify(text);
+  response.send(emojified);
 });
 
 app.listen(3000);
