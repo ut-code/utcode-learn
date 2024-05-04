@@ -64,6 +64,20 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 `weightInTons` と `cost` をプロパティとして持ち、 `weightInTons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
+<Answer title="Carクラスの定義">
+
+```javascript
+class Car {
+  weightInTons = 1;
+  cost;
+}
+
+const prius = new Car();
+prius.cost = 2600000;
+
+document.write(`重さは${prius.weightInTons}tで、値段は${prius.cost}円です。`);
+```
+
 <ViewSource url={import.meta.url} path="_samples/car-class" />
 
 ## <Term>メソッド</Term>
@@ -403,12 +417,10 @@ document.write(false.toString()); // false
 と表示する
 
 :::tip
-`Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。
+`Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。`Date#getTime` メソッドというものがあり、これは 1970 年 1 月 1 日 00:00:00 UTC から指定した日時までの経過時間をミリ秒で表した数値を返すメソッドです。
 :::
 
 <Answer title="その日の残り時間">
-
-`Date#getTime` メソッドを使います。
 
 ```js
 const countdownBox = document.getElementById("countdown-box");
