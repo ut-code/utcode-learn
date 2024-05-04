@@ -133,6 +133,7 @@ tanaka.introduceSelf();
 class Student {
   name;
   age;
+
   introduceSelf() {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
@@ -140,6 +141,7 @@ class Student {
     this.age += 1;
   }
 }
+
 const tanaka = new Student();
 tanaka.name = "田中";
 tanaka.age = 19;
@@ -188,7 +190,9 @@ const tanaka = {
   name: "田中",
   age: 18,
   introduceSelf() {
-    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+    document.write(
+      `<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。</p>`,
+    );
   },
 };
 
@@ -196,7 +200,9 @@ const suzuki = {
   name: "鈴木",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+    document.write(
+      `<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。</p>`,
+    );
   },
 };
 
@@ -204,7 +210,7 @@ const sato = {
   name: "佐藤",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。</p>`);
   },
 };
 
@@ -230,7 +236,7 @@ class Student {
 
   // メソッド introduceSelf を定義する
   introduceSelf() {
-    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。</p>`);
   }
 }
 
@@ -306,6 +312,7 @@ class Student {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
+
 class SeniorStudent extends Student {
   researchQuestion;
 
