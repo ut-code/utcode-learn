@@ -64,7 +64,23 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 `weightInTons` と `cost` をプロパティとして持ち、 `weightInTons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
+<Answer title="Carクラスの定義">
+
+```javascript
+class Car {
+  weightInTons = 1;
+  cost;
+}
+
+const prius = new Car();
+prius.cost = 2600000;
+
+document.write(`重さは${prius.weightInTons}tで、値段は${prius.cost}円です。`);
+```
+
 <ViewSource url={import.meta.url} path="_samples/car-class" />
+
+</Answer>
 
 ## <Term>メソッド</Term>
 
@@ -337,26 +353,6 @@ document.write(myBirthDay.getFullYear()); // 2014
 `Date` <Term>クラス</Term>の<Term>コンストラクタ</Term>は、引数として日時を表す文字列をひとつとります。省略された場合には現在の日時を用います。
 
 `getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
-
-{/* prettier-ignore */}
-{/* TODO: 自分はこっちのほうがいいと思いますが...
-例えば [`Map` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map)は、キーと値のペアを保存するオブジェクトを提供します。
-
-```js
-const map1 = new Map();
-
-map1.set("a", 1);
-map1.set("b", 2);
-map1.set("c", 3);
-
-document.write(map1.get("a")); // 1
-
-map1.set("a", 97);
-
-document.write(map1.get("a")); // 97
-```
-
-\*/}
 
 また、DOM を利用して `div` 要素を作成または取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが得られます。
 
