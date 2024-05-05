@@ -1,4 +1,4 @@
-const CurrentTime = document.getElementById("current-time");
+const currentTime = document.getElementById("current-time");
 
 function getCurrentTime() {
   const now = new Date();
@@ -12,4 +12,4 @@ function getCurrentTime() {
   return `今は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
 }
 
-CurrentTime.textContent = getCurrentTime();
+currentTime.textContent = getCurrentTime();
