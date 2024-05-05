@@ -12,7 +12,7 @@ class Student {
 
 const tanaka = new Student();
 tanaka.name = "田中";
-tanaka.age = 18;
+tanaka.age = 19;
 tanaka.introduceSelf();
 tanaka.incrementAge();
 tanaka.introduceSelf();

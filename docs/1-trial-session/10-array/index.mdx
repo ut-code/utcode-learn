@@ -35,7 +35,7 @@ const six = 6;
 document.write(studentNames[six / 2 - 1]); // 鈴木
 ```
 
-### 課題
+### 問題
 
 次のプログラムを実行すると何と表示されるでしょうか。
 
@@ -62,7 +62,7 @@ for (const studentName of studentNames) {
 }
 ```
 
-このプログラムを実行すると、 `田中佐藤鈴木` と表示されます。
+このプログラムを実行すると、`田中佐藤鈴木` と表示されます。
 
 `for 〜 of` 文の構造は次の通りです。
 
@@ -72,11 +72,11 @@ for (変数の宣言/変数名 of 配列) {
 }
 ```
 
-配列の要素を順番に取り出し、 `of` の左側に指定された変数に設定してから、内部の処理を実行していきます。
+配列の要素を順番に取り出し、`of` の左側に指定された変数に設定してから、内部の処理を実行していきます。
 
 ## 配列の便利な機能
 
-JavaScript の配列には、便利な変数や関数のようなものが定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う <Term>プロパティ</Term>、<Term>メソッド</Term> というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
+JavaScript の配列には、便利な変数や関数のようなものが定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う<Term>プロパティ</Term>、<Term>メソッド</Term>というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
 ### `配列.length`
 
@@ -91,7 +91,7 @@ document.write(numbers.length); // 10
 
 ### `配列.push` 関数
 
-[`配列.push` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push) は、指定した配列の末尾に新しい値を追加する関数です。
+[`配列.push` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/push)は、指定した配列の末尾に新しい値を追加する関数です。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
@@ -101,7 +101,7 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ---
 
-## 基礎課題
+## 基礎演習
 
 ### 要素の和
 
@@ -154,7 +154,7 @@ document.write(`配列の合計値は ${sum} です。`);
 
 </Answer>
 
-## 中級課題
+## 中級演習
 
 ### 配列の最大値
 
@@ -171,17 +171,7 @@ const array2 = [-8, -7, -3, -1, -5];
 
 :::
 
-:::tip
-
-今までのように仮の初期値を置く方法では、配列の各値が非常に大きな負の値であった場合に仮の初期値が返ってきてしまいます。
-
-どうすればいいでしょうか？
-
-:::
-
 <Answer title="配列の最大値">
-
-配列の最初の値を初期値に設定することで解消します。
 
 ```javascript
 const array1 = [3, 6, 8, 5, 0];

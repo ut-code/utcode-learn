@@ -20,7 +20,7 @@ const func = greet;
 func();
 ```
 
-上の例では、 `const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
+上の例では、`const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
 
 ## <Term>イベントハンドラ</Term>
 
@@ -73,11 +73,11 @@ greetButton.onclick = clicked();
 
 :::warning
 
-上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、 `document.write` をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。このため、現代の <Term>JavaScript</Term> において、 `document.write` <Term>関数</Term>が使用されることはほとんどありません。
+上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、`document.write` をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。このため、現代の <Term>JavaScript</Term> において、`document.write` <Term>関数</Term>が使用されることはほとんどありません。
 
 :::
 
-## 課題
+## 演習
 
 押すと大きく赤文字が表示される「びっくり箱」のようなボタンを作ってみましょう。
 
@@ -85,22 +85,22 @@ greetButton.onclick = clicked();
 
 <Details summary={<summary>ヒント1：文字列の表示</summary>}>
 
-さっきは文字列の表示に`document.write()` を使いましたが、これでは文字色やサイズが変えられません。
+さっきは文字列の表示に `document.write()` を使いましたが、これでは文字色やサイズが変えられません。
 こんな書き方ならそれもできますが、あまりに乱暴ですよ。
 
 ```javascript
 document.write("<div style='color:red; font-size:40px'>Hello world!</div>");
 ```
 
-HTML 要素をJavaScriptで操作する方法は前回の「DOM」の章で扱っています。
+HTML 要素を JavaScript で操作する方法は前回の「DOM」の章で扱っています。
 
 </Details>
 
-<Details summary={<summary>ヒント2：HTMLファイルに…</summary>}>
+<Details summary={<summary>ヒント 2: HTMLファイルに…</summary>}>
 
-`<button>` タグのHTML属性を書き換えるとボタンの中に`Hello world!` を表示してしまいます。
+`<button>` タグの HTML 属性を書き換えるとボタンの中に `Hello world!` を表示してしまいます。
 
-HTMLファイルに一工夫が必要です。空の`<div>` タグを用意してあげましょう。
+HTML ファイルに一工夫が必要です。空の `<div>` タグを用意してあげましょう。
 
 ```html
 <div id="greeting"></div>
@@ -108,4 +108,35 @@ HTMLファイルに一工夫が必要です。空の`<div>` タグを用意し�
 
 </Details>
 
+<Answer title="びっくり箱">
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="greeting"></div>
+    <button id="button">ボタン</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```js title="script.js"
+const greetingElement = document.getElementById("greeting");
+const buttonElement = document.getElementById("button");
+
+function onGreetingButtonClick() {
+  greetingElement.textContent = "Hello world!!";
+  greetingElement.style.color = "red";
+  greetingElement.style.fontSize = "40px";
+}
+
+buttonElement.onclick = onGreetingButtonClick;
+```
+
 <ViewSource url={import.meta.url} path="_samples/project-jack-in-a-box/" />
+
+</Answer>

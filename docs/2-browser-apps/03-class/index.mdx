@@ -4,7 +4,7 @@ title: クラス
 
 ## <Term>クラス</Term>と<Term>インスタンス</Term>
 
-オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term>プロパティ</Term>(属性)を持つ<Term>オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term>オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term>プロパティ</Term>に持つとしましょう。
+オブジェクトを使うと、複数の値をひとまとまりに扱うことができました。実世界においては、同じ<Term>プロパティ</Term> (属性) を持つ<Term>オブジェクト</Term>を多く扱う場合が多いです。例えば、学生を<Term>オブジェクト</Term>として表すことを考えてみましょう。学生には必ず名前と年齢という属性があるはずなので、ひとまず `name` と `age` を<Term>プロパティ</Term>に持つとしましょう。
 
 ```javascript
 const tanaka = {
@@ -60,15 +60,31 @@ document.write(emptyFunction()); // 値を返さない関数の戻り値は unde
 
 :::
 
-### 課題
+### 演習
 
 `weightInTons` と `cost` をプロパティとして持ち、 `weightInTons` のデフォルト値が `1` であるクラス `Car` を作成し、 `cost` に好きな値を代入してみましょう。
 
+<Answer title="Carクラスの定義">
+
+```javascript
+class Car {
+  weightInTons = 1;
+  cost;
+}
+
+const prius = new Car();
+prius.cost = 2600000;
+
+document.write(`重さは${prius.weightInTons}tで、値段は${prius.cost}円です。`);
+```
+
 <ViewSource url={import.meta.url} path="_samples/car-class" />
+
+</Answer>
 
 ## <Term>メソッド</Term>
 
-同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf()` を設定してみましょう。
+同じ<Term>プロパティ</Term>を持つ<Term>オブジェクト</Term>に対しては、同じような処理を行うことが多いです。例えば、学生はたいてい最初の授業で自己紹介をします。そこで、 `Student` <Term>クラス</Term>に、自己紹介をする関数 `introduceSelf` を設定してみましょう。
 
 オブジェクトに対して定義されている関数を<Term>**メソッド**</Term>と呼びます。<Term>メソッド</Term>の定義は<Term>クラス</Term>定義の中で行われますが、関数と異なり、`function` キーワードを必要としません。
 
@@ -109,24 +125,25 @@ tanaka.introduceSelf();
 
 :::
 
-### 課題
+### 演習
 
-自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、実行してみてください。
+自分自身の年齢を 1 増やすメソッド `incrementAge` を定義して、今年の自己紹介と 1 年後の自己紹介を表示してみてください。田中さんの年齢は好きな値で構いません。
 
 <Answer title="年齢を増やすメソッド">
 
 ```javascript
 class Student {
   name;
-  age = 18;
+  age;
+
   introduceSelf() {
-    document.write(`私の名前は${this.name}です。`);
-    document.write(`${this.age}歳です`);
+    document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
   incrementAge() {
     this.age += 1;
   }
 }
+
 const tanaka = new Student();
 tanaka.name = "田中";
 tanaka.age = 19;
@@ -175,7 +192,9 @@ const tanaka = {
   name: "田中",
   age: 18,
   introduceSelf() {
-    document.write(`<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。<p>`);
+    document.write(
+      `<p>私の名前は${tanaka.name}です。${tanaka.age}歳です。</p>`,
+    );
   },
 };
 
@@ -183,7 +202,9 @@ const suzuki = {
   name: "鈴木",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。<p>`);
+    document.write(
+      `<p>私の名前は${suzuki.name}です。${suzuki.age}歳です。</p>`,
+    );
   },
 };
 
@@ -191,7 +212,7 @@ const sato = {
   name: "佐藤",
   age: 20,
   introduceSelf() {
-    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。<p>`);
+    document.write(`<p>私の名前は${sato.name}です。${sato.age}歳です。</p>`);
   },
 };
 
@@ -217,7 +238,7 @@ class Student {
 
   // メソッド introduceSelf を定義する
   introduceSelf() {
-    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。<p>`);
+    document.write(`<p>私の名前は${this.name}です。${this.age}歳です。</p>`);
   }
 }
 
@@ -269,11 +290,11 @@ class FreshmanStudent extends Student {
   }
 }
 
-const tanaka = new FreshmanStudent("田中", "18", "ドイツ語");
+const tanaka = new FreshmanStudent("田中", 18, "ドイツ語");
 tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ語選択です。
 ```
 
-### 課題
+### 演習
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
@@ -284,22 +305,30 @@ class Student {
   name;
   age;
 
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
   introduceSelf() {
     document.write(`私の名前は${this.name}です。${this.age}歳です。`);
   }
 }
+
 class SeniorStudent extends Student {
   researchQuestion;
+
+  constructor(name, age, researchQuestion) {
+    super(name, age);
+    this.researchQuestion = researchQuestion;
+  }
 
   introduceSelf() {
     super.introduceSelf();
     document.write(`研究テーマは${this.researchQuestion}です。`);
   }
 }
-const tanaka = new SeniorStudent();
-tanaka.age = 22;
-tanaka.name = "田中";
-tanaka.researchQuestion = "量子力学";
+const tanaka = new SeniorStudent("田中", 22, "量子力学");
 tanaka.introduceSelf();
 ```
 
@@ -325,26 +354,6 @@ document.write(myBirthDay.getFullYear()); // 2014
 
 `getFullYear` <Term>メソッド</Term>は、年となる数値を返す<Term>メソッド</Term>です。
 
-{/* prettier-ignore */}
-{/* TODO: 自分はこっちのほうがいいと思いますが...
-例えば [`Map` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Map)は、キーと値のペアを保存するオブジェクトを提供します。
-
-```js
-const map1 = new Map();
-
-map1.set("a", 1);
-map1.set("b", 2);
-map1.set("c", 3);
-
-document.write(map1.get("a")); // 1
-
-map1.set("a", 97);
-
-document.write(map1.get("a")); // 97
-```
-
-\*/}
-
 また、DOM を利用して `div` 要素を作成または取得すると、[`HTMLDivElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLDivElement)のインスタンスが得られます。
 
 このクラスは [`HTMLElement` クラス](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement)を継承しており、 `HTMLElement` クラスは [`Element` クラス](https://developer.mozilla.org/ja/docs/Web/API/Element)を、`Element` クラスは [`Node` クラス](https://developer.mozilla.org/ja/docs/Web/API/Node)を継承しています。
@@ -366,7 +375,7 @@ document.write({ name: "田中" }.toString()); // [object Object]
 // Date クラスは toString メソッドをオーバーライドしている
 document.write(new Date().toString()); // Fri Apr 01 2022 10:00:00 GMT+0900 (Japan Standard Time)
 
-// 関数もオブジェクトの一種なのでやはり Object クラスを継承している
+// 関数もオブジェクトの一種なのでやはり Object クラスを継承し、toString メソッドをオーバーライドしている
 function add(a, b) {
   return a + b;
 }
@@ -392,7 +401,7 @@ document.write(false.toString()); // false
 
 :::
 
-## 課題
+## 演習
 
 ### `Date` クラス
 
@@ -496,11 +505,3 @@ class Circle extends Shape {
 <ViewSource url={import.meta.url} path="_samples/shape-class" />
 
 </Answer>
-
-## 思考問題
-
-### 点と図形
-
-点 (`Point`) クラスを実装します。`Point` クラスは `Shape` クラスを継承するべきでしょうか？
-
-また、その理由を考えてみましょう。

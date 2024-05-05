@@ -100,3 +100,21 @@ document.write(price);
 よって、最終的に<Term>変数</Term> `price` の<Term>値</Term>は `50` となり、これは `price` を半分にする操作に対応します。
 
 ![変数の再代入](./reassignment-evaluation.png)
+
+## 確認問題
+
+`counter` という名前の変数を作成し初期値を `0` としてください。
+その後、`counter` に `1` を加え、その結果を表示してください。
+
+<Answer title="カウンター">
+
+```javascript title="script.js"
+let counter = 0;
+document.write(counter);
+counter = counter + 1;
+document.write(counter);
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter" />
+
+</Answer>

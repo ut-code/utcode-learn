@@ -15,16 +15,16 @@ import todoVideo from "./todo.mp4";
 
 <video src={todoVideo} controls muted />
 
-## ヒント
+## 手順
 
-いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにある4つの課題をひとつずつ解決していきます。
+いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにある 4 つの課題をひとつずつ解決していきます。
 
 1. ToDo を追加できるようにする。
 2. ToDo を削除できるようにする。
 3. ToDo を編集できるようにする。
 4. 空の ToDo を追加できないようにする。
 
-の4つの仕事があるので、まず 1 からやっていきましょう。
+の 4 つの仕事があるので、まず 1 からやっていきましょう。
 
 ### ステップ 1: ToDo を追加する
 
@@ -59,9 +59,9 @@ addButton.onclick = () => {
 };
 ```
 
-この時箇条書きの項目として新たに `li` 要素を追加する必要があります。
-DOM の章で扱ったように、[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement)を使うと新しい要素を作成できます。
-また、[`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild)を用いることで既存の要素内に子要素を追加することができます。
+このとき、箇条書きの項目として新たに `li` 要素を追加する必要があります。
+DOM の章で扱ったように、`document.createElement` 関数を使うと新しい要素を作成できます。
+また、`Node#appendChild` メソッドを用いることで既存の要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
@@ -76,7 +76,7 @@ todoText.textContent = todoInput.value; // input 要素に入力された文字�
 todoInput.value = ""; // input 要素の入力欄を空にする
 ```
 
-<Details summary='ステップ 1 の解答例'>
+<Answer title="ステップ 1">
 
 ```html title="index.html"
 <!doctype html>
@@ -111,12 +111,12 @@ addButton.onclick = () => {
 
 <ViewSource url={import.meta.url} path="_samples/step1" />
 
-</Details>
+</Answer>
 
 ### ステップ 2: ToDo を削除する
 
 次に削除ボタンを追加します。
-[`document.createElement` 関数](https://developer.mozilla.org/ja/docs/Web/API/Document/createElement)で `button` 要素を生成し削除ボタンにしてから [`Node#appendChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild)で要素内に追加しましょう。
+`document.createElement` 関数で `button` 要素を生成し削除ボタンにしてから `Node#appendChild` メソッドで要素内に追加しましょう。
 
 削除ボタンを押すと `li` 要素が 1 つ消える機能を実装するためには、ある要素から子要素を取り除く [`Node#removeChild` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Node/removeChild)を使います。
 
@@ -125,7 +125,7 @@ addButton.onclick = () => {
 todoList.removeChild(todoItem);
 ```
 
-<Details summary='ステップ 2 の解答例'>
+<Answer title="ステップ 2">
 
 ```html title="index.html"
 <!doctype html>
@@ -166,9 +166,9 @@ addButton.onclick = () => {
 
 <ViewSource url={import.meta.url} path="_samples/step2" />
 
-</Details>
+</Answer>
 
-### ステップ 3: ToDo を編集する
+### ステップ 3 (発展) : ToDo を編集する
 
 編集ボタンをつけてみましょう。
 
@@ -179,7 +179,7 @@ addButton.onclick = () => {
 todoText.textContent = prompt("新しい内容を入力してください。"); // ユーザーに入力を求める
 ```
 
-<Details summary='ステップ 3 の解答例'>
+<Answer title="ステップ 3">
 
 ```html title="index.html"
 <!doctype html>
@@ -226,9 +226,9 @@ addButton.onclick = () => {
 
 <ViewSource url={import.meta.url} path="_samples/step3" />
 
-</Details>
+</Answer>
 
-### ステップ 4: 空の ToDo を入れさせない
+### ステップ 4 (発展) : 空の ToDo を入れさせない
 
 [`HTMLButtonElement#disabled` プロパティ](https://developer.mozilla.org/ja/docs/Web/API/HTMLButtonElement/disabled)が `true` の時、ボタンはクリックを受け付けなくなります。
 入力欄が空の時にこのプロパティを `true` に、それ以外の時は `false` にすることによって空のタスクの追加を防ぐことができます。
@@ -242,9 +242,7 @@ todoInput.oninput = () => {
 };
 ```
 
-## 解答
-
-<Answer>
+<Answer title="ステップ 4">
 
 ```html title="index.html"
 <!doctype html>

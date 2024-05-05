@@ -34,6 +34,7 @@ JavaScript の<Term>オブジェクト</Term>は、ほかの言語でいう**辞
 ```javascript
 const person = {
   name: "田中",
+  age: 18,
   scores: { math: 80, science: 90 },
 };
 ```
@@ -43,8 +44,10 @@ const person = {
 ドット記号を用いることで、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更できます。通常の<Term>変数</Term>のように扱えます。
 
 ```javascript
-person.age += 1;
-document.write(person.age);
+document.write(person.age); // 18
+
+person.age = 19;
+document.write(person.age); // 19
 ```
 
 :::tip[プロパティの追加]
@@ -94,9 +97,9 @@ document.write(studentNames["0"]); // 田中
 
 :::
 
-## 課題
+## 演習
 
-### 初級課題
+### 初級演習
 
 田中さんを表すオブジェクトを定義します。
 
@@ -126,11 +129,11 @@ document.write(tanaka.scores.japanese);
 
 <ViewSource url={import.meta.url} path="_samples/add-and-view-Japanese-score" />
 
-2では、プロパティを自分で追加しています。
+2 では、プロパティを自分で追加しています。
 
 </Answer>
 
-### 中級課題
+### 中級演習
 
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>も<Term>値</Term>の一種なので、<Term>関数</Term>の<Term>引数</Term>や<Term>戻り値</Term>として使用できます。
