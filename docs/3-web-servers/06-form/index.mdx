@@ -156,8 +156,8 @@ app.use(express.static("static"));
 
 app.get("/emojify", (request, response) => {
   const text = request.query.text;
-  const emojified = emojify(text);
-  response.send(emojified);
+  const emojifiedText = emojify(text);
+  response.send(emojifiedText);
 });
 
 app.listen(3000);
