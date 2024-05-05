@@ -298,7 +298,7 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
-<Answer title="先輩学生の自己紹介">
+<Answer title="高学年の学生の自己紹介">
 
 ```javascript
 class Student {
@@ -393,7 +393,7 @@ document.write(false.toString()); // false
 
 ### `Date` クラス
 
-[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)のページを読み、現在時刻を表示するために必要なメソッドを探してみましょう。
+[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、現在時刻を表示してみましょう。[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)のドキュメントを読んで、現在時刻を表示するのに必要なメソッドを探してみましょう。
 
 :::tip
 `Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。
@@ -402,7 +402,7 @@ document.write(false.toString()); // false
 <Answer title="現在時刻の表示">
 
 ```javascript
-const countdownBox = document.getElementById("current-time");
+const currentTime = document.getElementById("current-time");
 
 function getCurrentTime() {
   const now = new Date();
@@ -413,10 +413,10 @@ function getCurrentTime() {
   const currentMinute = now.getMinutes();
   const currentSecond = now.getSeconds();
 
-  return `今日は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
+  return `今は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
 }
 
-countdownBox.textContent = getCurrentTime();
+currentTime.textContent = getCurrentTime();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />

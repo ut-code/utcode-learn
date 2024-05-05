@@ -1,4 +1,4 @@
-const countdownBox = document.getElementById("current-time");
+const CurrentTime = document.getElementById("current-time");
 
 function getCurrentTime() {
   const now = new Date();
@@ -9,7 +9,7 @@ function getCurrentTime() {
   const currentMinute = now.getMinutes();
   const currentSecond = now.getSeconds();
 
-  return `今日は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
+  return `今は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
 }
 
-countdownBox.textContent = getCurrentTime();
+CurrentTime.textContent = getCurrentTime();
