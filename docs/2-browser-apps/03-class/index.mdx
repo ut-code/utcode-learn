@@ -298,7 +298,7 @@ tanaka.introduceSelf(); // 私の名前は田中です。18歳です。ドイツ
 
 `Student` クラスを継承して `SeniorStudent` クラスを作ってみましょう。`SeniorStudent` クラスのインスタンスは `researchQuestion` プロパティを持ち、`introduceSelf` メソッドを実行すると自分の名前を出力した後に自分の研究内容を紹介するようにしてみましょう。
 
-<Answer title="学生のClassの定義">
+<Answer title="高学年の学生の自己紹介">
 
 ```javascript
 class Student {
@@ -393,50 +393,30 @@ document.write(false.toString()); // false
 
 ### `Date` クラス
 
-ドキュメントを読み、[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、その日の残り時間を表示してみましょう。
-
-例:
-
-21時25分40秒に実行されたとき、
-
-```
-今日は残り2時間34分20秒です。
-```
-
-と表示する
+[`Date` クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date)を使って、現在時刻を表示してみましょう。`Date` クラスのドキュメントを読んで、現在時刻を表示するのに必要なメソッドを探してみましょう。
 
 :::tip
 `Date` クラスには、時間、分、秒などを取得するためのメソッドが定義されています。
 :::
 
-<Answer title="その日の残り時間">
+<Answer title="現在時刻の表示">
 
-`Date#getTime` メソッドを使います。
+```javascript
+const currentTime = document.getElementById("current-time");
 
-```js
-const countdownBox = document.getElementById("countdown-box");
-
-function getRemainingTime() {
+function getCurrentTime() {
   const now = new Date();
-  const endOfDay = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    23,
-    59,
-    59,
-    999,
-  );
-  const remainingTime = endOfDay.getTime() - now.getTime();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1;
+  const currentDate = now.getDate();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentSecond = now.getSeconds();
 
-  const hours = Math.floor(remainingTime / (1000 * 60 * 60));
-  const minutes = Math.floor(remainingTime / (1000 * 60)) % 60;
-  const seconds = Math.floor(remainingTime / 1000) % 60;
-
-  return `今日の残り時間： ${hours}時間 ${minutes}分 ${seconds}秒です。`;
+  return `今は${currentYear}年${currentMonth}月${currentDate}日${currentHour}時${currentMinute}分${currentSecond}秒です。`;
 }
 
-countdownBox.textContent = getRemainingTime();
+currentTime.textContent = getCurrentTime();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/count-down" />
@@ -451,7 +431,7 @@ countdownBox.textContent = getRemainingTime();
 
 <Answer title="図形クラス">
 
-```js
+```javascript
 class Shape {
   color;
   constructor(color) {
