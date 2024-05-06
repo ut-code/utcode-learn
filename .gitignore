@@ -1,6 +1,9 @@
 # Dependencies
 /node_modules
 
+# Dependencies in _samples
+*/node_modules
+
 # Production
 /build
 
