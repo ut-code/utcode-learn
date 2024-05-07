@@ -2,7 +2,7 @@
 /node_modules
 
 # Dependencies in _samples
-*/node_modules
+**/node_modules/
 
 # Production
 /build
