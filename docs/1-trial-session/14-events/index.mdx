@@ -85,15 +85,15 @@ greetButton.onclick = clicked();
 
 :::info[文字列の表示]
 
-`document.write()` を使うと、画面上にあったボタンが消えてしまいます。また、文字色やサイズを変えることも困難です。
+`document.write` 関数を使うと、画面上にあったボタンが消えてしまいます。また、文字色や文字サイズを変えることも困難です。
 
-`document.write()` の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
+`document.write` 関数の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
 
 :::
 
 :::info[`Hello World!` を表示する場所]
 
-`button` 要素の `textContent` を書き換えるとボタンの中に `Hello World!` を表示してしまいます。
+`button` 要素の `textContent` プロパティを書き換えるとボタンの中に `Hello World!` を表示してしまいます。
 
 ボタンとは別に、あらかじめ `Hello World!` を表示するための場所を用意しておく必要があります。
 例えば空の `div` 要素を置いておけばよいでしょう。
