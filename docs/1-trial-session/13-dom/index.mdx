@@ -147,34 +147,27 @@ packingList.appendChild(newItem);
 
 ### 確認問題
 
-遠足の持ち物リストがあります。
+下のような HTML ファイルがあります。
 
 ```html title="index.html"
-<ul id="packing-list">
-  <li>お弁当</li>
-  <li>水筒</li>
-  <li>タオル</li>
-  <li>レジャーシート</li>
-</ul>
+<div id="greeting"></div>
 ```
 
-このリストに新しい項目として「おやつ」を追加してください。ただし、「おやつ」は `strong` 要素を用いて太字で表示されるようにしてください。
+JavaScript を使って、太字で `Hello World!` と表示されるようにしてください。
 
-![おやつが太字になった持ち物リスト](./add-strong-snack.png)
+![太字で表示された Hello World!](./hello-world-bold.png)
 
 <Answer>
 
 ```js title="script.js"
-const newItem = document.createElement("li");
-const strongPart = document.createElement("strong");
-strongPart.textContent = "おやつ";
-newItem.appendChild(strongPart);
+const strongElement = document.createElement("strong");
+strongElement.textContent = "Hello World!";
 
-const packingList = document.getElementById("packing-list");
-packingList.appendChild(newItem);
+const greetingElement = document.getElementById("greeting");
+greetingElement.appendChild(strongElement);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/add-snack" />
+<ViewSource url={import.meta.url} path="_samples/hello-world-bold" />
 
 </Answer>
 
