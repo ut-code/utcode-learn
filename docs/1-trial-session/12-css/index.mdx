@@ -6,7 +6,7 @@ title: CSS
 
 ![Web 開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
-CSS の書き方を学び、「World」の文字を赤くしてみましょう。
+CSS の書き方を学び、「Hello World!」の文字を赤くしてみましょう。
 
 ![Hello World!](./red-hello-world.png)
 
@@ -16,7 +16,7 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 ![CSSを書き始める](./begin-css.png)
 
-次の例では、`Hello World` の `World` の部分を赤色にしています。
+次の例では、`Hello World!` を赤色にしています。
 
 ```html title="index.html"
 <!doctype html>
@@ -27,18 +27,24 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
     <title>Title</title>
   </head>
   <body>
-    Hello <strong id="world">World</strong>!
+    <div id="greeting">Hello World!</div>
   </body>
 </html>
 ```
 
 ```css title="style.css"
-#world {
+#greeting {
   color: red;
 }
 ```
 
 <ViewSource url={import.meta.url} path="_samples/red-hello-world" />
+
+:::tip[`div` 要素]
+
+[`div` 要素](https://developer.mozilla.org/ja/docs/Web/HTML/Element/div)はそれ単体では特に意味を持たず、囲った範囲を要素としてまとめるために使われます。
+
+:::
 
 ## `link` 要素
 
@@ -52,9 +58,9 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、`index.html` の 9行目)
 
-![セレクタ](selector.png)
+![セレクタ](selector.drawio.svg)
 
-そして、CSS 側に書くのが**セレクタ**です。上の例では、`style.css` の 1 行目の `#world` がセレクタで、「`id` 属性が `world` である要素」を示します。
+そして、CSS 側に書くのが**セレクタ**です。上の例では、`style.css` の 1 行目の `#greeting` がセレクタで、「`id` 属性が `greeting` である要素」を示します。
 
 `id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
 
@@ -85,7 +91,7 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 いよいよ仕上げです。
 
 ```css title="style.css"
-#world {
+#greeting {
   color: red;
 }
 ```
@@ -94,7 +100,7 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 
 上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
-これで、`Hello World!` の `World` の文字が赤くなりました。
+これで、`Hello World!` の文字が赤くなりました。
 
 :::note
 
@@ -104,10 +110,10 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 :::
 
 :::tip[HTMLの <Term>`style` 属性</Term>]
-`style.css` を作らずとも、HTML 内に直接 CSS を指定することもできます。例えば、`p` <Term>要素</Term> の <Term>`style` 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
+`style.css` を作らずとも、HTML 内に直接 CSS を指定することもできます。例えば、`div` <Term>要素</Term> の <Term>`style` 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
 
 ```html title="index.html"
-<p style="color: red">Hello CSS!</p>
+<div style="color: red">Hello World!</div>
 ```
 
 <ViewSource url={import.meta.url} path="_samples/first-css" />
