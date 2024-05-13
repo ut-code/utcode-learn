@@ -1,11 +1,11 @@
 const packingList = document.getElementById("packing-list");
 
-const snackItem = document.createElement("li");
-snackItem.textContent = "おやつ";
+const snackElement = document.createElement("li");
+snackElement.textContent = "おやつ";
 
-packingList.appendChild(snackItem);
+packingList.appendChild(snackElement);
 
-const capItem = document.createElement("li");
-capItem.textContent = "帽子";
+const capElement = document.createElement("li");
+capElement.textContent = "帽子";
 
-packingList.appendChild(capItem);
+packingList.appendChild(capElement);

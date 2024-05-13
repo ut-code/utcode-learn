@@ -1,6 +1,6 @@
 const packingList = document.getElementById("packing-list");
 
-const snackItem = document.createElement("li");
-snackItem.textContent = "おやつ";
+const snackElement = document.createElement("li");
+snackElement.textContent = "おやつ";
 
-packingList.appendChild(snackItem);
+packingList.appendChild(snackElement);
