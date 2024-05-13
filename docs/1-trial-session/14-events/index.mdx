@@ -93,10 +93,7 @@ greetButton.onclick = clicked();
 
 :::info[`Hello World!` を表示する場所]
 
-`button` 要素の `textContent` プロパティを書き換えるとボタンの中に `Hello World!` を表示してしまいます。
-
-ボタンとは別に、あらかじめ `Hello World!` を表示するための場所を用意しておく必要があります。
-例えば空の `div` 要素を置いておけばよいでしょう。
+`document.write` 関数を使わずに「`Hello World!` を表示する」という挙動を実現するためには、あらかじめ中身のない HTML 要素を置いておき、その要素の `textContent` プロパティを操作するとよいでしょう。
 
 ```html
 <div id="greeting"></div>
