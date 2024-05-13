@@ -119,8 +119,8 @@ greetingElement.style.backgroundColor = "black";
 中身のない空の要素が作成されるので、`textContent` を `おやつ` に設定してみましょう。
 
 ```js title="script.js"
-const newItem = document.createElement("li");
-newItem.textContent = "おやつ";
+const snackItem = document.createElement("li");
+snackItem.textContent = "おやつ";
 ```
 
 そして、`要素1.appendChild(要素2)` とすることで、要素 1 の子要素に要素 2 を追加し、画面に表示することができます。
@@ -130,44 +130,41 @@ newItem.textContent = "おやつ";
 <ul id="packing-list">
   <li>お弁当</li>
   <li>水筒</li>
-  <li>タオル</li>
-  <li>レジャーシート</li>
 </ul>
 ```
 
 ```js title="script.js"
-const newItem = document.createElement("li");
-newItem.textContent = "おやつ";
-
 const packingList = document.getElementById("packing-list");
-packingList.appendChild(newItem);
+
+const snackItem = document.createElement("li");
+snackItem.textContent = "おやつ";
+
+packingList.appendChild(snackItem);
 ```
 
 これで、既存の `ul` 要素の子要素に新しい `li` 要素が追加され、「おやつ」が加わった持ち物リストが表示されます。
 
 ### 確認問題
 
-下のような HTML ファイルがあります。
-
-```html title="index.html"
-<div id="greeting"></div>
-```
-
-JavaScript を使って、太字で `Hello World!` と表示されるようにしてください。
-
-![太字で表示された Hello World!](./hello-world-bold.png)
+上の遠足の持ち物リストに、さらに「帽子」を追加しましょう。
 
 <Answer>
 
 ```js title="script.js"
-const strongElement = document.createElement("strong");
-strongElement.textContent = "Hello World!";
+const packingList = document.getElementById("packing-list");
 
-const greetingElement = document.getElementById("greeting");
-greetingElement.appendChild(strongElement);
+const snackItem = document.createElement("li");
+snackItem.textContent = "おやつ";
+
+packingList.appendChild(snackItem);
+
+const capItem = document.createElement("li");
+capItem.textContent = "帽子";
+
+packingList.appendChild(capItem);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/hello-world-bold" />
+<ViewSource url={import.meta.url} path="_samples/add-element-exercise" />
 
 </Answer>
 
