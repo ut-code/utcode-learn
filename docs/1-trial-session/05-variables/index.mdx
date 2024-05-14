@@ -14,13 +14,13 @@ title: 変数
 <Term>変数</Term>を使用するには、まず<Term>変数</Term>を<Term>**宣言**</Term>する必要があります。
 
 ```javascript title="script.js"
-let myGreatName = "Becky Jones";
-document.write(myGreatName);
+let myName = "John Doe";
+document.write(myName);
 ```
 
-`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1 行目では、`myGreatName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"Becky Jones"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
+`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1 行目では、`myName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"John Doe"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
 
-2 行目では、<Term>変数</Term> `myGreatName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"Becky Jones"` が画面に表示されます。
+2 行目では、<Term>変数</Term> `myName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"John Doe"` が画面に表示されます。
 
 {/* prettier-ignore */}
 <Term>変数</Term>を<Term>宣言</Term>するキーワードには、`let` 以外にも `const` があります。
@@ -28,11 +28,11 @@ document.write(myGreatName);
 違いについては、次の節で説明します。
 
 ```javascript title="script.js"
-const myGreatName = "Becky Jones";
-document.write(myGreatName);
+const myName = "John Doe";
+document.write(myName);
 ```
 
-ここまでの例では、`my great name` というフレーズを、`myGreatName` のように記述しています。
+ここまでの例では、`my name` というフレーズを、`myName` のように記述しています。
 
 このように、複数の単語にわたるフレーズを、2 語目以降の先頭の文字を大文字にして結合する命名規則を、<Term>**キャメルケース**</Term>と呼びます。
 
@@ -100,3 +100,21 @@ document.write(price);
 よって、最終的に<Term>変数</Term> `price` の<Term>値</Term>は `50` となり、これは `price` を半分にする操作に対応します。
 
 ![変数の再代入](./reassignment-evaluation.png)
+
+## 確認問題
+
+`counter` という名前の変数を作成し初期値を `0` としてください。
+その後、`counter` に `1` を加え、その結果を表示してください。
+
+<Answer title="カウンター">
+
+```javascript title="script.js"
+let counter = 0;
+document.write(counter);
+counter = counter + 1;
+document.write(counter);
+```
+
+<ViewSource url={import.meta.url} path="_samples/counter" />
+
+</Answer>

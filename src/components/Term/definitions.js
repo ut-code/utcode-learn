@@ -17,6 +17,7 @@ export default {
     "/docs/trial-session/project/": "プロジェクト",
     "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
+    "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
