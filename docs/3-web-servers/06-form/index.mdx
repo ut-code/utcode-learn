@@ -24,7 +24,7 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 | `sourceid` | `chrome` |
 | `ie`       | `UTF-8`  |
 
-Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値が格納されています。
+Express からクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値がオブジェクトとして格納されています。
 
 ```javascript title="main.mjs"
 import express from "express";
