@@ -6,7 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 const client = new PrismaClient();
 
-const template = readFileSync("./index.html", "utf-8");
+const template = readFileSync("./template.html", "utf-8");
 app.get("/", async (request, response) => {
   const posts = await client.post.findMany();
   const html = template.replace(
