@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const messages = [];
 
-const template = readFileSync("./index.html", "utf-8");
+const template = readFileSync("./template.html", "utf-8");
 app.get("/", (request, response) => {
   const html = template.replace(
     "<!-- messages -->",
