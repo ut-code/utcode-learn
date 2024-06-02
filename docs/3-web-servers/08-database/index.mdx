@@ -345,14 +345,7 @@ app.post("/send", async (request, response) => {
 送られてきたデータをデータベースに保存できるようにしましょう。データベースに投稿が保存された後、ブラウザは自動的に `/` に戻るようにしてみましょう。
 
 :::info[ヒント]
-サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。Express を用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
-
-```javascript
-app.post("/send", async (request, response) => {
-  // 省略
-  response.redirect("/");
-});
-```
+[GET リクエストと POST リクエストの章](/docs/web-servers/get-post/)で扱った `express.Response#redirect` メソッドが使えます。
 
 :::
 
