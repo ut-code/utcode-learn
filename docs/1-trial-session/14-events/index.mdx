@@ -83,30 +83,23 @@ greetButton.onclick = clicked();
 
 <video src={projectMovieForDom} muted controls />
 
-<Details summary={<summary>ヒント1：文字列の表示</summary>}>
+:::info[文字列の表示]
 
-さっきは文字列の表示に `document.write()` を使いましたが、これでは文字色やサイズが変えられません。
-こんな書き方ならそれもできますが、あまりに乱暴ですよ。
+`document.write` 関数を使うと、画面上にあったボタンが消えてしまいます。また、文字色や文字サイズを変えることも困難です。
 
-```javascript
-document.write("<div style='color:red; font-size:40px'>Hello world!</div>");
-```
+`document.write` 関数の代わりに、先ほどの DOM の章で扱った方法を使って HTML 要素を JavaScript で操作するとよいでしょう。
 
-HTML 要素を JavaScript で操作する方法は前回の「DOM」の章で扱っています。
+:::
 
-</Details>
+:::info[`Hello World!` を表示する場所]
 
-<Details summary={<summary>ヒント 2: HTMLファイルに…</summary>}>
-
-`<button>` タグの HTML 属性を書き換えるとボタンの中に `Hello world!` を表示してしまいます。
-
-HTML ファイルに一工夫が必要です。空の `<div>` タグを用意してあげましょう。
+`document.write` 関数を使わずに「`Hello World!` を表示する」という挙動を実現するためには、あらかじめ中身のない HTML 要素を置いておき、その要素の `textContent` プロパティを操作するとよいでしょう。
 
 ```html
 <div id="greeting"></div>
 ```
 
-</Details>
+:::
 
 <Answer title="びっくり箱">
 ```html title="index.html"

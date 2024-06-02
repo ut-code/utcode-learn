@@ -11,18 +11,28 @@ title: DOM
 `document.getElementById` <Term>関数</Term>は、<Term>引数</Term>として <Term>HTML 要素</Term>の `id` <Term>属性</Term>に指定された値を<Term>文字列</Term>として<Term>渡す</Term>ことで、その<Term>要素</Term>を表す<Term>オブジェクト</Term>を<Term>返し</Term>ます。
 
 ```html title="index.html"
-<div id="greeting">Hello World</div>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="greeting">Hello World</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
 ```
 
 ```js title="script.js"
-const element = document.getElementById("greeting");
-element.textContent = "Hello DOM";
+const greetingElement = document.getElementById("greeting");
+greetingElement.textContent = "Hello DOM";
 ```
 
 <ViewSource url={import.meta.url} path="_samples/get-element-by-id" />
 
 {/* prettier-ignore */}
-<Term>変数</Term> `element` には、`index.html` に記述された `div` <Term>要素</Term>に対応する<Term>オブジェクト</Term>が<Term>代入</Term>されています。
+<Term>変数</Term> `greetingElement` には、`index.html` に記述された `div` <Term>要素</Term>に対応する<Term>オブジェクト</Term>が<Term>代入</Term>されています。
 
 ![DOM](./dom.png)
 
@@ -36,6 +46,27 @@ element.textContent = "Hello DOM";
 | `style`       | <Term>要素</Term>に設定されたスタイル |
 
 `textContent` <Term>プロパティ</Term>は、<Term>HTML 要素</Term>の内部のテキストを表します。<Term>オブジェクト</Term>の<Term>プロパティ</Term>は通常の<Term>変数</Term>のように取得や<Term>代入</Term>が可能で、上の例では `textContent` <Term>プロパティ</Term>に対して `"Hello DOM"` という<Term>文字列</Term>を代入することで、`div` <Term>要素</Term>の内部のテキストを変更しています。
+
+### 確認問題
+
+下のような HTML が記述されています。
+
+```html title="index.html"
+<div>Good <strong id="greeting-type">morning</strong>!</div>
+```
+
+JavaScript を使って、`morning` を `evening` にしてください。
+
+<Answer>
+
+```js title="script.js"
+const greetingType = document.getElementById("greeting-type");
+greetingType.textContent = "evening";
+```
+
+<ViewSource url={import.meta.url} path="_samples/good-evening" />
+
+</Answer>
 
 ## <Term>HTML 要素</Term>のスタイルを変更する
 
@@ -53,6 +84,32 @@ element.style.backgroundColor = "red";
 <Term>CSS</Term> の<Term type="cssProperty">プロパティ</Term>名である `background-color` は、内部にハイフンが含まれているため、`element.style.background-color` のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。
 `style` <Term>プロパティ</Term>では、<Term>CSS</Term> の<Term type="cssProperty">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
 
+### 確認問題
+
+下のような HTML ファイルがあります。
+
+```html title="index.html"
+<div id="greeting">Hello World!</div>
+```
+
+文字色が黄色、背景色が黒色で `Hello World!` と表示されるようにしてください。
+
+ここでは CSS ファイルを作成するのではなく、JavaScript を使ってスタイルを操作してください。
+
+![文字色が黄色、背景色が黒色の Hello World!](./yellow-hello-world.png)
+
+<Answer>
+
+```js title="script.js"
+const greetingElement = document.getElementById("greeting");
+greetingElement.style.color = "yellow";
+greetingElement.style.backgroundColor = "black";
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-styles" />
+
+</Answer>
+
 ## DOM を用いて要素を追加する
 
 `document.createElement` 関数は、引数に要素の種類を表す文字列を取り、その種類の新しい HTML 要素を作る関数です。
@@ -62,8 +119,8 @@ element.style.backgroundColor = "red";
 中身のない空の要素が作成されるので、`textContent` を `おやつ` に設定してみましょう。
 
 ```js title="script.js"
-const newItem = document.createElement("li");
-newItem.textContent = "おやつ";
+const snackElement = document.createElement("li");
+snackElement.textContent = "おやつ";
 ```
 
 そして、`要素1.appendChild(要素2)` とすることで、要素 1 の子要素に要素 2 を追加し、画面に表示することができます。
@@ -73,20 +130,43 @@ newItem.textContent = "おやつ";
 <ul id="packing-list">
   <li>お弁当</li>
   <li>水筒</li>
-  <li>タオル</li>
-  <li>レジャーシート</li>
 </ul>
 ```
 
 ```js title="script.js"
-const newItem = document.createElement("li");
-newItem.textContent = "おやつ";
-
 const packingList = document.getElementById("packing-list");
-packingList.appendChild(newItem);
+
+const snackElement = document.createElement("li");
+snackElement.textContent = "おやつ";
+
+packingList.appendChild(snackElement);
 ```
 
 これで、既存の `ul` 要素の子要素に新しい `li` 要素が追加され、「おやつ」が加わった持ち物リストが表示されます。
+
+### 確認問題
+
+上の遠足の持ち物リストに、さらに「帽子」を追加しましょう。
+
+<Answer>
+
+```js title="script.js"
+const packingList = document.getElementById("packing-list");
+
+const snackElement = document.createElement("li");
+snackElement.textContent = "おやつ";
+
+packingList.appendChild(snackElement);
+
+const capElement = document.createElement("li");
+capElement.textContent = "帽子";
+
+packingList.appendChild(capElement);
+```
+
+<ViewSource url={import.meta.url} path="_samples/add-element-exercise" />
+
+</Answer>
 
 ## 初級演習
 

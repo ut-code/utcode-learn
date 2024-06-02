@@ -5,6 +5,7 @@ title: Git と GitHub のセットアップ
 import registerGitHubVideo from "./register-github.mp4";
 import setupGitVideo from "./setup-git.mp4";
 import addSshKeyVideo from "./add-ssh-key.mp4";
+import testSshConnectionVideo from "./test-ssh-connection.mp4";
 
 ## バージョン管理システム
 
@@ -118,10 +119,10 @@ $ ssh-keygen -t ed25519
 
 ```shell
 $ cat ~/.ssh/id_ed25519.pub
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGz9wBSTWY0W4yJXPGQ/XsaffDTdvGOKg3mtR9pP3D6i [ユーザー名]@[コンピューター名]
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEqE0cyVkFSFD/BlAwvJ9QejXwgyFppn5JDQc8iGW/Gp [ユーザー名]@[コンピューター名]
 ```
 
-`ssh-ed25519 AA...6i` の部分をコピーしましょう。これが公開鍵です。
+`ssh-ed25519 AA...Gp` の部分をコピーしましょう。これが公開鍵です。
 
 :::tip[ホームディレクトリのパスを表す記号]
 
@@ -134,7 +135,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGz9wBSTWY0W4yJXPGQ/XsaffDTdvGOKg3mtR9pP3D6i
 `ssh-keygen` が生成する標準の公開鍵は、スペースを区切り文字として 3 つのパートに分かれています。鍵の種類、鍵の中身、コメントです。コメントの部分はなくても構いません。
 
 ```plain
-ssh-ed25519 AAAAC3...P3D6i user@computer
+ssh-ed25519 AAAAC3...GW/Gp user@computer
 ```
 
 :::
@@ -146,3 +147,57 @@ ssh-ed25519 AAAAC3...P3D6i user@computer
 ![SSHキーを追加](./add-ssh-key.png)
 
 上記のようなページが表示されたら、`Title` に適切な名前、`Key` には先ほどターミナルで表示した公開鍵を入力して登録しましょう。
+
+## 確認
+
+ここまでで Git と GitHub のセットアップが完了しました。
+この章で行ってきたセットアップが正しくできているのかは次のようにして確認することができます。
+
+### Git の初期設定の確認
+
+次のコマンドを実行することで Git の設定を確認することができます。
+
+```shell
+git config --global --list
+```
+
+次のように表示されていれば正しく設定できています。
+
+```shell
+$ git config --global --list
+user.name=名前
+user.email=メールアドレス
+init.defaultBranch=main
+```
+
+### SSH 接続のテスト
+
+次のコマンドを実行することで SSH 接続が正常につながっているかをテストすることができます。
+
+```shell
+ssh -T git@github.com
+```
+
+:::info
+
+この操作の際、初回は以下のような警告が出る場合があります。
+
+```plain
+The authenticity of host 'github.com (20.27.177.113)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+これは、接続先となっている GitHub が、なりすましではなく本物の GitHub であると信頼してもよいかを尋ねるメッセージです。
+家庭用のインターネット回線、UTokyo Wi-Fi 等、十分に信頼できるネットワークに接続している場合は問題ありませんので、`yes` と入力して続行させてください。
+
+:::
+
+次のように表示されたら成功です。
+
+```shell
+Hi 名前! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+<video src={testSshConnectionVideo} controls />

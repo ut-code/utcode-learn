@@ -71,10 +71,10 @@ node main.mjs
 
 そして [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)により、クライアントが必要なデータを送信することができます。
 
-:::tip[`http`標準<Term>モジュール</Term>]
-`express` を使わずに Node.js 単体で Web サーバーを作成するには、`http` 標準<Term>モジュール</Term>を使用します。
+:::tip[`http` <Term>モジュール</Term>]
+`express` を使わずに Node.js 単体で Web サーバーを作成するには、`http` <Term>モジュール</Term>を使用します。
 
-`http` 標準モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
+`http` モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
 
 ```javascript title="main.mjs"
 import { Server } from "http";
@@ -197,7 +197,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 上記のようにテンプレートリテラルを使って HTML を作成することもできますが、HTML がさらに長くなったり、複雑なプログラムが必要になってきたりしたらこのまま続けていくのは難しそうです。
 
-[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第一引数に与えられた文字列に一致する文字列を第二引数の文字列に置き換えた新しい文字列を返します。
+[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第 1 引数に与えられた文字列に一致する文字列を第 2 引数の文字列に置き換えた新しい文字列を返します。
 `String#replace` メソッドは、最初に一致した場所のみを置き換えます。
 一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) メソッドを使います。
 
@@ -257,12 +257,17 @@ Express を用いて、`あなたは n 人目のお客様です。` とレスポ
 
 <Answer title="訪問者カウンター">
 
-```javascript
+```javascript title="main.mjs"
+import express from "express";
+const app = express();
+
 let count = 0;
 app.get("/", (request, response) => {
   count += 1;
   response.send(`あなたは${count}人目のお客様です。`);
 });
+
+app.listen(3000);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/nth" />

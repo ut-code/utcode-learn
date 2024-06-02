@@ -88,15 +88,15 @@ console.log(add(3, 4));
 
 ## 標準<Term>モジュール</Term>
 
-Node.js の [`fs` 標準モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルへのパスを指定し、第 2 引数には文字コードを指定します。
+Node.js の [`fs` モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルへのパスを指定し、第 2 引数には文字コードを指定します。
 
 ```javascript title="main.mjs"
 import { readFileSync } from "node:fs";
-console.log(readFileSync("sample.txt", "utf-8"));
+console.log(readFileSync("./sample.txt", "utf-8"));
 ```
 
 ```plain title="sample.txt"
-Hello World
+Hello World!
 ```
 
 <ViewSource
@@ -117,11 +117,11 @@ Hello World
 
 <Answer>
 
-第一引数にファイルへのパス、第二引数に書き込む文字列を指定します。
+第 1 引数にファイルへのパス、第 2 引数に書き込む文字列を指定します。
 
 ```javascript title="main.mjs"
 import { writeFileSync } from "node:fs";
-writeFileSync("./sample.txt", "Hello World");
+writeFileSync("./sample.txt", "Hello World!");
 ```
 
 <ViewSource
@@ -154,7 +154,7 @@ npm install date-fns
 
 :::tip[JSON]
 
-npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、 JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
+npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
 
 JSON は、JavaScript のオブジェクト記法よりも制限が厳しくなっています。例えば、
 
@@ -200,11 +200,11 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 ### `node-emoji` パッケージ
 
-[`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node.js で絵文字を扱うことができるパッケージです。このパッケージを用いて、'I ❤️ ☕️!' という文章を出力してください。
+[`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node.js で絵文字を扱うことができるパッケージです。このパッケージを用いて、`I ❤️ ☕!` と出力してください。
 
 <Answer title="node-emoji パッケージ">
    
-`emojify` 関数を用いると、文字列中の絵文字を表す部分を絵文字に変換することができます。
+[`emojify` 関数](https://www.npmjs.com/package/node-emoji#emojiemojifyinput-options)を用いると、文字列中の絵文字を表す部分を絵文字に変換することができます。
    
 ```javascript
 import { emojify } from "node-emoji";

@@ -27,7 +27,7 @@ app.post((request, response) => {
 ```javascript
 import { writeFileSync } from "node:fs";
 app.post((request, response) => {
-  writeFileSync("messages.txt", request.body.message);
+  writeFileSync("./messages.txt", request.body.message);
   // 省略
 });
 ```
@@ -48,7 +48,7 @@ app.post((request, response) => {
 
 ![データベースとアプリケーションサーバー](./database-application-server.drawio.svg)
 
-データベースの中でも、**リレーショナルデータベース**は、データベースの中でも最も多く使われる種類のもので、データを Excel のような表形式でとらえます。次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
+データベースの中でも、**リレーショナルデータベース**は、最も多く使われる種類のもので、データを Excel のような表形式でとらえます。次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
 
 ![リレーショナルデータベース](./relational-database-concept.png)
 
@@ -72,10 +72,10 @@ app.post((request, response) => {
 
 主にリレーショナルデータベースを操作するための Node.js の<Term>ライブラリ</Term>です。複数の構成要素からなります。
 
-- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いる npm のパッケージ。JavaScript プログラムから使用する。
-- [**`prisma` パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いる npm のパッケージ。`npx` コマンドを通して実行する。
-- [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイル。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させる。
-- [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Code の拡張機能。`.prisma` ファイルに対する補完やフォーマットの機能を提供する。
+- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いる npm のパッケージです。JavaScript プログラムから使用します。
+- [**`prisma` パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いる npm のパッケージです。`npx` コマンドを通して実行します。
+- [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイルです。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させます。
+- [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Code の拡張機能です。`.prisma` ファイルに対する補完やフォーマットの機能を提供します。
 
 #### [ElephantSQL](https://www.elephantsql.com/)
 
