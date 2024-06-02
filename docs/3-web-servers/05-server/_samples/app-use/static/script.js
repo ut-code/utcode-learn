@@ -1,1 +1,1 @@
-document.write("ここは / です。");
+document.write("ここは/です。");

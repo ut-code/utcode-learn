@@ -75,8 +75,8 @@ node main.mjs
 
 ブラウザで <a href="http://localhost:3000/" target="_blank">`http://localhost:3000/`</a> にアクセスし、次の動作を確認してください。
 
-- `Hello World 日本語` が表示されること
-- `日本語` をクリックするとアドレスバーが <a href="http://localhost:3000/lang/ja" target="_blank">`http://localhost:3000/lang/ja`</a> に変化し `こんにちは、世界` が表示されること
+- `Hello World！ 日本語` が表示されること
+- `日本語` をクリックするとアドレスバーが <a href="http://localhost:3000/lang/ja" target="_blank">`http://localhost:3000/lang/ja`</a> に変化し `こんにちは、世界！` が表示されること
 
 <video src={expressSetupVideo} muted controls />
 
@@ -154,8 +154,8 @@ app.listen(3000);
 3. Express は `/` に対する HTTP リクエストを受け取り、**[4 行目]** の関数を実行します。引数として、Express は次に示す 2 つのオブジェクトを生成して渡します。
    - 第 1 引数 (`request`): 受け取った HTTP リクエストに関する情報を Express が開発者にとって扱いやすい形にまとめた [`Request`](https://expressjs.com/ja/api.html#req) クラスのインスタンス。
    - 第 2 引数 (`response`): Express がクライアントに返す HTTP レスポンスを開発者が制御するための [`Response`](https://expressjs.com/ja/api.html#res) クラスのインスタンス。
-4. **[5 行目]** の `response.send('...');` により、Express は `'Hello World <a href="./lang/ja">日本語</a>'` という文字列をレスポンスとして送信します。
-5. ブラウザは、受け取ったレスポンスを HTML として解釈し、`Hello World` という文字列と、`日本語` というリンクを表示します。
+4. **[5 行目]** の <code>{'response.send(`...`);'}</code> により、Express は <code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code> という文字列をレスポンスとして送信します。
+5. ブラウザは、受け取ったレスポンスを HTML として解釈し、`Hello World!` という文字列と、`日本語` というリンクを表示します。
 6. 利用者が、`日本語` というリンクをクリックします。
 7. ブラウザは、クリックされたリンクの `href` 属性をもとに、アドレスバーの URL を更新し、ページ遷移を起こします。
    - `href` 属性にプロトコルを含む URL が指定されていれば、その URL に遷移します。
@@ -179,8 +179,8 @@ app.listen(3000);
 3. サーバーは、 `<script src="./script.js"></script>` という文字列をレスポンスとして送信します。
 4. ブラウザは、受け取ったレスポンスを HTML として解釈し、`script` タグを発見します。
 5. ブラウザは、`src` 属性を相対パスとして解釈し、`/script.js` というパスに対して HTTP リクエストを送信します。
-6. サーバーは、`document.write("Hello World");` という文字列をレスポンスとして送信します。
-7. ブラウザは、受け取ったレスポンスを JavaScript として解釈し、`Hello World` という文字列を表示します。
+6. サーバーは、`document.write("Hello World!");` という文字列をレスポンスとして送信します。
+7. ブラウザは、受け取ったレスポンスを JavaScript として解釈し、`Hello World!` という文字列を表示します。
 
 ```javascript title="main.mjs"
 import express from "express";
