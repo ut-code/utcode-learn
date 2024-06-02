@@ -4,6 +4,7 @@ title: Express によるサーバー構築
 
 import expressSetupVideo from "./express-setup.mp4";
 import UrlStructureExplanation from "./url-structure-explanation.tsx";
+import RequestResponseSlideShow from "./request-response-slide-show";
 
 ## ウェブサイトが動作する仕組み
 
@@ -33,7 +34,7 @@ Web において、HTML、CSS、JavaScript は、サーバーがクライアン�
 
 :::tip[ここまででの教材とのつながり]
 
-ブラウザは、サーバーと通信することなく、コンピューター上にファイルの形式で存在している HTML、CSS、JavaScript を表示する機能を備えています。
+ブラウザは、サーバーと通信して取得した HTML、CSS、JavaScript データを解釈して表示するだけでなく、コンピューター上にファイルの形式で存在している HTML、CSS、JavaScript を表示することもできます。
 ここまでの教材では、サーバーという概念の導入による複雑さを避けるため、この機能を用いて各言語の文法を学んできました。
 
 :::
@@ -128,6 +129,20 @@ Linux のファイルシステムで用いられるパスと同様に、意味�
 
 `main.mjs` のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
 
+```javascript title="main.mjs (再掲)" showLineNumbers
+import express from "express";
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send('Hello World <a href="./lang/ja">日本語</a>');
+});
+app.get("/lang/ja", (request, response) => {
+  response.send("こんにちは、世界");
+});
+
+app.listen(3000);
+```
+
 ### `node main.mjs` を実行したとき
 
 1. **[2 行目]** `const app = express();` により、Express の [`Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
@@ -139,9 +154,9 @@ Linux のファイルシステムで用いられるパスと同様に、意味�
 
 1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` という URL を入力します。
 2. ブラウザは、`localhost:3000` で起動している Express のサーバーに対して、`/` というパスに対する HTTP リクエストを送信します。
-3. Express は `/` に対する HTTP リクエストを受け取り、**[4 行目]** の関数を実行します。このとき、Express は 2 つのオブジェクトを生成して関数に渡します。
-   - 第 1 引数: 受け取った HTTP リクエストに関する情報を Express が開発者にとって扱いやすい形にまとめた [`Request`](https://expressjs.com/ja/api.html#req) クラスのインスタンス。
-   - 第 2 引数: Express がクライアントに返す HTTP レスポンスを開発者が制御するための [`Response`](https://expressjs.com/ja/api.html#res) クラスのインスタンス。
+3. Express は `/` に対する HTTP リクエストを受け取り、**[4 行目]** の関数を実行します。引数として、Express は次に示す 2 つのオブジェクトを生成して渡します。
+   - 第 1 引数 (`request`): 受け取った HTTP リクエストに関する情報を Express が開発者にとって扱いやすい形にまとめた [`Request`](https://expressjs.com/ja/api.html#req) クラスのインスタンス。
+   - 第 2 引数 (`response`): Express がクライアントに返す HTTP レスポンスを開発者が制御するための [`Response`](https://expressjs.com/ja/api.html#res) クラスのインスタンス。
 4. **[5 行目]** の `response.send('...');` により、Express は `'Hello World <a href="./lang/ja">日本語</a>'` という文字列をレスポンスとして送信します。
 5. ブラウザは、受け取ったレスポンスを HTML として解釈し、`Hello World` という文字列と、`日本語` というリンクを表示します。
 6. 利用者が、`日本語` というリンクをクリックします。
@@ -150,28 +165,9 @@ Linux のファイルシステムで用いられるパスと同様に、意味�
    - `href` 属性が相対パスの形式で指定されていれば、現在のパスを基準に [Linux における相対パス](/docs/web-servers/linux-commands/#パス)と同様の方法で URL を更新します。この例では、更新前のパスが `/` で、`href` 属性には `./lang/ja` が指定されているため、更新後のパスは `/lang/ja` になり、URL は `http://localhost:3000/lang/ja` に変化します。
 8. 2 から 5 までの手順が、`/lang/ja` というパスに対して行われます。
 
-### 確認問題
-
-1. 次の Express サーバーにおいて、4 つの console.log 関数がそれぞれ実行されるかどうか、いつ実行されるかを説明してください。
-
-```javascript showLineNumbers
-import express from "express";
-const app = express();
-
-app.get("/", (request, response) => {
-  console.log("[1]");
-  response.send("Hello World");
-  console.log("[2]");
-});
-
-console.log("[3]");
-app.listen(3000);
-console.log("[4]");
-```
-
-2. デバッガーを用いてプログラムの動作を観察しましょう。
-   冒頭の例のプログラムの 5 行目 (`response.send(...);`) にブレークポイントを設置し、ブラウザで `http://localhost:3000/` にアクセスしてみてください。
-   [`Request`](https://expressjs.com/ja/api.html#req) オブジェクトにどのような情報が含まれているか覗いてみましょう。
+<p>
+  <RequestResponseSlideShow />
+</p>
 
 ## HTML に指定された外部リソースの取得
 
@@ -182,10 +178,10 @@ console.log("[4]");
 次の例では、ブラウザは 2 つの HTTP リクエストを送信します。
 
 1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` という URL を入力します。
-2. ブラウザは、サーバーに対して、`/` というパスに対する HTTP リクエストを送信します。
-3. サーバーは、 `<script src="./main.js"></script>` という文字列をレスポンスとして送信します。
+2. ブラウザは、`/` というパスに対する HTTP リクエストを送信します。
+3. サーバーは、 `<script src="./script.js"></script>` という文字列をレスポンスとして送信します。
 4. ブラウザは、受け取ったレスポンスを HTML として解釈し、`script` タグを発見します。
-5. ブラウザは、`src` 属性を相対パスとして解釈し、`/main.js` というパスに対して HTTP リクエストを送信します。
+5. ブラウザは、`src` 属性を相対パスとして解釈し、`/script.js` というパスに対して HTTP リクエストを送信します。
 6. サーバーは、`document.write("Hello World");` という文字列をレスポンスとして送信します。
 7. ブラウザは、受け取ったレスポンスを JavaScript として解釈し、`Hello World` という文字列を表示します。
 
@@ -194,9 +190,9 @@ import express from "express";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send('<script src="./main.js"></script>');
+  response.send('<script src="./script.js"></script>');
 });
-app.get("/main.js", (request, response) => {
+app.get("/script.js", (request, response) => {
   response.send('document.write("Hello World");');
 });
 

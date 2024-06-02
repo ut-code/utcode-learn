@@ -2,9 +2,9 @@ import express from "express";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send('<script src="./main.js"></script>');
+  response.send('<script src="./script.js"></script>');
 });
-app.get("/main.js", (request, response) => {
+app.get("/script.js", (request, response) => {
   response.send('document.write("Hello World");');
 });
 
