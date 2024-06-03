@@ -2,11 +2,18 @@
 title: Express によるサーバー構築
 ---
 
+import expressSetupVideo from "./express-setup.mp4";
+import UrlStructureExplanation from "./url-structure-explanation.tsx";
+import RequestResponseSlideShow from "./request-response-slide-show";
+
 ## ウェブサイトが動作する仕組み
 
-[「Web プログラミングの基礎を学ぼう」](/docs/trial-session/) の章では、ウェブサイトを表示するために HTML ファイルと JavaScript ファイルを作成し、ブラウザから開きました。しかしながら、通常のウェブサイトではこのような手順は踏まず、URL をブラウザに入力することにより閲覧することができます。
+[「Web プログラミングの基礎を学ぼう」](/docs/trial-session/) の章では、ウェブサイトを表示するために HTML ファイルと JavaScript ファイルを作成し、ブラウザから開きました。
+しかし、一般的なウェブサイトを閲覧する際は、HTML ファイルや JavaScript ファイルの存在を意識することはありません。
+これは、Web では、通常インターネットを介してデータをやり取りするためです。
 
-Web では、通常インターネットを介してデータをやり取りします。インターネットを人間が直接利用することはできないので、何らかのコンピューターを使用しなければなりません。このとき、通常は
+インターネットを人間が直接利用することはできないので、何らかのコンピューターを使用しなければなりません。
+このとき、
 
 - **クライアント**: サービスを利用する側のコンピューターや、その上で直接通信を担うソフトウェア
 - **サーバー**: サービスを提供する側のコンピューターや、その上で直接通信を担うソフトウェア
@@ -16,7 +23,21 @@ Web では、通常インターネットを介してデータをやり取りし�
 - **リクエスト**: クライアントからサーバーに対する要求
 - **レスポンス**: リクエストに対するサーバーからクライアントへの応答
 
-のように区別して呼びます。それでは、Node.js で Web サーバーを作ってみましょう。
+のように区別して呼びます。
+
+Google Chrome や Safari に代表される**ブラウザ**は、Web におけるクライアントソフトウェアの呼称です。
+Web において、HTML、CSS、JavaScript は、サーバーがクライアントに対してレスポンスとして送信するデータの一部で、ブラウザによって解釈されて表示されます。
+
+ここからは、Node.js を用いて、Web サーバーとして動作するソフトウェアを作成していきます。
+
+![クライアントとサーバー](./client-server.drawio.svg)
+
+:::tip[ここまででの教材とのつながり]
+
+ブラウザは、サーバーと通信して取得した HTML、CSS、JavaScript データを解釈して表示するだけでなく、コンピューター上にファイルの形式で存在している HTML、CSS、JavaScript を表示することもできます。
+ここまでの教材では、サーバーという概念の導入による複雑さを避けるため、この機能を用いて各言語の文法を学んできました。
+
+:::
 
 ## Express パッケージを用いて Web サーバーを構築する
 
@@ -30,12 +51,15 @@ npm install express
 
 続いて、次のような `main.mjs` を作成しましょう。
 
-```javascript title="main.mjs"
+```javascript title="main.mjs" showLineNumbers
 import express from "express";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send("Hello World");
+  response.send(`Hello World! <a href="./lang/ja">日本語</a>`);
+});
+app.get("/lang/ja", (request, response) => {
+  response.send("こんにちは、世界！");
 });
 
 app.listen(3000);
@@ -49,61 +73,132 @@ app.listen(3000);
 node main.mjs
 ```
 
-ブラウザで `http://localhost:3000/` にアクセスしてみましょう。ブラウザに `Hello World` と表示されましたか？
+ブラウザで <a href="http://localhost:3000/" target="_blank">`http://localhost:3000/`</a> にアクセスし、次の動作を確認してください。
 
-![サーバー](./express-server.png)
+- `Hello World！ 日本語` が表示されること
+- `日本語` をクリックするとアドレスバーが <a href="http://localhost:3000/lang/ja" target="_blank">`http://localhost:3000/lang/ja`</a> に変化し `こんにちは、世界！` が表示されること
+
+<video src={expressSetupVideo} muted controls />
 
 :::warning[Web サーバーの停止]
 
-このプログラムは、一度起動すると停止しません。サーバーにとって、クライアントからのリクエストはいつやってくるかわからないため、常に起動し続けている必要があるからです。Node.js プログラムを終了するには、ターミナル上で <kbd>control</kbd> + <kbd>C</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>C</kbd> (Windows) を押します。
+サーバーは、クライアントからのリクエストを待ち受けるため、管理者により指示されない限り終了しないソフトウェアとして動作します。
+Express で構築したサーバーは、ターミナル上で <kbd>control</kbd> + <kbd>C</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>C</kbd> (Windows) を押すことで停止することができます。
 
 :::
 
-書いたコードを詳しく見てみましょう。
+## HTTP と URL
 
-`express` 関数を呼び出すことにより、[`express.Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
+前項のプログラムが動作する仕組みを理解するためには、ブラウザとサーバーの間で行われるやり取りについて知る必要があります。
+互いが好き勝手にデータを送受信しても、意味のあるやり取りは成立しません。
+そこで、ブラウザとサーバーの間でデータを送受信する際には、一定の手順に従う必要があります。
+この手順のことを**プロトコル**と呼び、Web の世界では、**HTTP** と呼ばれるプロトコルが用いられます。
 
-[`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)は、クライアントから特定のパスに対してリクエストが来た時に実行される関数を追加するメソッドです。第 1 引数にはパスの文字列を、第 2 引数には実行される関数を指定します。
+ブラウザは、アドレスバーに **URL** が入力されると、その情報をもとに HTTP を用いてサーバーと通信します。
+例えば、先ほどの例で使用した `http://localhost:3000/lang/ja` という URL は、次のように解釈されます。
 
-例えば今回であれば第 1 引数に `"/path"` を渡すと `http://localhost:3000/path` にリクエストが来たときに関数が実行されることになります。
+<p>
+  <UrlStructureExplanation />
+</p>
 
-第 2 引数の関数を詳しく見てみましょう。この関数は 2 つの引数をとります。具体的には第 1 引数に受け取ったリクエストを表す [`express.Request` クラス](https://expressjs.com/ja/api.html#req) のインスタンスが、第 2 引数にこれから送るレスポンスを表す [`express.Response` クラス](https://expressjs.com/ja/api.html#res) のインスタンスが渡されます。
+- **プロトコル**:
+  `http` または `https` のいずれかです。
+  いずれを指定しても使用されるプロトコルは HTTP ですが、`https` を指定した場合は通信内容が暗号化されます。
+  この例では `http` を用いていますが、インターネット上に公開するウェブサイトでは `https` を用いることが推奨されます。
+- **ドメイン**:
+  通信先のコンピューターを特定するための識別子です。
+  この例ではサーバーを自分のコンピューター上に構築しているため、自分自身を表す特殊なドメイン `localhost` を用いています。
+  `example.com` や `foo.example.net` は、実際のインターネット上で使われるドメイン名の例です。
+- **ポート**:
+  通信先のコンピューター上で、どのプログラムと通信するかを特定するための整数です。
+  ポートを変えることで、同じコンピューター上で複数のサーバーが通信を待ち受けることができます。
+  省略すると、プロトコル部分が `http` の場合は 80 番ポートが、`https` の場合は 443 番ポートが用いられます。
+- **パス**:
+  クライアントがサーバーに対し、何を要求するかを指定するための文字列です。
+  Linux のファイルシステムで用いられるパスと同様に、意味的には `/` 記号によって階層化されますが、クライアントはサーバーに対してパスを文字列として送信するだけで、その内容はサーバーによって自由に解釈されます。
 
-そして [`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send)により、クライアントが必要なデータを送信することができます。
+`http://localhost:3000/lang/ja` という URL は、HTTP プロトコルを暗号化せずに用いて、`localhost` というドメインの 3000 番ポートで待ち受けているサーバーに対して `/lang/ja` というパスを要求することを意味します。
 
-:::tip[`http` <Term>モジュール</Term>]
-`express` を使わずに Node.js 単体で Web サーバーを作成するには、`http` <Term>モジュール</Term>を使用します。
+このように、URL に含まれる情報のうち、プロトコル、ドメイン、ポートはネットワーク上で通信を行うために用いられる情報です。
+残りのパス部分をどのように扱うかが、サーバー側のプログラムにおける主な関心事になります。
 
-`http` モジュールを使って 簡単な Web サーバーを構築すると以下のようなコードになります。
+## Hello World サーバーの動作
 
-```javascript title="main.mjs"
-import { Server } from "http";
+`main.mjs` のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
 
-const server = new Server();
+```javascript title="main.mjs (再掲)" showLineNumbers
+import express from "express";
+const app = express();
 
-server.addListener("request", (request, response) => {
-  response.write("Hello World");
-  response.end();
+app.get("/", (request, response) => {
+  response.send(`Hello World! <a href="./lang/ja">日本語</a>`);
+});
+app.get("/lang/ja", (request, response) => {
+  response.send("こんにちは、世界！");
 });
 
-server.listen(3000);
+app.listen(3000);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/http-server" />
+### `node main.mjs` を実行したとき
 
-:::
+1. **[2 行目]** `const app = express();` により、Express の [`Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
+2. **[4 行目]** `app.get("/", (request, response) => { ... });` で呼び出された [`get`](https://expressjs.com/ja/api.html#app.get.method) メソッドにより、`/` というパスに対するリクエストを受けたときに実行される関数として、第 2 引数に指定された関数が登録されます。この時点では関数は `Application` インスタンスに登録されるのみで、実行はされません。
+3. **[7 行目]** 4 行目と同様に、`/lang/ja` というパスに対するリクエストを受けたときに実行される関数が登録されます。
+4. **[11 行目]** `app.listen(3000);` により、Express はリクエストを待ち受ける HTTP サーバーとして動作を開始します。
 
-## HTTP
+### ブラウザの操作を行ったとき
 
-インターネット上には、さまざまなデータが流れています。インターネットに接続しているコンピューターが好き勝手にデータを送受信しても、意味のあるやり取りは成立しません。このため、通信を行うための手順を標準化しておく必要があります。こうしてできた手順のことを、**プロトコル**と呼びます。
+1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` という URL を入力します。
+2. ブラウザは、`localhost:3000` で起動している Express のサーバーに対して、`/` というパスに対する HTTP リクエストを送信します。
+3. Express は `/` に対する HTTP リクエストを受け取り、**[4 行目]** の関数を実行します。引数として、Express は次に示す 2 つのオブジェクトを生成して渡します。
+   - 第 1 引数 (`request`): 受け取った HTTP リクエストに関する情報を Express が開発者にとって扱いやすい形にまとめた [`Request`](https://expressjs.com/ja/api.html#req) クラスのインスタンス。
+   - 第 2 引数 (`response`): Express がクライアントに返す HTTP レスポンスを開発者が制御するための [`Response`](https://expressjs.com/ja/api.html#res) クラスのインスタンス。
+4. **[5 行目]** の <code>{'response.send(`...`);'}</code> により、Express は <code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code> という文字列をレスポンスとして送信します。
+5. ブラウザは、受け取ったレスポンスを HTML として解釈し、`Hello World!` という文字列と、`日本語` というリンクを表示します。
+6. 利用者が、`日本語` というリンクをクリックします。
+7. ブラウザは、クリックされたリンクの `href` 属性をもとに、アドレスバーの URL を更新し、ページ遷移を起こします。
+   - `href` 属性にプロトコルを含む URL が指定されていれば、その URL に遷移します。
+   - `href` 属性が相対パスの形式で指定されていれば、現在のパスを基準に [Linux における相対パス](/docs/web-servers/linux-commands/#パス)と同様の方法で URL を更新します。この例では、更新前のパスが `/` で、`href` 属性には `./lang/ja` が指定されているため、更新後のパスは `/lang/ja` になり、URL は `http://localhost:3000/lang/ja` に変化します。
+8. 2 から 5 までの手順が、`/lang/ja` というパスに対して行われます。
 
-Web の世界で用いられるプロトコルは、通常 **HTTP** と呼ばれるものです。ブラウザに `http://example.com/path/to/index.html` が入力された場合、ブラウザとサーバーの間で次の図のような通信が行われます。
+<p>
+  <RequestResponseSlideShow />
+</p>
 
-![HTTP](./basic-http.png)
+## HTML に指定された外部リソースの取得
 
-Web サーバーにアクセスするために用いた `http://localhost:3000/` のうち、`http` はプロトコルを、`localhost:3000` はサーバーの所在地を表しています (`localhost` は自分のコンピューターを指します)。
+サーバーから返されたレスポンスが HTML である場合、ブラウザによってさらに別のリクエストが送信される場合があります。
+例えば、HTML には CSS や JavaScript などの外部リソースを読み込むためのタグが存在します。
+これらの外部リソースは、ブラウザが HTML を解釈する際に、それぞれに対するリクエストを送信して取得します。
 
-## 静的ホスティング
+次の例では、ブラウザは 2 つの HTTP リクエストを送信します。
+
+1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` という URL を入力します。
+2. ブラウザは、`/` というパスに対する HTTP リクエストを送信します。
+3. サーバーは、 `<script src="./script.js"></script>` という文字列をレスポンスとして送信します。
+4. ブラウザは、受け取ったレスポンスを HTML として解釈し、`script` タグを発見します。
+5. ブラウザは、`src` 属性を相対パスとして解釈し、`/script.js` というパスに対して HTTP リクエストを送信します。
+6. サーバーは、`document.write("Hello World!");` という文字列をレスポンスとして送信します。
+7. ブラウザは、受け取ったレスポンスを JavaScript として解釈し、`Hello World!` という文字列を表示します。
+
+```javascript title="main.mjs"
+import express from "express";
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send(`<script src="./script.js"></script>`);
+});
+app.get("/script.js", (request, response) => {
+  response.send(`document.write("Hello World!");`);
+});
+
+app.listen(3000);
+```
+
+<ViewSource url={import.meta.url} path="_samples/html-external-resources" />
+
+## 静的ウェブサーバー
 
 次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
@@ -113,16 +208,16 @@ import { readFileSync } from "node:fs";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send(readFileSync("static/index.html", "utf-8"));
+  response.send(readFileSync("./static/index.html", "utf-8"));
 });
 app.get("/script.js", (request, response) => {
-  response.send(readFileSync("static/script.js", "utf-8"));
+  response.send(readFileSync("./static/script.js", "utf-8"));
 });
 app.get("/sub/", (request, response) => {
-  response.send(readFileSync("static/sub/index.html", "utf-8"));
+  response.send(readFileSync("./static/sub/index.html", "utf-8"));
 });
 app.get("/sub/script.js", (request, response) => {
-  response.send(readFileSync("static/sub/script.js", "utf-8"));
+  response.send(readFileSync("./static/sub/script.js", "utf-8"));
 });
 
 app.listen(3000);
@@ -130,7 +225,7 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/static-hosting-naive" />
 
-`express.static` 関数を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
+[`express.static` 関数](https://expressjs.com/ja/api.html#express.static)を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -147,6 +242,29 @@ app.listen(3000);
 :::tip[`index.html` の省略]
 
 `express.static` を用いる場合、`index.html` は省略可能になります。つまり、`/` へのリクエストで `static/index.html` が、`/sub` へのリクエストで `static/sub/index.html` にアクセスできるようになります。これは、Express や JavaScript に限ったことではなく、多くの Web サーバーの実装において、こういったルールが成り立ちます。
+
+:::
+
+:::tip[`app.use` と `express.static` の実装]
+
+Express の [`use` メソッド](https://expressjs.com/ja/api.html#app.use) は、`get` メソッドと同様に、リクエストを受け取ったときに実行される関数を登録するためのメソッドです。
+しかし、`use` メソッドは、登録された関数が全てのリクエストに対して実行される点が異なります。
+`express.static` 関数は、関数を返す関数となっており、`use` メソッドに渡すことで、リクエストのパスに応じて適切なファイルを読み込んでレスポンスとして返す関数を登録することができます。
+
+Express の [`Request`](https://expressjs.com/ja/api.html#req) オブジェクトの[`path` プロパティ](https://expressjs.com/ja/api.html#req.path)には、リクエストのパスが文字列として格納されています。
+この値を用いて、`express.static` は適切なファイルを読み込みます。
+次の例は、`express.static` 関数の簡易な実装例です。
+このプログラムは動作はしますが、セキュリティ上の問題があるため、実際の Express の実装はもっと複雑になっています。
+
+```javascript
+const app = express();
+app.use((request, response) => {
+  response.send(readFileSync("./static" + request.path, "utf-8"));
+});
+app.listen(3000);
+```
+
+<ViewSource url={import.meta.url} path="_samples/app-use" />
 
 :::
 
