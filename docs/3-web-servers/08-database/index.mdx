@@ -77,23 +77,23 @@ app.post((request, response) => {
 - [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイルです。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させます。
 - [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Code の拡張機能です。`.prisma` ファイルに対する補完やフォーマットの機能を提供します。
 
-#### [ElephantSQL](https://www.elephantsql.com/)
+#### [Supabase](https://supabase.com/)
 
 PostgreSQL サーバーを提供するサービスです。PostgreSQL サーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
 
-### ElephantSQL で PostgreSQL サーバーを構築する
+### Supabase で PostgreSQL サーバーを構築する
 
-[ElephantSQL](https://www.elephantsql.com) のアカウントを作成しましょう。`Create New Instance` ボタンを押して必要な情報を入力し、新しい PostgreSQL サーバーを起動させてください。入力が必要な情報は次の通りです。
+[Supabase](https://supabase.com/) のアカウントを作成しましょう。`New Project` ボタンを押して必要な情報を入力し、新しい PostgreSQL サーバーを起動させてください。入力が必要な情報は次の通りです。
 
-- **Name**: 起動するサーバーにつける名前です。適当に設定して構いません。
-- **Plan**: 起動するサーバーの性能です。最も低い `Tiny Turtle (Free)` を選択すれば無料で使用できます。
-- **Data center**: 起動するサーバーの地理的な場所です。ここでは `AP-NorthEast-1 (Tokyo)` を選択しています。
+- **Project name**: 起動するサーバーにつける名前です。適当に設定して構いません。
+- **Database Password**: 起動するサーバーのパスワードです。`Generate a password` ボタンを押して生成するのが良いでしょう。また、後でこのパスワードは使用することになるため覚えておきましょう。
+- **Region**: 起動するサーバーの地理的な場所です。ここでは `Northeast Asia (Tokyo)` を選択しています。
 
 <video src={newPostgresqlInstanceVideo} controls />
 
 ### DBeaver で PostgreSQL サーバーに接続する
 
-[DBeaver](https://dbeaver.io) をインストールしましょう。続いて、ElephantSQL の管理画面で接続情報を表示し、その情報を DBeaver に入力して前項で起動した PostgreSQL サーバーに接続しましょう。
+[DBeaver](https://dbeaver.io) をインストールしましょう。続いて、Supabase で接続情報を表示し、その情報を DBeaver に入力して前項で起動した PostgreSQL サーバーに接続しましょう。
 
 <video src={connectDbeaverToDatabaseVideo} controls />
 
@@ -123,7 +123,7 @@ npx prisma init
 
 :::
 
-続いて、ElephantSQL からデータベースへの接続情報を `.env` ファイルにコピーします。これにより、Prisma は ElephantSQL 上の PostgreSQL サーバーと接続できるようになります。
+続いて、Supabase からデータベースへの接続情報を `.env` ファイルにコピーします。これにより、Prisma は Supabase 上の PostgreSQL サーバーと接続できるようになります。
 
 <video src={copySecretValuesVideo} controls muted />
 
@@ -215,7 +215,7 @@ PostgreSQL にデータを保存する掲示板サービスを作ってみまし
 
 ### 手順 1
 
-ElephantSQL で新しいデータベースを作成しましょう。作成したデータベースに DBeaver から接続できることを確認しましょう。
+Supabase で新しいデータベースを作成しましょう。作成したデータベースに DBeaver から接続できることを確認しましょう。
 
 ### 手順 2
 
