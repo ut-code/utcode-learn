@@ -76,7 +76,7 @@ app.listen(3000);
 
 ## POST リクエストを開発者ツールで覗いてみる
 
-実際に POST リクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールを開き、文字を入力して送信してみます。
+実際に POST リクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの `Network` タブを開き、文字を入力して送信してみます。
 
 <video src={postInDevelopment1} controls />
 
@@ -104,6 +104,20 @@ app.listen(3000);
 - イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
 - `GET /` では 配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
 - `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
+
+:::
+
+:::tip[豆知識: リダイレクト]
+
+サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。
+Express を用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
+
+```javascript
+app.post("/send", (request, response) => {
+  // 省略
+  response.redirect("/");
+});
+```
 
 :::
 
