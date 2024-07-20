@@ -18,9 +18,9 @@ let myName = "John Doe";
 document.write(myName);
 ```
 
-`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1 行目では、`myName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"John Doe"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
+`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1行目では、`myName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"John Doe"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
 
-2 行目では、<Term>変数</Term> `myName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"John Doe"` が画面に表示されます。
+2行目では、<Term>変数</Term> `myName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"John Doe"` が画面に表示されます。
 
 {/* prettier-ignore */}
 <Term>変数</Term>を<Term>宣言</Term>するキーワードには、`let` 以外にも `const` があります。
@@ -34,12 +34,12 @@ document.write(myName);
 
 ここまでの例では、`my name` というフレーズを、`myName` のように記述しています。
 
-このように、複数の単語にわたるフレーズを、2 語目以降の先頭の文字を大文字にして結合する命名規則を、<Term>**キャメルケース**</Term>と呼びます。
+このように、複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則を、<Term>**キャメルケース**</Term>と呼びます。
 
 :::info
 
 {/* prettier-ignore */}
-<Term>JavaScript</Term> の<Term>変数</Term>名には、通常<Term>キャメルケース</Term>が用いられます。
+<Term>JavaScript</Term>の<Term>変数</Term>名には、通常<Term>キャメルケース</Term>が用いられます。
 <Term>スネークケース</Term>や<Term>パスカルケース</Term>などの命名規則が利用される文法もあります。
 
 :::
@@ -80,7 +80,7 @@ document.write(mysteriousNumber); // 2
 
 {/* prettier-ignore */}
 <Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があります。
-そのため、<Term>変数</Term> `mysteriousNumber` は 3 回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された `2` が表示されます。
+そのため、<Term>変数</Term> `mysteriousNumber` は3回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された `2` が表示されます。
 
 一方、`const` で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。そのため、上記のコードの `let` を `const` に置き換えることはできません。
 
