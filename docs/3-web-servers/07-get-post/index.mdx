@@ -18,7 +18,7 @@ HTTPリクエストのこのような区分を、<Term>**HTTPメソッド**</Ter
 
 ![HTTPメソッドの比較](./method-comparison.png)
 
-前頁の例を、POSTリクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドの<Term>リクエスト</Term>を発行します。
+前頁の例を、POSTリクエストを用いて書き直してみましょう。`form`要素の`method`属性に`post`を指定することで、ブラウザは送信ボタンが押されたときに`POST`メソッドの<Term>リクエスト</Term>を発行します。
 
 ```html title="static/index.html"
 <!doctype html>
@@ -55,12 +55,12 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/post-request" />
 
-これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GETメソッドの<Term>リクエスト</Term>しか受け付けられないため、`/send` へのPOSTリクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
+これまで利用していた`app.get` ([`express.Application#get`メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GETメソッドの<Term>リクエスト</Term>しか受け付けられないため、`/send`へのPOSTリクエストを受け付けるために`app.post` ([`express.Application#post`メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
 {/* prettier-ignore */}
-<Term>クエリパラメータ</Term>にアクセスするには、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query` プロパティ</a>)を使用しましたが、<Term>リクエストボディ</Term>を使用するには、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body` プロパティ</a>)を使用します。
+<Term>クエリパラメータ</Term>にアクセスするには、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query`プロパティ</a>)を使用しましたが、<Term>リクエストボディ</Term>を使用するには、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body`プロパティ</a>)を使用します。
 
-`app.use(express.urlencoded({ extended: true }));` は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTMLのフォームが送信されたとき、ブラウザが発行するPOSTリクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じくURLエンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URLエンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
+`app.use(express.urlencoded({ extended: true }));`は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTMLのフォームが送信されたとき、ブラウザが発行するPOSTリクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じくURLエンコードされた形式で記述されます。[`express.urlencoded`関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URLエンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body`にオブジェクトの形式でデータを保存する役割を担っています。
 
 このシステムでは、まず次のような画面が表示されます。
 
@@ -70,21 +70,21 @@ app.listen(3000);
 
 ![名前と年齢を入力２](postRequest2.png)
 
-`http://localhost:3000/send` に移り、以下のような画面が表示されます。GETリクエストの時と違い、<Term>クエリパラメータ</Term>がURLに表示されていないことが分かります。
+`http://localhost:3000/send`に移り、以下のような画面が表示されます。GETリクエストの時と違い、<Term>クエリパラメータ</Term>がURLに表示されていないことが分かります。
 
 ![名前と年齢を入力３](postRequest3.png)
 
 ## POSTリクエストを開発者ツールで覗いてみる
 
-実際にPOSTリクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの `Network` タブを開き、文字を入力して送信してみます。
+実際にPOSTリクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの`Network`タブを開き、文字を入力して送信してみます。
 
 <video src={postInDevelopment1} controls />
 
-そして `Name` 欄の `send` をクリックし、 `Headers` を選択すると `general` 欄の `Requested method` が `POST` になっています。また、 `Headers` の横にある `Payload` を選択し `Form data` を見ると、 `name` と `age` の情報が載っています。
+そして`Name`欄の`send`をクリックし、`Headers`を選択すると`general`欄の`Requested method`が`POST`になっています。また、`Headers`の横にある`Payload`を選択し`Form data`を見ると、`name`と`age`の情報が載っています。
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
+ここからさらに、`Form data`の横の`view source`や`view URL-encoded`も見てみましょう。するとURLエンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 
@@ -96,21 +96,21 @@ app.listen(3000);
 
 古き良き掲示板システムを作ってみましょう。次のようなページを作成してください。
 
-- `GET /`: 現在の投稿されているすべての記事を表示します。`/send` へPOSTするためのフォームも同時に表示します。
+- `GET /`: 現在の投稿されているすべての記事を表示します。`/send`へPOSTするためのフォームも同時に表示します。
 - `POST /send`: リクエストボディに含まれている記事の内容を記録します。
 
 :::tip[ヒント]
 
 - イベントハンドラの外側に現在投稿されたデータを記録するための配列を用意しましょう。
-- `GET /` では 配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
-- `POST /send` に新しい投稿が来たら `Array#push` メソッドで配列に要素を追加しましょう。
+- `GET /`では 配列の中身を一覧表示しましょう。フォームも忘れずに表示しましょう。
+- `POST /send`に新しい投稿が来たら`Array#push`メソッドで配列に要素を追加しましょう。
 
 :::
 
 :::tip[豆知識: リダイレクト]
 
 サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。
-Expressを用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
+Expressを用いてこのようなレスポンスを生成するためには、[`express.Response#send`メソッド](https://expressjs.com/ja/api.html#res.send)の代わりに、[`express.Response#redirect`メソッド](https://expressjs.com/ja/api.html#res.redirect)を用います。
 
 ```javascript
 app.post("/send", (request, response) => {

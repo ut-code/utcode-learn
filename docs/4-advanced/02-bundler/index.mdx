@@ -22,7 +22,7 @@ JavaScriptは、当初はWebサイトに簡易的な動きを追加させるた�
 
 ### <Term>モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTMLから複数のJavaScriptを読み込むためには `script` タグを並べれば良いですが、[HTTPサーバー](/docs/web-servers/server/)の節で学んだように、`script` タグの数だけ<Term>HTTPリクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTMLから複数のJavaScriptを読み込むためには`script`タグを並べれば良いですが、[HTTPサーバー](/docs/web-servers/server/)の節で学んだように、`script`タグの数だけ<Term>HTTPリクエスト</Term>が発行されてしまうため非効率的です。
 
 [webpack](https://webpack.js.org)のような<Term>**モジュールバンドラ**</Term>を用いることで、複数のJavaScriptファイルを統合できます。
 
@@ -48,11 +48,11 @@ Viteを用いて新しくプロジェクトを作成してみましょう。
 npm create vite@latest
 ```
 
-を実行します。`Select a framework` と尋ねられるので、`Vanilla` を選択してください。その後、`Select a variant` と尋ねられるので、`JavaScript` を選択してください。
+を実行します。`Select a framework`と尋ねられるので、`Vanilla`を選択してください。その後、`Select a variant`と尋ねられるので、`JavaScript`を選択してください。
 
-すると、`package.json` を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリをVS Codeで開きましょう。
+すると、`package.json`を含む新しいディレクトリがカレントディレクトリに作成されます。このディレクトリをVS Codeで開きましょう。
 
-続いて、作成された `package.json` をもとにnpmから必要なパッケージをダウンロードするため、
+続いて、作成された`package.json`をもとにnpmから必要なパッケージをダウンロードするため、
 
 ```shell
 npm install
@@ -66,11 +66,11 @@ npm run dev
 
 を実行してください。
 
-Vite内蔵のウェブサーバーが起動し、`http://localhost:5173/` でウェブサイトが表示されます。
+Vite内蔵のウェブサーバーが起動し、`http://localhost:5173/`でウェブサイトが表示されます。
 
 ## Viteの仕組み
 
-Viteの挙動を理解するため、<kbd>control</kbd> + <kbd>C</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>C</kbd> (Windows) で先ほど起動させたウェブサーバーを停止させ、`npm run build` コマンドを実行してみましょう。
+Viteの挙動を理解するため、<kbd>control</kbd> + <kbd>C</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>C</kbd> (Windows) で先ほど起動させたウェブサーバーを停止させ、`npm run build`コマンドを実行してみましょう。
 
 ```shell
 $ npm run build
@@ -87,17 +87,17 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 ✓ built in 64ms
 ```
 
-これにより、カレントディレクトリに `dist` ディレクトリが作成され、<Term>トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
+これにより、カレントディレクトリに`dist`ディレクトリが作成され、<Term>トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
 
-出力されたファイルを元のファイルと比較してみましょう。元の `index.html` や `main.js` が、変換された状態で出力されていることがわかります。ディレクトリごと[Netlify Drop](/docs/trial-session/deploy-application/)などにアップロードすれば使用可能になるでしょう。
+出力されたファイルを元のファイルと比較してみましょう。元の`index.html`や`main.js`が、変換された状態で出力されていることがわかります。ディレクトリごと[Netlify Drop](/docs/trial-session/deploy-application/)などにアップロードすれば使用可能になるでしょう。
 
 <video src={buildVideo} controls />
 
-:::tip[`npm run` コマンド]
+:::tip[`npm run`コマンド]
 
-`npm run` コマンドは、`package.json` の `scripts` プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
+`npm run`コマンドは、`package.json`の`scripts`プロパティに記載されたコマンドを実行します。開発によく使うコマンドを登録しておくことで、コマンドを打つ手間を削減できます。
 
-`npm create vite@latest` が自動的に生成する `package.json` の `scripts` プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx` コマンドを用いたときのように、npmでインストールされたパッケージをそのまま実行できます。例えば、`npm run dev` コマンドを実行することで、`npx vite` に相当する処理が行われます。
+`npm create vite@latest`が自動的に生成する`package.json`の`scripts`プロパティは、次のようになっていました。ここに記載されたコマンドでは、`npx`コマンドを用いたときのように、npmでインストールされたパッケージをそのまま実行できます。例えば、`npm run dev`コマンドを実行することで、`npx vite`に相当する処理が行われます。
 
 ```json title="package.json (一部抜粋)"
 {
@@ -113,7 +113,7 @@ dist/assets/index-44b5bae5.js        1.45 kB │ gzip: 0.75 kB
 
 ## npmのパッケージをWebブラウザ上で利用する
 
-npmのパッケージがブラウザ上での実行に対応している場合は、Viteをはじめとした<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>により、ブラウザ向けのJavaScriptに変換させられます。例として `date-fns` パッケージを使用してみましょう。
+npmのパッケージがブラウザ上での実行に対応している場合は、Viteをはじめとした<Term>トランスパイラ</Term>や<Term>モジュールバンドラ</Term>により、ブラウザ向けのJavaScriptに変換させられます。例として`date-fns`パッケージを使用してみましょう。
 
 ```javascript
 import { format } from "date-fns";
@@ -145,7 +145,7 @@ app
 
 <ViewSource url={import.meta.url} path="_samples/fullstack-app" />
 
-`npm run build` コマンドによってViteがビルド結果を `/dist` に出力するようにしておきます。
+`npm run build`コマンドによってViteがビルド結果を`/dist`に出力するようにしておきます。
 
 ```json title="/package.json"
 {
@@ -156,7 +156,7 @@ app
 }
 ```
 
-`express.static` によりViteが作成したディレクトリを指定すれば完成です。
+`express.static`によりViteが作成したディレクトリを指定すれば完成です。
 
 ```javascript title="server/main.mjs"
 import express from "express";
@@ -172,7 +172,7 @@ app.listen(3000);
 
 ## 課題
 
-- [`chart.js`](https://www.npmjs.com/package/chart.js) を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+- [`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
   <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 

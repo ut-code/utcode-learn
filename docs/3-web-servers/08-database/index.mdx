@@ -72,10 +72,10 @@ app.post((request, response) => {
 
 主にリレーショナルデータベースを操作するためのNode.jsの<Term>ライブラリ</Term>です。複数の構成要素からなります。
 
-- [**`@prisma/client` パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いるnpmのパッケージです。JavaScriptプログラムから使用します。
-- [**`prisma` パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いるnpmのパッケージです。`npx` コマンドを通して実行します。
-- [**`.prisma` ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイルです。`prisma` パッケージのコマンドを用いて実際のデータベースサーバーに反映させます。
-- [**`Prisma` 拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Codeの拡張機能です。`.prisma` ファイルに対する補完やフォーマットの機能を提供します。
+- [**`@prisma/client`パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いるnpmのパッケージです。JavaScriptプログラムから使用します。
+- [**`prisma`パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いるnpmのパッケージです。`npx`コマンドを通して実行します。
+- [**`.prisma`ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイルです。`prisma`パッケージのコマンドを用いて実際のデータベースサーバーに反映させます。
+- [**`Prisma`拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Codeの拡張機能です。`.prisma`ファイルに対する補完やフォーマットの機能を提供します。
 
 #### [Supabase](https://supabase.com/)
 
@@ -83,11 +83,11 @@ PostgreSQLサーバーを提供するサービスです。PostgreSQLサーバー
 
 ### Supabase で PostgreSQL サーバーを構築する
 
-[Supabase](https://supabase.com/)のアカウントを作成しましょう。`New Project` ボタンを押して必要な情報を入力し、新しいPostgreSQLサーバーを起動させてください。入力が必要な情報は次の通りです。
+[Supabase](https://supabase.com/)のアカウントを作成しましょう。`New Project`ボタンを押して必要な情報を入力し、新しいPostgreSQLサーバーを起動させてください。入力が必要な情報は次の通りです。
 
 - **Project name**: 起動するサーバーにつける名前です。適当に設定して構いません。
-- **Database Password**: 起動するサーバーのパスワードです。`Generate a password` ボタンを押して生成するのが良いでしょう。また、後でこのパスワードは使用することになるため覚えておきましょう。
-- **Region**: 起動するサーバーの地理的な場所です。ここでは `Northeast Asia (Tokyo)` を選択しています。
+- **Database Password**: 起動するサーバーのパスワードです。`Generate a password`ボタンを押して生成するのが良いでしょう。また、後でこのパスワードは使用することになるため覚えておきましょう。
+- **Region**: 起動するサーバーの地理的な場所です。ここでは`Northeast Asia (Tokyo)`を選択しています。
 
 <video src={newPostgresqlInstanceVideo} controls />
 
@@ -105,28 +105,28 @@ VS Code向けのPrisma拡張機能をインストールしましょう。
 
 ![Prisma拡張機能のインストール](./install-prisma-extension.png)
 
-新しいフォルダをVS Codeで開き、`npm init` コマンドを使用して `package.json` ファイルを作成した後、
+新しいフォルダをVS Codeで開き、`npm init`コマンドを使用して`package.json`ファイルを作成した後、
 
 ```shell
 npx prisma init
 ```
 
-コマンドを実行します。パッケージをインストールしても良いか尋ねられる場合は、`y` を入力して許可しましょう。
+コマンドを実行します。パッケージをインストールしても良いか尋ねられる場合は、`y`を入力して許可しましょう。
 
 <video src={prismaInitVideo} controls muted />
 
-:::tip[`npx` コマンド]
+:::tip[`npx`コマンド]
 
 {/* prettier-ignore */}
-<Term>`npx` コマンド</Term>は、npmのパッケージを、プログラムからではなく直接実行するためのコマンドです。npmには `prisma` パッケージのように、直接実行専用のパッケージも存在します。
+<Term>`npx`コマンド</Term>は、npmのパッケージを、プログラムからではなく直接実行するためのコマンドです。npmには`prisma`パッケージのように、直接実行専用のパッケージも存在します。
 
 :::
 
-続いて、Supabaseからデータベースへの接続情報を `.env` ファイルにコピーします。これにより、PrismaはSupabase上のPostgreSQLサーバーと接続できるようになります。
+続いて、Supabaseからデータベースへの接続情報を`.env`ファイルにコピーします。これにより、PrismaはSupabase上のPostgreSQLサーバーと接続できるようになります。
 
 <video src={copySecretValuesVideo} controls muted />
 
-`prisma/schema.prisma` ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
+`prisma/schema.prisma`ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
@@ -153,7 +153,7 @@ model Todo {
 npx prisma db push
 ```
 
-コマンドを実行しましょう。すると、データベースに `schema.prisma` に書かれた通りのテーブルとカラムが作成されるので、DBeaverで確認してみてください。接続を一旦切断し、再接続する必要があります。また、このとき、後述する `@prisma/client` パッケージが自動的にインストールされます。
+コマンドを実行しましょう。すると、データベースに`schema.prisma`に書かれた通りのテーブルとカラムが作成されるので、DBeaverで確認してみてください。接続を一旦切断し、再接続する必要があります。また、このとき、後述する`@prisma/client`パッケージが自動的にインストールされます。
 
 <video src={prismaDbPushVideo} controls />
 
@@ -165,24 +165,24 @@ Prismaが作成したテーブルに、DBeaverを用いてレコードを追加�
 
 ### Prismaでデータベースのデータを読み書きする
 
-Node.jsからPrismaを利用してデータベースのデータを操作するためには、`@prisma/client` パッケージの [`PrismaClient` クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。
+Node.jsからPrismaを利用してデータベースのデータを操作するためには、`@prisma/client`パッケージの[`PrismaClient`クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。
 
-- [`PrismaClient#[テーブル名].findMany` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
-- [`PrismaClient#[テーブル名].findFirst` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
-- [`PrismaClient#[テーブル名].findUnique` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを1つだけ取得
+- [`PrismaClient#[テーブル名].findMany`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
+- [`PrismaClient#[テーブル名].findFirst`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
+- [`PrismaClient#[テーブル名].findUnique`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを1つだけ取得
 
 :::tip[非同期処理]
 
 上記の3つのメソッドは、<Term>**非同期処理**</Term>を行います。JavaScriptにおける非同期処理とは、ファイルの入出力やネットワーク通信など、JavaScriptの外側の時間のかかる処理の完了を待つ間、ほかの処理を実行できるようにする仕組みです。非同期処理を行う関数を使用するためには、次の2つを行います。
 
-- 非同期処理を行う関数を呼び出す関数を定義する際、`async` キーワードをつけること
-- 非同期処理を行う関数の戻り値に対し、`await` 演算子を適用すること
+- 非同期処理を行う関数を呼び出す関数を定義する際、`async`キーワードをつけること
+- 非同期処理を行う関数の戻り値に対し、`await`演算子を適用すること
 
 非同期処理に関する詳細は、[MDNの記事](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Asynchronous)を参照してください。
 
 :::
 
-まずは、`findMany` メソッドの戻り値を、デバッガを用いて確認してみましょう。
+まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。
 
 ```javascript
 import { PrismaClient } from "@prisma/client";
@@ -194,7 +194,7 @@ debugger;
 
 ![findManyの戻り値](./find-many-result.png)
 
-続いて、[`PrismaClient#[テーブル名].create` メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
+続いて、[`PrismaClient#[テーブル名].create`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
 ```javascript
 import { PrismaClient } from "@prisma/client";
@@ -218,14 +218,14 @@ Supabaseで新しいデータベースを作成しましょう。作成したデ
 
 ### 手順2
 
-新しいプロジェクト用のディレクトリを作成し、`npx prisma init` コマンドを実行して、Prismaのセットアップをしましょう。`.env` ファイルを編集し、Prismaがデータベースに接続できるようにしましょう。
+新しいプロジェクト用のディレクトリを作成し、`npx prisma init`コマンドを実行して、Prismaのセットアップをしましょう。`.env`ファイルを編集し、Prismaがデータベースに接続できるようにしましょう。
 
 ### 手順3
 
-作成された `.prisma` ファイルを編集し、掲示板に投稿されたメッセージを保存するためのテーブルと、そのテーブルのカラムの定義を記述しましょう。`npx prisma db push` コマンドでテーブルとカラムの定義をデータベースに反映させましょう。
+作成された`.prisma`ファイルを編集し、掲示板に投稿されたメッセージを保存するためのテーブルと、そのテーブルのカラムの定義を記述しましょう。`npx prisma db push`コマンドでテーブルとカラムの定義をデータベースに反映させましょう。
 
 :::info[テーブルの定義]
-掲示板サービスに必要なテーブルの構造を考えてみましょう。例えば、次の例では、掲示板の投稿を保存するための `Post` テーブルを定義しており、このテーブルには `id` と `message` の2つのカラムが存在しています。他にも、投稿のタイトルを保存するための `title` カラムや、投稿者名を保存するための `author` カラムなどを定義するなどの工夫が考えられます。
+掲示板サービスに必要なテーブルの構造を考えてみましょう。例えば、次の例では、掲示板の投稿を保存するための`Post`テーブルを定義しており、このテーブルには`id`と`message`の2つのカラムが存在しています。他にも、投稿のタイトルを保存するための`title`カラムや、投稿者名を保存するための`author`カラムなどを定義するなどの工夫が考えられます。
 
 ```javascript title="prisma/schema.prisma の抜粋"
 model Post {
@@ -246,10 +246,10 @@ Node.jsのデバッガを用いて、データベースのデータがPrismaで�
 
 ### 手順6
 
-Expressをインストールし、`/` へのGETリクエストに対して、データベースのデータをHTMLに整形したレスポンスを返せるようにしましょう。
+Expressをインストールし、`/`へのGETリクエストに対して、データベースのデータをHTMLに整形したレスポンスを返せるようにしましょう。
 
 :::info[ヒント]
-Prismaの `findMany` メソッドを用いて、テーブル内にある全てのレコードを取得できます。
+Prismaの`findMany`メソッドを用いて、テーブル内にある全てのレコードを取得できます。
 
 ```javascript
 const posts = await client.post.findMany();
@@ -259,7 +259,7 @@ const posts = await client.post.findMany();
 // ]
 ```
 
-このメソッドの戻り値は、各カラムの値をプロパティとして持つオブジェクトの配列です。`Array#map` メソッドや `Array#join` メソッドを用い、適切なHTMLに変換してレスポンスを生成しましょう。
+このメソッドの戻り値は、各カラムの値をプロパティとして持つオブジェクトの配列です。`Array#map`メソッドや`Array#join`メソッドを用い、適切なHTMLに変換してレスポンスを生成しましょう。
 :::
 
 <Answer title="手順6まで">
@@ -295,7 +295,7 @@ app.get("/", async (request, response) => {
 
 ### 手順7
 
-掲示板を投稿するためのHTMLのフォームを表示できるようにしましょう。入力されたデータは `/send` へのPOSTリクエストとして送信されるようにしてみましょう。
+掲示板を投稿するためのHTMLのフォームを表示できるようにしましょう。入力されたデータは`/send`へのPOSTリクエストとして送信されるようにしてみましょう。
 
 :::info[ヒント]
 手順6で作成したテンプレートとなるHTMLファイルを編集し、フォームを追加しましょう。
@@ -326,7 +326,7 @@ app.get("/", async (request, response) => {
 
 ### 手順8
 
-前の手順で作成したHTMLのフォームの送信先 (`/send` へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
+前の手順で作成したHTMLのフォームの送信先 (`/send`へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
 
 <Answer title="手順8まで">
 
@@ -341,10 +341,10 @@ app.post("/send", async (request, response) => {
 
 ### 手順9
 
-送られてきたデータをデータベースに保存できるようにしましょう。データベースに投稿が保存された後、ブラウザは自動的に `/` に戻るようにしてみましょう。
+送られてきたデータをデータベースに保存できるようにしましょう。データベースに投稿が保存された後、ブラウザは自動的に`/`に戻るようにしてみましょう。
 
 :::info[ヒント]
-[GETリクエストとPOSTリクエストの章](/docs/web-servers/get-post/)で扱った `express.Response#redirect` メソッドが使えます。
+[GETリクエストとPOSTリクエストの章](/docs/web-servers/get-post/)で扱った`express.Response#redirect`メソッドが使えます。
 
 :::
 

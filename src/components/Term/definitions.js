@@ -122,7 +122,7 @@ export default {
       referencePage: "/docs/trial-session/css/",
     },
     styleAttribute: {
-      name: "style 属性",
+      name: "style属性",
       definition:
         "表示可能な多くのHTML要素に対して設定できる、見た目をカスタマイズするための属性。",
       referencePage: "/docs/trial-session/css/",
@@ -390,7 +390,7 @@ export default {
       referencePage: "/docs/web-servers/get-post/",
     },
     npxCommand: {
-      name: "npx コマンド",
+      name: "npxコマンド",
       definition:
         "npm付属のコマンド。インストールしたnpmパッケージを直接実行する機能を持つ。",
       referencePage: "/docs/web-servers/database/",

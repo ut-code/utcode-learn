@@ -27,11 +27,11 @@ document.getElementById("fetch-button").onclick = async () => {
 
 <ViewSource url={import.meta.url} path="_samples/fetch-api" />
 
-`async () => {}` は、<Term>非同期関数</Term>、つまり `async` キーワードのついた関数を生成するための<Term>アロー関数</Term>式です。
+`async () => {}`は、<Term>非同期関数</Term>、つまり`async`キーワードのついた関数を生成するための<Term>アロー関数</Term>式です。
 
-[`fetch` 関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term>リクエスト</Term>を発行するための関数です。標準では<Term>GETリクエスト</Term>が発行されます。この関数の戻り値に `await 演算子` を適用すると、発行した<Term>リクエスト</Term>に対する [`Response` クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch` 関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term>リクエスト</Term>を発行することができます。
+[`fetch`関数](https://developer.mozilla.org/ja/docs/Web/API/fetch)は、<Term>リクエスト</Term>を発行するための関数です。標準では<Term>GETリクエスト</Term>が発行されます。この関数の戻り値に`await 演算子`を適用すると、発行した<Term>リクエスト</Term>に対する[`Response`クラス](https://developer.mozilla.org/ja/docs/Web/API/Response)のインスタンスが得られます。`fetch`関数を利用することで、ページの再読み込みを伴わず、関数が実行されるタイミングで<Term>リクエスト</Term>を発行することができます。
 
-[`Response#text` メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)は、<Term>レスポンスボディ</Term>全体を文字列として読み込むための<Term>非同期関数</Term>です。
+[`Response#text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)は、<Term>レスポンスボディ</Term>全体を文字列として読み込むための<Term>非同期関数</Term>です。
 
 なお、<Term>サーバー</Term>では次のプログラムが動作しているものとします。
 
@@ -50,9 +50,9 @@ app.listen(3000);
 
 ## <Term>POSTリクエスト</Term>を送信する
 
-何もオプションをつけずに呼び出された `fetch` 関数は、<Term>GETリクエスト</Term>を送信します。しかしながら、`fetch` 関数の第2引数に指定したオブジェクトの `method` プロパティに `"post"` を指定することで、<Term>POSTリクエスト</Term>を送信できます。
+何もオプションをつけずに呼び出された`fetch`関数は、<Term>GETリクエスト</Term>を送信します。しかしながら、`fetch`関数の第2引数に指定したオブジェクトの`method`プロパティに`"post"`を指定することで、<Term>POSTリクエスト</Term>を送信できます。
 
-このとき、<Term>リクエストボディ</Term>は、 `fetch` 関数の第2引数に指定したオブジェクトの `body` プロパティに指定します。
+このとき、<Term>リクエストボディ</Term>は、`fetch`関数の第2引数に指定したオブジェクトの`body`プロパティに指定します。
 
 ```javascript title="static/script.js"
 document.getElementById("send-button").onclick = async () => {
@@ -83,15 +83,15 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/send-post-request" />
 
-HTMLのフォームで送ったものと同じ形式でデータを送信するには、[GETリクエストとPOSTリクエスト](/docs/web-servers/get-post/)節で扱ったように、<Term>リクエストボディ</Term>が<Term>クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams` クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term>クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term>リクエストボディ</Term>には `name=入力された名前&age=入力された年齢` といった文字列が格納されます。
+HTMLのフォームで送ったものと同じ形式でデータを送信するには、[GETリクエストとPOSTリクエスト](/docs/web-servers/get-post/)節で扱ったように、<Term>リクエストボディ</Term>が<Term>クエリ文字列</Term>の形式になっている必要があります。[`URLSearchParams`クラス](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)を用いると、<Term>クエリ文字列</Term>を簡単に扱うことができます。この例では、<Term>リクエストボディ</Term>には`name=入力された名前&age=入力された年齢`といった文字列が格納されます。
 
 ## <Term>リクエストボディ</Term>に<Term>JSON</Term>を使用する
 
 前項では、<Term>リクエストボディ</Term>に<Term>クエリ文字列</Term>の形式を用いましたが、<Term>JSON</Term>を用いることで、より複雑なデータを扱えるようになります。
 
-[`JSON.stringify` 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)は、JavaScriptオブジェクトを受け取って<Term>JSON</Term>文字列を返す関数です。この値を<Term>リクエストボディ</Term>に指定しています。
+[`JSON.stringify`関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)は、JavaScriptオブジェクトを受け取って<Term>JSON</Term>文字列を返す関数です。この値を<Term>リクエストボディ</Term>に指定しています。
 
-`fetch` 関数の第2引数の `headers` オプションでは、<Term>リクエストヘッダ</Term>を指定します。<Term>リクエストボディ</Term>に<Term>JSON</Term>を指定する場合は、**`Content-Type` リクエストヘッダ**を `"application/json"` に指定します。
+`fetch`関数の第2引数の`headers`オプションでは、<Term>リクエストヘッダ</Term>を指定します。<Term>リクエストボディ</Term>に<Term>JSON</Term>を指定する場合は、**`Content-Type`リクエストヘッダ**を`"application/json"`に指定します。
 
 ```javascript title="static/script.js"
 document.getElementById("send-button").onclick = async () => {
@@ -108,7 +108,7 @@ document.getElementById("send-button").onclick = async () => {
 };
 ```
 
-サーバー側では、<Term>リクエストボディ</Term>のJSONを解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded) の代わりに [`express.json`](https://expressjs.com/ja/api.html#express.json) を用います。
+サーバー側では、<Term>リクエストボディ</Term>のJSONを解釈するため、[`express.urlencoded`](https://expressjs.com/ja/api.html#express.urlencoded)の代わりに[`express.json`](https://expressjs.com/ja/api.html#express.json)を用います。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -128,9 +128,9 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/json-request-body" />
 
-:::tip[`Content-Type` <Term type="httpHeaderBody">リクエスト・レスポンスヘッダ</Term>]
+:::tip[`Content-Type`<Term type="httpHeaderBody">リクエスト・レスポンスヘッダ</Term>]
 
-`Content-Type` ヘッダは、<Term>リクエストボディ</Term>や<Term>レスポンスボディ</Term>の種類を識別するために使用されます。ここで使用する種類は、[**MIMEタイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
+`Content-Type`ヘッダは、<Term>リクエストボディ</Term>や<Term>レスポンスボディ</Term>の種類を識別するために使用されます。ここで使用する種類は、[**MIMEタイプ**](https://developer.mozilla.org/ja/docs/Glossary/MIME_type)と呼ばれます。
 
 代表的なMIMEタイプとして、次のような値が定義されています。
 
@@ -147,13 +147,13 @@ app.listen(3000);
 
 ## 課題
 
-`Fetch API` を用いてチャットアプリを作成してみましょう。
+`Fetch API`を用いてチャットアプリを作成してみましょう。
 
 <video src={chatAppVideo} controls muted />
 
 ### ヒント
 
-[掲示板を作ったとき](/docs/web-servers/get-post/) と同じく、`messages` という配列をサーバー側に用意し、メッセージが送信されたらその配列に要素を追加するようにしましょう。
+[掲示板を作ったとき](/docs/web-servers/get-post/) と同じく、`messages`という配列をサーバー側に用意し、メッセージが送信されたらその配列に要素を追加するようにしましょう。
 
 ```javascript title="main.mjs"
 const messages = [];
@@ -162,9 +162,9 @@ app.post("/send", (request, response) => {
 });
 ```
 
-`/messages` への<Term>GETリクエスト</Term>に対し、メッセージの一覧を<Term>JSON</Term>で応答するようにしてみましょう。
+`/messages`への<Term>GETリクエスト</Term>に対し、メッセージの一覧を<Term>JSON</Term>で応答するようにしてみましょう。
 
-[`express.Response#json` メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを `JSON.stringify` によって<Term>JSON</Term>としたうえで<Term>レスポンス</Term>するためのメソッドです。このとき、`Content-Type` レスポンスヘッダは自動的に `"application/json"` に設定されます。
+[`express.Response#json`メソッド](https://expressjs.com/ja/api.html#res.json)は、受け取ったオブジェクトを`JSON.stringify`によって<Term>JSON</Term>としたうえで<Term>レスポンス</Term>するためのメソッドです。このとき、`Content-Type`レスポンスヘッダは自動的に`"application/json"`に設定されます。
 
 ```javascript title="main.mjs"
 app.get("/messages", (request, response) => {
@@ -172,7 +172,7 @@ app.get("/messages", (request, response) => {
 });
 ```
 
-新着メッセージを確認するために、定期的に `/messages` に対して `fetch` 関数を用いて<Term>リクエスト</Term>しましょう。`setInterval` 関数が利用できます。
+新着メッセージを確認するために、定期的に`/messages`に対して`fetch`関数を用いて<Term>リクエスト</Term>しましょう。`setInterval`関数が利用できます。
 
 ```javascript title="static/script.js"
 setInterval(async () => {
@@ -181,7 +181,7 @@ setInterval(async () => {
 }, 1000);
 ```
 
-`innerHTML` プロパティを空文字列とすることで要素の子要素を全て削除できます。`document.createElement` 関数を用いて再び生成し直しましょう。
+`innerHTML`プロパティを空文字列とすることで要素の子要素を全て削除できます。`document.createElement`関数を用いて再び生成し直しましょう。
 
 ```html title="static/index.html"
 <ul id="message-list"></ul>

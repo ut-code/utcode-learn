@@ -13,7 +13,7 @@ Web開発に必ず用いられる言語があります。<Term>**HTML**</Term>�
 
 ## <Term>HTML</Term>を書き始める
 
-VS Codeの画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html` と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー (<kbd>command</kbd> + <kbd>S</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>S</kbd> (Windows) ) を用いてください。
+VS Codeの画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html`と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー (<kbd>command</kbd> + <kbd>S</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>S</kbd> (Windows) ) を用いてください。
 
 ```html title="index.html"
 <!doctype html>
@@ -32,15 +32,15 @@ VS Codeの画面左端には、ファイル一覧が表示されています。�
 
 ## ブラウザで<Term>HTML</Term>ファイルを開く
 
-前頁で作成したフォルダを開き、`index.html` が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World` の部分だけ太字) が表示されましたか？
+前頁で作成したフォルダを開き、`index.html`が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World`の部分だけ太字) が表示されましたか？
 
 <video src={openInBrowserVideo} controls />
 
 :::info[拡張子]
 
-VS Code上で作成したファイルは `index.html` でした。しかしながら、Windowsでフォルダの中身を見ると `index` しか表示されません (macOSの場合は正しく表示されます)。なぜでしょうか？
+VS Code上で作成したファイルは`index.html`でした。しかしながら、Windowsでフォルダの中身を見ると`index`しか表示されません (macOSの場合は正しく表示されます)。なぜでしょうか？
 
-ファイル名の `.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど `index.html` という名前のファイルを作成したのは、<Term>HTML</Term>ファイルであることを明示するためです。
+ファイル名の`.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど`index.html`という名前のファイルを作成したのは、<Term>HTML</Term>ファイルであることを明示するためです。
 
 実はWindowsでは、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
 
@@ -52,15 +52,15 @@ VS Code上で作成したファイルは `index.html` でした。しかしな�
 
 それでは、先ほどのファイルの中身を見ていきましょう。
 
-`<strong>World</strong>` の部分に注目してください。
+`<strong>World</strong>`の部分に注目してください。
 
-<Term>HTML</Term>ファイルは、文書に意味を持たせるために、<Term>**タグ**</Term>と呼ばれる構造を持つことができます。<Term>タグ</Term>は、`<tag>` のような、`<` と `>` で囲まれた英数字のまとまりです。
+<Term>HTML</Term>ファイルは、文書に意味を持たせるために、<Term>**タグ**</Term>と呼ばれる構造を持つことができます。<Term>タグ</Term>は、`<tag>`のような、`<`と`>`で囲まれた英数字のまとまりです。
 
 {/* prettier-ignore */}
-<Term>タグ</Term>は、`<tag>内容</tag>` のように、<Term>タグ</Term>名の先頭にスラッシュを付けるか否かの区別により<Term>**開始タグ**</Term>と<Term>**終了タグ**</Term>に分かれ、内部にテキストや別のタグを挟み込むことができます。
+<Term>タグ</Term>は、`<tag>内容</tag>`のように、<Term>タグ</Term>名の先頭にスラッシュを付けるか否かの区別により<Term>**開始タグ**</Term>と<Term>**終了タグ**</Term>に分かれ、内部にテキストや別のタグを挟み込むことができます。
 <Term>開始タグ</Term>から<Term>終了タグ</Term>までのまとまりを<Term>**要素**</Term>といいます。
 
-`body` 要素の中身を書き換え、次のようにしてみましょう。
+`body`要素の中身を書き換え、次のようにしてみましょう。
 
 {/* prettier-ignore */}
 ```html title="index.html"
@@ -92,9 +92,9 @@ VS Code上で作成したファイルは `index.html` でした。しかしな�
 
 <video src={reloadBrowserVideo} muted controls />
 
-`<a href="https://www.google.com/">～</a>` は **`a` <Term>要素</Term>** です。<Term>開始タグ</Term>の中に `href="https://www.google.com/"` という部分があります。これが<Term>**属性**</Term>です。<Term>属性</Term>は、<Term>開始タグ</Term> の中に `属性名="値"` のように記述され、<Term>要素</Term>の特徴を表します。`a` <Term>要素</Term>の **`href` <Term>属性</Term>** は、ハイパーリンクのリンク先を表す<Term>属性</Term>です。
+`<a href="https://www.google.com/">～</a>`は **`a`<Term>要素</Term>** です。<Term>開始タグ</Term>の中に`href="https://www.google.com/"`という部分があります。これが<Term>**属性**</Term>です。<Term>属性</Term>は、<Term>開始タグ</Term> の中に`属性名="値"`のように記述され、<Term>要素</Term>の特徴を表します。`a`<Term>要素</Term>の **`href`<Term>属性</Term>** は、ハイパーリンクのリンク先を表す<Term>属性</Term>です。
 
-これにより、ハイパーリンクが設定されます。この例では `a` <Term>要素</Term>の中に `strong` <Term>要素</Term>が含まれています。このように、HTMLタグは<Term type="htmlNest">**ネスト**</Term>させることにより、効果を重ね掛けすることができます。
+これにより、ハイパーリンクが設定されます。この例では`a`<Term>要素</Term>の中に`strong`<Term>要素</Term>が含まれています。このように、HTMLタグは<Term type="htmlNest">**ネスト**</Term>させることにより、効果を重ね掛けすることができます。
 
 ![ネストされた要素](./nested-elements.png)
 
@@ -110,15 +110,15 @@ VS Code上で作成したファイルは `index.html` でした。しかしな�
 
 という、「このファイルは<Term>HTML</Term>ファイルだ！」と宣言する定型句から始まります。
 
-続けて記述されるのは `<html lang="ja">`、つまり **`html` <Term>要素</Term>** です。<Term>HTML</Term>は、この `html` <Term>要素</Term>を根とした木構造になっています。このため、`html` <Term>タグ</Term>の閉じ<Term>タグ</Term>はファイルの末尾に現れます。
+続けて記述されるのは`<html lang="ja">`、つまり **`html`<Term>要素</Term>** です。<Term>HTML</Term>は、この`html`<Term>要素</Term>を根とした木構造になっています。このため、`html`<Term>タグ</Term>の閉じ<Term>タグ</Term>はファイルの末尾に現れます。
 
-`html` <Term>要素</Term>の直属の子<Term>要素</Term>は、 **`head` <Term>要素</Term>** と **`body` <Term>要素</Term>** の二つだけです。このうち、後者 (`body` <Term>要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
+`html`<Term>要素</Term>の直属の子<Term>要素</Term>は、 **`head`<Term>要素</Term>** と **`body`<Term>要素</Term>** の二つだけです。このうち、後者 (`body`<Term>要素</Term>) が実際にブラウザの表示領域上に表示されることになります。
 
 ![HTMLの構造](./html-structure.drawio.svg)
 
 :::info
 
-ブラウザの画面内に表示される情報を表すのは `body` <Term>要素</Term>中だけなので、<Term>HTML</Term>ファイルの編集は通常 `body` <Term>要素</Term>内部が中心となります。このドキュメントでも、これ以降掲載する<Term>HTML</Term>のサンプルコードは `body` <Term>要素</Term>内部のみを記述することとします。
+ブラウザの画面内に表示される情報を表すのは `body`<Term>要素</Term>中だけなので、<Term>HTML</Term>ファイルの編集は通常 `body`<Term>要素</Term>内部が中心となります。このドキュメントでも、これ以降掲載する<Term>HTML</Term>のサンプルコードは `body`<Term>要素</Term>内部のみを記述することとします。
 
 :::
 
@@ -132,8 +132,8 @@ VS Code上で作成したファイルは `index.html` でした。しかしな�
 
 :::info[ヒント]
 
-- 「遠足の持ち物」という見出しがあります。`h1` タグについて調べてみてください。
-- 箇条書きを表現するには、単に先頭に「・」と書くのではなく箇条書きを表すタグを用います。`ul` タグと `li` タグについて調べてみてください。
+- 「遠足の持ち物」という見出しがあります。`h1`タグについて調べてみてください。
+- 箇条書きを表現するには、単に先頭に「・」と書くのではなく箇条書きを表すタグを用います。`ul`タグと`li`タグについて調べてみてください。
 
 :::
 
@@ -170,9 +170,9 @@ VS Code上で作成したファイルは `index.html` でした。しかしな�
 
 :::info[ヒント]
 
-- `ID` や `パスワード` といった文字が表形式に並んでいます。`table` タグで実現できます。
-- テキストボックスは `input` タグで作成できます。
-- 最後の箇条書きには `ul` タグや `li` タグを使用しています。
+- `ID`や`パスワード`といった文字が表形式に並んでいます。`table`タグで実現できます。
+- テキストボックスは`input`タグで作成できます。
+- 最後の箇条書きには`ul`タグや`li`タグを使用しています。
 
 :::
 
