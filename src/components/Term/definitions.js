@@ -404,7 +404,7 @@ export default {
     api: {
       name: "API",
       definition:
-        "あるコンピュータープログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース(Application Programming Interface)の略。",
+        "あるコンピュータープログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース (Application Programming Interface) の略。",
       referencePage: "/docs/advanced/fetch-api/",
     },
     thread: {
