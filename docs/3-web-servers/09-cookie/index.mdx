@@ -1,40 +1,40 @@
 ---
-title: Cookie と認証（発展）
+title: Cookieと認証（発展）
 ---
 
 import cookieCounterVideo from "./cookie-counter.mp4";
 
-## HTTP ヘッダ
+## HTTPヘッダ
 
-HTTP におけるリクエストとレスポンスには、**ヘッダ**と呼ばれる Key-Value 型のデータ構造が毎回付加されています。Chrome の開発者ツールでの `Network` タブで確認できるので、確認してみましょう。
+HTTPにおけるリクエストとレスポンスには、**ヘッダ**と呼ばれるKey-Value型のデータ構造が毎回付加されています。Chromeの開発者ツールでの `Network` タブで確認できるので、確認してみましょう。
 
-![HTTP ヘッダ](./http-headers.png)
+![HTTPヘッダ](./http-headers.png)
 
 ## Cookie
 
-レスポンスヘッダに `set-cookie` ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの `cookie` ヘッダに入れて毎回送信します。この性質を利用することで、HTTP サーバーはクライアント毎に異なるサービスを提供できるようになります。
+レスポンスヘッダに `set-cookie` ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの `cookie` ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
 
-Cookie 自体も Key-Value のデータ構造となっているので、`set-cookie` ヘッダを複数回送信することにより、複数の cookie を 1 つのレスポンスで送信することができます。例として、[Yahoo! Japan のウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japan が送信する Cookie の中身を覗いてみましょう。
+Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie` ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
 
-![Yahoo! Japan の Cookie](./yahoo-cookies.png)
+![Yahoo! JapanのCookie](./yahoo-cookies.png)
 
-このレスポンスヘッダを受けて、ブラウザは次のような Cookie を保存します。
+このレスポンスヘッダを受けて、ブラウザは次のようなCookieを保存します。
 
-![保存された Cookie](./saved-cookies.png)
+![保存されたCookie](./saved-cookies.png)
 
-ブラウザを更新することで、設定された Cookie が確かにリクエストヘッダの中に含まれて送信されていることがわかります。
+ブラウザを更新することで、設定されたCookieが確かにリクエストヘッダの中に含まれて送信されていることがわかります。
 
-![リクエストに付加された Cookie](./sent-cookies.png)
+![リクエストに付加されたCookie](./sent-cookies.png)
 
-## Express で Cookie を利用する
+## ExpressでCookieを利用する
 
-Express を用いてレスポンスヘッダに Cookie を付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser) パッケージを利用します。
+Expressを用いてレスポンスヘッダにCookieを付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを利用します。
 
 ```shell
 npm install cookie-parser
 ```
 
-を実行して、パッケージをインストールしましょう。Web サーバーのプログラムは次のようになります。
+を実行して、パッケージをインストールしましょう。Webサーバーのプログラムは次のようになります。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -44,7 +44,7 @@ const app = express();
 app.use(cookieParser());
 
 app.get("/", (request, response) => {
-  // Cookie の値は文字列なので数値に変換が必要
+  // Cookieの値は文字列なので数値に変換が必要
   const count = parseInt(request.cookies.count) || 0;
   const newCount = count + 1;
   // 変更後の値をレスポンスヘッダに乗せる
@@ -55,7 +55,7 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていた Cookie がオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
 
 <video src={cookieCounterVideo} controls muted />
 
@@ -65,14 +65,14 @@ app.listen(3000);
 
 ### 演習
 
-- Chrome の開発者ツールを用いて、リクエストヘッダとレスポンスヘッダの内容を確認してみましょう。
+- Chromeの開発者ツールを用いて、リクエストヘッダとレスポンスヘッダの内容を確認してみましょう。
 - シークレットモードでページを開くと値はどうなるでしょうか。
 
-## Cookie を用いた認証
+## Cookieを用いた認証
 
-ユーザー名とパスワードを用いて認証するタイプのアプリケーションを考えてみましょう。ユーザー名とパスワードを、そのまま Cookie に入れてしまうと、データが悪意のある第三者に奪われてしまうリスクが高まります。
+ユーザー名とパスワードを用いて認証するタイプのアプリケーションを考えてみましょう。ユーザー名とパスワードを、そのままCookieに入れてしまうと、データが悪意のある第三者に奪われてしまうリスクが高まります。
 
-このため、ログインが成功したタイミングで、クライアントに対してランダムな ID を発行し、Cookie に保存させておくことが一般的です（**セッション ID** と呼ばれる）。次回以降のアクセスでは、このセッション ID を用いて認証を行います。このフローを図にすると、次のようになります。
+このため、ログインが成功したタイミングで、クライアントに対してランダムなIDを発行し、Cookieに保存させておくことが一般的です（**セッションID**と呼ばれる）。次回以降のアクセスでは、このセッションIDを用いて認証を行います。このフローを図にすると、次のようになります。
 
 ![セッション](./session.png)
 
@@ -91,7 +91,7 @@ model User {
 
 model Session {
   id     String @id // 一意でランダムなID
-  userId Int // User の ID
+  userId Int // UserのID
 }
 ```
 

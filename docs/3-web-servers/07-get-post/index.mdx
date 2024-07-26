@@ -1,24 +1,24 @@
 ---
-title: GET リクエストと POST リクエスト
+title: GETリクエストとPOSTリクエスト
 ---
 
 import postInDevelopment1 from "./postInDevelopment1.mp4";
 import postInDevelopment2 from "./postInDevelopment2.mp4";
 import postInDevelopment3 from "./postInDevelopment3.mp4";
 
-## GET リクエストと POST リクエスト
+## GETリクエストとPOSTリクエスト
 
-HTTP 上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも **GET リクエスト**と呼ばれるものになります。
+HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも**GETリクエスト**と呼ばれるものになります。
 
-GET リクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>として URL の末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときに URL にパスワード情報が載ってしまい機密情報の漏洩につながります。また、URL の長さの制限のため、大量の情報は送信できません。
+GETリクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>としてURLの末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときにURLにパスワード情報が載ってしまい機密情報の漏洩につながります。また、URLの長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが **POST リクエスト**です。POST リクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
+そこで用いるのが**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
-HTTP リクエストのこのような区分を、<Term>**HTTP メソッド**</Term>と呼びます。
+HTTPリクエストのこのような区分を、<Term>**HTTPメソッド**</Term>と呼びます。
 
-![HTTP メソッドの比較](./method-comparison.png)
+![HTTPメソッドの比較](./method-comparison.png)
 
-前頁の例を、POST リクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドの<Term>リクエスト</Term>を発行します。
+前頁の例を、POSTリクエストを用いて書き直してみましょう。`form` 要素の `method` 属性に `post` を指定することで、ブラウザは送信ボタンが押されたときに `POST` メソッドの<Term>リクエスト</Term>を発行します。
 
 ```html title="static/index.html"
 <!doctype html>
@@ -55,12 +55,12 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/post-request" />
 
-これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GET メソッドの<Term>リクエスト</Term>しか受け付けられないため、`/send` への POST リクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
+これまで利用していた `app.get` ([`express.Application#get` メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GETメソッドの<Term>リクエスト</Term>しか受け付けられないため、`/send` へのPOSTリクエストを受け付けるために `app.post` ([`express.Application#post` メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
 
 {/* prettier-ignore */}
 <Term>クエリパラメータ</Term>にアクセスするには、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query` プロパティ</a>)を使用しましたが、<Term>リクエストボディ</Term>を使用するには、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body` プロパティ</a>)を使用します。
 
-`app.use(express.urlencoded({ extended: true }));` は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTML のフォームが送信されたとき、ブラウザが発行する POST リクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じく URL エンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URL エンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
+`app.use(express.urlencoded({ extended: true }));` は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTMLのフォームが送信されたとき、ブラウザが発行するPOSTリクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じくURLエンコードされた形式で記述されます。[`express.urlencoded` 関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URLエンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body` にオブジェクトの形式でデータを保存する役割を担っています。
 
 このシステムでは、まず次のような画面が表示されます。
 
@@ -70,13 +70,13 @@ app.listen(3000);
 
 ![名前と年齢を入力２](postRequest2.png)
 
-`http://localhost:3000/send` に移り、以下のような画面が表示されます。GET リクエストの時と違い、<Term>クエリパラメータ</Term>が URL に表示されていないことが分かります。
+`http://localhost:3000/send` に移り、以下のような画面が表示されます。GETリクエストの時と違い、<Term>クエリパラメータ</Term>がURLに表示されていないことが分かります。
 
 ![名前と年齢を入力３](postRequest3.png)
 
-## POST リクエストを開発者ツールで覗いてみる
+## POSTリクエストを開発者ツールで覗いてみる
 
-実際に POST リクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの `Network` タブを開き、文字を入力して送信してみます。
+実際にPOSTリクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの `Network` タブを開き、文字を入力して送信してみます。
 
 <video src={postInDevelopment1} controls />
 
@@ -84,11 +84,11 @@ app.listen(3000);
 
 <video src={postInDevelopment2} controls />
 
-ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。すると URL エンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
+ここからさらに、`Form data` の横の `view source` や `view URL-encoded` も見てみましょう。するとURLエンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
 
 <video src={postInDevelopment3} controls />
 
-以上のようにして、POST リクエストの中身を覗くことができます。
+以上のようにして、POSTリクエストの中身を覗くことができます。
 
 ![GETリクエストとPOSTリクエスト](requestAndResponse.png)
 
@@ -96,7 +96,7 @@ app.listen(3000);
 
 古き良き掲示板システムを作ってみましょう。次のようなページを作成してください。
 
-- `GET /`: 現在の投稿されているすべての記事を表示します。`/send` へ POST するためのフォームも同時に表示します。
+- `GET /`: 現在の投稿されているすべての記事を表示します。`/send` へPOSTするためのフォームも同時に表示します。
 - `POST /send`: リクエストボディに含まれている記事の内容を記録します。
 
 :::tip[ヒント]
@@ -110,7 +110,7 @@ app.listen(3000);
 :::tip[豆知識: リダイレクト]
 
 サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。
-Express を用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
+Expressを用いてこのようなレスポンスを生成するためには、[`express.Response#send` メソッド](https://expressjs.com/ja/api.html#res.send) の代わりに、[`express.Response#redirect` メソッド](https://expressjs.com/ja/api.html#res.redirect) を用います。
 
 ```javascript
 app.post("/send", (request, response) => {

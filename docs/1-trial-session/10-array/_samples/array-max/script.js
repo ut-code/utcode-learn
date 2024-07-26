@@ -13,8 +13,8 @@ function findMaxNumber(numbers) {
 }
 
 document.write(
-  `<p>配列 [${array1}] の最大値は${findMaxNumber(array1)} です。</p>`,
+  `<p>配列[${array1}]の最大値は${findMaxNumber(array1)}です。</p>`,
 );
 document.write(
-  `<p>配列 [${array2}] の最大値は${findMaxNumber(array2)} です。</p>`,
+  `<p>配列[${array2}]の最大値は${findMaxNumber(array2)}です。</p>`,
 );

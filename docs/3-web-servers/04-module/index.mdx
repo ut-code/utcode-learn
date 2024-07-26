@@ -1,5 +1,5 @@
 ---
-title: モジュールと npm
+title: モジュールとnpm
 ---
 
 import npmInitVideo from "./npm-init.mp4";
@@ -7,7 +7,7 @@ import npmInstallVideo from "./npm-install.mp4";
 
 ## 別のファイルに書かれたプログラム
 
-Node.js では、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の `main.mjs` はエラーになります。
+Node.jsでは、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の `main.mjs` はエラーになります。
 
 ```javascript title="sub.mjs"
 function add(a, b) {
@@ -19,9 +19,9 @@ function add(a, b) {
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
-別のファイルに書かれたプログラムを読み込むための手段として、Node.js では<Term>**モジュール**</Term>という仕組みが用意されています。JavaScript では、すべてのファイルが<Term>モジュール</Term>として扱われます。
+別のファイルに書かれたプログラムを読み込むための手段として、Node.jsでは<Term>**モジュール**</Term>という仕組みが用意されています。JavaScriptでは、すべてのファイルが<Term>モジュール</Term>として扱われます。
 
-Node.js では、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term>モジュール</Term>とのやりとりを行います。
+Node.jsでは、ファイルの拡張子が `.mjs` の場合、`export` 文や `import` 文を用いて他の<Term>モジュール</Term>とのやりとりを行います。
 
 ```javascript title="sub.mjs"
 export default function add(a, b) {
@@ -60,11 +60,11 @@ console.log(subtract(4, 3));
 
 :::
 
-:::tip[CommonJS モジュール]
+:::tip[CommonJSモジュール]
 
-さきほどのように `export` 文と `import` 文を用いて他の<Term>モジュール</Term>とのやり取りを行う JavaScript 標準の<Term>モジュール</Term>システムを、[**ECMAScript モジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript <Term>モジュール</Term>を用いてプログラムを記述できます。
+さきほどのように `export` 文と `import` 文を用いて他の<Term>モジュール</Term>とのやり取りを行うJavaScript標準の<Term>モジュール</Term>システムを、[**ECMAScriptモジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を `.mjs` にすることで、ECMAScript<Term>モジュール</Term>を用いてプログラムを記述できます。
 
-ECMAScript モジュールの他に [CommonJS モジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJS モジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。Node.js では、拡張子を `.js` にすることで、CommonJS <Term>モジュール</Term>を用いてプログラムを記述できます。
+ECMAScriptモジュールの他に[CommonJSモジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJSモジュールでは、`exports` オブジェクトや `require` 関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。Node.jsでは、拡張子を `.js` にすることで、CommonJS<Term>モジュール</Term>を用いてプログラムを記述できます。
 
 `exports` オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
@@ -88,7 +88,7 @@ console.log(add(3, 4));
 
 ## 標準<Term>モジュール</Term>
 
-Node.js の [`fs` モジュール](https://nodejs.org/api/fs.html) を用いると、Node.js からファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第 1 引数にファイルへのパスを指定し、第 2 引数には文字コードを指定します。
+Node.jsの [`fs` モジュール](https://nodejs.org/api/fs.html) を用いると、Node.jsからファイルの読み書きを行うことができます。`fs` モジュールの [`readFileSync` 関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第1引数にファイルへのパスを指定し、第2引数には文字コードを指定します。
 
 ```javascript title="main.mjs"
 import { readFileSync } from "node:fs";
@@ -117,7 +117,7 @@ Hello World!
 
 <Answer>
 
-第 1 引数にファイルへのパス、第 2 引数に書き込む文字列を指定します。
+第1引数にファイルへのパス、第2引数に書き込む文字列を指定します。
 
 ```javascript title="main.mjs"
 import { writeFileSync } from "node:fs";
@@ -134,15 +134,15 @@ writeFileSync("./sample.txt", "Hello World!");
 
 ## npm
 
-Node.js における**パッケージ**とは、主に JavaScript ファイルをまとめていろいろな場所で利用可能にしたものです。[npm](https://docs.npmjs.com/about-npm) (Node Package Manager) は、Node.js の**パッケージマネージャー**で、このソフトウェアを通してパッケージを管理できます。
+Node.jsにおける**パッケージ**とは、主にJavaScriptファイルをまとめていろいろな場所で利用可能にしたものです。[npm](https://docs.npmjs.com/about-npm) (Node Package Manager) は、Node.jsの**パッケージマネージャー**で、このソフトウェアを通してパッケージを管理できます。
 
-また、npm から利用されるパッケージを集積したサービス [npmjs.com](https://www.npmjs.com/) もまた、npm と呼ばれます。例として、日付や時刻の操作のために用いられる<Term>ライブラリ</Term>である、[date-fns](https://www.npmjs.com/package/date-fns) パッケージを利用してみましょう。
+また、npmから利用されるパッケージを集積したサービス[npmjs.com](https://www.npmjs.com/)もまた、npmと呼ばれます。例として、日付や時刻の操作のために用いられる<Term>ライブラリ</Term>である、[date-fns](https://www.npmjs.com/package/date-fns)パッケージを利用してみましょう。
 
-npm を用いて開発を行うには、まず `npm init` コマンドを実行します。いくつか質問をされるので、Enter キーを押し続けて質問をスキップしましょう。完了すると、フォルダの中に `package.json` という名前のファイルが作成されます。このファイルは、npm によって管理されるフォルダに必ず 1 つ必要になるものです。
+npmを用いて開発を行うには、まず `npm init` コマンドを実行します。いくつか質問をされるので、Enterキーを押し続けて質問をスキップしましょう。完了すると、フォルダの中に `package.json` という名前のファイルが作成されます。このファイルは、npmによって管理されるフォルダに必ず1つ必要になるものです。
 
 <video src={npmInitVideo} controls muted />
 
-続いて、npm のパッケージをインストールします。`npm install` に続けて、インストールしたいパッケージの名前を入力します。
+続いて、npmのパッケージをインストールします。`npm install` に続けて、インストールしたいパッケージの名前を入力します。
 
 ```shell
 npm install date-fns
@@ -154,9 +154,9 @@ npm install date-fns
 
 :::tip[JSON]
 
-npm によって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON** が記述されています。JSON は、JavaScript Object Notation の略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScript オブジェクトに似た記法を用いるための仕様です。JavaScript との相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScript を用いないプロジェクトでも頻繁に用いられます。
+npmによって作成された `package.json` とは何者でしょうか。拡張子が `.json` のファイルには、**JSON**が記述されています。JSONは、JavaScript Object Notationの略で、複雑なデータ構造を単一の文字列として表現する際に、JavaScriptオブジェクトに似た記法を用いるための仕様です。JavaScriptとの相性が非常に良いだけでなく、文法が単純で明快であることから、JavaScriptを用いないプロジェクトでも頻繁に用いられます。
 
-JSON は、JavaScript のオブジェクト記法よりも制限が厳しくなっています。例えば、
+JSONは、JavaScriptのオブジェクト記法よりも制限が厳しくなっています。例えば、
 
 ```js
 {
@@ -165,12 +165,12 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 }
 ```
 
-は、JavaScript の文法では有効ですが、JSON としては誤りです。JSON には、
+は、JavaScriptの文法では有効ですが、JSONとしては誤りです。JSONには、
 
 - キーには必ずダブルクォーテーションをつける
 - 最後のプロパティの後にはコンマをつけてはならない
 
-という制約があります。このため、上のオブジェクトを JSON で記述するためには、
+という制約があります。このため、上のオブジェクトをJSONで記述するためには、
 
 ```json
 {
@@ -183,9 +183,9 @@ JSON は、JavaScript のオブジェクト記法よりも制限が厳しくな�
 
 :::
 
-## npm のパッケージを Node.js から利用する
+## npmのパッケージをNode.jsから利用する
 
-npm でダウンロードしたパッケージは、<Term>モジュール</Term>として `import` 宣言に指定できます。
+npmでダウンロードしたパッケージは、<Term>モジュール</Term>として `import` 宣言に指定できます。
 
 ```javascript
 import { format } from "date-fns";
@@ -194,15 +194,15 @@ console.log(format(new Date(), "yyyy年MM月dd日"));
 
 <ViewSource url={import.meta.url} path="_samples/date-fns" noCodeSandbox />
 
-![date-fns パッケージの利用](./use-package.png)
+![date-fnsパッケージの利用](./use-package.png)
 
 ## 初級演習
 
 ### `node-emoji` パッケージ
 
-[`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node.js で絵文字を扱うことができるパッケージです。このパッケージを用いて、`I ❤️ ☕!` と出力してください。
+[`node-emoji` パッケージ](https://www.npmjs.com/package/node-emoji)は、Node.jsで絵文字を扱うことができるパッケージです。このパッケージを用いて、`I ❤️ ☕!` と出力してください。
 
-<Answer title="node-emoji パッケージ">
+<Answer title="node-emojiパッケージ">
    
 [`emojify` 関数](https://www.npmjs.com/package/node-emoji#emojiemojifyinput-options)を用いると、文字列中の絵文字を表す部分を絵文字に変換することができます。
    
@@ -219,9 +219,9 @@ console.log(emojify("I :heart: :coffee:!"));
 
 ### `mathjs` パッケージ
 
-[`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScript で複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$ を $x$ について微分した式を求めてください。
+[`mathjs` パッケージ](https://www.npmjs.com/package/mathjs)は、JavaScriptで複雑な計算を行うためのライブラリです。このライブラリを用いて、$\log(x)$を$x$について微分した式を求めてください。
 
-<Answer title="mathjs パッケージ">
+<Answer title="mathjsパッケージ">
 
 [`mathjs.derivative` 関数](https://mathjs.org/docs/reference/functions/derivative.html)を用いると、微分した式を求めることができます。
 

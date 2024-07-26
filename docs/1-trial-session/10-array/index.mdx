@@ -4,13 +4,13 @@ title: 配列
 
 ## 配列
 
-JavaScript における配列は、複数の値を並べて一つにまとめた値です。`[` から `]` で囲まれた部分は配列を生成する式になります。
+JavaScriptにおける配列は、複数の値を並べて一つにまとめた値です。`[` から `]` で囲まれた部分は配列を生成する式になります。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
 ```
 
-これで、3 つの文字列値 `"田中"`, `"佐藤"`, `"鈴木"` が順番に並んで格納された配列が作成され、変数 `studentNames` に格納されました。
+これで、3つの文字列値 `"田中"`, `"佐藤"`, `"鈴木"` が順番に並んで格納された配列が作成され、変数 `studentNames` に格納されました。
 
 配列を使用するには、配列を生成する際と同じく `[`, `]` 記号を用います。この括弧に囲まれた部分に数値（**インデックス**）を指定すると、配列の要素にアクセスできます。
 
@@ -45,15 +45,15 @@ document.write([3, 2, 1][0]);
 
 <Answer>
 
-`[3, 2, 1]` で配列が生成され、`[0]` で 0 番目の要素が指定されているので、`3` と表示されます。
+`[3, 2, 1]` で配列が生成され、`[0]` で0番目の要素が指定されているので、`3` と表示されます。
 
 <ViewSource url={import.meta.url} path="_samples/array" />
 
 </Answer>
 
-## for 〜 of 文
+## for〜of文
 
-`for 〜 of` 文を用いると、配列の要素を順番に取り出す処理を簡単に記述できます。
+`for〜of` 文を用いると、配列の要素を順番に取り出す処理を簡単に記述できます。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
@@ -64,7 +64,7 @@ for (const studentName of studentNames) {
 
 このプログラムを実行すると、`田中佐藤鈴木` と表示されます。
 
-`for 〜 of` 文の構造は次の通りです。
+`for〜of` 文の構造は次の通りです。
 
 ```javascript
 for (変数の宣言/変数名 of 配列) {
@@ -76,7 +76,7 @@ for (変数の宣言/変数名 of 配列) {
 
 ## 配列の便利な機能
 
-JavaScript の配列には、便利な変数や関数のようなものが定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う<Term>プロパティ</Term>、<Term>メソッド</Term>というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
+JavaScriptの配列には、便利な変数や関数のようなものが定義されています。正確には[オブジェクト](/docs/trial-session/object)と[クラス](/docs/browser-apps/class)の回でそれぞれ扱う<Term>プロパティ</Term>、<Term>メソッド</Term>というものですが、今のところは特殊な書き方をする変数や関数であると考えればよいでしょう。
 
 ### `配列.length`
 
@@ -108,7 +108,7 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 - 配列があります。その配列の要素の和を求めてみましょう。
 
 :::tip
-`for 〜 of` 文を使って、配列のそれぞれの要素に対して操作を実行します。
+`for〜of` 文を使って、配列のそれぞれの要素に対して操作を実行します。
 :::
 
 :::note
@@ -137,7 +137,7 @@ document.write(`配列の合計値は ${sum} です。`);
 
 ### 別解
 
-`for 〜 of` 文を使わず、次のように書くこともできます。
+`for〜of` 文を使わず、次のように書くこともできます。
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -189,10 +189,10 @@ function findMaxNumber(numbers) {
 }
 
 document.write(
-  `<p>配列 [${array1}] の最大値は${findMaxNumber(array1)} です。</p>`,
+  `<p>配列[${array1}]の最大値は${findMaxNumber(array1)}です。</p>`,
 );
 document.write(
-  `<p>配列 [${array2}] の最大値は${findMaxNumber(array2)} です。</p>`,
+  `<p>配列[${array2}]の最大値は${findMaxNumber(array2)}です。</p>`,
 );
 ```
 
