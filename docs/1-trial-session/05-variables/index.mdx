@@ -18,13 +18,13 @@ let myName = "John Doe";
 document.write(myName);
 ```
 
-`let` は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1 行目では、`myName` という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列 `"John Doe"` を<Term>**代入**</Term>しています。`=` は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
+`let`は、<Term>変数</Term>を<Term>宣言</Term>するためのキーワードです。1行目では、`myName`という名前の<Term>変数</Term>を<Term>宣言</Term>し、そこに文字列`"John Doe"`を<Term>**代入**</Term>しています。`=`は<Term>代入</Term>を表し、左側に指定した<Term>変数</Term>に対し、右側に指定された<Term>値</Term>を<Term>代入</Term>します。
 
-2 行目では、<Term>変数</Term> `myName` が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term> `"John Doe"` が画面に表示されます。
+2行目では、<Term>変数</Term>`myName`が<Term>評価</Term>され、<Term>代入</Term>されていた<Term>文字列</Term><Term>値</Term>`"John Doe"`が画面に表示されます。
 
 {/* prettier-ignore */}
-<Term>変数</Term>を<Term>宣言</Term>するキーワードには、`let` 以外にも `const` があります。
-記法自体は `let` と同様ですが、少し違いがあります。
+<Term>変数</Term>を<Term>宣言</Term>するキーワードには、`let`以外にも`const`があります。
+記法自体は`let`と同様ですが、少し違いがあります。
 違いについては、次の節で説明します。
 
 ```javascript title="script.js"
@@ -32,14 +32,14 @@ const myName = "John Doe";
 document.write(myName);
 ```
 
-ここまでの例では、`my name` というフレーズを、`myName` のように記述しています。
+ここまでの例では、`my name`というフレーズを、`myName`のように記述しています。
 
-このように、複数の単語にわたるフレーズを、2 語目以降の先頭の文字を大文字にして結合する命名規則を、<Term>**キャメルケース**</Term>と呼びます。
+このように、複数の単語にわたるフレーズを、2語目以降の先頭の文字を大文字にして結合する命名規則を、<Term>**キャメルケース**</Term>と呼びます。
 
 :::info
 
 {/* prettier-ignore */}
-<Term>JavaScript</Term> の<Term>変数</Term>名には、通常<Term>キャメルケース</Term>が用いられます。
+<Term>JavaScript</Term>の<Term>変数</Term>名には、通常<Term>キャメルケース</Term>が用いられます。
 <Term>スネークケース</Term>や<Term>パスカルケース</Term>などの命名規則が利用される文法もあります。
 
 :::
@@ -63,13 +63,13 @@ const totalPrice = itemPrice * itemCount;
 document.write(totalPrice);
 ```
 
-前者と後者のコードは、同じ計算を行っています。しかし、前者のコードでは `a` や `b`、`c` という変数名が何を表しているのかがわかりません。一方、後者のコードでは、`itemPrice` や `itemCount`、`totalPrice` という変数名から、どのような計算を行っているのかがすぐに分かります。共同で開発を行うときや、後からコードを読み返すときに、変数名が適切に付けられていると、コードの理解が容易になります。
+前者と後者のコードは、同じ計算を行っています。しかし、前者のコードでは`a`や`b`、`c`という変数名が何を表しているのかがわかりません。一方、後者のコードでは、`itemPrice`や`itemCount`、`totalPrice`という変数名から、どのような計算を行っているのかがすぐに分かります。共同で開発を行うときや、後からコードを読み返すときに、変数名が適切に付けられていると、コードの理解が容易になります。
 
 :::
 
 ## <Term>変数</Term>への再<Term>代入</Term>
 
-`let` と `const` の大きな違いは、再<Term>代入</Term>が可能かどうかです。`let` で<Term>宣言</Term>された<Term>変数</Term>には再<Term>代入</Term>が可能ですが、`const` で<Term>宣言</Term>された<Term>変数</Term>にはできません。次の例を見てみましょう。
+`let`と`const`の大きな違いは、再<Term>代入</Term>が可能かどうかです。`let`で<Term>宣言</Term>された<Term>変数</Term>には再<Term>代入</Term>が可能ですが、`const`で<Term>宣言</Term>された<Term>変数</Term>にはできません。次の例を見てみましょう。
 
 ```javascript title="script.js"
 let mysteriousNumber = 0;
@@ -80,9 +80,9 @@ document.write(mysteriousNumber); // 2
 
 {/* prettier-ignore */}
 <Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があります。
-そのため、<Term>変数</Term> `mysteriousNumber` は 3 回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された `2` が表示されます。
+そのため、<Term>変数</Term>`mysteriousNumber`は3回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された`2`が表示されます。
 
-一方、`const` で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。そのため、上記のコードの `let` を `const` に置き換えることはできません。
+一方、`const`で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。そのため、上記のコードの`let`を`const`に置き換えることはできません。
 
 さらに、再<Term>代入</Term>について詳しく見てみましょう。それでは、以下の場合はどうでしょうか。
 
@@ -96,15 +96,15 @@ document.write(price);
 
 {/* prettier-ignore */}
 <Term>代入</Term><Term>演算子</Term>は、まず右辺の<Term>式</Term>を<Term>評価</Term>します。
-これにより、右辺は `100 / 2` となります。
-よって、最終的に<Term>変数</Term> `price` の<Term>値</Term>は `50` となり、これは `price` を半分にする操作に対応します。
+これにより、右辺は`100 / 2`となります。
+よって、最終的に<Term>変数</Term>`price`の<Term>値</Term>は`50`となり、これは`price`を半分にする操作に対応します。
 
 ![変数の再代入](./reassignment-evaluation.png)
 
 ## 確認問題
 
-`counter` という名前の変数を作成し初期値を `0` としてください。
-その後、`counter` に `1` を加え、その結果を表示してください。
+`counter`という名前の変数を作成し初期値を`0`としてください。
+その後、`counter`に`1`を加え、その結果を表示してください。
 
 <Answer title="カウンター">
 

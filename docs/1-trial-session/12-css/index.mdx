@@ -2,21 +2,21 @@
 title: CSS
 ---
 
-今までは HTML と JavaScript を勉強してきました。今回は Web 開発で用いられるもう一つの言語、CSS について学びましょう。CSS は Web サイトの「見た目」をつかさどる言語です。多くの <Term>HTML 要素</Term> は、<Term>CSS</Term> を用いることで、その見た目を細かくカスタマイズすることができます。
+今まではHTMLとJavaScriptを勉強してきました。今回はWeb開発で用いられるもう一つの言語、CSSについて学びましょう。CSSはWebサイトの「見た目」をつかさどる言語です。多くの<Term>HTML要素</Term>は、<Term>CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
-![Web 開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
+![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
-CSS の書き方を学び、「Hello World!」の文字を赤くしてみましょう。
+CSSの書き方を学び、「Hello World!」の文字を赤くしてみましょう。
 
 ![Hello World!](./red-hello-world.png)
 
-## <Term>CSS</Term> ファイルを作成する
+## <Term>CSS</Term>ファイルを作成する
 
-CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と併せて `style.css` を作成しました。
+CSSファイルの拡張子は通常`.css`です。今回は`index.html`と併せて`style.css`を作成しました。
 
 ![CSSを書き始める](./begin-css.png)
 
-次の例では、`Hello World!` を赤色にしています。
+次の例では、`Hello World!`を赤色にしています。
 
 ```html title="index.html"
 <!doctype html>
@@ -40,49 +40,49 @@ CSS ファイルの拡張子は通常 `.css` です。今回は `index.html` と
 
 <ViewSource url={import.meta.url} path="_samples/red-hello-world" />
 
-:::tip[`div` 要素]
+:::tip[`div`要素]
 
-[`div` 要素](https://developer.mozilla.org/ja/docs/Web/HTML/Element/div)はそれ単体では特に意味を持たず、囲った範囲を要素としてまとめるために使われます。
+[`div`要素](https://developer.mozilla.org/ja/docs/Web/HTML/Element/div)はそれ単体では特に意味を持たず、囲った範囲を要素としてまとめるために使われます。
 
 :::
 
-## `link` 要素
+## `link`要素
 
 ```html title="index.html"
 <link rel="stylesheet" href="./style.css" />
 ```
 
-まず注目すべきは `link` 要素です。HTML で、`link` 要素を用いることにより、外部の CSS ファイルを読み込ませることができます。
+まず注目すべきは`link`要素です。HTMLで、`link`要素を用いることにより、外部のCSSファイルを読み込ませることができます。
 
 ## セレクタとID
 
-CSS を記述する際には、まずスタイルを適用する対象となる HTML 要素を指定する必要があります。このために用いることができるのが、HTML 要素の `id` 属性です。(上の例では、`index.html` の 9行目)
+CSSを記述する際には、まずスタイルを適用する対象となるHTML要素を指定する必要があります。このために用いることができるのが、HTML要素の`id`属性です。(上の例では、`index.html`の9行目)
 
 ![セレクタ](selector.drawio.svg)
 
-そして、CSS 側に書くのが**セレクタ**です。上の例では、`style.css` の 1 行目の `#greeting` がセレクタで、「`id` 属性が `greeting` である要素」を示します。
+そして、CSS側に書くのが**セレクタ**です。上の例では、`style.css`の1行目の`#greeting`がセレクタで、「`id`属性が`greeting`である要素」を示します。
 
-`id` 属性は、全ての HTML 要素に対して開発者が自由に設定できますが、ひとつの HTML 内に同じ `id` 属性を持つ要素が複数存在してはならない、というルールがあります。
+`id`属性は、全てのHTML要素に対して開発者が自由に設定できますが、ひとつのHTML内に同じ`id`属性を持つ要素が複数存在してはならない、というルールがあります。
 
-また、`id` 属性と似た使い方ができる属性として、`class` 属性があります。この属性は、開発者が好きな値を設定できるのは同じですが、複数の要素が同じ値を持つことが許されています。また、スペース区切りで複数の値を設定することもできます。
+また、`id`属性と似た使い方ができる属性として、`class`属性があります。この属性は、開発者が好きな値を設定できるのは同じですが、複数の要素が同じ値を持つことが許されています。また、スペース区切りで複数の値を設定することもできます。
 
-| セレクタ   | 意味                                    |
-| ---------- | --------------------------------------- |
-| `#element` | `id` 属性が `element` である要素        |
-| `.element` | `class` 属性に `element` が含まれる要素 |
-| `element`  | タグ名が `element` である要素           |
+| セレクタ   | 意味                                 |
+| ---------- | ------------------------------------ |
+| `#element` | `id`属性が`element`である要素        |
+| `.element` | `class`属性に`element`が含まれる要素 |
+| `element`  | タグ名が`element`である要素          |
 
 :::info[高度なセレクタ]
 
-また、セレクタをスペースで区切ると子孫要素、`>` で区切ると直属の子要素を表すことができます。そのまま繋げば and 条件とみなされます。
+また、セレクタをスペースで区切ると子孫要素、`>`で区切ると直属の子要素を表すことができます。そのまま繋げばand条件とみなされます。
 
-| セレクタ         | 意味                                                                           |
-| ---------------- | ------------------------------------------------------------------------------ |
-| `div.element`    | `class` 属性に `element` が含まれる `div` 要素                                 |
-| `#parent .child` | `id` 属性が `parent` である要素の子孫の、`class` 属性に `child` が含まれる要素 |
-| `#parent > div`  | `id` 属性が `parent` である要素の直属の子の `div` 要素                         |
+| セレクタ         | 意味                                                                     |
+| ---------------- | ------------------------------------------------------------------------ |
+| `div.element`    | `class`属性に`element`が含まれる`div`要素                                |
+| `#parent .child` | `id`属性が`parent`である要素の子孫の、`class`属性に`child`が含まれる要素 |
+| `#parent > div`  | `id`属性が`parent`である要素の直属の子の`div`要素                        |
 
-セレクタを上手に活用すると、変更に強くて柔軟な CSS を作成することができます。
+セレクタを上手に活用すると、変更に強くて柔軟なCSSを作成することができます。
 
 :::
 
@@ -96,21 +96,21 @@ CSS を記述する際には、まずスタイルを適用する対象となる 
 }
 ```
 
-CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssProperty">**プロパティ**</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
+CSSの`{`から`}`で囲まれたブロックの中に、<Term type="cssProperty">**プロパティ**</Term>と呼ばれるスタイルの種類と、「プロパティ値」と呼ばれるプロパティに指定できる外観を、コロン記号で区切って記述します。
 
-上の例では、`color` という<Term type="cssProperty">プロパティ</Term>に、`red` というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
+上の例では、`color`という<Term type="cssProperty">プロパティ</Term>に、`red`というプロパティ値を設定することで、文字色を赤色に設定するよう指示しています。
 
-これで、`Hello World!` の文字が赤くなりました。
+これで、`Hello World!`の文字が赤くなりました。
 
 :::note
 
 {/* prettier-ignore */}
-<Term>CSS</Term> の<Term type="cssProperty">プロパティ</Term>は、<Term>オブジェクト</Term>における<Term>プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。
+<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>は、<Term>オブジェクト</Term>における<Term>プロパティ</Term>と似ているものの、全く異なるものです。文脈により何を意味しているのかが変わるので注意してください。
 
 :::
 
-:::tip[HTMLの <Term>`style` 属性</Term>]
-`style.css` を作らずとも、HTML 内に直接 CSS を指定することもできます。例えば、`div` <Term>要素</Term> の <Term>`style` 属性</Term>に `color: red;` を指定するとどうなるでしょうか。
+:::tip[HTMLの <Term>`style`属性</Term>]
+`style.css`を作らずとも、HTML内に直接CSSを指定することもできます。例えば、`div`<Term>要素</Term> の<Term>`style`属性</Term>に`color: red;`を指定するとどうなるでしょうか。
 
 ```html title="index.html"
 <div style="color: red">Hello World!</div>
@@ -118,9 +118,9 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 
 <ViewSource url={import.meta.url} path="_samples/first-css" />
 
-このプログラムを実行すると、<Term>style 属性</Term>を指定した<Term>要素</Term>内のテキストが赤色で表示されます。
+このプログラムを実行すると、<Term>`style`属性</Term>を指定した<Term>要素</Term>内のテキストが赤色で表示されます。
 
-しかし、`style` 属性を用いて HTML と CSS を 1 つのファイルに混合するよりも、「構造」のファイル (HTML)、「スタイル」のファイル (CSS) と役割をはっきり分離させたほうが、コードの可読性が上がり、後から修正するのも簡単です。このため、通常 CSS ファイルは HTML ファイルとは別に用意されます。
+しかし、`style`属性を用いてHTMLとCSSを1つのファイルに混合するよりも、「構造」のファイル (HTML)、「スタイル」のファイル (CSS) と役割をはっきり分離させたほうが、コードの可読性が上がり、後から修正するのも簡単です。このため、通常CSSファイルはHTMLファイルとは別に用意されます。
 :::
 
 ## 複数のプロパティ
@@ -132,9 +132,9 @@ CSS の `{` から `}` で囲まれたブロックの中に、<Term type="cssPro
 }
 ```
 
-複数の<Term type="cssProperty">プロパティ</Term>を指定する場合には、上のように `プロパティ: プロパティ値;` の組を並べて記述します。セミコロンの指定が必要であることに注意してください。
+複数の<Term type="cssProperty">プロパティ</Term>を指定する場合には、上のように`プロパティ: プロパティ値;`の組を並べて記述します。セミコロンの指定が必要であることに注意してください。
 
-CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色) や `font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾) 等、数えきれないほどの種類が定義されています。
+CSSの<Term type="cssProperty">プロパティ</Term>には`color` (文字色) や`font-size` (文字サイズ) だけでなく、`background-color` (背景色)、`text-decoration` (文字装飾) 等、数えきれないほどの種類が定義されています。
 
 :::tip[どうやって調べたらいいの？]
 
@@ -142,15 +142,15 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 #### 1. タスクを細かく分割する
 
-現在持ち合わせている知識をもとに、やりたいことを可能な限り細かく分割します。「文字を赤くする」であれば、見た目に関することなので CSS を使えばいいのだろうと想像がつきます。加えて、色の指定方法について調べてみるとよいでしょう。
+現在持ち合わせている知識をもとに、やりたいことを可能な限り細かく分割します。「文字を赤くする」であれば、見た目に関することなのでCSSを使えばいいのだろうと想像がつきます。加えて、色の指定方法について調べてみるとよいでしょう。
 
 #### 2. Google で検索してみる
 
-「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。 Slack でどんどん質問しましょう。
+「CSS 文字色」「CSS 色指定」などと調べてみましょう。課題が十分に細かく分割できていれば、これで直接的な回答が得られるはずです。うまく答えが見つからない場合は、慣れている人に聞いてみてください。Slackでどんどん質問しましょう。
 
 #### 3. 周辺知識を信頼できる情報源で調べる
 
-見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScript の場合は、[MDN](https://developer.mozilla.org/ja/) が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは `color` <Term type="cssProperty">プロパティ</Term>なので、MDN でこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
+見つかったウェブサイトに掲載されているコードをもとに、信頼できる情報源を読みなおします。HTML、CSS、JavaScriptの場合は、[MDN](https://developer.mozilla.org/ja/)が便利でしょう。例えば「CSS 文字色」と調べて紹介されるのは`color`<Term type="cssProperty">プロパティ</Term>なので、MDNでこの<Term type="cssProperty">プロパティ</Term>について調べておきましょう。
 
 :::
 
@@ -160,8 +160,8 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 次のような条件を満たす要素を選択するセレクタは何でしょうか。
 
-1. `id` 属性が `foo` の要素
-2. `class` 属性に `bar` が含まれる要素の子孫の要素のうち、`button` 要素であるもの
+1. `id`属性が`foo`の要素
+2. `class`属性に`bar`が含まれる要素の子孫の要素のうち、`button`要素であるもの
 
 <Answer title="セレクタ">
 
@@ -172,11 +172,11 @@ CSS の<Term type="cssProperty">プロパティ</Term>には `color` (文字色)
 
 ### 基礎演習2 (Hello CSS!)
 
-下のような、文字色が黄色、背景色が好きな色 (この例では黒) の `Hello CSS!` をブラウザで表示してみましょう。
+下のような、文字色が黄色、背景色が好きな色 (この例では黒) の`Hello CSS!`をブラウザで表示してみましょう。
 
 ![Hello CSS!](yellow-hello-css.png)
 
-使用するプロパティは `color`、`background-color` です。
+使用するプロパティは`color`、`background-color`です。
 
 <Answer title="Hello CSS!">
 

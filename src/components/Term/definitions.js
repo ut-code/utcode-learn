@@ -22,16 +22,16 @@ export default {
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/array/": "配列",
     "/docs/browser-apps/anonymous-function/": "無名関数",
-    "/docs/browser-apps/git-github/": "Git と GitHub",
-    "/docs/web-servers/wsl-setup/": "WSL のセットアップ",
-    "/docs/web-servers/node-js/": "はじめての Node.js",
-    "/docs/web-servers/module/": "モジュールと npm",
-    "/docs/web-servers/server/": "Express によるサーバー構築",
+    "/docs/browser-apps/git-github/": "GitとGitHub",
+    "/docs/web-servers/wsl-setup/": "WSLのセットアップ",
+    "/docs/web-servers/node-js/": "はじめてのNode.js",
+    "/docs/web-servers/module/": "モジュールとnpm",
+    "/docs/web-servers/server/": "Expressによるサーバー構築",
     "/docs/web-servers/form/": "フォーム",
-    "/docs/web-servers/get-post/": "GET リクエストと POST リクエスト",
+    "/docs/web-servers/get-post/": "GETリクエストとPOSTリクエスト",
     "/docs/web-servers/database/": "データベース",
-    "/docs/web-servers/cookie/": "Cookie と認証",
-    "/docs/web-servers/deploy-on-render/": "Render へのデプロイ",
+    "/docs/web-servers/cookie/": "Cookieと認証",
+    "/docs/web-servers/deploy-on-render/": "Renderへのデプロイ",
     "/docs/advanced/fetch-api/": "Fetch API",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
@@ -41,13 +41,13 @@ export default {
     fileExtension: {
       name: "拡張子",
       definition:
-        "ファイル名のピリオド以降の部分。ファイルの種類を識別するために用いられる場合がある。Windows では標準では表示されないので、表示する設定にしておくと良い。",
+        "ファイル名のピリオド以降の部分。ファイルの種類を識別するために用いられる場合がある。Windowsでは標準では表示されないので、表示する設定にしておくと良い。",
       referencePage: "/docs/trial-session/html/",
     },
     fork: {
       name: "フォーク",
       definition:
-        "GitHub において、他人が公開しているリポジトリを複製すること。この操作により、元のリポジトリに対して影響を与えることなくソースコードを変更できる。",
+        "GitHubにおいて、他人が公開しているリポジトリを複製すること。この操作により、元のリポジトリに対して影響を与えることなくソースコードを変更できる。",
       referencePage: "/docs/trial-session/get-started/",
     },
     git: {
@@ -58,13 +58,13 @@ export default {
     github: {
       name: "GitHub",
       definition:
-        "Git を用いて、プログラムの保存、共有、公開などができる、開発者のための総合プラットフォーム。",
+        "Gitを用いて、プログラムの保存、共有、公開などができる、開発者のための総合プラットフォーム。",
       referencePage: "/docs/trial-session/get-started/",
     },
     gitpod: {
       name: "Gitpod",
       definition:
-        "GitHub 等に保存されているプログラムをブラウザ上で編集するためのサービス。",
+        "GitHub等に保存されているプログラムをブラウザ上で編集するためのサービス。",
       referencePage: "/docs/trial-session/get-started/",
     },
     repository: {
@@ -91,13 +91,13 @@ export default {
     startTag: {
       name: "開始タグ",
       definition:
-        "要素の先頭を表す。 <div>内容</div> ならば <div> が開始タグ。属性をつけることができる。",
+        "要素の先頭を表す。<div>内容</div>ならば<div>が開始タグ。属性をつけることができる。",
       referencePage: "/docs/trial-session/html/",
     },
     tag: {
       name: "タグ",
       definition:
-        "< から > までで囲まれた領域。<a> を「aタグ」のように読んでいる。",
+        "<から>までで囲まれた領域。<a>を「aタグ」のように読んでいる。",
       referencePage: "/docs/trial-session/html/",
     },
     attribute: {
@@ -106,32 +106,31 @@ export default {
       referencePage: "/docs/trial-session/html/",
     },
     element: {
-      name: "HTML 要素",
+      name: "HTML要素",
       definition: "HTMLの開始タグから終了タグまでの領域。",
       referencePage: "/docs/trial-session/html/",
     },
     endTag: {
       name: "終了タグ",
-      definition:
-        "要素の終端を表す。 <div>内容</div> ならば </div> が終了タグ。",
+      definition: "要素の終端を表す。<div>内容</div>ならば</div>が終了タグ。",
       referencePage: "/docs/trial-session/html/",
     },
     css: {
       name: "CSS",
       definition:
-        "ウェブサイトの見た目をカスタマイズするための言語。 HTML 要素 の style 属性は CSS を用いて記述する。",
+        "ウェブサイトの見た目をカスタマイズするための言語。HTML要素のstyle属性はCSSを用いて記述する。",
       referencePage: "/docs/trial-session/css/",
     },
     styleAttribute: {
-      name: "style 属性",
+      name: "style属性",
       definition:
-        "表示可能な多くの HTML 要素に対して設定できる、見た目をカスタマイズするための属性。",
+        "表示可能な多くのHTML要素に対して設定できる、見た目をカスタマイズするための属性。",
       referencePage: "/docs/trial-session/css/",
     },
     cssProperty: {
       name: "プロパティ (CSS)",
       definition:
-        "CSS により設定できる見た目の種類。例えば color は文字色、font-size は文字の大きさ。",
+        "CSSにより設定できる見た目の種類。例えばcolorは文字色、font-sizeは文字の大きさ。",
       referencePage: "/docs/trial-session/css/",
     },
     javascriptStatement: {
@@ -160,12 +159,12 @@ export default {
     javascriptOperator: {
       name: "演算子 (JavaScript)",
       definition:
-        "JavaScript において、主に値に対して作用し、別の値を得るための記号。",
+        "JavaScriptにおいて、主に値に対して作用し、別の値を得るための記号。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptExpression: {
       name: "式 (JavaScript)",
-      definition: "JavaScript において、計算・処理されて値を生成するまとまり。",
+      definition: "JavaScriptにおいて、計算・処理されて値を生成するまとまり。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptEvaluation: {
@@ -176,7 +175,7 @@ export default {
     javascriptOperatorPriority: {
       name: "演算子の優先順位 (JavaScript)",
       definition:
-        "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、 3 + 4 * 5 は 3 + (4 * 5) と評価される。",
+        "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、3 + 4 * 5は3 + (4 * 5)と評価される。",
       referencePage: "/docs/trial-session/expressions/",
     },
     javascriptStringConcatenation: {
@@ -222,7 +221,7 @@ export default {
     javascriptBoolean: {
       name: "論理値 (JavaScript)",
       definition:
-        "JavaScriptにおける値の一種で、真偽を表すもの。true または false の2種類しかない。",
+        "JavaScriptにおける値の一種で、真偽を表すもの。trueまたはfalseの2種類しかない。",
       referencePage: "/docs/trial-session/boolean/",
     },
     javascriptIfStatement: {
@@ -248,7 +247,7 @@ export default {
       referencePage: "/docs/trial-session/functions/",
     },
     javascriptPass: {
-      name: "～ (値) を ～ (関数) に渡す",
+      name: "～ (値) を～ (関数) に渡す",
       definition: "JavaScriptの関数に値を引数として設定して実行すること。",
       referencePage: "/docs/trial-session/functions/",
     },
@@ -260,7 +259,7 @@ export default {
     javascriptReturn: {
       name: "～ (値) を返す (JavaScript)",
       definition:
-        "関数の実行が終了し、式の評価結果の値が確定すること。return 文により実現できる。",
+        "関数の実行が終了し、式の評価結果の値が確定すること。return文により実現できる。",
       referencePage: "/docs/trial-session/functions/",
     },
     javascriptScope: {
@@ -294,8 +293,7 @@ export default {
     },
     dom: {
       name: "DOM",
-      definition:
-        "HTML 構造を JavaScript のオブジェクトとして扱うための枠組み。",
+      definition: "HTML構造をJavaScriptのオブジェクトとして扱うための枠組み。",
       referencePage: "/docs/trial-session/dom/",
     },
     events: {
@@ -307,7 +305,7 @@ export default {
     eventHandler: {
       name: "イベントハンドラ",
       definition:
-        "イベント発生時の処理を行う仕組み。onclick 関数、onload 関数など、on キーワードにイベント名をつけた名称になっている。",
+        "イベント発生時の処理を行う仕組み。onclick関数、onload関数など、onキーワードにイベント名をつけた名称になっている。",
       referencePage: "/docs/trial-session/events/",
     },
     javascriptClass: {
@@ -318,25 +316,25 @@ export default {
     },
     javascriptInstance: {
       name: "インスタンス (JavaScript)",
-      definition: "new 演算子をクラスに適用して生成されるオブジェクトのこと。",
+      definition: "new演算子をクラスに適用して生成されるオブジェクトのこと。",
       referencePage: "/docs/browser-apps/class/",
     },
     javascriptConstructor: {
       name: "コンストラクタ (JavaScript)",
       definition:
-        "インスタンスを作成するタイミング（new 演算子をクラスに適用するタイミング）で実行される特殊なメソッド。constructor という名前で定義する必要がある。コンストラクタを定義すると、インスタンスを生成するときにプロパティの設定も同時に行うことができる。",
+        "インスタンスを作成するタイミング（new演算子をクラスに適用するタイミング）で実行される特殊なメソッド。constructorという名前で定義する必要がある。コンストラクタを定義すると、インスタンスを生成するときにプロパティの設定も同時に行うことができる。",
       referencePage: "/docs/browser-apps/class/",
     },
     javascriptMethod: {
       name: "メソッド (JavaScript)",
       definition:
-        "オブジェクトに対して定義された関数。メソッド内ではメソッドが定義されたオブジェクトを this キーワードを用いて参照できる。",
+        "オブジェクトに対して定義された関数。メソッド内ではメソッドが定義されたオブジェクトをthisキーワードを用いて参照できる。",
       referencePage: "/docs/browser-apps/class/",
     },
     arrowFunction: {
       name: "アロー関数",
       definition:
-        "JavaScript において関数を生成するための式のひとつ。=> という記号が矢のように見えることから命名された。",
+        "JavaScriptにおいて関数を生成するための式のひとつ。=>という記号が矢のように見えることから命名された。",
       referencePage: "/docs/browser-apps/anonymous-function/",
     },
     callbackFunction: {
@@ -347,7 +345,7 @@ export default {
     javascriptModule: {
       name: "モジュール (JavaScript)",
       definition:
-        "独立したプログラムの塊。JavaScript では、通常 1 つのファイルがモジュールとして扱われる。Node.js では、拡張子が .mjs の場合 import 文を用いてインポートして利用する。",
+        "独立したプログラムの塊。JavaScriptでは、通常1つのファイルがモジュールとして扱われる。Node.jsでは、拡張子が.mjsの場合import文を用いてインポートして利用する。",
       referencePage: "/docs/web-servers/module/",
     },
     library: {
@@ -358,13 +356,13 @@ export default {
     serverClient: {
       name: "サーバーとクライアント",
       definition:
-        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えば Google Chrome などの Web ブラウザは、Web における代表的なクライアントソフトウェアである。",
+        "サービスを提供する側のコンピューターやソフトウェアをサーバー、提供される側のコンピューターやソフトウェアをクライアントと呼ぶ。例えばGoogle ChromeなどのWebブラウザは、Webにおける代表的なクライアントソフトウェアである。",
       referencePage: "/docs/web-servers/server/",
     },
     json: {
       name: "JSON",
       definition:
-        "複雑なデータ構造を JavaScript オブジェクトに似た形式で文字列として表現するための記法。",
+        "複雑なデータ構造をJavaScriptオブジェクトに似た形式で文字列として表現するための記法。",
       referencePage: "/docs/web-servers/module/",
     },
     requestResponse: {
@@ -376,31 +374,31 @@ export default {
     queryString: {
       name: "クエリ文字列",
       definition:
-        "URL の末尾に付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2 といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
+        "URLの末尾に付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
       referencePage: "/docs/web-servers/form/",
     },
     httpHeaderBody: {
       name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
       definition:
-        "HTTP においてリクエストやレスポンスは主にヘッダと呼ばれる領域とボディと呼ばれる領域に分かれている。リクエストやレスポンスの本体はボディの部分に格納されており、ヘッダは付加的な情報を与えるために用いられる。なお、GET リクエストではリクエストボディを使用できない。",
+        "HTTPにおいてリクエストやレスポンスは主にヘッダと呼ばれる領域とボディと呼ばれる領域に分かれている。リクエストやレスポンスの本体はボディの部分に格納されており、ヘッダは付加的な情報を与えるために用いられる。なお、GETリクエストではリクエストボディを使用できない。",
       referencePage: "/docs/web-servers/get-post/",
     },
     httpMethod: {
-      name: "HTTP メソッド",
+      name: "HTTPメソッド",
       definition:
-        "HTTP リクエストの種類。GET や POST などがある。GET リクエストにはリクエストボディが存在しないが、POST リクエストでは利用できる。",
+        "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストにはリクエストボディが存在しないが、POSTリクエストでは利用できる。",
       referencePage: "/docs/web-servers/get-post/",
     },
     npxCommand: {
-      name: "npx コマンド",
+      name: "npxコマンド",
       definition:
-        "npm 付属のコマンド。インストールした npm パッケージを直接実行する機能を持つ。",
+        "npm付属のコマンド。インストールしたnpmパッケージを直接実行する機能を持つ。",
       referencePage: "/docs/web-servers/database/",
     },
     asynchronousProcess: {
       name: "非同期処理",
       definition:
-        "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScript では、async キーワードをつけた関数は非同期処理を行うための関数となり、内部では await キーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
+        "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScriptでは、asyncキーワードをつけた関数は非同期処理を行うための関数となり、内部ではawaitキーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
       referencePage: "/docs/web-servers/database/",
     },
     api: {
@@ -412,37 +410,37 @@ export default {
     thread: {
       name: "スレッド",
       definition:
-        "コンピューターがプログラムの順番どおりに 1 つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
+        "コンピューターがプログラムの順番どおりに1つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     transpile: {
       name: "トランスパイル",
       definition:
-        "プログラムを同じ意味を持つ別のプログラムへと変換すること。Web 開発では、通常変換の結果ウェブブラウザが解釈できる JavaScript が生成される。Babel が有名。",
+        "プログラムを同じ意味を持つ別のプログラムへと変換すること。Web開発では、通常変換の結果ウェブブラウザが解釈できるJavaScriptが生成される。Babelが有名。",
       referencePage: "/docs/advanced/bundler/",
     },
     moduleBundler: {
       name: "モジュールバンドラ",
       definition:
-        "複数の JavaScript モジュールをまとめてひとつにするためのソフトウェア。webpack が有名。",
+        "複数のJavaScriptモジュールをまとめてひとつにするためのソフトウェア。webpackが有名。",
       referencePage: "/docs/advanced/bundler/",
     },
     jsx: {
       name: "JSX",
       definition:
-        "JavaScript の拡張構文で、React などと共に用いられる。JSX が有効な JavaScript では、 HTML に似た構文の式により特定の種類のオブジェクトを作成できる。拡張子は .jsx で、TypeScript とともに用いる場合は .tsx。",
+        "JavaScriptの拡張構文で、Reactなどと共に用いられる。JSXが有効なJavaScriptでは、HTMLに似た構文の式により特定の種類のオブジェクトを作成できる。拡張子は.jsxで、TypeScriptとともに用いる場合は.tsx。",
       referencePage: "/docs/advanced/react/",
     },
     javascriptTruthyFalsy: {
-      name: "truthy と falsy (JavaScript)",
+      name: "truthyとfalsy (JavaScript)",
       definition:
-        "JavaScript では、数値のゼロ、空文字列、null、undefined、NaN を falsy、それ以外の全ての値を truthy とみなす。if 文は条件式の結果が truthy であるか falsy であるかによって分岐を行う。",
+        "JavaScriptでは、数値のゼロ、空文字列、null、undefined、NaNをfalsy、それ以外の全ての値をtruthyとみなす。if文は条件式の結果がtruthyであるかfalsyであるかによって分岐を行う。",
       referencePage: "/docs/advanced/react/",
     },
     mutableImmutable: {
       name: "ミュータブルとイミュータブル",
       definition:
-        "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。React などのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
+        "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。Reactなどのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
       referencePage: "/docs/browser-apps/reference/",
     },
   },

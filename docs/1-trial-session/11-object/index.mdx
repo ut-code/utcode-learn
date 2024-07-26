@@ -4,7 +4,7 @@ title: オブジェクト
 
 ## <Term>オブジェクト</Term>
 
-JavaScript で扱うことのできる<Term>値</Term>の種類として、これまで<Term>数値</Term>、<Term>文字列</Term>、<Term>論理値</Term>を扱ってきました。<Term>**オブジェクト**</Term>もまた、<Term>JavaScript</Term> の<Term>値</Term>ですが、今まで扱ってきた<Term>値</Term>とは少し性質が異なります。
+JavaScriptで扱うことのできる<Term>値</Term>の種類として、これまで<Term>数値</Term>、<Term>文字列</Term>、<Term>論理値</Term>を扱ってきました。<Term>**オブジェクト**</Term>もまた、<Term>JavaScript</Term>の<Term>値</Term>ですが、今まで扱ってきた<Term>値</Term>とは少し性質が異なります。
 
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term>値</Term>を複数まとめて一つの<Term>値</Term>として扱うことができます。
@@ -14,7 +14,7 @@ JavaScript で扱うことのできる<Term>値</Term>の種類として、こ�
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>は、複数の<Term>**プロパティ**</Term>と呼ばれる<Term>値</Term>を持ちます。
 <Term>プロパティ</Term>にはそれぞれ名前がついています。
-<Term>プロパティ</Term>の名前には文字列しか指定できませんが、<Term>プロパティ</Term>の<Term>値</Term>としては <Term>JavaScript</Term> で使用できるすべての<Term>値</Term>が使用可能です。
+<Term>プロパティ</Term>の名前には文字列しか指定できませんが、<Term>プロパティ</Term>の<Term>値</Term>としては<Term>JavaScript</Term>で使用できるすべての<Term>値</Term>が使用可能です。
 
 ```javascript
 const person = { name: "田中", age: 18 };
@@ -24,7 +24,7 @@ const person = { name: "田中", age: 18 };
 
 :::tip[ほかの言語の経験者へ]
 
-JavaScript の<Term>オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map** に近いものです。ただ、こういったものと比べ、JavaScript の<Term>オブジェクト</Term>は使用頻度が非常に高いです。
+JavaScriptの<Term>オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScriptの<Term>オブジェクト</Term>は使用頻度が非常に高いです。
 
 :::
 
@@ -70,7 +70,7 @@ document.write(person.favoriteFood); // 餃子
 
 ## 配列とオブジェクト
 
-上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScript のオブジェクトとは、プロパティ名とプロパティ値の組の集合でした。
+上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScriptのオブジェクトとは、プロパティ名とプロパティ値の組の集合でした。
 
 配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
 
@@ -86,7 +86,7 @@ document.write(`${subject} の点数は ${scores[subject]} です。`); // math 
 
 :::tip[オブジェクトのプロパティ名]
 
-オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は `studentNames[2]` のように記述できるのでしょうか。
+オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は`studentNames[2]`のように記述できるのでしょうか。
 
 答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
 
@@ -112,7 +112,7 @@ const tanaka = {
 
 1. 田中さんの算数の点数を表示してみましょう。
 
-2. `scores` に国語の点数を追加して、表示してみましょう。
+2. `scores`に国語の点数を追加して、表示してみましょう。
 
 <Answer title="成績表示">
 
@@ -129,7 +129,7 @@ document.write(tanaka.scores.japanese);
 
 <ViewSource url={import.meta.url} path="_samples/add-and-view-Japanese-score" />
 
-2 では、プロパティを自分で追加しています。
+2では、プロパティを自分で追加しています。
 
 </Answer>
 
@@ -138,7 +138,7 @@ document.write(tanaka.scores.japanese);
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>も<Term>値</Term>の一種なので、<Term>関数</Term>の<Term>引数</Term>や<Term>戻り値</Term>として使用できます。
 
-`age` <Term>プロパティ</Term>に 1 を加えた<Term>オブジェクト</Term>を返す関数 `incrementAge` を定義してみましょう。
+`age`<Term>プロパティ</Term>に1を加えた<Term>オブジェクト</Term>を返す関数`incrementAge`を定義してみましょう。
 
 ```javascript
 function incrementAge(person) {
@@ -149,10 +149,8 @@ const tanaka = { name: "田中", age: 18 };
 const sato = { name: "佐藤", age: 22 };
 const nextYearTanaka = incrementAge(tanaka);
 const nextYearSato = incrementAge(sato);
-// 19 歳、23 歳 と表示されてほしい
-document.write(
-  `田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`,
-);
+// 19歳、23歳と表示されてほしい
+document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
 ```
 
 <Answer title="年齢を増やす">
@@ -167,9 +165,7 @@ const tanaka = { name: "田中", age: 18 };
 const sato = { name: "佐藤", age: 22 };
 const nextYearTanaka = incrementAge(tanaka);
 const nextYearSato = incrementAge(sato);
-document.write(
-  `田中は ${nextYearTanaka.age} 歳、佐藤は ${nextYearSato.age} 歳`,
-);
+document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/incrementAge" />

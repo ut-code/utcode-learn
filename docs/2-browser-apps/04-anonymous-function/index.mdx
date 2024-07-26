@@ -22,7 +22,7 @@ document.getElementById("greet-button").onclick = onGreetButtonClick;
 
 <ViewSource url={import.meta.url} path="_samples/normal-event-handler" />
 
-この場合、関数 `onGreetButtonClick` は、イベントハンドラとして登録されるためだけに利用されており、`onGreetButtonClick` という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
+この場合、関数`onGreetButtonClick`は、イベントハンドラとして登録されるためだけに利用されており、`onGreetButtonClick`という名前自体はあまり重要ではありません。こういった場合、関数オブジェクトの生成をするための式（関数式）を用いることができます。このようにして生成された関数は、名前を持たないため、**無名関数**と呼ばれます。
 
 先ほどのプログラムを関数式を用いて書き換えると、次のようになります。
 
@@ -34,7 +34,7 @@ document.getElementById("greet-button").onclick = () => {
 
 <ViewSource url={import.meta.url} path="_samples/using-anonymous-function" />
 
-JavaScript における関数式の構文は、次のとおりです。`=>` の記号が特徴的な構文となっています。
+JavaScriptにおける関数式の構文は、次のとおりです。`=>`の記号が特徴的な構文となっています。
 
 {/* prettier-ignore */}
 ```javascript
@@ -45,7 +45,7 @@ JavaScript における関数式の構文は、次のとおりです。`=>` の�
 
 :::tip[無名関数を用いて関数定義を書き換える]
 
-通常の関数定義の構文は、ほとんど関数式を使用して書き換えることができます。次のプログラムにおいて、`add1` と `add2` はほとんど等価なものとみなすことができます。
+通常の関数定義の構文は、ほとんど関数式を使用して書き換えることができます。次のプログラムにおいて、`add1`と`add2`はほとんど等価なものとみなすことができます。
 
 ```javascript
 function add1(a, b) {
@@ -61,7 +61,7 @@ const add2 = (a, b) => {
 
 :::tip[アロー関数]
 
-この項で扱った無名関数式を、`=>` 記号が矢のように見えることから、<Term>**アロー関数**</Term>と呼ぶことがあります。JavaScript には、アロー関数の他にもう一つ、無名関数を記述する方法があります。
+この項で扱った無名関数式を、`=>`記号が矢のように見えることから、<Term>**アロー関数**</Term>と呼ぶことがあります。JavaScriptには、アロー関数の他にもう一つ、無名関数を記述する方法があります。
 
 ```javascript
 const add3 = function (a, b) {
@@ -75,7 +75,7 @@ const add3 = function (a, b) {
 
 ## 無名関数を用いると便利な関数
 
-[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)は、引数として関数をひとつとり、配列の各要素に適用した上で、その戻り値からなる新しい配列を返します。
+[`Array#map`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)は、引数として関数をひとつとり、配列の各要素に適用した上で、その戻り値からなる新しい配列を返します。
 
 このように、他の関数の引数として呼び出される関数のことを<Term>**コールバック関数**</Term>と呼びます。
 
@@ -90,7 +90,7 @@ document.write(pricesWithTax); // 120,240,360,480,600
 
 ## アロー関数の省略形
 
-アロー関数は、内部の処理が `return` 文のみの場合、波括弧と `return` キーワードを省略して式のみを記述することもできます。前項のサンプルプログラムは、次のように省略可能です。
+アロー関数は、内部の処理が`return`文のみの場合、波括弧と`return`キーワードを省略して式のみを記述することもできます。前項のサンプルプログラムは、次のように省略可能です。
 
 ```javascript
 const pricesWithTax = pricesWithoutTax.map((price) => price * (1 + taxRate));
@@ -98,20 +98,20 @@ const pricesWithTax = pricesWithoutTax.map((price) => price * (1 + taxRate));
 
 ## 演習
 
-### 問題 1
+### 問題1
 
-先ほどの[`Array#map` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)を用いてみましょう。`students` 変数に格納されている名前を箇条書きにしてください。
+先ほどの[`Array#map`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)を用いてみましょう。`students`変数に格納されている名前を箇条書きにしてください。
 
 ```javascript
 const students = ["Hazel", "Dorian", "Scarlett", "Daisy"];
-// ここで HTML 要素を取得し、学生の名前を箇条書きとして表示
+// ここでHTML要素を取得し、学生の名前を箇条書きとして表示
 ```
 
 :::info[ヒント]
 
-- `innerHTML` プロパティにより、HTML要素を取得・変更できます。
-- 箇条書きには `ul` タグや `li` タグを使用します。
-- `join` メソッドを配列要素を指定された文字列で連結するのに使います。
+- `innerHTML`プロパティにより、HTML要素を取得・変更できます。
+- 箇条書きには`ul`タグや`li`タグを使用します。
+- `join`メソッドを配列要素を指定された文字列で連結するのに使います。
 
 :::
 
@@ -129,13 +129,13 @@ studentList.innerHTML = students
 
 </Answer>
 
-### 問題 2
+### 問題2
 
-`scores` 変数には、各必修科目の点数が格納されているとします。全ての要素が 50 点以上であることを確認するには、何というメソッドを使うのが適切か調べてみてください。また、実際にそのメソッドを用いて点数を確認してみてください。
+`scores`変数には、各必修科目の点数が格納されているとします。全ての要素が50点以上であることを確認するには、何というメソッドを使うのが適切か調べてみてください。また、実際にそのメソッドを用いて点数を確認してみてください。
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];
-if (/* すべての点数が 50 点以上なら */) {
+if (/* すべての点数が50点以上なら */) {
   document.write("進級できます");
 }
 ```
@@ -148,7 +148,7 @@ if (/* すべての点数が 50 点以上なら */) {
 
 <Answer title="進級可能？">
 
-`Array#every` メソッドを使うと、配列の全要素が指定された関数でテストできます
+`Array#every`メソッドを使うと、配列の全要素が指定された関数でテストできます
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];
@@ -161,9 +161,9 @@ if (scores.every((score) => score >= 50)) {
 
 </Answer>
 
-### 問題 3 (発展)
+### 問題3 (発展)
 
-[`Array#reduce` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array` クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
+[`Array#reduce`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)は、`Array`クラスのメソッドの中でも特に使い方の難しいメソッドです。ドキュメントをよく読み、このメソッドを用いて配列の最小値を求めてみましょう。
 
 ```javascript
 const scores = [90, 65, 70, 55, 80];

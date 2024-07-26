@@ -1,5 +1,5 @@
 ---
-title: はじめての Web 開発
+title: はじめてのWeb開発
 ---
 
 import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
@@ -11,11 +11,11 @@ import createFolderOnWindowsVideo from "./create-folder-on-windows.mp4";
 import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
 import openFolderOnWindowsVideo from "./open-folder-on-windows.mp4";
 
-## Google Chrome のインストール
+## Google Chromeのインストール
 
-**Google Chrome** は、Google 社が開発するウェブブラウザです。現在多くの人に使われています。他のウェブブラウザを使うことも出来ますが、この教材では Google Chrome の使用を前提として話を進めていきます。
+**Google Chrome**は、Google社が開発するウェブブラウザです。現在多くの人に使われています。他のウェブブラウザを使うことも出来ますが、この教材ではGoogle Chromeの使用を前提として話を進めていきます。
 
-Google Chrome は、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
+Google Chromeは、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
@@ -26,11 +26,11 @@ Google Chrome は、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)
   </TabItem>
 </Tabs>
 
-## Visual Studio Code のインストール
+## Visual Studio Codeのインストール
 
-**Visual Studio Code** (以下 VS Code) は、Microsoft 社が開発するテキストエディタです。多くの開発者に使用されています。
+**Visual Studio Code** (以下VS Code) は、Microsoft社が開発するテキストエディタです。多くの開発者に使用されています。
 
-Visual Studio Code は、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
+Visual Studio Codeは、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
@@ -43,9 +43,9 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 
 ## プロジェクトを格納するフォルダを作成する
 
-これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ホームフォルダ (macOS) / ユーザーフォルダ (Windows) の中に `projects` という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ホームフォルダ (macOS) / ユーザーフォルダ (Windows) の場所については次の動画をご確認ください。
+これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中に`projects`という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の場所については次の動画をご確認ください。
 
-次の例では、`hello-world` の名前でプロジェクト用のフォルダを作成しています。
+次の例では、`hello-world`の名前でプロジェクト用のフォルダを作成しています。
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
@@ -58,13 +58,13 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 
 :::info
 
-これから作成するプログラムは、さきほど作成したホームフォルダ (macOS) / ユーザーフォルダ (Windows) の中の `projects` フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Code などの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
+これから作成するプログラムは、さきほど作成したホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中の`projects`フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Codeなどの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
 
 :::
 
-## Visual Studio Code でプロジェクトフォルダを開く
+## Visual Studio Codeでプロジェクトフォルダを開く
 
-`File` メニューから `Open Folder...` をクリックして、先ほど作成したフォルダを VS Code で開きます。
+`File`メニューから`Open Folder...`をクリックして、先ほど作成したフォルダをVS Codeで開きます。
 
 <Tabs groupId="os">
   <TabItem value="mac" label="macOS">
@@ -77,6 +77,6 @@ Visual Studio Code は、[公式サイト](https://code.visualstudio.com)から�
 
 :::info
 
-最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?` と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダを VS Code で開いたとき、VS Code によって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
+最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?`と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダをVS Codeで開いたとき、VS Codeによって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
 
 :::
