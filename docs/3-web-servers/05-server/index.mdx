@@ -8,7 +8,7 @@ import RequestResponseSlideShow from "./request-response-slide-show";
 
 ## ウェブサイトが動作する仕組み
 
-[「Webプログラミングの基礎を学ぼう」](/docs/trial-session/) の章では、ウェブサイトを表示するためにHTMLファイルとJavaScriptファイルを作成し、ブラウザから開きました。
+[「Webプログラミングの基礎を学ぼう」](/docs/trial-session/)の章では、ウェブサイトを表示するためにHTMLファイルとJavaScriptファイルを作成し、ブラウザから開きました。
 しかし、一般的なウェブサイトを閲覧する際は、HTMLファイルやJavaScriptファイルの存在を意識することはありません。
 これは、Webでは、通常インターネットを介してデータをやり取りするためです。
 
@@ -41,7 +41,7 @@ Webにおいて、HTML、CSS、JavaScriptは、サーバーがクライアント
 
 ## Expressパッケージを用いてWebサーバーを構築する
 
-[Expressパッケージ](https://www.npmjs.com/package/express) を用いると、簡単にWebサーバーを構築できます。
+[Expressパッケージ](https://www.npmjs.com/package/express)を用いると、簡単にWebサーバーを構築できます。
 
 まずは`express`パッケージをnpmでインストールします。
 
@@ -151,7 +151,7 @@ app.listen(3000);
 
 1. 利用者が、ブラウザのアドレスバーに`http://localhost:3000/`というURLを入力します。
 2. ブラウザは、`localhost:3000`で起動しているExpressのサーバーに対して、`/`というパスに対するHTTPリクエストを送信します。
-3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]** の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
+3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]**の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
    - 第1引数 (`request`): 受け取ったHTTPリクエストに関する情報をExpressが開発者にとって扱いやすい形にまとめた[`Request`](https://expressjs.com/ja/api.html#req)クラスのインスタンス。
    - 第2引数 (`response`): Expressがクライアントに返すHTTPレスポンスを開発者が制御するための[`Response`](https://expressjs.com/ja/api.html#res)クラスのインスタンス。
 4. **[5行目]** の <code>{'response.send(`...`);'}</code>により、Expressは<code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code>という文字列をレスポンスとして送信します。
