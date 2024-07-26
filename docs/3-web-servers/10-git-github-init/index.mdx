@@ -29,7 +29,7 @@ VS Code標準の機能だけでも多くのことができますが、より便�
 
 ### [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
 
-コマンドパレット (<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) ) に `Git Graph: View Git Graph (git log)` というメニューが出て見やすい
+コマンドパレット (<kbd>command</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> (macOS) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows) ) に`Git Graph: View Git Graph (git log)`というメニューが出て見やすい
 
 ![GitGragh](./gitGraph.png)
 
@@ -59,7 +59,7 @@ Gitでは、ファイルの変更だけでなく、その変更を行ったの�
 
 - メールアドレス: GitHubの登録の際に設定したメールアドレスが推奨されますが、メールアドレスを公開したくない場合は、次のようにダミーのメールアドレスを取得することもできます。
 
-  [GitHubのメール設定](https://github.com/settings/emails)から `Keep my email addresses private` を有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では `112743782+sample-ma9qke@users.noreply.github.com`) をGitに指定してください。
+  [GitHubのメール設定](https://github.com/settings/emails)から`Keep my email addresses private`を有効化し、表示されているダミーのメールアドレス (スクリーンショットの例では`112743782+sample-ma9qke@users.noreply.github.com`) をGitに指定してください。
 
   ![メールアドレスを隠す](./hide-email-address.png)
 
@@ -83,7 +83,7 @@ git config --global user.email メールアドレス
 
 ### デフォルトブランチの設定
 
-現在WSL上のUbuntuのGitでは、デフォルトブランチというものが `master` に設定されていますが、macOSでは `main` になっています。また、GitHubではデフォルトブランチが `main` になっています。これらを統一するために、次のコマンドを実行してください。
+現在WSL上のUbuntuのGitでは、デフォルトブランチというものが`master`に設定されていますが、macOSでは`main`になっています。また、GitHubではデフォルトブランチが`main`になっています。これらを統一するために、次のコマンドを実行してください。
 
 ```shell
 git config --global init.defaultBranch main
@@ -107,32 +107,32 @@ GitHubに公開鍵を登録しましょう。
 
 詳細な手順は、次の通りです。
 
-公開鍵と秘密鍵のペアを生成するには、`ssh-keygen` コマンドを使用します。次のコマンドを実行することで、`Ed25519` というアルゴリズムの実装を用いて鍵を生成できます。
-途中でターミナルの表示画面が止まりますが、`user@host:~$` が再度表示されるまでEnterキーで進みます。
+公開鍵と秘密鍵のペアを生成するには、`ssh-keygen`コマンドを使用します。次のコマンドを実行することで、`Ed25519`というアルゴリズムの実装を用いて鍵を生成できます。
+途中でターミナルの表示画面が止まりますが、`user@host:~$`が再度表示されるまでEnterキーで進みます。
 
 ```shell
 $ cd ~
 $ ssh-keygen -t ed25519
 ```
 
-デフォルトでは公開鍵が `~/.ssh/id_ed25519.pub`、秘密鍵が `~/.ssh/id_ed25519` に格納されます。公開鍵のファイルを `cat` コマンドを用いて出力しましょう。
+デフォルトでは公開鍵が`~/.ssh/id_ed25519.pub`、秘密鍵が`~/.ssh/id_ed25519`に格納されます。公開鍵のファイルを`cat`コマンドを用いて出力しましょう。
 
 ```shell
 $ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEqE0cyVkFSFD/BlAwvJ9QejXwgyFppn5JDQc8iGW/Gp [ユーザー名]@[コンピューター名]
 ```
 
-`ssh-ed25519 AA...Gp` の部分をコピーしましょう。これが公開鍵です。
+`ssh-ed25519 AA...Gp`の部分をコピーしましょう。これが公開鍵です。
 
 :::tip[ホームディレクトリのパスを表す記号]
 
-パスの中に現れる `~` は、**ホームディレクトリ**を表します。ホームディレクトリとは、ユーザー毎に割り当てられたディレクトリで、macOSでは `/Users/ユーザー名`、Ubuntuでは `/home/ユーザー名` になります。デスクトップやドキュメントディレクトリも通常ユーザーディレクトリの下に配置されています。
+パスの中に現れる`~`は、**ホームディレクトリ**を表します。ホームディレクトリとは、ユーザー毎に割り当てられたディレクトリで、macOSでは`/Users/ユーザー名`、Ubuntuでは`/home/ユーザー名`になります。デスクトップやドキュメントディレクトリも通常ユーザーディレクトリの下に配置されています。
 
 :::
 
 :::tip[公開鍵のフォーマット]
 
-`ssh-keygen` が生成する標準の公開鍵は、スペースを区切り文字として3つのパートに分かれています。鍵の種類、鍵の中身、コメントです。コメントの部分はなくても構いません。
+`ssh-keygen`が生成する標準の公開鍵は、スペースを区切り文字として3つのパートに分かれています。鍵の種類、鍵の中身、コメントです。コメントの部分はなくても構いません。
 
 ```plain
 ssh-ed25519 AAAAC3...GW/Gp user@computer
@@ -142,11 +142,11 @@ ssh-ed25519 AAAAC3...GW/Gp user@computer
 
 これをGitHubの[SSH鍵の設定](https://github.com/settings/keys)から登録します。
 
-登録ページへの移動方法は、`Settings` > `SSH and GPG keys` > `New SSH key`と順に移動すればたどり着けます。
+登録ページへの移動方法は、`Settings`>`SSH and GPG keys`>`New SSH key`と順に移動すればたどり着けます。
 
 ![SSHキーを追加](./add-ssh-key.png)
 
-上記のようなページが表示されたら、`Title` に適切な名前、`Key` には先ほどターミナルで表示した公開鍵を入力して登録しましょう。
+上記のようなページが表示されたら、`Title`に適切な名前、`Key`には先ほどターミナルで表示した公開鍵を入力して登録しましょう。
 
 ## 確認
 
@@ -190,7 +190,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
 これは、接続先となっているGitHubが、なりすましではなく本物のGitHubであると信頼してもよいかを尋ねるメッセージです。
-家庭用のインターネット回線、UTokyo Wi-Fi等、十分に信頼できるネットワークに接続している場合は問題ありませんので、`yes` と入力して続行させてください。
+家庭用のインターネット回線、UTokyo Wi-Fi等、十分に信頼できるネットワークに接続している場合は問題ありませんので、`yes`と入力して続行させてください。
 
 :::
 

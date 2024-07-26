@@ -20,16 +20,16 @@ const func = greet;
 func();
 ```
 
-上の例では、`const func = greet;` の行で<Term>変数</Term> `func` に<Term>関数</Term> `greet` を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
+上の例では、`const func = greet;`の行で<Term>変数</Term>`func`に<Term>関数</Term>`greet`を<Term>代入</Term>しています。<Term>関数</Term>を<Term>値</Term>として扱うときは、<Term>関数</Term>呼び出し<Term>式</Term>の括弧は使用しません。これにより、<Term>関数</Term>が<Term>代入</Term>された<Term>変数</Term>を経由してその<Term>関数</Term>を実行できます。
 
 ## <Term>イベントハンドラ</Term>
 
 {/* prettier-ignore */}
 <Term>オブジェクト</Term>の<Term>プロパティ</Term>として<Term>関数</Term>を利用することもできます。
-`document.getElementById` が返す<Term>オブジェクト</Term>の `onclick` <Term>プロパティ</Term>には、<Term>要素</Term>がクリックされたときに実行される<Term>関数</Term>を指定できます。
+`document.getElementById`が返す<Term>オブジェクト</Term>の`onclick`<Term>プロパティ</Term>には、<Term>要素</Term>がクリックされたときに実行される<Term>関数</Term>を指定できます。
 
 ボタンのクリック、フォームへの入力、ページの読み込みなど、Webページ上で発生するあらゆるアクションを総称して<Term>イベント</Term>と呼びます。
-このような<Term>イベント</Term>の処理を行うのが<Term>イベントハンドラ</Term>で、`onclick` 関数はその一例です。
+このような<Term>イベント</Term>の処理を行うのが<Term>イベントハンドラ</Term>で、`onclick`関数はその一例です。
 
 ```html title="index.html"
 <button id="greet-button" type="button">クリック</button>
@@ -44,7 +44,7 @@ const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked;
 ```
 
-この例では、<Term>HTML要素</Term>の `id` <Term>属性</Term>に `greet-button` が指定されている <Term>HTML要素</Term>を表す<Term>オブジェクト</Term>の `onclick` <Term>プロパティ</Term>に対し、<Term>関数</Term> `clicked` を<Term>代入</Term>しています。これにより、ボタンがクリックされたとき、`clicked` <Term>関数</Term>が実行されるようになります。
+この例では、<Term>HTML要素</Term>の`id`<Term>属性</Term>に`greet-button`が指定されている <Term>HTML要素</Term>を表す<Term>オブジェクト</Term>の`onclick`<Term>プロパティ</Term>に対し、<Term>関数</Term>`clicked`を<Term>代入</Term>しています。これにより、ボタンがクリックされたとき、`clicked`<Term>関数</Term>が実行されるようになります。
 
 <video src={handleClickVideo} muted controls />
 
@@ -61,19 +61,19 @@ const greetButton = document.getElementById("greet-button");
 greetButton.onclick = clicked();
 ```
 
-答えは、最後の行が `clicked` から `clicked()` に変わってしまっていることです。<Term>関数</Term>は、カッコをつけた<Term>式</Term>が<Term>評価</Term>されるタイミングで実行されます。このため、
+答えは、最後の行が`clicked`から`clicked()`に変わってしまっていることです。<Term>関数</Term>は、カッコをつけた<Term>式</Term>が<Term>評価</Term>されるタイミングで実行されます。このため、
 
 ```javascript
 greetButton.onclick = clicked();
 ```
 
-では<Term>代入</Term>より前、<Term>式</Term> `clicked()` が<Term>評価</Term>されたタイミングで `clicked` <Term>関数</Term>が実行されてしまいます。
+では<Term>代入</Term>より前、<Term>式</Term>`clicked()`が<Term>評価</Term>されたタイミングで`clicked`<Term>関数</Term>が実行されてしまいます。
 
 :::
 
 :::warning
 
-上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、`document.write` をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。このため、現代の<Term>JavaScript</Term>において、`document.write` <Term>関数</Term>が使用されることはほとんどありません。
+上の例では、画面上にはじめから表示されていたボタンが、ボタンをクリックしたときに削除されています。これは、`document.write`をすべての<Term>要素</Term>の表示が終わった後に実行すると、画面上のすべての<Term>要素</Term>を一度削除するという挙動をとるためです。このため、現代の<Term>JavaScript</Term>において、`document.write`<Term>関数</Term>が使用されることはほとんどありません。
 
 :::
 
@@ -85,15 +85,15 @@ greetButton.onclick = clicked();
 
 :::info[文字列の表示]
 
-`document.write` 関数を使うと、画面上にあったボタンが消えてしまいます。また、文字色や文字サイズを変えることも困難です。
+`document.write`関数を使うと、画面上にあったボタンが消えてしまいます。また、文字色や文字サイズを変えることも困難です。
 
-`document.write` 関数の代わりに、先ほどのDOMの章で扱った方法を使ってHTML要素をJavaScriptで操作するとよいでしょう。
+`document.write`関数の代わりに、先ほどのDOMの章で扱った方法を使ってHTML要素をJavaScriptで操作するとよいでしょう。
 
 :::
 
-:::info[`Hello World!` を表示する場所]
+:::info[`Hello World!`を表示する場所]
 
-`document.write` 関数を使わずに「`Hello World!` を表示する」という挙動を実現するためには、あらかじめ中身のないHTML要素を置いておき、その要素の `textContent` プロパティを操作するとよいでしょう。
+`document.write`関数を使わずに「`Hello World!`を表示する」という挙動を実現するためには、あらかじめ中身のないHTML要素を置いておき、その要素の`textContent`プロパティを操作するとよいでしょう。
 
 ```html
 <div id="greeting"></div>

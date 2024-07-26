@@ -43,13 +43,13 @@ Webにおいて、HTML、CSS、JavaScriptは、サーバーがクライアント
 
 [Expressパッケージ](https://www.npmjs.com/package/express) を用いると、簡単にWebサーバーを構築できます。
 
-まずは `express` パッケージをnpmでインストールします。
+まずは`express`パッケージをnpmでインストールします。
 
 ```shell
 npm install express
 ```
 
-続いて、次のような `main.mjs` を作成しましょう。
+続いて、次のような`main.mjs`を作成しましょう。
 
 ```javascript title="main.mjs" showLineNumbers
 import express from "express";
@@ -73,10 +73,10 @@ app.listen(3000);
 node main.mjs
 ```
 
-ブラウザで <a href="http://localhost:3000/" target="_blank">`http://localhost:3000/`</a> にアクセスし、次の動作を確認してください。
+ブラウザで<a href="http://localhost:3000/" target="_blank">`http://localhost:3000/`</a>にアクセスし、次の動作を確認してください。
 
-- `Hello World！ 日本語` が表示されること
-- `日本語` をクリックするとアドレスバーが <a href="http://localhost:3000/lang/ja" target="_blank">`http://localhost:3000/lang/ja`</a> に変化し `こんにちは、世界！` が表示されること
+- `Hello World！ 日本語`が表示されること
+- `日本語`をクリックするとアドレスバーが<a href="http://localhost:3000/lang/ja" target="_blank">`http://localhost:3000/lang/ja`</a>に変化し`こんにちは、世界！`が表示されること
 
 <video src={expressSetupVideo} muted controls />
 
@@ -95,36 +95,36 @@ Expressで構築したサーバーは、ターミナル上で<kbd>control</kbd> 
 この手順のことを**プロトコル**と呼び、Webの世界では、**HTTP**と呼ばれるプロトコルが用いられます。
 
 ブラウザは、アドレスバーに**URL**が入力されると、その情報をもとにHTTPを用いてサーバーと通信します。
-例えば、先ほどの例で使用した `http://localhost:3000/lang/ja` というURLは、次のように解釈されます。
+例えば、先ほどの例で使用した`http://localhost:3000/lang/ja`というURLは、次のように解釈されます。
 
 <p>
   <UrlStructureExplanation />
 </p>
 
 - **プロトコル**:
-  `http` または `https` のいずれかです。
-  いずれを指定しても使用されるプロトコルはHTTPですが、`https` を指定した場合は通信内容が暗号化されます。
-  この例では `http` を用いていますが、インターネット上に公開するウェブサイトでは `https` を用いることが推奨されます。
+  `http`または`https`のいずれかです。
+  いずれを指定しても使用されるプロトコルはHTTPですが、`https`を指定した場合は通信内容が暗号化されます。
+  この例では`http`を用いていますが、インターネット上に公開するウェブサイトでは`https`を用いることが推奨されます。
 - **ドメイン**:
   通信先のコンピューターを特定するための識別子です。
-  この例ではサーバーを自分のコンピューター上に構築しているため、自分自身を表す特殊なドメイン `localhost` を用いています。
-  `example.com` や `foo.example.net` は、実際のインターネット上で使われるドメイン名の例です。
+  この例ではサーバーを自分のコンピューター上に構築しているため、自分自身を表す特殊なドメイン`localhost`を用いています。
+  `example.com`や`foo.example.net`は、実際のインターネット上で使われるドメイン名の例です。
 - **ポート**:
   通信先のコンピューター上で、どのプログラムと通信するかを特定するための整数です。
   ポートを変えることで、同じコンピューター上で複数のサーバーが通信を待ち受けることができます。
-  省略すると、プロトコル部分が `http` の場合は80番ポートが、`https` の場合は443番ポートが用いられます。
+  省略すると、プロトコル部分が`http`の場合は80番ポートが、`https`の場合は443番ポートが用いられます。
 - **パス**:
   クライアントがサーバーに対し、何を要求するかを指定するための文字列です。
-  Linuxのファイルシステムで用いられるパスと同様に、意味的には `/` 記号によって階層化されますが、クライアントはサーバーに対してパスを文字列として送信するだけで、その内容はサーバーによって自由に解釈されます。
+  Linuxのファイルシステムで用いられるパスと同様に、意味的には`/`記号によって階層化されますが、クライアントはサーバーに対してパスを文字列として送信するだけで、その内容はサーバーによって自由に解釈されます。
 
-`http://localhost:3000/lang/ja` というURLは、HTTPプロトコルを暗号化せずに用いて、`localhost` というドメインの3000番ポートで待ち受けているサーバーに対して `/lang/ja` というパスを要求することを意味します。
+`http://localhost:3000/lang/ja`というURLは、HTTPプロトコルを暗号化せずに用いて、`localhost`というドメインの3000番ポートで待ち受けているサーバーに対して`/lang/ja`というパスを要求することを意味します。
 
 このように、URLに含まれる情報のうち、プロトコル、ドメイン、ポートはネットワーク上で通信を行うために用いられる情報です。
 残りのパス部分をどのように扱うかが、サーバー側のプログラムにおける主な関心事になります。
 
 ## Hello Worldサーバーの動作
 
-`main.mjs` のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
+`main.mjs`のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
 
 ```javascript title="main.mjs (再掲)" showLineNumbers
 import express from "express";
@@ -140,27 +140,27 @@ app.get("/lang/ja", (request, response) => {
 app.listen(3000);
 ```
 
-### `node main.mjs` を実行したとき
+### `node main.mjs`を実行したとき
 
-1. **[2行目]** `const app = express();` により、Expressの [`Application`](https://expressjs.com/ja/api.html#app) クラスのインスタンスが作成されます。
-2. **[4行目]** `app.get("/", (request, response) => { ... });` で呼び出された [`get`](https://expressjs.com/ja/api.html#app.get.method) メソッドにより、`/` というパスに対するリクエストを受けたときに実行される関数として、第2引数に指定された関数が登録されます。この時点では関数は `Application` インスタンスに登録されるのみで、実行はされません。
-3. **[7行目]** 4行目と同様に、`/lang/ja` というパスに対するリクエストを受けたときに実行される関数が登録されます。
-4. **[11行目]** `app.listen(3000);` により、Expressはリクエストを待ち受けるHTTPサーバーとして動作を開始します。
+1. **[2行目]** `const app = express();`により、Expressの[`Application`](https://expressjs.com/ja/api.html#app)クラスのインスタンスが作成されます。
+2. **[4行目]** `app.get("/", (request, response) => { ... });`で呼び出された[`get`](https://expressjs.com/ja/api.html#app.get.method)メソッドにより、`/`というパスに対するリクエストを受けたときに実行される関数として、第2引数に指定された関数が登録されます。この時点では関数は`Application`インスタンスに登録されるのみで、実行はされません。
+3. **[7行目]** 4行目と同様に、`/lang/ja`というパスに対するリクエストを受けたときに実行される関数が登録されます。
+4. **[11行目]** `app.listen(3000);`により、Expressはリクエストを待ち受けるHTTPサーバーとして動作を開始します。
 
 ### ブラウザの操作を行ったとき
 
-1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` というURLを入力します。
-2. ブラウザは、`localhost:3000` で起動しているExpressのサーバーに対して、`/` というパスに対するHTTPリクエストを送信します。
-3. Expressは `/` に対するHTTPリクエストを受け取り、**[4行目]** の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
-   - 第1引数 (`request`): 受け取ったHTTPリクエストに関する情報をExpressが開発者にとって扱いやすい形にまとめた [`Request`](https://expressjs.com/ja/api.html#req) クラスのインスタンス。
-   - 第2引数 (`response`): Expressがクライアントに返すHTTPレスポンスを開発者が制御するための [`Response`](https://expressjs.com/ja/api.html#res) クラスのインスタンス。
-4. **[5行目]** の <code>{'response.send(`...`);'}</code> により、Expressは <code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code> という文字列をレスポンスとして送信します。
-5. ブラウザは、受け取ったレスポンスをHTMLとして解釈し、`Hello World!` という文字列と、`日本語` というリンクを表示します。
-6. 利用者が、`日本語` というリンクをクリックします。
-7. ブラウザは、クリックされたリンクの `href` 属性をもとに、アドレスバーのURLを更新し、ページ遷移を起こします。
-   - `href` 属性にプロトコルを含むURLが指定されていれば、そのURLに遷移します。
-   - `href` 属性が相対パスの形式で指定されていれば、現在のパスを基準に[Linuxにおける相対パス](/docs/web-servers/linux-commands/#パス)と同様の方法でURLを更新します。この例では、更新前のパスが `/` で、`href` 属性には `./lang/ja` が指定されているため、更新後のパスは `/lang/ja` になり、URLは `http://localhost:3000/lang/ja` に変化します。
-8. 2から5までの手順が、`/lang/ja` というパスに対して行われます。
+1. 利用者が、ブラウザのアドレスバーに`http://localhost:3000/`というURLを入力します。
+2. ブラウザは、`localhost:3000`で起動しているExpressのサーバーに対して、`/`というパスに対するHTTPリクエストを送信します。
+3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]** の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
+   - 第1引数 (`request`): 受け取ったHTTPリクエストに関する情報をExpressが開発者にとって扱いやすい形にまとめた[`Request`](https://expressjs.com/ja/api.html#req)クラスのインスタンス。
+   - 第2引数 (`response`): Expressがクライアントに返すHTTPレスポンスを開発者が制御するための[`Response`](https://expressjs.com/ja/api.html#res)クラスのインスタンス。
+4. **[5行目]** の <code>{'response.send(`...`);'}</code>により、Expressは<code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code>という文字列をレスポンスとして送信します。
+5. ブラウザは、受け取ったレスポンスをHTMLとして解釈し、`Hello World!`という文字列と、`日本語`というリンクを表示します。
+6. 利用者が、`日本語`というリンクをクリックします。
+7. ブラウザは、クリックされたリンクの`href`属性をもとに、アドレスバーのURLを更新し、ページ遷移を起こします。
+   - `href`属性にプロトコルを含むURLが指定されていれば、そのURLに遷移します。
+   - `href`属性が相対パスの形式で指定されていれば、現在のパスを基準に[Linuxにおける相対パス](/docs/web-servers/linux-commands/#パス)と同様の方法でURLを更新します。この例では、更新前のパスが`/`で、`href`属性には`./lang/ja`が指定されているため、更新後のパスは`/lang/ja`になり、URLは`http://localhost:3000/lang/ja`に変化します。
+8. 2から5までの手順が、`/lang/ja`というパスに対して行われます。
 
 <p>
   <RequestResponseSlideShow />
@@ -174,13 +174,13 @@ app.listen(3000);
 
 次の例では、ブラウザは2つのHTTPリクエストを送信します。
 
-1. 利用者が、ブラウザのアドレスバーに `http://localhost:3000/` というURLを入力します。
-2. ブラウザは、`/` というパスに対するHTTPリクエストを送信します。
-3. サーバーは、 `<script src="./script.js"></script>` という文字列をレスポンスとして送信します。
-4. ブラウザは、受け取ったレスポンスをHTMLとして解釈し、`script` タグを発見します。
-5. ブラウザは、`src` 属性を相対パスとして解釈し、`/script.js` というパスに対してHTTPリクエストを送信します。
-6. サーバーは、`document.write("Hello World!");` という文字列をレスポンスとして送信します。
-7. ブラウザは、受け取ったレスポンスをJavaScriptとして解釈し、`Hello World!` という文字列を表示します。
+1. 利用者が、ブラウザのアドレスバーに`http://localhost:3000/`というURLを入力します。
+2. ブラウザは、`/`というパスに対するHTTPリクエストを送信します。
+3. サーバーは、`<script src="./script.js"></script>`という文字列をレスポンスとして送信します。
+4. ブラウザは、受け取ったレスポンスをHTMLとして解釈し、`script`タグを発見します。
+5. ブラウザは、`src`属性を相対パスとして解釈し、`/script.js`というパスに対してHTTPリクエストを送信します。
+6. サーバーは、`document.write("Hello World!");`という文字列をレスポンスとして送信します。
+7. ブラウザは、受け取ったレスポンスをJavaScriptとして解釈し、`Hello World!`という文字列を表示します。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -200,7 +200,7 @@ app.listen(3000);
 
 ## 静的ウェブサーバー
 
-次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js` へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
+次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js`へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -225,7 +225,7 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/static-hosting-naive" />
 
-[`express.static` 関数](https://expressjs.com/ja/api.html#express.static)を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
+[`express.static`関数](https://expressjs.com/ja/api.html#express.static)を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -237,23 +237,23 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/static-hosting-smart" />
 
-これにより、リクエストのパスをもとに、`static` フォルダ内の適切なファイルが自動的に配信されます。
+これにより、リクエストのパスをもとに、`static`フォルダ内の適切なファイルが自動的に配信されます。
 
-:::tip[`index.html` の省略]
+:::tip[`index.html`の省略]
 
-`express.static` を用いる場合、`index.html` は省略可能になります。つまり、`/` へのリクエストで `static/index.html` が、`/sub` へのリクエストで `static/sub/index.html` にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
+`express.static`を用いる場合、`index.html`は省略可能になります。つまり、`/`へのリクエストで`static/index.html`が、`/sub`へのリクエストで`static/sub/index.html`にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
 
 :::
 
-:::tip[`app.use` と `express.static` の実装]
+:::tip[`app.use`と`express.static`の実装]
 
-Expressの [`use` メソッド](https://expressjs.com/ja/api.html#app.use) は、`get` メソッドと同様に、リクエストを受け取ったときに実行される関数を登録するためのメソッドです。
-しかし、`use` メソッドは、登録された関数が全てのリクエストに対して実行される点が異なります。
-`express.static` 関数は、関数を返す関数となっており、`use` メソッドに渡すことで、リクエストのパスに応じて適切なファイルを読み込んでレスポンスとして返す関数を登録することができます。
+Expressの [`use`メソッド](https://expressjs.com/ja/api.html#app.use) は、`get`メソッドと同様に、リクエストを受け取ったときに実行される関数を登録するためのメソッドです。
+しかし、`use`メソッドは、登録された関数が全てのリクエストに対して実行される点が異なります。
+`express.static`関数は、関数を返す関数となっており、`use`メソッドに渡すことで、リクエストのパスに応じて適切なファイルを読み込んでレスポンスとして返す関数を登録することができます。
 
-Expressの [`Request`](https://expressjs.com/ja/api.html#req) オブジェクトの[`path` プロパティ](https://expressjs.com/ja/api.html#req.path)には、リクエストのパスが文字列として格納されています。
-この値を用いて、`express.static` は適切なファイルを読み込みます。
-次の例は、`express.static` 関数の簡易な実装例です。
+Expressの [`Request`](https://expressjs.com/ja/api.html#req) オブジェクトの[`path`プロパティ](https://expressjs.com/ja/api.html#req.path)には、リクエストのパスが文字列として格納されています。
+この値を用いて、`express.static`は適切なファイルを読み込みます。
+次の例は、`express.static`関数の簡易な実装例です。
 このプログラムは動作はしますが、セキュリティ上の問題があるため、実際のExpressの実装はもっと複雑になっています。
 
 ```javascript
@@ -301,7 +301,7 @@ app.listen(3000);
 
 :::note[`Array#join`]
 
-[`Array#join` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
+[`Array#join`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join)は、配列を指定した区切り文字で結合した文字列を返すメソッドです。
 
 ```javascript
 console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
@@ -311,13 +311,13 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
-:::tip[`String#replace` メソッド]
+:::tip[`String#replace`メソッド]
 
 上記のようにテンプレートリテラルを使ってHTMLを作成することもできますが、HTMLがさらに長くなったり、複雑なプログラムが必要になってきたりしたらこのまま続けていくのは難しそうです。
 
-[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace) メソッドは、第1引数に与えられた文字列に一致する文字列を第2引数の文字列に置き換えた新しい文字列を返します。
-`String#replace` メソッドは、最初に一致した場所のみを置き換えます。
-一致するすべての場所を置き換えたい場合は、代わりに [`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) メソッドを使います。
+[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace)メソッドは、第1引数に与えられた文字列に一致する文字列を第2引数の文字列に置き換えた新しい文字列を返します。
+`String#replace`メソッドは、最初に一致した場所のみを置き換えます。
+一致するすべての場所を置き換えたい場合は、代わりに[`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)メソッドを使います。
 
 ```js
 const base = "ABCBCC";
@@ -325,7 +325,7 @@ document.write(base.replace("BC", "EFG")); // AEFGBCC
 document.write(base.replaceAll("C", "T")); // ABTBTT
 ```
 
-`String#replace` メソッドを用いることで、長いHTMLを見通しよく記述できるようになります。
+`String#replace`メソッドを用いることで、長いHTMLを見通しよく記述できるようになります。
 
 ```html title="index.html"
 <!doctype html>
@@ -361,9 +361,9 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-リクエストを受け取ったとき、プログラムではまず `readFileSync` 関数を用いて `index.html` ファイルの内容を文字列として読み込んでいます。
+リクエストを受け取ったとき、プログラムではまず`readFileSync`関数を用いて`index.html`ファイルの内容を文字列として読み込んでいます。
 
-次の行で `String#replace` メソッドを用いて、読み込んだHTMLファイルの中の `"<!-- users -->"` を、 `names` を箇条書きにした文字列に置換します。
+次の行で`String#replace`メソッドを用いて、読み込んだHTMLファイルの中の`"<!-- users -->"`を、`names`を箇条書きにした文字列に置換します。
 
 :::
 
@@ -371,7 +371,7 @@ app.listen(3000);
 
 ### 訪問者カウンター
 
-Expressを用いて、`あなたはn人目のお客様です。` とレスポンスするWebサーバーを作成してください。`n` はアクセスされるたびに1ずつ増えるようにしてください。
+Expressを用いて、`あなたはn人目のお客様です。`とレスポンスするWebサーバーを作成してください。`n`はアクセスされるたびに1ずつ増えるようにしてください。
 
 <Answer title="訪問者カウンター">
 

@@ -6,15 +6,15 @@ import cookieCounterVideo from "./cookie-counter.mp4";
 
 ## HTTPヘッダ
 
-HTTPにおけるリクエストとレスポンスには、**ヘッダ**と呼ばれるKey-Value型のデータ構造が毎回付加されています。Chromeの開発者ツールでの `Network` タブで確認できるので、確認してみましょう。
+HTTPにおけるリクエストとレスポンスには、**ヘッダ**と呼ばれるKey-Value型のデータ構造が毎回付加されています。Chromeの開発者ツールでの`Network`タブで確認できるので、確認してみましょう。
 
 ![HTTPヘッダ](./http-headers.png)
 
 ## Cookie
 
-レスポンスヘッダに `set-cookie` ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの `cookie` ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
+レスポンスヘッダに`set-cookie`ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの`cookie`ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
 
-Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie` ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
+Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie`ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
 
 ![Yahoo! JapanのCookie](./yahoo-cookies.png)
 
@@ -28,7 +28,7 @@ Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie
 
 ## ExpressでCookieを利用する
 
-Expressを用いてレスポンスヘッダにCookieを付加するには、[`express.Response#cookie` メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの `cookie` ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを利用します。
+Expressを用いてレスポンスヘッダにCookieを付加するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの`cookie`ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを利用します。
 
 ```shell
 npm install cookie-parser
@@ -55,7 +55,7 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies` プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+[`express.Request#cookies`プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
 
 <video src={cookieCounterVideo} controls muted />
 
@@ -80,7 +80,7 @@ app.listen(3000);
 
 ユーザーが自分のユーザー名とパスワードでログインし、プロフィールを表示できるウェブアプリケーションを作成してみましょう。
 
-`schema.prisma` は次の通りとします。
+`schema.prisma`は次の通りとします。
 
 ```javascript title="schema.prisma"
 model User {

@@ -4,7 +4,7 @@ title: フォーム
 
 ## クエリパラメータの利用
 
-入力した内容によって、次に移るページで表示されるものが異なるウェブページがあります。例として、Googleで `utcode` と検索した際に表示される検索結果のページを考えてみましょう。
+入力した内容によって、次に移るページで表示されるものが異なるウェブページがあります。例として、Googleで`utcode`と検索した際に表示される検索結果のページを考えてみましょう。
 
 ![クエリパラメータ](./query-parameter.png)
 
@@ -14,7 +14,7 @@ title: フォーム
 https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 ```
 
-このようなページでは、入力した内容によって異なるウェブページが表示されるよう、入力した内容が移った先のページのURLに反映されています。この例では、URLの末尾に `?q=utcode&sourceid=chrome&ie=UTF-8` というデータが付加されています。これが**クエリパラメータ**です。
+このようなページでは、入力した内容によって異なるウェブページが表示されるよう、入力した内容が移った先のページのURLに反映されています。この例では、URLの末尾に`?q=utcode&sourceid=chrome&ie=UTF-8`というデータが付加されています。これが**クエリパラメータ**です。
 
 クエリパラメータは、キーと値の組み合わせにより表現されます。先ほどのGoogleの検索結果であれば、次のような3つのパラメータが存在することになります。
 
@@ -24,7 +24,7 @@ https://www.google.com/search?q=utcode&sourceid=chrome&ie=UTF-8
 | `sourceid` | `chrome` |
 | `ie`       | `UTF-8`  |
 
-Expressからクエリパラメータを利用する場合、`request.query` ([`express.Request#query` プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値がオブジェクトとして格納されています。
+Expressからクエリパラメータを利用する場合、`request.query` ([`express.Request#query`プロパティ](https://expressjs.com/ja/api.html#req.query)) にこれらの値がオブジェクトとして格納されています。
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -46,13 +46,13 @@ JSONは「JavaScript Object Notation」の略でJavaScriptのオブジェクト�
 
 :::tip[JSON.stringifyメソッド]
 
-`JSON.stringify` メソッドはオブジェクトをJSON形式の文字列に変換するメソッドです。
+`JSON.stringify`メソッドはオブジェクトをJSON形式の文字列に変換するメソッドです。
 
 :::
 
 :::tip[URLとして使用できない文字の対処方法]
 
-URLとして使用できない文字（日本語文字など）は[URLエンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScriptなら `encodeURIComponent` 関数で変換できます。
+URLとして使用できない文字（日本語文字など）は[URLエンコード](https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0)する必要があります。JavaScriptなら`encodeURIComponent`関数で変換できます。
 
 ```javascript
 encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
@@ -62,12 +62,12 @@ encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 
 ## サーバーにデータを送信する
 
-`form` 要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
+`form`要素を使うとユーザーの入力からクエリパラメータを生成してページ遷移できます。
 
-- `form` の `action` 属性: フォーム送信時に移動し、データを送信するページ
-- `input` 要素: テキストボックス
-- `input` の `name` 属性: クエリパラメータのキー
-- `button` 要素: `form` 内のボタンをクリックすると `form` の `action` に指定したページに遷移します（送信ボタンになります）
+- `form`の`action`属性: フォーム送信時に移動し、データを送信するページ
+- `input`要素: テキストボックス
+- `input`の`name`属性: クエリパラメータのキー
+- `button`要素: `form`内のボタンをクリックすると`form`の`action`に指定したページに遷移します（送信ボタンになります）
 
 以下のコードの、HTMLファイルと、JavaScriptファイルを作成して実行してみましょう。
 
@@ -110,7 +110,7 @@ app.listen(3000);
 以下のように入力して、送信ボタンをクリックすると、
 ![初めの画面に入力](./form-example-2.png)
 
-`http://localhost:3000/send` に移り、以下のような画面が表示されます。
+`http://localhost:3000/send`に移り、以下のような画面が表示されます。
 
 ![http://localhost:3000/send](./form-example-3.png)
 
@@ -121,15 +121,15 @@ app.listen(3000);
 
 ### node-emoji
 
-[npmの章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)で扱った `node-emoji` パッケージの `emojify` 関数を使って、送られた文字列に `emojify` 関数を適用するサーバーを作ってみましょう。
+[npmの章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)で扱った`node-emoji`パッケージの`emojify`関数を使って、送られた文字列に`emojify`関数を適用するサーバーを作ってみましょう。
 
 また、文字列を簡単にサーバーに送れるようにフォームも作りましょう。
 
-たとえば、フォームで `I :heart: :coffee:` と送信したときに、 `I ❤️ ☕` とブラウザに表示されれば成功です。
+たとえば、フォームで`I :heart: :coffee:`と送信したときに、`I ❤️ ☕`とブラウザに表示されれば成功です。
 
 <Answer title="node-emoji">
 
-`node-emoji` と `express` をインストールするのを忘れないようにしましょう。
+`node-emoji`と`express`をインストールするのを忘れないようにしましょう。
 
 ```html title="static/index.html"
 <!doctype html>
@@ -181,9 +181,9 @@ const books = [
 
 著者名を入力して送信すると、その著者の出版物が一覧表示されるシステムを作ってみましょう。
 
-:::tip[`Array#filter` メソッド]
+:::tip[`Array#filter`メソッド]
 
-[`Array#filter` メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が `true` となる要素だけからなる新しい配列を返すメソッドです。
+[`Array#filter`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が`true`となる要素だけからなる新しい配列を返すメソッドです。
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8];

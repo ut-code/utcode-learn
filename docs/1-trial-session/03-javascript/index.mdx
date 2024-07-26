@@ -13,9 +13,9 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4";
 
 ## <Term>JavaScript</Term>でHello World!
 
-プログラミングの世界では、まず画面に `Hello World!` と表示させることが慣例になっています。<Term>JavaScript</Term>を用いて画面に `Hello World!` を表示してみましょう。
+プログラミングの世界では、まず画面に`Hello World!`と表示させることが慣例になっています。<Term>JavaScript</Term>を用いて画面に`Hello World!`を表示してみましょう。
 
-まずは、`index.html` を次のように書き換えます。
+まずは、`index.html`を次のように書き換えます。
 
 ```html title="index.html"
 <!doctype html>
@@ -30,13 +30,13 @@ import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4";
 </html>
 ```
 
-続いて、`script.js` を作成し、内容として次の通りに保存します。
+続いて、`script.js`を作成し、内容として次の通りに保存します。
 
 ```javascript title="script.js"
 document.write("Hello World!");
 ```
 
-**`index.html`** をダブルクリックして開いてください。`Hello World!` と表示されましたか？開くのは、`script.js` ではなく `index.html` なので、気をつけてください。
+**`index.html`** をダブルクリックして開いてください。`Hello World!`と表示されましたか？開くのは、`script.js`ではなく`index.html`なので、気をつけてください。
 
 <video src={helloWorldByJavascriptVideo} controls />
 
@@ -48,11 +48,11 @@ document.write("Hello World!");
 <script src="./script.js"></script>
 ```
 
-まず、この記述によって、`script.js` ファイルがブラウザによって読み込まれます。この `script.js` に記述されているのが<Term>JavaScript</Term>です。
+まず、この記述によって、`script.js`ファイルがブラウザによって読み込まれます。この`script.js`に記述されているのが<Term>JavaScript</Term>です。
 
 :::info
 
-この講座の中では、`script` <Term>要素</Term>を常に **`body` <Term>要素</Term>の末尾**に記述するようにします。これは、<Term>JavaScript</Term>が読み込まれるタイミングで他のすべての<Term>HTML要素</Term>がすでに表示されていることを保証するためです。
+この講座の中では、`script`<Term>要素</Term>を常に **`body`<Term>要素</Term>の末尾** に記述するようにします。これは、<Term>JavaScript</Term>が読み込まれるタイミングで他のすべての<Term>HTML要素</Term>がすでに表示されていることを保証するためです。
 
 :::
 
@@ -61,7 +61,7 @@ document.write("Hello World!");
 {/* prettier-ignore */}
 <Term>JavaScript</Term>のプログラムで、セミコロンで区切られた部分を<Term>文</Term>と呼びます。
 <Term>JavaScript</Term>の実行環境は、プログラム中に含まれる<Term>文</Term>を上から下に向けて順番に実行していきます。
-`document.write` はブラウザの画面に出力するための命令です。
+`document.write`はブラウザの画面に出力するための命令です。
 
 ```javascript title="script.js"
 document.write("Hello World1");
@@ -71,13 +71,13 @@ document.write("Hello World3");
 
 :::tip
 
-改行が表示されず困っていますか？`document.write` で出力したテキストは、HTMLとして解釈されます。`br` 要素や `p` 要素を使いましょう。
+改行が表示されず困っていますか？`document.write`で出力したテキストは、HTMLとして解釈されます。`br`要素や`p`要素を使いましょう。
 
 :::
 
 ## コメント
 
-`//` から行末までの部分や、`/*` から `*/` で囲まれた部分は**コメント**とみなされ、プログラムの実行に影響を与えません。この講座内でもプログラムの意味を説明するのに利用していきます。
+`//`から行末までの部分や、`/*`から`*/`で囲まれた部分は**コメント**とみなされ、プログラムの実行に影響を与えません。この講座内でもプログラムの意味を説明するのに利用していきます。
 
 ```javascript title="script.js"
 // この部分はコメントです

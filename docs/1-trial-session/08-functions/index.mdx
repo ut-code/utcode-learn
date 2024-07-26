@@ -19,12 +19,12 @@ greet();
 greet();
 ```
 
-上のプログラムにおいて、`function` キーワードから始まる部分は<Term>関数</Term>を定義するための<Term>制御構文</Term>です。<Term>関数</Term>定義では、 `function` キーワードに続けて<Term>関数</Term>名、かっこを記述します。この後、<Term>関数</Term>内で実行したい処理を波かっこの中に記述していきます。
+上のプログラムにおいて、`function`キーワードから始まる部分は<Term>関数</Term>を定義するための<Term>制御構文</Term>です。<Term>関数</Term>定義では、`function`キーワードに続けて<Term>関数</Term>名、かっこを記述します。この後、<Term>関数</Term>内で実行したい処理を波かっこの中に記述していきます。
 
 {/* prettier-ignore */}
 <Term>関数</Term>を定義すると、<Term>関数</Term>名に続けてかっこを記述することにより、その<Term>関数</Term>を実行できるようになります。
 
-このプログラムでは、`greet` <Term>関数</Term>が2回呼び出されているので、ブラウザに `Hello World!` が2つ表示されます。
+このプログラムでは、`greet`<Term>関数</Term>が2回呼び出されているので、ブラウザに`Hello World!`が2つ表示されます。
 
 ## <Term>**引数**</Term>
 
@@ -42,10 +42,10 @@ greet("morning", "佐藤");
 
 {/* prettier-ignore */}
 <Term>関数</Term>定義では、<Term>関数</Term>名直後のかっこ内に<Term>引数</Term>名をコンマ区切りで設定できます。
-上のプログラムで `greet` <Term>関数</Term>は、`greetingType` や `myName` という名前の<Term>引数</Term>をとります。
+上のプログラムで`greet`<Term>関数</Term>は、`greetingType`や`myName`という名前の<Term>引数</Term>をとります。
 <Term>関数</Term>定義の中では、これらは<Term>変数</Term>のように振舞います。
 
-呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。このプログラムを実行すると、ブラウザに `Good morning, 佐藤!` が表示されるでしょう。
+呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。このプログラムを実行すると、ブラウザに`Good morning, 佐藤!`が表示されるでしょう。
 
 ![引数](arguments.png)
 
@@ -66,9 +66,9 @@ function add(a, b) {
 document.write(add(3, 4));
 ```
 
-上の例の6行目で、<Term>式</Term> `add(3, 4)` が<Term>評価</Term>されると、`a = 3, b = 4` として `add` <Term>関数</Term>が実行されます。`add` <Term>関数</Term>の中で<Term>文</Term> `const sum = a + b;` が実行されると、<Term>式</Term> `a + b` が<Term>評価</Term>され、`7` になります。これにより、`sum` に `7` が代入されます。
-次の行 `return sum;` で `add` <Term>関数</Term>は<Term>変数</Term> `sum` を<Term>評価</Term>した結果である、`7` を<Term>返し</Term>ます。
-そして<Term>式</Term> `add(3, 4)` の<Term>評価</Term>結果が `7` となります。
+上の例の6行目で、<Term>式</Term>`add(3, 4)`が<Term>評価</Term>されると、`a = 3, b = 4`として`add`<Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term>`const sum = a + b;`が実行されると、<Term>式</Term>`a + b`が<Term>評価</Term>され、`7`になります。これにより、`sum`に`7`が代入されます。
+次の行`return sum;`で`add`<Term>関数</Term>は<Term>変数</Term>`sum`を<Term>評価</Term>した結果である、`7`を<Term>返し</Term>ます。
+そして<Term>式</Term>`add(3, 4)`の<Term>評価</Term>結果が`7`となります。
 
 <video src={returnValueVideo} controls muted />
 
@@ -92,7 +92,7 @@ function tryToDrive() {
 
 ### 確認問題
 
-引数を2つとり、その積を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term> `multiply` を定義してください。
+引数を2つとり、その積を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>`multiply`を定義してください。
 
 <Answer title="2つの積">
 
@@ -130,13 +130,13 @@ greet(); // あなたは1人目のお客様です。
 greet(); // あなたは2人目のお客様です。
 ```
 
-この例における、`greet` <Term>関数</Term>は、呼び出されるたびに `guestCount` に1を加えています。
+この例における、`greet`<Term>関数</Term>は、呼び出されるたびに`guestCount`に1を加えています。
 
 :::tip[複合代入演算子]
 
 [**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
 
-`x += y` は、`x = x + y` という意味になります。他にも `-=` や `*=` などの演算子が定義されています。`x -= y` は `x = x - y`、`x *= y` は `x = x * y` という意味になります。
+`x += y`は、`x = x + y`という意味になります。他にも`-=`や`*=`などの演算子が定義されています。`x -= y`は`x = x - y`、`x *= y`は`x = x * y`という意味になります。
 
 ```javascript
 guestCount += 1;
@@ -183,7 +183,7 @@ increment();
 - パーツごとにテストができるので、デバッグがしやすい
 - パーツの使いまわしができる
 
-次の例は、`totalTicketCount` 枚のうち `hitTicketCount` 枚の当たりがあるくじから `drawnTicketCount` 枚を引いたときに、当たりが少なくとも1枚出る確率 `winningProbability` を、`■■■□□□□□□□` のようなグラフ形式で表示するプログラムです。
+次の例は、`totalTicketCount`枚のうち`hitTicketCount`枚の当たりがあるくじから`drawnTicketCount`枚を引いたときに、当たりが少なくとも1枚出る確率`winningProbability`を、`■■■□□□□□□□`のようなグラフ形式で表示するプログラムです。
 
 ```javascript
 const totalTicketCount = 10;
@@ -252,12 +252,12 @@ function showProbabilityAsGraph(probability) {
 ### 最大値
 
 {/* prettier-ignore */}
-<Term>引数</Term>を2つとり、そのうち大きい数を<Term>返す</Term><Term>関数</Term> `max` を定義してください。
+<Term>引数</Term>を2つとり、そのうち大きい数を<Term>返す</Term><Term>関数</Term>`max`を定義してください。
 
 :::tip
 
 {/* prettier-ignore */}
-<Term>if文</Term>を使って、`a` が大きい場合と `b` が大きい場合で処理を書き分けます。
+<Term>if文</Term>を使って、`a`が大きい場合と`b`が大きい場合で処理を書き分けます。
 
 :::
 
@@ -277,7 +277,7 @@ function max(a, b) {
 
 :::note
 
-`a > b` が `true` の場合、if文内部の `return` で関数実行が中断されるため、`else` キーワードは必ずしも必要ではありません。そのため、次のように書くこともできます。
+`a > b`が`true`の場合、if文内部の`return`で関数実行が中断されるため、`else`キーワードは必ずしも必要ではありません。そのため、次のように書くこともできます。
 
 ```javascript
 function max(a, b) {
@@ -308,7 +308,7 @@ function calculateCost(monthlyDataUsage) {
 document.write(calculateCost(3.5));
 ```
 
-`calculateCost` は、<Term>引数</Term>に月間転送量 `monthlyDataUsage` を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
+`calculateCost`は、<Term>引数</Term>に月間転送量`monthlyDataUsage`を取り、その月の携帯電話料金を<Term>戻り値</Term>として<Term>返す</Term><Term>関数</Term>です。携帯電話料金は、下のルールで決定されるとします。
 
 > - 月間転送量 < 5.0 (GB) のとき、携帯電話料金は 月間転送量 × 600 (円 / GB)
 > - 月間転送量 >= 5.0 (GB) のとき、携帯電話料金は 3000 (円)
