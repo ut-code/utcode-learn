@@ -10,6 +10,7 @@ export default {
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
     "/docs/trial-session/functions/#モジュール化": "モジュール化",
+    "/docs/trial-session/array/": "配列",
     "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
@@ -20,7 +21,6 @@ export default {
     "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
-    "/docs/browser-apps/array/": "配列",
     "/docs/browser-apps/anonymous-function/": "無名関数",
     "/docs/browser-apps/git-github/": "GitとGitHub",
     "/docs/web-servers/wsl-setup/": "WSLのセットアップ",
@@ -77,9 +77,9 @@ export default {
       definition: "ウェブページの構造を表すためのマークアップ言語。",
       referencePage: "/docs/trial-session/html/",
     },
-    htmlNest: {
-      name: "ネスト (HTML)",
-      definition: "HTML要素の中に他の要素を入れること。",
+    nest: {
+      name: "ネスト",
+      definition: "ある要素の中に他の要素を入れること。",
       referencePage: "/docs/trial-session/html/",
     },
     javascript: {
@@ -273,22 +273,39 @@ export default {
         "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
       referencePage: "/docs/trial-session/functions/#モジュール化",
     },
+    javascriptArray: {
+      name: "配列 (JavaScript)",
+      definition: "複数の値を並べて1つにまとめた値。",
+      referencePage: "/docs/trial-session/array/",
+    },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
       definition:
-        "JavaScriptにおける値の一種。内部にプロパティを複数格納できる。プリミティブではない値。",
+        "JavaScriptにおける値の一種。関連する値をまとめて1つの値として扱うことができる。プリミティブでない値はすべてオブジェクト。",
       referencePage: "/docs/trial-session/object/",
     },
     javascriptPrimitive: {
       name: "プリミティブ (JavaScript)",
       definition:
-        "JavaScriptにおける値の種類。感覚的には「それ以上分解できない値」",
+        "JavaScriptにおける値の種類。数値や文字列、論理値などの「それ以上分解できない」値。",
       referencePage: "/docs/trial-session/object/",
     },
     javascriptProperty: {
       name: "プロパティ (JavaScript)",
       definition:
-        "JavaScriptのオブジェクトがその内部に持っている値。オブジェクトの属性(情報)。",
+        "JavaScriptのオブジェクトに関連付けられた属性のこと。学生を表すオブジェクトであれば、名前や年齢などのプロパティが考えられる。",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptPropertyName: {
+      name: "プロパティ名 (JavaScript)",
+      definition:
+        "JavaScriptのオブジェクトにおいて、プロパティを表す名前のこと。",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptPropertyValue: {
+      name: "プロパティ値 (JavaScript)",
+      definition:
+        "JavaScriptのオブジェクトにおいて、プロパティに関連付けられた値のこと。",
       referencePage: "/docs/trial-session/object/",
     },
     dom: {
