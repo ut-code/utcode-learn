@@ -2,93 +2,196 @@
 title: オブジェクト
 ---
 
-## <Term>オブジェクト</Term>
+## オブジェクト
 
-JavaScriptで扱うことのできる<Term>値</Term>の種類として、これまで<Term>数値</Term>、<Term>文字列</Term>、<Term>論理値</Term>を扱ってきました。<Term>**オブジェクト**</Term>もまた、<Term>JavaScript</Term>の<Term>値</Term>ですが、今まで扱ってきた<Term>値</Term>とは少し性質が異なります。
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term>値</Term>を複数まとめて一つの<Term>値</Term>として扱うことができます。
-
-## <Term>オブジェクト</Term>の作成
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>は、複数の<Term>**プロパティ**</Term>と呼ばれる<Term>値</Term>を持ちます。
-<Term>プロパティ</Term>にはそれぞれ名前がついています。
-<Term>プロパティ</Term>の名前には文字列しか指定できませんが、<Term>プロパティ</Term>の<Term>値</Term>としては<Term>JavaScript</Term>で使用できるすべての<Term>値</Term>が使用可能です。
-
-```javascript
-const person = { name: "田中", age: 18 };
-```
-
-![プロパティ](properties.png)
-
-:::tip[ほかの言語の経験者へ]
-
-JavaScriptの<Term>オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScriptの<Term>オブジェクト</Term>は使用頻度が非常に高いです。
-
-:::
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>の中に<Term>オブジェクト</Term>を入れることもできます。
-
-```javascript
-const person = {
-  name: "田中",
-  age: 18,
-  scores: { math: 80, science: 90 },
-};
-```
-
-## <Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更する
-
-ドット記号を用いることで、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更できます。通常の<Term>変数</Term>のように扱えます。
-
-```javascript
-document.write(person.age); // 18
-
-person.age = 19;
-document.write(person.age); // 19
-```
-
-:::tip[プロパティの追加]
-プロパティは取得や変更のほかに、追加もできます。
-
-```javascript
-person.favoriteFood = "餃子";
-document.write(person.favoriteFood); // 餃子
-```
-
-:::
-
-:::note[<Term>オブジェクト</Term>とプリミティブ]
-
-この章よりも前に扱ってきたような「それ以上分解できない」<Term>値</Term>のことを<Term>**プリミティブ**</Term>といい、<Term>プリミティブ</Term>でない値はすべて<Term>オブジェクト</Term>です。
+JavaScriptで利用することができる<Term>値</Term>の種類として、これまで<Term>数値</Term>と<Term>文字列</Term>、<Term>論理値</Term>を扱いました。<Term>数値</Term>や<Term>文字列</Term>、<Term>論理値</Term>などの「それ以上分解できない」<Term>値</Term>のことを**プリミティブ**と呼びます。JavaScriptには、この他にも、**オブジェクト**と呼ばれる<Term>値</Term>が存在します。<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトです。
 
 ![値の種類](./value-types-with-object.drawio.svg)
 
+オブジェクトを用いると、関連する<Term>値</Term>をまとめて1つの<Term>値</Term>として扱うことができます。これにより、現実世界の事物をプログラム上でうまく表現することができます。
+
+たとえば、学生を例に考えてみましょう。学生には、名前や年齢、メールアドレスなどの属性があります。これをオブジェクトとして表現すると、次のようになります。
+
+```javascript
+{
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+}
+```
+
+## オブジェクトの作成
+
+オブジェクトは、次のようにして作成します。
+
+```javascript
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+};
+```
+
+学生には、名前と年齢、メールアドレスの3つの属性があります。これらは、オブジェクトの**プロパティ**と呼ばれます。<Term type="javascriptProperty">プロパティ</Term>は、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
+
+| プロパティ名 | プロパティ値                |
+| ------------ | --------------------------- |
+| `name`       | `"山田太郎"`                |
+| `age`        | `15`                        |
+| `email`      | `"taro.yamada@example.com"` |
+
+:::tip[ほかの言語の経験者へ]
+
+JavaScriptのオブジェクトは、ほかの言語でいう辞書や連想配列、Mapに近いものです。ただ、こういったものと比べ、JavaScriptのオブジェクトは使用頻度が非常に高いです。
+
 :::
+
+### 確認問題
+
+次のような属性を持つオブジェクト`book`を作成してください。
+
+- `title`: `"吾輩は猫である"`
+- `author`: `"夏目漱石"`
+- `price`: `600`
+
+<Answer>
+
+```javascript
+const book = {
+  title: "吾輩は猫である",
+  author: "夏目漱石",
+  price: 600,
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/create-book-object" />
+
+</Answer>
+
+## プロパティの取得
+
+オブジェクトの<Term>プロパティ</Term>を取得するには、次のようにドット記号（`.`）を使います。
+
+```javascript
+document.write(student.name); // 山田太郎
+document.write(student.age); // 15
+```
+
+## プロパティの変更
+
+オブジェクトの<Term>プロパティ</Term>を変更するには、次のようにします。
+
+```javascript
+document.write(student.email); // yamada.taro@example.com
+student.email = "yamada.taro@example.jp";
+document.write(student.email); // yamada.taro@example.jp
+```
+
+### 確認問題
+
+次のような本を表すオブジェクト`book`があります。本の値段を表示し、その値段を700円にしてから、もう一度表示してください。
+
+```javascript
+const book = {
+  title: "吾輩は猫である",
+  author: "夏目漱石",
+  price: 600,
+};
+```
+
+<Answer>
+
+```javascript
+document.write(`本の値段は${book.price}円です。`); // 本の値段は600円です。
+book.price = 700;
+document.write(`本の値段は${book.price}円です。`); // 本の値段は700円です。
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-price-property" />
+
+</Answer>
+
+## オブジェクトのネスト
+
+さきほど<Term>プロパティ値</Term>には、すべての<Term>値</Term>が指定可能であると説明しました。オブジェクトも<Term>値</Term>の一種であるため、次のようにオブジェクトの<Term>プロパティ値</Term>にオブジェクトを指定する（<Term>ネスト</Term>する）こともできます。
+
+```javascript
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+  scores: {
+    japanese: 90,
+    math: 70,
+    english: 80,
+  },
+};
+```
+
+{/* prettier-ignore */}
+<Term>ネスト</Term>されたオブジェクトの<Term>プロパティ</Term>は、次のようにして取得、変更できます。
+
+```javascript
+document.write(student.scores.math); // 70
+student.scores.math = 100;
+document.write(student.scores.math); // 100
+```
+
+### 確認問題
+
+次のような本を表すオブジェクト`book`があります。本の場所を2階のE列から1階のA列に変更することになりました。本の場所を表示し、1階のA列に変更してから、もう一度表示してください。
+
+```javascript
+const book = {
+  title: "吾輩は猫である",
+  author: "夏目漱石",
+  price: 600,
+  availability: {
+    isAvailable: true,
+    location: "2階E列",
+  },
+};
+```
+
+<Answer>
+
+```javascript
+document.write(`本は${book.availability.location}にあります。`); // 本は2階E列にあります。
+book.availability.location = "1階A列";
+document.write(`本は${book.availability.location}にあります。`); // 本は1階A列にあります。
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-location-property" />
+
+</Answer>
 
 ## 配列とオブジェクト
 
-上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScriptのオブジェクトとは、プロパティ名とプロパティ値の組の集合でした。
+さきほど<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトであると説明しました。<Term>配列</Term>はプリミティブではないので、オブジェクトの一種です。
 
-配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
+![値の種類](./value-types-with-array.drawio.svg)
+
+JavaScriptのオブジェクトは、<Term>プロパティ名</Term>と<Term>プロパティ値</Term>の組によって構成されていました。<Term>配列</Term>はオブジェクトの一種であるため、この原則に従って動作します。次の図に示すように、配列とは、各要素のインデックスが<Term>プロパティ名</Term>になっているオブジェクトです。
 
 ![配列のプロパティ](./array-properties.png)
 
-逆に、オブジェクトも配列と同じように使用することができます。この記法を**ブラケット記法**と呼び、プログラムの動作に応じて使用したいプロパティを切り替えるのに役立ちます。
+逆に、オブジェクトも<Term>配列</Term>と同じように使用することができます。この記法をブラケット記法と呼び、プログラムの動作に応じて使用したい<Term>プロパティ</Term>を切り替えるのに役立ちます。
 
 ```javascript
-const subject = "math"; // ここを変えると表示される教科が変わる
-const scores = { math: 90, science: 80 };
-document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
+const subject = "english"; // ここを変えると表示される教科が変わる。
+const scores = {
+  japanese: 90,
+  math: 70,
+  english: 80,
+};
+document.write(`${subject}の点数は${scores[subject]}点です。`); // englishの点数は80点です。
 ```
 
 :::tip[オブジェクトのプロパティ名]
 
-オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は`studentNames[2]`のように記述できるのでしょうか。
+オブジェクトの<Term>プロパティ名</Term>に<Term>数値</Term>は使用できません。それではなぜ、<Term>配列</Term>の場合は`studentNames[0]`のようにプロパティ名に<Term>数値</Term>を使用できるのでしょうか。
 
-答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
+答えは単純で、<Term>数値</Term>が<Term>文字列</Term>に変換されているためです。そのため、`studentNames[0]`は`studentNames["0"]`と同じ意味になります。
 
 ```javascript
 const studentNames = ["田中", "佐藤", "鈴木"];
@@ -97,77 +200,31 @@ document.write(studentNames["0"]); // 田中
 
 :::
 
-## 演習
+## 演習問題
 
-### 初級演習
-
-田中さんを表すオブジェクトを定義します。
+次のような学生を表すオブジェクトがあります。この学生の国語と算数、英語の3教科の平均点を計算して、表示してください。
 
 ```javascript
-const tanaka = {
-  name: "田中",
-  scores: { math: 90, science: 80 },
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+  scores: {
+    japanese: 90,
+    math: 70,
+    english: 80,
+  },
 };
 ```
 
-1. 田中さんの算数の点数を表示してみましょう。
-
-2. `scores`に国語の点数を追加して、表示してみましょう。
-
-<Answer title="成績表示">
-
-```javascript title="1の解答"
-document.write(tanaka.scores.math);
-```
-
-<ViewSource url={import.meta.url} path="_samples/view-math-score" />
-
-```javascript title="2の解答"
-tanaka.scores.japanese = 50;
-document.write(tanaka.scores.japanese);
-```
-
-<ViewSource url={import.meta.url} path="_samples/add-and-view-Japanese-score" />
-
-2では、プロパティを自分で追加しています。
-
-</Answer>
-
-### 中級演習
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>も<Term>値</Term>の一種なので、<Term>関数</Term>の<Term>引数</Term>や<Term>戻り値</Term>として使用できます。
-
-`age`<Term>プロパティ</Term>に1を加えた<Term>オブジェクト</Term>を返す関数`incrementAge`を定義してみましょう。
+<Answer>
 
 ```javascript
-function incrementAge(person) {
-  // ここに書く
-}
-
-const tanaka = { name: "田中", age: 18 };
-const sato = { name: "佐藤", age: 22 };
-const nextYearTanaka = incrementAge(tanaka);
-const nextYearSato = incrementAge(sato);
-// 19歳、23歳と表示されてほしい
-document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
+const averageScore =
+  (student.scores.japanese + student.scores.math + student.scores.english) / 3;
+document.write(`平均点は${averageScore}点です。`);
 ```
 
-<Answer title="年齢を増やす">
-
-```javascript
-function incrementAge(person) {
-  person.age += 1;
-  return person;
-}
-
-const tanaka = { name: "田中", age: 18 };
-const sato = { name: "佐藤", age: 22 };
-const nextYearTanaka = incrementAge(tanaka);
-const nextYearSato = incrementAge(sato);
-document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
-```
-
-<ViewSource url={import.meta.url} path="_samples/incrementAge" />
+<ViewSource url={import.meta.url} Path="_samples/average-score" />
 
 </Answer>
