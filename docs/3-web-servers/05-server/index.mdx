@@ -311,62 +311,6 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
-:::tip[`String#replace`メソッド]
-
-上記のようにテンプレートリテラルを使ってHTMLを作成することもできますが、HTMLがさらに長くなったり、複雑なプログラムが必要になってきたりしたらこのまま続けていくのは難しそうです。
-
-[`String#replace`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace)メソッドは、第1引数に与えられた文字列に一致する文字列を第2引数の文字列に置き換えた新しい文字列を返します。
-`String#replace`メソッドは、最初に一致した場所のみを置き換えます。
-一致するすべての場所を置き換えたい場合は、代わりに[`String#replaceAll`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)メソッドを使います。
-
-```js
-const base = "ABCBCC";
-document.write(base.replace("BC", "EFG")); // AEFGBCC
-document.write(base.replaceAll("C", "T")); // ABTBTT
-```
-
-`String#replace`メソッドを用いることで、長いHTMLを見通しよく記述できるようになります。
-
-```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <ul>
-      <!-- users -->
-    </ul>
-  </body>
-</html>
-```
-
-```js title="main.mjs"
-import express from "express";
-import { readFileSync } from "node:fs";
-
-const app = express();
-
-const names = ["田中", "鈴木", "佐藤"];
-app.get("/", (request, response) => {
-  const template = readFileSync("./index.html", "utf-8");
-  const html = template.replace(
-    "<!-- users -->",
-    names.map((name) => `<li>${name}</li>`).join(""),
-  );
-  response.send(html);
-});
-
-app.listen(3000);
-```
-
-リクエストを受け取ったとき、プログラムではまず`readFileSync`関数を用いて`index.html`ファイルの内容を文字列として読み込んでいます。
-
-次の行で`String#replace`メソッドを用いて、読み込んだHTMLファイルの中の`"<!-- users -->"`を、`names`を箇条書きにした文字列に置換します。
-
-:::
-
 ## 演習
 
 ### 訪問者カウンター
