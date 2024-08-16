@@ -1,11 +1,5 @@
 {
   "name": "date-fns",
-  "version": "1.0.0",
-  "main": "main.mjs",
-  "scripts": {
-    "start": "node main.mjs"
-  },
-  "license": "MIT",
   "dependencies": {
     "date-fns": "^2.30.0"
   }
