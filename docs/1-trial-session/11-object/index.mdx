@@ -4,13 +4,13 @@ title: オブジェクト
 
 ## オブジェクト
 
-JavaScriptで利用することができる<Term>値</Term>の種類として、これまで<Term>数値</Term>と<Term>文字列</Term>、<Term>論理値</Term>を扱いました。<Term>数値</Term>や<Term>文字列</Term>、<Term>論理値</Term>などの「それ以上分解できない」<Term>値</Term>のことを**プリミティブ**と呼びます。JavaScriptには、この他にも、**オブジェクト**と呼ばれる<Term>値</Term>が存在します。<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトです。
+JavaScriptで利用することができる<Term>値</Term>の種類として、これまで<Term>数値</Term>と<Term>文字列</Term>、<Term>論理値</Term>を扱いました。<Term>数値</Term>や<Term>文字列</Term>、<Term>論理値</Term>などの「それ以上分解できない」<Term>値</Term>のことを**プリミティブ**と呼びます。JavaScriptには、この他にも、**オブジェクト**と呼ばれる<Term>値</Term>が存在します。JavaScriptにおいて、<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトです。
 
 ![値の種類](./value-types-with-object.drawio.svg)
 
-オブジェクトを用いると、関連する<Term>値</Term>をまとめて1つの<Term>値</Term>として扱うことができます。これにより、現実世界の事物をプログラム上でうまく表現することができます。
+オブジェクトを用いると、関連する<Term>値</Term>をまとめて1つの<Term>値</Term>として扱うことができます。これにより、事物をプログラム上でより現実世界に近い形で表現することができます。
 
-たとえば、学生を例に考えてみましょう。学生には、名前や年齢、メールアドレスなどの属性があります。これをオブジェクトとして表現すると、次のようになります。
+たとえば、学生を例に考えてみましょう。学生には、名前や年齢、メールアドレスなどの情報があります。これをオブジェクトとして表現すると、次のようになります。このように、オブジェクトを使うことで、複数の情報をまとめて扱い現実の1人の学生をプログラム上でも1つの<Term>値</Term>として扱うことができます。
 
 ```javascript
 {
@@ -32,7 +32,7 @@ const student = {
 };
 ```
 
-学生には、名前と年齢、メールアドレスの3つの属性があります。これらは、オブジェクトの**プロパティ**と呼ばれます。<Term type="javascriptProperty">プロパティ</Term>は、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
+ここでは、学生には、名前と年齢、メールアドレスの3つの情報があります。これらは、オブジェクトの**プロパティ**と呼ばれます。<Term type="javascriptProperty">プロパティ</Term>は、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
 
 | プロパティ名 | プロパティ値                |
 | ------------ | --------------------------- |
@@ -48,7 +48,7 @@ JavaScriptのオブジェクトは、ほかの言語でいう辞書や連想配�
 
 ### 確認問題
 
-次のような属性を持つオブジェクト`book`を作成してください。
+次のような情報を持つオブジェクト`book`を作成してください。
 
 - `title`: `"吾輩は猫である"`
 - `author`: `"夏目漱石"`
@@ -139,16 +139,16 @@ document.write(student.scores.math); // 100
 
 ### 確認問題
 
-次のような本を表すオブジェクト`book`があります。本の場所を2階のE列から1階のA列に変更することになりました。本の場所を表示し、1階のA列に変更してから、もう一度表示してください。
+次のような本を表すオブジェクト`book`があります。本が1冊購入されたため、在庫数を1冊減らすことになりました。本の在庫数を表示し、1冊減らしてから、もう一度表示してください。
 
 ```javascript
 const book = {
   title: "吾輩は猫である",
   author: "夏目漱石",
   price: 600,
-  availability: {
-    isAvailable: true,
-    location: "2階E列",
+  stock: {
+    count: 10,
+    location: "神保町店",
   },
 };
 ```
@@ -156,18 +156,18 @@ const book = {
 <Answer>
 
 ```javascript
-document.write(`本は${book.availability.location}にあります。`); // 本は2階E列にあります。
-book.availability.location = "1階A列";
-document.write(`本は${book.availability.location}にあります。`); // 本は1階A列にあります。
+document.write(`在庫数は${book.stock.count}冊です。`); // 在庫数は10冊です。
+book.stock.count = 9;
+document.write(`在庫数は${book.stock.count}冊です。`); // 在庫数は9冊です。
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-location-property" />
+<ViewSource url={import.meta.url} path="_samples/change-count-property" />
 
 </Answer>
 
 ## 配列とオブジェクト
 
-さきほど<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトであると説明しました。<Term>配列</Term>はプリミティブではないので、オブジェクトの一種です。
+さきほどJavaScriptにおいて<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトであると説明しました。<Term>配列</Term>はプリミティブではないので、オブジェクトの一種です。
 
 ![値の種類](./value-types-with-array.drawio.svg)
 
@@ -225,6 +225,6 @@ const averageScore =
 document.write(`平均点は${averageScore}点です。`);
 ```
 
-<ViewSource url={import.meta.url} Path="_samples/average-score" />
+<ViewSource url={import.meta.url} path="_samples/average-score" />
 
 </Answer>

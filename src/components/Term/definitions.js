@@ -79,7 +79,7 @@ export default {
     },
     nest: {
       name: "ネスト",
-      definition: "ある要素の中に他の要素を入れること。",
+      definition: "ある構造の中にある別の構造を入れること。",
       referencePage: "/docs/trial-session/html/",
     },
     javascript: {
