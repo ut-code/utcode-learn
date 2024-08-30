@@ -62,7 +62,6 @@ const typeMap = new Map([
   ["返す", "javascriptReturn"],
   ["返し", "javascriptReturn"],
   ["スコープ", "javascriptScope"],
-  ["モジュール化", "javascriptModularization"],
   ["オブジェクト", "javascriptObject"],
   ["プリミティブ", "javascriptPrimitive"],
   ["プロパティ", "javascriptProperty"],

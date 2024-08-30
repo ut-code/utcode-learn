@@ -9,7 +9,6 @@ export default {
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
-    "/docs/trial-session/functions/#モジュール化": "モジュール化",
     "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
@@ -266,12 +265,6 @@ export default {
       name: "スコープ (JavaScript)",
       definition: "変数が有効な範囲。",
       referencePage: "/docs/trial-session/functions/",
-    },
-    javascriptModularization: {
-      name: "モジュール化",
-      definition:
-        "ひとまとまりの煩雑なものや操作を一つにまとめて、コードを複数のブロックに分解すること。",
-      referencePage: "/docs/trial-session/functions/#モジュール化",
     },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
