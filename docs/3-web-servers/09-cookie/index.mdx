@@ -14,7 +14,7 @@ HTTPにおけるリクエストとレスポンスには、**ヘッダ**と呼ば
 
 レスポンスヘッダに`set-cookie`ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの`cookie`ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
 
-Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie`ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/) にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
+Cookie自体もKey-Valueのデータ構造となっているので、`set-cookie`ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/)にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
 
 ![Yahoo! JapanのCookie](./yahoo-cookies.png)
 
@@ -55,7 +55,7 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies`プロパティ](https://expressjs.com/ja/api.html#req.cookies) には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+[`express.Request#cookies`プロパティ](https://expressjs.com/ja/api.html#req.cookies)には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
 
 <video src={cookieCounterVideo} controls muted />
 

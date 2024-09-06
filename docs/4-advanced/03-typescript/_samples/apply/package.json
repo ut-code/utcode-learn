@@ -1,10 +1,6 @@
 {
   "name": "apply",
-  "version": "1.0.0",
-  "scripts": {},
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "^5.5.4"
   }
 }

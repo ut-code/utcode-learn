@@ -1,11 +1,5 @@
 {
   "name": "emoji",
-  "version": "1.0.0",
-  "main": "main.mjs",
-  "scripts": {
-    "start": "node main.mjs"
-  },
-  "license": "MIT",
   "dependencies": {
     "node-emoji": "^2.1.3"
   }
