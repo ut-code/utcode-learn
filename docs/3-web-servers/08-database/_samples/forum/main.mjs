@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 
@@ -6,14 +5,26 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 const client = new PrismaClient();
 
-const template = readFileSync("./template.html", "utf-8");
 app.get("/", async (request, response) => {
   const posts = await client.post.findMany();
-  const html = template.replace(
-    "<!-- messages -->",
-    posts.map((post) => `<li>${post.message}</li>`).join(""),
-  );
-  response.send(html);
+  response.send(`
+    <!doctype html>
+    <html lang="ja">
+      <head>
+        <meta charset="utf-8" />
+        <title>掲示板</title>
+      </head>
+      <body>
+        <ul>
+          ${posts.map((post) => `<li>${post.message}</li>`).join("")}
+        </ul>
+        <form method="post" action="/send">
+          <input placeholder="メッセージ" name="message" />
+          <button type="submit">送信</button>
+        </form>
+      </body>
+    </html>
+  `);
 });
 
 app.post("/send", async (request, response) => {
