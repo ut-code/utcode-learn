@@ -1,12 +1,6 @@
 {
   "name": "mathjs",
-  "version": "1.0.0",
-  "main": "main.mjs",
-  "scripts": {
-    "start": "node main.mjs"
-  },
-  "license": "MIT",
   "dependencies": {
-    "mathjs": "^12.1.0"
+    "mathjs": "^13.0.3"
   }
 }
