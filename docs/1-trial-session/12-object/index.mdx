@@ -48,23 +48,23 @@ JavaScriptのオブジェクトは、ほかの言語でいう辞書や連想配�
 
 ### 確認問題
 
-次のような情報を持つオブジェクト`book`を作成してください。
+次のような情報を持つ車を表すオブジェクト`car`を作成してください。
 
-- `title`: `"吾輩は猫である"`
-- `author`: `"夏目漱石"`
-- `price`: `600`
+- `make`: `"トヨタ"`
+- `model`: `"プリウス"`
+- `price`: `2500000`
 
 <Answer>
 
 ```javascript
-const book = {
-  title: "吾輩は猫である",
-  author: "夏目漱石",
-  price: 600,
+const car = {
+  make: "トヨタ",
+  model: "プリウス",
+  price: 2500000,
 };
 ```
 
-<ViewSource url={import.meta.url} path="_samples/create-book-object" />
+<ViewSource url={import.meta.url} path="_samples/create-car-object" />
 
 </Answer>
 
@@ -89,22 +89,22 @@ document.write(student.email); // yamada.taro@example.jp
 
 ### 確認問題
 
-次のような本を表すオブジェクト`book`があります。本の値段を表示し、その値段を700円にしてから、もう一度表示してください。
+次のような車を表すオブジェクト`car`があります。車の値段を表示し、その値段を3000000円にしてから、もう一度表示してください。
 
 ```javascript
-const book = {
-  title: "吾輩は猫である",
-  author: "夏目漱石",
-  price: 600,
+const car = {
+  make: "トヨタ",
+  model: "プリウス",
+  price: 3000000,
 };
 ```
 
 <Answer>
 
 ```javascript
-document.write(`本の値段は${book.price}円です。`); // 本の値段は600円です。
-book.price = 700;
-document.write(`本の値段は${book.price}円です。`); // 本の値段は700円です。
+document.write(`車の値段は${car.price}円です。`); // 車の値段は2500000円です。
+car.price = 3000000;
+document.write(`車の値段は${car.price}円です。`); // 車の値段は3000000円です。
 ```
 
 <ViewSource url={import.meta.url} path="_samples/change-price-property" />
@@ -139,16 +139,16 @@ document.write(student.scores.math); // 100
 
 ### 確認問題
 
-次のような本を表すオブジェクト`book`があります。本が1冊購入されたため、在庫数を1冊減らすことになりました。本の在庫数を表示し、1冊減らしてから、もう一度表示してください。
+次のような車を表すオブジェクト`car`があります。所有者のメールアドレスを変更することになりました。所有者のメールアドレスを表示し、`"yamada.hanako@example.jp"`に変更してから、もう一度表示してください。
 
 ```javascript
-const book = {
-  title: "吾輩は猫である",
-  author: "夏目漱石",
-  price: 600,
-  stock: {
-    count: 10,
-    location: "神保町店",
+const car = {
+  make: "トヨタ",
+  model: "プリウス",
+  price: 3000000,
+  owner: {
+    name: "山田花子",
+    email: "yamada.hanako@example.com",
   },
 };
 ```
@@ -156,12 +156,12 @@ const book = {
 <Answer>
 
 ```javascript
-document.write(`在庫数は${book.stock.count}冊です。`); // 在庫数は10冊です。
-book.stock.count = 9;
-document.write(`在庫数は${book.stock.count}冊です。`); // 在庫数は9冊です。
+document.write(`メールアドレスは${car.owner.email}です。`); // メールアドレスはyamada.hanako@example.comです。
+car.owner.email = "yamada.hanako@example.jp";
+document.write(`メールアドレスは${car.owner.email}です。`); // メールアドレスはyamada.hanako@example.jpです。
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-count-property" />
+<ViewSource url={import.meta.url} path="_samples/change-email-property" />
 
 </Answer>
 
