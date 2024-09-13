@@ -208,16 +208,16 @@ import { readFileSync } from "node:fs";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send(readFileSync("./static/index.html", "utf-8"));
+  response.send(readFileSync("./public/index.html", "utf-8"));
 });
 app.get("/script.js", (request, response) => {
-  response.send(readFileSync("./static/script.js", "utf-8"));
+  response.send(readFileSync("./public/script.js", "utf-8"));
 });
 app.get("/sub/", (request, response) => {
-  response.send(readFileSync("./static/sub/index.html", "utf-8"));
+  response.send(readFileSync("./public/sub/index.html", "utf-8"));
 });
 app.get("/sub/script.js", (request, response) => {
-  response.send(readFileSync("./static/sub/script.js", "utf-8"));
+  response.send(readFileSync("./public/sub/script.js", "utf-8"));
 });
 
 app.listen(3000);
@@ -231,17 +231,17 @@ app.listen(3000);
 import express from "express";
 
 const app = express();
-app.use(express.static("static"));
+app.use(express.static("./public"));
 app.listen(3000);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/static-hosting-smart" />
 
-これにより、リクエストのパスをもとに、`static`フォルダ内の適切なファイルが自動的に配信されます。
+これにより、リクエストのパスをもとに、`public`フォルダ内の適切なファイルが自動的に配信されます。
 
 :::tip[`index.html`の省略]
 
-`express.static`を用いる場合、`index.html`は省略可能になります。つまり、`/`へのリクエストで`static/index.html`が、`/sub`へのリクエストで`static/sub/index.html`にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
+`express.static`を用いる場合、`index.html`は省略可能になります。つまり、`/`へのリクエストで`public/index.html`が、`/sub`へのリクエストで`public/sub/index.html`にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
 
 :::
 
@@ -259,7 +259,7 @@ Expressの [`Request`](https://expressjs.com/ja/api.html#req) オブジェクト
 ```javascript
 const app = express();
 app.use((request, response) => {
-  response.send(readFileSync("./static" + request.path, "utf-8"));
+  response.send(readFileSync("./public" + request.path, "utf-8"));
 });
 app.listen(3000);
 ```

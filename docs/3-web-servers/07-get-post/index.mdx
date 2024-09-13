@@ -20,7 +20,7 @@ HTTPリクエストのこのような区分を、<Term>**HTTPメソッド**</Ter
 
 前頁の例を、POSTリクエストを用いて書き直してみましょう。`form`要素の`method`属性に`post`を指定することで、ブラウザは送信ボタンが押されたときに`POST`メソッドの<Term>リクエスト</Term>を発行します。
 
-```html title="static/index.html"
+```html title="public/index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -43,7 +43,7 @@ import express from "express";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.post("/send", (request, response) => {
   response.send(
