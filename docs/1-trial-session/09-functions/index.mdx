@@ -29,8 +29,7 @@ greet();
 ## <Term>**引数**</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>を与えることができます。
-<Term>引数</Term>には任意の<Term>値</Term>が指定できます。
+<Term>関数</Term>の振る舞いを呼び出し時に変更するため、<Term>関数</Term>に<Term>**引数**</Term>を与えることができます。<Term>引数</Term>には任意の<Term>値</Term>が指定できます。
 
 ```javascript
 function greet(greetingType, myName) {
@@ -41,9 +40,7 @@ greet("morning", "佐藤");
 ```
 
 {/* prettier-ignore */}
-<Term>関数</Term>定義では、<Term>関数</Term>名直後のかっこ内に<Term>引数</Term>名をコンマ区切りで設定できます。
-上のプログラムで`greet`<Term>関数</Term>は、`greetingType`や`myName`という名前の<Term>引数</Term>をとります。
-<Term>関数</Term>定義の中では、これらは<Term>変数</Term>のように振舞います。
+<Term>関数</Term>定義では、<Term>関数</Term>名直後のかっこ内に<Term>引数</Term>名をコンマ区切りで設定できます。上のプログラムで`greet`<Term>関数</Term>は、`greetingType`や`myName`という名前の<Term>引数</Term>をとります。<Term>関数</Term>定義の中では、これらは<Term>変数</Term>のように振舞います。
 
 呼び出し側では、括弧の中に<Term>関数</Term>に<Term>渡す</Term><Term>引数</Term>を指定します。このプログラムを実行すると、ブラウザに`Good morning, 佐藤!`が表示されるでしょう。
 
@@ -52,10 +49,7 @@ greet("morning", "佐藤");
 ## <Term>戻り値</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>呼び出しは<Term>式</Term>の一種です。
-<Term>関数</Term>定義内で**return文**を用いると、<Term>関数</Term>の実行が停止され、<Term>関数</Term>呼び出し<Term>式</Term>の<Term>評価</Term>結果が確定します。
-この値を<Term>**戻り値**</Term>と呼びます。
-ある<Term>値</Term>を<Term>戻り値</Term>として設定して<Term>関数</Term>の実行を終了することを、<Term>関数</Term>がその<Term>値</Term>を<Term>**返す**</Term>と表現します。
+<Term>関数</Term>呼び出しは<Term>式</Term>の一種です。<Term>関数</Term>定義内で**return文**を用いると、<Term>関数</Term>の実行が停止され、<Term>関数</Term>呼び出し<Term>式</Term>の<Term>評価</Term>結果が確定します。この値を<Term>**戻り値**</Term>と呼びます。ある<Term>値</Term>を<Term>戻り値</Term>として設定して<Term>関数</Term>の実行を終了することを、<Term>関数</Term>がその<Term>値</Term>を<Term>**返す**</Term>と表現します。
 
 ```javascript
 function add(a, b) {
@@ -66,9 +60,7 @@ function add(a, b) {
 document.write(add(3, 4));
 ```
 
-上の例の6行目で、<Term>式</Term>`add(3, 4)`が<Term>評価</Term>されると、`a = 3, b = 4`として`add`<Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term>`const sum = a + b;`が実行されると、<Term>式</Term>`a + b`が<Term>評価</Term>され、`7`になります。これにより、`sum`に`7`が代入されます。
-次の行`return sum;`で`add`<Term>関数</Term>は<Term>変数</Term>`sum`を<Term>評価</Term>した結果である、`7`を<Term>返し</Term>ます。
-そして<Term>式</Term>`add(3, 4)`の<Term>評価</Term>結果が`7`となります。
+上の例の6行目で、<Term>式</Term>`add(3, 4)`が<Term>評価</Term>されると、`a = 3, b = 4`として`add`<Term>関数</Term>が実行されます。`add`<Term>関数</Term>の中で<Term>文</Term>`const sum = a + b;`が実行されると、<Term>式</Term>`a + b`が<Term>評価</Term>され、`7`になります。これにより、`sum`に`7`が代入されます。次の行`return sum;`で`add`<Term>関数</Term>は<Term>変数</Term>`sum`を<Term>評価</Term>した結果である、`7`を<Term>返し</Term>ます。そして<Term>式</Term>`add(3, 4)`の<Term>評価</Term>結果が`7`となります。
 
 <video src={returnValueVideo} controls muted />
 
@@ -112,8 +104,7 @@ document.write(multiply(3, 4));
 ## <Term>変数</Term>の<Term>スコープ</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>内で<Term>宣言</Term>された<Term>変数</Term>は、<Term>関数</Term>内でのみ有効です。
-<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
+<Term>関数</Term>内で<Term>宣言</Term>された<Term>変数</Term>は、<Term>関数</Term>内でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
 
 {/* prettier-ignore */}
 <Term>関数</Term>外で<Term>宣言</Term>された<Term>変数</Term>は<Term>関数</Term>内でも利用できます。
