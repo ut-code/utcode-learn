@@ -48,23 +48,21 @@ JavaScriptのオブジェクトは、ほかの言語でいう辞書や連想配�
 
 ### 確認問題
 
-次のような情報を持つ車を表すオブジェクト`car`を作成してください。
+次のような情報を持つユーザーを表すオブジェクト`user`を作成してください。
 
-- `make`: `"トヨタ"`
-- `model`: `"プリウス"`
-- `price`: `2500000`
+- `name`: `"山田花子"`
+- `bio`: `"プログラミングを勉強しています。"`
 
 <Answer>
 
 ```javascript
-const car = {
-  make: "トヨタ",
-  model: "プリウス",
-  price: 2500000,
+const user = {
+  name: "山田花子",
+  bio: "プログラミングを勉強しています。",
 };
 ```
 
-<ViewSource url={import.meta.url} path="_samples/create-car-object" />
+<ViewSource url={import.meta.url} path="_samples/create-user-object" />
 
 </Answer>
 
@@ -89,25 +87,24 @@ document.write(student.email); // yamada.taro@example.jp
 
 ### 確認問題
 
-次のような車を表すオブジェクト`car`があります。車の値段を表示し、その値段を3000000円にしてから、もう一度表示してください。
+次のようなユーザーを表すオブジェクト`user`があります。ユーザーのプロフィールを表示し、プロフィールの内容を`"JavaScriptでWebアプリを作っています。"`に変更してから、もう一度表示してください。
 
 ```javascript
-const car = {
-  make: "トヨタ",
-  model: "プリウス",
-  price: 3000000,
+const user = {
+  name: "山田花子",
+  bio: "プログラミングを勉強しています。",
 };
 ```
 
 <Answer>
 
 ```javascript
-document.write(`車の値段は${car.price}円です。`); // 車の値段は2500000円です。
-car.price = 3000000;
-document.write(`車の値段は${car.price}円です。`); // 車の値段は3000000円です。
+document.write(user.bio); // プログラミングを勉強しています。
+user.bio = "JavaScriptでWebアプリを作っています。";
+document.write(user.bio); // JavaScriptでWebアプリを作っています。
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-price-property" />
+<ViewSource url={import.meta.url} path="_samples/change-bio-property" />
 
 </Answer>
 
@@ -139,16 +136,15 @@ document.write(student.scores.math); // 100
 
 ### 確認問題
 
-次のような車を表すオブジェクト`car`があります。所有者のメールアドレスを変更することになりました。所有者のメールアドレスを表示し、`"yamada.hanako@example.jp"`に変更してから、もう一度表示してください。
+次のようなユーザーを表すオブジェクト`user`があります。言語設定を変更することになりました。言語設定を表示し、`"English"`に変更してから、もう一度表示してください。
 
 ```javascript
-const car = {
-  make: "トヨタ",
-  model: "プリウス",
-  price: 3000000,
-  owner: {
-    name: "山田花子",
-    email: "yamada.hanako@example.com",
+const user = {
+  name: "山田花子",
+  bio: "JavaScriptでWebアプリを作っています。",
+  settings: {
+    isNotificationsEnabled: true,
+    language: "日本語",
   },
 };
 ```
@@ -156,12 +152,12 @@ const car = {
 <Answer>
 
 ```javascript
-document.write(`メールアドレスは${car.owner.email}です。`); // メールアドレスはyamada.hanako@example.comです。
-car.owner.email = "yamada.hanako@example.jp";
-document.write(`メールアドレスは${car.owner.email}です。`); // メールアドレスはyamada.hanako@example.jpです。
+document.write(user.settings.language); // 日本語
+user.settings.language = "English";
+document.write(user.settings.language); // English
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-email-property" />
+<ViewSource url={import.meta.url} path="_samples/change-language-property" />
 
 </Answer>
 
