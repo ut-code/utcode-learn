@@ -151,7 +151,7 @@ app.listen(3000);
 
 1. 利用者が、ブラウザのアドレスバーに`http://localhost:3000/`というURLを入力します。
 2. ブラウザは、`localhost:3000`で起動しているExpressのサーバーに対して、`/`というパスに対するHTTPリクエストを送信します。
-3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]**の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
+3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]** の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
    - 第1引数 (`request`): 受け取ったHTTPリクエストに関する情報をExpressが開発者にとって扱いやすい形にまとめた[`Request`](https://expressjs.com/ja/api.html#req)クラスのインスタンス。
    - 第2引数 (`response`): Expressがクライアントに返すHTTPレスポンスを開発者が制御するための[`Response`](https://expressjs.com/ja/api.html#res)クラスのインスタンス。
 4. **[5行目]** の <code>{'response.send(`...`);'}</code>により、Expressは<code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code>という文字列をレスポンスとして送信します。
