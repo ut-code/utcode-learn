@@ -115,6 +115,16 @@ document.write(multiply(3, 4));
 <Term>関数</Term>内で<Term>宣言</Term>された<Term>変数</Term>は、<Term>関数</Term>内でのみ有効です。
 <Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
 
+```javascript
+function setNumber(num) {
+  const number = num;
+}
+
+setNumber(42);
+
+document.write(number); // エラー
+```
+
 {/* prettier-ignore */}
 <Term>関数</Term>外で<Term>宣言</Term>された<Term>変数</Term>は<Term>関数</Term>内でも利用できます。
 
