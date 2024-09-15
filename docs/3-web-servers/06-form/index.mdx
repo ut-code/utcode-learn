@@ -197,7 +197,7 @@ const evenNumbers = numbers.filter((number) => number % 2 === 0);
 <Answer>
 
 ```html title="static/index.html"
-<form action="/send">
+<form action="/search">
   <input name="author" />
   <button>検索</button>
 </form>
@@ -218,7 +218,7 @@ const books = [
 
 app.use(express.static("static"));
 
-app.get("/send", (request, response) => {
+app.get("/search", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );
