@@ -14,7 +14,7 @@ HTTPにおけるリクエストとレスポンスには、**ヘッダ**と呼ば
 
 レスポンスヘッダに`Set-Cookie`ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの`Cookie`ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
 
-Cookie自体もKey-Valueのデータ構造となっているので、`Set-Cookie`ヘッダを複数回送信することにより、複数のcookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/)にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
+Cookie自体もKey-Valueのデータ構造となっているので、`Set-Cookie`ヘッダを複数回送信することにより、複数のCookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/)にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
 
 ![Yahoo! JapanのCookie](./yahoo-cookies.png)
 
