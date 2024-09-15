@@ -10,15 +10,15 @@ JavaScriptで利用することができる<Term>値</Term>の種類として、
 
 オブジェクトを用いると、関連する<Term>値</Term>をまとめて1つの<Term>値</Term>として扱うことができます。これにより、事物をプログラム上でより現実世界に近い形で表現することができます。
 
-たとえば、学生を例に考えてみましょう。学生には、名前や年齢、メールアドレスなどの情報があります。これをオブジェクトとして表現すると、次のようになります。このように、オブジェクトを使うことで、複数の情報をまとめて扱い現実の1人の学生をプログラム上でも1つの<Term>値</Term>として扱うことができます。
+例として、学生の情報をJavaScriptの値として扱う方法を考えてみましょう。1人の学生は、名前、年齢、メールアドレスという3つの情報から構成されるとします。オブジェクトを使用しない場合、次のように3つの値に分けて管理することになるでしょう。
 
 ```javascript
-{
-  name: "山田太郎",
-  age: 15,
-  email: "yamada.taro@example.com",
-}
+const studentName = "山田太郎";
+const studentAge = 15;
+const studentEmail = "yamada.taro@example.com";
 ```
+
+これでは、3つの情報の関連性が分かりづらいだけでなく、配列の要素や関数の引数などとして使用するたびに同様の記述を繰り返すことになり、冗長です。オブジェクトにより3つの値を1つの値としてまとめて扱うと、このようなプログラムの見通しを良くすることができます。
 
 ## オブジェクトの作成
 
@@ -32,7 +32,7 @@ const student = {
 };
 ```
 
-ここでは、学生には、名前と年齢、メールアドレスの3つの情報があります。これらは、オブジェクトの**プロパティ**と呼ばれます。<Term type="javascriptProperty">プロパティ</Term>は、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
+オブジェクトを構成する情報を<Term type="javascriptProperty">**プロパティ**</Term>と呼び、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
 
 | プロパティ名 | プロパティ値                |
 | ------------ | --------------------------- |
@@ -167,7 +167,7 @@ document.write(user.settings.language); // English
 
 ![値の種類](./value-types-with-array.drawio.svg)
 
-JavaScriptのオブジェクトは、<Term>プロパティ名</Term>と<Term>プロパティ値</Term>の組によって構成されていました。<Term>配列</Term>はオブジェクトの一種であるため、この原則に従って動作します。次の図に示すように、配列とは、各要素のインデックスが<Term>プロパティ名</Term>になっているオブジェクトです。
+JavaScriptのオブジェクトは、<Term>プロパティ名</Term>と<Term>プロパティ値</Term>の組によって構成されているのでした。JavaScriptでは、<Term>配列</Term>も、各要素のインデックスが<Term>プロパティ名</Term>になっているオブジェクトだとみなすことができます。
 
 ![配列のプロパティ](./array-properties.png)
 
@@ -196,7 +196,9 @@ document.write(studentNames["0"]); // 田中
 
 :::
 
-## 演習問題
+## 初級演習
+
+### テストの平均点
 
 次のような学生を表すオブジェクトがあります。この学生の国語と算数、英語の3教科の平均点を計算して、表示してください。
 
@@ -222,5 +224,76 @@ document.write(`平均点は${averageScore}点です。`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/average-score" />
+
+</Answer>
+
+## 中級演習
+
+### 点群を囲む長方形
+
+平面上の点は、プロパティ`x`と`y`を持つオブジェクトとして表現することができます。また、平面上の長方形は、左上の点`topLeft`と右下の点`bottomRight`をプロパティに持つオブジェクトとして表現することができます。平面上の点群を表すオブジェクトの配列から、その点群を囲む最小の長方形を求める関数`getBoundingRectangle`を実装してください。
+
+```javascript
+function getBoundingRectangle(points) {
+  // ここに関数を実装してください
+}
+```
+
+この関数は、次のようにして使用します。
+
+```javascript
+// 建物の場所
+const buildingLocations = [
+  { x: 2, y: 1 },
+  { x: -1, y: 4 },
+  { x: -2, y: -1 },
+];
+// 全ての建物が収まる地図を表す長方形
+// { topLeft: { x: -2, y: -1 }, bottomRight: { x: 2, y: 4 } }
+const mapRectangle = getBoundingRectangle(buildingLocations);
+document.write(
+  `地図の左上の点は(${mapRectangle.topLeft.x}, ${mapRectangle.topLeft.y})で、右下の点は(${mapRectangle.bottomRight.x}, ${mapRectangle.bottomRight.y})です。`,
+);
+```
+
+:::note[ヒント]
+
+各点の`x`座標と`y`座標の最小値と最大値を求めることで、長方形の左上の点と右下の点を求めることができます。
+
+:::
+
+<Answer>
+
+```javascript
+function getBoundingRectangle(points) {
+  const rectangle = {
+    topLeft: {
+      x: points[0].x,
+      y: points[0].y,
+    },
+    bottomRight: {
+      x: points[0].x,
+      y: points[0].y,
+    },
+  };
+  for (const point of points) {
+    if (point.x < rectangle.topLeft.x) {
+      rectangle.topLeft.x = point.x;
+    }
+    if (point.y < rectangle.topLeft.y) {
+      rectangle.topLeft.y = point.y;
+    }
+    if (point.x > rectangle.bottomRight.x) {
+      rectangle.bottomRight.x = point.x;
+    }
+    if (point.y > rectangle.bottomRight.y) {
+      rectangle.bottomRight.y = point.y;
+    }
+  }
+  return rectangle;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/bounding-rectangle" />
 
 </Answer>
