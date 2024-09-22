@@ -8,13 +8,13 @@ import postInDevelopment3 from "./postInDevelopment3.mp4";
 
 ## リクエストの種類
 
-HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも**GETリクエスト**と呼ばれるものになります。
+HTTPリクエストには、<Term type="httpMethod">**メソッド**</Term>と呼ばれる区分があります。
+
+HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも<Term type="httpMethod">メソッド</Term>がGETである**GETリクエスト**と呼ばれるものになります。
 
 GETリクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>としてURLの末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときにURLにパスワード情報が載ってしまい機密情報の漏洩につながります。また、URLの長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
-
-HTTPリクエストのこのような区分を、HTTPリクエストの<Term type="httpMethod">**メソッド**</Term>と呼びます。
+そこで用いるのが<Term type="httpMethod">メソッド</Term>がPOSTである**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
 ![メソッドの比較](./method-comparison.png)
 
