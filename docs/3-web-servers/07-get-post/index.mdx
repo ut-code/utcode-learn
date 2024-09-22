@@ -2,15 +2,14 @@
 title: HTTPリクエストメソッド
 ---
 
-import postInDevelopment1 from "./postInDevelopment1.mp4";
-import postInDevelopment2 from "./postInDevelopment2.mp4";
-import postInDevelopment3 from "./postInDevelopment3.mp4";
+import networkDevTool from "./network-dev-tool.mp4";
+import viewSourceAndURLEncoded from "./network-dev-tool.mp4";
 
 ## リクエストの種類
 
-HTTPリクエストには、<Term type="httpMethod">**メソッド**</Term>と呼ばれる区分があります。
+HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いました。HTTPリクエストには、<Term type="httpMethod">**メソッド**</Term>と呼ばれる区分があります。
 
-HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも<Term type="httpMethod">メソッド</Term>がGETである**GETリクエスト**と呼ばれるものになります。
+今まで扱ってきたのはその中でも<Term type="httpMethod">メソッド</Term>がGETである**GETリクエスト**と呼ばれるものになります。
 
 GETリクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>としてURLの末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときにURLにパスワード情報が載ってしまい機密情報の漏洩につながります。また、URLの長さの制限のため、大量の情報は送信できません。
 
@@ -76,13 +75,13 @@ app.listen(3000);
 
 そして`Name`欄の`send`をクリックし、`Headers`を選択すると`general`欄の`Requested method`が`POST`になっています。また、`Headers`の横にある`Payload`を選択し`Form data`を見ると、`name`と`age`の情報が載っています。
 
+<video src={networkDevTool} controls />
+
 ここからさらに、`Form data`の横の`view source`や`view URL-encoded`も見てみましょう。するとURLエンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
 
-<video src={postInDevelopment3} controls />
+<video src={viewSourceAndURLEncoded} controls />
 
 以上のようにして、POSTリクエストの中身を覗くことができます。
-
-![GETリクエストとPOSTリクエスト](requestAndResponse.png)
 
 ## 演習
 
