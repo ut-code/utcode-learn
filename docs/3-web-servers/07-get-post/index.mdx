@@ -1,12 +1,12 @@
 ---
-title: GETリクエストとPOSTリクエスト
+title: HTTPリクエストメソッド
 ---
 
 import postInDevelopment1 from "./postInDevelopment1.mp4";
 import postInDevelopment2 from "./postInDevelopment2.mp4";
 import postInDevelopment3 from "./postInDevelopment3.mp4";
 
-## GETリクエストとPOSTリクエスト
+## リクエストの種類
 
 HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いましたが、今まで扱ってきたのはその中でも**GETリクエスト**と呼ばれるものになります。
 
@@ -14,9 +14,9 @@ GETリクエストで<Term>サーバー</Term>にデータを送信する場合�
 
 そこで用いるのが**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
-HTTPリクエストのこのような区分を、<Term>**HTTPメソッド**</Term>と呼びます。
+HTTPリクエストのこのような区分を、HTTPリクエストの<Term type="httpMethod">**メソッド**</Term>と呼びます。
 
-![HTTPメソッドの比較](./method-comparison.png)
+![メソッドの比較](./method-comparison.png)
 
 前頁の例を、POSTリクエストを用いて書き直してみましょう。`form`要素の`method`属性に`post`を指定することで、ブラウザは送信ボタンが押されたときに`POST`メソッドの<Term>リクエスト</Term>を発行します。
 
@@ -55,26 +55,22 @@ app.listen(3000);
 
 <ViewSource url={import.meta.url} path="_samples/post-request" />
 
-これまで利用していた`app.get` ([`express.Application#get`メソッド](https://expressjs.com/ja/api.html#app.get.method)) では、GETメソッドの<Term>リクエスト</Term>しか受け付けられないため、`/send`へのPOSTリクエストを受け付けるために`app.post` ([`express.Application#post`メソッド](https://expressjs.com/ja/api.html#app.post.method)) を利用しています。
+これまで利用していたExpressの[`get`メソッド](https://expressjs.com/ja/api.html#app.get.method)では、GET<Term>リクエスト</Term>しか受け付けられないため、`/send`へのPOSTリクエストを受け付けるために[`post`メソッド](https://expressjs.com/ja/api.html#app.post.method)を利用します。
 
 {/* prettier-ignore */}
-<Term>クエリパラメータ</Term>にアクセスするには、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query`プロパティ</a>)を使用しましたが、<Term>リクエストボディ</Term>を使用するには、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body`プロパティ</a>)を使用します。
+<Term>クエリパラメータ</Term>には、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query`プロパティ</a>)からアクセスできましたが、<Term>リクエストボディ</Term>には、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body`プロパティ</a>)からアクセスできます。
 
 `app.use(express.urlencoded({ extended: true }));`は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTMLのフォームが送信されたとき、ブラウザが発行するPOSTリクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じくURLエンコードされた形式で記述されます。[`express.urlencoded`関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URLエンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body`にオブジェクトの形式でデータを保存する役割を担っています。
 
-このシステムでは、まず次のような画面が表示されます。
-
-![名前と年齢を入力１](postRequest1.png)
-
-以下のように入力して、送信ボタンをクリックすると
+このシステムにアクセスし、以下のように入力します。
 
 ![名前と年齢を入力２](postRequest2.png)
 
-`http://localhost:3000/send`に移り、以下のような画面が表示されます。GETリクエストの時と違い、<Term>クエリパラメータ</Term>がURLに表示されていないことが分かります。
+送信ボタンをクリックすると`http://localhost:3000/send`に移り、以下のような画面が表示されます。GETリクエストの時と違い、<Term>クエリパラメータ</Term>がURLに表示されていないことが分かります。
 
 ![名前と年齢を入力３](postRequest3.png)
 
-## POSTリクエストを開発者ツールで覗いてみる
+## ブラウザの通信を覗いてみる
 
 実際にPOSTリクエストの中身がどうなっているか覗いてみましょう。まず開発者ツールの`Network`タブを開き、文字を入力して送信してみます。
 
