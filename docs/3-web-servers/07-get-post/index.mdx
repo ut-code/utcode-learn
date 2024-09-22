@@ -9,11 +9,11 @@ import viewSourceAndURLEncoded from "./network-devtool-2.mp4";
 
 HTTP上の通信において<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と言いました。HTTPリクエストには、<Term type="httpMethod">**メソッド**</Term>と呼ばれる区分があります。
 
-今まで扱ってきたのはその中でも<Term type="httpMethod">メソッド</Term>がGETである**GETリクエスト**と呼ばれるものになります。
+今まで扱ってきたのはその中でも<Term type="httpMethod">メソッド</Term>がGETである、**GETリクエスト**と呼ばれるものになります。
 
 GETリクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>としてURLの末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときにURLにパスワード情報が載ってしまい機密情報の漏洩につながります。また、URLの長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが<Term type="httpMethod">メソッド</Term>がPOSTである**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
+そこで用いるのが<Term type="httpMethod">メソッド</Term>がPOSTである、**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
 ![メソッドごとの使用可能な領域の比較](./method-region.drawio.svg)
 
