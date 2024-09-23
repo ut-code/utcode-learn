@@ -2,8 +2,8 @@
 title: HTTPリクエストメソッド
 ---
 
-import networkDevTool from "./network-devtool-1.mp4";
-import viewSourceAndURLEncoded from "./network-devtool-2.mp4";
+import networkDevtool1 from "./network-devtool-1.mp4";
+import networkDevtool2 from "./network-devtool-2.mp4";
 
 ## リクエストの種類
 
@@ -77,11 +77,11 @@ app.listen(3000);
 
 そして`Name`欄の`send`をクリックし、`Headers`を選択すると`general`欄の`Requested method`が`POST`になっています。また、`Headers`の横にある`Payload`を選択し`Form data`を見ると、`name`と`age`の情報が載っています。
 
-<video src={networkDevTool} controls />
+<video src={networkDevtool1} controls />
 
 ここからさらに、`Form data`の横の`view source`や`view URL-encoded`も見てみましょう。するとURLエンコードされた<Term>リクエストボディ</Term>の中身を見ることができます。
 
-<video src={viewSourceAndURLEncoded} controls />
+<video src={networkDevtool2} controls />
 
 以上のようにして、POSTリクエストの中身を覗くことができます。
 
