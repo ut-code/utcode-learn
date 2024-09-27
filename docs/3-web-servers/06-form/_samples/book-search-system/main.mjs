@@ -12,7 +12,7 @@ const books = [
 
 app.use(express.static("./public"));
 
-app.get("/send", (request, response) => {
+app.get("/search", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );
