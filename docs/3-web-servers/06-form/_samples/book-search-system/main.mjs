@@ -10,9 +10,9 @@ const books = [
   { title: "高瀬舟", author: "森鴎外" },
 ];
 
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
-app.get("/send", (request, response) => {
+app.get("/search", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.query.author,
   );

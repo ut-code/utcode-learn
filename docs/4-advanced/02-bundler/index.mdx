@@ -165,15 +165,17 @@ const app = express();
 app.use(express.json());
 
 // Viteによって出力されたディレクトリを配信する
-app.use(express.static("dist"));
+app.use(express.static("./dist"));
 
 app.listen(3000);
 ```
 
-## 課題
+## 演習問題1
 
-- [`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+[`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
-  <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
+<ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
 
-- Viteを用いて作成したWebフロントエンドと、Node.jsのバックエンドが協調して動作するアプリケーションをRenderにデプロイしてみましょう。
+## 演習問題2（発展）
+
+Viteを用いて作成したWebフロントエンドと、Node.jsのバックエンドが協調して動作するアプリケーションをRenderにデプロイしてみましょう。
