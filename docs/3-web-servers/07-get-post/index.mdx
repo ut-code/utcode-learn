@@ -14,7 +14,7 @@ import networkDevtool2 from "./network-devtool-2.mp4";
 
 GETリクエストで<Term>サーバー</Term>にデータを送信する場合、前頁で扱ったように、<Term>クエリパラメータ</Term>としてURLの末尾に付加するしかありませんが、この方式だと困ってしまうことがあります。例えばパスワードなどを入力したときにURLにパスワード情報が載ってしまい機密情報の漏洩につながります。また、URLの長さの制限のため、大量の情報は送信できません。
 
-そこで用いるのが<Term type="httpMethod">メソッド</Term>がPOSTである、**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
+そこで用いるのが<Term type="httpMethod">メソッド</Term>がPOSTであるHTTPリクエストの、**POSTリクエスト**です。POSTリクエストでは、<Term>クエリパラメータ</Term>とは別に、<Term>リクエストボディ</Term>と呼ばれる領域を使って大容量のデータを送信できます。
 
 ![メソッドごとの使用可能な領域の比較](./method-comparison.png)
 
@@ -58,7 +58,7 @@ app.listen(3000);
 これまで利用していたExpressの[`get`メソッド](https://expressjs.com/ja/api.html#app.get.method)では、GET<Term>リクエスト</Term>しか受け付けられないため、`/send`へのPOSTリクエストを受け付けるために[`post`メソッド](https://expressjs.com/ja/api.html#app.post.method)を利用します。
 
 {/* prettier-ignore */}
-<Term>クエリパラメータ</Term>には、`request.query` (<a href="https://expressjs.com/ja/api.html#req.query">`express.Request#query`プロパティ</a>)からアクセスできましたが、<Term>リクエストボディ</Term>には、`request.body` (<a href="https://expressjs.com/ja/api.html#req.body">`express.Request#body`プロパティ</a>)からアクセスできます。
+<Term>クエリパラメータ</Term>には、`request`オブジェクトの<a href="https://expressjs.com/ja/api.html#req.query">`query`プロパティ</a>からアクセスできましたが、<Term>リクエストボディ</Term>には、`request`オブジェクトの<a href="https://expressjs.com/ja/api.html#req.body">`body`プロパティ</a>からアクセスできます。
 
 `app.use(express.urlencoded({ extended: true }));`は、<Term>リクエストボディ</Term>の解釈方法を定めています。HTMLのフォームが送信されたとき、ブラウザが発行するPOSTリクエストの<Term>リクエストボディ</Term>は、<Term>クエリパラメータ</Term>と同じくURLエンコードされた形式で記述されます。[`express.urlencoded`関数](https://expressjs.com/ja/api.html#express.urlencoded)は、URLエンコードされた<Term>リクエストボディ</Term>を読み取り、`request.body`にオブジェクトの形式でデータを保存する役割を担っています。
 
@@ -78,7 +78,7 @@ app.listen(3000);
 
 開発者ツールの`Network`タブを開き、フォームに文字を入力して送信してみます。
 
-そして`Name`欄の`send`をクリックし、`Headers`を選択すると`general`欄の`Requested method`が`POST`になっています。
+そして`Name`欄の`send`をクリックし、`Headers`を選択すると`Requested method`が`POST`になっています。
 
 <video src={networkDevtool1} controls />
 
