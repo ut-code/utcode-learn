@@ -396,7 +396,7 @@ export default {
     httpMethod: {
       name: "HTTPメソッド",
       definition:
-        "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストにはリクエストボディが存在しないが、POSTリクエストでは利用できる。",
+        "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストではリクエストボディを利用できないが、POSTリクエストでは利用できるなどの違いがある。",
       referencePage: "/docs/web-servers/get-post/",
     },
     npxCommand: {
