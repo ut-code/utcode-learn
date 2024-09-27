@@ -71,7 +71,7 @@ encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 
 以下のコードの、HTMLファイルと、JavaScriptファイルを作成して実行してみましょう。
 
-```html title="static/index.html"
+```html title="public/index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -92,7 +92,7 @@ encodeURIComponent("日本語"); // "%E6%97%A5%E6%9C%AC%E8%AA%9E"
 import express from "express";
 
 const app = express();
-app.use(express.static("static"));
+app.use(express.static("./public"));
 app.get("/send", (request, response) => {
   response.send(
     `あなたの名前は${request.query.name}で、${request.query.age}歳ですね。`,
@@ -117,9 +117,7 @@ app.listen(3000);
 このページのURLを見てみましょう。特に、クエリパラメータの部分に注目してみましょう。
 ![URLのクエリパラメータ](form-url.png)
 
-## 初級演習
-
-### node-emoji
+## 演習問題1
 
 [npmの章](/docs/web-servers/module/#node-emoji-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)で扱った`node-emoji`パッケージの`emojify`関数を使って、送られた文字列に`emojify`関数を適用するサーバーを作ってみましょう。
 
@@ -131,7 +129,7 @@ app.listen(3000);
 
 `node-emoji`と`express`をインストールするのを忘れないようにしましょう。
 
-```html title="static/index.html"
+```html title="public/index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -152,7 +150,7 @@ import express from "express";
 import { emojify } from "node-emoji";
 
 const app = express();
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.get("/emojify", (request, response) => {
   const text = request.query.text;
@@ -163,9 +161,11 @@ app.get("/emojify", (request, response) => {
 app.listen(3000);
 ```
 
+<ViewSource url={import.meta.url} path="_samples/node-emoji-form" />
+
 </Answer>
 
-## 中級演習
+## 演習問題2（発展）
 
 書籍検索システムを作ってみましょう。まずは、配列に本のデータを登録します。
 
@@ -196,7 +196,7 @@ const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
 <Answer>
 
-```html title="static/index.html"
+```html title="public/index.html"
 <form action="/search">
   <input name="author" />
   <button>検索</button>
@@ -216,7 +216,7 @@ const books = [
   { title: "高瀬舟", author: "森鴎外" },
 ];
 
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.get("/search", (request, response) => {
   const selectedBooks = books.filter(
