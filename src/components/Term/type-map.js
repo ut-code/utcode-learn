@@ -29,6 +29,7 @@ const typeMap = new Map([
   ["Gitpod", "gitpod"], // not found
   ["リポジトリ", "repository"], // not found
   ["HTML", "html"],
+  ["ネスト", "nest"],
   ["JavaScript", "javascript"],
   ["開始タグ", "startTag"],
   ["タグ", "tag"],
@@ -62,9 +63,12 @@ const typeMap = new Map([
   ["返す", "javascriptReturn"],
   ["返し", "javascriptReturn"],
   ["スコープ", "javascriptScope"],
+  ["配列", "javascriptArray"],
   ["オブジェクト", "javascriptObject"],
   ["プリミティブ", "javascriptPrimitive"],
   ["プロパティ", "javascriptProperty"],
+  ["プロパティ名", "javascriptPropertyName"],
+  ["プロパティ値", "javascriptPropertyValue"],
   ["DOM", "dom"],
   ["イベント", "events"],
   ["イベントハンドラ", "eventHandler"],

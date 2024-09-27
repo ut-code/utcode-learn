@@ -20,7 +20,7 @@ GETリクエストで<Term>サーバー</Term>にデータを送信する場合�
 
 前頁の例を、POSTリクエストを用いて書き直してみましょう。`form`要素の`method`属性に`post`を指定することで、ブラウザは送信ボタンが押されたときに`POST`<Term>リクエスト</Term>を発行します。
 
-```html title="static/index.html"
+```html title="public/index.html"
 <!doctype html>
 <html lang="ja">
   <head>
@@ -43,7 +43,7 @@ import express from "express";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.post("/send", (request, response) => {
   response.send(
@@ -86,7 +86,9 @@ app.listen(3000);
 
 以上のようにして、POSTリクエストの中身を覗くことができます。
 
-## 演習
+![GETリクエストとPOSTリクエスト](requestAndResponse.png)
+
+## 演習問題
 
 古き良き掲示板システムを作ってみましょう。次のようなページを作成してください。
 

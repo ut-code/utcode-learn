@@ -151,7 +151,7 @@ app.listen(3000);
 
 1. 利用者が、ブラウザのアドレスバーに`http://localhost:3000/`というURLを入力します。
 2. ブラウザは、`localhost:3000`で起動しているExpressのサーバーに対して、`/`というパスに対するHTTPリクエストを送信します。
-3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]**の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
+3. Expressは`/`に対するHTTPリクエストを受け取り、**[4行目]** の関数を実行します。引数として、Expressは次に示す2つのオブジェクトを生成して渡します。
    - 第1引数 (`request`): 受け取ったHTTPリクエストに関する情報をExpressが開発者にとって扱いやすい形にまとめた[`Request`](https://expressjs.com/ja/api.html#req)クラスのインスタンス。
    - 第2引数 (`response`): Expressがクライアントに返すHTTPレスポンスを開発者が制御するための[`Response`](https://expressjs.com/ja/api.html#res)クラスのインスタンス。
 4. **[5行目]** の <code>{'response.send(`...`);'}</code>により、Expressは<code>{'`Hello World! <a href="./lang/ja">日本語</a>`'}</code>という文字列をレスポンスとして送信します。
@@ -208,16 +208,16 @@ import { readFileSync } from "node:fs";
 const app = express();
 
 app.get("/", (request, response) => {
-  response.send(readFileSync("./static/index.html", "utf-8"));
+  response.send(readFileSync("./public/index.html", "utf-8"));
 });
 app.get("/script.js", (request, response) => {
-  response.send(readFileSync("./static/script.js", "utf-8"));
+  response.send(readFileSync("./public/script.js", "utf-8"));
 });
 app.get("/sub/", (request, response) => {
-  response.send(readFileSync("./static/sub/index.html", "utf-8"));
+  response.send(readFileSync("./public/sub/index.html", "utf-8"));
 });
 app.get("/sub/script.js", (request, response) => {
-  response.send(readFileSync("./static/sub/script.js", "utf-8"));
+  response.send(readFileSync("./public/sub/script.js", "utf-8"));
 });
 
 app.listen(3000);
@@ -231,17 +231,17 @@ app.listen(3000);
 import express from "express";
 
 const app = express();
-app.use(express.static("static"));
+app.use(express.static("./public"));
 app.listen(3000);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/static-hosting-smart" />
 
-これにより、リクエストのパスをもとに、`static`フォルダ内の適切なファイルが自動的に配信されます。
+これにより、リクエストのパスをもとに、`public`フォルダ内の適切なファイルが自動的に配信されます。
 
 :::tip[`index.html`の省略]
 
-`express.static`を用いる場合、`index.html`は省略可能になります。つまり、`/`へのリクエストで`static/index.html`が、`/sub`へのリクエストで`static/sub/index.html`にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
+`express.static`を用いる場合、`index.html`は省略可能になります。つまり、`/`へのリクエストで`public/index.html`が、`/sub`へのリクエストで`public/sub/index.html`にアクセスできるようになります。これは、ExpressやJavaScriptに限ったことではなく、多くのWebサーバーの実装において、こういったルールが成り立ちます。
 
 :::
 
@@ -259,7 +259,7 @@ Expressの [`Request`](https://expressjs.com/ja/api.html#req) オブジェクト
 ```javascript
 const app = express();
 app.use((request, response) => {
-  response.send(readFileSync("./static" + request.path, "utf-8"));
+  response.send(readFileSync("./public" + request.path, "utf-8"));
 });
 app.listen(3000);
 ```
@@ -311,9 +311,7 @@ console.log(["Apple", "Banana", "Orange"].join("/")); // Apple/Banana/Orange
 
 このようにテンプレートリテラルを用いることで、複雑なウェブページの内容を表すことができます。
 
-## 演習
-
-### 訪問者カウンター
+## 演習問題1
 
 Expressを用いて、`あなたはn人目のお客様です。`とレスポンスするWebサーバーを作成してください。`n`はアクセスされるたびに1ずつ増えるようにしてください。
 
@@ -336,7 +334,7 @@ app.listen(3000);
 
 </Answer>
 
-### サーバー側とクライアント側
+## 演習問題2（発展）
 
 (重要) アクセスされた時刻をウェブサーバー側で求めて表示するウェブサーバーと、ブラウザに求めさせるウェブサーバーをそれぞれ作成してください。また、この2つの違いは何でしょうか。どういった場合にどちらの手法を使うのが適切でしょうか。
 
