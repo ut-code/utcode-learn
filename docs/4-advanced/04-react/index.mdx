@@ -224,7 +224,7 @@ export default function App() {
 
 :::tip[条件演算子 (三項演算子)]
 
-`?`と`:`の組で表される演算子は、**条件演算子 (三項演算子)**です。条件式の評価結果が真なら2つめの式を、偽なら3つめの式を評価します。
+`?`と`:`の組で表される演算子は、**条件演算子 (三項演算子)** です。条件式の評価結果が真なら2つめの式を、偽なら3つめの式を評価します。
 
 ```javascript
 const a = 5;
@@ -778,26 +778,32 @@ const object2 = { ...object1, age: 19, address: "東京" }; // { name: "田中",
 
 :::
 
-## 課題
+## 演習問題1
 
-- ToDoリストの要素を上下に移動させる機能を追加しましょう
-  <ViewSource url={import.meta.url} path="_samples/todo-up-down" />
-- ToDoリストの要素へ編集する機能を追加しましょう
-  <ViewSource url={import.meta.url} path="_samples/todo-edit" />
-- データベースに永続化することができるToDoリストアプリケーションを作成しましょう
+ToDoリストの要素を上下に移動させる機能を追加しましょう
 
-  - ヒント: ページ読み込み時にFetch APIを用いてデータを保存済みのToDo一覧を取得します。リストが編集されたら再びFetch APIを用いてデータを保存しましょう。
+<ViewSource url={import.meta.url} path="_samples/todo-up-down" />
 
-  解答例
+## 演習問題2
 
-  <ViewSource
-    url={import.meta.url}
-    path="_samples/todo-database"
-    noCodeSandbox
-  />
-  別解
-  <ViewSource
-    url={import.meta.url}
-    path="_samples/todo-database2"
-    noCodeSandbox
-  />
+ToDoリストの要素へ編集する機能を追加しましょう
+
+<ViewSource url={import.meta.url} path="_samples/todo-edit" />
+
+## 演習問題3（発展）
+
+データベースに永続化することができるToDoリストアプリケーションを作成しましょう
+
+ヒント: ページ読み込み時にFetch APIを用いてデータを保存済みのToDo一覧を取得します。リストが編集されたら再びFetch APIを用いてデータを保存しましょう。
+
+解答例
+
+<ViewSource url={import.meta.url} path="_samples/todo-database" noCodeSandbox />
+
+別解
+
+<ViewSource
+  url={import.meta.url}
+  path="_samples/todo-database2"
+  noCodeSandbox
+/>

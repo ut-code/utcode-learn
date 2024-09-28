@@ -3,7 +3,7 @@ title: データベース
 ---
 
 import newPostgresqlInstanceVideo from "./new-postgresql-instance.mp4";
-import connectDbeaverToDatabaseVideo from "./connect-dbeaver-to-database.mp4";
+import dbeaverVideo from "./dbeaver.mp4";
 import prismaInitVideo from "./prisma-init.mp4";
 import copySecretValuesVideo from "./copy-secret-values.mp4";
 import prismaDbPushVideo from "./prisma-db-push.mp4";
@@ -64,10 +64,6 @@ app.post((request, response) => {
 
 現在最もよく用いられるリレーショナルデータベースのひとつです。豊富な機能を持ちます。
 
-#### [DBeaver](https://dbeaver.io/)
-
-多くのデータベースを直感的に操作できるソフトウェアです。PostgreSQLにも対応しています。
-
 #### [Prisma](https://www.prisma.io/)
 
 主にリレーショナルデータベースを操作するためのNode.jsの<Term>ライブラリ</Term>です。複数の構成要素からなります。
@@ -79,7 +75,7 @@ app.post((request, response) => {
 
 #### [Supabase](https://supabase.com/)
 
-PostgreSQLサーバーを提供するサービスです。PostgreSQLサーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
+PostgreSQLサーバーを提供するサービスです。その他にデータベースを直感的に操作できる機能なども提供しています。PostgreSQLサーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
 
 ### Supabase で PostgreSQL サーバーを構築する
 
@@ -91,13 +87,7 @@ PostgreSQLサーバーを提供するサービスです。PostgreSQLサーバー
 
 <video src={newPostgresqlInstanceVideo} controls />
 
-### DBeaverでPostgreSQLサーバーに接続する
-
-[DBeaver](https://dbeaver.io)をインストールしましょう。続いて、Supabaseで接続情報を表示し、その情報をDBeaverに入力して前項で起動したPostgreSQLサーバーに接続しましょう。
-
-<video src={connectDbeaverToDatabaseVideo} controls />
-
-この時点では、まだデータベース上にテーブルが作成されていません。DBeaver上で作成することもできますが、今回はPrismaを使用して作成することにします。
+この時点では、まだデータベース上にテーブルが作成されていません。Supabase上で作成することもできますが、今回はPrismaを使用して作成することにします。
 
 ### Prismaでテーブル構造を作成する
 
@@ -157,11 +147,21 @@ npx prisma db push
 
 <video src={prismaDbPushVideo} controls />
 
-### DBeaverでPrismaが作成したテーブルにレコードを追加する
+### Prismaが作成したテーブルにレコードを追加する
 
-Prismaが作成したテーブルに、DBeaverを用いてレコードを追加しましょう。
+Prismaが作成したテーブルに、レコードを追加しましょう。
 
 <video src={createRecordInDatabaseVideo} controls />
+
+:::tip[DBeaverでPostgreSQLサーバーに接続する]
+
+今回はSupabaseを利用してPostgreSQLサーバーを構築したため、Supabaseの機能を使用してデータベースを操作しましたが、[DBeaver](https://dbeaver.io)も便利です。DBeaverは、多くのデータベースを直感的に操作できるソフトウェアで、PostgreSQLにも対応しています。
+
+DBeaverをインストールした後、次のようにすることでDBeaverを利用してデータベースを操作することができます。
+
+<video src={dbeaverVideo} controls />
+
+:::
 
 ### Prismaでデータベースのデータを読み書きする
 
@@ -206,7 +206,7 @@ debugger;
 
 ![createの戻り値](./create-result.png)
 
-## 演習
+## 演習問題
 
 PostgreSQLにデータを保存する掲示板サービスを作ってみましょう。
 
@@ -214,7 +214,7 @@ PostgreSQLにデータを保存する掲示板サービスを作ってみまし�
 
 ### 手順1
 
-Supabaseで新しいデータベースを作成しましょう。作成したデータベースにDBeaverから接続できることを確認しましょう。
+Supabaseで新しいデータベースを作成しましょう。
 
 ### 手順2
 
@@ -238,7 +238,7 @@ model Post {
 
 ### 手順4
 
-DBeaverを用いて掲示板の投稿のサンプルデータをデータベースに登録しましょう。
+掲示板の投稿のサンプルデータをデータベースに登録しましょう。
 
 ### 手順5
 
@@ -360,6 +360,6 @@ app.post("/send", async (request, response) => {
 
 ### 手順10
 
-DBeaverを用いて、掲示板への投稿がデータベースに保存されていることを確認しましょう。また、Node.jsのサーバーを再起動しても、データが残っていることを確認しましょう。
+掲示板への投稿がデータベースに保存されていることを確認しましょう。また、Node.jsのサーバーを再起動しても、データが残っていることを確認しましょう。
 
 <ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />

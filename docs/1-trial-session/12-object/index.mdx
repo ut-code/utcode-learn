@@ -2,172 +2,190 @@
 title: オブジェクト
 ---
 
-## <Term>オブジェクト</Term>
+## オブジェクト
 
-JavaScriptで扱うことのできる<Term>値</Term>の種類として、これまで<Term>数値</Term>、<Term>文字列</Term>、<Term>論理値</Term>を扱ってきました。<Term>**オブジェクト**</Term>もまた、<Term>JavaScript</Term>の<Term>値</Term>ですが、今まで扱ってきた<Term>値</Term>とは少し性質が異なります。
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>を用いると、これまで扱ってきたような単純な<Term>値</Term>を複数まとめて一つの<Term>値</Term>として扱うことができます。
-
-## <Term>オブジェクト</Term>の作成
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>は、複数の<Term>**プロパティ**</Term>と呼ばれる<Term>値</Term>を持ちます。
-<Term>プロパティ</Term>にはそれぞれ名前がついています。
-<Term>プロパティ</Term>の名前には文字列しか指定できませんが、<Term>プロパティ</Term>の<Term>値</Term>としては<Term>JavaScript</Term>で使用できるすべての<Term>値</Term>が使用可能です。
-
-```javascript
-const person = { name: "田中", age: 18 };
-```
-
-![プロパティ](properties.png)
-
-:::tip[ほかの言語の経験者へ]
-
-JavaScriptの<Term>オブジェクト</Term>は、ほかの言語でいう**辞書**や**連想配列**、**Map**に近いものです。ただ、こういったものと比べ、JavaScriptの<Term>オブジェクト</Term>は使用頻度が非常に高いです。
-
-:::
-
-{/* prettier-ignore */}
-<Term>オブジェクト</Term>の中に<Term>オブジェクト</Term>を入れることもできます。
-
-```javascript
-const person = {
-  name: "田中",
-  age: 18,
-  scores: { math: 80, science: 90 },
-};
-```
-
-## <Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更する
-
-ドット記号を用いることで、<Term>オブジェクト</Term>の<Term>プロパティ</Term>を取得・変更できます。通常の<Term>変数</Term>のように扱えます。
-
-```javascript
-document.write(person.age); // 18
-
-person.age = 19;
-document.write(person.age); // 19
-```
-
-:::tip[プロパティの追加]
-プロパティは取得や変更のほかに、追加もできます。
-
-```javascript
-person.favoriteFood = "餃子";
-document.write(person.favoriteFood); // 餃子
-```
-
-:::
-
-:::note[<Term>オブジェクト</Term>とプリミティブ]
-
-この章よりも前に扱ってきたような「それ以上分解できない」<Term>値</Term>のことを<Term>**プリミティブ**</Term>といい、<Term>プリミティブ</Term>でない値はすべて<Term>オブジェクト</Term>です。
+JavaScriptで利用することができる<Term>値</Term>の種類として、これまで<Term>数値</Term>と<Term>文字列</Term>、<Term>論理値</Term>を扱いました。<Term>数値</Term>や<Term>文字列</Term>、<Term>論理値</Term>などの「それ以上分解できない」<Term>値</Term>のことを**プリミティブ**と呼びます。JavaScriptには、この他にも、**オブジェクト**と呼ばれる<Term>値</Term>が存在します。JavaScriptにおいて、<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトです。
 
 ![値の種類](./value-types-with-object.drawio.svg)
 
-:::
+オブジェクトを用いると、関連する<Term>値</Term>をまとめて1つの<Term>値</Term>として扱うことができます。これにより、事物をプログラム上でより現実世界に近い形で表現することができます。
 
-## 配列とオブジェクト
-
-上で説明したように、配列はプリミティブではないのでオブジェクトの一種です。JavaScriptのオブジェクトとは、プロパティ名とプロパティ値の組の集合でした。
-
-配列もこの原則に従って動作しています。次の図に示すように、配列とは、各要素のインデックスがプロパティ名になっているオブジェクトだと考えることができるのです。
-
-![配列のプロパティ](./array-properties.png)
-
-逆に、オブジェクトも配列と同じように使用することができます。この記法を**ブラケット記法**と呼び、プログラムの動作に応じて使用したいプロパティを切り替えるのに役立ちます。
+例として、学生の情報をJavaScriptの<Term>値</Term>として扱う方法を考えてみましょう。1人の学生は、名前、年齢、メールアドレスという3つの情報から構成されるとします。オブジェクトを使用しない場合、次のように3つの<Term>値</Term>に分けて管理することになるでしょう。
 
 ```javascript
-const subject = "math"; // ここを変えると表示される教科が変わる
-const scores = { math: 90, science: 80 };
-document.write(`${subject} の点数は ${scores[subject]} です。`); // math の点数は 90 です。
+const studentName = "山田太郎";
+const studentAge = 15;
+const studentEmail = "yamada.taro@example.com";
 ```
 
-:::tip[オブジェクトのプロパティ名]
+オブジェクトを用いることで、これらの情報をまとめて扱い、現実の1人の学生をプログラム上でも1つの<Term>値</Term>として扱うことができます。
 
-オブジェクトのプロパティ名に数値は使用できません。それではなぜ、配列の場合は`studentNames[2]`のように記述できるのでしょうか。
+## オブジェクトの作成
 
-答えは単純で、文字列に変換されているからです。このため、次のプログラムは全く問題なく動作します。
-
-```javascript
-const studentNames = ["田中", "佐藤", "鈴木"];
-document.write(studentNames["0"]); // 田中
-```
-
-:::
-
-## 演習
-
-### 初級演習
-
-田中さんを表すオブジェクトを定義します。
+オブジェクトは、次のようにして作成します。
 
 ```javascript
-const tanaka = {
-  name: "田中",
-  scores: { math: 90, science: 80 },
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
 };
 ```
 
-1. 田中さんの算数の点数を表示してみましょう。
+オブジェクトを構成する情報を**プロパティ**と呼び、**プロパティ名**と**プロパティ値**の組で表されます。この例では、`name`や`age`、`email`が<Term>プロパティ名</Term>であり、`"山田太郎"`や`15`、`"yamada.taro@example.com"`が<Term>プロパティ値</Term>です。<Term>プロパティ名</Term>には文字列しか指定できませんが、<Term>プロパティ値</Term>には、JavaScriptで使用できるすべての<Term>値</Term>が指定可能です。
 
-2. `scores`に国語の点数を追加して、表示してみましょう。
+| プロパティ名 | プロパティ値                |
+| ------------ | --------------------------- |
+| `name`       | `"山田太郎"`                |
+| `age`        | `15`                        |
+| `email`      | `"yamada.taro@example.com"` |
 
-<Answer title="成績表示">
+:::tip[ほかの言語の経験者へ]
 
-```javascript title="1の解答"
-document.write(tanaka.scores.math);
+JavaScriptのオブジェクトは、ほかの言語でいう辞書や連想配列、Mapに近いものです。ただ、こういったものと比べ、JavaScriptのオブジェクトは使用頻度が非常に高いです。
+
+:::
+
+### 確認問題
+
+次のような情報を持つユーザーを表すオブジェクト`user`を作成してください。
+
+- `name`: `"山田花子"`
+- `bio`: `"プログラミングを勉強しています。"`
+
+<Answer>
+
+```javascript
+const user = {
+  name: "山田花子",
+  bio: "プログラミングを勉強しています。",
+};
 ```
 
-<ViewSource url={import.meta.url} path="_samples/view-math-score" />
-
-```javascript title="2の解答"
-tanaka.scores.japanese = 50;
-document.write(tanaka.scores.japanese);
-```
-
-<ViewSource url={import.meta.url} path="_samples/add-and-view-Japanese-score" />
-
-2では、プロパティを自分で追加しています。
+<ViewSource url={import.meta.url} path="_samples/create-user-object" />
 
 </Answer>
 
-### 中級演習
+## プロパティの取得
+
+オブジェクトの<Term>プロパティ</Term>を取得するには、次のようにドット記号（`.`）を使います。
+
+```javascript
+document.write(student.name); // 山田太郎
+document.write(student.age); // 15
+```
+
+## プロパティの変更
+
+オブジェクトの<Term>プロパティ</Term>を変更するには、次のようにします。
+
+```javascript
+document.write(student.email); // yamada.taro@example.com
+student.email = "yamada.taro@example.jp";
+document.write(student.email); // yamada.taro@example.jp
+```
+
+### 確認問題
+
+次のようなユーザーを表すオブジェクト`user`があります。ユーザーのプロフィールを表示し、プロフィールの内容を`"JavaScriptでWebアプリを作っています。"`に変更してから、もう一度表示してください。
+
+```javascript
+const user = {
+  name: "山田花子",
+  bio: "プログラミングを勉強しています。",
+};
+```
+
+<Answer>
+
+```javascript
+document.write(user.bio); // プログラミングを勉強しています。
+user.bio = "JavaScriptでWebアプリを作っています。";
+document.write(user.bio); // JavaScriptでWebアプリを作っています。
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-bio-property" />
+
+</Answer>
+
+## オブジェクトのネスト
+
+さきほど<Term>プロパティ値</Term>には、すべての<Term>値</Term>が指定可能であると説明しました。オブジェクトも<Term>値</Term>の一種であるため、次のようにオブジェクトの<Term>プロパティ値</Term>にオブジェクトを指定する（<Term>ネスト</Term>する）こともできます。
+
+```javascript
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+  scores: {
+    japanese: 90,
+    math: 70,
+    english: 80,
+  },
+};
+```
 
 {/* prettier-ignore */}
-<Term>オブジェクト</Term>も<Term>値</Term>の一種なので、<Term>関数</Term>の<Term>引数</Term>や<Term>戻り値</Term>として使用できます。
-
-`age`<Term>プロパティ</Term>に1を加えた<Term>オブジェクト</Term>を返す関数`incrementAge`を定義してみましょう。
+<Term>ネスト</Term>されたオブジェクトの<Term>プロパティ</Term>は、次のようにして取得、変更できます。
 
 ```javascript
-function incrementAge(person) {
-  // ここに書く
-}
-
-const tanaka = { name: "田中", age: 18 };
-const sato = { name: "佐藤", age: 22 };
-const nextYearTanaka = incrementAge(tanaka);
-const nextYearSato = incrementAge(sato);
-// 19歳、23歳と表示されてほしい
-document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
+document.write(student.scores.math); // 70
+student.scores.math = 100;
+document.write(student.scores.math); // 100
 ```
 
-<Answer title="年齢を増やす">
+### 確認問題
+
+次のようなユーザーを表すオブジェクト`user`があります。言語設定を変更することになりました。言語設定を表示し、`"English"`に変更してから、もう一度表示してください。
 
 ```javascript
-function incrementAge(person) {
-  person.age += 1;
-  return person;
-}
-
-const tanaka = { name: "田中", age: 18 };
-const sato = { name: "佐藤", age: 22 };
-const nextYearTanaka = incrementAge(tanaka);
-const nextYearSato = incrementAge(sato);
-document.write(`田中は${nextYearTanaka.age}歳、佐藤は${nextYearSato.age}歳`);
+const user = {
+  name: "山田花子",
+  bio: "JavaScriptでWebアプリを作っています。",
+  settings: {
+    isNotificationsEnabled: true,
+    language: "日本語",
+  },
+};
 ```
 
-<ViewSource url={import.meta.url} path="_samples/incrementAge" />
+<Answer>
+
+```javascript
+document.write(user.settings.language); // 日本語
+user.settings.language = "English";
+document.write(user.settings.language); // English
+```
+
+<ViewSource url={import.meta.url} path="_samples/change-language-property" />
+
+</Answer>
+
+## 演習問題
+
+次のような学生を表すオブジェクトがあります。この学生の国語と算数、英語の3教科の平均点を計算して、表示してください。
+
+```javascript
+const student = {
+  name: "山田太郎",
+  age: 15,
+  email: "yamada.taro@example.com",
+  scores: {
+    japanese: 90,
+    math: 70,
+    english: 80,
+  },
+};
+```
+
+<Answer>
+
+```javascript
+const averageScore =
+  (student.scores.japanese + student.scores.math + student.scores.english) / 3;
+document.write(`平均点は${averageScore}点です。`);
+```
+
+<ViewSource url={import.meta.url} path="_samples/average-score" />
 
 </Answer>
