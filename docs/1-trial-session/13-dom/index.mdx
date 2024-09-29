@@ -5,8 +5,7 @@ title: DOM
 ## <Term>HTML</Term>要素を<Term>JavaScript</Term>で取得する
 
 {/* prettier-ignore */}
-<Term>**DOM**</Term> (Document Object Model) は、<Term>HTML</Term>構造を <Term>JavaScript</Term>の<Term>オブジェクト</Term>として扱うための枠組みです。
-<Term>HTML</Term>と<Term>CSS</Term>のほとんどの機能は<Term>JavaScript</Term>から制御することができます。
+<Term>**DOM**</Term> (Document Object Model) は、<Term>HTML</Term>構造を <Term>JavaScript</Term>の<Term>オブジェクト</Term>として扱うための枠組みです。<Term>HTML</Term>と<Term>CSS</Term>のほとんどの機能は<Term>JavaScript</Term>から制御することができます。
 
 `document.getElementById`<Term>関数</Term>は、<Term>引数</Term>として<Term>HTML要素</Term>の`id`<Term>属性</Term>に指定された値を<Term>文字列</Term>として<Term>渡す</Term>ことで、その<Term>要素</Term>を表す<Term>オブジェクト</Term>を<Term>返し</Term>ます。
 
@@ -81,8 +80,7 @@ element.style.backgroundColor = "red";
 ![JavaScriptからスタイルを操作する](./change-styles.png)
 
 {/* prettier-ignore */}
-<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名である`background-color`は、内部にハイフンが含まれているため、`element.style.background-color`のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。
-`style`<Term>プロパティ</Term>では、<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
+<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名である`background-color`は、内部にハイフンが含まれているため、`element.style.background-color`のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。`style`<Term>プロパティ</Term>では、<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
 
 ### 確認問題
 
@@ -112,9 +110,7 @@ greetingElement.style.backgroundColor = "black";
 
 ## DOMを用いて要素を追加する
 
-`document.createElement`関数は、引数に要素の種類を表す文字列を取り、その種類の新しいHTML要素を作る関数です。
-`document.createElement`関数の戻り値は、新しく作ったHTML要素に対応するオブジェクトです。
-下の例では、新しい`li`要素を作っています。
+`document.createElement`関数は、引数に要素の種類を表す文字列を取り、その種類の新しいHTML要素を作る関数です。`document.createElement`関数の戻り値は、新しく作ったHTML要素に対応するオブジェクトです。下の例では、新しい`li`要素を作っています。
 
 中身のない空の要素が作成されるので、`textContent`を`おやつ`に設定してみましょう。
 
@@ -123,8 +119,7 @@ const snackElement = document.createElement("li");
 snackElement.textContent = "おやつ";
 ```
 
-そして、`要素1.appendChild(要素2)`とすることで、要素1の子要素に要素2を追加し、画面に表示することができます。
-今回は、遠足の持ち物リストに新しい項目を追加してみましょう。
+そして、`要素1.appendChild(要素2)`とすることで、要素1の子要素に要素2を追加し、画面に表示することができます。今回は、遠足の持ち物リストに新しい項目を追加してみましょう。
 
 ```html title="index.html"
 <ul id="packing-list">
@@ -200,8 +195,7 @@ targetItem.textContent = "レモン";
 const fruits = ["イチゴ", "スイカ", "バナナ"];
 ```
 
-`createElement`関数や`appendChild`関数を用い、`ul`要素の中に各果物に対応する`li`要素を作成することで、箇条書きを完成させましょう。
-ただし、HTMLファイルには次のように記述されているものとします。
+`createElement`関数や`appendChild`関数を用い、`ul`要素の中に各果物に対応する`li`要素を作成することで、箇条書きを完成させましょう。ただし、HTMLファイルには次のように記述されているものとします。
 
 ```html title="index.html"
 <ul id="fruit-basket"></ul>

@@ -109,8 +109,7 @@ app.listen(3000);
 
 :::tip[豆知識: リダイレクト]
 
-サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。
-Expressを用いてこのようなレスポンスを生成するためには、[`express.Response#send`メソッド](https://expressjs.com/ja/api.html#res.send)の代わりに、[`express.Response#redirect`メソッド](https://expressjs.com/ja/api.html#res.redirect)を用います。
+サーバー側からブラウザに対してページ遷移を指示するためには、ブラウザからのリクエストに対して、特殊なレスポンスを返します。Expressを用いてこのようなレスポンスを生成するためには、[`express.Response#send`メソッド](https://expressjs.com/ja/api.html#res.send)の代わりに、[`express.Response#redirect`メソッド](https://expressjs.com/ja/api.html#res.redirect)を用います。
 
 ```javascript
 app.post("/send", (request, response) => {
