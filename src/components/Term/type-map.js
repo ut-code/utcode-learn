@@ -91,7 +91,6 @@ const typeMap = new Map([
   ["リクエストヘッダ", "httpHeaderBody"],
   ["リクエストボディ", "httpHeaderBody"],
   ["レスポンスボディ", "httpHeaderBody"],
-  ["HTTPメソッド", "httpMethod"],
   ["GETリクエスト", "httpMethod"],
   ["POSTリクエスト", "httpMethod"],
   ["npxコマンド", "npxCommand"],
