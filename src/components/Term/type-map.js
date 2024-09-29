@@ -97,7 +97,6 @@ const typeMap = new Map([
   ["npxコマンド", "npxCommand"],
   ["非同期処理", "asynchronousProcess"],
   ["非同期関数", "asynchronousProcess"],
-  ["API", "api"],
   ["スレッド", "thread"], // not found
   ["トランスパイル", "transpile"],
   ["トランスパイラ", "transpile"],
