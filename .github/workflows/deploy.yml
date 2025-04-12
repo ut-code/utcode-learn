@@ -14,8 +14,8 @@ jobs:
         with:
           fetch-depth: 0
       - run: npm ci && npm run build
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: build
       - id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
