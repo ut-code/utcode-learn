@@ -116,14 +116,18 @@ npx prisma init
 
 <video src={copySecretValuesVideo} controls muted />
 
-`prisma/schema.prisma`ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
+`prisma/schema.prisma`ファイルを、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -143,7 +147,7 @@ model Todo {
 npx prisma db push
 ```
 
-コマンドを実行しましょう。すると、データベースに`schema.prisma`に書かれた通りのテーブルとカラムが作成されるので、DBeaverで確認してみてください。接続を一旦切断し、再接続する必要があります。また、このとき、後述する`@prisma/client`パッケージが自動的にインストールされます。
+コマンドを実行しましょう。すると、データベースに`schema.prisma`に書かれた通りのテーブルとカラムが作成されるので、Supabaseから確認してみてください。また、このとき、後述する`@prisma/client`パッケージが自動的にインストールされます。
 
 <video src={prismaDbPushVideo} controls />
 
