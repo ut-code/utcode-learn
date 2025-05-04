@@ -417,6 +417,18 @@ export default {
         "コンピューターがプログラムの順番どおりに1つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
+    environmentVariable: {
+      name: "環境変数",
+      definition:
+        "アプリケーションの実行時に、アプリケーション自体を変更することなく外側から動作を変更するために用いることができる仕組み。キーと値の組み合わせによって定義される。",
+      referencePage: "/docs/web-servers/database/",
+    },
+    deploy: {
+      name: "デプロイ",
+      definition:
+        "開発したプログラムを実行可能な状態にして、実際に利用できるようにすること。Webアプリケーションの場合、サーバーにプログラムを配置して、インターネット上でアクセスできるようにすることを指す。",
+      referencePage: "/docs/web-servers/deploy-on-render/",
+    },
     transpile: {
       name: "トランスパイル",
       definition:

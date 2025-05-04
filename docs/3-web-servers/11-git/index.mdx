@@ -129,7 +129,7 @@ git commit -m "コミットメッセージ"
 
 :::tip[`.gitignore`]
 
-`.gitignore`ファイルで指定されたファイルはGitの管理下に置かれません。`package.json`と`package-lock.json`の情報から全く同じものをダウンロードできてバージョン管理するメリットのない`node_modules`や、機密情報や環境ごとに異なる情報を含む`.env`といったファイルが指定されます。
+`.gitignore`ファイルで指定されたファイルはGitの管理下に置かれません。`package.json`と`package-lock.json`の情報から全く同じものをダウンロードできてバージョン管理するメリットのない`node_modules`や、Prismaが生成する`generated`ディレクトリなどの自動生成ファイル、機密情報や環境ごとに異なる情報を含む`.env`といったファイルが指定されます。
 
 :::
 
