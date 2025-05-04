@@ -3,93 +3,47 @@ title: Renderへのデプロイ
 ---
 
 import registerRenderVideo from "./register-render.mp4";
-import connectGitHubVideo from "./connect-github.mp4";
-import staticSiteDeployVideo from "./static-site-deploy.mp4";
-import prPreviewVideo from "./pr-preview.mp4";
-import dynamicSiteDeployVideo from "./dynamic-site-deploy.mp4";
 
-## PaaS
+これまでは、Webアプリケーションを開発するにあたり、開発用の端末をサーバーとして利用してきました。しかし、開発したアプリケーションを実際のユーザーが使用できるようにするためには、インターネットに公開されたサーバーが必要です。サーバーの公開に際しては、通常複雑な設定や管理が必要になりますが、**PaaS** (Platform as a Service) と呼ばれるようなサービスを用いることで、その手間を大幅に簡略化することができます。
 
-**PaaS** (Platform as a Service) は、プログラムをアップロードすることで、そのプログラムを動作させることができるサービスです。[Render](https://render.com/)は最近登場した簡単に操作できるPaaSです。
+[Render](https://render.com/)は、近年サービスを開始したPaaSで、GitHubなどと連携し、Webアプリケーションを簡単に公開できるサービスです。[データベースの節](../database)の演習問題で作成したアプリケーションをデプロイし、Renderを用いてNode.jsやPostgreSQLを用いたアプリケーションを<Term>デプロイ</Term>する方法を学びましょう。
 
 ## Renderへの登録
 
-[Render](https://render.com/)に登録しましょう。
+[Render](https://render.com/)のウェブサイトにアクセスし、`Get Started`から新しいアカウントを作成します。
 
 <video src={registerRenderVideo} controls muted />
 
-初回は、RenderのGitHubへのアクセスを許可しないといけません。
+## Render へのデプロイ
 
-<video src={connectGitHubVideo} controls muted />
+RenderでWebアプリケーションをデプロイするには、RenderとGitHubリポジトリを接続し、アプリケーションをRender上で動作させるために必要な各種設定を行います。
 
-## 静的サイトと動的サイト
+<ExternalVideoPlayer src="https://www.youtube.com/embed/8LqsFELjSag" />
 
-[Render](https://render.com/)に登録すると、最初に次のような画面が現れます。
+まずは、Renderにログインした直後の画面から、`Web Service`を作成します。Node.jsのアプリケーションのデプロイには、通常このオプションを選択します。
 
-![Renderのホーム画面](./render-home.png)
+![手順1](./deploy-1.png)
 
-この画面の`Static Sites`と`Web Services`の違いを解説します。
+GitHubのリポジトリをRenderに接続します。この手順は、RenderがGitHubのリポジトリにアクセスできるようにするための、初回のみ必要な手順です。
 
-`Static Sites`は静的ページのことで、大まかに言えば「内容が変化しないWebページ」です。サーバーにアップロードされてから内容が変化せず、いつ閲覧しても同じページが表示されます。
+![手順2](./deploy-2.png)
 
-一方、Renderにおける`Web Services`は静的ページの対義語にあたる動的ページに分類されます。これは大まかに言えば「内容が変化するWebページ」で、先ほどやったようなデータベースやサーバーとの通信をすることで閲覧する端末や閲覧する時間によって内容が異なるページが表示されます。
+デプロイするリポジトリを選択します。ここでは、データベースの演習問題で作成したアプリケーションをデプロイします。
 
-動的ページはSNSやログイン機能のあるページなど、Webサービスでは必要不可欠ですが、その都度サーバーとの通信をしなければならないため静的ページに比べてサーバー負荷が大きいというデメリットがあります。Renderでも`Static Sites`は無料ですが、`Web Services`はサーバーの性能によって無料〜月450ドルのプランを選択することになります。
+![手順3](./deploy-3.png)
 
-## 静的サイトのデプロイ
+次の画面では、アプリケーションを動作させるために必要な各種設定を行います。`Region`には、アプリケーションを動作させるサーバーの地域を選択します。アプリケーションを使用する地域に近い地域を選択することで、アプリケーションの応答速度を向上させることができます。
 
-RenderをGitHubのリポジトリと接続することで、ファイルを編集するごとに手動でサーバーにアップロードし直す必要なくGitHubでの更新に合わせて自動でWebサイトを更新することができます。 事前にアプリケーション全体を GitHubに保存しておいてください。
+![手順4](./deploy-4.png)
 
-静的サイトをデプロイするには、ホーム画面から`Static Sites`を選択しましょう。
+`Build Command`では、リポジトリをクローンした後に実行するコマンドを指定します。Node.jsのアプリケーションの場合、`npm install`が指定されることが一般的です。`Start Command`では、`Build Command`が成功した後、アプリケーションを起動するためのコマンドを指定します。このアプリケーションでは、`main.mjs`にサーバーを起動するためのプログラムが記述されているので、`node main.mjs`を指定します。
 
-リポジトリを選択します。
+![手順5](./deploy-5.png)
 
-![リポジトリの接続](./connect-repository.png)
+`Environment Variables`では、アプリケーションを動作させるために必要な<Term>環境変数</Term>を指定します。このアプリケーションでは、開発中に使用する<Term>環境変数</Term>を`.env`ファイルに記述していましたが、このファイルは`.gitignore`に記述されているため、GitHubのリポジトリには含まれていません。動画では、開発中に使用した`.env`ファイルの内容をコピーしていますが、実際には開発環境と本番環境を分離するため、<Term>環境変数</Term>の内容は両環境で異なる場合がほとんどです。
 
-設定項目を入力します。
+![手順6](./deploy-6.png)
 
-![静的サイトの設定](./static-site-config.png)
+`Your service is live`と表示されれば、デプロイは成功です。
 
-`Create Static Site`を押して、ステータスが`Live`になったら成功です！表示されているリンク (動画の例では`https://render-test-1zpa.onrender.com`) にアプリケーションが公開されています！
-
-<video src={staticSiteDeployVideo} controls muted />
-
-## プルリクエストプレビュー
-
-プルリクエストした内容を実際に確認できるように、プレビューページを自動で生成することもできます。
-
-設定で、`Enable PR Previews`を設定しましょう。
-
-![Enable PR Previews](./enable-pr-previews.png)
-
-プルリクエストをすると画面に変更の内容を反映したサイトへのリンクが表示されるようになるので、そこからプレビューページにアクセスできます！
-
-![PR Previewのリンク](./pr-preview.png)
-
-<video src={prPreviewVideo} controls muted />
-
-## 動的サイトのデプロイ
-
-Renderで動的サイトをデプロイするには、ホーム画面から`Web Services`を選択しましょう。
-
-静的サイトのときと同様にリポジトリを選択します。
-
-設定項目を入力します。ここではNode.jsの設定を行っています。
-
-![動的サイトの設定](./dynamic-site-config.png)
-
-ステータスが`Live`になったら成功です！
-
-![Live](./live.png)
-
-<video src={dynamicSiteDeployVideo} controls muted />
-
-:::tip[ポート番号]
-
-Renderでは必要ありませんが、PaaSを利用するにあたって、プログラムの改変が必要になる場合があります。ポート番号は、その一例です。ポート番号は`PORT`という名前の環境変数によって指定されています。Node.jsでは、環境変数は`process.env`変数を用いて取得できるので、このポート番号を指定しましょう。
-
-```javascript
-app.listen(process.env.PORT || 3000);
-```
-
-:::
+![手順7](./deploy-7.png)

@@ -97,6 +97,8 @@ const typeMap = new Map([
   ["非同期処理", "asynchronousProcess"],
   ["非同期関数", "asynchronousProcess"],
   ["スレッド", "thread"], // not found
+  ["環境変数", "environmentVariable"],
+  ["デプロイ", "deploy"],
   ["トランスパイル", "transpile"],
   ["トランスパイラ", "transpile"],
   ["モジュールバンドラ", "moduleBundler"],

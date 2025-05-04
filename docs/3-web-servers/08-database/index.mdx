@@ -116,6 +116,21 @@ npx prisma init
 
 <video src={copySecretValuesVideo} controls muted />
 
+:::tip[環境変数]
+データベースへの接続情報は、プログラム内に直接記述するのではなく、<Term>**環境変数**</Term>を用いて指定することが一般的です。環境変数は、アプリケーションの実行時に、アプリケーション自体を変更することなく外側から動作を変更するために用いることができる仕組みで、キーと値の組み合わせによって定義されます。環境変数は、主に次のような情報をプログラム内に記述することを避けるために用いられます。
+
+- 機密情報
+- 環境ごとに異なる設定情報
+
+アプリケーションの実行時に環境変数を指定するには、コマンドの前に`KEY=VALUE`の形式の文字列を記述します。例えば、ターミナル上で次のコマンドを実行すると、`main.mjs`では、[`process.env.DATABASE_URL`を通して](https://nodejs.org/ja/learn/command-line/how-to-read-environment-variables-from-nodejs)環境変数`DATABASE_URL`の値を取得できます。
+
+```shell
+DATABASE_URL=postgresql://user:password@example.com:5432/db node main.mjs
+```
+
+`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.mjs`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
+:::
+
 `prisma/schema.prisma`ファイルを、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
 
 ```javascript
