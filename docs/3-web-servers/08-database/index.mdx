@@ -116,14 +116,18 @@ npx prisma init
 
 <video src={copySecretValuesVideo} controls muted />
 
-`prisma/schema.prisma`ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
+`prisma/schema.prisma`ファイルを、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
