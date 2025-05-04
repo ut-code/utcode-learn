@@ -189,7 +189,7 @@ Node.jsからPrismaを利用してデータベースのデータを操作する�
 まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。
 
 ```javascript
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "./generated/prisma/index.js";
 
 const client = new PrismaClient();
 const todos = await client.todo.findMany();
@@ -198,10 +198,16 @@ debugger;
 
 ![findManyの戻り値](./find-many-result.png)
 
+:::tip[`@prisma/client` パッケージのインポート元]
+
+`@prisma/client`パッケージによって提供される`PrismaClient`クラスは、`./generated/prisma/index.js`からインポートします。このファイルは、`npx prisma db push`コマンドを実行した際に自動的に生成されるファイルで、`schema.prisma`ファイルに記述したテーブルの構造を元に、Prismaが自動的に生成したものです。このファイルが生成される場所は、`schema.prisma`ファイルの`generator`セクションから変更できます。
+
+:::
+
 続いて、[`PrismaClient#[テーブル名].create`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
 ```javascript
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "./generated/prisma/index.js";
 
 const client = new PrismaClient();
 const todos = await client.todo.create({ data: { name: "買い物をする" } });
