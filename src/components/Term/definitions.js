@@ -9,6 +9,7 @@ export default {
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/array/": "配列",
     "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
@@ -19,7 +20,6 @@ export default {
     "/docs/browser-apps/reference/": "オブジェクトの参照",
     "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
-    "/docs/browser-apps/array/": "配列",
     "/docs/browser-apps/anonymous-function/": "無名関数",
     "/docs/browser-apps/git-github/": "GitとGitHub",
     "/docs/web-servers/wsl-setup/": "WSLのセットアップ",
@@ -76,9 +76,9 @@ export default {
       definition: "ウェブページの構造を表すためのマークアップ言語。",
       referencePage: "/docs/trial-session/html/",
     },
-    htmlNest: {
-      name: "ネスト (HTML)",
-      definition: "HTML要素の中に他の要素を入れること。",
+    nest: {
+      name: "ネスト",
+      definition: "ある構造の中にある別の構造を入れること。",
       referencePage: "/docs/trial-session/html/",
     },
     javascript: {
@@ -266,22 +266,39 @@ export default {
       definition: "変数が有効な範囲。",
       referencePage: "/docs/trial-session/functions/",
     },
+    javascriptArray: {
+      name: "配列 (JavaScript)",
+      definition: "複数の値を並べて1つにまとめた値。",
+      referencePage: "/docs/trial-session/array/",
+    },
     javascriptObject: {
       name: "オブジェクト (JavaScript)",
       definition:
-        "JavaScriptにおける値の一種。内部にプロパティを複数格納できる。プリミティブではない値。",
+        "JavaScriptにおける値の一種。関連する値をまとめて1つの値として扱うことができる。プリミティブでない値はすべてオブジェクト。",
       referencePage: "/docs/trial-session/object/",
     },
     javascriptPrimitive: {
       name: "プリミティブ (JavaScript)",
       definition:
-        "JavaScriptにおける値の種類。感覚的には「それ以上分解できない値」",
+        "JavaScriptにおける値の種類。数値や文字列、論理値などの「それ以上分解できない」値。",
       referencePage: "/docs/trial-session/object/",
     },
     javascriptProperty: {
       name: "プロパティ (JavaScript)",
       definition:
-        "JavaScriptのオブジェクトがその内部に持っている値。オブジェクトの属性(情報)。",
+        "JavaScriptのオブジェクトに関連付けられた属性のこと。学生を表すオブジェクトであれば、名前や年齢などのプロパティが考えられる。",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptPropertyName: {
+      name: "プロパティ名 (JavaScript)",
+      definition:
+        "JavaScriptのオブジェクトにおいて、プロパティを表す名前のこと。",
+      referencePage: "/docs/trial-session/object/",
+    },
+    javascriptPropertyValue: {
+      name: "プロパティ値 (JavaScript)",
+      definition:
+        "JavaScriptのオブジェクトにおいて、プロパティに関連付けられた値のこと。",
       referencePage: "/docs/trial-session/object/",
     },
     dom: {
@@ -379,7 +396,7 @@ export default {
     httpMethod: {
       name: "HTTPメソッド",
       definition:
-        "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストにはリクエストボディが存在しないが、POSTリクエストでは利用できる。",
+        "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストではリクエストボディを利用できないが、POSTリクエストでは利用できるなどの違いがある。",
       referencePage: "/docs/web-servers/get-post/",
     },
     npxCommand: {
@@ -394,17 +411,23 @@ export default {
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScriptでは、asyncキーワードをつけた関数は非同期処理を行うための関数となり、内部ではawaitキーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
       referencePage: "/docs/web-servers/database/",
     },
-    api: {
-      name: "API",
-      definition:
-        "あるコンピュータープログラムの機能や管理するデータなどを、外部の他のプログラムから呼び出して利用するための手順やデータ形式などを定めた規約。アプリケーションプログラミングインターフェース (Application Programming Interface) の略。",
-      referencePage: "/docs/advanced/fetch-api/",
-    },
     thread: {
       name: "スレッド",
       definition:
         "コンピューターがプログラムの順番どおりに1つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
+    },
+    environmentVariable: {
+      name: "環境変数",
+      definition:
+        "アプリケーションの実行時に、アプリケーション自体を変更することなく外側から動作を変更するために用いることができる仕組み。キーと値の組み合わせによって定義される。",
+      referencePage: "/docs/web-servers/database/",
+    },
+    deploy: {
+      name: "デプロイ",
+      definition:
+        "開発したプログラムを実行可能な状態にして、実際に利用できるようにすること。Webアプリケーションの場合、サーバーにプログラムを配置して、インターネット上でアクセスできるようにすることを指す。",
+      referencePage: "/docs/web-servers/deploy-on-render/",
     },
     transpile: {
       name: "トランスパイル",

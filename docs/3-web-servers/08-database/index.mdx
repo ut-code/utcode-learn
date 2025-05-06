@@ -3,7 +3,7 @@ title: データベース
 ---
 
 import newPostgresqlInstanceVideo from "./new-postgresql-instance.mp4";
-import connectDbeaverToDatabaseVideo from "./connect-dbeaver-to-database.mp4";
+import dbeaverVideo from "./dbeaver.mp4";
 import prismaInitVideo from "./prisma-init.mp4";
 import copySecretValuesVideo from "./copy-secret-values.mp4";
 import prismaDbPushVideo from "./prisma-db-push.mp4";
@@ -64,10 +64,6 @@ app.post((request, response) => {
 
 現在最もよく用いられるリレーショナルデータベースのひとつです。豊富な機能を持ちます。
 
-#### [DBeaver](https://dbeaver.io/)
-
-多くのデータベースを直感的に操作できるソフトウェアです。PostgreSQLにも対応しています。
-
 #### [Prisma](https://www.prisma.io/)
 
 主にリレーショナルデータベースを操作するためのNode.jsの<Term>ライブラリ</Term>です。複数の構成要素からなります。
@@ -79,7 +75,7 @@ app.post((request, response) => {
 
 #### [Supabase](https://supabase.com/)
 
-PostgreSQLサーバーを提供するサービスです。PostgreSQLサーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
+PostgreSQLサーバーを提供するサービスです。その他にデータベースを直感的に操作できる機能なども提供しています。PostgreSQLサーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
 
 ### Supabase で PostgreSQL サーバーを構築する
 
@@ -91,13 +87,7 @@ PostgreSQLサーバーを提供するサービスです。PostgreSQLサーバー
 
 <video src={newPostgresqlInstanceVideo} controls />
 
-### DBeaverでPostgreSQLサーバーに接続する
-
-[DBeaver](https://dbeaver.io)をインストールしましょう。続いて、Supabaseで接続情報を表示し、その情報をDBeaverに入力して前項で起動したPostgreSQLサーバーに接続しましょう。
-
-<video src={connectDbeaverToDatabaseVideo} controls />
-
-この時点では、まだデータベース上にテーブルが作成されていません。DBeaver上で作成することもできますが、今回はPrismaを使用して作成することにします。
+この時点では、まだデータベース上にテーブルが作成されていません。Supabase上で作成することもできますが、今回はPrismaを使用して作成することにします。
 
 ### Prismaでテーブル構造を作成する
 
@@ -126,14 +116,33 @@ npx prisma init
 
 <video src={copySecretValuesVideo} controls muted />
 
-`prisma/schema.prisma`ファイルを、次のように編集し、データベースのテーブルとカラムを定義します。
+:::tip[環境変数]
+データベースへの接続情報は、プログラム内に直接記述するのではなく、<Term>**環境変数**</Term>を用いて指定することが一般的です。環境変数は、アプリケーションの実行時に、アプリケーション自体を変更することなく外側から動作を変更するために用いることができる仕組みで、キーと値の組み合わせによって定義されます。環境変数は、主に次のような情報をプログラム内に記述することを避けるために用いられます。
+
+- 機密情報
+- 環境ごとに異なる設定情報
+
+アプリケーションの実行時に環境変数を指定するには、コマンドの前に`KEY=VALUE`の形式の文字列を記述します。例えば、ターミナル上で次のコマンドを実行すると、`main.mjs`では、[`process.env.DATABASE_URL`を通して](https://nodejs.org/ja/learn/command-line/how-to-read-environment-variables-from-nodejs)環境変数`DATABASE_URL`の値を取得できます。
+
+```shell
+DATABASE_URL=postgresql://user:password@example.com:5432/db node main.mjs
+```
+
+`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.mjs`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
+:::
+
+`prisma/schema.prisma`ファイルを、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -153,15 +162,25 @@ model Todo {
 npx prisma db push
 ```
 
-コマンドを実行しましょう。すると、データベースに`schema.prisma`に書かれた通りのテーブルとカラムが作成されるので、DBeaverで確認してみてください。接続を一旦切断し、再接続する必要があります。また、このとき、後述する`@prisma/client`パッケージが自動的にインストールされます。
+コマンドを実行しましょう。すると、データベースに`schema.prisma`に書かれた通りのテーブルとカラムが作成されるので、Supabaseから確認してみてください。また、このとき、後述する`@prisma/client`パッケージが自動的にインストールされます。
 
 <video src={prismaDbPushVideo} controls />
 
-### DBeaverでPrismaが作成したテーブルにレコードを追加する
+### Prismaが作成したテーブルにレコードを追加する
 
-Prismaが作成したテーブルに、DBeaverを用いてレコードを追加しましょう。
+Prismaが作成したテーブルに、レコードを追加しましょう。
 
 <video src={createRecordInDatabaseVideo} controls />
+
+:::tip[DBeaverでPostgreSQLサーバーに接続する]
+
+今回はSupabaseを利用してPostgreSQLサーバーを構築したため、Supabaseの機能を使用してデータベースを操作しましたが、[DBeaver](https://dbeaver.io)も便利です。DBeaverは、多くのデータベースを直感的に操作できるソフトウェアで、PostgreSQLにも対応しています。
+
+DBeaverをインストールした後、次のようにすることでDBeaverを利用してデータベースを操作することができます。
+
+<video src={dbeaverVideo} controls />
+
+:::
 
 ### Prismaでデータベースのデータを読み書きする
 
@@ -185,7 +204,7 @@ Node.jsからPrismaを利用してデータベースのデータを操作する�
 まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。
 
 ```javascript
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "./generated/prisma/index.js";
 
 const client = new PrismaClient();
 const todos = await client.todo.findMany();
@@ -194,10 +213,16 @@ debugger;
 
 ![findManyの戻り値](./find-many-result.png)
 
+:::tip[`@prisma/client` パッケージのインポート元]
+
+`@prisma/client`パッケージによって提供される`PrismaClient`クラスは、`./generated/prisma/index.js`からインポートします。このファイルは、`npx prisma db push`コマンドを実行した際に自動的に生成されるファイルで、`schema.prisma`ファイルに記述したテーブルの構造を元に、Prismaが自動的に生成したものです。このファイルが生成される場所は、`schema.prisma`ファイルの`generator`セクションから変更できます。
+
+:::
+
 続いて、[`PrismaClient#[テーブル名].create`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
 ```javascript
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "./generated/prisma/index.js";
 
 const client = new PrismaClient();
 const todos = await client.todo.create({ data: { name: "買い物をする" } });
@@ -206,7 +231,7 @@ debugger;
 
 ![createの戻り値](./create-result.png)
 
-## 演習
+## 演習問題
 
 PostgreSQLにデータを保存する掲示板サービスを作ってみましょう。
 
@@ -214,7 +239,7 @@ PostgreSQLにデータを保存する掲示板サービスを作ってみまし�
 
 ### 手順1
 
-Supabaseで新しいデータベースを作成しましょう。作成したデータベースにDBeaverから接続できることを確認しましょう。
+Supabaseで新しいデータベースを作成しましょう。
 
 ### 手順2
 
@@ -238,7 +263,7 @@ model Post {
 
 ### 手順4
 
-DBeaverを用いて掲示板の投稿のサンプルデータをデータベースに登録しましょう。
+掲示板の投稿のサンプルデータをデータベースに登録しましょう。
 
 ### 手順5
 
@@ -360,6 +385,6 @@ app.post("/send", async (request, response) => {
 
 ### 手順10
 
-DBeaverを用いて、掲示板への投稿がデータベースに保存されていることを確認しましょう。また、Node.jsのサーバーを再起動しても、データが残っていることを確認しましょう。
+掲示板への投稿がデータベースに保存されていることを確認しましょう。また、Node.jsのサーバーを再起動しても、データが残っていることを確認しましょう。
 
 <ViewSource url={import.meta.url} path="_samples/forum" noCodeSandbox />

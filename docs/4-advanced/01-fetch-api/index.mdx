@@ -8,16 +8,16 @@ import chatAppVideo from "./chat-app.mp4";
 
 これまで、ブラウザが<Term>サーバー</Term>に対して<Term>リクエスト</Term>を送信するのは、リンクがクリックされたときや、フォームが送信されたときなど、ページの再読み込みが起こる場合のみでした。
 
-しかしながら、ブラウザ上で動くJavaScriptから利用できる**Fetch <Term>API</Term>**を用いると、任意のタイミングで<Term>リクエスト</Term>が発行できるようになります。<Term>API</Term>は、アプリケーションプログラミングインターフェース (Application Programming Interface) の略で、あるソフトウェアの機能や管理するデータを、外部の他のソフトウェアで利用するための手順やデータ形式を定めた規約のことです。多くのソフトウェアが共通して利用する機能がまとめて提供されており、<Term>API</Term>に従い短いコードを記述するだけでその機能を利用することができます。
+ブラウザ上で動くJavaScriptから利用できる**Fetch API**を用いると、任意のタイミングで<Term>リクエスト</Term>が発行できるようになります。
 
 {/* prettier-ignore */}
 <Term>サーバー</Term>と<Term>クライアント</Term>、どちらで動くJavaScriptなのかに注意しながら、次のプログラムを実行してみましょう。
 
-```html title="static/index.htmlのbody内"
+```html title="public/index.htmlのbody内"
 <button id="fetch-button">天気予報を見る</button>
 ```
 
-```javascript title="static/script.js (ブラウザ上で動くJavaScript)"
+```javascript title="public/script.js (ブラウザ上で動くJavaScript)"
 document.getElementById("fetch-button").onclick = async () => {
   const response = await fetch("/weather");
   const weather = await response.text();
@@ -39,7 +39,7 @@ document.getElementById("fetch-button").onclick = async () => {
 import express from "express";
 const app = express();
 
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.get("/weather", (request, response) => {
   response.send("晴れ");
@@ -54,7 +54,7 @@ app.listen(3000);
 
 このとき、<Term>リクエストボディ</Term>は、`fetch`関数の第2引数に指定したオブジェクトの`body`プロパティに指定します。
 
-```javascript title="static/script.js"
+```javascript title="public/script.js"
 document.getElementById("send-button").onclick = async () => {
   const name = document.getElementById("name").value;
   const age = document.getElementById("age").value;
@@ -70,7 +70,7 @@ import express from "express";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.post("/send", (request, response) => {
   response.send(
@@ -93,7 +93,7 @@ HTMLのフォームで送ったものと同じ形式でデータを送信する�
 
 `fetch`関数の第2引数の`headers`オプションでは、<Term>リクエストヘッダ</Term>を指定します。<Term>リクエストボディ</Term>に<Term>JSON</Term>を指定する場合は、**`Content-Type`リクエストヘッダ**を`"application/json"`に指定します。
 
-```javascript title="static/script.js"
+```javascript title="public/script.js"
 document.getElementById("send-button").onclick = async () => {
   const name = document.getElementById("name").value;
   const age = document.getElementById("age").value;
@@ -115,7 +115,7 @@ import express from "express";
 const app = express();
 
 app.use(express.json());
-app.use(express.static("static"));
+app.use(express.static("./public"));
 
 app.post("/send", (request, response) => {
   response.send(
@@ -145,7 +145,7 @@ app.listen(3000);
 
 :::
 
-## 課題
+## 演習問題
 
 `Fetch API`を用いてチャットアプリを作成してみましょう。
 
@@ -174,7 +174,7 @@ app.get("/messages", (request, response) => {
 
 新着メッセージを確認するために、定期的に`/messages`に対して`fetch`関数を用いて<Term>リクエスト</Term>しましょう。`setInterval`関数が利用できます。
 
-```javascript title="static/script.js"
+```javascript title="public/script.js"
 setInterval(async () => {
   const response = await fetch("/messages");
   // レスポンスを処理する
@@ -183,11 +183,11 @@ setInterval(async () => {
 
 `innerHTML`プロパティを空文字列とすることで要素の子要素を全て削除できます。`document.createElement`関数を用いて再び生成し直しましょう。
 
-```html title="static/index.html"
+```html title="public/index.html"
 <ul id="message-list"></ul>
 ```
 
-```javascript title="static/script.js"
+```javascript title="public/script.js"
 const messageList = document.getElementById("message-list");
 messageList.innerHTML = "";
 
