@@ -104,7 +104,17 @@ document.write(multiply(3, 4));
 ## <Term>変数</Term>の<Term>スコープ</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>内で<Term>宣言</Term>された<Term>変数</Term>は、<Term>関数</Term>内でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
+<Term>関数</Term>や if 文などのブロックの内側で<Term>宣言</Term>された<Term>変数</Term>は、そのブロック内でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
+
+```javascript
+function setAnswer(num) {
+  const answer = num;
+}
+
+setAnswer(42);
+
+document.write(answer); // エラー: answer は定義されていません
+```
 
 ```javascript
 const age = 18;
@@ -116,16 +126,6 @@ if (age >= 20) {
 }
 
 document.write(message); // エラー: message は定義されていません
-```
-
-```javascript
-function setAnswer(num) {
-  const answer = num;
-}
-
-setAnswer(42);
-
-document.write(answer); // エラー: answer は定義されていません
 ```
 
 {/* prettier-ignore */}
