@@ -131,7 +131,7 @@ DATABASE_URL=postgresql://user:password@example.com:5432/db node main.mjs
 `.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.mjs`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
 :::
 
-`prisma/schema.prisma`ファイルを、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
+`prisma/schema.prisma`ファイルに、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
 
 ```javascript
 // This is your Prisma schema file,
