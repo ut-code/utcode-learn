@@ -42,6 +42,9 @@ const config = {
             "./src/css/custom.css",
           ],
         },
+        gtag: process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
+          trackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        },
       },
     ],
   ],
