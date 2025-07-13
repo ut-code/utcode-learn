@@ -8,7 +8,7 @@ type State = { todos: string[] };
 // アプリケーションの状態
 const state: State = { todos: [] };
 
-// アプリケーションの状態を UI に反映させる関数
+// アプリケーションの状態をUIに反映させる関数
 function render() {
   // 一旦全ての内容を削除
   todoContainer.innerHTML = "";

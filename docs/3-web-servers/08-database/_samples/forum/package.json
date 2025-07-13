@@ -1,10 +1,10 @@
 {
   "name": "forum",
   "dependencies": {
-    "@prisma/client": "^6.7.0",
+    "@prisma/client": "^6.11.1",
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "prisma": "^6.7.0"
+    "prisma": "^6.11.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mathjs",
   "dependencies": {
-    "mathjs": "^13.0.3"
+    "mathjs": "^14.5.3"
   }
 }

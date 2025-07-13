@@ -2,11 +2,14 @@
   "name": "run-npm-package-on-browsers",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.0.2"
+    "vite": "^7.0.4"
   },
   "dependencies": {
     "date-fns": "^4.1.0"
