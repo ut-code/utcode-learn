@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-// Vite によって出力されたディレクトリを配信する
+// Viteによって出力されたディレクトリを配信する
 app.use(express.static("./dist"));
 
 const messages = [];

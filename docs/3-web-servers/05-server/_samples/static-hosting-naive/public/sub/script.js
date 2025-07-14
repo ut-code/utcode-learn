@@ -1,1 +1,1 @@
-document.write("ここは /sub/ です。");
+document.write("ここは/sub/です。");
