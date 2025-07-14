@@ -8,10 +8,8 @@ title: CSS
 
 ## `style`属性
 
-<Term>**`style`属性**</Term>は、全ての<Term>HTML要素</Term>
-に対して定義されている、<Term>CSS</Term>
-を記述するための属性です。次の例では、`div`要素の`style`属性に<Term>CSS</Term>
-を指定して、文字色を赤色にしています。
+{/* prettier-ignore */}
+<Term>**`style`属性**</Term>は、全ての<Term>HTML要素</Term>に対して定義されている、<Term>CSS</Term>を記述するための属性です。次の例では、`div`要素の`style`属性に<Term>CSS</Term>を指定して、文字色を赤色にしています。
 
 ```html title="index.html"
 <div style="color: red; font-size: 24px;">Hello World!</div>
@@ -21,8 +19,8 @@ title: CSS
 
 ![Hello World!](./red-hello-world.png)
 
-<Term>`style`属性</Term>には、<Term type="cssProperty">**プロパティ**</Term>
-と呼ばれるスタイルの種類と、その値を、コロン記号で繋いだ形式で記述します。また、複数のプロパティを指定する場合は、セミコロンで区切ります。
+{/* prettier-ignore */}
+<Term>`style`属性</Term>には、<Term type="cssProperty">**プロパティ**</Term>と呼ばれるスタイルの種類と、その値を、コロン記号で繋いだ形式で記述します。また、複数のプロパティを指定する場合は、セミコロンで区切ります。
 
 この例では、`color`という<Term type="cssProperty">プロパティ</Term>に`red`という値を設定し、`font-size`という<Term type="cssProperty">プロパティ</Term>に`24px`という値を設定しています。これにより、`Hello World!`という文字列が、赤色で、24ピクセルの大きさで表示されます。
 
@@ -34,14 +32,11 @@ title: CSS
 
 ## 構造とスタイルの分離
 
-<Term>`style`属性</Term>を用いて<Term>CSS</Term>を記述する方法は簡単ですが、
-<Term>CSS</Term>を必要とする要素が増えるにつれ、管理が難しくなってきます。
-<Term>CSS</Term>を<Term>HTML</Term>
-から分離し、見た目と構造を分離して記述するすることで、この負担を軽減することができます。
+{/* prettier-ignore */}
+<Term>`style`属性</Term>を用いて<Term>CSS</Term>を記述する方法は簡単ですが、<Term>CSS</Term>を必要とする要素が増えるにつれ、管理が難しくなってきます。<Term>CSS</Term>を<Term>HTML</Term>から分離し、見た目と構造を分離して記述することで、この負担を軽減することができます。
 
-<Term>HTML</Term>ファイルから独立して<Term>CSS</Term>
-ファイルを作成する場合、拡張子として`.css`を指定することが一般的です。`index.html`に加えて、`style.css`を作成しましょう。次の例では、`Hello
-World!`を赤色にしています。
+{/* prettier-ignore */}
+<Term>HTML</Term>ファイルから独立して<Term>CSS</Term>ファイルを作成する場合、拡張子として`.css`を指定することが一般的です。`index.html`に加えて、`style.css`を作成しましょう。次の例では、`Hello World!`を赤色にしています。
 
 ![CSSを書き始める](./begin-css.png)
 
@@ -79,8 +74,8 @@ World!`を赤色にしています。
 
 HTMLファイルとCSSファイルを分けて作成する場合、`style`属性を用いる場合とは異なり、どのスタイルを、どの要素に設定するのかを紐づけるための情報が必要です。
 
-<Term>HTML要素</Term>
-の`id`属性は、ひとつのHTML要素を、同じファイル内で一意に識別するための値を指定する属性で、CSSからHTML要素を探す際によく用いられます。`id`属性の値は、別の要素間で重複させることはできません。
+{/* prettier-ignore */}
+<Term>HTML要素</Term>の`id`属性は、ひとつのHTML要素を、同じファイル内で一意に識別するための値を指定する属性で、CSSからHTML要素を探す際によく用いられます。`id`属性の値は、別の要素間で重複させることはできません。
 
 **セレクタ**は、CSSを記述する際に、スタイルが適用するHTML要素の条件を指定するための構文です。この例では、`style.css`の1行目の`#greeting`がセレクタで、「`id`属性が`greeting`である要素」を示しています。
 
