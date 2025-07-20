@@ -2,39 +2,257 @@
 title: ブラウザとサーバー間の通信
 ---
 
-- 前頁では、Webサーバーを構築した
-- ブラウザとWebサーバーはHTTPを使って通信することを学んだ
-- ブラウザがリクエストを発行するのは、次のいずれかの場合だった
-  - アドレスバーにURLを入力したとき
-  - リンクをクリックしたとき
-  - 取得した HTML に外部リソースを読み込むタグが含まれていたとき
-- 実は、JavaScriptを使ってブラウザにリクエストを発行させることもできる
-- そのためのAPIがFetch APIだ
+前頁では、Webサーバーを構築しました。そして、ブラウザとWebサーバーは**HTTP**を使って通信することを学びました。
 
-## ブラウザで動く JavaScript でモジュールを用いる
+これまで学習してきた中で、ブラウザが<Term>リクエスト</Term>を発行するのは、次のいずれかの場合でした。
 
-- Fetch API を用いることにより、Webアプリはブラウザの枠を超えた機能を実現できる
-- しかし、複雑な処理を行う場合、JavaScriptのコードが長くなり、可読性が低下する
-- Node.js では、モジュールを用いてコードを分割することができた
-- 実は、ブラウザでも、JavaScriptのコードをモジュールとして分割することができる
-- これ以降は、ブラウザで動く JavaScript でもモジュールを用いることを前提にする
+- アドレスバーにURLを入力したとき
+- リンクをクリックしたとき
+- 取得したHTMLに外部リソースを読み込むタグが含まれていたとき
 
-サンプルプログラム・解説 (../04-module/ と同様の内容)
+実は、JavaScriptを使ってブラウザに<Term>リクエスト</Term>を発行させることもできます。そのためのAPIが**Fetch API**です。
+
+## ブラウザで動くJavaScriptでモジュールを用いる
+
+Fetch APIを用いることにより、Webアプリはブラウザの枠を超えた機能を実現できます。しかし、複雑な処理を行う場合、JavaScriptのコードが長くなり、可読性が低下します。
+
+[「モジュールとnpm」](/docs/web-servers/module/)の章では、Node.jsにおいてモジュールを用いてコードを分割することができることを学びました。実は、ブラウザでも、JavaScriptのコードをモジュールとして分割することができます。
+
+これ以降は、ブラウザで動くJavaScriptでも<Term>モジュール</Term>を用いることを前提にします。
+
+### ブラウザでのモジュールの使い方
+
+ブラウザでモジュールを使用するには、`<script>`タグに`type="module"`属性を追加します。
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>モジュールの例</title>
+  </head>
+  <body>
+    <h1>計算結果</h1>
+    <p id="result"></p>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="public/main.js"
+import { add, multiply } from "./math.js";
+
+const sum = add(3, 4);
+const product = multiply(3, 4);
+
+document.getElementById("result").textContent = `3 + 4 = ${sum}, 3 × 4 = ${product}`;
+```
+
+```javascript title="public/math.js"
+export function add(a, b) {
+  return a + b;
+}
+
+export function multiply(a, b) {
+  return a * b;
+}
+```
+
+Node.jsの場合と同様に、`export`文と`import`文を用いて他のモジュールとのやり取りを行うことができます。ただし、ブラウザでは拡張子`.js`のファイルでもECMAScriptモジュールとして扱われます。
+
+:::tip[モジュールスクリプトの特徴]
+
+`type="module"`を指定したスクリプトには、次のような特徴があります。
+
+- `import`文と`export`文が使用できる
+- 自動的に`strict mode`になる
+- トップレベルの変数がグローバルスコープを汚染しない
+- 同じモジュールを複数回読み込んでも、実行されるのは1回だけ
+
+:::
+
+<ViewSource url={import.meta.url} path="_samples/browser-module" />
 
 ## Fetch API
 
-- Fetch API は、 `fetch` 関数を呼び出すことで実行できる
-- `fetch` 関数にリクエストを発行したい URL を指定することで、[Response](https://developer.mozilla.org/ja/docs/Web/API/Response) オブジェクトを取得できる
-- Response オブジェクトの `text` メソッドを呼び出すことで、レスポンスを文字列として取得できる
+Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンスボディ</Term>を文字列として取得できます。
 
-非同期処理についてのコラム (async await をつけることだけ触れる)
+```javascript title="public/script.js (ブラウザ上で動くJavaScript)"
+document.getElementById("fetch-button").onclick = async () => {
+  const response = await fetch("/weather");
+  const weather = await response.text();
+  alert(weather);
+};
+```
 
-サンプルプログラム・解説 (../../4-advanced/01-fetch-api/ と同じ内容)
+:::tip[非同期処理]
+
+JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの入出力やネットワーク通信など、JavaScriptの外側の時間のかかる処理の完了を待つ間、ほかの処理を実行できるようにする仕組みです。`fetch`関数は非同期処理を行うため、次の2つを行います。
+
+- 非同期処理を行う関数を呼び出す関数を定義する際、`async`キーワードをつけること
+- 非同期処理を行う関数の戻り値に対し、`await`演算子を適用すること
+
+詳しくは「[非同期プログラミング](/docs/advanced/async/)」の章で学習します。
+
+:::
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>天気予報</title>
+  </head>
+  <body>
+    <button id="fetch-button">天気予報を見る</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="main.mjs (サーバーとして動くJavaScript)"
+import express from "express";
+const app = express();
+
+app.use(express.static("./public"));
+
+app.get("/weather", (request, response) => {
+  response.send("晴れ");
+});
+
+app.listen(3000);
+```
+
+<ViewSource url={import.meta.url} path="_samples/fetch-weather" />
 
 ## 演習問題1
 
-- Fetch API を用いて日経平均株価を取得するプログラム。日経平均はサーバーで乱数生成
+Fetch APIを用いて日経平均株価を取得するプログラムを作成してください。日経平均株価は、サーバー側で乱数を用いて生成してください。
+
+### ヒント
+
+- サーバー側で`/nikkei`というパスに対する<Term>GETリクエスト</Term>を処理する
+- `Math.random()`を使って20000円から40000円の間の値を生成する
+- クライアント側でボタンをクリックしたときに`fetch`関数を使って取得する
+
+<Answer title="日経平均株価取得プログラム">
+
+```javascript title="main.mjs"
+import express from "express";
+const app = express();
+
+app.use(express.static("./public"));
+
+app.get("/nikkei", (request, response) => {
+  const nikkei = Math.floor(Math.random() * 20000) + 20000;
+  response.send(`${nikkei}円`);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>日経平均株価</title>
+  </head>
+  <body>
+    <h1>日経平均株価</h1>
+    <button id="fetch-button">株価を取得</button>
+    <p id="result"></p>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="public/script.js"
+document.getElementById("fetch-button").onclick = async () => {
+  const response = await fetch("/nikkei");
+  const price = await response.text();
+  document.getElementById("result").textContent = `現在の日経平均株価: ${price}`;
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/nikkei-simple" />
+
+</Answer>
 
 ## 演習問題2
 
-- 演習問題1に加え、 Fetch API を用いて 10 秒ごとに日経平均株価を取得してリアルタイムに反映させるプログラム
+演習問題1に加え、Fetch APIを用いて10秒ごとに日経平均株価を取得してリアルタイムに反映させるプログラムを作成してください。
+
+### ヒント
+
+- `setInterval`関数を使って定期的に実行する
+- 取得した値を画面に表示し続ける
+- 過去の履歴も含めて表示すると良いでしょう
+
+<Answer title="リアルタイム日経平均株価">
+
+```javascript title="main.mjs"
+import express from "express";
+const app = express();
+
+app.use(express.static("./public"));
+
+app.get("/nikkei", (request, response) => {
+  const nikkei = Math.floor(Math.random() * 20000) + 20000;
+  response.send(`${nikkei}`);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>リアルタイム日経平均株価</title>
+  </head>
+  <body>
+    <h1>リアルタイム日経平均株価</h1>
+    <p>現在の株価: <span id="current-price">---</span>円</p>
+    <p>更新時刻: <span id="update-time">---</span></p>
+    <h2>履歴</h2>
+    <ul id="history"></ul>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="public/script.js"
+async function fetchNikkei() {
+  const response = await fetch("/nikkei");
+  const price = await response.text();
+  const now = new Date();
+  const timeString = now.toLocaleTimeString("ja-JP");
+  
+  // 現在の株価を更新
+  document.getElementById("current-price").textContent = price;
+  document.getElementById("update-time").textContent = timeString;
+  
+  // 履歴に追加
+  const historyList = document.getElementById("history");
+  const listItem = document.createElement("li");
+  listItem.textContent = `${timeString} - ${price}円`;
+  historyList.insertBefore(listItem, historyList.firstChild);
+  
+  // 履歴を最新10件に制限
+  while (historyList.children.length > 10) {
+    historyList.removeChild(historyList.lastChild);
+  }
+}
+
+// 初回実行
+fetchNikkei();
+
+// 10秒ごとに実行
+setInterval(fetchNikkei, 10000);
+```
+
+<ViewSource url={import.meta.url} path="_samples/nikkei-realtime" />
+
+</Answer>
