@@ -1,9 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+// Viteはトランスパイル時にimport.meta.envのプロパティをVITE_から始まる環境変数に置換する
+// これを利用して開発環境と本番環境でFetch APIのリクエスト先を切り替えられる
+// 参考：https://ja.vite.dev/guide/env-and-mode
+const getTodosApi = `${import.meta.env.VITE_API_ENDPOINT}/todos`;
+const postTodoApi = `${import.meta.env.VITE_API_ENDPOINT}/send`;
 
 type Todo = { id: number; title: string };
 
 const sendTodos = async (todos: Todo[]) => {
-  await fetch(`${import.meta.env.VITE_API_ENDPOINT}/send`, {
+  await fetch(postTodoApi, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(todos),
@@ -13,11 +19,10 @@ const sendTodos = async (todos: Todo[]) => {
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [nextId, setNextId] = useState<number>(1);
+  // コンポーネント読み込み時に処理を実行するにはuseEffectフックを使う
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await (
-        await fetch(`${import.meta.env.VITE_API_ENDPOINT}/todos`)
-      ).json();
+      const response = await (await fetch(getTodosApi)).json();
       setTodos(response);
       const maxId =
         response.reduce((previousValue: Todo, currentValue: Todo) => {
@@ -29,6 +34,7 @@ export default function App() {
     fetchTodos();
     const timerId = setInterval(fetchTodos, 1000);
 
+    // useEffectフックに指定した関数の戻り値に指定した関数はコンポーネントの破棄時に実行される
     return () => {
       clearInterval(timerId);
     };
