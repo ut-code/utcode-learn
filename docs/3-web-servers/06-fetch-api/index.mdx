@@ -114,15 +114,15 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 
 ## 演習問題1
 
-Fetch APIを用いて日経平均株価を取得するプログラムを作成してください。日経平均株価は、サーバー側で乱数を用いて生成してください。
+Fetch APIを用いて為替レート（円/ドル）を取得するプログラムを作成してください。為替レートは、サーバー側で乱数を用いて生成してください。ページを開いたときに自動的に取得して表示するようにしましょう。
 
 ### ヒント
 
-- サーバー側で`/nikkei`というパスに対する<Term>GETリクエスト</Term>を処理する
-- `Math.random()`を使って20000円から40000円の間の値を生成する
-- クライアント側でボタンをクリックしたときに`fetch`関数を使って取得する
+- サーバー側で`/exchange-rate`というパスに対する<Term>GETリクエスト</Term>を処理する
+- `Math.random()`を使って140円から160円の間の値を生成する
+- クライアント側ではページ読み込み時（トップレベル）で`fetch`関数を使って取得する
 
-<Answer title="日経平均株価取得プログラム">
+<Answer title="為替レート取得プログラム">
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -130,9 +130,9 @@ const app = express();
 
 app.use(express.static("./public"));
 
-app.get("/nikkei", (request, response) => {
-  const nikkei = Math.floor(Math.random() * 20000) + 20000;
-  response.send(`${nikkei}円`);
+app.get("/exchange-rate", (request, response) => {
+  const rate = (Math.random() * 20 + 140).toFixed(2);
+  response.send(rate);
 });
 
 app.listen(3000);
@@ -143,41 +143,56 @@ app.listen(3000);
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>日経平均株価</title>
+    <title>為替レート</title>
   </head>
   <body>
-    <h1>日経平均株価</h1>
-    <button id="fetch-button">株価を取得</button>
-    <p id="result"></p>
-    <script src="./script.js"></script>
+    <h1>円/ドル為替レート</h1>
+    <p>現在のレート: <span id="rate">読み込み中...</span>円/ドル</p>
+    <script type="module" src="./script.mjs"></script>
   </body>
 </html>
 ```
 
-```javascript title="public/script.js"
-document.getElementById("fetch-button").onclick = async () => {
-  const response = await fetch("/nikkei");
-  const price = await response.text();
-  document.getElementById("result").textContent =
-    `現在の日経平均株価: ${price}`;
-};
+```javascript title="public/script.mjs"
+// ページ読み込み時に自動的に実行される（トップレベルのawait）
+const response = await fetch("/exchange-rate");
+const rate = await response.text();
+document.getElementById("rate").textContent = rate;
 ```
 
-<ViewSource url={import.meta.url} path="_samples/nikkei-simple" />
+<ViewSource url={import.meta.url} path="_samples/exchange-rate" />
 
 </Answer>
 
 ## 演習問題2
 
-演習問題1に加え、Fetch APIを用いて10秒ごとに日経平均株価を取得してリアルタイムに反映させるプログラムを作成してください。
+通貨換算アプリケーションを作成してください。円の金額を入力してボタンをクリックすると、現在の為替レートでドルに換算して表示するプログラムです。
 
 ### ヒント
 
-- `setInterval`関数を使って定期的に実行する
-- 取得した値を画面に表示し続ける
-- 過去の履歴も含めて表示すると良いでしょう
+- 入力フィールドとボタンを用意する
+- ボタンのクリックイベントで`fetch`関数を使って為替レートを取得する
+- 取得したレートを使って換算結果を計算・表示する
 
-<Answer title="リアルタイム日経平均株価">
+:::warning[非同期関数と`async`キーワード]
+
+`await`を使用する関数には必ず`async`キーワードを付ける必要があります。
+
+```javascript
+// ❌ エラーになる例
+document.getElementById("convert-button").onclick = () => {
+  const response = await fetch("/exchange-rate"); // SyntaxError: await は async 関数内でのみ使用可能
+};
+
+// ✅ 正しい例
+document.getElementById("convert-button").onclick = async () => {
+  const response = await fetch("/exchange-rate"); // OK!
+};
+```
+
+:::
+
+<Answer title="通貨換算アプリケーション">
 
 ```javascript title="main.mjs"
 import express from "express";
@@ -185,9 +200,9 @@ const app = express();
 
 app.use(express.static("./public"));
 
-app.get("/nikkei", (request, response) => {
-  const nikkei = Math.floor(Math.random() * 20000) + 20000;
-  response.send(`${nikkei}`);
+app.get("/exchange-rate", (request, response) => {
+  const rate = (Math.random() * 20 + 140).toFixed(2);
+  response.send(rate);
 });
 
 app.listen(3000);
@@ -198,49 +213,50 @@ app.listen(3000);
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>リアルタイム日経平均株価</title>
+    <title>通貨換算</title>
   </head>
   <body>
-    <h1>リアルタイム日経平均株価</h1>
-    <p>現在の株価: <span id="current-price">---</span>円</p>
-    <p>更新時刻: <span id="update-time">---</span></p>
-    <h2>履歴</h2>
-    <ul id="history"></ul>
-    <script src="./script.js"></script>
+    <h1>円→ドル通貨換算</h1>
+    <div>
+      <label>
+        円: <input type="number" id="yen-input" placeholder="金額を入力" />
+      </label>
+      <button id="convert-button">換算する</button>
+    </div>
+    <div id="result"></div>
+    <script type="module" src="./script.mjs"></script>
   </body>
 </html>
 ```
 
-```javascript title="public/script.js"
-async function fetchNikkei() {
-  const response = await fetch("/nikkei");
-  const price = await response.text();
-  const now = new Date();
-  const timeString = now.toLocaleTimeString("ja-JP");
-
-  // 現在の株価を更新
-  document.getElementById("current-price").textContent = price;
-  document.getElementById("update-time").textContent = timeString;
-
-  // 履歴に追加
-  const historyList = document.getElementById("history");
-  const listItem = document.createElement("li");
-  listItem.textContent = `${timeString} - ${price}円`;
-  historyList.insertBefore(listItem, historyList.firstChild);
-
-  // 履歴を最新10件に制限
-  while (historyList.children.length > 10) {
-    historyList.removeChild(historyList.lastChild);
+```javascript title="public/script.mjs"
+// ボタンクリックイベントに非同期関数を設定
+// async キーワードが必要
+document.getElementById("convert-button").onclick = async () => {
+  const yenInput = document.getElementById("yen-input");
+  const yenAmount = parseFloat(yenInput.value);
+  
+  if (isNaN(yenAmount) || yenAmount <= 0) {
+    alert("正しい金額を入力してください");
+    return;
   }
-}
-
-// 初回実行
-fetchNikkei();
-
-// 10秒ごとに実行
-setInterval(fetchNikkei, 10000);
+  
+  // 為替レートを取得
+  const response = await fetch("/exchange-rate");
+  const rate = parseFloat(await response.text());
+  
+  // ドルに換算
+  const dollarAmount = (yenAmount / rate).toFixed(2);
+  
+  // 結果を表示
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = `
+    <p>為替レート: 1ドル = ${rate}円</p>
+    <p>${yenAmount}円 = <strong>${dollarAmount}ドル</strong></p>
+  `;
+};
 ```
 
-<ViewSource url={import.meta.url} path="_samples/nikkei-realtime" />
+<ViewSource url={import.meta.url} path="_samples/currency-converter" />
 
 </Answer>
