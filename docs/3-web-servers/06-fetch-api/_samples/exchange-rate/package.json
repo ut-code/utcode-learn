@@ -1,5 +1,5 @@
 {
-  "name": "nikkei-simple",
+  "name": "exchange-rate",
   "dependencies": {
     "express": "^5.1.0"
   }

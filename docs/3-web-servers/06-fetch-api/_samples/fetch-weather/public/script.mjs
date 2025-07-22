@@ -5,5 +5,4 @@ const response = await fetch("/weather");
 // レスポンスをテキストとして取得
 const weather = await response.text();
 
-const weatherElement = document.getElementById("weather");
-weatherElement.textContent = weather;
+document.getElementById("weather").textContent = weather;

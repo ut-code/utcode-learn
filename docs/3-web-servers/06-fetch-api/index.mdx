@@ -8,7 +8,7 @@ title: Fetch API
 2. リンクをクリックしたとき
 3. 取得したHTMLに外部リソースを読み込むタグが含まれていたとき
 
-しかし、この方法では、新しい情報を取得する度にブラウザのページ遷移が必要になるため、複雑なアプリケーションを構築するには不便です。**Fetch API**を用いると、ブラウザ上で動作するJavaScriptから、Webサーバーに対して直接HTTPリクエストを発行し、レスポンスを受け取ることができます。これにより、Webアプリケーションはページ遷移を伴わずに新しい情報を取得したり、サーバーと通信したりすることが可能になります。
+しかし、この方法では、新しい情報を取得する度にブラウザのページ遷移が必要になるため、複雑なアプリケーションを構築するには不便です。**Fetch API**を用いると、ブラウザ上で動作するJavaScriptから、Webサーバーに対して直接HTTPリクエストを発行し、レスポンスを受け取ることができます。これにより、Webアプリケーションはページ遷移を伴わずにサーバーと通信することが可能になります。
 
 ## ブラウザで動作するJavaScriptでモジュールを用いる
 
@@ -62,9 +62,9 @@ export function multiply(a, b) {
 
 :::
 
-## Fetch API
+## Fetch API を使用する
 
-Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、HTTPリクエストを発行し、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンスボディ</Term>を文字列として取得できます。
+Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、HTTPリクエストを発行し、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンス</Term>を文字列として取得できます。
 
 次の例では、ブラウザは`script.mjs`の中で`fetch("/weather")`が呼び出されたときに、Webサーバーに対して`/weather`というパスに対する<Term>リクエスト</Term>を発行します。Webサーバーは、`/weather`に対するリクエストを受け取ると、レスポンスとして「晴れ」という文字列を返します。ブラウザは、このレスポンスを受け取り、HTMLの中の`span`要素に「晴れ」という文字列を表示します。
 
@@ -94,8 +94,7 @@ const response = await fetch("/weather");
 // レスポンスをテキストとして取得
 const weather = await response.text();
 
-const weatherElement = document.getElementById("weather");
-weatherElement.textContent = weather;
+document.getElementById("weather").textContent = weather;
 ```
 
 <ViewSource url={import.meta.url} path="_samples/fetch-weather" />
@@ -114,47 +113,32 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 
 ## 演習問題1
 
-Fetch APIを用いて為替レート（円/ドル）を取得するプログラムを作成してください。為替レートは、サーバー側で乱数を用いて生成してください。ページを開いたときに自動的に取得して表示するようにしましょう。
+Fetch APIを用いて、ページを開いたとき、サーバーから現在の為替レート（円/ドル）を取得して表示するWebアプリケーションを作成してください。ただし、為替レートは、サーバー側で乱数を用いて生成してください。
 
 ### ヒント
 
-- サーバー側で`/exchange-rate`というパスに対する<Term>GETリクエスト</Term>を処理する
-- `Math.random()`を使って140円から160円の間の値を生成する
-- クライアント側ではページ読み込み時（トップレベル）で`fetch`関数を使って取得する
+Expressを用いて、`/exchange-rate`というパスに対する<Term>リクエスト</Term>を受けたとき、`140 + Math.random() * 20`の値をレスポンスとして返すようにしましょう。ブラウザ側では、`fetch`関数を用いて`/exchange-rate`にリクエストを発行し、レスポンスを受け取って表示しましょう。
 
 <Answer title="為替レート取得プログラム">
 
-```javascript title="main.mjs"
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
 import express from "express";
+
 const app = express();
-
 app.use(express.static("./public"));
-
 app.get("/exchange-rate", (request, response) => {
-  const rate = (Math.random() * 20 + 140).toFixed(2);
+  const rate = 140 + Math.random() * 20;
   response.send(rate);
 });
-
 app.listen(3000);
 ```
 
-```html title="public/index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>為替レート</title>
-  </head>
-  <body>
-    <h1>円/ドル為替レート</h1>
-    <p>現在のレート: <span id="rate">読み込み中...</span>円/ドル</p>
-    <script type="module" src="./script.mjs"></script>
-  </body>
-</html>
+```html title="public/index.html (抜粋)"
+<p><span id="rate"></span>円/ドル</p>
+<script type="module" src="./script.mjs"></script>
 ```
 
-```javascript title="public/script.mjs"
-// ページ読み込み時に自動的に実行される（トップレベルのawait）
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
 const response = await fetch("/exchange-rate");
 const rate = await response.text();
 document.getElementById("rate").textContent = rate;
@@ -166,17 +150,15 @@ document.getElementById("rate").textContent = rate;
 
 ## 演習問題2
 
-通貨換算アプリケーションを作成してください。円の金額を入力してボタンをクリックすると、現在の為替レートでドルに換算して表示するプログラムです。
+円の金額を入力してボタンをクリックすると、現在の為替レートでドルに換算して表示する、通貨換算アプリケーションを作成してください。
 
 ### ヒント
 
-- 入力フィールドとボタンを用意する
-- ボタンのクリックイベントで`fetch`関数を使って為替レートを取得する
-- 取得したレートを使って換算結果を計算・表示する
+サーバーの実装は演習問題1と同じです。ブラウザ側では、ボタンとテキストボックスを用意します。ボタンのクリック<Term>イベントハンドラ</Term>の中で`fetch`関数を用いて為替レートを取得し、入力された金額を為替レートで割ってドルに換算しましょう。`Response#text`メソッドの戻り値は文字列なので、[`parseFloat`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)関数を用いて数値に変換してから計算を行う必要があります。
 
 :::warning[非同期関数と`async`キーワード]
 
-`await`を使用する関数には必ず`async`キーワードを付ける必要があります。
+`await`演算子を関数内で使用する場合は、その関数に`async`キーワードを付与する必要があります。
 
 ```javascript
 // ❌ エラーになる例
@@ -186,7 +168,7 @@ document.getElementById("convert-button").onclick = () => {
 
 // ✅ 正しい例
 document.getElementById("convert-button").onclick = async () => {
-  const response = await fetch("/exchange-rate"); // OK!
+  const response = await fetch("/exchange-rate"); // OK
 };
 ```
 
@@ -194,66 +176,43 @@ document.getElementById("convert-button").onclick = async () => {
 
 <Answer title="通貨換算アプリケーション">
 
-```javascript title="main.mjs"
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
 import express from "express";
+
 const app = express();
-
 app.use(express.static("./public"));
-
 app.get("/exchange-rate", (request, response) => {
-  const rate = (Math.random() * 20 + 140).toFixed(2);
+  const rate = Math.random() * 20 + 140;
   response.send(rate);
 });
-
 app.listen(3000);
 ```
 
-```html title="public/index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>通貨換算</title>
-  </head>
-  <body>
-    <h1>円→ドル通貨換算</h1>
-    <div>
-      <label>
-        円: <input type="number" id="yen-input" placeholder="金額を入力" />
-      </label>
-      <button id="convert-button">換算する</button>
-    </div>
-    <div id="result"></div>
-    <script type="module" src="./script.mjs"></script>
-  </body>
-</html>
+```html title="public/index.html (抜粋)"
+<p>
+  <input type="number" id="yen-input" placeholder="円" />
+  <button id="convert-button">計算</button>
+</p>
+<p><span id="result"></span>ドル</p>
+<script type="module" src="./script.mjs"></script>
 ```
 
 ```javascript title="public/script.mjs"
-// ボタンクリックイベントに非同期関数を設定
-// async キーワードが必要
+// await 演算子を使用するため、async キーワードが必要
 document.getElementById("convert-button").onclick = async () => {
-  const yenInput = document.getElementById("yen-input");
-  const yenAmount = parseFloat(yenInput.value);
-  
-  if (isNaN(yenAmount) || yenAmount <= 0) {
-    alert("正しい金額を入力してください");
-    return;
-  }
-  
   // 為替レートを取得
   const response = await fetch("/exchange-rate");
   const rate = parseFloat(await response.text());
-  
+
+  // 入力された円の金額を取得
+  const yenInput = document.getElementById("yen-input");
+  const yen = parseFloat(yenInput.value);
+
   // ドルに換算
-  const dollarAmount = (yenAmount / rate).toFixed(2);
-  
+  const dollar = yen / rate;
+
   // 結果を表示
-  const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `
-    <p>為替レート: 1ドル = ${rate}円</p>
-    <p>${yenAmount}円 = <strong>${dollarAmount}ドル</strong></p>
-  `;
+  document.getElementById("result").textContent = dollar;
 };
 ```
 
