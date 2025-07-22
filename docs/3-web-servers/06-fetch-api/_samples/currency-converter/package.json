@@ -1,0 +1,6 @@
+{
+  "name": "currency-converter",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
