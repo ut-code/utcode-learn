@@ -1,0 +1,6 @@
+{
+  "name": "tax-calculator",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

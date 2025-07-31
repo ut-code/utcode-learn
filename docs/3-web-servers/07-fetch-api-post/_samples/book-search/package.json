@@ -1,0 +1,6 @@
+{
+  "name": "book-search",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

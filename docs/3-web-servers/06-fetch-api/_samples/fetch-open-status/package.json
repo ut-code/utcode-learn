@@ -1,0 +1,6 @@
+{
+  "name": "fetch-open-status",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

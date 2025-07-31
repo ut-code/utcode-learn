@@ -1,0 +1,296 @@
+---
+title: Fetch APIによるデータの送信
+---
+
+## Fetch APIでデータを送信する
+
+### 確認問題
+
+次のように、税抜価格を入力することで、消費税額と税込価格を計算するWebアプリケーションを作成してみましょう。
+
+ここに動画を埋め込む
+
+サーバー側では、`/calculate`に対するPOSTリクエストを受けたとき、受け取った税抜価格から消費税額と税込価格を計算し、これらをJSON形式で返すようにしてください。ブラウザ側では、税抜価格を入力し、計算ボタンを押すと、`/calculate`に対してPOSTリクエストで税抜価格を送信し、受け取ったレスポンスに基づいて消費税額と税込価格を表示するようにしてください。
+
+消費税額と税込価格は次のように計算できます。
+
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const taxRate = 0.1; // 消費税率
+
+app.post("/calculate", (request, response) => {
+  const subtotal = /* リクエストボディから税抜価格を取得 */;
+  const tax = subtotal * taxRate; // 消費税額を計算
+  const total = tax + subtotal; // 税込価格を計算
+  // 消費税額と税込価格をJSON形式で返す
+});
+```
+
+<Answer title="消費税計算プログラム">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+
+app.use(express.static("./public"));
+app.use(express.json());
+
+const taxRate = 0.1;
+
+app.post("/calculate", (request, response) => {
+  const tax = request.body.subtotal * taxRate;
+  const total = tax + request.body.subtotal;
+  response.json({
+    tax: tax,
+    total: total,
+  });
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<input id="subtotal-input" placeholder="税抜価格" />
+<button id="calculate-button" type="button">計算</button>
+<div>消費税額：<span id="tax"></span>円</div>
+<div>税込価格：<span id="total"></span>円</div>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+document.getElementById("calculate-button").onclick = async () => {
+  const subtotal = parseFloat(document.getElementById("subtotal-input").value);
+
+  const response = await fetch("/calculate", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subtotal: subtotal }),
+  });
+  const taxResult = await response.json();
+
+  document.getElementById("tax").textContent = taxResult.tax;
+  document.getElementById("total").textContent = taxResult.total;
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/calculate-tax" />
+
+</Answer>
+
+## 演習問題1
+
+次のように、著者名を入力することで、その著者の本の一覧が表示される書籍検索アプリを作ってみましょう。
+
+ここに動画を埋め込む
+
+サーバー側では、`/search`に対するPOSTリクエストを受けたとき、受け取った著者名に一致する本のデータをJSON形式で返すようにしてください。
+
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊っちゃん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+
+app.post("/search", (request, response) => {
+  const selectedBooks = books.filter(
+    // 受け取った著者名に一致する本を選択
+  );
+  // 本のデータをJSON形式で返す
+})
+```
+
+ブラウザ側では、著者名を入力し、検索ボタンを押すと、`/search`に対してPOSTリクエストで著者名を送信し、受け取ったレスポンスに基づいて本の一覧を表示するようにしてください。
+
+本の一覧を表示するためには、`ul`要素を用意し、次のように`li`要素を追加していくことができます。
+
+```html title="public/index.htmlの抜粋"
+<ul id="book-list"></ul>
+```
+
+```javascript title="public/script.mjsの抜粋 (ブラウザ上で動作するJavaScript)"
+document.getElementById("search-button").onclick = async () => {
+  // 著者名を送信し、レスポンスを受け取る
+
+  const bookList = document.getElementById("book-list");
+  bookList.innerHTML = ""; // 空文字列とすることで、すでに存在しているul要素の子要素をすべて削除
+
+  for (const book of books) {
+    const li = document.createElement("li");
+    li.textContent = book.title;
+    bookList.appendChild(li);
+  }
+}
+```
+
+:::tip[`Array#filter`メソッド]
+
+[`Array#filter`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が`true`となる要素だけからなる新しい配列を返すメソッドです。
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+/// [2, 4, 6, 8]
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+```
+
+:::
+
+<Answer title="書籍検索アプリ">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+
+app.use(express.static("./public"));
+app.use(express.json());
+
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊っちゃん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+
+app.post("/search", (request, response) => {
+  const selectedBooks = books.filter(
+    (book) => book.author === request.body.author,
+  );
+  response.json(selectedBooks);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<input id="author-input" placeholder="著者名" />
+<button id="search-button" type="button">検索</button>
+<ul id="book-list"></ul>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+document.getElementById("search-button").onclick = async () => {
+  const author = document.getElementById("author-input").value;
+
+  const response = await fetch("/search", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ author: author }),
+  });
+  const books = await response.json();
+
+  const bookList = document.getElementById("book-list");
+  bookList.innerHTML = "";
+
+  for (const book of books) {
+    const li = document.createElement("li");
+    li.textContent = book.title;
+    bookList.appendChild(li);
+  }
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/book-search" />
+
+</Answer>
+
+## 演習問題2
+
+次のようなチャットアプリを作ってみましょう。
+
+ここに動画を埋め込む
+
+サーバー側では、これまでのメッセージを保存する配列`messages`を用意しましょう。`/messages`に対するGETリクエストを受けたとき、配列`messages`をJSON形式で返すようにしてください。また、`/send`に対するPOSTリクエストを受けたとき、`Array#push`メソッドで受け取ったメッセージを配列`messages`に追加するようにしてください。
+
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const messages = [];
+
+app.get("/messages", (request, response) => {
+  // messagesをJSON形式で返す
+});
+
+app.post("/send", (request, response) => {
+  // 受け取ったメッセージをmessagesに追加
+  response.send();
+});
+```
+
+ブラウザ側では、新着メッセージを確認するために、定期的に`/messages`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/send`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
+
+定期的に新着メッセージを確認するためには、次のように`setInterval`関数が利用できます。
+
+```javascript title="public/script.mjsの抜粋 (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/messages");
+  // レスポンスを処理する
+}, 1000);
+
+document.getElementById("send-button").onclick = async () => {
+  // メッセージを送信する
+}
+```
+
+<Answer title="チャットアプリ">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+
+app.use(express.static("./public"));
+app.use(express.json());
+
+const messages = [];
+
+app.get("/messages", (request, response) => {
+  response.json(messages);
+});
+
+app.post("/send", (request, response) => {
+  messages.push(request.body.message);
+  response.send();
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<ul id="message-list"></ul>
+<input id="message-input" placeholder="メッセージ" />
+<button id="send-button" type="button">送信</button>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/messages");
+  const messages = await response.json();
+
+  const messageList = document.getElementById("message-list");
+  messageList.innerHTML = "";
+
+  for (const message of messages) {
+    const li = document.createElement("li");
+    li.textContent = message;
+    messageList.appendChild(li);
+  }
+}, 1000);
+
+document.getElementById("send-button").onclick = async () => {
+  const message = document.getElementById("message-input").value;
+  await fetch("/send", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: message }),
+  });
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/chat-app" />
+
+</Answer>

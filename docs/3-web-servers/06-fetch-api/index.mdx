@@ -1,5 +1,5 @@
 ---
-title: Fetch API
+title: Fetch APIによるデータの取得
 ---
 
 前頁では、Webサーバーが動作する仕組みと、ブラウザとWebサーバーの間で行われる基本的な通信の手順について学びました。この流れの中では、ブラウザは、次のような場合に<Term>HTTPリクエスト</Term>をWebサーバーに対して送信するのでした。
@@ -62,7 +62,7 @@ export function multiply(a, b) {
 
 :::
 
-## Fetch API を使用する
+## Fetch APIでテキストデータを取得する
 
 Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、HTTPリクエストを発行し、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンス</Term>を文字列として取得できます。
 
@@ -110,6 +110,109 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 非同期処理を行う関数の戻り値の実態は、`Promise`と呼ばれるオブジェクトです。`await`演算子は、`Promise`オブジェクトに作用し、その処理が完了するまで待機します。詳細は、[MDNの記事](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Asynchronous)を参照してください。
 
 :::
+
+### 確認問題
+
+あるカフェでは、現在「営業中」か「営業時間外」かを表示するWebアプリケーションを作成しています。
+
+サーバー側では、`/open-status`というパスに対するリクエストを受けたとき、`営業中`という文字列をレスポンスとして返すようにしてください。ブラウザ側では、`fetch`関数を用いて`/open-status`にリクエストを発行し、レスポンスを受け取って、`カフェは現在営業中です。`と表示するようにしてください。
+
+ここに画像を埋め込む
+
+<Answer title="カフェ営業状況表示プログラム">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+
+app.use(express.static("./public"));
+
+app.get("/open-status", (request, response) => {
+  response.send("営業中");
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<p>カフェは現在<span id="open-status"></span>です。</p>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+const response = await fetch("/open-status");
+const openStatus = await response.text();
+
+document.getElementById("open-status").textContent = openStatus;
+```
+
+<ViewSource url={import.meta.url} path="_samples/fetch-open-status" />
+
+</Answer>
+
+## Fetch APIでJSONデータを取得する
+
+### 確認問題
+
+あるカフェでは、現在「営業中」か「営業時間外」かだけではなく、営業時間も表示するWebアプリケーションを作成することにしました。
+
+サーバー側では、`/open-status`に対するリクエストを受けたとき、次のようなJSON形式のレスポンスを返すようにしてください。ブラウザ側では、`/open-status`にリクエストを発行し、レスポンスを受け取って、カフェが営業中であれば`カフェは現在営業中です。本日の営業時間は10:00から18:00です。`と表示し、カフェが営業時間外であれば`カフェは現在営業時間外です。本日の営業時間は10:00から18:00です。`と表示するようにしてください。
+
+```json
+{
+  "isOpen": true,
+  "openTime": "10:00",
+  "closeTime": "18:00"
+}
+```
+
+ここに画像を埋め込む
+
+<Answer title="カフェ営業状況表示プログラム">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+
+app.use(express.static("./public"));
+
+app.get("/open-status", (request, response) => {
+  response.json({
+    isOpen: true,
+    openTime: "10:00",
+    closeTime: "18:00",
+  });
+});
+
+app.listen(3000);
+```
+
+{/* prettier-ignore */}
+```html title="public/index.htmlの抜粋"
+<p>カフェは現在<span id="open-status"></span>です。</p>
+<p>本日の営業時間は<span id="open-time"></span>から<span id="close-time"></span>です。</p>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+const response = await fetch("/open-status");
+const openStatus = await response.json();
+
+if (openStatus.isOpen) {
+  document.getElementById("open-status").textContent = "営業中";
+} else {
+  document.getElementById("open-status").textContent = "営業時間外";
+}
+
+document.getElementById("open-time").textContent = openStatus.openTime;
+document.getElementById("close-time").textContent = openStatus.closeTime;
+```
+
+<ViewSource url={import.meta.url} path="_samples/fetch-open-status-json" />
+
+</Answer>
 
 ## 演習問題1
 
