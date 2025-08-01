@@ -85,6 +85,7 @@ document.getElementById("calculate-button").onclick = async () => {
 
 サーバー側では、`/search`に対するPOSTリクエストを受けたとき、受け取った著者名に一致する本のデータをJSON形式で返すようにしてください。
 
+{/* prettier-ignore */}
 ```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
 const books = [
   { title: "吾輩は猫である", author: "夏目漱石" },
@@ -99,7 +100,7 @@ app.post("/search", (request, response) => {
     // 受け取った著者名に一致する本を選択
   );
   // 本のデータをJSON形式で返す
-})
+});
 ```
 
 ブラウザ側では、著者名を入力し、検索ボタンを押すと、`/search`に対してPOSTリクエストで著者名を送信し、受け取ったレスポンスに基づいて本の一覧を表示するようにしてください。
@@ -122,7 +123,7 @@ document.getElementById("search-button").onclick = async () => {
     li.textContent = book.title;
     bookList.appendChild(li);
   }
-}
+};
 ```
 
 :::tip[`Array#filter`メソッド]
@@ -232,7 +233,7 @@ setInterval(async () => {
 
 document.getElementById("send-button").onclick = async () => {
   // メッセージを送信する
-}
+};
 ```
 
 <Answer title="チャットアプリ">
