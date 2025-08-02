@@ -26,6 +26,7 @@ export default {
     "/docs/web-servers/node-js/": "はじめてのNode.js",
     "/docs/web-servers/module/": "モジュールとnpm",
     "/docs/web-servers/server/": "Expressによるサーバー構築",
+    "/docs/web-servers/fetch-api/": "Fetch API",
     "/docs/web-servers/form/": "フォーム",
     "/docs/web-servers/get-post/": "GETリクエストとPOSTリクエスト",
     "/docs/web-servers/database/": "データベース",
@@ -373,7 +374,7 @@ export default {
       name: "JSON",
       definition:
         "複雑なデータ構造をJavaScriptオブジェクトに似た形式で文字列として表現するための記法。",
-      referencePage: "/docs/web-servers/module/",
+      referencePage: "/docs/web-servers/fetch-api/",
     },
     requestResponse: {
       name: "リクエストとレスポンス",

@@ -1,0 +1,9 @@
+{
+  "name": "book-search",
+  "scripts": {
+    "start": "node main.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

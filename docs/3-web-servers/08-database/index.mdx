@@ -269,10 +269,6 @@ model Post {
 
 Node.jsのデバッガを用いて、データベースのデータがPrismaで取得できることを確認しましょう。
 
-### 手順6
-
-Expressをインストールし、`/`へのGETリクエストに対して、データベースのデータをHTMLに整形したレスポンスを返せるようにしましょう。
-
 :::info[ヒント]
 Prismaの`findMany`メソッドを用いて、テーブル内にある全てのレコードを取得できます。
 
@@ -284,28 +280,19 @@ const posts = await client.post.findMany();
 // ]
 ```
 
-このメソッドの戻り値は、各カラムの値をプロパティとして持つオブジェクトの配列です。`Array#map`メソッドや`Array#join`メソッドを用い、適切なHTMLに変換してレスポンスを生成しましょう。
+このメソッドの戻り値は、各カラムの値をプロパティとして持つオブジェクトの配列です。
 :::
+
+### 手順6
+
+Expressをインストールし、`/posts`へのGETリクエストに対して、データベースのデータをJSON形式のレスポンスで返せるようにしましょう。
 
 <Answer title="手順6まで">
 
-```javascript title="main.mjsの抜粋"
-app.get("/", async (request, response) => {
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+app.get("/posts", async (request, response) => {
   const posts = await client.post.findMany();
-  response.send(`
-    <!doctype html>
-    <html lang="ja">
-      <head>
-        <meta charset="utf-8" />
-        <title>掲示板</title>
-      </head>
-      <body>
-        <ul>
-          ${posts.map((post) => `<li>${post.message}</li>`).join("")}
-        </ul>
-      </body>
-    </html>
-  `);
+  response.json(posts);
 });
 ```
 
@@ -313,47 +300,51 @@ app.get("/", async (request, response) => {
 
 ### 手順7
 
-掲示板を投稿するためのHTMLのフォームを表示できるようにしましょう。入力されたデータは`/send`へのPOSTリクエストとして送信されるようにしてみましょう。
-
-:::info[ヒント]
-手順6で作成したテンプレートとなるHTMLファイルを編集し、フォームを追加しましょう。
-:::
+[Fetch APIによるデータの送信の章](/docs/web-servers/fetch-api-post/)の演習問題2と同様にして、ブラウザ側で、定期的に`/posts`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/send`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
 
 <Answer title="手順7まで">
 
-```javascript title="main.mjsの抜粋"
-app.get("/", async (request, response) => {
-  const posts = await client.post.findMany();
-  response.send(`
-    <!doctype html>
-    <html lang="ja">
-      <head>
-        <meta charset="utf-8" />
-        <title>掲示板</title>
-      </head>
-      <body>
-        <ul>
-          ${posts.map((post) => `<li>${post.message}</li>`).join("")}
-        </ul>
-        <form method="post" action="/send">
-          <input placeholder="メッセージ" name="message" />
-          <button type="submit">送信</button>
-        </form>
-      </body>
-    </html>
-  `);
-});
+```html title="public/index.htmlの抜粋"
+<ul id="message-list"></ul>
+<input id="message-input" placeholder="メッセージ" />
+<button id="send-button" type="button">送信</button>
+<script type="module" src="./script.mjs"></script>
+```
+
+```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/posts");
+  const posts = await response.json();
+
+  const messageList = document.getElementById("message-list");
+  messageList.innerHTML = "";
+
+  for (const post of posts) {
+    const li = document.createElement("li");
+    li.textContent = post.message;
+    messageList.appendChild(li);
+  }
+}, 1000);
+
+document.getElementById("send-button").onclick = async () => {
+  const message = document.getElementById("message-input").value;
+  await fetch("/send", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: message }),
+  });
+};
 ```
 
 </Answer>
 
 ### 手順8
 
-前の手順で作成したHTMLのフォームの送信先 (`/send`へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
+メッセージの送信先 (`/send`へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
 
 <Answer title="手順8まで">
 
-```javascript title="main.mjsの抜粋"
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
 app.use(express.urlencoded({ extended: true }));
 app.post("/send", async (request, response) => {
   debugger; // ここでrequestオブジェクトの中身を確認
@@ -364,20 +355,15 @@ app.post("/send", async (request, response) => {
 
 ### 手順9
 
-送られてきたデータをデータベースに保存できるようにしましょう。データベースに投稿が保存された後、ブラウザは自動的に`/`に戻るようにしてみましょう。
-
-:::info[ヒント]
-[GETリクエストとPOSTリクエストの章](/docs/web-servers/get-post/)で扱った`express.Response#redirect`メソッドが使えます。
-
-:::
+送られてきたデータをデータベースに保存できるようにしましょう。
 
 <Answer title="手順9まで">
 
-```javascript title="main.mjsの抜粋"
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
 app.use(express.urlencoded({ extended: true }));
 app.post("/send", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
-  response.redirect("/");
+  response.send();
 });
 ```
 
