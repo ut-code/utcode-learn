@@ -34,7 +34,11 @@ import add from "./sub.mjs";
 console.log(add(3, 4));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/default-export" />
+<ViewSource
+  url={import.meta.url}
+  path="_samples/default-export"
+  noCodeSandbox
+/>
 
 :::tip[名前付きエクスポート]
 
@@ -56,7 +60,7 @@ console.log(add(3, 4));
 console.log(subtract(4, 3));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/named-export" />
+<ViewSource url={import.meta.url} path="_samples/named-export" noCodeSandbox />
 
 :::
 
@@ -82,7 +86,11 @@ const add = sub.add;
 console.log(add(3, 4));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/commonjs-module" />
+<ViewSource
+  url={import.meta.url}
+  path="_samples/commonjs-module"
+  noCodeSandbox
+/>
 
 :::
 
