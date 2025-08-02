@@ -1,5 +1,8 @@
 {
   "name": "static-hosting-naive",
+  "scripts": {
+    "start": "node main.mjs"
+  },
   "dependencies": {
     "express": "^5.1.0"
   }
