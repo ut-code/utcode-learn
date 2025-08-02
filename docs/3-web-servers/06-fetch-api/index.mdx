@@ -23,9 +23,11 @@ import express from "express";
 
 const app = express();
 app.use(express.static("./public"));
+
 app.get("/weather", (request, response) => {
   response.send("晴れ");
 });
+
 app.listen(3000);
 ```
 
@@ -44,6 +46,7 @@ async function fetchWeather() {
   const weather = await response.text();
   document.getElementById("weather").textContent = weather;
 }
+
 fetchWeather();
 ```
 
@@ -115,12 +118,14 @@ import express from "express";
 
 const app = express();
 app.use(express.static("./public"));
+
 app.get("/weather", (request, response) => {
   response.json({
     condition: "晴れ",
     temperature: 25,
   });
 });
+
 app.listen(3000);
 ```
 
@@ -138,6 +143,7 @@ async function fetchWeather() {
   document.getElementById("condition").textContent = weather.condition;
   document.getElementById("temperature").textContent = weather.temperature;
 }
+
 fetchWeather();
 ```
 
