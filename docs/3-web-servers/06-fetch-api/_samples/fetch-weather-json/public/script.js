@@ -5,4 +5,5 @@ async function fetchWeather() {
   document.getElementById("condition").textContent = weather.condition;
   document.getElementById("temperature").textContent = weather.temperature;
 }
+
 fetchWeather();

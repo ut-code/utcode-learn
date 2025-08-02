@@ -10,11 +10,11 @@ title: Fetch APIによるデータの取得
 
 しかし、この方法では、新しい情報を取得する度にブラウザのページ遷移が必要になるため、複雑なアプリケーションを構築するには不便です。**Fetch API**を用いると、ブラウザ上で動作するJavaScriptから、Webサーバーに対して直接HTTPリクエストを発行し、レスポンスを受け取ることができます。これにより、Webアプリケーションはページ遷移を伴わずにサーバーと通信することが可能になります。
 
-## Fetch API を使用する
+## Fetch APIを使用する
 
 Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、HTTPリクエストを発行し、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンス</Term>を文字列として取得できます。
 
-次の例では、ブラウザは`script.mjs`の中で`fetch("/weather")`が呼び出されたときに、Webサーバーに対して`/weather`というパスに対する<Term>リクエスト</Term>を発行します。Webサーバーは、`/weather`に対するリクエストを受け取ると、レスポンスとして「晴れ」という文字列を返します。ブラウザは、このレスポンスを受け取り、HTMLの中の`span`要素に「晴れ」という文字列を表示します。
+次の例では、ブラウザは`script.js`の中で`fetch("/weather")`が呼び出されたときに、Webサーバーに対して`/weather`というパスに対する<Term>リクエスト</Term>を発行します。Webサーバーは、`/weather`に対するリクエストを受け取ると、レスポンスとして「晴れ」という文字列を返します。ブラウザは、このレスポンスを受け取り、HTMLの中の`span`要素に「晴れ」という文字列を表示します。
 
 `fetch`関数や`Response#text`メソッドは、時間のかかる処理を行うため、<Term>**非同期処理**</Term>としてバックグラウンドで実行されます。戻り値に対して`await`演算子を適用することで、HTTPリクエストが完了するまで待機し、実際のレスポンスを取得できます。なお、`await`演算子を使用するためには、演算子が使用されている関数に`async`キーワードを付与する必要があります。
 
@@ -40,7 +40,7 @@ app.listen(3000);
 // await演算子を使用するため、asyncキーワードが必要
 async function fetchWeather() {
   // http://localhost:3000/weather にHTTPリクエストを送信
-  // fetch関数は非同期処理を行うため、awaitを演算子を適用して完了を待機する
+  // fetch関数は非同期処理を行うため、await演算子を適用して完了を待機する
   const response = await fetch("/weather");
   // レスポンスをテキストとして取得
   const weather = await response.text();
