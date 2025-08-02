@@ -10,65 +10,13 @@ title: Fetch APIによるデータの取得
 
 しかし、この方法では、新しい情報を取得する度にブラウザのページ遷移が必要になるため、複雑なアプリケーションを構築するには不便です。**Fetch API**を用いると、ブラウザ上で動作するJavaScriptから、Webサーバーに対して直接HTTPリクエストを発行し、レスポンスを受け取ることができます。これにより、Webアプリケーションはページ遷移を伴わずにサーバーと通信することが可能になります。
 
-## ブラウザで動作するJavaScriptでモジュールを用いる
-
-JavaScriptを用いて複雑なプログラムを記載する際、1ファイルに含まれるJavaScriptのコードが長くなると、全体を把握するのが難しくなります。[モジュールとnpm](/docs/web-servers/module/)の章では、**モジュール**を用いることで、Node.jsにおいて巨大なコードを分割することができることを学びました。ブラウザにおいても同様にモジュールの仕組みが使用できます。
-
-ブラウザでモジュールを使用するには、`script`タグの`type`属性に対し、`"module"`を指定します。これにより、読み込まれたJavaScriptがモジュールとして扱われ、`import`文や`export`文を使用できるようになります。ブラウザは、まだ取得されていないモジュールへの`import`文を見つけると、新しいリクエストを発行して、指定されたモジュールを読み込みます。
-
-次の例では、`index.html`から`main.mjs`をモジュールとして読み込んでいます。`main.mjs`の中では、別のモジュールである`math.mjs`からエクスポートされた、`add`関数と`multiply`関数をインポートして使用しています。
-
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
-import express from "express";
-
-const app = express();
-app.use(express.static("./public"));
-app.listen(3000);
-```
-
-```html title="public/index.html (抜粋)"
-<h1>計算結果</h1>
-<p id="result"></p>
-<script type="module" src="./main.mjs"></script>
-```
-
-```javascript title="public/main.mjs (ブラウザ上で動作するJavaScript)"
-import { add, multiply } from "./math.mjs";
-
-const sum = add(3, 4);
-const product = multiply(3, 4);
-
-const resultElement = document.getElementById("result");
-resultElement.textContent = `3 + 4 = ${sum}, 3 × 4 = ${product}`;
-```
-
-```javascript title="public/math.mjs (ブラウザ上で動作するJavaScript)"
-export function add(a, b) {
-  return a + b;
-}
-
-export function multiply(a, b) {
-  return a * b;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/browser-module" />
-
-この項以降、ブラウザで動作するJavaScriptのコードは、全てモジュールを用いて記述していきます。
-
-:::warning[HTMLファイルをブラウザで開く場合]
-
-第1章で使用したような、HTMLファイルを直接ブラウザで開く方法では、モジュールを使用できません。この例のように、Express等を用いてWebサーバーを構築し、Webサーバー経由でブラウザにHTMLを取得させる必要があります。
-
-:::
-
-## Fetch APIでテキストデータを取得する
+## Fetch API を使用する
 
 Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`関数にリクエストを発行したいURLを指定することで、HTTPリクエストを発行し、[`Response`](https://developer.mozilla.org/ja/docs/Web/API/Response)オブジェクトを取得できます。`Response`オブジェクトの[`text`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/text)を呼び出すことで、<Term>レスポンス</Term>を文字列として取得できます。
 
 次の例では、ブラウザは`script.mjs`の中で`fetch("/weather")`が呼び出されたときに、Webサーバーに対して`/weather`というパスに対する<Term>リクエスト</Term>を発行します。Webサーバーは、`/weather`に対するリクエストを受け取ると、レスポンスとして「晴れ」という文字列を返します。ブラウザは、このレスポンスを受け取り、HTMLの中の`span`要素に「晴れ」という文字列を表示します。
 
-`fetch`関数や `Response#text` メソッドは、時間のかかる処理を行うため、<Term>**非同期処理**</Term>としてバックグラウンドで実行されます。この例では、式`fetch("/weather")`の評価は直ちに完了しますが、まだHTTPリクエストは完了していません。`await fetch("/weather")`のように、**`await`演算子を適用**することで、HTTPリクエストが完了するまで待機し、実際のレスポンスを取得できます。
+`fetch`関数や`Response#text`メソッドは、時間のかかる処理を行うため、<Term>**非同期処理**</Term>としてバックグラウンドで実行されます。戻り値に対して`await`演算子を適用することで、HTTPリクエストが完了するまで待機し、実際のレスポンスを取得できます。なお、`await`演算子を使用するためには、演算子が使用されている関数に`async`キーワードを付与する必要があります。
 
 ```javascript title="main.mjs (サーバーとして動作するJavaScript)"
 import express from "express";
@@ -81,20 +29,22 @@ app.get("/weather", (request, response) => {
 app.listen(3000);
 ```
 
-```html title="public/index.html"
+```html title="public/index.html (抜粋)"
 <p>本日の天気は<span id="weather"></span>です。</p>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
-// http://localhost:3000/weather に HTTP リクエストを送信
-// fetch 関数は非同期処理を行うため、await を演算子を適用して完了を待機する
-const response = await fetch("/weather");
-
-// レスポンスをテキストとして取得
-const weather = await response.text();
-
-document.getElementById("weather").textContent = weather;
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+// await演算子を使用するため、asyncキーワードが必要
+async function fetchWeather() {
+  // http://localhost:3000/weather にHTTPリクエストを送信
+  // fetch関数は非同期処理を行うため、awaitを演算子を適用して完了を待機する
+  const response = await fetch("/weather");
+  // レスポンスをテキストとして取得
+  const weather = await response.text();
+  document.getElementById("weather").textContent = weather;
+}
+fetchWeather();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/fetch-weather" />
@@ -152,6 +102,60 @@ document.getElementById("open-status").textContent = openStatus;
 </Answer>
 
 ## Fetch APIでJSONデータを取得する
+
+前項では、Fetch APIを用いてサーバーから文字列を取得しました。しかし、実際のアプリケーションでは、単純な文字列ではなく、複雑な構造を持つデータを扱うことになります。ネットワークを経由してデータをやり取りする際には、データを事前に決めた形式に整形しておくことが重要です。コンマや改行区切りの文字列を用いることもできますが、より一般的な方法として、<Term>**JSON**</Term>という形式が広く使用されています。<Term>JSON</Term>は、データを文字列として表現するためのフォーマットで、JavaScriptのオブジェクト記法に基づいています。
+
+次の例では、Fetch APIを用いて、サーバーから現在の天気と気温を取得しています。前項のサンプルアプリケーションとは、次の点が異なっています。
+
+- サーバー側は、Expressが提供する[`Response#json`メソッド](https://expressjs.com/ja/api.html#res.json)を用いてレスポンスを送信しています。このメソッドは、引数として渡されたオブジェクトを<Term>JSON</Term>に変換してレスポンスとして返します。
+- クライアント側は、ブラウザが提供する[`Response#json`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/json)を用いてレスポンスを取得しています。このメソッドは、レスポンスの内容を<Term>JSON</Term>として解析し、JavaScriptのオブジェクトとして返します。
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+app.use(express.static("./public"));
+app.get("/weather", (request, response) => {
+  response.json({
+    condition: "晴れ",
+    temperature: 25,
+  });
+});
+app.listen(3000);
+```
+
+```html title="public/index.html (抜粋)"
+<p>本日の天気は<span id="condition"></span>です。</p>
+<p>現在の気温は<span id="temperature"></span>度です。</p>
+<script src="./script.js"></script>
+```
+
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+async function fetchWeather() {
+  const response = await fetch("/weather");
+  // レスポンスをJSONとして取得
+  const weather = await response.json();
+  document.getElementById("condition").textContent = weather.condition;
+  document.getElementById("temperature").textContent = weather.temperature;
+}
+fetchWeather();
+```
+
+:::tip[JSONの構文]
+
+JSONは、JavaScriptのオブジェクト記法よりも制限が厳しくなっています。例えば、次の式の右辺は、JavaScriptとしては正しいですが、JSONとしては誤りです。
+
+```js
+const person = { name: "田中", age: 18 };
+```
+
+JSONでは、次のように、全てのキーをダブルクォーテーションで囲って記述する必要があります。
+
+```json
+{ "name": "田中", "age": 18 }
+```
+
+:::
 
 ### 確認問題
 

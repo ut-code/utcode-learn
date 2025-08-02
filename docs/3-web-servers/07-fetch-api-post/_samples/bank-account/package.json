@@ -1,0 +1,6 @@
+{
+  "name": "bank-account",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
