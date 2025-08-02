@@ -90,14 +90,17 @@ app.listen(3000);
 
 ```html title="public/index.htmlの抜粋"
 <p>カフェは現在<span id="open-status"></span>です。</p>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
-const response = await fetch("/open-status");
-const openStatus = await response.text();
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+async function fetchOpenStatus() {
+  const response = await fetch("/open-status");
+  const openStatus = await response.text();
+  document.getElementById("open-status").textContent = openStatus;
+}
 
-document.getElementById("open-status").textContent = openStatus;
+fetchOpenStatus();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/fetch-open-status" />
@@ -203,21 +206,23 @@ app.listen(3000);
 ```html title="public/index.htmlの抜粋"
 <p>カフェは現在<span id="open-status"></span>です。</p>
 <p>本日の営業時間は<span id="open-time"></span>から<span id="close-time"></span>です。</p>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
-const response = await fetch("/open-status");
-const openStatus = await response.json();
-
-if (openStatus.isOpen) {
-  document.getElementById("open-status").textContent = "営業中";
-} else {
-  document.getElementById("open-status").textContent = "営業時間外";
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+async function fetchOpenStatus() {
+  const response = await fetch("/open-status");
+  const openStatus = await response.json();
+  if (openStatus.isOpen) {
+    document.getElementById("open-status").textContent = "営業中";
+  } else {
+    document.getElementById("open-status").textContent = "営業時間外";
+  }
+  document.getElementById("open-time").textContent = openStatus.openTime;
+  document.getElementById("close-time").textContent = openStatus.closeTime;
 }
 
-document.getElementById("open-time").textContent = openStatus.openTime;
-document.getElementById("close-time").textContent = openStatus.closeTime;
+fetchOpenStatus();
 ```
 
 <ViewSource url={import.meta.url} path="_samples/fetch-open-status-json" />

@@ -130,10 +130,10 @@ app.listen(3000);
 <button id="calculate-button" type="button">計算</button>
 <div>消費税額：<span id="tax"></span>円</div>
 <div>税込価格：<span id="total"></span>円</div>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
 document.getElementById("calculate-button").onclick = async () => {
   const subtotal = parseFloat(document.getElementById("subtotal-input").value);
 
@@ -187,7 +187,7 @@ app.post("/search", (request, response) => {
 <ul id="book-list"></ul>
 ```
 
-```javascript title="public/script.mjsの抜粋 (ブラウザ上で動作するJavaScript)"
+```javascript title="public/script.jsの抜粋 (ブラウザ上で動作するJavaScript)"
 document.getElementById("search-button").onclick = async () => {
   // 著者名を送信し、レスポンスを受け取る
 
@@ -247,10 +247,10 @@ app.listen(3000);
 <input id="author-input" placeholder="著者名" />
 <button id="search-button" type="button">検索</button>
 <ul id="book-list"></ul>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
 document.getElementById("search-button").onclick = async () => {
   const author = document.getElementById("author-input").value;
 
@@ -301,7 +301,7 @@ app.post("/send", (request, response) => {
 
 定期的に新着メッセージを確認するためには、次のように`setInterval`関数が利用できます。
 
-```javascript title="public/script.mjsの抜粋 (ブラウザ上で動作するJavaScript)"
+```javascript title="public/script.jsの抜粋 (ブラウザ上で動作するJavaScript)"
 setInterval(async () => {
   const response = await fetch("/messages");
   // レスポンスを処理する
@@ -340,10 +340,10 @@ app.listen(3000);
 <ul id="message-list"></ul>
 <input id="message-input" placeholder="メッセージ" />
 <button id="send-button" type="button">送信</button>
-<script type="module" src="./script.mjs"></script>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
 setInterval(async () => {
   const response = await fetch("/messages");
   const messages = await response.json();
