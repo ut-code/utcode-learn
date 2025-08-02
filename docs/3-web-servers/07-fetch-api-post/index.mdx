@@ -76,6 +76,10 @@ document.getElementById("withdraw-button").onclick = async () => {
 
 <ViewSource url={import.meta.url} path="_samples/bank-account" />
 
+ブラウザに搭載されている開発者ツールを用いると、ブラウザが発行したリクエストや、受け取ったレスポンスの内容を確認できます。次の画像は、Google ChromeのNetworkタブを開いた状態で、上記のサンプルアプリケーションを実行したときのものです。`/transaction`に対するPOSTリクエストが正しく発行されていることがわかります。
+
+![開発者ツールのNetworkタブ](./devtool-network.drawio.svg)
+
 ### 確認問題
 
 次のように、税抜価格を入力することで、消費税額と税込価格を計算するWebアプリケーションを作成してみましょう。
