@@ -1,5 +1,8 @@
 {
   "name": "exchange-rate",
+  "scripts": {
+    "start": "node main.mjs"
+  },
   "dependencies": {
     "express": "^5.1.0"
   }
