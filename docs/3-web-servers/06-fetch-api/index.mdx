@@ -2,6 +2,9 @@
 title: Fetch APIによるデータの取得
 ---
 
+import exchangeRatesAppVideo from "./exchange-rates-app.mp4";
+import currencyConverterAppVideo from "./currency-converter-app.mp4";
+
 前頁では、Webサーバーが動作する仕組みと、ブラウザとWebサーバーの間で行われる基本的な通信の手順について学びました。この流れの中では、ブラウザは、次のような場合に<Term>HTTPリクエスト</Term>をWebサーバーに対して送信するのでした。
 
 1. アドレスバーにURLを入力したとき
@@ -69,7 +72,7 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 
 サーバー側では、`/open-status`というパスに対するリクエストを受けたとき、`営業中`という文字列をレスポンスとして返すようにしてください。ブラウザ側では、`fetch`関数を用いて`/open-status`にリクエストを発行し、レスポンスを受け取って、`カフェは現在営業中です。`と表示するようにしてください。
 
-ここに画像を埋め込む
+![カフェの営業状況表示プログラム](./cafe-open-status-app.png)
 
 <Answer title="カフェ営業状況表示プログラム">
 
@@ -178,7 +181,7 @@ JSONでは、次のように、全てのキーをダブルクォーテーショ�
 }
 ```
 
-ここに画像を埋め込む
+![カフェの営業状況表示プログラム](./cafe-open-status-json-app.png)
 
 <Answer title="カフェ営業状況表示プログラム">
 
@@ -230,7 +233,7 @@ fetchOpenStatus();
 
 次のように、定期的にサーバーから現在の為替レートを取得して表示するWebアプリケーションを作成してください。ただし、為替レートは、サーバー側で乱数を用いて生成してください。
 
-ここに動画を埋め込む
+<video src={exchangeRatesAppVideo} controls muted />
 
 サーバー側では、`/exchange-rates`に対するリクエストを受けたとき、次のように作成されたオブジェクトをJSON形式のレスポンスとして返すようにしてください。
 
@@ -295,7 +298,7 @@ setInterval(async () => {
 
 次のように、円の金額を入力してボタンをクリックすると、その時の為替レートで換算して表示する、通貨換算アプリケーションを作成してください。
 
-ここに動画を埋め込む
+<video src={currencyConverterAppVideo} controls muted />
 
 サーバー側は、演習問題1と同様です。
 

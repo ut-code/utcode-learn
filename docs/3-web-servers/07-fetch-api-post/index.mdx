@@ -2,6 +2,10 @@
 title: Fetch APIによるデータの送信
 ---
 
+import coffeeSalesAppVideo from "./coffee-sales-app.mp4";
+import bookSearchAppVideo from "./book-search-app.mp4";
+import chatAppVideo from "./chat-app.mp4";
+
 Fetch APIを用いると、サーバーからデータを取得するだけでなく、サーバーにデータを送信することもできます。この節では、Fetch APIを用いてデータを送信する方法について学びます。実践的なアプリケーションの開発のためには、HTTPの仕組みについて、より深く理解する必要があります。まずは、HTTPリクエストとレスポンスの詳細な構造を確認しましょう。
 
 ## HTTPリクエストとレスポンスの構造
@@ -84,7 +88,7 @@ document.getElementById("withdraw-button").onclick = async () => {
 
 次のように、売れた杯数を入力することで、売上杯数と売上金額を計算するWebアプリケーションを作成してみましょう。
 
-ここに動画を埋め込む
+<video src={coffeeSalesAppVideo} controls muted />
 
 サーバー側では、`/sales`に対するPOSTリクエストを受けたとき、受け取った杯数とサーバーに保存されている一杯あたりの価格をもとに売上杯数と売上金額を更新し、これらをJSON形式で返すようにしてください。
 
@@ -157,7 +161,7 @@ document.getElementById("record-button").onclick = async () => {
 
 次のように、著者名を入力することで、その著者の本の一覧が表示される書籍検索アプリを作ってみましょう。
 
-ここに動画を埋め込む
+<video src={bookSearchAppVideo} controls muted />
 
 サーバー側では、`/search`に対するPOSTリクエストを受けたとき、受け取った著者名に一致する本のデータをJSON形式で返すようにしてください。
 
@@ -277,7 +281,7 @@ document.getElementById("search-button").onclick = async () => {
 
 次のようなチャットアプリを作ってみましょう。
 
-ここに動画を埋め込む
+<video src={chatAppVideo} controls muted />
 
 サーバー側では、これまでのメッセージを保存する配列`messages`を用意しましょう。`/messages`に対するGETリクエストを受けたとき、配列`messages`をJSON形式で返すようにしてください。また、`/send`に対するPOSTリクエストを受けたとき、`Array#push`メソッドで受け取ったメッセージを配列`messages`に追加するようにしてください。
 
