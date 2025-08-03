@@ -1,7 +1,6 @@
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 app.use(express.json());
 
@@ -12,7 +11,6 @@ const books = [
   { title: "舞姫", author: "森鴎外" },
   { title: "高瀬舟", author: "森鴎外" },
 ];
-
 app.post("/search", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.body.author,

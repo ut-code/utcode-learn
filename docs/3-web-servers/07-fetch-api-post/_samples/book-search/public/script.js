@@ -2,7 +2,7 @@ document.getElementById("search-button").onclick = async () => {
   const author = document.getElementById("author-input").value;
 
   const response = await fetch("/search", {
-    method: "post",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ author: author }),
   });

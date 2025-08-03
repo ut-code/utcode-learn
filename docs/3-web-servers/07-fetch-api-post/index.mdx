@@ -82,74 +82,74 @@ document.getElementById("withdraw-button").onclick = async () => {
 
 ### 確認問題
 
-次のように、税抜価格を入力することで、消費税額と税込価格を計算するWebアプリケーションを作成してみましょう。
+次のように、売れた杯数を入力することで、売上杯数と売上金額を計算するWebアプリケーションを作成してみましょう。
 
 ここに動画を埋め込む
 
-サーバー側では、`/calculate`に対するPOSTリクエストを受けたとき、受け取った税抜価格から消費税額と税込価格を計算し、これらをJSON形式で返すようにしてください。ブラウザ側では、税抜価格を入力し、計算ボタンを押すと、`/calculate`に対してPOSTリクエストで税抜価格を送信し、受け取ったレスポンスに基づいて消費税額と税込価格を表示するようにしてください。
-
-消費税額と税込価格は次のように計算できます。
+サーバー側では、`/sales`に対するPOSTリクエストを受けたとき、受け取った杯数とサーバーに保存されている一杯あたりの価格をもとに売上杯数と売上金額を更新し、これらをJSON形式で返すようにしてください。
 
 ```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
-const taxRate = 0.1; // 消費税率
-
-app.post("/calculate", (request, response) => {
-  const subtotal = /* リクエストボディから税抜価格を取得 */;
-  const tax = subtotal * taxRate; // 消費税額を計算
-  const total = tax + subtotal; // 税込価格を計算
-  // 消費税額と税込価格をJSON形式で返す
+const unitPrice = 500;
+const sales = {
+  quantity: 0,
+  total: 0,
+};
+app.post("/sales", (request, response) => {
+  // 売上杯数と売上金額を更新して、JSON形式で返す
 });
 ```
 
-<Answer title="消費税計算プログラム">
+ブラウザ側では、売れた杯数を入力し、記録ボタンを押すと、`/sales`に対してPOSTリクエストで売れた杯数を送信し、受け取ったレスポンスに基づいて売上杯数と売上金額を表示するようにしてください。
+
+<Answer title="コーヒー売上記録プログラム">
 
 ```javascript title="main.mjs (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 app.use(express.json());
 
-const taxRate = 0.1;
-
-app.post("/calculate", (request, response) => {
-  const tax = request.body.subtotal * taxRate;
-  const total = tax + request.body.subtotal;
-  response.json({
-    tax: tax,
-    total: total,
-  });
+const unitPrice = 500;
+const sales = {
+  quantity: 0,
+  total: 0,
+};
+app.post("/sales", (request, response) => {
+  sales.quantity += request.body.quantity;
+  sales.total += unitPrice * request.body.quantity;
+  response.json(sales);
 });
 
 app.listen(3000);
 ```
 
 ```html title="public/index.htmlの抜粋"
-<input id="subtotal-input" placeholder="税抜価格" />
-<button id="calculate-button" type="button">計算</button>
-<div>消費税額：<span id="tax"></span>円</div>
-<div>税込価格：<span id="total"></span>円</div>
+<input type="number" id="quantity-input" placeholder="売れた杯数" />
+<button id="record-button" type="button">記録</button>
+<div>売上杯数：<span id="sales-quantity"></span>杯</div>
+<div>売上金額：<span id="sales-total"></span>円</div>
 <script src="./script.js"></script>
 ```
 
 ```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
-document.getElementById("calculate-button").onclick = async () => {
-  const subtotal = parseFloat(document.getElementById("subtotal-input").value);
+document.getElementById("record-button").onclick = async () => {
+  const quantityInput = document.getElementById("quantity-input");
+  const quantity = parseInt(quantityInput.value);
 
-  const response = await fetch("/calculate", {
-    method: "post",
+  const response = await fetch("/sales", {
+    method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ subtotal: subtotal }),
+    body: JSON.stringify({ quantity: quantity }),
   });
-  const taxResult = await response.json();
+  const sales = await response.json();
 
-  document.getElementById("tax").textContent = taxResult.tax;
-  document.getElementById("total").textContent = taxResult.total;
+  document.getElementById("sales-quantity").textContent = sales.quantity;
+  document.getElementById("sales-total").textContent = sales.total;
 };
 ```
 
-<ViewSource url={import.meta.url} path="_samples/calculate-tax" />
+<ViewSource url={import.meta.url} path="_samples/coffee-sales" />
 
 </Answer>
 
@@ -170,7 +170,6 @@ const books = [
   { title: "舞姫", author: "森鴎外" },
   { title: "高瀬舟", author: "森鴎外" },
 ];
-
 app.post("/search", (request, response) => {
   const selectedBooks = books.filter(
     // 受け取った著者名に一致する本を選択
@@ -221,7 +220,6 @@ const evenNumbers = numbers.filter((number) => number % 2 === 0);
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 app.use(express.json());
 
@@ -232,7 +230,6 @@ const books = [
   { title: "舞姫", author: "森鴎外" },
   { title: "高瀬舟", author: "森鴎外" },
 ];
-
 app.post("/search", (request, response) => {
   const selectedBooks = books.filter(
     (book) => book.author === request.body.author,
@@ -255,7 +252,7 @@ document.getElementById("search-button").onclick = async () => {
   const author = document.getElementById("author-input").value;
 
   const response = await fetch("/search", {
-    method: "post",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ author: author }),
   });
@@ -299,8 +296,6 @@ app.post("/send", (request, response) => {
 
 ブラウザ側では、新着メッセージを確認するために、定期的に`/messages`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/send`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
 
-定期的に新着メッセージを確認するためには、次のように`setInterval`関数が利用できます。
-
 ```javascript title="public/script.jsの抜粋 (ブラウザ上で動作するJavaScript)"
 setInterval(async () => {
   const response = await fetch("/messages");
@@ -318,12 +313,10 @@ document.getElementById("send-button").onclick = async () => {
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 app.use(express.json());
 
 const messages = [];
-
 app.get("/messages", (request, response) => {
   response.json(messages);
 });
@@ -361,7 +354,7 @@ setInterval(async () => {
 document.getElementById("send-button").onclick = async () => {
   const message = document.getElementById("message-input").value;
   await fetch("/send", {
-    method: "post",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),
   });

@@ -77,7 +77,6 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 
 app.get("/open-status", (request, response) => {
@@ -187,7 +186,6 @@ JSONでは、次のように、全てのキーをダブルクォーテーショ�
 import express from "express";
 
 const app = express();
-
 app.use(express.static("./public"));
 
 app.get("/open-status", (request, response) => {
@@ -230,11 +228,29 @@ fetchOpenStatus();
 
 ## 演習問題1
 
-Fetch APIを用いて、ページを開いたとき、サーバーから現在の為替レート（円/ドル）を取得して表示するWebアプリケーションを作成してください。ただし、為替レートは、サーバー側で乱数を用いて生成してください。
+次のように、定期的にサーバーから現在の為替レートを取得して表示するWebアプリケーションを作成してください。ただし、為替レートは、サーバー側で乱数を用いて生成してください。
 
-### ヒント
+ここに動画を埋め込む
 
-Expressを用いて、`/exchange-rate`というパスに対する<Term>リクエスト</Term>を受けたとき、`140 + Math.random() * 20`の値をレスポンスとして返すようにしましょう。ブラウザ側では、`fetch`関数を用いて`/exchange-rate`にリクエストを発行し、レスポンスを受け取って表示しましょう。
+サーバー側では、`/exchange-rates`に対するリクエストを受けたとき、次のように作成されたオブジェクトをJSON形式のレスポンスとして返すようにしてください。
+
+```javascript
+const rates = {
+  usdJpy: 140 + Math.random() * 20,
+  eurJpy: 150 + Math.random() * 20,
+};
+```
+
+ブラウザ側では、`/exchange-rates`に定期的にリクエストを発行し、レスポンスを受け取って表示しましょう。
+
+定期的にリクエストを発行するには、次のように`setInterval`関数が利用できます。
+
+```javascript
+setInterval(async () => {
+  const response = await fetch("/exchange-rates");
+  // レスポンスを処理する
+}, 1000);
+```
 
 <Answer title="為替レート取得プログラム">
 
@@ -243,53 +259,63 @@ import express from "express";
 
 const app = express();
 app.use(express.static("./public"));
-app.get("/exchange-rate", (request, response) => {
-  const rate = 140 + Math.random() * 20;
-  response.send(rate);
+
+app.get("/exchange-rates", (request, response) => {
+  const rates = {
+    usdJpy: 140 + Math.random() * 20,
+    eurJpy: 150 + Math.random() * 20,
+  };
+  response.json(rates);
 });
+
 app.listen(3000);
 ```
 
 ```html title="public/index.html (抜粋)"
-<p><span id="rate"></span>円/ドル</p>
-<script type="module" src="./script.mjs"></script>
+<div><span id="usd-jpy"></span>円/ドル</div>
+<div><span id="eur-jpy"></span>円/ユーロ</div>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs (ブラウザ上で動作するJavaScript)"
-const response = await fetch("/exchange-rate");
-const rate = await response.text();
-document.getElementById("rate").textContent = rate;
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/exchange-rates");
+  const rates = await response.json();
+
+  document.getElementById("usd-jpy").textContent = rates.usdJpy;
+  document.getElementById("eur-jpy").textContent = rates.eurJpy;
+}, 1000);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/exchange-rate" />
+<ViewSource url={import.meta.url} path="_samples/exchange-rates" />
 
 </Answer>
 
 ## 演習問題2
 
-円の金額を入力してボタンをクリックすると、現在の為替レートでドルに換算して表示する、通貨換算アプリケーションを作成してください。
+次のように、円の金額を入力してボタンをクリックすると、その時の為替レートで換算して表示する、通貨換算アプリケーションを作成してください。
 
-### ヒント
+ここに動画を埋め込む
 
-サーバーの実装は演習問題1と同じです。ブラウザ側では、ボタンとテキストボックスを用意します。ボタンのクリック<Term>イベントハンドラ</Term>の中で`fetch`関数を用いて為替レートを取得し、入力された金額を為替レートで割ってドルに換算しましょう。`Response#text`メソッドの戻り値は文字列なので、[`parseFloat`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)関数を用いて数値に変換してから計算を行う必要があります。
+サーバー側は、演習問題1と同様です。
 
-:::warning[非同期関数と`async`キーワード]
+ブラウザ側では、円の金額を入力し、計算ボタンを押すと、演習問題1と同様に為替レートを取得し、その為替レートをもとにドルとユーロに換算して表示します。
 
-`await`演算子を関数内で使用する場合は、その関数に`async`キーワードを付与する必要があります。
+`input`要素の値を取得するためには、次のようにします。また、[`parseFloat`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)関数を用いて文字列を数値に変換してから計算を行う必要があります。
 
-```javascript
-// ❌ エラーになる例
-document.getElementById("convert-button").onclick = () => {
-  const response = await fetch("/exchange-rate"); // SyntaxError: await は async 関数内でのみ使用可能
-};
-
-// ✅ 正しい例
-document.getElementById("convert-button").onclick = async () => {
-  const response = await fetch("/exchange-rate"); // OK
-};
+```html title="public/index.htmlの抜粋"
+<input type="number" id="jpy-input" placeholder="円" />
+<button id="convert-button" type="button">計算</button>
 ```
 
-:::
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+document.getElementById("convert-button").onclick = async () => {
+  const jpyInput = document.getElementById("jpy-input");
+  const jpy = parseFloat(jpyInput.value);
+
+  // 為替レートを取得し、ドルとユーロに換算
+};
+```
 
 <Answer title="通貨換算アプリケーション">
 
@@ -298,38 +324,46 @@ import express from "express";
 
 const app = express();
 app.use(express.static("./public"));
-app.get("/exchange-rate", (request, response) => {
-  const rate = Math.random() * 20 + 140;
-  response.send(rate);
+
+app.get("/exchange-rates", (request, response) => {
+  const rates = {
+    usdJpy: 140 + Math.random() * 20,
+    eurJpy: 150 + Math.random() * 20,
+  };
+  response.json(rates);
 });
+
 app.listen(3000);
 ```
 
 ```html title="public/index.html (抜粋)"
-<p>
-  <input type="number" id="yen-input" placeholder="円" />
-  <button id="convert-button">計算</button>
-</p>
-<p><span id="result"></span>ドル</p>
-<script type="module" src="./script.mjs"></script>
+<input type="number" id="jpy-input" placeholder="円" />
+<button id="convert-button" type="button">計算</button>
+<div><span id="usd-result"></span>ドル</div>
+<div><span id="eur-result"></span>ユーロ</div>
+<script src="./script.js"></script>
 ```
 
-```javascript title="public/script.mjs"
-// await 演算子を使用するため、async キーワードが必要
+```javascript title="public/script.js"
+// await演算子を使用するため、asyncキーワードが必要
 document.getElementById("convert-button").onclick = async () => {
-  // 為替レートを取得
-  const response = await fetch("/exchange-rate");
-  const rate = parseFloat(await response.text());
-
   // 入力された円の金額を取得
-  const yenInput = document.getElementById("yen-input");
-  const yen = parseFloat(yenInput.value);
+  const jpyInput = document.getElementById("jpy-input");
+  const jpy = parseFloat(jpyInput.value);
+
+  // 為替レートを取得
+  const response = await fetch("/exchange-rates");
+  const rates = await response.json();
 
   // ドルに換算
-  const dollar = yen / rate;
+  const usd = jpy / rates.usdJpy;
+
+  // ユーロに換算
+  const eur = jpy / rates.eurJpy;
 
   // 結果を表示
-  document.getElementById("result").textContent = dollar;
+  document.getElementById("usd-result").textContent = usd;
+  document.getElementById("eur-result").textContent = eur;
 };
 ```
 
