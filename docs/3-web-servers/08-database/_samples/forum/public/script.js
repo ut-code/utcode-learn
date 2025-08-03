@@ -13,9 +13,10 @@ setInterval(async () => {
 }, 1000);
 
 document.getElementById("send-button").onclick = async () => {
-  const message = document.getElementById("message-input").value;
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value;
   await fetch("/send", {
-    method: "post",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),
   });

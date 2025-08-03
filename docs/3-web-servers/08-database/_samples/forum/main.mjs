@@ -3,7 +3,6 @@ import { PrismaClient } from "./generated/prisma/index.js";
 
 const app = express();
 const client = new PrismaClient();
-
 app.use(express.json());
 app.use(express.static("./public"));
 
