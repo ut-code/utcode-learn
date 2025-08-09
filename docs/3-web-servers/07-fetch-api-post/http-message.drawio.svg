@@ -1,0 +1,268 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" style="background: transparent; background-color: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="482px" height="401px" viewBox="-0.5 -0.5 482 401" content="&lt;mxfile&gt;&lt;diagram id=&quot;f273fEJ1MLrhCf9uJ1c-&quot; name=&quot;Page-1&quot;&gt;3Zldj6MgFIZ/DbcbkWrxUh1n5maTSWaSvTZKW7K2GEun7f76BYV+KE7brNLu3DT4AtXznCOcgwDFy91LlZaLnywnBXCdfAfQE3BdPPHErxT2jeBPgkaYVzRvJHgU3ukfokRHqRuak/XZQM5YwWl5LmZstSIZP9PSqmLb82EzVpzftUznpCO8Z2nRVX/RnC+UWZ5z1F8JnS/0naGjepapHqyE9SLN2fZEQglAccUYb1rLXUwKyU5zaeY99/QeHqwiK37NBLeZ8JkWG2Xb68fHm1BAggBGIAzrhgvCZ93AqhEFagzGyha+14A42YnbR2lB5yuhZOJpSCWET1JxKjiGqmNJ81zOiSq2WeVEPpQjrmZsxd/Vv0F93UQB9MV110pluPx/sjuRlNUvhC0Jr/ZiiOqdKAfszy+3R3e62mmLE1fqcamKoPnhj4+QRUNxNjOfdJiDxJMUI182ogSEECR+jdaTSuiACHYYt5DRoohZwaq6E81wRrJM6Gtesd9E9+Rklm4KbvAEZ+UoYPGVYP0BwHoGsHWEBliHKtIN5zaeeUrw7BF4wmsj9bDm/AtRv5dorEFO9bqAbiTqEZxPHoDo1e8+dAcgOu0jKt/5Zl196gRrcAHtAFC8VpjBLpTAwGQIJLg3yOBxqxkdAGy/aBYJBMYdQdwNP9VbQyAb1kNg2gXgjwRAs27viQ4IJxZcDy9bfnj5BzcdGk2/t/MDi87vJqH3dL7B8vGcjx7R+a5h6RvN+T3Z8H2cb7J8POf35qsqqUIgivUO+Gw/CkyrIDawwEOw6OZFrUI0bpedgc6TItSfJjx+IYrcc+w2K1FoSr2+TynaRmuzFoWmnO6/L0bbRO1Wo/rm36scbTO1W4+6pvSzdb7nG3Yje4UZQpcLM+O+NAiex0jQOgws1mZ955V2MjQUXLZ8tAzNeKL4AN63WJwZjwDv532bxZnxrO7+3rdZnRnP5u7mfavVmfFQ7o7VWScMbJZnqPsqvCQft30jlA0Iwkg3BDOxtiBY8/kijWuG41jPC7XSjcD1Ii1lU6RpBdvIrK0kFRXWyppPq29HKcppRTJOmUzotmQtZ6yb8s6Vj1WyNVW9zo+Jd6K4teSN8kECGTxrTACnt3tWXB4/Ltd9J1/oUfIX&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <g>
+            <rect x="0" y="0" width="200" height="40" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="16px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="26.5">
+                    HTTP リクエスト
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="0" y="40" width="200" height="60" fill="#f8cecc" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="57.5">
+                    制御情報
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="0" y="100" width="200" height="100" fill="#dae8fc" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="117.5">
+                    ヘッダ
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="0" y="200" width="200" height="120" fill="#d5e8d4" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="217.5">
+                    ボディ
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="10" y="70" width="90" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="54.5" y="84.5">
+                    メソッド
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="100" y="70" width="90" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="144.5" y="84.5">
+                    パス
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="10" y="130" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="39.5" y="144.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="70" y="130" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="129.5" y="144.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="10" y="150" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="39.5" y="164.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="70" y="150" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="129.5" y="164.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="10" y="170" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="39.5" y="184.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="70" y="170" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="129.5" y="184.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="10" y="230" width="180" height="80" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="274.5">
+                    データ
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="280" y="0" width="200" height="40" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="16px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="26.5">
+                    HTTP レスポンス
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="280" y="40" width="200" height="60" fill="#f8cecc" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="57.5">
+                    制御情報
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="280" y="100" width="200" height="100" fill="#dae8fc" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="117.5">
+                    ヘッダ
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="280" y="200" width="200" height="120" fill="#d5e8d4" stroke="#000000" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="217.5">
+                    ボディ
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="290" y="70" width="180" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="84.5">
+                    ステータス
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="290" y="130" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="319.5" y="144.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="350" y="130" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="409.5" y="144.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="290" y="150" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="319.5" y="164.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="350" y="150" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="409.5" y="164.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="290" y="170" width="60" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="319.5" y="184.5">
+                    名前
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="350" y="170" width="120" height="20" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="409.5" y="184.5">
+                    値
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="290" y="230" width="180" height="80" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="379.5" y="274.5">
+                    データ
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 0 330 L 200 330 L 200 380 L 110 380 L 100 400 L 90 380 L 0 380 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" transform="rotate(180,100,365)" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="99.5" y="372.5">
+                    GETリクエストには
+                </text>
+                <text x="99.5" y="386.5">
+                    ボディがない
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

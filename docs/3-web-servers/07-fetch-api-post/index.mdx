@@ -1,0 +1,371 @@
+---
+title: Fetch APIによるデータの送信
+---
+
+import coffeeSalesAppVideo from "./coffee-sales-app.mp4";
+import bookSearchAppVideo from "./book-search-app.mp4";
+import chatAppVideo from "./chat-app.mp4";
+
+Fetch APIを用いると、サーバーからデータを取得するだけでなく、サーバーにデータを送信することもできます。この節では、Fetch APIを用いてデータを送信する方法について学びます。実践的なアプリケーションの開発のためには、HTTPの仕組みについて、より深く理解する必要があります。まずは、HTTPリクエストとレスポンスの詳細な構造を確認しましょう。
+
+## HTTPリクエストとレスポンスの構造
+
+[Expressによるサーバー構築](../server/)の節では、<Term>クライアント</Term>から<Term>サーバー</Term>への要求を<Term>リクエスト</Term>と呼び、その応答を<Term>レスポンス</Term>と呼ぶことを学びました。HTTPのリクエストやレスポンスは、主に3つの要素から構成されます。
+
+- **制御情報**: リクエストやレスポンスの基本的な情報を含む部分。リクエストには、<Term type="httpMethod">**メソッド**</Term>と呼ばれるHTTPリクエストの種類を指定するための情報や、リクエストの対象となるパスなどが含まれます。レスポンスには、HTTPステータスコードと呼ばれる、リクエストの結果を示すコードが含まれます。
+- **ヘッダー**: リクエストやレスポンスに関する追加情報を含む部分。名前と値のペアで構成され、リクエストやレスポンスの内容をより詳細に説明します。
+- **ボディ**: リクエストやレスポンスの実際のデータ。リクエストのボディには、サーバーに送信するデータが含まれ、レスポンスのボディには、サーバーからクライアントに返されるデータが含まれます。
+
+HTTPリクエストは、メソッドによってそのリクエストの目的を示します。代表的なHTTPリクエストメソッドは、次の2つです。
+
+- **GET**: サーバーからデータを取得するためのリクエスト。Webページを表示するためのリクエストなどに使用されます。
+- **POST**: サーバーにデータを送信するためのリクエスト。フォームの送信などに使用されます。
+
+これまで扱ってきた、ブラウザのアドレスバーにURLを入力したときに発行されるリクエストや、Fetch APIにURLのみを指定して発行されるリクエストは、全て**GETリクエスト**です。データを送信するためには、代わりに**POSTリクエスト**が使用できます。POSTリクエストでは、GETリクエストには存在しない**リクエストボディ**が存在し、ここにサーバーに送信したいデータを含めることができます。
+
+![HTTPメッセージの構造](./http-message.drawio.svg)
+
+## Fetch APIでデータを送信する
+
+Fetch APIを用いてPOSTリクエストを送信するためには、`fetch`関数の第2引数に、リクエストメソッド、リクエストヘッダー、リクエストボディを指定します。
+
+次の例では、Fetch APIを用いて、銀行口座から預金を引き出すアプリケーションを作成します。利用者が「一万円を出金」ボタンを押すと、Fetch APIを用いてPOSTリクエストがサーバーに送信され、サーバーは銀行口座の残高を更新してレスポンスを返します。ブラウザは、このレスポンスを受け取り、残高を更新して表示します。
+
+- `main.mjs`
+  - 6行目では、[`express.json`](https://expressjs.com/ja/api.html#express.json)を用いて、リクエストボディをJSONとして解釈できるようにしています。これにより、11行目のように、リクエストの処理中に`request.body`を通してJSON形式のリクエストボディにアクセスできるようになります。
+  - 9行目では、[`app.post`](https://expressjs.com/ja/api.html#app.post.method)メソッドを、`/transaction`というパスに対するリクエストを受け付けるために使用しています。`app.get`メソッドがGETリクエストを受け付けるのに対し、`app.post`メソッドはPOSTリクエストを受け付けます。
+- `public/script.js`
+  - 2行目の`fetch`関数の第2引数のオブジェクトには、`method`プロパティにリクエストメソッドを、`headers`プロパティにリクエストヘッダーを、`body`プロパティにリクエストボディを指定しています。
+  - 6行目で指定されている[`content-type`リクエストヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Content-Type)は、リクエストボディの形式を示すために使用されます。ここでは、[`application/json`](https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/MIME_types#applicationjson)を指定して、リクエストボディがJSON形式であることを示しています。
+  - 8行目の[`JSON.stringify`関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)は、JavaScriptのオブジェクトをJSON形式の文字列に変換するために使用されます。これにより、オブジェクトをリクエストボディとして送信できるようになります。
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)" showLineNumbers
+import express from "express";
+
+const app = express();
+app.use(express.static("./public"));
+// リクエストボディをJSONとして解釈する
+app.use(express.json());
+
+const account = { balance: 100000 };
+app.post("/transaction", (request, response) => {
+  // リクエストボディはrequest.bodyに格納される
+  account.balance += request.body.amount;
+  response.json(account);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.html (抜粋)" showLineNumbers
+<p>残高: <span id="balance"></span>円</p>
+<button id="withdraw-button" type="button">一万円を出金</button>
+<script src="./script.js"></script>
+```
+
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)" showLineNumbers
+document.getElementById("withdraw-button").onclick = async () => {
+  const response = await fetch("/transaction", {
+    // POSTリクエストを送信
+    method: "POST",
+    // リクエストヘッダーにContent-Typeを指定
+    headers: { "Content-Type": "application/json" },
+    // リクエストボディにJSON形式のデータを指定
+    body: JSON.stringify({ amount: -10000 }),
+  });
+  const account = await response.json();
+  document.getElementById("balance").textContent = account.balance;
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/bank-account" />
+
+ブラウザに搭載されている開発者ツールを用いると、ブラウザが発行したリクエストや、受け取ったレスポンスの内容を確認できます。次の画像は、Google ChromeのNetworkタブを開いた状態で、上記のサンプルアプリケーションを実行したときのものです。`/transaction`に対するPOSTリクエストが正しく発行されていることがわかります。
+
+![開発者ツールのNetworkタブ](./devtool-network.drawio.svg)
+
+### 確認問題
+
+次のように、売れた杯数を入力することで、売上杯数と売上金額を計算するWebアプリケーションを作成してみましょう。
+
+<video src={coffeeSalesAppVideo} controls muted />
+
+サーバー側では、`/sales`に対するPOSTリクエストを受けたとき、受け取った杯数とサーバーに保存されている一杯あたりの価格をもとに売上杯数と売上金額を更新し、これらをJSON形式で返すようにしてください。
+
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const unitPrice = 500;
+const sales = {
+  quantity: 0,
+  total: 0,
+};
+app.post("/sales", (request, response) => {
+  // 売上杯数と売上金額を更新して、JSON形式で返す
+});
+```
+
+ブラウザ側では、売れた杯数を入力し、記録ボタンを押すと、`/sales`に対してPOSTリクエストで売れた杯数を送信し、受け取ったレスポンスに基づいて売上杯数と売上金額を表示するようにしてください。
+
+<Answer title="コーヒー売上記録プログラム">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+app.use(express.static("./public"));
+app.use(express.json());
+
+const unitPrice = 500;
+const sales = {
+  quantity: 0,
+  total: 0,
+};
+app.post("/sales", (request, response) => {
+  sales.quantity += request.body.quantity;
+  sales.total += unitPrice * request.body.quantity;
+  response.json(sales);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<input type="number" id="quantity-input" placeholder="売れた杯数" />
+<button id="record-button" type="button">記録</button>
+<div>売上杯数：<span id="sales-quantity"></span>杯</div>
+<div>売上金額：<span id="sales-total"></span>円</div>
+<script src="./script.js"></script>
+```
+
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+document.getElementById("record-button").onclick = async () => {
+  const quantityInput = document.getElementById("quantity-input");
+  const quantity = parseInt(quantityInput.value);
+
+  const response = await fetch("/sales", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ quantity: quantity }),
+  });
+  const sales = await response.json();
+
+  document.getElementById("sales-quantity").textContent = sales.quantity;
+  document.getElementById("sales-total").textContent = sales.total;
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/coffee-sales" />
+
+</Answer>
+
+## 演習問題1
+
+次のように、著者名を入力することで、その著者の本の一覧が表示される書籍検索アプリを作ってみましょう。
+
+<video src={bookSearchAppVideo} controls muted />
+
+サーバー側では、`/search`に対するPOSTリクエストを受けたとき、受け取った著者名に一致する本のデータをJSON形式で返すようにしてください。
+
+{/* prettier-ignore */}
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊っちゃん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+app.post("/search", (request, response) => {
+  const selectedBooks = books.filter(
+    // 受け取った著者名に一致する本を選択
+  );
+  // 本のデータをJSON形式で返す
+});
+```
+
+ブラウザ側では、著者名を入力し、検索ボタンを押すと、`/search`に対してPOSTリクエストで著者名を送信し、受け取ったレスポンスに基づいて本の一覧を表示するようにしてください。
+
+本の一覧を表示するためには、`ul`要素を用意し、次のように`li`要素を追加していくことができます。
+
+```html title="public/index.htmlの抜粋"
+<ul id="book-list"></ul>
+```
+
+```javascript title="public/script.jsの抜粋 (ブラウザ上で動作するJavaScript)"
+document.getElementById("search-button").onclick = async () => {
+  // 著者名を送信し、レスポンスを受け取る
+
+  const bookList = document.getElementById("book-list");
+  bookList.innerHTML = ""; // 空文字列とすることで、すでに存在しているul要素の子要素をすべて削除
+
+  for (const book of books) {
+    const li = document.createElement("li");
+    li.textContent = book.title;
+    bookList.appendChild(li);
+  }
+};
+```
+
+:::tip[`Array#filter`メソッド]
+
+[`Array#filter`メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)は、関数オブジェクトを引数としてとり、その関数が`true`となる要素だけからなる新しい配列を返すメソッドです。
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+/// [2, 4, 6, 8]
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+```
+
+:::
+
+<Answer title="書籍検索アプリ">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+app.use(express.static("./public"));
+app.use(express.json());
+
+const books = [
+  { title: "吾輩は猫である", author: "夏目漱石" },
+  { title: "こころ", author: "夏目漱石" },
+  { title: "坊っちゃん", author: "夏目漱石" },
+  { title: "舞姫", author: "森鴎外" },
+  { title: "高瀬舟", author: "森鴎外" },
+];
+app.post("/search", (request, response) => {
+  const selectedBooks = books.filter(
+    (book) => book.author === request.body.author,
+  );
+  response.json(selectedBooks);
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<input id="author-input" placeholder="著者名" />
+<button id="search-button" type="button">検索</button>
+<ul id="book-list"></ul>
+<script src="./script.js"></script>
+```
+
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+document.getElementById("search-button").onclick = async () => {
+  const author = document.getElementById("author-input").value;
+
+  const response = await fetch("/search", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ author: author }),
+  });
+  const books = await response.json();
+
+  const bookList = document.getElementById("book-list");
+  bookList.innerHTML = "";
+
+  for (const book of books) {
+    const li = document.createElement("li");
+    li.textContent = book.title;
+    bookList.appendChild(li);
+  }
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/book-search" />
+
+</Answer>
+
+## 演習問題2
+
+次のようなチャットアプリを作ってみましょう。
+
+<video src={chatAppVideo} controls muted />
+
+サーバー側では、これまでのメッセージを保存する配列`messages`を用意しましょう。`/messages`に対するGETリクエストを受けたとき、配列`messages`をJSON形式で返すようにしてください。また、`/send`に対するPOSTリクエストを受けたとき、`Array#push`メソッドで受け取ったメッセージを配列`messages`に追加するようにしてください。
+
+```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+const messages = [];
+
+app.get("/messages", (request, response) => {
+  // messagesをJSON形式で返す
+});
+
+app.post("/send", (request, response) => {
+  // 受け取ったメッセージをmessagesに追加
+  response.send();
+});
+```
+
+ブラウザ側では、新着メッセージを確認するために、定期的に`/messages`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/send`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
+
+```javascript title="public/script.jsの抜粋 (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/messages");
+  // レスポンスを処理する
+}, 1000);
+
+document.getElementById("send-button").onclick = async () => {
+  // メッセージを送信する
+};
+```
+
+<Answer title="チャットアプリ">
+
+```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+import express from "express";
+
+const app = express();
+app.use(express.static("./public"));
+app.use(express.json());
+
+const messages = [];
+app.get("/messages", (request, response) => {
+  response.json(messages);
+});
+
+app.post("/send", (request, response) => {
+  messages.push(request.body.message);
+  response.send();
+});
+
+app.listen(3000);
+```
+
+```html title="public/index.htmlの抜粋"
+<ul id="message-list"></ul>
+<input id="message-input" placeholder="メッセージ" />
+<button id="send-button" type="button">送信</button>
+<script src="./script.js"></script>
+```
+
+```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
+setInterval(async () => {
+  const response = await fetch("/messages");
+  const messages = await response.json();
+
+  const messageList = document.getElementById("message-list");
+  messageList.innerHTML = "";
+
+  for (const message of messages) {
+    const li = document.createElement("li");
+    li.textContent = message;
+    messageList.appendChild(li);
+  }
+}, 1000);
+
+document.getElementById("send-button").onclick = async () => {
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value;
+  await fetch("/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: message }),
+  });
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/chat-app" />
+
+</Answer>
