@@ -1,7 +1,0 @@
-{
-  "name": "emoji-form",
-  "dependencies": {
-    "express": "^5.1.0",
-    "node-emoji": "^2.2.0"
-  }
-}

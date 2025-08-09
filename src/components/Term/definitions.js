@@ -26,13 +26,11 @@ export default {
     "/docs/web-servers/node-js/": "はじめてのNode.js",
     "/docs/web-servers/module/": "モジュールとnpm",
     "/docs/web-servers/server/": "Expressによるサーバー構築",
-    "/docs/web-servers/fetch-api/": "Fetch API",
-    "/docs/web-servers/form/": "フォーム",
-    "/docs/web-servers/get-post/": "GETリクエストとPOSTリクエスト",
+    "/docs/web-servers/fetch-api/": "Fetch APIによるデータの取得",
+    "/docs/web-servers/fetch-api-post/": "Fetch APIによるデータの送信",
     "/docs/web-servers/database/": "データベース",
-    "/docs/web-servers/cookie/": "Cookieと認証",
     "/docs/web-servers/deploy-on-render/": "Renderへのデプロイ",
-    "/docs/advanced/fetch-api/": "Fetch API",
+    "/docs/advanced/cookie/": "Cookieと認証",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
     "/docs/advanced/react/": "React",
@@ -392,13 +390,13 @@ export default {
       name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
       definition:
         "HTTPにおいてリクエストやレスポンスは主にヘッダと呼ばれる領域とボディと呼ばれる領域に分かれている。リクエストやレスポンスの本体はボディの部分に格納されており、ヘッダは付加的な情報を与えるために用いられる。なお、GETリクエストではリクエストボディを使用できない。",
-      referencePage: "/docs/web-servers/get-post/",
+      referencePage: "/docs/web-servers/fetch-api-post/",
     },
     httpMethod: {
       name: "HTTPメソッド",
       definition:
         "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストではリクエストボディを利用できないが、POSTリクエストでは利用できるなどの違いがある。",
-      referencePage: "/docs/web-servers/get-post/",
+      referencePage: "/docs/web-servers/fetch-api-post/",
     },
     npxCommand: {
       name: "npxコマンド",
