@@ -45,7 +45,6 @@ async function fetchWeather() {
   // http://localhost:3000/weather にHTTPリクエストを送信
   // fetch関数は非同期処理を行うため、await演算子を適用して完了を待機する
   const response = await fetch("/weather");
-  // レスポンスをテキストとして取得
   const weather = await response.text();
   document.getElementById("weather").textContent = weather;
 }
@@ -115,7 +114,7 @@ fetchOpenStatus();
 次の例では、Fetch APIを用いて、サーバーから現在の天気と気温を取得しています。前項のサンプルアプリケーションとは、次の点が異なっています。
 
 - サーバー側は、Expressが提供する[`Response#json`メソッド](https://expressjs.com/ja/api.html#res.json)を用いてレスポンスを送信しています。このメソッドは、引数として渡されたオブジェクトを<Term>JSON</Term>に変換してレスポンスとして返します。
-- クライアント側は、ブラウザが提供する[`Response#json`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/json)を用いてレスポンスを取得しています。このメソッドは、レスポンスの内容を<Term>JSON</Term>として解析し、JavaScriptのオブジェクトとして返します。
+- クライアント側は、ブラウザが提供する[`Response#json`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/json)を用いて、<Term>JSON</Term>形式のレスポンスをJavaScriptオブジェクトとして取得します。
 
 ```javascript title="main.mjs (サーバーとして動作するJavaScript)"
 import express from "express";
@@ -142,7 +141,6 @@ app.listen(3000);
 ```javascript title="public/script.js (ブラウザ上で動作するJavaScript)"
 async function fetchWeather() {
   const response = await fetch("/weather");
-  // レスポンスをJSONとして取得
   const weather = await response.json();
   document.getElementById("condition").textContent = weather.condition;
   document.getElementById("temperature").textContent = weather.temperature;
