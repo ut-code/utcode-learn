@@ -51,6 +51,26 @@ type Term = {
 
 export const terms: Term[] = [
   {
+    id: "google-chrome",
+    name: "Google Chrome",
+    aliases: [],
+    definition:
+      "Google社が開発するウェブブラウザ。高速性と安全性を特徴としており、多くのユーザーに利用されている。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考：Google公式「Chrome」 https://www.google.com/intl/ja_jp/chrome/
+  },
+  {
+    id: "visual-studio-code",
+    name: "Visual Studio Code",
+    aliases: ["VS Code"],
+    definition:
+      "Microsoft社が開発するソースコードエディタ。豊富な機能を特徴としており、多くの開発者に利用されている。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - Visual Studio Code公式 https://code.visualstudio.com/
+    // - Wikipedia「Visual Studio Code」 https://ja.wikipedia.org/wiki/Visual_Studio_Code
+  },
+  {
     id: "file-extension",
     name: "拡張子",
     aliases: [],
