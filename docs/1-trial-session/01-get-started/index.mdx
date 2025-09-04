@@ -2,81 +2,83 @@
 title: はじめてのWeb開発
 ---
 
-import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installChromeOnWindowsVideo from "./install-chrome-on-windows.mp4";
-import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
+import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installVscodeOnWindowsVideo from "./install-vscode-on-windows.mp4";
-import createFolderOnMacVideo from "./create-folder-on-mac.mp4";
+import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
 import createFolderOnWindowsVideo from "./create-folder-on-windows.mp4";
-import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
+import createFolderOnMacVideo from "./create-folder-on-mac.mp4";
 import openFolderOnWindowsVideo from "./open-folder-on-windows.mp4";
+import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
 
-## Google Chromeのインストール
+Webプログラミングを始めるには、いくつかのアプリケーションが必要です。学習を始めていく前に、これらのアプリケーションを準備しましょう。
 
-**Google Chrome**は、Google社が開発するウェブブラウザです。現在多くの人に使われています。他のウェブブラウザを使うことも出来ますが、この教材ではGoogle Chromeの使用を前提として話を進めていきます。
+## Google Chromeをインストールする
 
-Google Chromeは、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
+**Google Chrome**は、Google社が開発するウェブブラウザです。多くのユーザーに利用されています。他のウェブブラウザを使うことも出来ますが、この教材ではGoogle Chromeの使用を前提として話を進めていきます。
+
+Google Chromeは、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)からインストールできます。公式サイトの指示に従ってインストールを行ってください。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={installChromeOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={installChromeOnWindowsVideo} controls />
   </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={installChromeOnMacVideo} controls />
+  </TabItem>
 </Tabs>
 
-## Visual Studio Codeのインストール
+## Visual Studio Codeをインストールする
 
-**Visual Studio Code** (以下VS Code) は、Microsoft社が開発するテキストエディタです。多くの開発者に使用されています。
+**Visual Studio Code**（以下VS Code）は、Microsoft社が開発するソースコードエディタです。多くの開発者に利用されています。
 
-Visual Studio Codeは、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
+Visual Studio Codeは、[公式サイト](https://code.visualstudio.com/)からインストールできます。公式サイトの指示に従ってインストールを行ってください。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={installVscodeOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={installVscodeOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={installVscodeOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
 ## プロジェクトを格納するフォルダを作成する
 
-これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中に`projects`という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の場所については次の動画をご確認ください。
+これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。Windowsの場合はユーザーフォルダの中に、macOSの場合はホームフォルダの中に、`projects`という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ユーザーフォルダあるいはホームフォルダの場所は次の動画で確認してください。
 
-次の例では、`hello-world`の名前でプロジェクト用のフォルダを作成しています。
+次の動画のように、`projects`フォルダを作成し、その中に`hello-world`の名前でプロジェクト用のフォルダを作成してください。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={createFolderOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={createFolderOnWindowsVideo} controls />
   </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={createFolderOnMacVideo} controls />
+  </TabItem>
 </Tabs>
 
 :::info
 
-これから作成するプログラムは、さきほど作成したホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中の`projects`フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Codeなどの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
+これ以降作成するプロジェクト用のフォルダは、先ほど作成した`projects`フォルダの中に作成するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、VS Codeなどの開発ツールが期待通りに動作しなくなってしまうからです。
 
 :::
 
-## Visual Studio Codeでプロジェクトフォルダを開く
+## VS Codeでプロジェクトフォルダを開く
 
-`File`メニューから`Open Folder...`をクリックして、先ほど作成したフォルダをVS Codeで開きます。
+先ほど作成した`hello-world`フォルダをVS Codeで開くには、**File > Open Folder**を選択します。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={openFolderOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={openFolderOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={openFolderOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
 :::info
 
-最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?`と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダをVS Codeで開いたとき、VS Codeによって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ありません。
+最初にフォルダを開いたとき、`Do you trust the authors of the files in this folder?`と聞かれるのは、インターネットからダウンロードした悪意のあるフォルダをVS Codeで開いたとき、VS Codeによって勝手に実行されてしまうのを防ぐためです。自分で作成したフォルダの場合は問題ないので、`Yes, I trust the authors`をクリックしてください。
 
 :::
