@@ -24,6 +24,19 @@ const config = {
     commitRef: execSync("git rev-parse HEAD").toString().trim(),
   },
   themes: ["@docusaurus/theme-mermaid"],
+  plugins: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        language: ["ja"],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: "/docs",
+      },
+    ],
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
