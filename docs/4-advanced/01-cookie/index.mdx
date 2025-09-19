@@ -14,39 +14,30 @@ import cookieCounterVideo from "./cookie-counter.mp4";
 
 IDとパスワードによる認証は、Webアプリケーションにおいて最も一般的な認証方法です。アプリケーションの利用者は、ID（通常はメールアドレスやユーザー名）とパスワードを入力し、サーバーは、その組み合わせをデータベースに保存されているものと比較し、一致すれば認証が成功したと判断します。
 
-認証に成功するすると、サーバーはクライアントに対し、一時的な「証明書」を発行します。クライアントは、その証明書を次回以降のリクエストに含めることで、認証が成功していることをサーバーに示します。この証明書として、よく用いられるのが**Cookie**です。Cookieとは、ブラウザ内に保存される少量のデータで、一度保存されると、次回以降のリクエストに自動的に含まれるようになります。
+認証に成功すると、サーバーはクライアントに対し、一時的な「証明書」を発行します。クライアントは、その証明書を次回以降のリクエストに含めることで、認証が成功していることをサーバーに示します。サーバーは、その証明書の正当性を確認することで、リクエストが正規のユーザーからのものであることを判断します。
 
 ![](./basic-flow.drawio.svg)
 
 ## Cookieの利用
 
-Cookieは、HTTPリクエストやレスポンスの<Term type="httpHeaderBody">ヘッダ</Term>を用いて送受信します。
+Webアプリケーションのクライアントが、サーバーから発行された証明書を保管しておく手段として、もっともよく用いられるのが**Cookie**です。Cookieは、ブラウザ内に保存される小さなデータで、文字列のキーと値のペアとして保存されます。
 
-レスポンスヘッダに`Set-Cookie`ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータをリクエストヘッダの`Cookie`ヘッダに入れて毎回送信します。この性質を利用することで、HTTPサーバーはクライアント毎に異なるサービスを提供できるようになります。
+Cookieを操作するための最も基本的な方法は、HTTPリクエストやレスポンスの<Term type="httpHeaderBody">ヘッダ</Term>を用いて送受信することです。HTTPレスポンスヘッダに`Set-Cookie`ヘッダを含めることにより、次回以降のリクエストで、クライアントはそのデータを`Cookie`リクエストヘッダに入れて毎回送信します。例えば、
 
-Cookie自体もKey-Valueのデータ構造となっているので、`Set-Cookie`ヘッダを複数回送信することにより、複数のCookieを1つのレスポンスで送信することができます。例として、[Yahoo! Japanのウェブサイト](https://www.yahoo.co.jp/)にアクセスした際に、Yahoo! Japanが送信するCookieの中身を覗いてみましょう。
+- `Set-Cookie: name=tanaka`
+- `Set-Cookie: age=20`
 
-![Yahoo! JapanのCookie](./yahoo-cookies.png)
+のようなHTTPレスポンスヘッダを受け取ったブラウザは、`name=tanaka`と`age=20`という2つのキーと値のペアをCookieとして保存します。そして、次回以降のリクエストでは、
 
-このレスポンスヘッダを受けて、ブラウザは次のようなCookieを保存します。
+- `Cookie: name=tanaka; age=20`
 
-![保存されたCookie](./saved-cookies.png)
+のようなヘッダがリクエストに含まれるようになります。
 
-ブラウザを更新することで、設定されたCookieが確かにリクエストヘッダの中に含まれて送信されていることがわかります。
+次の例は、アクセスした回数をCookieに保存し、アクセスのたびにその値を1増やして表示するプログラムです。アクセス回数はCookieに保存されており、サーバーはその値を通してアクセスされた回数を把握しています。
 
-![リクエストに付加されたCookie](./sent-cookies.png)
+Expressを用いて`Set-Cookie`ヘッダをレスポンスに設定するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)メソッドを使用するのが一般的です。また、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを使用すると、リクエストヘッダに含まれるCookieを簡単に取得できます。このパッケージは、`request.headers.cookie`を解析し、`request.cookies`プロパティにオブジェクト形式で格納します。
 
-## ExpressでCookieを利用する
-
-Expressを用いてレスポンスヘッダにCookieを付加するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)を利用します。また、クライアントからのリクエストの`Cookie`ヘッダを解析するためには、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを利用します。
-
-```shell
-npm install cookie-parser
-```
-
-を実行して、パッケージをインストールしましょう。Webサーバーのプログラムは次のようになります。
-
-```javascript title="main.mjs"
+```javascript title="main.mjs" showLineNumbers
 import express from "express";
 import cookieParser from "cookie-parser";
 
@@ -55,7 +46,7 @@ app.use(cookieParser());
 
 app.get("/", (request, response) => {
   // Cookieの値は文字列なので数値に変換が必要
-  const count = parseInt(request.cookies.count) || 0;
+  const count = Number.parseInt(request.cookies.count) || 0;
   const newCount = count + 1;
   // 変更後の値をレスポンスヘッダに乗せる
   response.cookie("count", newCount.toString());
@@ -65,13 +56,18 @@ app.get("/", (request, response) => {
 app.listen(3000);
 ```
 
-[`express.Request#cookies`プロパティ](https://expressjs.com/ja/api.html#req.cookies)には、ブラウザから送信されていたCookieがオブジェクト形式で保存されています。ブラウザで表示させると、更新ボタンが押されるたびに数値が増えていることがわかります。
+```json title="package.json (抜粋)"
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0"
+  }
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/cookie-counter" />
 
 <video src={cookieCounterVideo} controls muted />
-
-プログラムの流れを整理すると、次の図のようになります。
-
-![プログラムの流れ](./cookie-counter-timeline.png)
 
 ### 確認問題
 
