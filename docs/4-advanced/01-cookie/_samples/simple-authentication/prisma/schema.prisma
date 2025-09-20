@@ -18,5 +18,10 @@ model User {
   id       Int    @id @default(autoincrement())
   username String @unique
   password String
-  name     String
+}
+
+model Session {
+  id        Int    @id @default(autoincrement())
+  sessionId String @unique // 一意でランダムなID
+  userId    Int // ユーザーのID
 }

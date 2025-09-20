@@ -393,9 +393,15 @@ export default {
       referencePage: "/docs/web-servers/fetch-api-post/",
     },
     httpMethod: {
-      name: "HTTPメソッド",
+      name: "メソッド (HTTP)",
       definition:
         "HTTPリクエストの種類。GETやPOSTなどがある。GETリクエストではリクエストボディを利用できないが、POSTリクエストでは利用できるなどの違いがある。",
+      referencePage: "/docs/web-servers/fetch-api-post/",
+    },
+    httpStatusCode: {
+      name: "ステータスコード (HTTP)",
+      definition:
+        "HTTPレスポンスに含まれる、リクエストの処理結果を表す3桁の数値。200番台は成功、400番台はクライアント側の問題での失敗、500番台はサーバー側の問題での失敗を表す。代表的なものに200 (OK)、400 (Bad Request)、401 (Unauthorized)、404 (Not Found)、500 (Internal Server Error)がある。",
       referencePage: "/docs/web-servers/fetch-api-post/",
     },
     npxCommand: {

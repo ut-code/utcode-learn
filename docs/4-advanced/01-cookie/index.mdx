@@ -3,6 +3,7 @@ title: Cookieと認証（発展）
 ---
 
 import cookieCounterVideo from "./cookie-counter.mp4";
+import cookieCounterInspectionVideo from "./cookie-counter-inspection.mp4";
 
 多くのWebアプリケーションは、利用者が本人であることを確認するための機能を備えています。この節では、Webアプリケーションにおける「ログイン」機能を実装するための、最も基本的な技術要素について学びます。
 
@@ -16,7 +17,7 @@ IDとパスワードによる認証は、Webアプリケーションにおいて
 
 認証に成功すると、サーバーはクライアントに対し、一時的な「証明書」を発行します。クライアントは、その証明書を次回以降のリクエストに含めることで、認証が成功していることをサーバーに示します。サーバーは、その証明書の正当性を確認することで、リクエストが正規のユーザーからのものであることを判断します。
 
-![](./basic-flow.drawio.svg)
+![認証が必要なWebアプリケーションの基本的な構造](./basic-flow.drawio.svg)
 
 ## Cookieの利用
 
@@ -69,26 +70,30 @@ app.listen(3000);
 
 <video src={cookieCounterVideo} controls muted />
 
+プログラムの流れを整理すると、次の図のようになります。ブラウザとサーバーの間でHTTPヘッダを通してCookieがやり取りされていることを確認してください。
+
+![Cookieを利用したアクセスカウンタの処理の流れ](./cookie-counter-flow.drawio.svg)
+
 ### 確認問題
 
-- Chromeの開発者ツールを用いて、リクエストヘッダとレスポンスヘッダの内容を確認してみましょう。
-- シークレットモードでページを開くと値はどうなるでしょうか。
+サンプルプログラムを実行し、Google Chromeの開発者ツールを用いてリクエストやレスポンスに含まれる`Set-Cookie`ヘッダや`Cookie`ヘッダの値を確認してみましょう。
 
-## Cookieを用いた認証
+<Answer>
 
-ユーザー名とパスワードを用いて認証するタイプのアプリケーションを考えてみましょう。ユーザー名とパスワードを、そのままCookieに入れてしまうと、データが悪意のある第三者に奪われてしまうリスクが高まります。
+開発者ツールの「Network」タブを開き、ページを更新します。初回のリクエストでは`Set-Cookie: count=1`ヘッダがレスポンスに含まれています。2回目以降のリクエストでは、`Cookie: count=1`（2回目のアクセス時）、`Cookie: count=2`（3回目のアクセス時）といったヘッダがリクエストに含まれていることを確認してください。ブラウザの閲覧データを消去するか、シークレットモードでアクセスすると、Cookieをリセットして再度試すことができます。
 
-このため、ログインが成功したタイミングで、クライアントに対してランダムなIDを発行し、Cookieに保存させておくことが一般的です（**セッションID**と呼ばれる）。次回以降のアクセスでは、このセッションIDを用いて認証を行います。このフローを図にすると、次のようになります。
+<video src={cookieCounterInspectionVideo} controls muted />
 
-![セッション](./session.png)
+</Answer>
 
-### 演習問題
+## 認証情報をCookieに保存する
 
-ユーザーが自分のユーザー名とパスワードでログインし、プロフィールを表示できるウェブアプリケーションを作成してみましょう。
+次のプログラムは、IDとパスワードによって初回の認証を行い、その結果サーバーで発行された証明書をCookieに保存して次回以降の認証を行うWebアプリケーションの例です。
 
-`schema.prisma`は次の通りとします。
+<Tabs>
+<TabItem value="server" label="サーバー">
 
-```javascript title="schema.prisma"
+```javascript title="schema.prisma (抜粋)"
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
@@ -96,7 +101,63 @@ model User {
 }
 
 model Session {
-  id     String @id // 一意でランダムなID
-  userId Int // UserのID
+  id        Int    @id @default(autoincrement())
+  sessionId String @unique // 一意でランダムなID
+  userId    Int // ユーザーのID
 }
 ```
+
+```javascript title="main.mjs (POST /login の抜粋)" showLineNumbers
+app.post("/login", async (request, response) => {
+  if (!request.body.username || !request.body.password) {
+    response.sendStatus(400);
+    return;
+  }
+  const user = await prismaClient.user.findUnique({
+    where: { username: request.body.username },
+  });
+  if (!user || user.password !== request.body.password) {
+    response.sendStatus(401);
+    return;
+  }
+
+  const session = await prismaClient.session.create({
+    data: { userId: user.id, sessionId: crypto.randomUUID() },
+  });
+  response.cookie("sessionId", session.sessionId);
+  response.send(200);
+});
+```
+
+```javascript title="main.mjs (GET /profile の抜粋)" showLineNumbers
+app.get("/profile", async (request, response) => {
+  // 認証
+  if (!request.cookies.sessionId) {
+    response.sendStatus(401);
+    return;
+  }
+  const session = await client.session.findUnique({
+    where: { sessionId: request.cookies.sessionId },
+  });
+  if (!session) {
+    response.sendStatus(401);
+    return;
+  }
+
+  // 実際の処理
+  const user = await client.user.findUnique({
+    where: { id: session.userId },
+  });
+  response.json({ username: user.username });
+});
+```
+
+</TabItem>
+<TabItem value="client" label="クライアント">
+
+WIP
+
+</TabItem>
+</Tabs>
+
+<ViewSource url={import.meta.url} path="_samples/simple-authentication" />
