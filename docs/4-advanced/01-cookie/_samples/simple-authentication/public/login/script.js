@@ -13,7 +13,7 @@ document.getElementById("login-button").onclick = async () => {
   });
   if (response.ok) {
     alert("ログインに成功しました");
-    window.location.href = "/";
+    location.replace("/");
   } else {
     alert("ログインに失敗しました");
   }

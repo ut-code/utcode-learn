@@ -4,6 +4,7 @@ title: Cookieと認証（発展）
 
 import cookieCounterVideo from "./cookie-counter.mp4";
 import cookieCounterInspectionVideo from "./cookie-counter-inspection.mp4";
+import simpleAuthenticationVideo from "./simple-authentication.mp4";
 
 多くのWebアプリケーションは、利用者が本人であることを確認するための機能を備えています。この節では、Webアプリケーションにおける「ログイン」機能を実装するための、最も基本的な技術要素について学びます。
 
@@ -35,6 +36,8 @@ Cookieを操作するための最も基本的な方法は、HTTPリクエスト�
 のようなヘッダがリクエストに含まれるようになります。
 
 次の例は、アクセスした回数をCookieに保存し、アクセスのたびにその値を1増やして表示するプログラムです。アクセス回数はCookieに保存されており、サーバーはその値を通してアクセスされた回数を把握しています。
+
+![Cookieを利用したアクセスカウンタの処理の流れ](./cookie-counter-flow.drawio.svg)
 
 Expressを用いて`Set-Cookie`ヘッダをレスポンスに設定するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)メソッドを使用するのが一般的です。また、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを使用すると、リクエストヘッダに含まれるCookieを簡単に取得できます。このパッケージは、`request.headers.cookie`を解析し、`request.cookies`プロパティにオブジェクト形式で格納します。
 
@@ -70,10 +73,6 @@ app.listen(3000);
 
 <video src={cookieCounterVideo} controls muted />
 
-プログラムの流れを整理すると、次の図のようになります。ブラウザとサーバーの間でHTTPヘッダを通してCookieがやり取りされていることを確認してください。
-
-![Cookieを利用したアクセスカウンタの処理の流れ](./cookie-counter-flow.drawio.svg)
-
 ### 確認問題
 
 サンプルプログラムを実行し、Google Chromeの開発者ツールを用いてリクエストやレスポンスに含まれる`Set-Cookie`ヘッダや`Cookie`ヘッダの値を確認してみましょう。
@@ -88,12 +87,18 @@ app.listen(3000);
 
 ## 認証情報をCookieに保存する
 
-次のプログラムは、IDとパスワードによって初回の認証を行い、その結果サーバーで発行された証明書をCookieに保存して次回以降の認証を行うWebアプリケーションの例です。
+Cookieを使用して、実際に認証が必要なWebアプリケーションを実装してみましょう。次のプログラムは、IDとパスワードによって初回の認証を行い、その結果サーバーで発行された証明書をCookieに保存して次回以降の認証を行うWebアプリケーションの例です。ログインが必要なページで、認証が成功すると、ユーザー名が表示されます。認証に失敗した場合は、自動的にログインページに移動します。
+
+<video src={simpleAuthenticationVideo} controls muted />
 
 <Tabs>
 <TabItem value="server" label="サーバー">
 
-```javascript title="schema.prisma (抜粋)"
+このアプリケーションでは、ユーザー情報を保存するテーブル`User`と、セッション情報を保存するテーブル`Session`の2つを持つデータベースを使用します。`Session`テーブルには、一意でランダムなIDである`sessionId`と、ユーザーのIDである`userId`が保存されます。サーバーは、クライアントが`sessionId`を知っていれば、その`userId`に対応するユーザーとしてクライアントを認証します。つまり、この`sessionId`が、前述の「証明書」に相当します。
+
+なお、一般的に「セッション」とは、ある処理の開始から終了までの一連の流れを指しますが、ここHTTPの文脈における「セッション」は、ユーザーがログインしてからログアウトするまでの期間を指します。
+
+```javascript title="schema.prisma (抜粋)" showLineNumbers
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
@@ -107,17 +112,19 @@ model Session {
 }
 ```
 
+`/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、新しいレコードを`Session`テーブルに作成し、その`sessionId`をCookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
+
 ```javascript title="main.mjs (POST /login の抜粋)" showLineNumbers
 app.post("/login", async (request, response) => {
   if (!request.body.username || !request.body.password) {
-    response.sendStatus(400);
+    response.sendStatus(400); // Bad Request (リクエストの形式が不正)
     return;
   }
   const user = await prismaClient.user.findUnique({
     where: { username: request.body.username },
   });
   if (!user || user.password !== request.body.password) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
 
@@ -125,27 +132,31 @@ app.post("/login", async (request, response) => {
     data: { userId: user.id, sessionId: crypto.randomUUID() },
   });
   response.cookie("sessionId", session.sessionId);
-  response.send(200);
+  response.send(200); // OK (成功)
 });
 ```
+
+`/profile`は、GETリクエストを受け取り、リクエストを送信したユーザーの情報をJSON形式で返します。前半部分ではCookieから`sessionId`を取得し、その値を用いて`Session`テーブルからレコードを検索して認証します。セッション情報が見つかれば、その`userId`に対応するユーザー情報を`User`テーブルから取得し、その情報をレスポンスとして返します。
+
+なお、この例では認証処理と実際の処理を同じ場所に記述していますが、実際のアプリケーションでは、認証はほとんどの場所で前段階として必要になるため、共通の実装として切り出しておくことが一般的です。
 
 ```javascript title="main.mjs (GET /profile の抜粋)" showLineNumbers
 app.get("/profile", async (request, response) => {
   // 認証
   if (!request.cookies.sessionId) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
-  const session = await client.session.findUnique({
+  const session = await prismaClient.session.findUnique({
     where: { sessionId: request.cookies.sessionId },
   });
   if (!session) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
 
   // 実際の処理
-  const user = await client.user.findUnique({
+  const user = await prismaClient.user.findUnique({
     where: { id: session.userId },
   });
   response.json({ username: user.username });
@@ -155,9 +166,73 @@ app.get("/profile", async (request, response) => {
 </TabItem>
 <TabItem value="client" label="クライアント">
 
-WIP
+クライアント側のアプリケーションは、認証が必要なページ`/`とログインページ`/login`の2から構成されています。
+
+`/`では、ページが読み込まれたときに`/profile`にGETリクエストを送信し、認証が成功すればユーザー名を表示します。認証に失敗した場合は、ログインページに移動します。
+
+```html title="public/index.html" showLineNumbers
+<h1>ホーム</h1>
+<p>ようこそ！<span id="username-display"></span>さん！</p>
+```
+
+4行目では、`fetch`関数の第2引数の[`credentials`プロパティ](https://developer.mozilla.org/ja/docs/Web/API/RequestInit#credentials)に`"include"`を指定しています。これは、リクエストにCookieを含めるためのオプションです。指定しないと、認証に必要なCookieがサーバーに送信されず、認証に失敗してしまいます。
+
+5行目では、[`Response#ok`](https://developer.mozilla.org/ja/docs/Web/API/Response/ok)プロパティを用いて、レスポンスの<Term>ステータスコード</Term>が200番台であるかどうかを確認しています。200番台以外のステータスコードを受け取った場合、認証に失敗したと判断し、ログインページに移動します。
+
+6行目のログインページへの移動には、[`location.replace`関数](https://developer.mozilla.org/ja/docs/Web/API/Location/replace)を使用し、現在のページを履歴に残さずに移動させています。これにより、ブラウザの「戻る」ボタンが正しく機能するようになります。逆に、履歴を残したい場合は、[`location.href`プロパティ](https://developer.mozilla.org/ja/docs/Web/API/Location/href)にURLを代入します。
+
+```javascript title="public/script.js" showLineNumbers
+const usernameDisplay = document.getElementById("username-display");
+
+async function initialize() {
+  const response = await fetch("/profile", { credentials: "include" });
+  if (!response.ok) {
+    location.replace("/login");
+    return;
+  }
+  const profile = await response.json();
+  usernameDisplay.textContent = profile.username;
+}
+
+initialize();
+```
+
+`/login`では、ユーザー名とパスワードを入力するフォームと、ログインボタンを用意します。ログインボタンがクリックされると、`/login`にPOSTリクエストを送信します。認証に成功すれば、サーバーから送信されたCookieがブラウザに保存され、`/`に移動します。認証に失敗した場合はアラートを表示します。
+
+```html title="public/login/index.html" showLineNumbers
+<p>ユーザー名: <input id="username-input" /></p>
+<p>パスワード: <input id="password-input" type="password" /></p>
+<button type="button" id="login-button">ログイン</button>
+```
+
+```javascript title="public/login/script.js" showLineNumbers
+const usernameInput = document.getElementById("username-input");
+const passwordInput = document.getElementById("password-input");
+
+document.getElementById("login-button").onclick = async () => {
+  const response = await fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: usernameInput.value,
+      password: passwordInput.value,
+    }),
+    credentials: "include",
+  });
+  if (response.ok) {
+    alert("ログインに成功しました");
+    location.replace("/");
+  } else {
+    alert("ログインに失敗しました");
+  }
+};
+```
 
 </TabItem>
 </Tabs>
 
 <ViewSource url={import.meta.url} path="_samples/simple-authentication" />
+
+全体の処理の流れは、次の図のようになります。
+
+![Cookieを利用して認証情報を保存するWebアプリケーションの動作](./simple-authentication-flow.drawio.svg)

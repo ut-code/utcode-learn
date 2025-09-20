@@ -11,14 +11,14 @@ app.use(express.static("./public"));
 
 app.post("/login", async (request, response) => {
   if (!request.body.username || !request.body.password) {
-    response.sendStatus(400);
+    response.sendStatus(400); // Bad Request (リクエストの形式が不正)
     return;
   }
   const user = await prismaClient.user.findUnique({
     where: { username: request.body.username },
   });
   if (!user || user.password !== request.body.password) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
 
@@ -26,20 +26,20 @@ app.post("/login", async (request, response) => {
     data: { userId: user.id, sessionId: crypto.randomUUID() },
   });
   response.cookie("sessionId", session.sessionId);
-  response.send(200);
+  response.send(200); // OK (成功)
 });
 
 app.get("/profile", async (request, response) => {
   // 認証
   if (!request.cookies.sessionId) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
   const session = await prismaClient.session.findUnique({
     where: { sessionId: request.cookies.sessionId },
   });
   if (!session) {
-    response.sendStatus(401);
+    response.sendStatus(401); // Unauthorized (認証に失敗)
     return;
   }
 
