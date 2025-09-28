@@ -126,56 +126,8 @@ document.getElementById("app").textContent = format(
 
 <ViewSource url={import.meta.url} path="_samples/run-npm-package-on-browsers" />
 
-## フロントエンドとバックエンドの統合
-
-Viteなどのツールによって出力されたブラウザ上で動くアプリケーションと、Node.jsをはじめとしたサーバー向けのアプリケーションを統合するためには、複数の手法が考えられます。
-
-最も単純なアプローチは、ビルド時に統合することです。この方法のメリットは、本番環境にデプロイするのが簡単であることです。ディレクトリ構成は、例えば次のようになります。
-
-```
-app
-├── client
-│   ├── index.html
-│   └── main.js
-├── package.json
-├── package-lock.json
-└── server
-    └── main.mjs
-```
-
-<ViewSource url={import.meta.url} path="_samples/fullstack-app" />
-
-`npm run build`コマンドによってViteがビルド結果を`/dist`に出力するようにしておきます。
-
-```json title="/package.json"
-{
-  "scripts": {
-    "start": "node server/main.mjs",
-    "build": "vite build client --outDir ../dist"
-  }
-}
-```
-
-`express.static`によりViteが作成したディレクトリを指定すれば完成です。
-
-```javascript title="server/main.mjs"
-import express from "express";
-const app = express();
-
-app.use(express.json());
-
-// Viteによって出力されたディレクトリを配信する
-app.use(express.static("./dist"));
-
-app.listen(3000);
-```
-
-## 演習問題1
+## 演習問題
 
 [`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
 
 <ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
-
-## 演習問題2（発展）
-
-Viteを用いて作成したWebフロントエンドと、Node.jsのバックエンドが協調して動作するアプリケーションをRenderにデプロイしてみましょう。
