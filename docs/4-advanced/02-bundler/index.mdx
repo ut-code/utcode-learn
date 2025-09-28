@@ -4,6 +4,8 @@ title: トランスパイラとモジュールバンドラ
 
 import getStartedWithViteVideo from "./get-started-with-vite.mp4";
 import buildVideo from "./build.mp4";
+import fakerAppVideo from "./faker-app.mp4";
+import canvasConfettiAppVideo from "./canvas-confetti-app.mp4";
 
 ## 複雑化するWeb開発
 
@@ -126,8 +128,44 @@ document.getElementById("app").textContent = format(
 
 <ViewSource url={import.meta.url} path="_samples/run-npm-package-on-browsers" />
 
-## 演習問題
+## 演習問題1
 
-[`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+[Faker](https://fakerjs.dev/)は、ランダムな名前や住所などのデータを生成するためのパッケージです。Fakerをインストールして、次のようにランダムな名前を生成して画面に表示してみましょう。
 
-<ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
+<video src={fakerAppVideo} controls />
+
+<Answer title="Faker">
+
+Viteを用いて新しいプロジェクトを作成し、`npm install @faker-js/faker`コマンドでFakerをインストールします。続いて、`main.js`を次のように書き換えます。
+
+[`faker.person.fullName`関数](https://fakerjs.dev/api/person.html#fullname)を用いると、ランダムな氏名を生成できます。
+
+```javascript title="main.js"
+import { faker } from "@faker-js/faker";
+
+document.getElementById("app").textContent = faker.person.fullName();
+```
+
+<ViewSource url={import.meta.url} path="_samples/faker" />
+
+</Answer>
+
+## 演習問題2
+
+[`canvas-confetti`パッケージ](https://github.com/catdad/canvas-confetti)は、Webブラウザ上で紙吹雪を降らせるためのパッケージです。`canvas-confetti`パッケージをインストールして、次のように画面に紙吹雪を降らせてみましょう。
+
+<video src={canvasConfettiAppVideo} controls />
+
+<Answer title="canvas-confetti">
+
+Viteを用いて新しいプロジェクトを作成し、`npm install canvas-confetti`コマンドで`canvas-confetti`パッケージをインストールします。続いて、`main.js`を次のように書き換えます。
+
+```javascript title="main.js"
+import confetti from "canvas-confetti";
+
+confetti();
+```
+
+<ViewSource url={import.meta.url} path="_samples/canvas-confetti" />
+
+</Answer>
