@@ -2,14 +2,14 @@
 title: はじめてのWeb開発
 ---
 
-import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installChromeOnWindowsVideo from "./install-chrome-on-windows.mp4";
-import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
+import installChromeOnMacVideo from "./install-chrome-on-mac.mp4";
 import installVscodeOnWindowsVideo from "./install-vscode-on-windows.mp4";
-import createFolderOnMacVideo from "./create-folder-on-mac.mp4";
+import installVscodeOnMacVideo from "./install-vscode-on-mac.mp4";
 import createFolderOnWindowsVideo from "./create-folder-on-windows.mp4";
-import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
+import createFolderOnMacVideo from "./create-folder-on-mac.mp4";
 import openFolderOnWindowsVideo from "./open-folder-on-windows.mp4";
+import openFolderOnMacVideo from "./open-folder-on-mac.mp4";
 
 ## Google Chromeのインストール
 
@@ -18,11 +18,11 @@ import openFolderOnWindowsVideo from "./open-folder-on-windows.mp4";
 Google Chromeは、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={installChromeOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={installChromeOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={installChromeOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
@@ -33,32 +33,32 @@ Google Chromeは、[公式サイト](https://www.google.com/intl/ja_jp/chrome/)�
 Visual Studio Codeは、[公式サイト](https://code.visualstudio.com)からインストールできます。まだインストールが終わっていない場合はインストールしておきましょう。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={installVscodeOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={installVscodeOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={installVscodeOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
 ## プロジェクトを格納するフォルダを作成する
 
-これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中に`projects`という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ホームフォルダ (macOS) /ユーザーフォルダ (Windows) の場所については次の動画をご確認ください。
+これから皆さんはたくさんのプログラムを書いていくことになります。プログラムは他のファイルと扱い方がかなり異なるので、専用のフォルダを作っておきましょう。ユーザーフォルダ (Windows) /ホームフォルダ (macOS) の中に`projects`という名前のフォルダを作り、その中にプロジェクトごとのフォルダを作っていくと良いです。ユーザーフォルダ (Windows) /ホームフォルダ (macOS) の場所については次の動画をご確認ください。
 
 次の例では、`hello-world`の名前でプロジェクト用のフォルダを作成しています。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={createFolderOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={createFolderOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={createFolderOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
 :::info
 
-これから作成するプログラムは、さきほど作成したホームフォルダ (macOS) /ユーザーフォルダ (Windows) の中の`projects`フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Codeなどの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
+これから作成するプログラムは、さきほど作成したユーザーフォルダ (Windows) /ホームフォルダ (macOS) の中の`projects`フォルダの中に保存するようにしてください。これは、ドキュメントフォルダなどのフォルダはクラウドストレージサービスによって自動的に同期されることがあり、Visual Studio Codeなどの開発ツールが期待通りに動作しなくなってしまうことがあるからです。
 
 :::
 
@@ -67,11 +67,11 @@ Visual Studio Codeは、[公式サイト](https://code.visualstudio.com)から�
 `File`メニューから`Open Folder...`をクリックして、先ほど作成したフォルダをVS Codeで開きます。
 
 <Tabs groupId="os">
-  <TabItem value="mac" label="macOS">
-    <video src={openFolderOnMacVideo} controls />
-  </TabItem>
   <TabItem value="win" label="Windows">
     <video src={openFolderOnWindowsVideo} controls />
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <video src={openFolderOnMacVideo} controls />
   </TabItem>
 </Tabs>
 
