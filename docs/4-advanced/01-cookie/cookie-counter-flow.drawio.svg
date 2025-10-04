@@ -52,7 +52,7 @@
             <path d="M 85 120 L 85 620" fill="none" stroke="#82b366" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="all" style="stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="84.5" y="104.5">
                     クライアント
                 </text>
@@ -63,7 +63,7 @@
             <path d="M 445 120 L 445 620" fill="none" stroke="#82b366" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="all" style="stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="444.5" y="104.5">
                     サーバー
                 </text>
@@ -74,7 +74,7 @@
             <path d="M 436.38 153.5 L 443.38 150 L 436.38 146.5" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="264" y="169.5">
                     リクエスト
                 </text>
@@ -85,7 +85,7 @@
             <path d="M 92.62 256.5 L 85.62 260 L 92.62 263.5" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="264" y="279.5">
                     レスポンス
                 </text>
@@ -104,7 +104,7 @@
             <path d="M 145 290 M 203 290 M 203 320 M 145 320" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-294-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-294-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="309.5">
                     ヘッダ
                 </text>
@@ -115,7 +115,7 @@
             <path d="M 203 290 M 305 290 M 305 320 M 203 320" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-294-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-294-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="309.5">
                     Set-Cookie
                 </text>
@@ -126,7 +126,7 @@
             <path d="M 305 290 M 385 290 M 385 320 M 305 320" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-309-294-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-309-294-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="310.5" y="309.5">
                     count=1
                 </text>
@@ -138,7 +138,7 @@
             <path d="M 145 320 M 203 320 M 203 350 M 145 350" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-324-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-324-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="339.5">
                     ボディ
                 </text>
@@ -149,7 +149,7 @@
             <path d="M 203 320 M 385 320 M 385 350 M 203 350" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-324-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-324-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="339.5">
                     1回目のアクセスですね
                 </text>
@@ -167,7 +167,7 @@
             <path d="M 145 180 M 203 180 M 203 210 M 145 210" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-184-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-184-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="199.5">
                     ヘッダ
                 </text>
@@ -178,7 +178,7 @@
             <path d="M 203 180 M 385 180 M 385 210 M 203 210" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-184-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-184-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="199.5">
                     なし
                 </text>
@@ -189,7 +189,7 @@
             <path d="M 436.38 403.5 L 443.38 400 L 436.38 396.5" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="264" y="419.5">
                     リクエスト
                 </text>
@@ -207,7 +207,7 @@
             <path d="M 145 430 M 203 430 M 203 460 M 145 460" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-434-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-434-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="449.5">
                     ヘッダ
                 </text>
@@ -218,7 +218,7 @@
             <path d="M 203 430 M 305 430 M 305 460 M 203 460" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-434-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-434-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="449.5">
                     Cookie
                 </text>
@@ -229,7 +229,7 @@
             <path d="M 305 430 M 385 430 M 385 460 M 305 460" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-309-434-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-309-434-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="310.5" y="449.5">
                     count=1
                 </text>
@@ -245,7 +245,7 @@
                     <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 315px; margin-left: 49px;">
                             <div style="box-sizing: border-box; font-size: 0; text-align: right; color: #000000; background-color: #ffffff; ">
-                                <div style="display: inline-block; font-size: 12px; font-family: &quot;system-ui&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); white-space: nowrap; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); white-space: nowrap; ">
                                     Cookieを
                                     <div>
                                         保存
@@ -254,7 +254,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text x="49" y="319" fill="light-dark(#000000, #ffffff)" font-family="&quot;system-ui&quot;" font-size="12px" text-anchor="end">
+                    <text x="49" y="319" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="end">
                         Cookieを...
                     </text>
                 </switch>
@@ -265,7 +265,7 @@
             <path d="M 92.62 506.5 L 85.62 510 L 92.62 513.5" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="264" y="529.5">
                     レスポンス
                 </text>
@@ -284,7 +284,7 @@
             <path d="M 145 540 M 203 540 M 203 570 M 145 570" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-544-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-544-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="559.5">
                     ヘッダ
                 </text>
@@ -295,7 +295,7 @@
             <path d="M 203 540 M 305 540 M 305 570 M 203 570" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-544-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-544-94-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="559.5">
                     Set-Cookie
                 </text>
@@ -306,7 +306,7 @@
             <path d="M 305 540 M 385 540 M 385 570 M 305 570" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-309-544-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-309-544-72-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="310.5" y="559.5">
                     count=2
                 </text>
@@ -318,7 +318,7 @@
             <path d="M 145 570 M 203 570 M 203 600 M 145 600" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" font-weight="bold" clip-path="url(#mx-clip-149-574-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" font-weight="bold" clip-path="url(#mx-clip-149-574-50-22-0)" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="173.5" y="589.5">
                     ボディ
                 </text>
@@ -329,7 +329,7 @@
             <path d="M 203 570 M 385 570 M 385 600 M 203 600" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" clip-path="url(#mx-clip-207-574-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" clip-path="url(#mx-clip-207-574-174-22-0)" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="208.5" y="589.5">
                     2回目のアクセスですね
                 </text>
@@ -345,7 +345,7 @@
                     <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 1px; height: 1px; padding-top: 575px; margin-left: 49px;">
                             <div style="box-sizing: border-box; font-size: 0; text-align: right; color: #000000; background-color: #ffffff; ">
-                                <div style="display: inline-block; font-size: 12px; font-family: &quot;system-ui&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); white-space: nowrap; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); white-space: nowrap; ">
                                     Cookieを
                                     <div>
                                         保存
@@ -354,7 +354,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text x="49" y="579" fill="light-dark(#000000, #ffffff)" font-family="&quot;system-ui&quot;" font-size="12px" text-anchor="end">
+                    <text x="49" y="579" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="end">
                         Cookieを...
                     </text>
                 </switch>

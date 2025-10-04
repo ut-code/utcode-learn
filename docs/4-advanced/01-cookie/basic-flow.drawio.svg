@@ -13,13 +13,13 @@
                     <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 20px; margin-left: 1px;">
                             <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
-                                <div style="display: inline-block; font-size: 12px; font-family: &quot;system-ui&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                     クライアント
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text x="50" y="24" fill="light-dark(#000000, #ffffff)" font-family="&quot;system-ui&quot;" font-size="12px" text-anchor="middle">
+                    <text x="50" y="24" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="middle">
                         クライアント
                     </text>
                 </switch>
@@ -34,13 +34,13 @@
                     <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 20px; margin-left: 351px;">
                             <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
-                                <div style="display: inline-block; font-size: 12px; font-family: &quot;system-ui&quot;; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                     サーバー
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text x="400" y="24" fill="light-dark(#000000, #ffffff)" font-family="&quot;system-ui&quot;" font-size="12px" text-anchor="middle">
+                    <text x="400" y="24" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="middle">
                         サーバー
                     </text>
                 </switch>
@@ -63,7 +63,7 @@
             <path d="M 130.5 65 L 130.5 55 L 310.5 55 L 310.5 44.5 L 329.5 60 L 310.5 75.5 L 310.5 65 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="44">
                     ID, パスワード
                 </text>
@@ -73,7 +73,7 @@
             <path d="M 329.5 95 L 329.5 105 L 149.5 105 L 149.5 115.5 L 130.5 100 L 149.5 84.5 L 149.5 95 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="84">
                     証明書
                 </text>
@@ -83,7 +83,7 @@
             <path d="M 130.5 185 L 130.5 175 L 310.5 175 L 310.5 164.5 L 329.5 180 L 310.5 195.5 L 310.5 185 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="157.5">
                     ユーザー情報1へのリクエスト
                 </text>
@@ -96,7 +96,7 @@
             <path d="M 329.5 215 L 329.5 225 L 149.5 225 L 149.5 235.5 L 130.5 220 L 149.5 204.5 L 149.5 215 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="204">
                     ユーザー情報1
                 </text>
@@ -106,7 +106,7 @@
             <path d="M 329.5 315 L 329.5 325 L 149.5 325 L 149.5 335.5 L 130.5 320 L 149.5 304.5 L 149.5 315 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="304">
                     ユーザー情報2
                 </text>
@@ -116,7 +116,7 @@
             <path d="M 130.5 285 L 130.5 275 L 310.5 275 L 310.5 264.5 L 329.5 280 L 310.5 295.5 L 310.5 285 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <g fill="#000000" font-family="&quot;system-ui&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
                 <text x="229.5" y="257.5">
                     ユーザー情報2へのリクエスト
                 </text>
