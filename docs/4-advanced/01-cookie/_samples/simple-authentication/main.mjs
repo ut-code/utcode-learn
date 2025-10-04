@@ -26,7 +26,7 @@ app.post("/login", async (request, response) => {
     data: { userId: user.id, sessionId: crypto.randomUUID() },
   });
   response.cookie("sessionId", session.sessionId);
-  response.send(200); // OK (成功)
+  response.sendStatus(200); // OK (成功)
 });
 
 app.get("/profile", async (request, response) => {

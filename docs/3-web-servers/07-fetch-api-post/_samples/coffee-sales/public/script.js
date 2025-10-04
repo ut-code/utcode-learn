@@ -1,6 +1,6 @@
 document.getElementById("record-button").onclick = async () => {
   const quantityInput = document.getElementById("quantity-input");
-  const quantity = parseInt(quantityInput.value);
+  const quantity = Number(quantityInput.value);
 
   const response = await fetch("/sales", {
     method: "POST",

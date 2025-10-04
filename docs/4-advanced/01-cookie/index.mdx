@@ -9,7 +9,7 @@ import simpleAuthenticationVideo from "./simple-authentication.mp4";
 多くのWebアプリケーションは、利用者が本人であることを確認するための機能を備えています。この節では、Webアプリケーションにおける「ログイン」機能を実装するための、最も基本的な技術要素について学びます。
 
 :::danger
-認証やセッション管理は、Webアプリケーションのセキュリティにおいて非常に重要な要素で、この節で学ぶ内容のみでは、実際のアプリケーション向けの実装としては不十分です。[Firebase Authentication](https://firebase.google.com/products/auth)や[Auth0](https://auth0.com/)などの外部サービスを用いることで、強固なセキュリティを手軽に実現できます。また、どうしても外部サービスを利用できない場合は、[Passsport.js](https://www.passportjs.org/)や、[Auth.js](https://authjs.dev/)などのライブラリを利用することを強く推奨します。
+認証は、Webアプリケーションのセキュリティにおいて非常に重要な要素で、この節で学ぶ内容のみでは、実際のアプリケーション向けの実装としては不十分です。[Firebase Authentication](https://firebase.google.com/products/auth)や[Auth0](https://auth0.com/)などの外部サービスを用いることで、強固なセキュリティを手軽に実現できます。また、どうしても外部サービスを利用できない場合は、[Passport.js](https://www.passportjs.org/)や、[Auth.js](https://authjs.dev/)などのライブラリを利用することを強く推奨します。
 :::
 
 ## IDとパスワードによる認証
@@ -39,7 +39,7 @@ Cookieを操作するための最も基本的な方法は、HTTPリクエスト�
 
 ![Cookieを利用したアクセスカウンタの処理の流れ](./cookie-counter-flow.drawio.svg)
 
-Expressを用いて`Set-Cookie`ヘッダをレスポンスに設定するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)メソッドを使用するのが一般的です。また、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを使用すると、リクエストヘッダに含まれるCookieを簡単に取得できます。このパッケージは、`request.headers.cookie`を解析し、`request.cookies`プロパティにオブジェクト形式で格納します。
+Expressを用いて`Set-Cookie`ヘッダをレスポンスに設定するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)を使用するのが一般的です。また、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを使用すると、リクエストヘッダに含まれるCookieを簡単に取得できます。このパッケージは、`request.headers.cookie`を解析し、`request.cookies`プロパティにオブジェクト形式で格納します。
 
 ```javascript title="main.mjs" showLineNumbers
 import express from "express";
@@ -50,7 +50,7 @@ app.use(cookieParser());
 
 app.get("/", (request, response) => {
   // Cookieの値は文字列なので数値に変換が必要
-  const count = Number.parseInt(request.cookies.count) || 0;
+  const count = Number(request.cookies.count) || 0;
   const newCount = count + 1;
   // 変更後の値をレスポンスヘッダに乗せる
   response.cookie("count", newCount.toString());
@@ -91,8 +91,7 @@ Cookieを使用して、実際に認証が必要なWebアプリケーション�
 
 <video src={simpleAuthenticationVideo} controls muted />
 
-<Tabs>
-<TabItem value="server" label="サーバー">
+### サーバー
 
 このアプリケーションでは、ユーザー情報を保存するテーブル`User`と、セッション情報を保存するテーブル`Session`の2つを持つデータベースを使用します。`Session`テーブルには、一意でランダムなIDである`sessionId`と、ユーザーのIDである`userId`が保存されます。サーバーは、クライアントが`sessionId`を知っていれば、その`userId`に対応するユーザーとしてクライアントを認証します。つまり、この`sessionId`が、前述の「証明書」に相当します。
 
@@ -112,7 +111,9 @@ model Session {
 }
 ```
 
-`/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、新しいレコードを`Session`テーブルに作成し、その`sessionId`をCookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
+`/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、[`crypto.randomUUID`関数](https://developer.mozilla.org/ja/docs/Web/API/Crypto/randomUUID)を用いてランダムな文字列を生成し、新しいレコードを`Session`テーブルに作成した上で、Cookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
+
+新しいレコードを`Session`テーブルに作成し、その`sessionId`をCookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
 
 ```javascript title="main.mjs (POST /login の抜粋)" showLineNumbers
 app.post("/login", async (request, response) => {
@@ -132,7 +133,7 @@ app.post("/login", async (request, response) => {
     data: { userId: user.id, sessionId: crypto.randomUUID() },
   });
   response.cookie("sessionId", session.sessionId);
-  response.send(200); // OK (成功)
+  response.sendStatus(200); // OK (成功)
 });
 ```
 
@@ -163,14 +164,13 @@ app.get("/profile", async (request, response) => {
 });
 ```
 
-</TabItem>
-<TabItem value="client" label="クライアント">
+### クライアント
 
-クライアント側のアプリケーションは、認証が必要なページ`/`とログインページ`/login`の2から構成されています。
+クライアント側のアプリケーションは、認証が必要なページ`/`とログインページ`/login`の2つから構成されています。
 
 `/`では、ページが読み込まれたときに`/profile`にGETリクエストを送信し、認証が成功すればユーザー名を表示します。認証に失敗した場合は、ログインページに移動します。
 
-```html title="public/index.html" showLineNumbers
+```html title="public/index.html (抜粋)" showLineNumbers
 <h1>ホーム</h1>
 <p>ようこそ！<span id="username-display"></span>さん！</p>
 ```
@@ -228,10 +228,11 @@ document.getElementById("login-button").onclick = async () => {
 };
 ```
 
-</TabItem>
-</Tabs>
-
-<ViewSource url={import.meta.url} path="_samples/simple-authentication" />
+<ViewSource
+  url={import.meta.url}
+  path="_samples/simple-authentication"
+  noCodeSandbox
+/>
 
 全体の処理の流れは、次の図のようになります。
 
