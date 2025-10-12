@@ -9,15 +9,15 @@ title: 条件分岐
 ## 基本構造
 
 ```javascript
-const age = 18;
-if (age < 20) {
+const age = 16;
+if (age < 18) {
   document.write("未成年者の場合は法定代理人の同意が必要です。");
 }
 ```
 
 このプログラムは、`未成年者の場合は法定代理人の同意が必要です。`と表示しますが、1行目を`const age = 20;`に変更すると何も表示されなくなります。
 
-2行目の`if (age < 20) {`部分がポイントです。ここに差し掛かると、括弧内の<Term>式</Term>`age < 20`が<Term>評価</Term>され、`true`になります。このため、直後の波括弧内の処理が実行されます。
+2行目の`if (age < 18) {`部分がポイントです。ここに差し掛かると、括弧内の<Term>式</Term>`age < 18`が<Term>評価</Term>され、`true`になります。このため、直後の波括弧内の処理が実行されます。
 
 if文の基本構造は
 
@@ -45,15 +45,15 @@ if (式) {
 <Term>式</Term>の<Term>評価</Term>結果が`true`であれば処理1が、`false`であれば処理2が実行されます。
 
 ```javascript
-const age = 18;
-if (age >= 20) {
+const age = 16;
+if (age >= 18) {
   document.write("大人です");
 } else {
   document.write("子供です");
 }
 ```
 
-この例では、`age >= 20`の<Term>評価</Term>が`false`となるので、`子供です`が表示されます。
+この例では、`age >= 18`の<Term>評価</Term>が`false`となるので、`子供です`が表示されます。
 
 ## if～else if～else
 
