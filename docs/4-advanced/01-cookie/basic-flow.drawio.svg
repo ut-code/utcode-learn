@@ -1,0 +1,137 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" style="background: transparent; background-color: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="451px" height="337px" viewBox="-0.5 -0.5 451 337" content="&lt;mxfile&gt;&lt;diagram id=&quot;BSAbxZSnyn8TwdT820pf&quot; name=&quot;Page-1&quot;&gt;7Vldk5owFP01mWkfdockgOFRXG370JnO7EOfsxCVWSQOxFX76xskQSD4sS6ydaoPTjwJN8k5x5sbBXi02HxL6XL+k4csBsgKNwA/AYQ8hOV7DmwLgECnAGZpFBYQ3APP0R+mQEuhqyhkWW2g4DwW0bIOBjxJWCBqGE1Tvq4Pm/K4PuuSzpgBPAc0NtHfUSjmaheOtce/s2g21zNDS/UsqB6sgGxOQ76uQHgM8CjlXBStxWbE4pw7zUvx3ORAb7mwlCXinAdQ8cAbjVdqb2pdYqs3K5e4zJs0EDwF2F/PI8GelzTIwbXUV2JTnogJXURxLmi2zQRbPKwi1fGsYlnyc0xfWOzT4HWW8lUSjnicx3xKeCJH+Obq1YbeWCrYpgKp3XxjfMFEupVDVK+tiFXOglqTdUUnBc2rEmmFqLLGrIy8Z082FIHtZGKTzDEGBIHhZNfAYOhpxNYNpLp8rBqEGBLsuGKh4rBVgCiONZkA4dBhJLQlnomUv7JKD0Ev2HX/KcmwKVEpR1UjuwOJ7EMS+Y7WYaQanrVH/jNBSI+KOKczUL7PT8ky5QlCX/RarOPMeY30Y5+ZflAHTLqnmdz7FhpeDNmUrmJR4vpkg0eZr9hc0ftRMZwDYpik90Hq4DSpLAmHeVFRp+AqRlXcsLBWnxxlxmlhRmMpi6mI3upVTRtbaoZfPJIrKd0O8SOuvRpH76NlIXtgOYQg7CDPrsfP+CoNmApZLVEas7juo1t7vWsWQdMZE8YsO9lLws5yArk74UInoEGuEYQDt9AJDq7hhFOzdOcE7+6EC52APalRqZD8vl7DCCcm6c4H0Cz4f8g3+ZwuHT2oy0tP3wAmzTqTeIZ79JVrGrONspFfcVQQ0yyLgh4qopOm0t89s8y5psfcepXlWpfZCJ+Ic8Ap+zh6IJ9OM/ZhN7VUwmMChmRnFRd4BJDxruED37wj3pxnHvo1TVNs48Z/rmua7jMC9WyblrJfpRq3nmpkFqoi7i75yGuvA4YW8GGRqmDuraIxHOtAw/rvGCg3ZSOv5b9ayJVgmDvnyzHjjm3g+xL8evsW/ty0B0lHec8I1LODWyrrCx1884765KSImlfmS5OiEahnS7WU6BdZyqzs75Z6n6VwV5YyAvVrKT17B5a6n7M3dc6irs5ZI9BVHSw/7v9HLIbv/4zF478=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <g>
+            <path d="M 10 250 C 10 210 10 190 50 190 C 23.33 190 23.33 150 50 150 C 76.67 150 76.67 190 50 190 C 90 190 90 210 90 250 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="0" y="0" width="100" height="40" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 20px; margin-left: 1px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    クライアント
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="50" y="24" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="middle">
+                        クライアント
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="350" y="0" width="100" height="40" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 20px; margin-left: 351px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: system-ui; color: light-dark(#000000, #ffffff); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    サーバー
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="400" y="24" fill="light-dark(#000000, #ffffff)" font-family="system-ui" font-size="12px" text-anchor="middle">
+                        サーバー
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g/>
+        <g>
+            <rect x="360" y="140" width="80" height="120" rx="12" ry="12" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 373.33 155 L 426.67 155" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 373.33 167 L 426.67 167" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 373.33 179 L 426.67 179" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 130.5 65 L 130.5 55 L 310.5 55 L 310.5 44.5 L 329.5 60 L 310.5 75.5 L 310.5 65 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="44">
+                    ID, パスワード
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 329.5 95 L 329.5 105 L 149.5 105 L 149.5 115.5 L 130.5 100 L 149.5 84.5 L 149.5 95 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="84">
+                    証明書
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 130.5 185 L 130.5 175 L 310.5 175 L 310.5 164.5 L 329.5 180 L 310.5 195.5 L 310.5 185 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="157.5">
+                    ユーザー情報1へのリクエスト
+                </text>
+                <text x="229.5" y="170.5">
+                    (証明書付)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 329.5 215 L 329.5 225 L 149.5 225 L 149.5 235.5 L 130.5 220 L 149.5 204.5 L 149.5 215 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="204">
+                    ユーザー情報1
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 329.5 315 L 329.5 325 L 149.5 325 L 149.5 335.5 L 130.5 320 L 149.5 304.5 L 149.5 315 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="304">
+                    ユーザー情報2
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 130.5 285 L 130.5 275 L 310.5 275 L 310.5 264.5 L 329.5 280 L 310.5 295.5 L 310.5 285 Z" fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="system-ui" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="229.5" y="257.5">
+                    ユーザー情報2へのリクエスト
+                </text>
+                <text x="229.5" y="270.5">
+                    (証明書付)
+                </text>
+            </g>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
+</svg>

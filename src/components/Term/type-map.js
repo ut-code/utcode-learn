@@ -93,6 +93,7 @@ const typeMap = new Map([
   ["レスポンスボディ", "httpHeaderBody"],
   ["GETリクエスト", "httpMethod"],
   ["POSTリクエスト", "httpMethod"],
+  ["ステータスコード", "httpStatusCode"],
   ["npxコマンド", "npxCommand"],
   ["非同期処理", "asynchronousProcess"],
   ["非同期関数", "asynchronousProcess"],
