@@ -111,9 +111,7 @@ model Session {
 }
 ```
 
-`/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、[`crypto.randomUUID`関数](https://developer.mozilla.org/ja/docs/Web/API/Crypto/randomUUID)を用いてランダムな文字列を生成し、新しいレコードを`Session`テーブルに作成した上で、Cookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
-
-新しいレコードを`Session`テーブルに作成し、その`sessionId`をCookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
+`/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、[`crypto.randomUUID`関数](https://developer.mozilla.org/ja/docs/Web/API/Crypto/randomUUID)を用いて一意でランダムな文字列を生成し、新しいレコードを`Session`テーブルに作成した上で、Cookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
 
 ```javascript title="main.mjs (POST /login の抜粋)" showLineNumbers
 app.post("/login", async (request, response) => {
