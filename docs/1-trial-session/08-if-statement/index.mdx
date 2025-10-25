@@ -2,6 +2,8 @@
 title: 条件分岐
 ---
 
+import Sandpack from "@site/src/components/Sandpack";
+
 ## if文
 
 **if文**は、<Term>JavaScript</Term>の<Term>**制御構造**</Term>で、特定の条件下のみで実行されるプログラムを記述することができます。
@@ -16,6 +18,32 @@ if (age < 18) {
 ```
 
 このプログラムは、`未成年者の場合は法定代理人の同意が必要です。`と表示しますが、1行目を`const age = 20;`に変更すると何も表示されなくなります。
+
+<Sandpack
+  files={{
+    "/index.html": {
+      code: `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>条件分岐</title>
+</head>
+<body>
+  <script src="script.js"></script>
+</body>
+</html>`,
+      hidden: true,
+    },
+    "/script.js": `const age = 16;
+if (age < 18) {
+  document.write("未成年者の場合は法定代理人の同意が必要です。");
+}`,
+  }}
+  options={{
+    editorHeight: 250,
+    activeFile: "/script.js",
+  }}
+/>
 
 2行目の`if (age < 18) {`部分がポイントです。ここに差し掛かると、括弧内の<Term>式</Term>`age < 18`が<Term>評価</Term>され、`true`になります。このため、直後の波括弧内の処理が実行されます。
 
@@ -54,6 +82,34 @@ if (age >= 18) {
 ```
 
 この例では、`age >= 18`の<Term>評価</Term>が`false`となるので、`子供です`が表示されます。
+
+<Sandpack
+  files={{
+    "/index.html": {
+      code: `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>if-else</title>
+</head>
+<body>
+  <script src="script.js"></script>
+</body>
+</html>`,
+      hidden: true,
+    },
+    "/script.js": `const age = 16;
+if (age >= 18) {
+  document.write("大人です");
+} else {
+  document.write("子供です");
+}`,
+  }}
+  options={{
+    editorHeight: 250,
+    activeFile: "/script.js",
+  }}
+/>
 
 ## if～else if～else
 
