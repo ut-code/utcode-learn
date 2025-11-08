@@ -29,9 +29,3 @@ body {
   padding: 12px;
   margin-top: 16px;
 }
-
-@media (max-width: 1024px) {
-  #container {
-    flex-direction: column;
-  }
-}

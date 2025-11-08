@@ -2,10 +2,6 @@ body {
   background-color: #f0f0f0;
 }
 
-#container {
-  display: flex;
-}
-
 .card {
   background-color: #fff;
   width: 240px;
@@ -27,11 +23,4 @@ body {
   border: none;
   border-radius: 8px;
   padding: 12px;
-  margin-top: 16px;
-}
-
-@media (max-width: 1024px) {
-  #container {
-    flex-direction: column;
-  }
 }

@@ -2,17 +2,10 @@ body {
   background-color: #f0f0f0;
 }
 
-#container {
-  display: flex;
-}
-
 .card {
   background-color: #fff;
   width: 240px;
   border: 1px solid #bbb;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
 }
 
 .price {
@@ -25,13 +18,4 @@ body {
   font-size: 16px;
   width: 100%;
   border: none;
-  border-radius: 8px;
-  padding: 12px;
-  margin-top: 16px;
-}
-
-@media (max-width: 1024px) {
-  #container {
-    flex-direction: column;
-  }
 }
