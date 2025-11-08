@@ -78,11 +78,13 @@ npx tsc main.ts
 
 すると、同名のJavaScriptファイルが生成されます。このファイルを実行すれば、通常のJavaScriptとして実行できます。
 
-なお、TypeScript のウェブサイトで提供されている[TS Playground](https://www.typescriptlang.org/play)を用いると、ブラウザ上で TypeScript のコードを記述し、型チェックの結果を確認できます。
+なお、TypeScriptのウェブサイトで提供されている[TS Playground](https://www.typescriptlang.org/play)を用いると、ブラウザ上でTypeScriptのコードを記述し、型チェックの結果を確認できます。
 
-## 型を記述できる場所
+## TypeScriptのデータ型
 
-TypeScriptの型は、関数の引数や戻り値、変数の後に`:`とともに記述できます。
+TypeScriptにおけるデータ型とは、その型の値として扱うことのできる全ての**値の集合**です。例えば、`number`型の集合には、`0`や`3.14`、`-7`など、数値の値が含まれます。
+
+型は、変数や関数の引数など、**その場所に入る値の種類を明示したい箇所**に、`:` (コロン) に続けて記述します。
 
 ```typescript
 // addはnumber型の引数a, bをとりnumber型の値を返す関数
@@ -94,7 +96,7 @@ function add(a: number, b: number): number {
 let sum: number = add(3, 4);
 ```
 
-データ型が誤っている場合、TypeScriptはエラーを出力します。
+型が指定された箇所に、**その型に属さない値が指定される可能性のある**プログラムに対し、TypeScriptはエラーを出力します。例えば、次のプログラムにおいて、`"7"`や`"3"`、`"4"`は`number`型に属さないため、エラーが出力されます。
 
 ```typescript
 sum = "7"; // Type 'string' is not assignable to type 'number'.
@@ -102,36 +104,14 @@ sum = "7"; // Type 'string' is not assignable to type 'number'.
 add("3", "4"); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
-## データ型と値
+TypeScriptでは、`number`のほかにも、次の表に示すように、さまざまなデータ型が用意されています。
 
-TypeScriptにおけるデータ型は、その型の値として扱うことのできる全ての値の集合です。TypeScriptは、プログラムの全体を検査し、指定された型から外れた値の入る可能性のある箇所を検出して、エラーを発生させます。
-
-TypeScriptの型には包含関係があり、`T`が`U`の部分集合である場合、つまり、ある型`T`の全ての値が別の型`U`の値でもある場合、`T`は`U`の**部分型**であるといいます。TypeScriptでは、全体集合である`unknown`型から、空集合である`never`型まで、さまざまな部分型が定義されています。
-
-```typescript
-// すべて正しい
-const a: unknown = 1;
-const b: number = 1;
-const c: 1 = 1; // 左辺の1はデータ型としての1
-
-// never型には値を代入できない
-// const d: never = 1;
-```
-
-![TypeScriptのデータ型](./typescript-types.drawio.svg)
-
-:::tip[`any`型]
-
-TypeScriptの標準設定では、型が判明しなかった場合、`any`型が指定されたものとみなされます。`any`型の値には、どんな操作でも許容されます。`any`型の値はどんな型の変数にも代入できますし、`any`型の変数にはどんな値でも代入できます。上の集合のどの部分にも当てはまりません。
-
-```typescript
-const strangeValue: any = 1;
-
-// TypeScriptは誤りを検出できないが、実行時にエラーになる
-strangeValue.strangeMethod();
-```
-
-:::
+| 型名      | 説明         | 例                              |
+| --------- | ------------ | ------------------------------- |
+| `number`  | 数値         | `0`, `3.14`, `-7`               |
+| `string`  | 文字列       | `"Hello"`, `"TypeScript"`       |
+| `boolean` | 真偽値       | `true`, `false`                 |
+| `object`  | オブジェクト | `{ name: "田中" }`, `[1, 2, 3]` |
 
 ### 確認問題
 
@@ -149,7 +129,7 @@ function repeat(text, times) {
 
 <Answer title="文字列の繰り返し">
 
-関数 `repeat` は、文字列 `text` を `times` 回繰り返して結合した新しい文字列を返す関数です。したがって、`text` は `string` 型、`times` は `number` 型、戻り値も `string` 型とするのが適切です。
+関数`repeat`は、文字列`text`を`times`回繰り返して結合した新しい文字列を返す関数です。したがって、`text`は`string`型、`times`は`number`型、戻り値も`string`型とするのが適切です。
 
 ```typescript
 function repeat(text: string, times: number): string {
@@ -162,6 +142,46 @@ function repeat(text: string, times: number): string {
 ```
 
 </Answer>
+
+## 部分型の関係
+
+TypeScriptの型には包含関係があり、`T`が`U`の部分集合であるとき、`T`は`U`の**部分型**であるといいます。
+
+この部分型関係は、**全体集合を`unknown`型、空集合を`never`型**として、次の図のように整理できます。
+
+![TypeScriptのデータ型](./typescript-types.drawio.svg)
+
+例えば、次の例のように、数値`1`は`1`型、`number`型、`unknown`型のいずれにも属します。
+
+```typescript
+const a: unknown = 1;
+const b: number = 1;
+const c: 1 = 1; // 左辺の1はデータ型としての1
+```
+
+部分型の値は、より大きな型の値として扱うことができます。例えば、次の例では、`string`型の変数`value`を、`unknown`型の引数を受け取る関数`logValue`に渡しています。`string`型は`unknown`型の部分型であるため、TypeScriptはこのプログラムを正しいとみなします。
+
+```typescript
+function logValue(value: unknown) {
+  console.log(value);
+}
+
+const value: string = "Hello";
+logValue(value); // string型はunknown型の部分型
+```
+
+:::tip[`any`型]
+
+TypeScriptの標準設定では、型が判明しなかった場合、`any`型が指定されたものとみなされます。`any`型の値には、どんな操作でも許容されます。`any`型の値はどんな型の変数にも代入できますし、`any`型の変数にはどんな値でも代入できます。上の集合のどの部分にも当てはまりません。
+
+```typescript
+const strangeValue: any = 1;
+
+// TypeScriptは誤りを検出できないが、実行時にエラーになる
+strangeValue.strangeMethod();
+```
+
+:::
 
 ## データ型の別名
 
@@ -185,34 +205,18 @@ const age: Age = 18;
 オブジェクト型では、プロパティの名前や、値の型が指定できます。
 
 ```typescript
-// Studentはstring型のnameプロパティとnumber型のageプロパティを持つオブジェクト
-type Student = {
+// Personはstring型のnameプロパティとnumber型のageプロパティを持つオブジェクト
+type Person = {
   name: string;
   age: number;
 };
 
-let student: Student = { name: "田中", age: 18 };
+let person: Person = { name: "田中", age: 18 };
 ```
 
-クラス名は、そのまま型名として利用できます。また、フィールドにも型を指定できます。
+TypeScriptでは、**プロパティが多いオブジェクト型は、プロパティが少ないオブジェクト型の部分型**とみなされます。
 
-```typescript
-class Student {
-  name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-}
-
-const student: Student = new Student("田中", 18);
-```
-
-TypeScriptでは、プロパティが多いオブジェクト型は、プロパティが少ないオブジェクト型の部分型とみなされます。次の例では、プロパティの数が多い`Teacher`オブジェクトを、プロパティの数が少ない`Student`として代入しています。
-
-これは、`Teacher`オブジェクトが`Student`オブジェクトの全てのプロパティを持っており、`Student`オブジェクトに対する全ての操作を安全に実行できるためです。一方で、`Student`オブジェクトを`Teacher`オブジェクトとして代入することはできません。なぜなら、`Student`オブジェクトは`Teacher`オブジェクトが持つ`subject`プロパティを持っていないためです。
+次の例では、プロパティの数が多い`Teacher`型のオブジェクトを、プロパティの数が少ない`Person`型の変数に代入しています。これは、`Teacher`型のオブジェクトは`Person`型のオブジェクトの全てのプロパティを持っており、`Person`型のオブジェクトに対する全ての操作を安全に実行できるためです。
 
 ```typescript
 type Teacher = {
@@ -222,72 +226,80 @@ type Teacher = {
 };
 
 let teacher: Teacher = { name: "鈴木", age: 18, subject: "数学" };
-student = teacher;
+person = teacher;
 
-// Property 'subject' is missing in type 'Student' but required in type 'Teacher'.
-teacher = student;
+// Property 'subject' is missing in type 'Person' but required in type 'Teacher'.
+teacher = person;
 ```
+
+:::note[クラス]
+
+クラス名は、そのまま型名として利用できます。また、フィールドにも型を指定できます。
+
+```typescript
+class Person {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const person: Person = new Person("田中", 18);
+```
+
+:::
 
 ### 確認問題
 
-JavaScriptで記載された次のプログラムに対し、TypeScriptとして適切と思われる型を追記してください。
+`Product`型と`Book`型が次のように定義されているとします。
 
 ```typescript
-class Product {
-  name;
-  price;
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-  }
-}
+type Product = {
+  name: string;
+  price: number;
+};
 
-class Book extends Product {
-  author;
-  constructor(name, price, author) {
-    super(name, price);
-    this.author = author;
-  }
-}
+type Book = {
+  name: string;
+  price: number;
+  author: string;
+};
+```
 
+次のプログラムに対し、TypeScriptとして適切と思われる型を追記してください。
+
+```javascript
 function calculateTotal(item, quantity) {
   return item.price * quantity;
 }
 
-const book = new Book("TypeScript 入門", 2500, "山田 太郎");
+const book = {
+  name: "TypeScript 入門",
+  price: 2500,
+  author: "山田 太郎",
+};
 const total = calculateTotal(book, 3);
 ```
 
 <Answer title="商品の合計金額の計算">
 
-- `name`, `price`, `author` はそれぞれ `string`, `number`, `string` 型とするのが適切です。
-- `calculateTotal` 関数の引数 `item` は `Product` 型と `Book` 型のいずれも文法的には正しいですが、関数の処理において `Book` 特有のプロパティを使用していないため、`Product` 型を指定するのがより適切です。
-- `quantity` は商品の数量を表すため `number` 型とします。戻り値も合計金額を表すため `number` 型とします。
+- `calculateTotal`関数の引数`item`は`Product`型と`Book`型のいずれも文法的には正しいですが、関数の処理において`Book`型特有のプロパティを使用していないため、`Product`型を指定するのがより適切です。
+- `book`は`Book`型のオブジェクトです。
+- `quantity`は商品の数量を表すため`number`型とします。戻り値も合計金額を表すため`number`型とします。
 
 ```typescript
-class Product {
-  name: string;
-  price: number;
-  constructor(name: string, price: number) {
-    this.name = name;
-    this.price = price;
-    ï;
-  }
-}
-
-class Book extends Product {
-  author: string;
-  constructor(name: string, price: number, author: string) {
-    super(name, price);
-    this.author = author;
-  }
-}
-
 function calculateTotal(item: Product, quantity: number): number {
   return item.price * quantity;
 }
 
-const book: Book = new Book("TypeScript 入門", 2500, "山田 太郎");
+const book: Book = {
+  name: "TypeScript 入門",
+  price: 2500,
+  author: "山田 太郎",
+};
 const total: number = calculateTotal(book, 3);
 ```
 
@@ -319,48 +331,15 @@ function add(a: number, b: number): number {
 const operator: BinaryNumberOperator = add;
 ```
 
-関数型の部分型の関係は複雑ですが、次の表のように整理できます。
+:::tip[関数型の部分型の関係]
 
-| 種類       | 関係                | 関数型の関係                            |
-| ---------- | ------------------- | --------------------------------------- |
-| 引数の数   | `f1` < `f2`         | `f1` が `f2` の部分型                   |
-| 引数の型   | `T` が `U` の部分型 | `(x: U) => R` が `(x: T) => R` の部分型 |
-| 戻り値の型 | `T` が `U` の部分型 | `() => T` が `() => U` の部分型         |
+関数型の部分型の関係は複雑ですが、「部分型の値はより大きな型の値として扱える」という基本的な考え方に基づいています。次の3つの関数型は、すべて`(v: string) => string`型の部分型となります。
 
-戻り値の型については自然に理解できますが、引数の数や引数の型については直感に反するかもしれません。このような関係になっているのは、関数が受け取る引数が少なかったり、より一般的な型であったりする場合、その関数はより多くの状況で安全に使用できるためです。
+- `() => string`: 引数が少ない関数に、引数を余分に渡しても無視されるので安全
+- `(v: unknown) => string`: 関数の引数に、より小さな型の値を渡しても安全
+- `(v: string) => never`: 関数の戻り値を、より大きな型の値として扱っても安全
 
-```typescript
-// 引数の数が少ない関数は、引数の数が多い関数の部分型
-type BinaryNumberOperator = (x: number, y: number) => number;
-const increment: BinaryNumberOperator = (x) => x + 1;
-increment(1, 2); // 第2引数は無視されるので問題ない
-
-// 引数の型がより一般的な関数は、引数の型がより具体的な関数の部分型
-type NumberConsumer = (number: number) => unknown;
-const logger: NumberConsumer = (number: unknown) => console.log(number);
-logger(1); // number型の引数はunknown型として扱えるので問題ない
-```
-
-### 確認問題
-
-次の型のうち、`(v: string) => string`型の部分型であるものを全て選んでください。
-
-- `(v1: string, v2: string) => string`
-- `() => string`
-- `(v: unknown) => string`
-- `(v: never) => string`
-- `(v: string) => unknown`
-- `(v: string) => never`
-
-<Answer>
-
-引数の数は少ないものが、引数の型はより一般的なものが、戻り値はより具体的なものが、部分型となります。
-
-- `() => string`
-- `(v: unknown) => string`
-- `(v: never) => string`
-
-</Answer>
+:::
 
 ## 型演算
 
@@ -371,7 +350,9 @@ logger(1); // number型の引数はunknown型として扱えるので問題な�
 | `&`  | 共通部分 |
 | `\|` | 合併     |
 
-次の例では、`Student`型と`Programmer`型の共通部分を持つオブジェクト`studentProgrammer`を定義しています。TypeScriptでは、多くのプロパティを持つオブジェクト型は、少ないプロパティを持つオブジェクト型の部分型とみなされるため、`Student & Programmer`型は、`name`、`major`、`language`の3つのプロパティを持つオブジェクト型と見做されます。
+共通部分型は、**両方の型に属する型**を表します。**オブジェクト型同士の場合、両方の型のプロパティを全て持つオブジェクト型**となります。
+
+次の例における`Student & Programmer`型は、`name`、`major`、`language`の3つのプロパティを持つオブジェクト型となります。
 
 ```typescript
 type Student = { name: string; major: string };
@@ -383,9 +364,17 @@ const studentProgrammer: Student & Programmer = {
 };
 ```
 
-合併型は、いずれかの型に属する値を表します。次の例では、`Meeting`型は`InPersonMeeting`型か`OnlineMeeting`型のいずれかに属する値を表します。関数`describeMeeting`では、`type`プロパティの値に応じて適切な処理を行っています。
+合併型は、**いずれかの型に属する型**を表します。
 
-TypeScriptでは、変数が文脈から合併型のどの型に属するかが明らかな場合、その型に応じたプロパティやメソッドが利用可能になります。この例では、`type`プロパティの値が`"in_person"`である場合、`location`プロパティが利用可能であり、`"online"`である場合、`url`プロパティが利用可能であることが分かります。
+次の例では、変数`hand`には`"グー"`、`"チョキ"`、`"パー"`のいずれかの文字列を指定できます。
+
+```typescript
+const hand: "グー" | "チョキ" | "パー" = "グー";
+```
+
+変数の値が合併型のどれに属するかが、`if`文などの条件により明らかである場合、**型の絞り込み**が行われます。
+
+次の例における`meeting`引数は、`InPersonMeeting`型か`OnlineMeeting`型のいずれかです。`type`プロパティの値に応じて、`location`プロパティか`url`プロパティが利用可能になります。
 
 ```typescript
 type InPersonMeeting = { type: "in_person"; location: string };
@@ -405,7 +394,7 @@ function describeMeeting(meeting: Meeting): string {
 
 **問題1**: `string & number`型は何型と等しいでしょうか。
 
-**問題2**: 次のように定義される型`T`に対して使用可能なプロパティは何でしょうか。
+**問題2**: 次のように定義される型`T`に対して、直接使用可能なプロパティは何でしょうか。
 
 ```typescript
 type T = { name: string; age: number } | { name: string; subject: string };
@@ -415,7 +404,7 @@ type T = { name: string; age: number } | { name: string; subject: string };
 
 **問題1**: `never`型
 
-TypeScriptでは、`string`型と`number`型とも見做せるような値は存在しません。したがって、`string & number`型は空集合である`never`型と等しいです。
+`string`型と`number`型の共通部分は存在しません。したがって、`string & number`型は、空集合である`never`型と等しいです。
 
 **問題2**: `name`のみ
 
@@ -475,7 +464,7 @@ function identity(x: unknown) {
 identity(1).toString();
 ```
 
-TypeScriptでは、型パラメータを用いることで、この問題を解決できます。型パラメータは、通常の引数と異なり、型を指定するための特殊な引数です。JavaScriptに<Term>トランスパイル</Term>されるタイミングで削除されます。こういった言語機能は他の多くのプログラミング言語でも用意されており、[ジェネリクス](https://www.typescriptlang.org/docs/handbook/2/generics.html)と呼ばれます。
+TypeScriptでは、型パラメータを用いることで、この問題を解決できます。型パラメータは、通常の引数と異なり、型を指定するための特殊な引数です。JavaScriptに<Term>トランスパイル</Term>される際に削除されます。こういった言語機能は他の多くのプログラミング言語でも用意されており、[ジェネリクス](https://www.typescriptlang.org/docs/handbook/2/generics.html)と呼ばれます。
 
 ```typescript
 // Tは型パラメータ
@@ -492,22 +481,18 @@ identity<number>(1).toString();
 identity(1).toString();
 ```
 
-クラスや`type`宣言でも型パラメータを利用できます。
+`type`やクラスでも型パラメータを利用できます。
 
 ```typescript
-class Range<T> {
+type Range<T> = {
   from: T;
   to: T;
-  constructor(from: T, to: T) {
-    this.from = from;
-    this.to = to;
-  }
-}
+};
 
-const dateRange = new Range<Date>(
-  new Date("2022-01-01"),
-  new Date("2022-12-31"),
-);
+const dateRange: Range<Date> = {
+  from: new Date("2022-01-01"),
+  to: new Date("2022-12-31"),
+};
 
 type BinaryOperator<T> = (a: T, b: T) => T;
 
@@ -517,19 +502,19 @@ const add: BinaryOperator<number> = (a, b) => a + b;
 
 ### 確認問題
 
-次の関数`apply`は、関数を適用する関数です。引数と戻り値を表す型パラメータを定義し、ジェネリクスを用いて適切な型をつけてください。
+次の関数`apply`は、関数を適用する関数です。引数と戻り値を表す型パラメータを定義し、ジェネリクスを用いて適切な型をつけてください。なお、`parseInt`関数は、文字列を整数に変換する関数です。
 
 ```typescript
 function apply(f, x) {
   return f(x);
 }
 
-const result = apply(Math.sqrt, 1024); // resultはnumber型
+const result = apply(parseInt, "1024"); // resultはnumber型
 ```
 
 <Answer>
 
-`Math.sqrt`は、`(x: number) => number`型の関数です。したがって、`apply`関数の型パラメータ`T`と`U`は`number`に推論されます。
+`parseInt`は、`(v: string) => number`型の関数です。したがって、`apply`関数の型パラメータ`T`は`string`、`U`は`number`に推論されます。
 
 ```typescript
 function apply<T, U>(f: (x: T) => U, x: T): U {
