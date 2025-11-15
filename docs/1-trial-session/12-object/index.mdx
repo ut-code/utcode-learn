@@ -2,6 +2,16 @@
 title: オブジェクト
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
+import createUserObjectHtml from "!!raw-loader!./_samples/create-user-object/index.html";
+import createUserObjectJs from "!!raw-loader!./_samples/create-user-object/script.js";
+import changeBioPropertyHtml from "!!raw-loader!./_samples/change-bio-property/index.html";
+import changeBioPropertyJs from "!!raw-loader!./_samples/change-bio-property/script.js";
+import changeLanguagePropertyHtml from "!!raw-loader!./_samples/change-language-property/index.html";
+import changeLanguagePropertyJs from "!!raw-loader!./_samples/change-language-property/script.js";
+import averageScoreHtml from "!!raw-loader!./_samples/average-score/index.html";
+import averageScoreJs from "!!raw-loader!./_samples/average-score/script.js";
+
 ## オブジェクト
 
 JavaScriptで利用することができる<Term>値</Term>の種類として、これまで<Term>数値</Term>と<Term>文字列</Term>、<Term>論理値</Term>を扱いました。<Term>数値</Term>や<Term>文字列</Term>、<Term>論理値</Term>などの「それ以上分解できない」<Term>値</Term>のことを**プリミティブ**と呼びます。JavaScriptには、この他にも、**オブジェクト**と呼ばれる<Term>値</Term>が存在します。JavaScriptにおいて、<Term>プリミティブ</Term>でない<Term>値</Term>はすべてオブジェクトです。
@@ -62,7 +72,16 @@ const user = {
 };
 ```
 
-<ViewSource url={import.meta.url} path="_samples/create-user-object" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": createUserObjectHtml,
+    "/script.js": createUserObjectJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -104,7 +123,16 @@ user.bio = "JavaScriptでWebアプリを作っています。";
 document.write(user.bio); // JavaScriptでWebアプリを作っています。
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-bio-property" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeBioPropertyHtml,
+    "/script.js": changeBioPropertyJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -157,7 +185,16 @@ user.settings.language = "English";
 document.write(user.settings.language); // English
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-language-property" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeLanguagePropertyHtml,
+    "/script.js": changeLanguagePropertyJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -186,6 +223,15 @@ const averageScore =
 document.write(`平均点は${averageScore}点です。`);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/average-score" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": averageScoreHtml,
+    "/script.js": averageScoreJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

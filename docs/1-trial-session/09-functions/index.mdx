@@ -2,7 +2,16 @@
 title: 関数
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
 import returnValueVideo from "./return-value.mp4";
+import multiplyHtml from "!!raw-loader!./_samples/multiply/index.html";
+import multiplyJs from "!!raw-loader!./_samples/multiply/script.js";
+import maxHtml from "!!raw-loader!./_samples/max/index.html";
+import maxJs from "!!raw-loader!./_samples/max/script.js";
+import maxNoElseHtml from "!!raw-loader!./_samples/max-no-else/index.html";
+import maxNoElseJs from "!!raw-loader!./_samples/max-no-else/script.js";
+import mobilePhoneBillHtml from "!!raw-loader!./_samples/mobile-phone-bill/index.html";
+import mobilePhoneBillJs from "!!raw-loader!./_samples/mobile-phone-bill/script.js";
 
 ## 処理の共通化
 
@@ -97,7 +106,16 @@ function multiply(a, b) {
 document.write(multiply(3, 4));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/multiply" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": multiplyHtml,
+    "/script.js": multiplyJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -187,7 +205,16 @@ function max(a, b) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/max" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": maxHtml,
+    "/script.js": maxJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 :::note
 
@@ -202,7 +229,16 @@ function max(a, b) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/max-no-else" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": maxNoElseHtml,
+    "/script.js": maxNoElseJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 :::
 
@@ -238,6 +274,15 @@ function calculateCost(monthlyDataUsage) {
 document.write(calculateCost(3.5));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": mobilePhoneBillHtml,
+    "/script.js": mobilePhoneBillJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

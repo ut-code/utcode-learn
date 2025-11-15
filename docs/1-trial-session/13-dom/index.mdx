@@ -2,6 +2,20 @@
 title: DOM
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
+import getElementByIdHtml from "!!raw-loader!./_samples/get-element-by-id/index.html";
+import getElementByIdJs from "!!raw-loader!./_samples/get-element-by-id/script.js";
+import goodEveningHtml from "!!raw-loader!./_samples/good-evening/index.html";
+import goodEveningJs from "!!raw-loader!./_samples/good-evening/script.js";
+import changeStylesHtml from "!!raw-loader!./_samples/change-styles/index.html";
+import changeStylesJs from "!!raw-loader!./_samples/change-styles/script.js";
+import addElementExerciseHtml from "!!raw-loader!./_samples/add-element-exercise/index.html";
+import addElementExerciseJs from "!!raw-loader!./_samples/add-element-exercise/script.js";
+import changeShoppingMemoHtml from "!!raw-loader!./_samples/change-shopping-memo/index.html";
+import changeShoppingMemoJs from "!!raw-loader!./_samples/change-shopping-memo/script.js";
+import fruitBasketHtml from "!!raw-loader!./_samples/fruit-basket/index.html";
+import fruitBasketJs from "!!raw-loader!./_samples/fruit-basket/script.js";
+
 ## <Term>HTML</Term>要素を<Term>JavaScript</Term>で取得する
 
 {/* prettier-ignore */}
@@ -28,7 +42,16 @@ const greetingElement = document.getElementById("greeting");
 greetingElement.textContent = "Hello DOM";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/get-element-by-id" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": getElementByIdHtml,
+    "/script.js": getElementByIdJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 {/* prettier-ignore */}
 <Term>変数</Term>`greetingElement`には、`index.html`に記述された`div`<Term>要素</Term>に対応する<Term>オブジェクト</Term>が<Term>代入</Term>されています。
@@ -63,7 +86,16 @@ const greetingType = document.getElementById("greeting-type");
 greetingType.textContent = "evening";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/good-evening" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": goodEveningHtml,
+    "/script.js": goodEveningJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -104,7 +136,16 @@ greetingElement.style.color = "yellow";
 greetingElement.style.backgroundColor = "black";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-styles" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeStylesHtml,
+    "/script.js": changeStylesJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -159,7 +200,16 @@ capElement.textContent = "帽子";
 packingList.appendChild(capElement);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/add-element-exercise" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": addElementExerciseHtml,
+    "/script.js": addElementExerciseJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -183,7 +233,16 @@ const targetItem = document.getElementById("item2");
 targetItem.textContent = "レモン";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeShoppingMemoHtml,
+    "/script.js": changeShoppingMemoJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -214,6 +273,15 @@ for (const fruit of fruits) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/fruit-basket" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": fruitBasketHtml,
+    "/script.js": fruitBasketJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
