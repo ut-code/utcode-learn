@@ -28,7 +28,7 @@ Reactによって作成されたブラウザ上で動くアプリケーション
    1. `npm install -D typescript`コマンドを実行してTypeScriptをインストールし、`npx tsc --init`コマンドを実行してTypeScriptの設定を記述するための`tsconfig.json`ファイルを作成します。
    1. ここでは、TypeScriptファイルを直接実行するために、`npm install -D tsx`コマンドを実行して<Term>[tsx](https://tsx.is/)</Term>をインストールします。`tsx 実行するファイルのパス`とすることで、TypeScriptファイルを直接実行できます。
 
-1. [データーベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。
+1. [データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。
    1. Supabaseで新しいデータベースを作成します。
    1. `npm install @prisma/client dotenv`コマンドと`npm install -D prisma`コマンドを実行して、Prismaのセットアップに必要なパッケージをインストールします。
    1. `npx prisma init`コマンドを実行してPrismaのセットアップに必要なファイルを作成します。作成された`prisma.config.ts`ファイルを編集し、`.env`ファイルの内容が読み込まれるようにします。
