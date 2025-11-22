@@ -8,8 +8,6 @@ import multiplyHtml from "!!raw-loader!./_samples/multiply/index.html";
 import multiplyJs from "!!raw-loader!./_samples/multiply/script.js";
 import maxHtml from "!!raw-loader!./_samples/max/index.html";
 import maxJs from "!!raw-loader!./_samples/max/script.js";
-import maxNoElseHtml from "!!raw-loader!./_samples/max-no-else/index.html";
-import maxNoElseJs from "!!raw-loader!./_samples/max-no-else/script.js";
 import mobilePhoneBillHtml from "!!raw-loader!./_samples/mobile-phone-bill/index.html";
 import mobilePhoneBillJs from "!!raw-loader!./_samples/mobile-phone-bill/script.js";
 
@@ -228,17 +226,6 @@ function max(a, b) {
   return b;
 }
 ```
-
-<Sandpack
-  template="static"
-  files={{
-    "/index.html": maxNoElseHtml,
-    "/script.js": maxNoElseJs,
-  }}
-  options={{
-    activeFile: "/script.js",
-  }}
-/>
 
 :::
 

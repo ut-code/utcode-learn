@@ -3,8 +3,6 @@ title: DOM
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
-import getElementByIdHtml from "!!raw-loader!./_samples/get-element-by-id/index.html";
-import getElementByIdJs from "!!raw-loader!./_samples/get-element-by-id/script.js";
 import goodEveningHtml from "!!raw-loader!./_samples/good-evening/index.html";
 import goodEveningJs from "!!raw-loader!./_samples/good-evening/script.js";
 import changeStylesHtml from "!!raw-loader!./_samples/change-styles/index.html";
@@ -41,17 +39,6 @@ import fruitBasketJs from "!!raw-loader!./_samples/fruit-basket/script.js";
 const greetingElement = document.getElementById("greeting");
 greetingElement.textContent = "Hello DOM";
 ```
-
-<Sandpack
-  template="static"
-  files={{
-    "/index.html": getElementByIdHtml,
-    "/script.js": getElementByIdJs,
-  }}
-  options={{
-    activeFile: "/script.js",
-  }}
-/>
 
 {/* prettier-ignore */}
 <Term>変数</Term>`greetingElement`には、`index.html`に記述された`div`<Term>要素</Term>に対応する<Term>オブジェクト</Term>が<Term>代入</Term>されています。

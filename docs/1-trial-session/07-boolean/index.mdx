@@ -3,8 +3,6 @@ title: 論理値と論理演算子
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
-import weirdComparisonHtml from "!!raw-loader!./_samples/weird-comparison/index.html";
-import weirdComparisonJs from "!!raw-loader!./_samples/weird-comparison/script.js";
 import quizShowHtml from "!!raw-loader!./_samples/quiz-show/index.html";
 import quizShowJs from "!!raw-loader!./_samples/quiz-show/script.js";
 
@@ -97,17 +95,6 @@ let fujiHeight = 3776;
 document.write(takaoHeight < everestHeight < fujiHeight);
 document.write(takaoHeight = everestHeight);
 ```
-
-<Sandpack
-  template="static"
-  files={{
-    "/index.html": weirdComparisonHtml,
-    "/script.js": weirdComparisonJs,
-  }}
-  options={{
-    activeFile: "/script.js",
-  }}
-/>
 
 - JavaScript で、数値と論理値に比較<Term>演算子</Term>を適用すると、`true`は`1`として、`false`は`0`として比較されます。
 - `=`は代入演算子です。代入<Term>演算子</Term>の<Term>式</Term>が<Term>評価</Term>されると、右辺の<Term>値</Term>になります。
