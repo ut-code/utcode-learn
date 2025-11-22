@@ -2,10 +2,13 @@
 title: HTML
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
 import createFileVideo from "./create-file.mp4";
 import openInBrowserVideo from "./open-in-browser.mp4";
 import showFileExtensionsVideo from "./show-file-extensions.mp4";
 import reloadBrowserVideo from "./reload-browser.mp4";
+import excursionHtml from "!!raw-loader!./_samples/excursion/index.html";
+import formHtml from "!!raw-loader!./_samples/form/index.html";
 
 Web開発に必ず用いられる言語があります。<Term>**HTML**</Term>とCSS、そしてJavaScriptです。これらは互いに異なる役割をもっています。まずは最も基本となる<Term>HTML</Term>から学んでいきましょう。
 
@@ -155,7 +158,15 @@ VS Code上で作成したファイルは`index.html`でした。しかしなが�
 </html>
 ```
 
-<ViewSource url={import.meta.url} path="_samples/excursion" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": excursionHtml,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 </Answer>
 
@@ -202,6 +213,14 @@ VS Code上で作成したファイルは`index.html`でした。しかしなが�
 </html>
 ```
 
-<ViewSource url={import.meta.url} path="_samples/form" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": formHtml,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 </Answer>

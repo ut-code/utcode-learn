@@ -2,6 +2,14 @@
 title: CSS
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
+import firstCssHtml from "!!raw-loader!./_samples/first-css/index.html";
+import redHelloWorldHtml from "!!raw-loader!./_samples/red-hello-world/index.html";
+import redHelloWorldCss from "!!raw-loader!./_samples/red-hello-world/style.css";
+import yellowHelloCssHtml from "!!raw-loader!./_samples/yellow-hello-css/index.html";
+import yellowHelloCssCss from "!!raw-loader!./_samples/yellow-hello-css/style.css";
+import fooHtml from "!!raw-loader!./_samples/foo/index.html";
+
 この節では、Web開発で用いられるもう一つの言語である、CSSについて学びます。CSSはWebサイトの「見た目」をつかさどる言語です。多くの<Term>HTML要素</Term>は、<Term>CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
@@ -15,7 +23,15 @@ title: CSS
 <div style="color: red; font-size: 24px;">Hello World!</div>
 ```
 
-<ViewSource url={import.meta.url} path="_samples/first-css" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": firstCssHtml,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 ![Hello World!](./red-hello-world.png)
 
@@ -60,7 +76,16 @@ title: CSS
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/red-hello-world" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": redHelloWorldHtml,
+    "/style.css": redHelloWorldCss,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 ### `link`要素
 
@@ -127,7 +152,16 @@ HTMLファイルとCSSファイルを分けて作成する場合、`style`属性
 
 </Answer>
 
-<ViewSource url={import.meta.url} path="_samples/yellow-hello-css" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": yellowHelloCssHtml,
+    "/style.css": yellowHelloCssCss,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 ## 演習問題2
 
@@ -183,6 +217,14 @@ HTMLファイルとCSSファイルを分けて作成する場合、`style`属性
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/foo" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": fooHtml,
+  }}
+  options={{
+    activeFile: "/index.html",
+  }}
+/>
 
 </Answer>

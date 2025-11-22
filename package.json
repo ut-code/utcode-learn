@@ -13,6 +13,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",
     "@docusaurus/theme-mermaid": "^3.9.1",
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "raw-loader": "^4.0.2"
   }
 }
