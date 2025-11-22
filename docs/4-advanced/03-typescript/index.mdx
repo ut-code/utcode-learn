@@ -96,7 +96,7 @@ function add(a: number, b: number): number {
 let sum: number = add(3, 4);
 ```
 
-型が指定された箇所に、**その型に属さない値が指定される可能性のある**プログラムに対し、TypeScriptはエラーを出力します。例えば、次のプログラムにおいて、`"7"`や`"3"`、`"4"`は`number`型に属さないため、エラーが出力されます。
+変数、関数の引数、戻り値など、**値の型が定まっている位置に異なる型の値が入る可能性がある**プログラムを検出すると、TypeScriptはエラーを報告します。例えば、次のプログラムにおいて、`"7"`や`"3"`、`"4"`は`number`型に属さないため、エラーが出力されます。
 
 ```typescript
 sum = "7"; // Type 'string' is not assignable to type 'number'.
@@ -104,14 +104,14 @@ sum = "7"; // Type 'string' is not assignable to type 'number'.
 add("3", "4"); // Argument of type 'string' is not assignable to parameter of type 'number'.
 ```
 
-TypeScriptでは、`number`のほかにも、次の表に示すように、さまざまなデータ型が用意されています。
+TypeScriptでは、`number`型のほかにも、次の表に示すように、さまざまなデータ型が用意されています。
 
-| 型名      | 説明         | 例                              |
-| --------- | ------------ | ------------------------------- |
-| `number`  | 数値         | `0`, `3.14`, `-7`               |
-| `string`  | 文字列       | `"Hello"`, `"TypeScript"`       |
-| `boolean` | 真偽値       | `true`, `false`                 |
-| `object`  | オブジェクト | `{ name: "田中" }`, `[1, 2, 3]` |
+| 型名      | 説明         | 例                        |
+| --------- | ------------ | ------------------------- |
+| `number`  | 数値         | `0`, `3.14`, `-7`         |
+| `string`  | 文字列       | `"Hello"`, `"TypeScript"` |
+| `boolean` | 真偽値       | `true`, `false`           |
+| `object`  | オブジェクト | `{ name: "田中" }`        |
 
 ### 確認問題
 
@@ -277,7 +277,7 @@ function calculateTotal(item, quantity) {
 }
 
 const book = {
-  name: "TypeScript 入門",
+  name: "TypeScript入門",
   price: 2500,
   author: "山田 太郎",
 };
@@ -296,7 +296,7 @@ function calculateTotal(item: Product, quantity: number): number {
 }
 
 const book: Book = {
-  name: "TypeScript 入門",
+  name: "TypeScript入門",
   price: 2500,
   author: "山田 太郎",
 };
