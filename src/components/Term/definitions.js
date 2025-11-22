@@ -34,6 +34,8 @@ export default {
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
     "/docs/advanced/react/": "React",
+    "/docs/advanced/integration-and-deployment/":
+      "フロントエンドとバックエンドの連携とデプロイ",
   },
   terms: {
     fileExtension: {
@@ -457,6 +459,26 @@ export default {
       definition:
         "JavaScriptでは、数値のゼロ、空文字列、null、undefined、NaNをfalsy、それ以外の全ての値をtruthyとみなす。if文は条件式の結果がtruthyであるかfalsyであるかによって分岐を行う。",
       referencePage: "/docs/advanced/react/",
+    },
+    typescriptExecute: {
+      name: "tsx（TypeScript Execute）",
+      definition:
+        "Node.js環境でTypeScriptファイルを直接実行するためのツール。`tsx 実行するファイルのパス`とすることで、TypeScriptファイルを直接実行できる。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：tsx公式 https://tsx.is/
+    },
+    origin: {
+      name: "オリジン",
+      definition: "プロトコル、ドメイン、ポートの組み合わせ。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：MDN「Origin (オリジン)」 https://developer.mozilla.org/ja/docs/Glossary/Origin
+    },
+    cors: {
+      name: "CORS（Cross-Origin Resource Sharing）",
+      definition:
+        "異なるオリジンのリソースへアクセスすることを可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザは異なるオリジンのリソースへのアクセスを許可する。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：MDN「オリジン間リソース共有 (CORS)」 https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CORS
     },
     mutableImmutable: {
       name: "ミュータブルとイミュータブル",
