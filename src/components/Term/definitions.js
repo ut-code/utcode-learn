@@ -2,33 +2,37 @@ export default {
   referencePageTitles: {
     "/docs/trial-session/get-started/": "はじめてのWeb開発",
     "/docs/trial-session/html/": "HTML",
+    "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/javascript/": "JavaScriptことはじめ",
     "/docs/trial-session/expressions/": "値と式と演算子",
-    "/docs/trial-session/expressions/#いろいろな演算子": "いろいろな演算子",
     "/docs/trial-session/variables/": "変数",
     "/docs/trial-session/boolean/": "論理値と論理演算子",
     "/docs/trial-session/if-statement/": "条件分岐",
     "/docs/trial-session/functions/": "関数",
+    "/docs/trial-session/loop/": "繰り返し",
     "/docs/trial-session/array/": "配列",
-    "/docs/trial-session/css/": "CSS",
     "/docs/trial-session/object/": "オブジェクト",
     "/docs/trial-session/dom/": "DOM",
     "/docs/trial-session/events/": "イベント",
     "/docs/trial-session/project/": "プロジェクト",
-    "/docs/trial-session/deploy/": "作ったウェブアプリを公開する",
+    "/docs/trial-session/deploy-application/": "作ったウェブアプリを公開する",
     "/docs/browser-apps/inspector/": "ブラウザの開発者ツール",
     "/docs/browser-apps/reference/": "オブジェクトの参照",
-    "/docs/browser-apps/loop/": "繰り返し",
     "/docs/browser-apps/class/": "クラス",
     "/docs/browser-apps/anonymous-function/": "無名関数",
-    "/docs/browser-apps/git-github/": "GitとGitHub",
+    "/docs/browser-apps/css-arrangement/": "CSSによる配置",
+    "/docs/browser-apps/project/": "プロジェクト",
     "/docs/web-servers/wsl-setup/": "WSLのセットアップ",
+    "/docs/web-servers/linux-commands/": "Linuxコマンド",
     "/docs/web-servers/node-js/": "はじめてのNode.js",
     "/docs/web-servers/module/": "モジュールとnpm",
     "/docs/web-servers/server/": "Expressによるサーバー構築",
     "/docs/web-servers/fetch-api/": "Fetch APIによるデータの取得",
     "/docs/web-servers/fetch-api-post/": "Fetch APIによるデータの送信",
     "/docs/web-servers/database/": "データベース",
+    "/docs/web-servers/git-github-init/": "GitとGitHubのセットアップ",
+    "/docs/web-servers/git/": "Gitを用いたバージョン管理",
+    "/docs/web-servers/github/": "GitとGitHubを用いた共同開発",
     "/docs/web-servers/deploy-on-render/": "Renderへのデプロイ",
     "/docs/advanced/cookie/": "Cookieと認証",
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
@@ -42,33 +46,21 @@ export default {
         "ファイル名のピリオド以降の部分。ファイルの種類を識別するために用いられる場合がある。Windowsでは標準では表示されないので、表示する設定にしておくと良い。",
       referencePage: "/docs/trial-session/html/",
     },
-    fork: {
-      name: "フォーク",
-      definition:
-        "GitHubにおいて、他人が公開しているリポジトリを複製すること。この操作により、元のリポジトリに対して影響を与えることなくソースコードを変更できる。",
-      referencePage: "/docs/trial-session/get-started/",
-    },
     git: {
       name: "Git",
       definition: "分散型バージョン管理システムのひとつ。",
-      referencePage: "/docs/trial-session/get-started/",
+      referencePage: "/docs/web-servers/git-github-init/",
     },
     github: {
       name: "GitHub",
       definition:
         "Gitを用いて、プログラムの保存、共有、公開などができる、開発者のための総合プラットフォーム。",
-      referencePage: "/docs/trial-session/get-started/",
-    },
-    gitpod: {
-      name: "Gitpod",
-      definition:
-        "GitHub等に保存されているプログラムをブラウザ上で編集するためのサービス。",
-      referencePage: "/docs/trial-session/get-started/",
+      referencePage: "/docs/web-servers/git-github-init/",
     },
     repository: {
       name: "リポジトリ",
       definition: "ソースコードやそれに付随する情報のまとまり。",
-      referencePage: "/docs/trial-session/get-started/",
+      referencePage: "/docs/web-servers/git/",
     },
     html: {
       name: "HTML",
@@ -175,12 +167,6 @@ export default {
       definition:
         "複数の演算子を含む式の評価順序を決定するための指標。例えば、乗算演算子は加算演算子より優先順位が高いため、3 + 4 * 5は3 + (4 * 5)と評価される。",
       referencePage: "/docs/trial-session/expressions/",
-    },
-    javascriptStringConcatenation: {
-      name: "文字列の結合",
-      definition:
-        "文字列に加算演算子を使うと、一個目の文字列の後ろに二個目の文字列が追加される。",
-      referencePage: "/docs/trial-session/expressions/#いろいろな演算子",
     },
     javascriptVariable: {
       name: "変数",
@@ -361,6 +347,7 @@ export default {
       name: "ライブラリ",
       definition:
         "汎用性の高い複数のプログラムを再利用可能な形でひとまとまりにしたもの。基本的に他のプログラムから利用され、単体では実行できない。",
+      referencePage: "/docs/web-servers/module/",
     },
     serverClient: {
       name: "サーバーとクライアント",
@@ -379,12 +366,6 @@ export default {
       definition:
         "クライアントからサーバーに対しサービスを要求する通信をリクエスト、リクエストに対してサーバーからクライアントに応答として返される通信をレスポンスと呼ぶ。",
       referencePage: "/docs/web-servers/server/",
-    },
-    queryString: {
-      name: "クエリ文字列",
-      definition:
-        "URLの末尾に付与することのできる追加のパラメーター。辞書型のデータを表すことができる。key1=value1&key2=value2といった構造。日本語文字などはパーセントエンコーディングする必要がある。",
-      referencePage: "/docs/web-servers/form/",
     },
     httpHeaderBody: {
       name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
@@ -414,12 +395,6 @@ export default {
       name: "非同期処理",
       definition:
         "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScriptでは、asyncキーワードをつけた関数は非同期処理を行うための関数となり、内部ではawaitキーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
-      referencePage: "/docs/web-servers/database/",
-    },
-    thread: {
-      name: "スレッド",
-      definition:
-        "コンピューターがプログラムの順番どおりに1つずつ処理を行う機構。JavaScriptではメインスレッドと呼ばれる単一のスレッドで主に処理が実行される。",
       referencePage: "/docs/web-servers/database/",
     },
     environmentVariable: {
