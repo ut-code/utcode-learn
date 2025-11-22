@@ -36,33 +36,6 @@ const config = {
         docsRouteBasePath: "/docs",
       },
     ],
-    function (_context, _options) {
-      return {
-        name: "custom-webpack-config",
-        configureWebpack(_config, _isServer, _utils) {
-          return {
-            module: {
-              rules: [
-                {
-                  test: /\.html$/,
-                  use: "raw-loader",
-                },
-                {
-                  test: /\.css$/,
-                  resourceQuery: /raw/,
-                  type: "asset/source",
-                },
-                {
-                  test: /\.js$/,
-                  resourceQuery: /raw/,
-                  type: "asset/source",
-                },
-              ],
-            },
-          };
-        },
-      };
-    },
   ],
   presets: [
     [
