@@ -23,10 +23,8 @@
 
 const typeMap = new Map([
   ["拡張子", "fileExtension"],
-  ["フォーク", "fork"], // not found
   ["Git", "git"], // not found
   ["GitHub", "github"], // not found
-  ["Gitpod", "gitpod"], // not found
   ["リポジトリ", "repository"], // not found
   ["HTML", "html"],
   ["ネスト", "nest"],
@@ -86,8 +84,6 @@ const typeMap = new Map([
   ["HTTPリクエスト", "requestResponse"],
   ["リクエスト", "requestResponse"],
   ["レスポンス", "requestResponse"],
-  ["クエリ文字列", "queryString"],
-  ["クエリパラメータ", "queryString"],
   ["リクエストヘッダ", "httpHeaderBody"],
   ["リクエストボディ", "httpHeaderBody"],
   ["レスポンスボディ", "httpHeaderBody"],
@@ -97,7 +93,6 @@ const typeMap = new Map([
   ["npxコマンド", "npxCommand"],
   ["非同期処理", "asynchronousProcess"],
   ["非同期関数", "asynchronousProcess"],
-  ["スレッド", "thread"], // not found
   ["環境変数", "environmentVariable"],
   ["デプロイ", "deploy"],
   ["トランスパイル", "transpile"],
