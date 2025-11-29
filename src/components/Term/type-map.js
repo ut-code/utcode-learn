@@ -22,6 +22,9 @@
  */
 
 const typeMap = new Map([
+  ["Google Chrome", "googleChrome"],
+  ["Visual Studio Code", "vsCode"],
+  ["VS Code", "vsCode"],
   ["拡張子", "fileExtension"],
   ["フォーク", "fork"], // not found
   ["Git", "git"], // not found
