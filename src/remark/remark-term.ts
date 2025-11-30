@@ -3,6 +3,19 @@ import type { Nodes, Root, RootContent } from "mdast";
 import "mdast-util-mdx-jsx";
 import { phrasing } from "mdast-util-phrasing";
 
+/**
+ * `[[用語]]`を`<Term>用語</Term>`に変換するプラグイン。
+ * `[[**用語**]]`のように中身が単一のASTノードの場合も変換可能。
+ *
+ * @example
+ * // returns "<Term>**HTML**</Term>と<Term>CSS</Term>、そして<Term>JavaScript</Term>です。"
+ * String(
+ *   await remark()
+ *     .use(remarkMdx)
+ *     .use(remarkTerm)
+ *     .process("[[**HTML**]]と[[CSS]]、そして[[JavaScript]]です。"),
+ * );
+ */
 const remarkTerm: Plugin<[], Root> = () => (tree) => transform(tree);
 
 export default remarkTerm;
