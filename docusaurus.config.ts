@@ -46,7 +46,7 @@ const config: Config = {
         docs: {
           showLastUpdateTime: true,
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
+          editUrl: "https://github.com/ut-code/utcode-learn/blob/main/",
           remarkPlugins: [math, remarkTerm],
           rehypePlugins: [katex],
         },
