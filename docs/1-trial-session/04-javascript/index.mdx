@@ -4,16 +4,16 @@ title: JavaScriptことはじめ
 
 import helloWorldByJavascriptVideo from "./hello-world-by-javascript.mp4";
 
-## <Term>JavaScript</Term>
+## [[JavaScript]]
 
 {/* prettier-ignore */}
-<Term>HTML</Term>がウェブサイトの構造を表す言語だとすれば、<Term>**JavaScript**</Term>はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。
+[[HTML]]がウェブサイトの構造を表す言語だとすれば、[[**JavaScript**]]はウェブサイトに振る舞いを与える言語といえます。ブラウザさえあれば環境に関係なく同じように実行可能な、強力なプログラミング言語です。
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
 
-## <Term>JavaScript</Term>でHello World!
+## [[JavaScript]]でHello World!
 
-プログラミングの世界では、まず画面に`Hello World!`と表示させることが慣例になっています。<Term>JavaScript</Term>を用いて画面に`Hello World!`を表示してみましょう。
+プログラミングの世界では、まず画面に`Hello World!`と表示させることが慣例になっています。[[JavaScript]]を用いて画面に`Hello World!`を表示してみましょう。
 
 まずは、`index.html`を次のように書き換えます。
 
@@ -40,26 +40,26 @@ document.write("Hello World!");
 
 <video src={helloWorldByJavascriptVideo} controls />
 
-## <Term>JavaScript</Term>が動く仕組み
+## [[JavaScript]]が動く仕組み
 
-<Term>HTML</Term>ファイルの中に、以下のような記述があります。
+[[HTML]]ファイルの中に、以下のような記述があります。
 
 ```html title="index.html"
 <script src="./script.js"></script>
 ```
 
-まず、この記述によって、`script.js`ファイルがブラウザによって読み込まれます。この`script.js`に記述されているのが<Term>JavaScript</Term>です。
+まず、この記述によって、`script.js`ファイルがブラウザによって読み込まれます。この`script.js`に記述されているのが[[JavaScript]]です。
 
 :::info
 
-この講座の中では、`script`<Term>要素</Term>を常に **`body`<Term>要素</Term>の末尾** に記述するようにします。これは、<Term>JavaScript</Term>が読み込まれるタイミングで他のすべての<Term>HTML要素</Term>がすでに表示されていることを保証するためです。
+この講座の中では、`script`[[要素]]を常に **`body`[[要素]]の末尾** に記述するようにします。これは、[[JavaScript]]が読み込まれるタイミングで他のすべての[[HTML要素]]がすでに表示されていることを保証するためです。
 
 :::
 
-## <Term>JavaScript</Term> の基本文法
+## [[JavaScript]] の基本文法
 
 {/* prettier-ignore */}
-<Term>JavaScript</Term>のプログラムで、セミコロンで区切られた部分を<Term>文</Term>と呼びます。<Term>JavaScript</Term>の実行環境は、プログラム中に含まれる<Term>文</Term>を上から下に向けて順番に実行していきます。
+[[JavaScript]]のプログラムで、セミコロンで区切られた部分を[[文]]と呼びます。[[JavaScript]]の実行環境は、プログラム中に含まれる[[文]]を上から下に向けて順番に実行していきます。
 `document.write`はブラウザの画面に出力するための命令です。
 
 ```javascript title="script.js"
