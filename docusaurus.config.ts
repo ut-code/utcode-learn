@@ -4,6 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 import { execSync } from "node:child_process";
 import math from "remark-math";
 import katex from "rehype-katex";
+import remarkTerm from "./src/remark/remark-term";
 
 const config: Config = {
   title: "ut.code(); Learn",
@@ -46,7 +47,7 @@ const config: Config = {
           showLastUpdateTime: true,
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
-          remarkPlugins: [math],
+          remarkPlugins: [math, remarkTerm],
           rehypePlugins: [katex],
         },
         theme: {
