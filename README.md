@@ -89,7 +89,7 @@ npm run build
 
 ## ライセンス
 
-ut.code(); Learn は [MIT license](https://github.com/ut-code/utcode-learn/blob/master/LICENSE) でライセンスされています。
+ut.code(); Learn は [MIT license](https://github.com/ut-code/utcode-learn/blob/main/LICENSE) でライセンスされています。
 Copyright © 2023 ut.code();.
 
 ## 貢献
