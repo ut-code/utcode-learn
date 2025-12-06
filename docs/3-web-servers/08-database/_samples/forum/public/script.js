@@ -15,7 +15,7 @@ setInterval(async () => {
 document.getElementById("send-button").onclick = async () => {
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
-  await fetch("/send", {
+  await fetch("/posts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),

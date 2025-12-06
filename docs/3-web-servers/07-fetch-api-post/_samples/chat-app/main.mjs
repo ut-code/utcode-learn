@@ -9,7 +9,7 @@ app.get("/messages", (request, response) => {
   response.json(messages);
 });
 
-app.post("/send", (request, response) => {
+app.post("/messages", (request, response) => {
   messages.push(request.body.message);
   response.send();
 });
