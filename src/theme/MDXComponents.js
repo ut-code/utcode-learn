@@ -11,6 +11,7 @@ import Details from "@theme/Details";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 // custom components
 import Answer from "@site/src/components/Answer";
@@ -27,6 +28,7 @@ export default {
   Tabs,
   TabItem,
   CodeBlock,
+  Sandpack,
 
   // export custom Components
   Answer,
