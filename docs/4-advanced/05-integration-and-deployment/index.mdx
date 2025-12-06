@@ -69,7 +69,9 @@ Reactによって作成されたブラウザ上で動くアプリケーション
 
       const app = express();
 
-      const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+      const adapter = new PrismaPg({
+        connectionString: process.env.DATABASE_URL,
+      });
       const client = new PrismaClient({ adapter });
 
       app.use(express.json());
@@ -102,7 +104,9 @@ Reactによって作成されたブラウザ上で動くアプリケーション
 
       const app = express();
 
-      const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+      const adapter = new PrismaPg({
+        connectionString: process.env.DATABASE_URL,
+      });
       const client = new PrismaClient({ adapter });
 
       app.use(express.json());
