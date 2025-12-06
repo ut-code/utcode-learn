@@ -3,9 +3,6 @@ title: CSS
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
-import firstCssHtml from "!!raw-loader!./_samples/first-css/index.html";
-import redHelloWorldHtml from "!!raw-loader!./_samples/red-hello-world/index.html";
-import redHelloWorldCss from "!!raw-loader!./_samples/red-hello-world/style.css";
 import yellowHelloCssHtml from "!!raw-loader!./_samples/yellow-hello-css/index.html";
 import yellowHelloCssCss from "!!raw-loader!./_samples/yellow-hello-css/style.css";
 import fooHtml from "!!raw-loader!./_samples/foo/index.html";
@@ -22,16 +19,6 @@ import fooHtml from "!!raw-loader!./_samples/foo/index.html";
 ```html title="index.html"
 <div style="color: red; font-size: 24px;">Hello World!</div>
 ```
-
-<Sandpack
-  template="static"
-  files={{
-    "/index.html": firstCssHtml,
-  }}
-  options={{
-    activeFile: "/index.html",
-  }}
-/>
 
 ![Hello World!](./red-hello-world.png)
 
@@ -75,17 +62,6 @@ import fooHtml from "!!raw-loader!./_samples/foo/index.html";
   color: red;
 }
 ```
-
-<Sandpack
-  template="static"
-  files={{
-    "/index.html": redHelloWorldHtml,
-    "/style.css": redHelloWorldCss,
-  }}
-  options={{
-    activeFile: "/index.html",
-  }}
-/>
 
 ### `link`要素
 
