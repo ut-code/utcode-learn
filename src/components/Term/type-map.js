@@ -106,7 +106,7 @@ const typeMap = new Map([
   ["JSX", "jsx"],
   ["truthy", "javascriptTruthyFalsy"],
   ["falsy", "javascriptTruthyFalsy"],
-  ["tsx", "typescriptExecute"],
+  ["tsxパッケージ", "typescriptExecute"],
   ["オリジン", "origin"],
   ["CORS", "cors"],
   ["CORS（Cross-Origin Resource Sharing）", "cors"],

@@ -460,10 +460,16 @@ export default {
         "JavaScriptでは、数値のゼロ、空文字列、null、undefined、NaNをfalsy、それ以外の全ての値をtruthyとみなす。if文は条件式の結果がtruthyであるかfalsyであるかによって分岐を行う。",
       referencePage: "/docs/advanced/react/",
     },
+    mutableImmutable: {
+      name: "ミュータブルとイミュータブル",
+      definition:
+        "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。Reactなどのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
+      referencePage: "/docs/browser-apps/reference/",
+    },
     typescriptExecute: {
       name: "tsx（TypeScript Execute）",
       definition:
-        "Node.js環境でTypeScriptファイルを直接実行するためのツール。`tsx 実行するファイルのパス`とすることで、TypeScriptファイルを直接実行できる。",
+        "Node.js環境で事前にTypeScriptをJavaScriptにトランスパイルせずにTypeScriptファイルを実行するためのツール。`npx tsx 実行するファイルのパス`とすることで、TypeScriptファイルを実行できる。",
       referencePage: "/docs/advanced/integration-and-deployment/",
       // 参考：tsx公式 https://tsx.is/
     },
@@ -476,15 +482,9 @@ export default {
     cors: {
       name: "CORS（Cross-Origin Resource Sharing）",
       definition:
-        "異なるオリジンのリソースへアクセスすることを可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザは異なるオリジンのリソースへのアクセスを許可する。",
+        "ブラウザによって制限されている異なるオリジンのリソースへのアクセスを可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザはそのアクセスを許可する。",
       referencePage: "/docs/advanced/integration-and-deployment/",
       // 参考：MDN「オリジン間リソース共有 (CORS)」 https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CORS
-    },
-    mutableImmutable: {
-      name: "ミュータブルとイミュータブル",
-      definition:
-        "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。Reactなどのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
-      referencePage: "/docs/browser-apps/reference/",
     },
   },
 };
