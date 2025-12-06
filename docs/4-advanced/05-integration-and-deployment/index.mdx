@@ -30,8 +30,8 @@ Reactによって作成されたブラウザ上で動くアプリケーション
 
 1. [データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。
    1. Supabaseで新しいデータベースを作成します。
-   1. `npm install @prisma/client dotenv`コマンドと`npm install -D prisma`コマンドを実行して、Prismaのセットアップに必要なパッケージをインストールします。
-   1. `npx prisma init`コマンドを実行してPrismaのセットアップに必要なファイルを作成します。作成された`prisma.config.ts`ファイルを編集し、`.env`ファイルの内容が読み込まれるようにします。
+   1. `npm install @prisma/client @prisma/adapter-pg pg dotenv`コマンドと`npm install -D prisma @types/pg`コマンドを実行して、Prismaのセットアップに必要なパッケージをインストールします。
+   1. `npx prisma init`コマンドを実行してPrismaのセットアップに必要なファイルを作成します。
    1. `.env`ファイルを編集し、Prismaがデータベースに接続できるようにします。
    1. 作成された`schema.prisma`ファイルを編集し、掲示板への投稿を保存するためのテーブルとそのカラムの定義を次のように記述します。
 
@@ -49,7 +49,6 @@ Reactによって作成されたブラウザ上で動くアプリケーション
 
       datasource db {
         provider = "postgresql"
-        url      = env("DATABASE_URL")
       }
 
       model Post {
@@ -58,17 +57,21 @@ Reactによって作成されたブラウザ上で動くアプリケーション
       }
       ```
 
-   1. `npx prisma db push`コマンドを実行して、テーブルとカラムの定義をデータベースに反映します。
+   1. `npx prisma db push`コマンドを実行してテーブルとカラムの定義をデータベースに反映し、`npx prisma generate`コマンドを実行して`Prisma Client`クラスを生成します。
    1. 掲示板への投稿のサンプルデータをデータベースに登録します。
    1. `npm install express`コマンドと`npm install -D @types/express`コマンドを実行して、Expressとその型定義をインストールします。
    1. `main.ts`ファイルを作成し、次のように記述します。
 
       ```ts title="/backend/main.ts"
       import express from "express";
+      import { PrismaPg } from "@prisma/adapter-pg";
       import { PrismaClient } from "./generated/prisma/client.js";
 
       const app = express();
-      const client = new PrismaClient();
+
+      const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+      const client = new PrismaClient({ adapter });
+
       app.use(express.json());
 
       app.get("/posts", async (request, response) => {
@@ -94,10 +97,14 @@ Reactによって作成されたブラウザ上で動くアプリケーション
       ```ts title="/backend/main.ts" showLineNumbers
       import express from "express";
       import cors from "cors";
+      import { PrismaPg } from "@prisma/adapter-pg";
       import { PrismaClient } from "./generated/prisma/client.js";
 
       const app = express();
-      const client = new PrismaClient();
+
+      const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+      const client = new PrismaClient({ adapter });
+
       app.use(express.json());
       app.use(cors({ origin: process.env.WEB_ORIGIN }));
 
@@ -243,12 +250,6 @@ Reactによって作成されたブラウザ上で動くアプリケーション
      }
    }
    ```
-
-   :::tip[`prisma generate`コマンド]
-
-   [`prisma generate`コマンド](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#generate)は、`schema.prisma`ファイルの内容に基づいて`Prisma Client`クラスを生成します。通常、`schema.prisma`ファイルを編集するたびにこのコマンドを再度実行して`Prisma Client`クラスを再生成する必要があります。ただし、`prisma db push`コマンドを実行する際にも`Prisma Client`クラスは生成されるため、`prisma db push`コマンドを実行した場合には`prisma generate`コマンドを実行する必要はありません。
-
-   :::
 
 ### Renderにデプロイする
 
