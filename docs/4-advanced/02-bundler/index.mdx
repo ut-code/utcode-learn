@@ -4,6 +4,8 @@ title: トランスパイラとモジュールバンドラ
 
 import getStartedWithViteVideo from "./get-started-with-vite.mp4";
 import buildVideo from "./build.mp4";
+import fakerAppVideo from "./faker-app.mp4";
+import canvasConfettiAppVideo from "./canvas-confetti-app.mp4";
 
 ## 複雑化するWeb開発
 
@@ -125,56 +127,44 @@ document.getElementById("app").textContent = format(
 
 <ViewSource url={import.meta.url} path="_samples/run-npm-package-on-browsers" />
 
-## フロントエンドとバックエンドの統合
-
-Viteなどのツールによって出力されたブラウザ上で動くアプリケーションと、Node.jsをはじめとしたサーバー向けのアプリケーションを統合するためには、複数の手法が考えられます。
-
-最も単純なアプローチは、ビルド時に統合することです。この方法のメリットは、本番環境にデプロイするのが簡単であることです。ディレクトリ構成は、例えば次のようになります。
-
-```
-app
-├── client
-│   ├── index.html
-│   └── main.js
-├── package.json
-├── package-lock.json
-└── server
-    └── main.mjs
-```
-
-<ViewSource url={import.meta.url} path="_samples/fullstack-app" />
-
-`npm run build`コマンドによってViteがビルド結果を`/dist`に出力するようにしておきます。
-
-```json title="/package.json"
-{
-  "scripts": {
-    "start": "node server/main.mjs",
-    "build": "vite build client --outDir ../dist"
-  }
-}
-```
-
-`express.static`によりViteが作成したディレクトリを指定すれば完成です。
-
-```javascript title="server/main.mjs"
-import express from "express";
-const app = express();
-
-app.use(express.json());
-
-// Viteによって出力されたディレクトリを配信する
-app.use(express.static("./dist"));
-
-app.listen(3000);
-```
-
 ## 演習問題1
 
-[`chart.js`](https://www.npmjs.com/package/chart.js)を用いると、ブラウザ上に非常に美しいグラフを描画することができます。このパッケージを用いて、適当なデータをビジュアライズしてみましょう。
+[Faker](https://fakerjs.dev/)は、ランダムな名前や住所などのデータを生成するためのパッケージです。Fakerをインストールして、次のようにランダムな名前を生成して画面に表示してみましょう。
 
-<ViewSource url={import.meta.url} path="_samples/chartjs" noCodeSandbox />
+<video src={fakerAppVideo} controls />
 
-## 演習問題2（発展）
+<Answer title="Faker">
 
-Viteを用いて作成したWebフロントエンドと、Node.jsのバックエンドが協調して動作するアプリケーションをRenderにデプロイしてみましょう。
+Viteを用いて新しいプロジェクトを作成し、`npm install @faker-js/faker`コマンドでFakerをインストールします。続いて、`main.js`を次のように書き換えます。
+
+[`faker.person.fullName`関数](https://fakerjs.dev/api/person.html#fullname)を用いると、ランダムな氏名を生成できます。
+
+```javascript title="main.js"
+import { faker } from "@faker-js/faker";
+
+document.getElementById("app").textContent = faker.person.fullName();
+```
+
+<ViewSource url={import.meta.url} path="_samples/faker" />
+
+</Answer>
+
+## 演習問題2
+
+[`canvas-confetti`パッケージ](https://github.com/catdad/canvas-confetti)は、Webブラウザ上で紙吹雪を降らせるためのパッケージです。`canvas-confetti`パッケージをインストールして、次のように画面に紙吹雪を降らせてみましょう。
+
+<video src={canvasConfettiAppVideo} controls />
+
+<Answer title="canvas-confetti">
+
+Viteを用いて新しいプロジェクトを作成し、`npm install canvas-confetti`コマンドで`canvas-confetti`パッケージをインストールします。続いて、`main.js`を次のように書き換えます。
+
+```javascript title="main.js"
+import confetti from "canvas-confetti";
+
+confetti();
+```
+
+<ViewSource url={import.meta.url} path="_samples/canvas-confetti" />
+
+</Answer>

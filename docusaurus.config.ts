@@ -1,10 +1,11 @@
 import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 import { execSync } from "node:child_process";
 import math from "remark-math";
 import katex from "rehype-katex";
 
-/** @type {import("@docusaurus/types").Config} */
-const config = {
+const config: Config = {
   title: "ut.code(); Learn",
   tagline: "ut.code(); 公式学習教材",
   url: "https://learn.utcode.net/",
@@ -40,12 +41,11 @@ const config = {
   presets: [
     [
       "@docusaurus/preset-classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
           showLastUpdateTime: true,
-          sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/ut-code/utcode-learn/blob/master/",
+          sidebarPath: "./sidebars.ts",
+          editUrl: "https://github.com/ut-code/utcode-learn/blob/main/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -58,10 +58,9 @@ const config = {
         gtag: process.env.GOOGLE_ANALYTICS_TRACKING_ID && {
           trackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
         },
-      },
+      } satisfies Preset.Options,
     ],
   ],
-  /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
   themeConfig: {
     docs: {
       sidebar: {
@@ -110,7 +109,7 @@ const config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} ut.code();. Built with Docusaurus.`,
     },
-  },
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;
