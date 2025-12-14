@@ -4,6 +4,8 @@ body {
 
 #container {
   display: flex;
+  gap: 16px;
+  justify-content: center;
 }
 
 .card {
@@ -11,13 +13,21 @@ body {
   width: 240px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  margin: 8px;
   padding: 24px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .plan {
   font-weight: bold;
   font-size: 24px;
+}
+
+.info {
+  color: #0d6efd;
 }
 
 .price {

@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+#menu {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #777;
+  font-size: 14px;
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}

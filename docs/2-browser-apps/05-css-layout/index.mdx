@@ -2,13 +2,14 @@
 title: CSSによるレイアウト
 ---
 
-import responsiveCardsVideo from "./cards-responsive.mp4";
+import responsiveCardsVideo from "./responsive-cards.mp4";
+import responsiveCenterCardsVideo from "./responsive-center-cards.mp4";
 
 この節では、CSSを使用してHTML要素のレイアウトを調整する方法を学びます。
 
 例として、次のような料金プランを表すカードを作ることを目標に進めていきます。
 
-![料金プランのカードの完成形のイメージ](./final-image.png)
+![料金プランのカードの完成形](./pricing-cards-final.png)
 
 まずは、HTMLとCSSで料金プランのカードを作り始めてみます。
 
@@ -21,10 +22,9 @@ import responsiveCardsVideo from "./cards-responsive.mp4";
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>料金プラン</h1>
     <div id="container">
       <div class="card">
-        <h2>Free</h2>
+        <div class="plan">Free</div>
         <div class="price">無料</div>
         <button type="button" class="button">今すぐ始める</button>
         <ul>
@@ -32,7 +32,7 @@ import responsiveCardsVideo from "./cards-responsive.mp4";
         </ul>
       </div>
       <div class="card">
-        <h2>Basic</h2>
+        <div class="plan">Basic</div>
         <div class="price">$5</div>
         <button type="button" class="button">今すぐ始める</button>
         <ul>
@@ -42,7 +42,7 @@ import responsiveCardsVideo from "./cards-responsive.mp4";
         </ul>
       </div>
       <div class="card">
-        <h2>Premium</h2>
+        <div class="plan">Premium</div>
         <div class="price">$20</div>
         <button type="button" class="button">今すぐ始める</button>
         <ul>
@@ -65,8 +65,13 @@ body {
   background-color: #fff;
 }
 
-.price {
+.plan {
+  font-weight: bold; /* フォントを太字にする */
   font-size: 24px;
+}
+
+.price {
+  font-size: 20px;
 }
 
 .button {
@@ -86,7 +91,7 @@ body {
 
 今のところ、カードの幅が画面いっぱいに広がってしまっています。
 
-![幅が画面いっぱいに広がっているカード](./card-full-width.png)
+![widthプロパティを指定する前のカード](./before-width-card.png)
 
 `width`プロパティで要素の幅を設定することができます。カードに適切な幅を設定するには、次のようにします。
 
@@ -98,7 +103,7 @@ body {
 }
 ```
 
-![幅を設定したカード](./card-fixed-width.png)
+![widthプロパティを指定したカード](./width-card.png)
 
 なお、`width`プロパティで幅を設定したのと同様に、高さを設定したい場合は`height`プロパティを使うことができます。
 
@@ -116,7 +121,7 @@ body {
 }
 ```
 
-![幅を100%に設定したボタン](./button-full-width.png)
+![ボタンのwidthプロパティに100%を指定したカード](./width-full-card.png)
 
 <ViewSource url={import.meta.url} path="_samples/width-percent" />
 
@@ -157,7 +162,7 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 }
 ```
 
-![境界線を設定したカード](./card-border.png)
+![borderプロパティを設定したカード](./border-card.png)
 
 <ViewSource url={import.meta.url} path="_samples/border" />
 
@@ -185,41 +190,9 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 }
 ```
 
-![角を丸くしたカード](./card-border-radius.png)
+![border-radiusプロパティを設定したカード](./border-radius-card.png)
 
 <ViewSource url={import.meta.url} path="_samples/border-radius" />
-
-## パディング
-
-`padding`プロパティを使って、パディングと呼ばれる余白を設定することができます。パディングはボーダーの内側の余白です。次の例では、カードの内側とボタンの内側に適切なパディングを設定しています。
-
-```css
-.card {
-  background-color: #fff;
-  width: 240px;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  // highlight-next-line
-  padding: 16px;
-}
-```
-
-```css
-.button {
-  background-color: #0d6efd;
-  color: #fff;
-  font-size: 16px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  // highlight-next-line
-  padding: 12px;
-}
-```
-
-![パディングを設定したカード](./card-padding.png)
-
-<ViewSource url={import.meta.url} path="_samples/padding" />
 
 ## マージン
 
@@ -231,19 +204,63 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
   width: 240px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  padding: 16px;
   // highlight-next-line
-  margin: 16px;
+  margin: 8px;
 }
 ```
 
-![マージンを設定したカード](./card-margin.png)
+![marginプロパティを設定したカード](./margin-card.png)
 
 <ViewSource url={import.meta.url} path="_samples/margin" />
 
-上下左右の全てではなく、特定の辺のみにマージンを設定したい場合はどうすればいいでしょうか。
+上下左右の全てではなく、特定の方向のみにマージンを設定したい場合はどうでしょうか。
 
-例えば、上側だけにマージンを設定したい場合は、`margin-top`プロパティを使用します。次の例では、ボタンの上側にマージンをつけています。
+上側だけにマージンを設定したい場合は、`margin-top`プロパティを使用します。次の例では、価格表示の上側とボタンの上側にマージンを設定しています。
+
+```css
+.price {
+  font-size: 20px;
+  // highlight-next-line
+  margin-top: 8px;
+}
+
+.button {
+  background-color: #0d6efd;
+  color: #fff;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  // highlight-next-line
+  margin-top: 16px;
+}
+```
+
+![内部の要素にmargin-topプロパティを設定したカード](./margin-top-card.png)
+
+<ViewSource url={import.meta.url} path="_samples/margin-top" />
+
+同様に、`margin-bottom`, `margin-left`, `margin-right`プロパティを使用すると、それぞれ下側・左側・右側のみにマージンを設定することができます。
+
+`margin`のみならず、`padding`や`border`などについても同様です。
+
+## パディング
+
+`padding`プロパティを使って、パディングと呼ばれる余白を設定することができます。パディングはボーダーの内側の余白です。
+
+次の例では、カードの内側とボタンの内側にパディングを設定しています。
+
+```css
+.card {
+  background-color: #fff;
+  width: 240px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  margin: 8px;
+  // highlight-next-line
+  padding: 24px;
+}
+```
 
 ```css
 .button {
@@ -253,19 +270,15 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
   width: 100%;
   border: none;
   border-radius: 8px;
-  padding: 12px;
-  // highlight-next-line
   margin-top: 16px;
+  // highlight-next-line
+  padding: 8px;
 }
 ```
 
-![上側にマージンを設定したボタン](./button-margin-top.png)
+![paddingプロパティを設定したカード](./padding-card.png)
 
-同様に、`margin-bottom`, `margin-left`, `margin-right`プロパティを使用すると、それぞれ下側・左側・右側のみにマージンを設定することができます。
-
-`margin`のみならず、`padding`や`border`などについても同様です。
-
-<ViewSource url={import.meta.url} path="_samples/margin-top" />
+<ViewSource url={import.meta.url} path="_samples/padding" />
 
 ## フレックスボックス
 
@@ -276,14 +289,125 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 次の例では、3枚のカードの親要素である`div`要素に`display: flex;`を指定しています。
 
 ```css
+// highlight-start
 #container {
   display: flex;
 }
+// highlight-end
 ```
 
-![フレックスボックスで横並びになったカード](./cards-flexbox.png)
+![親要素にdisplay: flex;を設定したカード](./flexbox-cards.png)
 
 <ViewSource url={import.meta.url} path="_samples/flexbox" />
+
+これまでは、カードどうしの間隔を空けるために各カードに `margin: 8px;` を指定していました。しかし、フレックスボックスを使う場合は、この目的により適した `gap` プロパティを利用できます。
+`gap` プロパティは、子要素であるカード側ではなく、親要素のコンテナ側で設定します。このプロパティを使うと、要素と要素の間にのみ間隔が作られ、端の要素の外側には余白がつきません。
+
+次の例では、カードの`margin`を削除し、親要素に`gap`を指定しています。
+
+```css
+.card {
+  background-color: #fff;
+  width: 240px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  // highlight-next-line
+  /* margin: 8px; を削除 */
+  padding: 24px;
+}
+```
+
+```css
+#container {
+  display: flex;
+  // highlight-next-line
+  gap: 16px;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/flexbox-gap" />
+
+### `flex-direction` プロパティ
+
+フレックスボックスによるレイアウトの方向を変更するには、`flex-direction`プロパティを使用します。`row`とすれば水平に、`column`とすれば垂直にレイアウトされます。
+
+先ほど、`display: flex;`を指定しただけでカードが横並びになったのは、このプロパティのデフォルト値が`row`であるためです。
+
+実際に `flex-direction: column;` をコンテナに指定すると、カードが縦に並ぶことが確認できます。
+
+![親要素にflex-direction: column;を設定したカード](./flex-column-cards.png)
+
+### `justify-content`プロパティ
+
+フレックスボックスでは、`justify-content`プロパティを使うことで、`flex-direction`プロパティで指定した方向のレイアウトを制御することができます。
+
+次の例では、`justify-content: center;`を指定することでカードを水平方向の中央に配置しています。
+
+```css
+#container {
+  display: flex;
+  gap: 16px;
+  // highlight-next-line
+  justify-content: center;
+}
+```
+
+![親要素にjustify-content: center;を設定したカード](./justify-center-cards.png)
+
+<ViewSource url={import.meta.url} path="_samples/justify-content" />
+
+他のレイアウト方法も試してみましょう。
+
+準備として、カードのプラン名の横に「詳細」のリンクを設置します。`<div class="plan">Free</div>` となっていた部分を次のように変更し、リンクにはボタンと同じ色を適用します。
+
+```html
+<div class="card-header">
+  <div class="plan">Free</div>
+  <a href="" class="info">詳細</a>
+</div>
+```
+
+```css
+// highlight-start
+.info {
+  color: #0d6efd;
+}
+// highlight-end
+```
+
+次の例では、`justify-content: space-between;` を指定することでプラン名とリンクを水平方向の両端に配置しています。
+
+```css
+// highlight-start
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+// highlight-end
+```
+
+![内部の要素にjustify-content: space-between;を設定したカード](./justify-space-between-card.png)
+
+<ViewSource url={import.meta.url} path="_samples/justify-space-between" />
+
+### `align-items`プロパティ
+
+`align-items`プロパティを使うことで、`flex-direction`プロパティで指定した方向と交差する方向のレイアウトを制御できます。
+
+次の例では、`align-items: center;`を指定することで、プラン名とリンクを垂直方向の中央に配置しています。
+
+```css
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  // highlight-next-line
+  align-items: center;
+}
+```
+
+![内部の要素にalign-items: center;を設定したカード](./align-center-card.png)
+
+<ViewSource url={import.meta.url} path="_samples/align-center" />
 
 ## レスポンシブデザイン
 
@@ -307,18 +431,216 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 `条件`の部分には、例えば「画面幅が800px以下の場合」としたいならば`max-width: 800px`のように指定します。
 
-フレックスボックスによるレイアウトの方向を変更するには、`flex-direction`プロパティを使用します。`row`とすれば水平に、`column`とすれば垂直にレイアウトされます。先ほど、`display: flex;`を指定しただけでカードが横並びになったのは、このプロパティのデフォルト値が`row`であるためです。
-
-次の例では、メディアクエリを使って、画面幅が一定より小さい場合に`flex-direction`プロパティが`column`となるようにしています。
+メディアクエリを使って、画面幅が一定より小さい場合に`flex-direction`プロパティの値が`column`となるようにすることで、カードを縦並びにすることができます。
 
 ```css
+// highlight-start
 @media (max-width: 1024px) {
   #container {
     flex-direction: column;
   }
 }
+// highlight-end
 ```
 
 <video src={responsiveCardsVideo} controls />
 
 <ViewSource url={import.meta.url} path="_samples/media-query" />
+
+縦並びになった場合も、カードが左右中央に表示されるようにしましょう。
+
+この際は、`flex-direction` プロパティの値が `column` となり垂直方向にレイアウトされているため、水平方向のレイアウトを制御するためには `justify-content` プロパティではなく `align-items` プロパティを使用する必要があります。
+
+次の例では、`align-items: center;`を指定することで、カードを水平方向の中央に配置しています。
+
+```css
+@media (max-width: 1024px) {
+  #container {
+    flex-direction: column;
+    // highlight-next-line
+    align-items: center;
+  }
+}
+```
+
+<video src={responsiveCenterCardsVideo} controls />
+
+<ViewSource url={import.meta.url} path="_samples/media-query-align-center" />
+
+## 演習問題
+
+CSS を使って、次のようなウェブサイトのヘッダーを作成しましょう。
+
+![ヘッダーの完成形のデスクトップでのイメージ](./responsive-header-desktop.png)
+![ヘッダーの完成形のスマートフォンでのイメージ](./responsive-header-mobile.png)
+
+- 画面幅が広い場合は、ナビゲーションメニューが表示されます。
+- 画面幅が狭い場合は、ナビゲーションメニューの代わりにハンバーガーアイコンが表示されるようにします。
+
+HTML は次のものを使用してください。
+
+```html title="index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="logo">MySite</div>
+        <button id="hamburger">
+          <img
+            src="https://raw.githubusercontent.com/ut-code/utcode-learn/main/docs/2-browser-apps/05-css-arrangement/hamburger.svg"
+            alt="メニュー"
+          />
+        </button>
+        <nav>
+          <ul id="menu">
+            <li><a href="">HOME</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">WORKS</a></li>
+            <li><a href="">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
+```
+
+CSS は次のものをベースに、必要な箇所を記述してください。
+
+```css title="style.css"
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+header {
+  background-color: #fff;
+  /* ここで適切な境界線を設定する */
+}
+
+.container {
+  display: flex;
+  /* ここで適切なレイアウトを設定する */
+}
+
+#menu {
+  display: flex;
+  /* ここで適切なレイアウトを設定する */
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex;
+  }
+  /* ここで適切な設定を行う */
+}
+
+/* 以下は変更する必要はありません。 */
+
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* リストのマーカー（•など）を非表示にする */
+}
+
+#menu a {
+  text-decoration: none; /* リンクの下線を消す */
+  color: #777;
+  font-size: 14px;
+}
+
+#logo {
+  font-weight: bold; /* フォントを太字にする */
+  font-size: 24px;
+}
+
+#hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer; /* マウスカーソルをポインタにする */
+}
+```
+
+:::tip
+
+`display: none;`を指定すると、要素が表示されなくなります。
+
+:::
+
+<Answer>
+
+```css title="style.css"
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+#menu {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #777;
+  font-size: 14px;
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/responsive-header" />
+
+</Answer>

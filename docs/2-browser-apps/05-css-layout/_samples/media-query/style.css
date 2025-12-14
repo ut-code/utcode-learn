@@ -4,6 +4,8 @@ body {
 
 #container {
   display: flex;
+  gap: 16px;
+  justify-content: center;
 }
 
 .card {
@@ -11,12 +13,27 @@ body {
   width: 240px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
+  padding: 24px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.info {
+  color: #0d6efd;
 }
 
 .price {
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 8px;
 }
 
 .button {
@@ -26,8 +43,8 @@ body {
   width: 100%;
   border: none;
   border-radius: 8px;
-  padding: 12px;
   margin-top: 16px;
+  padding: 8px;
 }
 
 @media (max-width: 1024px) {

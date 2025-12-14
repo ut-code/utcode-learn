@@ -4,6 +4,7 @@ body {
 
 #container {
   display: flex;
+  gap: 16px;
 }
 
 .card {
@@ -11,7 +12,6 @@ body {
   width: 240px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  margin: 8px;
   padding: 24px;
 }
 

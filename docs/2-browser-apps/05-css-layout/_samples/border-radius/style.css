@@ -9,8 +9,13 @@ body {
   border-radius: 8px;
 }
 
-.price {
+.plan {
+  font-weight: bold;
   font-size: 24px;
+}
+
+.price {
+  font-size: 20px;
 }
 
 .button {

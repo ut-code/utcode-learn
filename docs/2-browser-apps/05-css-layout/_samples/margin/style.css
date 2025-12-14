@@ -7,12 +7,16 @@ body {
   width: 240px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
+  margin: 8px;
+}
+
+.plan {
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .price {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .button {
@@ -22,5 +26,4 @@ body {
   width: 100%;
   border: none;
   border-radius: 8px;
-  padding: 12px;
 }
