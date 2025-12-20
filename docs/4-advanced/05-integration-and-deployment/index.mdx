@@ -10,10 +10,11 @@ import addDevScriptVideo from "./add-dev-script.mp4";
 import startBackendServerVideo from "./start-backend-server.mp4";
 import buildFrontendVideo from "./build-frontend.mp4";
 import setupBuildScriptsVideo from "./setup-build-scripts.mp4";
+import deployVideo from "./deploy.mp4";
 
 ## フロントエンドとバックエンドを連携する
 
-Viteを用いて作成されたフロントエンドと、Node.jsを用いて作成されたバックエンドを接続する方法について学びましょう。
+Viteを用いて構築されたフロントエンドと、Node.jsを用いて構築されたバックエンドを接続する方法について学びましょう。
 
 [データベース](/docs/web-servers/database/)の節で作成した掲示板サービスの処理の流れは、次の図のようになっていました。1つのWebサーバーが、フロントエンドで動作するアプリケーションの配信と、バックエンドで動作するアプリケーションの処理の両方を担っています。
 
@@ -43,9 +44,9 @@ Viteを用いて作成されたフロントエンドと、Node.jsを用いて作
    npm install -D tsx
    ```
 
-#### データベースとWebサーバーを作成する
+#### データベースと開発用サーバーを作成する
 
-[データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)の節を参照してください。
+[データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いて開発用サーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)の節を参照してください。
 
 <video src={createDatabaseAndServerVideo} controls />
 
@@ -102,15 +103,15 @@ Viteを用いて作成されたフロントエンドと、Node.jsを用いて作
      response.json(posts);
    });
 
-   app.post("/send", async (request, response) => {
+   app.post("/posts", async (request, response) => {
      await client.post.create({ data: { message: request.body.message } });
-     response.send();
+     response.sendStatus(201); // Created（新しいメッセージを作成）
    });
 
    app.listen(3000);
    ```
 
-#### CORSの設定をする
+#### CORSに関する設定をする
 
 <Term>**CORS**</Term>に関する設定を行います。
 
@@ -122,10 +123,10 @@ Viteを用いて作成されたフロントエンドと、Node.jsを用いて作
   <OriginExplanation />
 </p>
 
-異なるオリジンのリソースへアクセスすることはブラウザによって制限されることがあります。フロントエンドの開発用サーバーのオリジンが`http://localhost:5173`でバックエンドのWebサーバーのオリジンが`http://localhost:3000`である場合には、これらは異なるオリジンです。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
+異なる<Term>オリジン</Term>のリソースへアクセスすることはブラウザによって制限されることがあります。フロントエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:5173`でバックエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:3000`である場合には、これらは異なる<Term>オリジン</Term>です。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
 
 {/* prettier-ignore */}
-<Term>**CORS（Cross-Origin Resource Sharing）**</Term>は、このような場合でも異なるオリジンのリソースへアクセスすることを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可するオリジンを示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、そこで指定されたオリジンからアクセスすることができるようになります。
+<Term>**CORS（Cross-Origin Resource Sharing）**</Term>は、このような場合でも異なる<Term>オリジン</Term>のリソースへアクセスすることを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可する<Term>オリジン</Term>を示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、ブラウザはそこで指定された<Term>オリジン</Term>からアクセスすることを許可します。
 
 Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/package/cors)を使用することで、HTTPレスポンスヘッダに`Access-Control-Allow-Origin`ヘッダなどを適切に設定することができます。
 
@@ -138,11 +139,12 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
    $ npm install cors
    $ npm install -D @types/cors
    ```
-1. `.env`ファイルを編集し、<Term>環境変数</Term>`WEB_ORIGIN`の値をViteの開発用サーバーの<Term>オリジン</Term>である`"http://localhost:5173"`に設定します。
-1. `main.ts`ファイルを編集し、<Term>CORS</Term>に関する設定を行います。8行目の`app.use(cors({ origin: process.env.WEB_ORIGIN }));`により、<Term>環境変数</Term>`WEB_ORIGIN`に設定した<Term>オリジン</Term>からアクセスすることができるようにします。
+1. `.env`ファイルを編集し、<Term>環境変数</Term>`WEB_ORIGIN`の値にViteの開発用サーバーの<Term>オリジン</Term>である`http://localhost:5173`を指定します。
+1. `main.ts`ファイルを編集し、<Term>CORS</Term>に関する設定を行います。14行目の`app.use(cors({ origin: process.env.WEB_ORIGIN }));`により、<Term>環境変数</Term>`WEB_ORIGIN`に指定した<Term>オリジン</Term>からアクセスすることができるようにします。
 
    ```ts title="backend/main.ts" showLineNumbers
    import express from "express";
+   // highlight-next-line
    import cors from "cors";
    import { PrismaPg } from "@prisma/adapter-pg";
    import { PrismaClient } from "./generated/prisma/client.js";
@@ -155,6 +157,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
    const client = new PrismaClient({ adapter });
 
    app.use(express.json());
+   // highlight-next-line
    app.use(cors({ origin: process.env.WEB_ORIGIN }));
 
    app.get("/posts", async (request, response) => {
@@ -162,9 +165,9 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
      response.json(posts);
    });
 
-   app.post("/send", async (request, response) => {
+   app.post("/posts", async (request, response) => {
      await client.post.create({ data: { message: request.body.message } });
-     response.send();
+     response.sendStatus(201); // Created（新しいメッセージを作成）
    });
 
    app.listen(3000);
@@ -174,7 +177,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 <video src={addDevScriptVideo} controls />
 
-`package.json`の`scripts`プロパティに開発によく使うコマンドを登録します。次のように記載して、`npm run dev`コマンドが使えるようにしましょう。<Term>`tsx`パッケージ</Term>では、[Node.jsと同様のオプションが利用](https://tsx.is/node-enhancement#swap-node-for-tsx)できます。これにより、`npm run dev`コマンドを実行することで開発用サーバーを起動できるようになります。
+`package.json`の`scripts`プロパティに開発によく使うコマンドを登録します。次のように記載して、`npm run dev`コマンドを実行することで開発用サーバーを起動できるようにしましょう。<Term>`tsx`パッケージ</Term>では、[Node.jsと同様のオプションが利用](https://tsx.is/node-enhancement#swap-node-for-tsx)できます。
 
 ```json title="backend/package.jsonの抜粋"
 {
@@ -188,7 +191,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 <video src={startBackendServerVideo} controls />
 
-`npm run dev`コマンドを実行してWebサーバーを起動し、[`http://localhost:3000/posts`](http://localhost:3000/posts)にアクセスして、掲示板の投稿の一覧が取得できることを確認します。
+`npm run dev`コマンドを実行して開発用サーバーを起動し、[`http://localhost:3000/posts`](http://localhost:3000/posts)にアクセスして、掲示板の投稿の一覧が取得できることを確認します。
 
 ### フロントエンドを構築する
 
@@ -198,15 +201,15 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 #### Reactのセットアップをする
 
-カレントディレクトリをプロジェクトを格納するディレクトリに移動してから、`npm create vite@latest`コマンドを実行して`frontend`という名前でReactのプロジェクトを作成します。作成されたディレクトリ内で`npm install`コマンドを実行して必要なパッケージをインストールします。
+カレントディレクトリをプロジェクトを格納するディレクトリに移動してから、`npm create vite@latest`コマンドを実行して`frontend`という名前でReactのプロジェクトを作成します。カレントディレクトリを`frontend`ディレクトリに移動してから、`npm install`コマンドを実行して必要なパッケージをインストールします。
 
-#### バックエンドのURLを環境変数に設定する
+#### バックエンドのURLを環境変数で指定する
 
-`.env`ファイルを作成し、<Term>環境変数</Term>`VITE_API_ENDPOINT`の値をバックエンドのURLである`"http://localhost:3000"`に設定します。
+`.env`ファイルを作成し、<Term>環境変数</Term>`VITE_API_ENDPOINT`の値にバックエンドのURLである`http://localhost:3000`を指定します。
 
 #### アプリケーションのコードを記述する
 
-`App.tsx`ファイルを編集し、次のように記述します。掲示板の投稿の取得や、新しい投稿の送信には、`fetch`関数を使用します。`fetch`関数の第1引数は今までは`/posts`のように記述していましたが、ここでは`import.meta.env.VITE_API_ENDPOINT`により<Term>環境変数</Term>`VITE_API_ENDPOINT`に設定したバックエンドのURLを参照して、`${import.meta.env.VITE_API_ENDPOINT}/posts`と記述します。
+`App.tsx`ファイルを編集し、次のように記述します。掲示板の投稿の取得や、新しい投稿の送信には、`fetch`関数を使用します。`fetch`関数の第1引数は今までは`/posts`のように指定していましたが、ここでは`${import.meta.env.VITE_API_ENDPOINT}/posts`と指定します。`import.meta.env.VITE_API_ENDPOINT`で<Term>環境変数</Term>`VITE_API_ENDPOINT`に指定されたバックエンドのURLを利用しています。
 
 ```tsx title="frontend/src/App.tsx"
 import { useEffect, useState } from "react";
@@ -243,7 +246,7 @@ function App() {
       <button
         type="button"
         onClick={async () => {
-          await fetch(`${import.meta.env.VITE_API_ENDPOINT}/send`, {
+          await fetch(`${import.meta.env.VITE_API_ENDPOINT}/posts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: newPostContent }),
@@ -263,7 +266,7 @@ export default App;
 
 Viteは起動時に`.env`ファイルの内容を読み込みます。
 
-Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーション内で`import.meta.env`オブジェクトのプロパティとして利用](https://ja.vite.dev/guide/env-and-mode.html#env-variables)できるようにします。例えば、`VITE_API_ENDPOINT`という<Term>環境変数</Term>がある場合、`import.meta.env.VITE_API_ENDPOINT`として参照できます。
+Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーション内で`import.meta.env`オブジェクトのプロパティとして利用](https://ja.vite.dev/guide/env-and-mode.html#env-variables)できるようにします。例えば、`VITE_API_ENDPOINT`という<Term>環境変数</Term>の値は、`import.meta.env.VITE_API_ENDPOINT`と記述することで利用できます。
 
 :::
 
@@ -273,18 +276,18 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
 
 ## デプロイする
 
-今までの開発環境では、バックエンドとフロントエンドのそれぞれで`npm run dev`コマンドを実行することで、バックエンドの場合には`tsx`パッケージでTypeScriptファイルを実行し、フロントエンドの場合にはViteの開発用サーバーを起動していました。
+今までの開発環境では、バックエンドとフロントエンドのそれぞれで`npm run dev`コマンドを実行することで、バックエンドの場合には<Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行して開発用サーバーを起動し、フロントエンドの場合にはViteの開発用サーバーを起動していました。
 
-しかしながら、本番環境では、これとは異なる方法を用いることが一般的です。バックエンドの場合には、TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、そのJavaScriptファイルを実行します。フロントエンドの場合には、Viteにより出力されたファイルをRenderで配信します。
+しかしながら、本番環境では、これとは異なる方法を用いることが一般的です。バックエンドの場合には、TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、そのJavaScriptファイルを実行してWebサーバーを起動します。フロントエンドの場合には、Viteにより出力されたファイルをRenderで配信します。
 
-| 環境     | バックエンド                                                                | フロントエンド                             |
-| -------- | --------------------------------------------------------------------------- | ------------------------------------------ |
-| 開発環境 | `tsx`パッケージでTypeScriptファイルを実行                                   | Viteの開発用サーバーを起動                 |
-| 本番環境 | TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>して実行 | Viteにより出力されたファイルをRenderで配信 |
+| 環境     | バックエンド                                                                                                               | フロントエンド                             |
+| -------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| 開発環境 | <Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行して開発用サーバーを起動                                             | Viteの開発用サーバーを起動                 |
+| 本番環境 | TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、JavaScriptファイルを実行してWebサーバーを起動 | Viteにより出力されたファイルをRenderで配信 |
 
 ### ビルドの設定をする
 
-フロントエンドの場合には、`npm run build`コマンドを実行することで、Viteによるビルド結果が`dist`ディレクトリに格納されるのでした。本番環境では、この`dist`ディレクトリを配信すればよいです。
+フロントエンドの場合には、`npm run build`コマンドを実行することで、Viteによるビルド結果が`dist`ディレクトリに格納されるのでした。本番環境では、この`dist`ディレクトリをRenderで配信すればよいです。
 
 次に、バックエンドのTypeScriptファイルを<Term>トランスパイル</Term>するための設定を行いましょう。
 
@@ -298,24 +301,28 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
      "scripts": {
        "dev": "tsx --env-file=.env main.ts",
        "build": "prisma generate && tsc",
-       "start": "node --env-file=.env dist/main.js"
+       "start": "node dist/main.js"
      }
    }
    ```
 
 ### Renderにデプロイする
 
-次の手順に従って、作成したアプリケーションをRenderに<Term>デプロイ</Term>しましょう。Renderにデプロイするには、作成したアプリケーションをGitHubのリポジトリに保存しておく必要があります。
+次の手順に従って、作成したアプリケーションをRenderに<Term>デプロイ</Term>しましょう。Renderに<Term>デプロイ</Term>するには、作成したアプリケーションをGitHubのリポジトリに保存しておく必要があります。
 
-ここに動画を埋め込む
+<video src={deployVideo} controls />
 
 1. バックエンドを<Term>デプロイ</Term>するため、Renderにログインした直後の画面から`Web Service`を作成します。
 
    ![](./web-service.png)
 
-1. デプロイするGitHubのリポジトリを選択した後、次のように設定します。
+1. {/*  */}<Term>デプロイ</Term>するアプリケーションのコードを含むGitHubのリポジトリを選択した後、次のように設定します。
 
    ![バックエンドの設定](./backend-configuration.png)
+
+1. {/*  */}<Term>環境変数</Term>`DATABASE_URL`でデータベースへの接続情報を設定します。<Term>環境変数</Term>`WEB_ORIGIN`は、ひとまず空のままにしておきます。
+
+   ![](./backend-environment-variable.png)
 
 1. フロントエンドを<Term>デプロイ</Term>するため、`Static Site`を作成します。
 
@@ -329,8 +336,8 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
 
    ![](./frontend-environment-variable.png)
 
-1. バックエンドの<Term>環境変数</Term>の設定を再度開き、<Term>環境変数</Term>`DATABASE_URL`を設定し、<Term>環境変数</Term>`WEB_ORIGIN`に先ほど<Term>デプロイ</Term>したフロントエンドの<Term>オリジン</Term>を設定します。
+1. バックエンドの<Term>環境変数</Term>の設定を再度開き、<Term>環境変数</Term>`WEB_ORIGIN`に先ほど<Term>デプロイ</Term>したフロントエンドの<Term>オリジン</Term>を設定します。
 
-   ![](./backend-environment-variable.png)
+   ![](./backend-environment-variable-updated.png)
 
 <ViewSource url={import.meta.url} path="_samples/fullstack-app" noCodeSandbox />

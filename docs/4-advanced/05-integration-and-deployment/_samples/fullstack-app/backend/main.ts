@@ -5,7 +5,9 @@ import { PrismaClient } from "./generated/prisma/client.js";
 
 const app = express();
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL,
+});
 const client = new PrismaClient({ adapter });
 
 app.use(express.json());
@@ -16,9 +18,9 @@ app.get("/posts", async (request, response) => {
   response.json(posts);
 });
 
-app.post("/send", async (request, response) => {
+app.post("/posts", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 
 app.listen(3000);

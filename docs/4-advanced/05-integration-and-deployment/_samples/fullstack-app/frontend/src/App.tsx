@@ -32,7 +32,7 @@ function App() {
       <button
         type="button"
         onClick={async () => {
-          await fetch(`${import.meta.env.VITE_API_ENDPOINT}/send`, {
+          await fetch(`${import.meta.env.VITE_API_ENDPOINT}/posts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: newPostContent }),
