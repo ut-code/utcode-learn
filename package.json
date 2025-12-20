@@ -55,7 +55,7 @@
     "@docusaurus/types": "^3.9.1",
     "@types/react-slick": "^0.23.13",
     "prettier": "^3.6.2",
-    "raw-loader": "^4.0.2"
+    "raw-loader": "^4.0.2",
     "typescript": "^5.9.3"
   }
 }
