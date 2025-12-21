@@ -1,29 +1,31 @@
 import { JSX } from "react";
-// TypeScriptのセットアップをしていないことでエラーになるので無視する
-// @ts-ignore
 import Link from "@docusaurus/Link";
-// @ts-ignore
 import { useLocation } from "@docusaurus/router";
 import Tippy from "@tippyjs/react";
 import { MdArrowForward } from "react-icons/md";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/material.css";
 import { onlyText } from "react-children-utilities";
-// @ts-ignore
 import styles from "./styles.module.css";
 import { referencePageTitles, terms } from "./definitions";
 
 type TermProps = {
-  name?: string;
+  id?: string;
   children: React.ReactNode;
 };
 
 export default function Term(props: TermProps) {
-  const name = props.name ? props.name : onlyText(props.children);
-  const term = terms.find(
-    (term) => term.name === name || term.aliases.includes(name),
-  );
-  if (!term) throw new Error(`${name}という用語は定義されていません`);
+  const term = props.id
+    ? terms.find((term) => term.id === props.id)
+    : terms.find(
+        (term) =>
+          term.name === onlyText(props.children) ||
+          term.aliases.includes(onlyText(props.children)),
+      );
+  if (!term)
+    throw new Error(
+      `${props.id ? props.id : onlyText(props.children)}という用語は定義されていません`,
+    );
 
   const referencePageTitle = referencePageTitles[term.referencePage];
 

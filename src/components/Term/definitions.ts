@@ -40,6 +40,7 @@ export const referencePageTitles = {
 };
 
 type Term = {
+  id: string;
   name: string;
   aliases: string[];
   definition: string;
@@ -48,6 +49,7 @@ type Term = {
 
 export const terms: Term[] = [
   {
+    id: "file-extension",
     name: "拡張子",
     aliases: [],
     definition:
@@ -55,12 +57,14 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "git",
     name: "Git",
     aliases: [],
     definition: "分散型バージョン管理システムのひとつ。",
     referencePage: "/docs/web-servers/git-github-init/",
   },
   {
+    id: "github",
     name: "GitHub",
     aliases: [],
     definition:
@@ -68,24 +72,28 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/git-github-init/",
   },
   {
+    id: "repository",
     name: "リポジトリ",
     aliases: [],
     definition: "ソースコードやそれに付随する情報のまとまり。",
     referencePage: "/docs/web-servers/git/",
   },
   {
+    id: "html",
     name: "HTML",
     aliases: [],
     definition: "ウェブページの構造を表すためのマークアップ言語。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "nest",
     name: "ネスト",
     aliases: [],
     definition: "ある構造の中にある別の構造を入れること。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "javascript",
     name: "JavaScript",
     aliases: [],
     definition:
@@ -93,6 +101,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/javascript/",
   },
   {
+    id: "start-tag",
     name: "開始タグ",
     aliases: [],
     definition:
@@ -100,30 +109,35 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "tag",
     name: "タグ",
     aliases: [],
     definition: "<から>までで囲まれた領域。<a>を「aタグ」のように読んでいる。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "attribute",
     name: "属性",
     aliases: [],
     definition: "HTML要素の特徴を指定する値。開始タグの中に含まれる。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "element",
     name: "HTML要素",
     aliases: ["要素"],
     definition: "HTMLの開始タグから終了タグまでの領域。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "end-tag",
     name: "終了タグ",
     aliases: [],
     definition: "要素の終端を表す。<div>内容</div>ならば</div>が終了タグ。",
     referencePage: "/docs/trial-session/html/",
   },
   {
+    id: "css",
     name: "CSS",
     aliases: [],
     definition:
@@ -131,6 +145,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/css/",
   },
   {
+    id: "style-attribute",
     name: "style属性",
     aliases: [],
     definition:
@@ -138,6 +153,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/css/",
   },
   {
+    id: "css-property",
     name: "プロパティ (CSS)",
     aliases: [],
     definition:
@@ -145,6 +161,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/css/",
   },
   {
+    id: "javascript-statement",
     name: "文",
     aliases: [],
     definition:
@@ -152,6 +169,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/javascript/",
   },
   {
+    id: "javascript-value",
     name: "値 (JavaScript)",
     aliases: ["値"],
     definition:
@@ -159,6 +177,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-string",
     name: "文字列 (JavaScript)",
     aliases: ["文字列"],
     definition:
@@ -166,12 +185,14 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-number",
     name: "数値 (JavaScript)",
     aliases: ["数値"],
     definition: "JavaScriptにおける値の一種。プログラム中に直接記述できる。",
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-operator",
     name: "演算子 (JavaScript)",
     aliases: ["演算子"],
     definition:
@@ -179,18 +200,21 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-expression",
     name: "式 (JavaScript)",
     aliases: ["式"],
     definition: "JavaScriptにおいて、計算・処理されて値を生成するまとまり。",
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-evaluation",
     name: "評価 (JavaScript)",
     aliases: ["評価"],
     definition: "JavaScriptの実行エンジンが式から値を生成する動作。",
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-operator-priority",
     name: "演算子の優先順位 (JavaScript)",
     aliases: [],
     definition:
@@ -198,24 +222,28 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/expressions/",
   },
   {
+    id: "javascript-variable",
     name: "変数",
     aliases: [],
     definition: "JavaScriptで値を一時的に保存しておくための入れ物。",
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "javascript-declaration",
     name: "宣言 (JavaScript)",
     aliases: ["宣言"],
     definition: "JavaScriptで変数を使用するために必要な記述。",
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "javascript-assignment",
     name: "代入 (JavaScript)",
     aliases: ["代入"],
     definition: "変数に値を設定する操作。それまで入っていた値は消えてしまう。",
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "camel-case",
     name: "キャメルケース",
     aliases: [],
     definition:
@@ -223,6 +251,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "snake-case",
     name: "スネークケース",
     aliases: [],
     definition:
@@ -230,6 +259,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "pascal-case",
     name: "パスカルケース",
     aliases: [],
     definition:
@@ -237,6 +267,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/variables/",
   },
   {
+    id: "javascript-boolean",
     name: "論理値 (JavaScript)",
     aliases: ["論理値"],
     definition:
@@ -244,6 +275,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/boolean/",
   },
   {
+    id: "javascript-if-statement",
     name: "if文",
     aliases: [],
     definition:
@@ -251,6 +283,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/if-statement/",
   },
   {
+    id: "javascript-control-flow",
     name: "制御構造 (JavaScript)",
     aliases: ["制御構造", "制御構文"],
     definition:
@@ -258,30 +291,35 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/if-statement/",
   },
   {
+    id: "javascript-function",
     name: "関数 (JavaScript)",
     aliases: ["関数"],
     definition: "引数や返り値を持つ文のまとまり。",
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-parameter",
     name: "引数 (JavaScript)",
     aliases: ["引数"],
     definition: "JavaScriptの関数に対し、呼び出し時に与えることのできる値。",
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-pass",
     name: "～ (値) を～ (関数) に渡す",
     aliases: ["渡す"],
     definition: "JavaScriptの関数に値を引数として設定して実行すること。",
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-return-value",
     name: "戻り値 (JavaScript)",
     aliases: ["戻り値"],
     definition: "JavaScriptの関数呼び出し式の評価結果となる値。",
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-return",
     name: "～ (値) を返す (JavaScript)",
     aliases: ["返す", "返し"],
     definition:
@@ -289,18 +327,21 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-scope",
     name: "スコープ (JavaScript)",
     aliases: ["スコープ"],
     definition: "変数が有効な範囲。",
     referencePage: "/docs/trial-session/functions/",
   },
   {
+    id: "javascript-array",
     name: "配列 (JavaScript)",
     aliases: ["配列"],
     definition: "複数の値を並べて1つにまとめた値。",
     referencePage: "/docs/trial-session/array/",
   },
   {
+    id: "javascript-object",
     name: "オブジェクト (JavaScript)",
     aliases: ["オブジェクト"],
     definition:
@@ -308,6 +349,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/object/",
   },
   {
+    id: "javascript-primitive",
     name: "プリミティブ (JavaScript)",
     aliases: ["プリミティブ"],
     definition:
@@ -315,6 +357,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/object/",
   },
   {
+    id: "javascript-property",
     name: "プロパティ (JavaScript)",
     aliases: ["プロパティ"],
     definition:
@@ -322,6 +365,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/object/",
   },
   {
+    id: "javascript-property-name",
     name: "プロパティ名 (JavaScript)",
     aliases: ["プロパティ名"],
     definition:
@@ -329,6 +373,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/object/",
   },
   {
+    id: "javascript-property-value",
     name: "プロパティ値 (JavaScript)",
     aliases: ["プロパティ値"],
     definition:
@@ -336,12 +381,14 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/object/",
   },
   {
+    id: "dom",
     name: "DOM",
     aliases: [],
     definition: "HTML構造をJavaScriptのオブジェクトとして扱うための枠組み。",
     referencePage: "/docs/trial-session/dom/",
   },
   {
+    id: "events",
     name: "イベント",
     aliases: [],
     definition:
@@ -349,6 +396,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/events/",
   },
   {
+    id: "event-handler",
     name: "イベントハンドラ",
     aliases: [],
     definition:
@@ -356,6 +404,7 @@ export const terms: Term[] = [
     referencePage: "/docs/trial-session/events/",
   },
   {
+    id: "javascript-class",
     name: "クラス (JavaScript)",
     aliases: ["クラス"],
     definition:
@@ -363,12 +412,14 @@ export const terms: Term[] = [
     referencePage: "/docs/browser-apps/class/",
   },
   {
+    id: "javascript-instance",
     name: "インスタンス (JavaScript)",
     aliases: ["インスタンス"],
     definition: "new演算子をクラスに適用して生成されるオブジェクトのこと。",
     referencePage: "/docs/browser-apps/class/",
   },
   {
+    id: "javascript-constructor",
     name: "コンストラクタ (JavaScript)",
     aliases: ["コンストラクタ"],
     definition:
@@ -376,6 +427,7 @@ export const terms: Term[] = [
     referencePage: "/docs/browser-apps/class/",
   },
   {
+    id: "javascript-method",
     name: "メソッド (JavaScript)",
     aliases: ["メソッド"],
     definition:
@@ -383,6 +435,7 @@ export const terms: Term[] = [
     referencePage: "/docs/browser-apps/class/",
   },
   {
+    id: "arrow-function",
     name: "アロー関数",
     aliases: [],
     definition:
@@ -390,12 +443,14 @@ export const terms: Term[] = [
     referencePage: "/docs/browser-apps/anonymous-function/",
   },
   {
+    id: "callback-function",
     name: "コールバック関数",
     aliases: [],
     definition: "他の関数の引数として呼び出される関数。",
     referencePage: "/docs/browser-apps/anonymous-function/",
   },
   {
+    id: "javascript-module",
     name: "モジュール (JavaScript)",
     aliases: ["モジュール"],
     definition:
@@ -403,6 +458,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/module/",
   },
   {
+    id: "library",
     name: "ライブラリ",
     aliases: [],
     definition:
@@ -410,6 +466,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/module/",
   },
   {
+    id: "server-client",
     name: "サーバーとクライアント",
     aliases: ["サーバー", "クライアント"],
     definition:
@@ -417,6 +474,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/server/",
   },
   {
+    id: "json",
     name: "JSON",
     aliases: [],
     definition:
@@ -424,6 +482,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/fetch-api/",
   },
   {
+    id: "request-response",
     name: "リクエストとレスポンス",
     aliases: ["HTTPリクエスト", "リクエスト", "レスポンス"],
     definition:
@@ -431,6 +490,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/server/",
   },
   {
+    id: "http-header-body",
     name: "リクエスト・レスポンスのヘッダ・ボディ (HTTP)",
     aliases: ["リクエストヘッダ", "リクエストボディ", "レスポンスボディ"],
     definition:
@@ -438,6 +498,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/fetch-api-post/",
   },
   {
+    id: "http-method",
     name: "メソッド (HTTP)",
     aliases: ["GETリクエスト", "POSTリクエスト"],
     definition:
@@ -445,6 +506,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/fetch-api-post/",
   },
   {
+    id: "http-status-code",
     name: "ステータスコード (HTTP)",
     aliases: ["ステータスコード"],
     definition:
@@ -452,6 +514,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/fetch-api-post/",
   },
   {
+    id: "npx-command",
     name: "npxコマンド",
     aliases: [],
     definition:
@@ -459,6 +522,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/database/",
   },
   {
+    id: "asynchronous-process",
     name: "非同期処理",
     aliases: ["非同期関数"],
     definition:
@@ -466,6 +530,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/database/",
   },
   {
+    id: "environment-variable",
     name: "環境変数",
     aliases: [],
     definition:
@@ -473,6 +538,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/database/",
   },
   {
+    id: "deploy",
     name: "デプロイ",
     aliases: [],
     definition:
@@ -480,6 +546,7 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/deploy-on-render/",
   },
   {
+    id: "transpile",
     name: "トランスパイル",
     aliases: ["トランスパイラ"],
     definition:
@@ -487,6 +554,7 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/bundler/",
   },
   {
+    id: "module-bundler",
     name: "モジュールバンドラ",
     aliases: [],
     definition:
@@ -494,6 +562,7 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/bundler/",
   },
   {
+    id: "jsx",
     name: "JSX",
     aliases: [],
     definition:
@@ -501,6 +570,7 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/react/",
   },
   {
+    id: "javascript-truthy-falsy",
     name: "truthyとfalsy (JavaScript)",
     aliases: ["truthy", "falsy"],
     definition:
@@ -508,6 +578,7 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/react/",
   },
   {
+    id: "mutable-immutable",
     name: "ミュータブルとイミュータブル",
     aliases: ["ミュータブル", "イミュータブル"],
     definition:
