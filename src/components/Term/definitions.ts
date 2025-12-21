@@ -527,7 +527,7 @@ export const terms: Term[] = [
     aliases: ["非同期関数"],
     definition:
       "処理を実行する際、その完了を待たずに呼び出し元の処理が続行されるような処理。JavaScriptでは、asyncキーワードをつけた関数は非同期処理を行うための関数となり、内部ではawaitキーワードにより他の非同期処理を呼び出してその結果を待機できるようになる。",
-    referencePage: "/docs/web-servers/database/",
+    referencePage: "/docs/web-servers/fetch-api/",
   },
   {
     id: "environment-variable",
