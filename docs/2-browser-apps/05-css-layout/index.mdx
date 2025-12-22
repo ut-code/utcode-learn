@@ -519,30 +519,6 @@ body {
   background-color: #fff;
 }
 
-header {
-  background-color: #fff;
-  /* ここで適切な境界線を設定する */
-}
-
-.container {
-  display: flex;
-  /* ここで適切なレイアウトを設定する */
-}
-
-#menu {
-  display: flex;
-  /* ここで適切なレイアウトを設定する */
-}
-
-@media (max-width: 768px) {
-  #hamburger {
-    display: flex;
-  }
-  /* ここで適切な設定を行う */
-}
-
-/* 以下は変更する必要はありません。 */
-
 header ul {
   margin: 0;
   padding: 0;
@@ -569,6 +545,30 @@ header ul {
   padding: 0;
   cursor: pointer; /* マウスカーソルをポインタにする */
 }
+
+/* ここから下を変更してください。 */
+
+header {
+  background-color: #fff;
+  /* ここで適切な境界線を設定する */
+}
+
+.container {
+  display: flex;
+  /* ここで適切なレイアウトを設定する */
+}
+
+#menu {
+  display: flex;
+  /* ここで適切なレイアウトを設定する */
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex;
+  }
+  /* ここで適切な設定を行う */
+}
 ```
 
 :::tip
@@ -583,33 +583,6 @@ header ul {
 body {
   margin: 0;
   background-color: #fff;
-}
-
-header {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-}
-
-#menu {
-  display: flex;
-  gap: 32px;
-}
-
-@media (max-width: 768px) {
-  #hamburger {
-    display: flex;
-  }
-
-  nav {
-    display: none;
-  }
 }
 
 header ul {
@@ -637,6 +610,33 @@ header ul {
   background: none;
   padding: 0;
   cursor: pointer;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+#menu {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+  }
 }
 ```
 
