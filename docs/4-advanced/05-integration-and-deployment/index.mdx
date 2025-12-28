@@ -36,7 +36,7 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
 
 <video src={setupTypescriptVideo} controls />
 
-1. カレントディレクトリを`backend`ディレクトリに移動し、`npm init`コマンドを実行して`package.json`ファイルを作成します。
+1. `backend`ディレクトリに移動し、`npm init`コマンドを実行して`package.json`ファイルを作成します。`type`と尋ねられた時には`module`を指定します。
 1. `npm install -D typescript`コマンドを実行してTypeScriptをインストールし、`npx tsc --init`コマンドを実行してTypeScriptの設定を記述するための`tsconfig.json`ファイルを作成します。
 1. ここでは、事前にTypeScriptをJavaScriptにトランスパイルせずにTypeScriptファイルを実行するために、次のコマンドを実行して<Term>[`tsx`パッケージ](https://tsx.is/)</Term>をインストールします。`npx tsx 実行するファイルのパス`とすることで、TypeScriptファイルを実行できます。
 
@@ -201,7 +201,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 #### Reactのセットアップをする
 
-カレントディレクトリをプロジェクトを格納するディレクトリに移動してから、`npm create vite@latest`コマンドを実行して`frontend`という名前でReactのプロジェクトを作成します。カレントディレクトリを`frontend`ディレクトリに移動してから、`npm install`コマンドを実行して必要なパッケージをインストールします。
+プロジェクトを格納するディレクトリに移動してから、`npm create vite@latest`コマンドを実行して`frontend`という名前でReactのプロジェクトを作成します。`frontend`ディレクトリに移動してから、`npm install`コマンドを実行して必要なパッケージをインストールします。
 
 #### バックエンドのURLを環境変数で指定する
 
