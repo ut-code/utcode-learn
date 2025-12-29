@@ -101,6 +101,10 @@ const typeMap = new Map([
   ["JSX", "jsx"],
   ["truthy", "javascriptTruthyFalsy"],
   ["falsy", "javascriptTruthyFalsy"],
+  ["tsxパッケージ", "typescriptExecute"],
+  ["オリジン", "origin"],
+  ["CORS", "cors"],
+  ["CORS（Cross-Origin Resource Sharing）", "cors"],
   ["ミュータブル", "mutableImmutable"],
   ["イミュータブル", "mutableImmutable"],
 ]);

@@ -38,6 +38,8 @@ export default {
     "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
     "/docs/advanced/typescript/": "TypeScript",
     "/docs/advanced/react/": "React",
+    "/docs/advanced/integration-and-deployment/":
+      "フロントエンドとバックエンドの連携とデプロイ",
   },
   terms: {
     fileExtension: {
@@ -438,6 +440,26 @@ export default {
       definition:
         "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。Reactなどのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
       referencePage: "/docs/browser-apps/reference/",
+    },
+    typescriptExecute: {
+      name: "tsx（TypeScript Execute）",
+      definition:
+        "Node.js環境で事前にTypeScriptをJavaScriptにトランスパイルせずにTypeScriptファイルを実行するためのツール。`npx tsx 実行するファイルのパス`とすることで、TypeScriptファイルを実行できる。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：tsx公式 https://tsx.is/
+    },
+    origin: {
+      name: "オリジン",
+      definition: "プロトコル、ドメイン、ポートの組み合わせ。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：MDN「Origin (オリジン)」 https://developer.mozilla.org/ja/docs/Glossary/Origin
+    },
+    cors: {
+      name: "CORS（Cross-Origin Resource Sharing）",
+      definition:
+        "ブラウザによって制限されている異なるオリジンのリソースへのアクセスを可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザはそのアクセスを許可する。",
+      referencePage: "/docs/advanced/integration-and-deployment/",
+      // 参考：MDN「オリジン間リソース共有 (CORS)」 https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CORS
     },
   },
 };
