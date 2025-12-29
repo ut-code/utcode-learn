@@ -11,7 +11,7 @@ app.get("/posts", async (request, response) => {
   response.json(posts);
 });
 
-app.post("/send", async (request, response) => {
+app.post("/posts", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
   response.send();
 });
