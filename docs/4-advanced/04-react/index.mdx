@@ -53,9 +53,9 @@ addTodoButton.onclick = () => {
 
 ```mermaid
 flowchart LR
-  add(["add"]):::event --> S["S"]:::state
-  remove(["remove"]):::event --> S
-  S --> f["f(S)"]:::ui
+  add(["add₁"]):::event --> S["S"]:::state
+  remove(["remove₂"]):::event --> S
+  S --> f1["f_1(S)"]:::ui --> f2["f_2(f_1(S))"]:::ui
 
   classDef event fill:#e8e8e8,stroke:#999,font-size:12px
   classDef state fill:#4a90d9,stroke:#2e6bb0,color:#fff
