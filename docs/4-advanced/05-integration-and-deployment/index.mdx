@@ -44,9 +44,9 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
    npm install -D tsx
    ```
 
-#### データベースと開発用サーバーを作成する
+#### データベースとWebサーバーを作成する
 
-[データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いて開発用サーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)の節を参照してください。
+[データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)の節を参照してください。
 
 <video src={createDatabaseAndServerVideo} controls />
 
@@ -123,7 +123,7 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
   <OriginExplanation />
 </p>
 
-異なる<Term>オリジン</Term>のリソースへアクセスすることはブラウザによって制限されることがあります。フロントエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:5173`でバックエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:3000`である場合には、これらは異なる<Term>オリジン</Term>です。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
+異なる<Term>オリジン</Term>のリソースへアクセスすることはブラウザによって制限されることがあります。フロントエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:5173`でバックエンドのWebサーバーの<Term>オリジン</Term>が`http://localhost:3000`である場合には、これらは異なる<Term>オリジン</Term>です。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
 
 {/* prettier-ignore */}
 <Term>**CORS（Cross-Origin Resource Sharing）**</Term>は、このような場合でも異なる<Term>オリジン</Term>のリソースへアクセスすることを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可する<Term>オリジン</Term>を示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、ブラウザはそこで指定された<Term>オリジン</Term>からアクセスすることを許可します。
@@ -177,7 +177,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 <video src={addDevScriptVideo} controls />
 
-`package.json`の`scripts`プロパティに開発によく使うコマンドを登録します。次のように記載して、`npm run dev`コマンドを実行することで開発用サーバーを起動できるようにしましょう。<Term>`tsx`パッケージ</Term>では、[Node.jsと同様のオプションが利用](https://tsx.is/node-enhancement#swap-node-for-tsx)できます。
+`package.json`の`scripts`プロパティに開発によく使うコマンドを登録します。次のように記載して、`npm run dev`コマンドを実行することでWebサーバーを起動できるようにしましょう。<Term>`tsx`パッケージ</Term>では、[Node.jsと同様のオプションが利用](https://tsx.is/node-enhancement#swap-node-for-tsx)できます。
 
 ```json title="backend/package.jsonの抜粋"
 {
@@ -191,7 +191,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
 
 <video src={startBackendServerVideo} controls />
 
-`npm run dev`コマンドを実行して開発用サーバーを起動し、[`http://localhost:3000/posts`](http://localhost:3000/posts)にアクセスして、掲示板の投稿の一覧が取得できることを確認します。
+`npm run dev`コマンドを実行してWebサーバーを起動し、[`http://localhost:3000/posts`](http://localhost:3000/posts)にアクセスして、掲示板の投稿の一覧が取得できることを確認します。
 
 ### フロントエンドを構築する
 
@@ -276,13 +276,13 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
 
 ## デプロイする
 
-今までの開発環境では、バックエンドとフロントエンドのそれぞれで`npm run dev`コマンドを実行することで、バックエンドの場合には<Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行して開発用サーバーを起動し、フロントエンドの場合にはViteの開発用サーバーを起動していました。
+今までの開発環境では、バックエンドとフロントエンドのそれぞれで`npm run dev`コマンドを実行することで、バックエンドの場合には<Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行してWebサーバーを起動し、フロントエンドの場合にはViteの開発用サーバーを起動していました。
 
 しかしながら、本番環境では、これとは異なる方法を用いることが一般的です。バックエンドの場合には、TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、そのJavaScriptファイルを実行してWebサーバーを起動します。フロントエンドの場合には、Viteにより出力されたファイルをRenderで配信します。
 
 | 環境     | バックエンド                                                                                                               | フロントエンド                             |
 | -------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| 開発環境 | <Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行して開発用サーバーを起動                                             | Viteの開発用サーバーを起動                 |
+| 開発環境 | <Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行してWebサーバーを起動                                                | Viteの開発用サーバーを起動                 |
 | 本番環境 | TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、JavaScriptファイルを実行してWebサーバーを起動 | Viteにより出力されたファイルをRenderで配信 |
 
 ### ビルドの設定をする
