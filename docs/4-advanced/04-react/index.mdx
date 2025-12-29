@@ -9,7 +9,7 @@ import componentRenderingVideo from "./component-rendering.mp4";
 
 これまで、JavaScriptによりHTML要素を操作するために、[DOM](/docs/trial-session/dom/)を用いることができることを学んできました。しかしながら、ナイーブな方法によりDOMを使用すると、アプリケーションの規模の限界がすぐにやってきます。
 
-簡単なToDoアプリケーションを例に考えてみましょう。
+簡単なToDoアプリケーションを例に考えてみましょう。これまで学んできたDOM操作による処理の記述は、**命令的アプローチ**と呼ばれます。
 
 ```html title="index.html"
 <ul id="todos"></ul>
@@ -48,6 +48,23 @@ addTodoButton.onclick = () => {
 ところが、アプリケーションの本質的な状態というのは、一般的にそこまで多いものではありません。例えば、ToDoリストアプリケーションであれば、各ToDoを表す`string`の配列`string[]`がひとつだけあれば、アプリケーションの状態は全て表現できていることになるはずです。
 
 **宣言的UI**は、こういった性質に着目します。より具体的に説明するのであれば、アプリケーションの状態$S$に対し、関数$f(S)$によりUIの状態を表現できるのであれば、開発者の関心を$S$の変化と$f$の定義のみに絞ることができるというわけです。
+
+<div style={{textAlign: 'center'}}>
+
+```mermaid
+flowchart LR
+  add(["add"]):::event --> S["S"]:::state
+  remove(["remove"]):::event --> S
+  S --> f["f(S)"]:::ui
+
+  classDef event fill:#e8e8e8,stroke:#999,font-size:12px
+  classDef state fill:#4a90d9,stroke:#2e6bb0,color:#fff
+  classDef ui fill:#f5f5f5,stroke:#ccc
+```
+
+</div>
+
+開発者はイベント（`add`や`remove`）による状態の変化と、状態に対応するUIを定義します。UIの更新処理、つまり具体的なDOM操作は自動で行われます。
 
 具体的なコードで確認してみましょう。先ほどのToDoアプリケーションを、宣言的UIのアプローチを用いて書き換えてみましょう。状態を追いやすいよう、TypeScriptを用いて記述します。
 
@@ -94,7 +111,15 @@ function removeTodo(index: number) {
 
 先ほどのプログラムはうまく動作しますが、一つ問題があります。それは、`render`関数が呼ばれるたびに全ての要素が削除され、再構築される点です。一般的に、DOMに対する操作は非常にコストが高く、可能な限り減らすことがパフォーマンス改善のために有効です。
 
-[React](https://ja.reactjs.org/)は、この問題を**仮想DOM**を用いて解決します。Reactは、DOMに似たデータ構造を内部的にJavaScriptオブジェクトの形式で保持し、実際に変更された部分のみを実際のDOMに反映させることで、高いパフォーマンスを実現しています。
+[React](https://ja.react.dev/)は、この問題を**仮想DOM**を用いて解決します。Reactは、DOMに似たデータ構造を内部的にJavaScriptオブジェクトの形式で保持し、実際に変更された部分のみを実際のDOMに反映させることで、高いパフォーマンスを実現しています。
+
+:::tip[仮想DOMと差分検出]
+
+Reactでは、開発者は「UIがどうあるべきか」を宣言するだけで済みます。状態が変化すると、Reactは新しい仮想DOMを作成し、以前の仮想DOMとの差分（diff）を自動的に計算します。そして、実際に変更が必要な部分のみをDOMに反映させます。
+
+つまり、命令的なDOM操作を開発者の代わりにReactが行ってくれるのです。
+
+:::
 
 それでは、Reactを用いたプロジェクトを作成してみましょう。Viteでプロジェクトを作成しますが、`framework`は`React`、`variant`は`TypeScript`を選択してください。
 
@@ -137,13 +162,19 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 :::tip[Non-null assertion operator]
 
-`document.getElementById("root")`の直後に続く`!`記号は、TypeScriptのnon-null assertion operatorです。`document.getElementById`関数は、要素が見つからなかった場合に`null`を返すため、戻り値は`HTMLElement | null`型と定義されています。`null`である可能性がないことをプログラマが保証することをTypeScriptに伝える記号が`!`です。なお、`tsconfig.json`の設定によってはこのエラーは表示されません。
+`document.getElementById("root")`の直後に続く`!`記号は、TypeScriptのnon-null assertion operatorです。`document.getElementById`関数は、要素が見つからなかった場合に`null`を返すため、戻り値は`HTMLElement | null`型と定義されています。`null`である可能性がないことを開発者が保証することをTypeScriptに伝える記号が`!`です。なお、`tsconfig.json`の設定によってはこのエラーは表示されません。
 
 ```typescript
 document.getElementById("root").textContent; // Object is possibly 'null'.
 document.getElementById("root")!.textContent; // OK
 ```
 
+:::
+
+:::tip[React.StrictMode]
+
+`<React.StrictMode>`は開発環境でのみ有効になるモードで、潜在的なバグを検出するためにコンポーネントを2回実行します。これにより、コンポーネントが[純粋関数](https://react.dev/learn/keeping-components-pure)であるかどうか（同じ入力に対して常に同じ出力を返すか）をチェックできます。本番ビルドには影響しません。
+StrictModeのため、開発環境では`console.log`でデバックする際に2回実行されることに注意してください。
 :::
 
 それでは、`App.tsx`を書き換えながら、Reactの動作を確認していきましょう。まずは、`App.tsx`を次のように修正します。
