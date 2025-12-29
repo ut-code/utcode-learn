@@ -24,8 +24,3 @@
   max-height: 30rem;
   background-color: #fff;
 }
-
-/* https://github.com/facebook/docusaurus/pull/7173 */
-.markdown .admonition h5 code {
-  text-transform: none;
-}
