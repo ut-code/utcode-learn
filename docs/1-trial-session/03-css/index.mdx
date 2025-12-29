@@ -2,6 +2,11 @@
 title: CSS
 ---
 
+import yellowHelloCssHtml from "!!raw-loader!./_samples/yellow-hello-css/index.html";
+import yellowHelloCssCss from "!!raw-loader!./_samples/yellow-hello-css/style.css";
+import fooHtml from "!!raw-loader!./_samples/foo/index.html";
+import fooCss from "!!raw-loader!./_samples/foo/style.css";
+
 この節では、Web開発で用いられるもう一つの言語である、CSSについて学びます。CSSはWebサイトの「見た目」をつかさどる言語です。多くの<Term>HTML要素</Term>は、<Term>CSS</Term>を用いることで、その見た目を細かくカスタマイズすることができます。
 
 ![Web開発で用いられる言語](../02-html/web-development-languages.drawio.svg)
@@ -125,9 +130,17 @@ HTMLファイルとCSSファイルを分けて作成する場合、`style`属性
 </html>
 ```
 
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": yellowHelloCssHtml,
+    "/style.css": yellowHelloCssCss,
+  }}
+  options={{
+    activeFile: "/style.css",
+  }}
+/>
 </Answer>
-
-<ViewSource url={import.meta.url} path="_samples/yellow-hello-css" />
 
 ## 演習問題2
 
@@ -183,6 +196,15 @@ HTMLファイルとCSSファイルを分けて作成する場合、`style`属性
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/foo" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": fooHtml,
+    "/style.css": fooCss,
+  }}
+  options={{
+    activeFile: "/style.css",
+  }}
+/>
 
 </Answer>
