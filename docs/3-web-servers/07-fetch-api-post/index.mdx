@@ -283,7 +283,7 @@ document.getElementById("search-button").onclick = async () => {
 
 <video src={chatAppVideo} controls muted />
 
-サーバー側では、これまでのメッセージを保存する配列`messages`を用意しましょう。`/messages`に対するGETリクエストを受けたとき、配列`messages`をJSON形式で返すようにしてください。また、`/messages`に対するPOSTリクエストを受けたとき、`Array#push`メソッドで受け取ったメッセージを配列`messages`に追加するようにしてください。
+サーバー側では、これまでのメッセージを保存する配列`messages`を用意しましょう。`/messages`に対するGETリクエストを受けたとき、配列`messages`をJSON形式で返すようにしてください。また、`/messages`に対するPOSTリクエストを受けたとき、`Array#push`メソッドで受け取ったメッセージを配列`messages`に追加して、適切な<Term>ステータスコード</Term>を返すようにしてください。
 
 ```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
 const messages = [];
@@ -294,7 +294,7 @@ app.get("/messages", (request, response) => {
 
 app.post("/messages", (request, response) => {
   // 受け取ったメッセージをmessagesに追加
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 ```
 
@@ -327,7 +327,7 @@ app.get("/messages", (request, response) => {
 
 app.post("/messages", (request, response) => {
   messages.push(request.body.message);
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 
 app.listen(3000);
