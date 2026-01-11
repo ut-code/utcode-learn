@@ -1,9 +1,0 @@
-.box1 {
-  background-color: lightcoral;
-}
-
-@media (max-width: 800px) {
-  .box1 {
-    background-color: lightblue;
-  }
-}
