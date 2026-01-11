@@ -63,7 +63,7 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .plan {
@@ -77,15 +77,13 @@ body {
 
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
 }
 ```
 
 :::tip[16進数カラーコード]
-`#f0f0f0`や`#0d6efd`のように、6桁の英数字で色を指定する記法を16進数カラーコードと呼びます。左から順に2桁ずつが、それぞれ赤・緑・青の成分を16進数で表しています。
-
-また、省略形として3桁で指定することもできます。例えば、`#1da`は`#11ddaa`と同じ意味になります。
+CSSでは、`#f0f0f0`や`#0d6efd`のように、`#`記号に続く6桁の16進数で色を指定できます。左から順に2桁ずつが、それぞれ赤・緑・青の成分を表しています。
 :::
 
 ## 幅と高さ
@@ -98,7 +96,7 @@ body {
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   // highlight-next-line
   width: 240px;
 }
@@ -115,7 +113,7 @@ body {
 ```css
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   // highlight-next-line
   width: 100%;
@@ -141,10 +139,10 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 240px;
   // highlight-next-line
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
 }
 ```
 
@@ -155,7 +153,7 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 ```css
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   width: 100%;
   // highlight-next-line
@@ -171,9 +169,9 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 240px;
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
   // highlight-next-line
   border-radius: 8px;
 }
@@ -182,7 +180,7 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 ```css
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   width: 100%;
   border: none;
@@ -201,9 +199,9 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 240px;
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
   border-radius: 8px;
   // highlight-next-line
   margin: 8px;
@@ -227,7 +225,7 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   width: 100%;
   border: none;
@@ -253,9 +251,9 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 240px;
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
   border-radius: 8px;
   margin: 8px;
   // highlight-next-line
@@ -266,7 +264,7 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 ```css
 .button {
   background-color: #0d6efd;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   width: 100%;
   border: none;
@@ -307,9 +305,9 @@ HTML要素は、それらが表示される際のデフォルトの振る舞い�
 
 ```css
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 240px;
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
   border-radius: 8px;
   // highlight-next-line
   /* margin: 8px; を削除 */
@@ -520,7 +518,7 @@ CSSは次のものをベースに、必要な箇所を記述してください�
 ```css title="style.css"
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 header ul {
@@ -531,7 +529,7 @@ header ul {
 
 #menu a {
   text-decoration: none; /* リンクの下線を消す */
-  color: #777;
+  color: #777777;
   font-size: 14px;
 }
 
@@ -553,7 +551,7 @@ header ul {
 /* ここから下を変更してください。 */
 
 header {
-  background-color: #fff;
+  background-color: #ffffff;
   /* ここで適切な境界線を設定する */
 }
 
@@ -586,7 +584,7 @@ header {
 ```css title="style.css"
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 header ul {
@@ -597,7 +595,7 @@ header ul {
 
 #menu a {
   text-decoration: none;
-  color: #777;
+  color: #777777;
   font-size: 14px;
 }
 
@@ -617,8 +615,8 @@ header ul {
 }
 
 header {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .container {

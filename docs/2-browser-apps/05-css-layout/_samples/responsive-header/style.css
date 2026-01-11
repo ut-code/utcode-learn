@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 header ul {
@@ -11,7 +11,7 @@ header ul {
 
 #menu a {
   text-decoration: none;
-  color: #777;
+  color: #777777;
   font-size: 14px;
 }
 
@@ -31,8 +31,8 @@ header ul {
 }
 
 header {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .container {
