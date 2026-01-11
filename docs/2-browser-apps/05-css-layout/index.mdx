@@ -6,13 +6,13 @@ import responsiveCardsVideo from "./responsive-cards.mp4";
 import responsiveCenterCardsVideo from "./responsive-center-cards.mp4";
 import responsiveHeaderVideo from "./responsive-header.mp4";
 
-この節では、CSSを使用してHTML要素のレイアウトを調整する方法を学びます。
-
-例として、次のような料金プランを表すカードを作ることを目標に進めていきます。
+この節では、次のような料金プランを表すカードを題材に、CSSを使用してHTML要素のレイアウトを調整する方法を学びます。
 
 ![料金プランのカードの完成形](./pricing-cards-final.png)
 
-まずは、HTMLとCSSで料金プランのカードを作り始めてみます。
+まずは、土台となるHTMLとCSSを用意します。ここから、各要素のレイアウトを調整していきましょう。
+
+![レイアウトを調整する前のカード](./before.png)
 
 ```html title="index.html"
 <!doctype html>
@@ -87,10 +87,6 @@ CSSでは、`#f0f0f0`や`#0d6efd`のように、`#`記号に続く6桁の16進�
 :::
 
 ## 幅と高さ
-
-今のところ、カードの幅が画面いっぱいに広がってしまっています。
-
-![widthプロパティを指定する前のカード](./before-width-card.png)
 
 `width`プロパティで要素の幅を設定することができます。カードに適切な幅を設定するには、次のようにします。
 
