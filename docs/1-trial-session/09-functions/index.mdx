@@ -3,6 +3,12 @@ title: 関数
 ---
 
 import returnValueVideo from "./return-value.mp4";
+import multiplyHtml from "./_samples/multiply/index.html?raw";
+import multiplyJs from "./_samples/multiply/script.js?raw";
+import maxHtml from "./_samples/max/index.html?raw";
+import maxJs from "./_samples/max/script.js?raw";
+import mobilePhoneBillHtml from "./_samples/mobile-phone-bill/index.html?raw";
+import mobilePhoneBillJs from "./_samples/mobile-phone-bill/script.js?raw";
 
 ## 処理の共通化
 
@@ -97,7 +103,16 @@ function multiply(a, b) {
 document.write(multiply(3, 4));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/multiply" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": multiplyHtml,
+    "/script.js": multiplyJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -187,7 +202,16 @@ function max(a, b) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/max" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": maxHtml,
+    "/script.js": maxJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 :::note
 
@@ -238,6 +262,15 @@ function calculateCost(monthlyDataUsage) {
 document.write(calculateCost(3.5));
 ```
 
-<ViewSource url={import.meta.url} path="_samples/mobile-phone-bill" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": mobilePhoneBillHtml,
+    "/script.js": mobilePhoneBillJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

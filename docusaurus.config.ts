@@ -37,6 +37,21 @@ const config: Config = {
         docsRouteBasePath: "/docs",
       },
     ],
+    () => ({
+      name: "raw-loader",
+      configureWebpack() {
+        return {
+          module: {
+            rules: [
+              {
+                resourceQuery: /raw/,
+                type: "asset/source",
+              },
+            ],
+          },
+        };
+      },
+    }),
   ],
   presets: [
     [

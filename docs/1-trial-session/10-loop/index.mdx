@@ -3,6 +3,14 @@ title: 繰り返し
 ---
 
 import whileLoopVideo from "./while-loop.mp4";
+import answerForHtml from "./_samples/answer-for/index.html?raw";
+import answerForJs from "./_samples/answer-for/script.js?raw";
+import productHtml from "./_samples/product/index.html?raw";
+import productJs from "./_samples/product/script.js?raw";
+import productAltHtml from "./_samples/product-alt/index.html?raw";
+import productAltJs from "./_samples/product-alt/script.js?raw";
+import isPrimeHtml from "./_samples/is-prime/index.html?raw";
+import isPrimeJs from "./_samples/is-prime/script.js?raw";
 
 ## while文
 
@@ -102,7 +110,16 @@ for (let i = 1; i <= 10; i += 1) {
 document.write(sum);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/answer-for" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": answerForHtml,
+    "/script.js": answerForJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -149,7 +166,16 @@ for (let i = 1; i <= 10; i = i + 1) {
 document.write(product);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/product" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": productHtml,
+    "/script.js": productJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 別解
 
@@ -163,7 +189,16 @@ for (let i = 1; i <= 10; i += 1) {
 document.write(product);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/product-alt" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": productAltHtml,
+    "/script.js": productAltJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -205,6 +240,15 @@ document.write(checkPrime(57)); // false
 document.write(checkPrime(-1)); // false
 ```
 
-<ViewSource url={import.meta.url} path="_samples/is-prime" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": isPrimeHtml,
+    "/script.js": isPrimeJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

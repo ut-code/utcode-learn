@@ -4,6 +4,10 @@ title: プロジェクト
 
 import omikujiVideo from "./omikuji.mp4";
 import stopwatchVideo from "./stopwatch.mp4";
+import omikujiHtml from "./_samples/omikuji/index.html?raw";
+import omikujiJs from "./_samples/omikuji/script.js?raw";
+import stopwatchHtml from "./_samples/stopwatch/index.html?raw";
+import stopwatchJs from "./_samples/stopwatch/script.js?raw";
 
 これまで学んできた知識を利用して、はじめてのWebアプリケーション作りに挑戦してみましょう。題材が思いつかない場合は、下の例を参考にしてみてください。
 
@@ -59,7 +63,20 @@ omikujiButton.onclick = omikuji;
 
 ### 解答例
 
-<ViewSource url={import.meta.url} path="_samples/omikuji" />
+<Answer>
+
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": omikujiHtml,
+    "/script.js": omikujiJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
+
+</Answer>
 
 ## ストップウォッチ
 
@@ -128,4 +145,16 @@ stopButton.onclick = stop;
 
 ### 解答例
 
-<ViewSource url={import.meta.url} path="_samples/stopwatch" />
+<Answer title="ストップウォッチ">
+
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": stopwatchHtml,
+    "/script.js": stopwatchJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
+</Answer>
