@@ -20,9 +20,9 @@ title: CSS
 ![Hello World!](./red-hello-world.png)
 
 {/* prettier-ignore */}
-<Term>`style`属性</Term>には、<Term type="cssProperty">**プロパティ**</Term>と呼ばれるスタイルの種類と、その値を、コロン記号で繋いだ形式で記述します。また、複数のプロパティを指定する場合は、セミコロンで区切ります。
+<Term>`style`属性</Term>には、<Term id="css-property">**プロパティ**</Term>と呼ばれるスタイルの種類と、その値を、コロン記号で繋いだ形式で記述します。また、複数のプロパティを指定する場合は、セミコロンで区切ります。
 
-この例では、`color`という<Term type="cssProperty">プロパティ</Term>に`red`という値を設定し、`font-size`という<Term type="cssProperty">プロパティ</Term>に`24px`という値を設定しています。これにより、`Hello World!`という文字列が、赤色で、24ピクセルの大きさで表示されます。
+この例では、`color`という<Term id="css-property">プロパティ</Term>に`red`という値を設定し、`font-size`という<Term id="css-property">プロパティ</Term>に`24px`という値を設定しています。これにより、`Hello World!`という文字列が、赤色で、24ピクセルの大きさで表示されます。
 
 :::tip[`div`要素]
 
@@ -140,49 +140,5 @@ HTMLファイルとCSSファイルを分けて作成する場合、`style`属性
 
 1. `#foo`
 2. `.bar button`
-
-</Answer>
-
-## 演習問題3（発展）
-
-画像のようなシンプルなボックスを作ってみましょう。
-
-![シンプルなボックス](./rounded-box-with-shadow.png)
-
-シンプルで、よく見かけるデザインですが、様々な指定が必要であることが分かります。次のような点に注意してデザインしてみてください。
-
-- グレーの枠線が付いています (border)
-- 枠線は角丸になっています (border-radius)
-- 枠線の外側に余白があります (margin)
-- 枠線の内側にも余白があります (padding)
-- ボックスに影がついています (box-shadow)
-
-<Answer title="シンプルなボックス">
-
-```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Title</title>
-  </head>
-  <body>
-    <div id="foo">Foo</div>
-  </body>
-</html>
-```
-
-```css title="style.css"
-#foo {
-  border: 1px solid #aaa;
-  border-radius: 10px;
-  margin: 30px;
-  padding: 30px;
-  box-shadow: 0px 0px 2px 1px #aaa;
-}
-```
-
-<ViewSource url={import.meta.url} path="_samples/foo" />
 
 </Answer>
