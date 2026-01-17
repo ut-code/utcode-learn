@@ -92,6 +92,8 @@ dist/assets/index-_AYE_jbl.js   2.58 kB │ gzip: 1.40 kB
 
 出力されたファイルを元のファイルと比較してみましょう。元の`index.html`や`main.js`が、変換された状態で出力されていることがわかります。ディレクトリごと[Netlify Drop](/docs/trial-session/deploy-application/)などにアップロードすれば使用可能になるでしょう。
 
+このように、<Term>トランスパイル</Term>や<Term id="module-bundler">バンドル</Term>などにより必要な変換や最適化を施し、実行可能な形式の最終成果物を生成する一連の処理は一般に<Term>**ビルド**</Term>と呼ばれます。本番環境では、これにより生成された最終成果物を配布します。
+
 <video src={buildVideo} controls />
 
 :::tip[`npm run`コマンド]

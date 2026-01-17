@@ -16,11 +16,11 @@ import deployVideo from "./deploy.mp4";
 
 Viteを用いて構築されたフロントエンドと、Node.jsを用いて構築されたバックエンドを接続する方法について学びましょう。
 
-[データベース](/docs/web-servers/database/)の節で作成した掲示板サービスの処理の流れは、次の図のようになっていました。1つのWebサーバーが、フロントエンドで動作するアプリケーションの配信と、バックエンドで動作するアプリケーションの処理の両方を担っています。
+以前に[データベース](/docs/web-servers/database/)で作成した掲示板サービスの処理の流れは、次の図のようになっていました。1つのWebサーバーが、フロントエンドで動作するアプリケーションの配信と、バックエンドで動作するアプリケーションの処理の両方を担っています。
 
 ![データベースの節で作成した掲示板サービスの処理の流れ](./simple-forum-app-flow.drawio.svg)
 
-今回作成する掲示板サービスでは、フロントエンドとバックエンドでそれぞれ別のサーバーを構築します。処理の流れは、次の図のようになります。
+実際のWebアプリケーション開発では、フロントエンドとバックエンドをそれぞれ独立して開発・運用できるようにするため、フロントエンドとバックエンドをそれぞれ別のサーバーで構築することが一般的です。処理の流れは、次の図のようになります。
 
 ![フロントエンドとバックエンドで別のサーバーを構築する掲示板サービスの処理の流れ](./fullstack-forum-app-flow.drawio.svg)
 
@@ -46,7 +46,7 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
 
 #### データベースとWebサーバーを作成する
 
-[データベース](/docs/web-servers/database/)の節と同じように、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)の節を参照してください。
+以前に[データベース](/docs/web-servers/database/)で作成した際と同様に、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)を参照してください。
 
 <video src={createDatabaseAndServerVideo} controls />
 
@@ -117,16 +117,18 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
 
 :::tip[CORS（Cross-Origin Resource Sharing）]
 
-プロトコル、ドメイン、ポートの組み合わせのことを<Term>**オリジン**</Term>と呼びます。
+フロントエンドとバックエンドをそれぞれ別のサーバーで構築する場合、フロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることは、ブラウザによって制限されることがあります。<Term>**CORS（Cross-Origin Resource Sharing）**</Term>は、このような場合でも必要に応じてリソースへのアクセスを可能にする仕組みです。
+
+ブラウザはセキュリティ上の理由から、異なる<Term>オリジン</Term>のリソースへのアクセスを制限することがあります。なお、<Term>**オリジン**</Term>は、プロトコル、ドメイン、ポートの組み合わせによって定義されます。
 
 <p>
   <OriginExplanation />
 </p>
 
-異なる<Term>オリジン</Term>のリソースへアクセスすることはブラウザによって制限されることがあります。フロントエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:5173`でバックエンドのWebサーバーの<Term>オリジン</Term>が`http://localhost:3000`である場合には、これらは異なる<Term>オリジン</Term>です。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
+例えば、フロントエンドの開発用サーバーの<Term>オリジン</Term>が`http://localhost:5173`でバックエンドのWebサーバーの<Term>オリジン</Term>が`http://localhost:3000`である場合には、これらは異なる<Term>オリジン</Term>になります。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
 
 {/* prettier-ignore */}
-<Term>**CORS（Cross-Origin Resource Sharing）**</Term>は、このような場合でも異なる<Term>オリジン</Term>のリソースへアクセスすることを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可する<Term>オリジン</Term>を示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、ブラウザはそこで指定された<Term>オリジン</Term>からアクセスすることを許可します。
+<Term>CORS</Term>は、このような場合でも必要に応じてリソースへのアクセスを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可する<Term>オリジン</Term>を示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、ブラウザはそこで指定された<Term>オリジン</Term>からリソースへアクセスすることを許可します。
 
 Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/package/cors)を使用することで、HTTPレスポンスヘッダに`Access-Control-Allow-Origin`ヘッダなどを適切に設定することができます。
 
@@ -140,7 +142,7 @@ Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/
    $ npm install -D @types/cors
    ```
 1. `.env`ファイルを編集し、<Term>環境変数</Term>`WEB_ORIGIN`の値にViteの開発用サーバーの<Term>オリジン</Term>である`http://localhost:5173`を指定します。
-1. `main.ts`ファイルを編集し、<Term>CORS</Term>に関する設定を行います。14行目の`app.use(cors({ origin: process.env.WEB_ORIGIN }));`により、<Term>環境変数</Term>`WEB_ORIGIN`に指定した<Term>オリジン</Term>からアクセスすることができるようにします。
+1. `main.ts`ファイルを編集し、<Term>CORS</Term>に関する設定を行います。14行目の`app.use(cors({ origin: process.env.WEB_ORIGIN }));`により、<Term>環境変数</Term>`WEB_ORIGIN`に指定した<Term>オリジン</Term>からアクセスできるようにします。
 
    ```ts title="backend/main.ts" showLineNumbers
    import express from "express";
@@ -264,9 +266,9 @@ export default App;
 
 :::tip[Viteでの環境変数の利用]
 
-Viteは起動時に`.env`ファイルの内容を読み込みます。
-
 Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーション内で`import.meta.env`オブジェクトのプロパティとして利用](https://ja.vite.dev/guide/env-and-mode.html#env-variables)できるようにします。例えば、`VITE_API_ENDPOINT`という<Term>環境変数</Term>の値は、`import.meta.env.VITE_API_ENDPOINT`と記述することで利用できます。
+
+なお、Viteは起動時に`.env`ファイルに記述された環境変数を読み込みます。
 
 :::
 
@@ -276,25 +278,33 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
 
 ## デプロイする
 
-今までの開発環境では、バックエンドとフロントエンドのそれぞれで`npm run dev`コマンドを実行することで、バックエンドの場合には<Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行してWebサーバーを起動し、フロントエンドの場合にはViteの開発用サーバーを起動していました。
+今までの開発環境では、`npm run dev`コマンドを実行することで、バックエンドではWebサーバーを、フロントエンドでは開発用サーバーを起動していました。
 
-しかしながら、本番環境では、これとは異なる方法を用いることが一般的です。バックエンドの場合には、TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、そのJavaScriptファイルを実行してWebサーバーを起動します。フロントエンドの場合には、Viteにより出力されたファイルをRenderで配信します。
+しかしながら、本番環境では、これとは異なる方法を用いることが一般的です。バックエンドでは、<Term>ビルド</Term>済みのJavaScriptファイルを実行してWebサーバーを起動します。フロントエンドでは、Viteによる<Term>ビルド</Term>結果をRenderで配信します。
 
-| 環境     | バックエンド                                                                                                               | フロントエンド                             |
-| -------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| 開発環境 | <Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行してWebサーバーを起動                                                | Viteの開発用サーバーを起動                 |
-| 本番環境 | TypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>してから、JavaScriptファイルを実行してWebサーバーを起動 | Viteにより出力されたファイルをRenderで配信 |
+| 環境     | バックエンド                                                                | フロントエンド                                  |
+| -------- | --------------------------------------------------------------------------- | ----------------------------------------------- |
+| 開発環境 | <Term>`tsx`パッケージ</Term>でTypeScriptファイルを実行してWebサーバーを起動 | Viteの開発用サーバーを起動                      |
+| 本番環境 | <Term>ビルド</Term>済みのJavaScriptファイルを実行してWebサーバーを起動      | Viteによる<Term>ビルド</Term>結果をRenderで配信 |
 
 ### ビルドの設定をする
 
-フロントエンドの場合には、`npm run build`コマンドを実行することで、Viteによるビルド結果が`dist`ディレクトリに格納されるのでした。本番環境では、この`dist`ディレクトリをRenderで配信すればよいです。
+[トランスパイラとモジュールバンドラ](/docs/advanced/bundler/)で述べたように、フロントエンドの<Term>ビルド</Term>のための設定は、`npm create vite@latest`コマンドを実行することで自動的に生成される`package.json`ファイルに含まれています。`npm run build`コマンドを実行することで、<Term>ビルド</Term>結果が`dist`ディレクトリに出力されます。本番環境では、この`dist`ディレクトリをRenderで配信します。
 
-次に、バックエンドのTypeScriptファイルを<Term>トランスパイル</Term>するための設定を行いましょう。
+```json title="frontend/package.jsonの抜粋"
+{
+  "scripts": {
+    "build": "tsc -b && vite build"
+  }
+}
+```
+
+次に、バックエンドの<Term>ビルド</Term>のための設定を行いましょう。
 
 <video src={setupBuildScriptsVideo} controls />
 
 1. `tsconfig.json`の[`outDir`オプション](https://www.typescriptlang.org/tsconfig/#outDir)の値を`"./dist"`にして、<Term>トランスパイル</Term>結果が`dist`ディレクトリに入るようにします。また、`.gitignore`ファイルに`/dist`を追加して、`dist`ディレクトリがGitの管理下に入らないようにします。
-1. `package.json`の`scripts`プロパティに次のように記載して、`npm run build`コマンドと`npm start`コマンドが使えるようにしましょう。`npm run build`コマンドでTypeScriptファイルをJavaScriptファイルに<Term>トランスパイル</Term>し、`npm start`コマンドで出力されたJavaScriptファイルを実行できるようになります。
+1. `package.json`の`scripts`プロパティに次のように記載して、`npm run build`コマンドと`npm start`コマンドが使えるようにしましょう。`npm run build`コマンドで<Term>ビルド</Term>結果を`dist`ディレクトリに出力し、`npm start`コマンドで<Term>ビルド</Term>済みのJavaScriptファイルを実行できるようになります。
 
    ```json title="backend/package.jsonの抜粋"
    {

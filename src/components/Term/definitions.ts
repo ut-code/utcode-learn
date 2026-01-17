@@ -564,6 +564,17 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/bundler/",
   },
   {
+    id: "build",
+    name: "ビルド",
+    aliases: [],
+    definition:
+      "開発したプログラムを実行可能な形式に変換・最適化し、最終成果物を生成する一連の処理。Web開発では、トランスパイルやバンドルなどにより必要な変換や最適化を施し、実行可能な形式の最終成果物を生成することを指す。",
+    referencePage: "/docs/advanced/bundler/",
+    // 参考：
+    // - Wikipedia「ビルド (ソフトウェア)」 https://ja.wikipedia.org/wiki/ビルド_(ソフトウェア)
+    // - Vite公式「本番環境用のビルド」 https://ja.vite.dev/guide/build
+  },
+  {
     id: "jsx",
     name: "JSX",
     aliases: [],
@@ -609,7 +620,7 @@ export const terms: Term[] = [
     name: "CORS（Cross-Origin Resource Sharing）",
     aliases: ["CORS"],
     definition:
-      "ブラウザによって制限されている異なるオリジンのリソースへのアクセスを可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザはそのアクセスを許可する。",
+      "セキュリティ上の理由からブラウザによって制限されている異なるオリジンのリソースへのアクセスを必要に応じて可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザはそのアクセスを許可する。",
     referencePage: "/docs/advanced/integration-and-deployment/",
     // 参考：MDN「オリジン間リソース共有 (CORS)」 https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CORS
   },
