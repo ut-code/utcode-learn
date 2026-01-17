@@ -320,7 +320,7 @@ JSXでは、HTMLにおいて閉じタグが必須でない要素 (この例で�
 
 :::
 
-このプログラムは、`age`変数が`18`以上である場合のみメッセージを表示します。これは、`&&`演算子の挙動を利用した手法です。これまで、`&&`演算子は両辺が`true`であれば`true`を返す演算子であるとしてきました。しかしながら、[`&&`演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が[<Term>truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy)であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
+このプログラムは、`age`変数が`18`未満である場合のみメッセージを表示します。これは、`&&`演算子の挙動を利用した手法です。これまで、`&&`演算子は両辺が`true`であれば`true`を返す演算子であるとしてきました。しかしながら、[`&&`演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が[<Term>truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy)であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
 
 ```typescript
 const a = 3 && 4; // 3はtruthyなのでaは4
