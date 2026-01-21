@@ -1,0 +1,431 @@
+---
+title: プロジェクト：AIタスク管理
+---
+
+{/* import demoVideo from "./demo.mp4"; */}
+
+このプロジェクトでは、これまで学んできた技術を組み合わせて、**音声入力可能なAIタスク管理アプリケーション**を作成します。
+
+特に、**外部APIを呼び出す**ことがこのプロジェクトの重要な学習ポイントです。[Fetch API](../fetch-api)で学んだ`fetch`関数やHTTPリクエストの知識を活用し、実際の外部サービス（OpenRouter API）と連携する方法を学びます。
+
+- **音声認識**: ブラウザのWeb Speech APIで音声をテキスト化
+- **AI解析**: OpenRouter APIでテキストから時間とタスクを抽出
+- **サーバー経由**: APIキーを保護するためExpressサーバーを経由
+- **データベース**: Prismaでタスクを永続化
+
+{/* <video src={demoVideo} controls /> */}
+
+## ステップ1: 基本的なToDoリスト
+
+まずは、データベースを使用した基本的なToDoリストを作成します。これは[データベースの節](../database)で学んだ内容の復習です。
+
+### プロジェクトのセットアップ
+
+新しいフォルダを作成し、必要なパッケージをインストールします。
+
+```shell
+npm init -y
+npm install express @prisma/client
+npm install -D prisma
+npx prisma init
+```
+
+### Prismaスキーマの定義
+
+`prisma/schema.prisma`ファイルを編集し、タスクを保存するためのテーブルを定義します。
+
+```javascript title="prisma/schema.prisma"
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+}
+```
+
+`.env`ファイルにデータベースの接続情報を記述した後、テーブルを作成します。
+
+```shell
+npx prisma db push
+```
+
+### サーバーの実装
+
+Express<Term>サーバー</Term>を作成し、タスクの取得・追加・削除のAPIを実装します。
+
+```javascript title="main.mjs"
+import express from "express";
+import { PrismaClient } from "./generated/prisma/index.js";
+
+const app = express();
+const client = new PrismaClient();
+
+app.use(express.json());
+app.use(express.static("./public"));
+
+// タスク一覧を取得
+app.get("/todos", async (request, response) => {
+  const todos = await client.todo.findMany({
+    orderBy: { createdAt: "desc" },
+  });
+  response.json(todos);
+});
+
+// タスクを追加
+app.post("/todos", async (request, response) => {
+  const todo = await client.todo.create({
+    data: { title: request.body.title },
+  });
+  response.json(todo);
+});
+
+// タスクを削除
+app.delete("/todos/:id", async (request, response) => {
+  await client.todo.delete({
+    where: { id: parseInt(request.params.id) },
+  });
+  response.json({ success: true });
+});
+
+app.listen(3000);
+```
+
+### フロントエンドの実装
+
+`public`フォルダを作成し、HTMLとJavaScriptファイルを配置します。
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>AIタスク管理</title>
+  </head>
+  <body>
+    <h1>タスク管理</h1>
+    <div>
+      <input type="text" id="task-input" placeholder="タスクを入力" />
+      <button id="add-button" type="button">追加</button>
+    </div>
+    <ul id="todo-list"></ul>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="public/script.js"
+// タスク一覧を取得して表示
+async function loadTodos() {
+  const response = await fetch("/todos");
+  const todos = await response.json();
+
+  const todoList = document.getElementById("todo-list");
+  todoList.innerHTML = "";
+
+  for (const todo of todos) {
+    const li = document.createElement("li");
+
+    const titleSpan = document.createElement("span");
+    titleSpan.textContent = todo.title;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "削除";
+    deleteButton.onclick = async () => {
+      await fetch(`/todos/${todo.id}`, { method: "DELETE" });
+      loadTodos();
+    };
+
+    li.appendChild(titleSpan);
+    li.appendChild(deleteButton);
+    todoList.appendChild(li);
+  }
+}
+
+// タスクを追加
+document.getElementById("add-button").onclick = async () => {
+  const input = document.getElementById("task-input");
+  const title = input.value.trim();
+
+  if (title === "") return;
+
+  await fetch("/todos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title }),
+  });
+
+  input.value = "";
+  loadTodos();
+};
+
+// ページ読み込み時にタスク一覧を取得
+loadTodos();
+```
+
+<ViewSource url={import.meta.url} path="_samples/step1" noCodeSandbox />
+
+## ステップ2: 音声認識の追加
+
+次に、ブラウザの**Web Speech API**を使用して音声入力機能を追加します。
+
+### Web Speech APIの基本
+
+[Web Speech API](https://developer.mozilla.org/ja/docs/Web/API/Web_Speech_API)は、ブラウザに組み込まれた音声認識機能を提供します。[`SpeechRecognition`](https://developer.mozilla.org/ja/docs/Web/API/SpeechRecognition)オブジェクトを使用して、マイクからの音声をテキストに変換できます。
+
+`SpeechRecognition`オブジェクトの主要なプロパティ・メソッド・イベントは以下の通りです。
+
+| 種類 | 名前 | 説明 |
+|------|------|------|
+| プロパティ | `lang` | 認識する言語を指定（例: `"ja-JP"`） |
+| メソッド | `start()` | 音声認識を開始 |
+| メソッド | `stop()` | 音声認識を停止 |
+| イベント | `onresult` | 認識結果を受け取ったときに呼ばれる |
+| イベント | `onend` | 音声認識が終了したときに呼ばれる |
+| イベント | `onerror` | エラーが発生したときに呼ばれる |
+
+```javascript
+const recognition = new SpeechRecognition();
+recognition.lang = "ja-JP";  // 日本語を認識
+
+// 音声認識を開始
+recognition.start();
+
+// 認識結果を受け取る
+recognition.onresult = (event) => {
+  const transcript = event.results[0][0].transcript;
+  console.log("認識結果:", transcript);
+};
+```
+
+### 音声入力ボタンの追加
+
+HTMLに音声入力ボタンを追加します。
+
+```html title="public/index.html の抜粋"
+<div>
+  <input type="text" id="task-input" placeholder="タスクを入力" />
+  <button id="voice-button" type="button">音声入力</button>
+  <button id="add-button" type="button">追加</button>
+</div>
+```
+
+### 音声認識の実装
+
+JavaScriptで音声認識機能を実装します。
+
+```javascript title="public/script.js に追加"
+const recognition = new SpeechRecognition();
+recognition.lang = "ja-JP";
+
+const voiceButton = document.getElementById("voice-button");
+
+voiceButton.onclick = () => {
+  recognition.start();
+  voiceButton.textContent = "録音中...";
+};
+
+recognition.onresult = (event) => {
+  const transcript = event.results[0][0].transcript;
+  document.getElementById("task-input").value = transcript;
+  voiceButton.textContent = "音声入力";
+};
+
+recognition.onend = () => {
+  voiceButton.textContent = "音声入力";
+};
+```
+
+<ViewSource url={import.meta.url} path="_samples/step2" noCodeSandbox />
+
+## ステップ3: OpenRouter APIでAI解析
+
+音声で「明日の10時に会議」と言ったとき、AIを使って時間情報（明日の10時）とタスク内容（会議）を自動的に抽出します。
+
+このステップでは、**外部サービスのAPIを呼び出す**方法を学びます。多くのWebサービスは、プログラムからアクセスできるAPIを提供しています。これらのAPIを活用することで、自分で実装するのが難しい高度な機能（AI、地図、決済など）を簡単にアプリケーションに組み込むことができます。
+
+### OpenRouterとは
+
+[OpenRouter](https://openrouter.ai/)は、様々なAIモデルを統一されたAPIで利用できるサービスです。OpenAIのGPT-4やAnthropicのClaudeなど、複数のモデルを同じ形式で呼び出すことができます。無料で使えるモデルも提供されています。
+
+### OpenRouterへの登録
+
+1. [OpenRouter](https://openrouter.ai/)にアクセス
+2. 右上の「Sign In」からGoogleアカウントなどでログイン
+3. ログイン後、[Keys](https://openrouter.ai/keys)ページにアクセス
+4. 「Create Key」ボタンをクリック
+5. キーの名前（任意）を入力して作成
+6. 表示されたAPIキー（`sk-or-v1-...`で始まる文字列）をコピー
+
+### APIキーの設定
+
+生成したAPIキーを`.env`ファイルに追加します。
+
+```text title=".env"
+DATABASE_URL="postgresql://..."
+OPENROUTER_API_KEY="sk-or-v1-..."
+```
+
+:::caution[APIキーの管理]
+APIキーは機密情報です。絶対にGitにコミットしないでください。`.gitignore`に`.env`が含まれていることを確認しましょう。
+:::
+
+### Prismaスキーマの更新
+
+時間情報を保存するため、`due_at`カラムを追加します。`DateTime`型を使用することで、データベースで日時として適切に扱われます。
+
+```javascript title="prisma/schema.prisma"
+model Todo {
+  id        Int       @id @default(autoincrement())
+  title     String
+  due_at    DateTime?
+  createdAt DateTime  @default(now())
+}
+```
+
+スキーマを更新した後、`npx prisma db push`を実行してデータベースに反映させます。
+
+### サーバーでAI解析
+
+APIキーをブラウザに露出させないため、<Term>サーバー</Term>側でOpenRouter APIを呼び出します。ここでは無料で使える`google/gemini-3-flash-preview`モデルを使用します。
+
+:::note[なぜサーバー経由で外部APIを呼び出すのか]
+外部サービスのAPIを利用する際、多くの場合**APIキー**による認証が必要です。APIキーをブラウザ（フロントエンド）のJavaScriptに含めると、誰でもブラウザの開発者ツールからキーを取得できてしまいます。そのため、APIキーはサーバー側で管理し、サーバーから外部APIを呼び出すのが一般的なパターンです。
+:::
+
+```javascript title="main.mjs に追加"
+const systemPrompt = `ユーザーの発話からタスクと時間を抽出してください。
+出力は必ず2行で、1行目がISO8601形式の日時（タイムゾーンは+09:00）、2行目がタスクタイトルです。
+時間情報がない場合は1行目を空にしてください。
+
+例:
+入力: 明日の10時に会議
+出力:
+2024-01-21T10:00:00+09:00
+会議
+
+入力: 買い物に行く
+出力:
+
+買い物に行く`;
+
+// 自然言語でタスクを追加（AI解析 + DB保存）
+app.post("/todos/ai", async (request, response) => {
+  const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "google/gemini-3-flash-preview",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: request.body.text },
+      ],
+    }),
+  });
+  const data = await result.json();
+  const content = data.choices[0].message.content;
+  const lines = content.split("\n");
+  const dueAt = lines[0] ? new Date(lines[0]) : null;
+  const title = lines[1] || "";
+
+  const todo = await client.todo.create({
+    data: { title, due_at: dueAt },
+  });
+  response.json(todo);
+});
+```
+
+:::tip[認証ヘッダー `Authorization: Bearer`]
+多くの外部APIでは、`Authorization`ヘッダーに`Bearer <APIキー>`の形式でAPIキーを送信します。これは[OAuth 2.0](https://oauth.net/2/)で定義された認証方式で、多くのWebサービスで採用されています。
+:::
+
+:::tip[プロンプト設計]
+AIに期待する出力形式を明確に指示することが重要です。この例では、改行区切りの2行形式にすることで、プログラムから解析しやすくしています。
+:::
+
+### 環境変数の読み込み
+
+Node.jsで環境変数を読み込むため、`package.json`のスクリプトを更新します。
+
+```json title="package.json"
+{
+  "scripts": {
+    "start": "node --env-file=.env main.mjs"
+  }
+}
+```
+
+### タスク追加APIの更新
+
+時間情報も保存できるように、タスク追加APIを更新します。
+
+```javascript title="main.mjs の app.post('/todos') を更新"
+app.post("/todos", async (request, response) => {
+  const todo = await client.todo.create({
+    data: {
+      title: request.body.title,
+      due_at: request.body.due_at ? new Date(request.body.due_at) : null,
+    },
+  });
+  response.json(todo);
+});
+```
+
+### フロントエンドの更新
+
+音声入力後にAI解析を行い、結果を保存するように更新します。
+
+```javascript title="public/script.js"
+// 自然言語でタスクを追加
+async function parseAndAddTodo(text) {
+  if (text.trim() === "") return;
+
+  // AIで解析してタスクを保存
+  await fetch("/todos/ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+  });
+
+  document.getElementById("task-input").value = "";
+  loadTodos();
+}
+```
+
+<ViewSource url={import.meta.url} path="_samples/step3" noCodeSandbox />
+
+## 完成版
+
+全てのステップを統合し、エラーハンドリングを追加した完成版です。
+
+<ViewSource url={import.meta.url} path="_samples/ai-todo" noCodeSandbox />
+
+### 動作確認
+
+1. `.env`ファイルに`DATABASE_URL`と`OPENROUTER_API_KEY`を設定
+2. `npx prisma db push`でデータベースを準備
+3. `npm start`でサーバーを起動
+4. ブラウザで http://localhost:3000 にアクセス
+5. 「音声入力」ボタンをクリックして「明日の10時に会議」などと話す
+6. AIが時間とタスクを抽出し、データベースに保存される
+
+## 発展課題
+
+このプロジェクトを拡張するアイデアをいくつか紹介します。
+
+- タスクの完了機能を追加する
+- 時間が近づいたタスクを強調表示する
+- タスクを編集できるようにする
+- カテゴリやタグを追加する
+- [Renderへのデプロイ](../deploy-on-render)を参考に、アプリケーションを公開する
