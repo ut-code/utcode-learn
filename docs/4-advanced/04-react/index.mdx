@@ -746,7 +746,7 @@ export default function App() {
 
 :::tip[Reactとイミュータビリティ]
 
-[オブジェクトの参照](/docs/browser-apps/reference/)で扱ったように、JavaScriptオブジェクトは参照として扱われます。Reactでは、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの`addTodo`関数と`removeTodo`関数は、次のように書き換えることはできません。これは、この方法ではReactが状態が変化したことを検知できないからです。
+[「オブジェクトの参照」の節](/docs/browser-apps/reference/)で扱ったように、JavaScriptオブジェクトは参照として扱われます。Reactでは、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの`addTodo`関数と`removeTodo`関数は、次のように書き換えることはできません。これは、この方法ではReactが状態が変化したことを検知できないからです。
 
 ```tsx
 const addTodo = () => {
