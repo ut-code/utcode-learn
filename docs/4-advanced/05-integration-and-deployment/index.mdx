@@ -16,7 +16,7 @@ import deployVideo from "./deploy.mp4";
 
 Viteを用いて構築されたフロントエンドと、Node.jsを用いて構築されたバックエンドを接続する方法について学びましょう。
 
-以前に[データベース](/docs/web-servers/database/)で作成した掲示板サービスの処理の流れは、次の図のようになっていました。1つのWebサーバーが、フロントエンドで動作するアプリケーションの配信と、バックエンドで動作するアプリケーションの処理の両方を担っています。
+以前に[「データベース」の節](/docs/web-servers/database/)で作成した掲示板サービスの処理の流れは、次の図のようになっていました。1つのWebサーバーが、フロントエンドで動作するアプリケーションの配信と、バックエンドで動作するアプリケーションの処理の両方を担っています。
 
 ![データベースの節で作成した掲示板サービスの処理の流れ](./simple-forum-app-flow.drawio.svg)
 
@@ -46,7 +46,7 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
 
 #### データベースとWebサーバーを作成する
 
-以前に[データベース](/docs/web-servers/database/)で作成した際と同様に、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[データベース](/docs/web-servers/database/)を参照してください。
+以前に[「データベース」の節](/docs/web-servers/database/)で作成した際と同様に、データベースを作成し、Expressを用いてWebサーバーを作成します。詳細は、[「データベース」の節](/docs/web-servers/database/)を参照してください。
 
 <video src={createDatabaseAndServerVideo} controls />
 
@@ -289,7 +289,7 @@ Viteは、[`VITE_`で始まる<Term>環境変数</Term>を、アプリケーシ�
 
 ### ビルドの設定をする
 
-[トランスパイラとモジュールバンドラ](/docs/advanced/bundler/)で述べたように、フロントエンドの<Term>ビルド</Term>のための設定は、`npm create vite@latest`コマンドを実行することで自動的に生成される`package.json`ファイルに含まれています。`npm run build`コマンドを実行することで、<Term>ビルド</Term>結果が`dist`ディレクトリに出力されます。本番環境では、この`dist`ディレクトリをRenderで配信します。
+[「トランスパイラとモジュールバンドラ」の節](/docs/advanced/bundler/)で述べたように、フロントエンドの<Term>ビルド</Term>のための設定は、`npm create vite@latest`コマンドを実行することで自動的に生成される`package.json`ファイルに含まれています。`npm run build`コマンドを実行することで、<Term>ビルド</Term>結果が`dist`ディレクトリに出力されます。本番環境では、この`dist`ディレクトリをRenderで配信します。
 
 ```json title="frontend/package.jsonの抜粋"
 {
