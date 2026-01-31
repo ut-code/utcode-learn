@@ -271,7 +271,7 @@ addButton.onclick = () => {
   addButton.disabled = true; // valueへの代入はoninputイベントを発火しない
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = prompt("新しい内容を入力してください"。);
+    const input = prompt("新しい内容を入力してください。");
     // prompt関数は入力された文字列が空の場合は空文字列 ("")、キャンセルされた場合はnullを返す
     if (input !== "" && input !== null) todoText.textContent = input;
   };

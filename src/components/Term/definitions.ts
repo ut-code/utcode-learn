@@ -510,7 +510,7 @@ export const terms: Term[] = [
     name: "ステータスコード (HTTP)",
     aliases: ["ステータスコード"],
     definition:
-      "HTTPレスポンスに含まれる、リクエストの処理結果を表す3桁の数値。200番台は成功、400番台はクライアント側の問題での失敗、500番台はサーバー側の問題での失敗を表す。代表的なものに200 (OK)、400 (Bad Request)、401 (Unauthorized)、404 (Not Found)、500 (Internal Server Error)がある。",
+      "HTTPレスポンスに含まれる、リクエストの処理結果を表す3桁の数値。200番台は成功、400番台はクライアント側の問題での失敗、500番台はサーバー側の問題での失敗を表す。代表的なものに200 (OK)、201 (Created)、400 (Bad Request)、401 (Unauthorized)、404 (Not Found)、500 (Internal Server Error)がある。",
     referencePage: "/docs/web-servers/fetch-api-post/",
   },
   {
