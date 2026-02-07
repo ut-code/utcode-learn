@@ -39,15 +39,24 @@ const config: Config = {
     ],
     () => ({
       name: "raw-loader",
-      configureWebpack() {
+      configureWebpack(config) {
+        const excludeRaw = (r: { resourceQuery?: unknown }) => {
+          if (!r.resourceQuery) r.resourceQuery = { not: [/raw/] };
+        };
+        config.module?.rules?.forEach((rule) => {
+          if (rule && typeof rule === "object") {
+            if (rule.test instanceof RegExp && rule.test.test(".js"))
+              excludeRaw(rule);
+            if (Array.isArray(rule.oneOf))
+              rule.oneOf.forEach((r) => {
+                if (r && typeof r === "object" && r.test instanceof RegExp && r.test.test(".js"))
+                  excludeRaw(r);
+              });
+          }
+        });
         return {
           module: {
-            rules: [
-              {
-                resourceQuery: /raw/,
-                type: "asset/source",
-              },
-            ],
+            rules: [{ resourceQuery: /raw/, type: "asset/source" }],
           },
         };
       },
