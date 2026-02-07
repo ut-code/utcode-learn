@@ -320,7 +320,7 @@ JSXでは、HTMLにおいて閉じタグが必須でない要素 (この例で�
 
 :::
 
-このプログラムは、`age`変数が`18`以上である場合のみメッセージを表示します。これは、`&&`演算子の挙動を利用した手法です。これまで、`&&`演算子は両辺が`true`であれば`true`を返す演算子であるとしてきました。しかしながら、[`&&`演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が[<Term>truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy)であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
+このプログラムは、`age`変数が`18`未満である場合のみメッセージを表示します。これは、`&&`演算子の挙動を利用した手法です。これまで、`&&`演算子は両辺が`true`であれば`true`を返す演算子であるとしてきました。しかしながら、[`&&`演算子のより一般的な定義](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND)は、**左辺が[<Term>truthy</Term>](https://developer.mozilla.org/ja/docs/Glossary/Truthy)であれば右辺の値を、そうでなければ左辺の値を返す演算子**です。
 
 ```typescript
 const a = 3 && 4; // 3はtruthyなのでaは4
@@ -394,11 +394,11 @@ export default function App() {
 
 先程の`students`のデータを用いて、次のような表を作ってみましょう。
 
-| 学籍番号  | 名前 | 年齢 |
-| --------- | ---- | ---- |
-| J4-220000 | 田中 | 19   |
-| J5-220001 | 鈴木 | 18   |
-| J6-230001 | 佐藤 | 20   |
+| 学生証番号 | 名前 | 年齢 |
+| ---------- | ---- | ---- |
+| J4-220000  | 田中 | 19   |
+| J5-220001  | 鈴木 | 18   |
+| J6-230001  | 佐藤 | 20   |
 
 <Answer>
 
@@ -435,7 +435,7 @@ export default function App() {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/table" />
+<ViewSource url={import.meta.url} path="_samples/student-data" />
 
 </Answer>
 
@@ -634,7 +634,7 @@ export default function App() {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/react-fixed-input" />
+<ViewSource url={import.meta.url} path="_samples/react-input" />
 
 `onChange`属性には、要素のテキストが変更された際に発生するイベントのイベントハンドラを指定します。Reactの`onChange`属性は、DOMの[`change`イベント](https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/change_event)ハンドラと同様に記述することができ、第1引数には[`Event`オブジェクト](https://developer.mozilla.org/ja/docs/Web/API/Event)に似た値が与えられます。
 
@@ -786,7 +786,7 @@ ToDoリストの要素を上下に移動させる機能を追加しましょう
 
 ## 演習問題2
 
-ToDoリストの要素へ編集する機能を追加しましょう
+ToDoリストの要素を編集する機能を追加しましょう
 
 <ViewSource url={import.meta.url} path="_samples/todo-edit" />
 

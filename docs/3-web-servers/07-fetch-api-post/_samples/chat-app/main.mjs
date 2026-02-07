@@ -9,9 +9,9 @@ app.get("/messages", (request, response) => {
   response.json(messages);
 });
 
-app.post("/send", (request, response) => {
+app.post("/messages", (request, response) => {
   messages.push(request.body.message);
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 
 app.listen(3000);

@@ -70,6 +70,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
     },
     navbar: {
       title: "ut.code(); Learn",
