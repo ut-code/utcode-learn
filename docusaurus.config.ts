@@ -49,7 +49,12 @@ const config: Config = {
               excludeRaw(rule);
             if (Array.isArray(rule.oneOf))
               rule.oneOf.forEach((r) => {
-                if (r && typeof r === "object" && r.test instanceof RegExp && r.test.test(".js"))
+                if (
+                  r &&
+                  typeof r === "object" &&
+                  r.test instanceof RegExp &&
+                  r.test.test(".js")
+                )
                   excludeRaw(r);
               });
           }
