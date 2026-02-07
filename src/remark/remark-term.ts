@@ -1,6 +1,5 @@
 import type { Plugin } from "unified";
 import type { Nodes, Root, RootContent } from "mdast";
-import "mdast-util-mdx-jsx";
 import { phrasing } from "mdast-util-phrasing";
 
 /**
@@ -31,99 +30,52 @@ function transform(node: Nodes) {
     transform(child);
   }
 
-  node.children = transformChildren(
-    node.children.flatMap((child) => transformChild(child)),
+  node.children = wrapDelimitedPhrasingAsTerm(
+    node.children.flatMap((child) => isolateTermDelimiters(child)),
   );
 }
 
-function transformChild(node: RootContent): RootContent[] {
+function isolateTermDelimiters(node: RootContent): RootContent[] {
   if (node.type !== "text") return [node];
 
-  const transformedChildren: RootContent[] = [];
-  let text = node.value;
-
-  if (text.startsWith("]]")) {
-    transformedChildren.push({ type: "text", value: "]]" });
-    text = text.slice(2);
-  }
-
-  if (text.endsWith("[[")) {
-    text = text.slice(0, -2);
-  }
-
-  for (const segmentedText of text.split(/(\[\[.*?\]\])/)) {
-    if (segmentedText === "") {
-      continue;
-    }
-    if (segmentedText.startsWith("[[")) {
-      transformedChildren.push({
-        type: "mdxJsxTextElement",
-        name: "Term",
-        attributes: [],
-        children: [
-          {
-            type: "text",
-            value: segmentedText.slice(2, -2),
-          },
-        ],
-      });
-    } else {
-      transformedChildren.push({
-        type: "text",
-        value: segmentedText,
-      });
-    }
-  }
-
-  if (node.value.endsWith("[[")) {
-    transformedChildren.push({ type: "text", value: "[[" });
-  }
-
-  return transformedChildren;
+  return node.value
+    .split(/(\[\[|\]\])/)
+    .filter((segment) => segment !== "")
+    .map((segment) => ({
+      type: "text",
+      value: segment,
+    }));
 }
 
-function transformChildren(children: RootContent[]): RootContent[] {
-  const transformedChildren: RootContent[] = [];
+function wrapDelimitedPhrasingAsTerm(children: RootContent[]): RootContent[] {
+  const result: RootContent[] = [];
 
   let i = 0;
   while (i < children.length) {
-    const openingBracket = children[i];
-    const innerElement = children[i + 1];
-    const closingBracket = children[i + 2];
+    const openingDelimiter = children[i];
+    const innerNode = children[i + 1];
+    const closingDelimiter = children[i + 2];
     if (
-      openingBracket.type !== "text" ||
-      openingBracket.value !== "[[" ||
-      !innerElement
+      openingDelimiter.type === "text" &&
+      openingDelimiter.value === "[[" &&
+      innerNode &&
+      phrasing(innerNode) &&
+      closingDelimiter &&
+      closingDelimiter.type === "text" &&
+      closingDelimiter.value === "]]"
     ) {
-      transformedChildren.push(openingBracket);
-      i++;
-      continue;
-    }
-
-    if (
-      !closingBracket ||
-      closingBracket.type !== "text" ||
-      closingBracket.value !== "]]"
-    ) {
-      transformedChildren.push(openingBracket, innerElement);
-      i += 2;
-      continue;
-    }
-
-    if (!phrasing(innerElement)) {
-      transformedChildren.push(openingBracket, innerElement, closingBracket);
+      result.push({
+        type: "mdxJsxTextElement",
+        name: "Term",
+        attributes: [],
+        children: [innerNode],
+      });
       i += 3;
-      continue;
+    } else {
+      result.push(children[i]);
+      i += 1;
     }
-
-    transformedChildren.push({
-      type: "mdxJsxTextElement",
-      name: "Term",
-      attributes: [],
-      children: [innerElement],
-    });
-    i += 3;
   }
 
-  return transformedChildren;
+  return result;
 }
