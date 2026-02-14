@@ -1,3 +1,16 @@
+// 日時をフォーマット
+function formatDateTime(isoString) {
+  if (!isoString) return "";
+  const date = new Date(isoString);
+  return date.toLocaleString("ja-JP", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 // タスク一覧を取得して表示
 async function loadTodos() {
   const response = await fetch("/todos");
@@ -9,56 +22,99 @@ async function loadTodos() {
   for (const todo of todos) {
     const li = document.createElement("li");
 
-    const titleSpan = document.createElement("span");
-    titleSpan.textContent = todo.title;
-    li.appendChild(titleSpan);
+    const infoDiv = document.createElement("div");
+    infoDiv.className = "todo-info";
 
-    if (todo.dueAt) {
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "todo-title";
+    titleSpan.textContent = todo.title;
+    infoDiv.appendChild(titleSpan);
+
+    if (todo.due_at) {
       const timeSpan = document.createElement("span");
-      timeSpan.textContent = " (" + todo.dueAt + ")";
-      li.appendChild(timeSpan);
+      timeSpan.className = "todo-time";
+      timeSpan.textContent = formatDateTime(todo.due_at);
+      infoDiv.appendChild(timeSpan);
     }
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "削除";
+    deleteButton.className = "delete-button";
     deleteButton.onclick = async () => {
-      await fetch("/todos/" + todo.id, { method: "DELETE" });
+      await fetch(`/todos/${todo.id}`, { method: "DELETE" });
       loadTodos();
     };
 
+    li.appendChild(infoDiv);
     li.appendChild(deleteButton);
     todoList.appendChild(li);
   }
 }
 
-// タスクを追加
+// ステータス表示
+function setStatus(message, isError = false) {
+  const statusElement = document.getElementById("status");
+  statusElement.textContent = message;
+  statusElement.classList.toggle("error", isError);
+}
+
+// 自然言語でタスクを追加
+async function parseAndAddTodo(text) {
+  if (text.trim() === "") return;
+
+  setStatus("AIで解析中...");
+
+  try {
+    const response = await fetch("/todos/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      setStatus(error.error || "解析に失敗しました", true);
+      return;
+    }
+
+    setStatus("");
+    document.getElementById("task-input").value = "";
+    loadTodos();
+  } catch (error) {
+    setStatus("エラーが発生しました", true);
+  }
+}
+
+// 追加ボタン
 document.getElementById("add-button").onclick = async () => {
   const input = document.getElementById("task-input");
-  if (input.value === "") return;
-
-  await fetch("/todos", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title: input.value }),
-  });
-
-  input.value = "";
-  loadTodos();
+  await parseAndAddTodo(input.value);
 };
 
-// AI解析でタスクを追加
-document.getElementById("ai-button").onclick = async () => {
-  const input = document.getElementById("task-input");
-  if (input.value === "") return;
+// 音声認識の設定
+const recognition = new SpeechRecognition();
+recognition.lang = "ja-JP";
 
-  await fetch("/todos/ai", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: input.value }),
-  });
+const voiceButton = document.getElementById("voice-button");
 
-  input.value = "";
-  loadTodos();
+voiceButton.onclick = () => {
+  recognition.start();
+  voiceButton.textContent = "録音中...";
+  voiceButton.classList.add("recording");
 };
 
+recognition.onresult = async (event) => {
+  const transcript = event.results[0][0].transcript;
+  voiceButton.textContent = "音声入力";
+  voiceButton.classList.remove("recording");
+  document.getElementById("task-input").value = transcript;
+  await parseAndAddTodo(transcript);
+};
+
+recognition.onend = () => {
+  voiceButton.textContent = "音声入力";
+  voiceButton.classList.remove("recording");
+};
+
+// ページ読み込み時にタスク一覧を取得
 loadTodos();
