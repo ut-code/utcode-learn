@@ -9,8 +9,7 @@ datasource db {
 }
 
 model Todo {
-  id        Int       @id @default(autoincrement())
-  title     String
-  due_at    DateTime?
-  createdAt DateTime  @default(now())
+  id    Int       @id @default(autoincrement())
+  title String
+  dueAt DateTime?
 }

@@ -2,115 +2,22 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>AIタスク管理</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        max-width: 600px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-      h1 {
-        color: #333;
-      }
-      .input-area {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      #task-input {
-        flex: 1;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #4a90d9;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #357abd;
-      }
-      button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-      }
-      #voice-button {
-        background-color: #27ae60;
-      }
-      #voice-button:hover:not(:disabled) {
-        background-color: #1e8449;
-      }
-      #voice-button.recording {
-        background-color: #e74c3c;
-      }
-      #todo-list {
-        list-style: none;
-        padding: 0;
-      }
-      #todo-list li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-      }
-      .todo-info {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .todo-title {
-        font-size: 16px;
-      }
-      .todo-time {
-        font-size: 12px;
-        color: #666;
-      }
-      .delete-button {
-        background-color: #e74c3c;
-        padding: 5px 10px;
-        font-size: 14px;
-      }
-      .delete-button:hover {
-        background-color: #c0392b;
-      }
-      .notice {
-        background-color: #fff3cd;
-        border: 1px solid #ffc107;
-        border-radius: 4px;
-        padding: 10px;
-        margin-bottom: 20px;
-        font-size: 14px;
-      }
-      .status {
-        text-align: center;
-        padding: 10px;
-        color: #666;
-      }
-      .status.error {
-        color: #e74c3c;
-      }
-    </style>
+    <title>AI ToDo</title>
   </head>
   <body>
-    <h1>AIタスク管理</h1>
-    <div class="notice">
-      音声認識機能はChrome/Edgeで動作します。<br />
-      「明日の10時に会議」のように話すと、AIが時間とタスクを自動抽出します。
-    </div>
-    <div class="input-area">
-      <input type="text" id="task-input" placeholder="タスクを入力（または音声入力）" />
-      <button id="voice-button" type="button">音声入力</button>
+    <h1>AI ToDo</h1>
+    <h2>ToDoの追加</h2>
+    <div>
+      <input id="title-input" />
+      <input id="due-at-input" type="datetime-local" />
       <button id="add-button" type="button">追加</button>
     </div>
-    <div id="status" class="status"></div>
+    <h2>AIでToDoを追加</h2> 
+    <div>
+      <input id="instruction-input" />
+      <button id="ai-button" type="button">AIで追加</button>
+    </div>
+    <h2>ToDoリスト</h2>
     <ul id="todo-list"></ul>
     <script src="./script.js"></script>
   </body>
