@@ -6,7 +6,7 @@ export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [nextId, setNextId] = useState<number>(1);
   const [newTodo, setNewTodo] = useState<string>("");
-  const [edittingTodo, setEdittingTodo] = useState<Todo>({ id: -1, title: "" });
+  const [editingTodo, setEditingTodo] = useState<Todo>({ id: -1, title: "" });
 
   const addTodo = () => {
     setTodos([...todos, { id: nextId, title: newTodo }]);
@@ -35,14 +35,14 @@ export default function App() {
   };
 
   const editTodo = (todo: Todo) => {
-    setEdittingTodo(todo);
+    setEditingTodo(todo);
   };
 
   const fixTodo = () => {
     setTodos(
-      todos.map((todo) => (todo.id === edittingTodo.id ? edittingTodo : todo)),
+      todos.map((todo) => (todo.id === editingTodo.id ? editingTodo : todo)),
     );
-    setEdittingTodo({ id: -1, title: "" });
+    setEditingTodo({ id: -1, title: "" });
   };
 
   return (
@@ -50,12 +50,12 @@ export default function App() {
       <ul>
         {todos.map((todo, i) => (
           <li key={todo.id}>
-            {edittingTodo.id === todo.id ? (
+            {editingTodo.id === todo.id ? (
               <>
                 <input
-                  value={edittingTodo.title}
+                  value={editingTodo.title}
                   onChange={(e) => {
-                    setEdittingTodo({ id: todo.id, title: e.target.value });
+                    setEditingTodo({ id: todo.id, title: e.target.value });
                   }}
                 />
                 <button

@@ -37,6 +37,8 @@ export const referencePageTitles = {
   "/docs/advanced/bundler/": "トランスパイラとモジュールバンドラ",
   "/docs/advanced/typescript/": "TypeScript",
   "/docs/advanced/react/": "React",
+  "/docs/advanced/integration-and-deployment/":
+    "フロントエンドとバックエンドの連携とデプロイ",
 };
 
 type Term = {
@@ -562,6 +564,17 @@ export const terms: Term[] = [
     referencePage: "/docs/advanced/bundler/",
   },
   {
+    id: "build",
+    name: "ビルド",
+    aliases: [],
+    definition:
+      "開発したプログラムを実行可能な形式に変換・最適化し、最終成果物を生成する一連の処理。フロントエンド開発では、トランスパイルやバンドルなどにより必要な変換や最適化を施し、配信可能な最終成果物を生成することを指す。",
+    referencePage: "/docs/advanced/bundler/",
+    // 参考：
+    // - Wikipedia「ビルド (ソフトウェア)」 https://ja.wikipedia.org/wiki/ビルド_(ソフトウェア)
+    // - Vite公式「本番環境用のビルド」 https://ja.vite.dev/guide/build
+  },
+  {
     id: "jsx",
     name: "JSX",
     aliases: [],
@@ -584,5 +597,31 @@ export const terms: Term[] = [
     definition:
       "オブジェクトの内部が変更可能であるとき、そのオブジェクトはミュータブルであるといい、変更不能である場合はイミュータブルであるという。Reactなどのライブラリでは状態を表すオブジェクトはイミュータブルであることが求められる。これは、状態が変化する際に参照も変化することを保証するためである。",
     referencePage: "/docs/browser-apps/reference/",
+  },
+  {
+    id: "typescript-execute",
+    name: "tsx（TypeScript Execute）",
+    aliases: ["tsxパッケージ"],
+    definition:
+      "Node.js環境で事前にTypeScriptをJavaScriptにトランスパイルせずにTypeScriptファイルを実行するためのツール。`npx tsx 実行するファイルのパス`とすることで、TypeScriptファイルを実行できる。",
+    referencePage: "/docs/advanced/integration-and-deployment/",
+    // 参考：tsx公式 https://tsx.is/
+  },
+  {
+    id: "origin",
+    name: "オリジン",
+    aliases: [],
+    definition: "プロトコル、ドメイン、ポートの組み合わせ。",
+    referencePage: "/docs/advanced/integration-and-deployment/",
+    // 参考：MDN「Origin (オリジン)」 https://developer.mozilla.org/ja/docs/Glossary/Origin
+  },
+  {
+    id: "cors",
+    name: "CORS（Cross-Origin Resource Sharing）",
+    aliases: ["CORS"],
+    definition:
+      "セキュリティ上の理由からブラウザによって制限されている異なるオリジンのリソースへのアクセスを必要に応じて可能にする仕組み。サーバーがHTTPレスポンスヘッダに特定のヘッダを含めることで、ブラウザはそのアクセスを許可する。",
+    referencePage: "/docs/advanced/integration-and-deployment/",
+    // 参考：MDN「オリジン間リソース共有 (CORS)」 https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CORS
   },
 ];

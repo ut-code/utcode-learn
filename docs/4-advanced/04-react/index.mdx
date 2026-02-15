@@ -746,7 +746,7 @@ export default function App() {
 
 :::tip[Reactとイミュータビリティ]
 
-[オブジェクトの参照](/docs/browser-apps/reference/)節で扱ったように、JavaScriptオブジェクトは参照として扱われます。Reactでは、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの`addTodo`関数と`removeTodo`関数は、次のように書き換えることはできません。これは、この方法ではReactが状態が変化したことを検知できないからです。
+[「オブジェクトの参照」の節](/docs/browser-apps/reference/)で扱ったように、JavaScriptオブジェクトは参照として扱われます。Reactでは、**状態として保存されたオブジェクトの参照先への変更は許可されていません**。例えば、先ほどのプログラムの`addTodo`関数と`removeTodo`関数は、次のように書き換えることはできません。これは、この方法ではReactが状態が変化したことを検知できないからです。
 
 ```tsx
 const addTodo = () => {
@@ -789,13 +789,3 @@ ToDoリストの要素を上下に移動させる機能を追加しましょう
 ToDoリストの要素を編集する機能を追加しましょう
 
 <ViewSource url={import.meta.url} path="_samples/todo-edit" />
-
-## 演習問題3（発展）
-
-データベースに永続化することができるToDoリストアプリケーションを作成しましょう
-
-ヒント: ページ読み込み時にFetch APIを用いてデータを保存済みのToDo一覧を取得します。リストが編集されたら再びFetch APIを用いてデータを保存しましょう。
-
-解答例
-
-<ViewSource url={import.meta.url} path="_samples/todo-database" noCodeSandbox />
