@@ -1,10 +1,9 @@
 import type { Plugin } from "unified";
-import type { Nodes, Root, RootContent } from "mdast";
+import type { Nodes, PhrasingContent, Root, RootContent } from "mdast";
 import { phrasing } from "mdast-util-phrasing";
 
 /**
  * `[[用語]]`を`<Term>用語</Term>`に変換するプラグイン。
- * `[[**用語**]]`のように中身が単一のASTノードの場合も変換可能。
  *
  * @example
  * // returns "<Term>**HTML**</Term>と<Term>CSS</Term>、そして<Term>JavaScript</Term>です。"
@@ -30,7 +29,7 @@ function transform(node: Nodes) {
     transform(child);
   }
 
-  node.children = wrapDelimitedPhrasingAsTerm(
+  node.children = wrapDelimitedPhrasingContentsAsTerm(
     node.children.flatMap((child) => isolateTermDelimiters(child)),
   );
 }
@@ -47,35 +46,43 @@ function isolateTermDelimiters(node: RootContent): RootContent[] {
     }));
 }
 
-function wrapDelimitedPhrasingAsTerm(children: RootContent[]): RootContent[] {
+function wrapDelimitedPhrasingContentsAsTerm(
+  children: RootContent[],
+): RootContent[] {
   const result: RootContent[] = [];
+  const buffer: PhrasingContent[] = [];
 
-  let i = 0;
-  while (i < children.length) {
-    const openingDelimiter = children[i];
-    const innerNode = children[i + 1];
-    const closingDelimiter = children[i + 2];
-    if (
-      openingDelimiter.type === "text" &&
-      openingDelimiter.value === "[[" &&
-      innerNode &&
-      phrasing(innerNode) &&
-      closingDelimiter &&
-      closingDelimiter.type === "text" &&
-      closingDelimiter.value === "]]"
-    ) {
+  for (const child of children) {
+    if (buffer.length === 0) {
+      if (child.type === "text" && child.value === "[[") {
+        buffer.push(child);
+        continue;
+      }
+      result.push(child);
+      continue;
+    }
+
+    if (child.type === "text" && child.value === "]]") {
       result.push({
         type: "mdxJsxTextElement",
         name: "Term",
         attributes: [],
-        children: [innerNode],
+        children: buffer.slice(1),
       });
-      i += 3;
-    } else {
-      result.push(children[i]);
-      i += 1;
+      buffer.length = 0;
+      continue;
     }
+
+    if (phrasing(child)) {
+      buffer.push(child);
+      continue;
+    }
+
+    result.push(...buffer, child);
+    buffer.length = 0;
   }
+
+  result.push(...buffer);
 
   return result;
 }
