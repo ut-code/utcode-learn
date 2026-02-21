@@ -41,7 +41,7 @@ Cookieを操作するための最も基本的な方法は、HTTPリクエスト�
 
 Expressを用いて`Set-Cookie`ヘッダをレスポンスに設定するには、[`express.Response#cookie`メソッド](https://expressjs.com/ja/api.html#res.cookie)を使用するのが一般的です。また、[cookie-parser](https://www.npmjs.com/package/cookie-parser)パッケージを使用すると、リクエストヘッダに含まれるCookieを簡単に取得できます。このパッケージは、`request.headers.cookie`を解析し、`request.cookies`プロパティにオブジェクト形式で格納します。
 
-```javascript title="main.mjs" showLineNumbers
+```javascript title="main.js" showLineNumbers
 import express from "express";
 import cookieParser from "cookie-parser";
 
@@ -113,7 +113,7 @@ model Session {
 
 `/login`は、IDとパスワードを含むJSON形式のPOSTリクエストを受け取り、データベースの`User`テーブルのデータと比較することで、認証情報が正しいかどうかを検証します。正しければ、[`crypto.randomUUID`関数](https://developer.mozilla.org/ja/docs/Web/API/Crypto/randomUUID)を用いて一意でランダムな文字列を生成し、新しいレコードを`Session`テーブルに作成した上で、Cookieとしてクライアントに送信します。誤っていれば、直ちに認証失敗の<Term>ステータスコード</Term>を返して終了します。
 
-```javascript title="main.mjs (POST /login の抜粋)" showLineNumbers
+```javascript title="main.js (POST /login の抜粋)" showLineNumbers
 app.post("/login", async (request, response) => {
   if (!request.body.username || !request.body.password) {
     response.sendStatus(400); // Bad Request (リクエストの形式が不正)
@@ -139,7 +139,7 @@ app.post("/login", async (request, response) => {
 
 なお、この例では認証処理と実際の処理を同じ場所に記述していますが、実際のアプリケーションでは、認証はほとんどの場所で前段階として必要になるため、共通の実装として切り出しておくことが一般的です。
 
-```javascript title="main.mjs (GET /profile の抜粋)" showLineNumbers
+```javascript title="main.js (GET /profile の抜粋)" showLineNumbers
 app.get("/profile", async (request, response) => {
   // 認証
   if (!request.cookies.sessionId) {
