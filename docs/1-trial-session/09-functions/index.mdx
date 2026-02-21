@@ -127,8 +127,7 @@ function greet() {
 
 greet(); // ようこそ、田中のブログへ！ と表示される
 
-// これはエラーになる
-// document.write(siteName);
+document.write(siteName); // これはエラーになる (Uncaught ReferenceError: siteName is not defined)
 ```
 
 一方で、<Term>関数</Term>の外側で宣言された<Term>変数</Term>を<Term>関数</Term>の内側から利用することは可能です。
