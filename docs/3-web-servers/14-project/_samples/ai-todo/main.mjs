@@ -13,14 +13,10 @@ app.get("/todos", async (request, response) => {
 });
 
 app.post("/todos", async (request, response) => {
-  let dueAt = null;
-  if (request.body.dueAt) {
-    dueAt = new Date(request.body.dueAt);
-  }
   const todo = await client.todo.create({
     data: {
       title: request.body.title,
-      dueAt: dueAt,
+      dueAt: new Date(request.body.dueAt),
     },
   });
   response.json(todo);
@@ -39,15 +35,11 @@ app.post("/todos/ai", async (request, response) => {
 1行目にタイトル、2行目に期限（ISO8601形式、タイムゾーンは東京）を出力してください。
 現在日時: ${new Date().toISOString()}
 
-例:
+例
+現在日時: 2026-01-20T12:00:00+09:00
 入力: 明日の10時に会議
-出力:
-会議
-2024-01-21T10:00:00+09:00
-
-入力: 買い物に行く
-出力:
-買い物に行く
+出力: 会議
+2026-01-21T10:00:00+09:00
 `;
 
   const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -65,17 +57,10 @@ app.post("/todos/ai", async (request, response) => {
     }),
   });
   const data = await result.json();
-  console.log(data);
   const content = data.choices[0].message.content;
-  console.log(content);
   const lines = content.split("\n");
-  const title = lines[0];
-  let dueAt = null;
-  if (lines[1]) {
-    dueAt = new Date(lines[1]);
-  }
   const todo = await client.todo.create({
-    data: { title: title, dueAt: dueAt },
+    data: { title: lines[0], dueAt: new Date(lines[1]) },
   });
   response.json(todo);
 });
