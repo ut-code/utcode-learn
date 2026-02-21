@@ -106,41 +106,41 @@ document.write(multiply(3, 4));
 {/* prettier-ignore */}
 <Term>関数</Term>やif文などの中で`let`や`const`を使って宣言された<Term>変数</Term>は、それらの内部でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
 
-次の例では、<Term>関数</Term>`greet`の中で<Term>変数</Term>`message`を宣言しています。
+次の例では、<Term>関数</Term>`greet`の中で<Term>変数</Term>`siteName`を宣言しています。
 
 ```javascript
 function greet() {
-  let message = "Hello!";
-  document.write(message); // Hello! と表示される
+  const siteName = "田中のブログ";
+  document.write("ようこそ、" + siteName + "へ！");
 }
 
-greet();
+greet(); // ようこそ、田中のブログへ！ と表示される
 ```
 
-ここで、<Term>関数</Term>の外側から`message`を利用しようとするとエラーになります。
+ここで、<Term>関数</Term>の外側から`siteName`を利用しようとするとエラーになります。
 
 ```javascript
 function greet() {
-  let message = "Hello!";
+  const siteName = "田中のブログ";
+  document.write("ようこそ、" + siteName + "へ！");
 }
 
-greet();
+greet(); // ようこそ、田中のブログへ！ と表示される
 
-// document.write(message); これはエラーになる
+// これはエラーになる
+// document.write(siteName);
 ```
 
 一方で、<Term>関数</Term>の外側で宣言された<Term>変数</Term>を<Term>関数</Term>の内側から利用することは可能です。
 
 ```javascript
-let guestCount = 0;
+const siteName = "田中のブログ";
 
 function greet() {
-  guestCount = guestCount + 1;
-  document.write("あなたは" + guestCount + "人目のお客様です。");
+  document.write("ようこそ、" + siteName + "へ！");
 }
 
-greet(); // あなたは1人目のお客様です。
-greet(); // あなたは2人目のお客様です。
+greet(); // ようこそ、田中のブログへ！ と表示される
 ```
 
 :::tip[複合代入演算子]
@@ -149,16 +149,18 @@ greet(); // あなたは2人目のお客様です。
 
 `x += y`は、`x = x + y`という意味になります。他にも`-=`や`*=`などの演算子が定義されています。`x -= y`は`x = x - y`、`x *= y`は`x = x * y`という意味になります。
 
-上の例の
+次の例の`greet`<Term>関数</Term>は、呼び出されるたびに`guestCount`に1を加えています。`guestCount += 1;`は、`guestCount = guestCount + 1;`のように読み替えられます。
 
 ```javascript
-guestCount = guestCount + 1;
-```
+let guestCount = 0;
 
-は以下のように書き換えることができます。
+function greet() {
+  guestCount += 1;
+  document.write("あなたは" + guestCount + "人目のお客様です。");
+}
 
-```javascript
-guestCount += 1;
+greet(); // あなたは1人目のお客様です。
+greet(); // あなたは2人目のお客様です。
 ```
 
 :::
