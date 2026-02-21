@@ -41,11 +41,9 @@ async function loadTodos() {
     titleDiv.textContent = todo.title;
     todoListItem.appendChild(titleDiv);
 
-    if (todo.dueAt) {
-      const dueAtDiv = document.createElement("div");
-      dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
-      todoListItem.appendChild(dueAtDiv);
-    }
+    const dueAtDiv = document.createElement("div");
+    dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
+    todoListItem.appendChild(dueAtDiv);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "削除";

@@ -11,5 +11,5 @@ datasource db {
 model Todo {
   id    Int       @id @default(autoincrement())
   title String
-  dueAt DateTime?
+  dueAt DateTime
 }
