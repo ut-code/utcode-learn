@@ -456,7 +456,7 @@ export const terms: Term[] = [
     name: "モジュール (JavaScript)",
     aliases: ["モジュール"],
     definition:
-      "独立したプログラムの塊。JavaScriptでは、通常1つのファイルがモジュールとして扱われる。Node.jsでは、拡張子が.mjsの場合import文を用いてインポートして利用する。",
+      "独立したプログラムの塊。JavaScriptでは、通常1つのファイルがモジュールとして扱われる。Node.jsでは、import文を用いてインポートして利用することができる。",
     referencePage: "/docs/web-servers/module/",
   },
   {

@@ -1,7 +1,8 @@
 {
   "name": "fetch-weather",
+  "type": "module",
   "scripts": {
-    "start": "node main.mjs"
+    "start": "node main.js"
   },
   "dependencies": {
     "express": "^5.1.0"
