@@ -55,11 +55,11 @@ export const terms: Term[] = [
     name: "ウェブブラウザ",
     aliases: [],
     definition:
-      "パソコンやスマートフォンなどで、インターネット上のウェブページを表示して利用するためのアプリケーション。Google ChromeやSafari、Microsoft Edge、Mozilla Firefoxなどがある。",
+      "パソコンやスマートフォンなどで、インターネット上のウェブページなどを利用するためのアプリケーション。Google ChromeやSafari、Microsoft Edge、Mozilla Firefoxなどがある。",
     referencePage: "/docs/trial-session/get-started/",
     // 参考
-    // - Wikipedia「ウェブブラウザ」 https://ja.wikipedia.org/wiki/ウェブブラウザ
     // - MDN「Browser (ブラウザー)」 https://developer.mozilla.org/ja/docs/Glossary/Browser
+    // - Wikipedia「ウェブブラウザ」 https://ja.wikipedia.org/wiki/ウェブブラウザ
   },
   {
     id: "google-chrome",
@@ -69,6 +69,17 @@ export const terms: Term[] = [
       "Google社が開発するウェブブラウザ。高速性と安全性を特徴としており、多くのユーザーに利用されている。",
     referencePage: "/docs/trial-session/get-started/",
     // 参考：Google公式「Chrome」 https://www.google.com/intl/ja_jp/chrome/
+  },
+  {
+    id: "code-editor",
+    name: "コードエディタ",
+    aliases: [],
+    definition:
+      "プログラムを記述・編集するためのアプリケーション。Visual Studio Codeなどがある。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - MDN「コードエディター」 https://developer.mozilla.org/ja/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors
+    // - Wikipedia「ソースコードエディタ」 https://ja.wikipedia.org/wiki/ソースコードエディタ
   },
   {
     id: "visual-studio-code",
