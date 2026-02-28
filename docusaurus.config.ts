@@ -45,7 +45,10 @@ const config: Config = {
         };
         config.module?.rules?.forEach((rule) => {
           if (rule && typeof rule === "object") {
-            if (rule.test instanceof RegExp && rule.test.test(".js"))
+            if (
+              rule.test instanceof RegExp &&
+              (rule.test.test(".js") || rule.test.test(".css"))
+            )
               excludeRaw(rule);
             if (Array.isArray(rule.oneOf))
               rule.oneOf.forEach((r) => {
@@ -53,7 +56,7 @@ const config: Config = {
                   r &&
                   typeof r === "object" &&
                   r.test instanceof RegExp &&
-                  r.test.test(".js")
+                  (r.test.test(".js") || r.test.test(".css"))
                 )
                   excludeRaw(r);
               });
