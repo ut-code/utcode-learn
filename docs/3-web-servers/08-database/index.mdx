@@ -291,7 +291,7 @@ app.get("/posts", async (request, response) => {
 
 ### 手順7
 
-前頁での演習問題2と同様にして、ブラウザ側で、定期的に`/posts`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/send`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
+前頁での演習問題2と同様にして、ブラウザ側で、定期的に`/posts`にGETリクエストを発行し、受け取ったレスポンスに基づいてメッセージの一覧を表示するようにしてください。また、メッセージを入力し、送信ボタンを押すと、`/posts`に対してPOSTリクエストでメッセージの内容を送信するようにしてください。
 
 <Answer title="手順7まで">
 
@@ -337,7 +337,7 @@ setInterval(async () => {
 document.getElementById("send-button").onclick = async () => {
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
-  await fetch("/send", {
+  await fetch("/posts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),
@@ -349,13 +349,13 @@ document.getElementById("send-button").onclick = async () => {
 
 ### 手順8
 
-メッセージの送信先 (`/send`へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
+メッセージの送信先 (`/posts`へのPOSTリクエスト) を作成しましょう。送られてきたデータが正しいか、Node.jsのデバッガを用いて確認してみましょう。
 
 <Answer title="手順8まで">
 
 ```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
 app.use(express.urlencoded({ extended: true }));
-app.post("/send", async (request, response) => {
+app.post("/posts", async (request, response) => {
   debugger; // ここでrequestオブジェクトの中身を確認
 });
 ```
@@ -369,9 +369,9 @@ app.post("/send", async (request, response) => {
 <Answer title="手順9まで">
 
 ```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
-app.post("/send", async (request, response) => {
+app.post("/posts", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 ```
 

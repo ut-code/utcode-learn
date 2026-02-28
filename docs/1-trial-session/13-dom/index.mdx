@@ -89,7 +89,7 @@ greetingType.textContent = "evening";
 
 ## <Term>HTML要素</Term>のスタイルを変更する
 
-`document.getElementById`<Term>関数</Term>が返す<Term>オブジェクト</Term>の`style`<Term>プロパティ</Term>は、その要素の <Term>`style`属性</Term>と対応します。 **`style`<Term>プロパティ</Term>に格納されている<Term>値</Term>自体も<Term>オブジェクト</Term>** となっており、その各<Term>プロパティ</Term>がCSSの<Term type="cssProperty">プロパティ</Term>に対応します。
+`document.getElementById`<Term>関数</Term>が返す<Term>オブジェクト</Term>の`style`<Term>プロパティ</Term>は、その要素の <Term>`style`属性</Term>と対応します。 **`style`<Term>プロパティ</Term>に格納されている<Term>値</Term>自体も<Term>オブジェクト</Term>** となっており、その各<Term>プロパティ</Term>がCSSの<Term id="css-property">プロパティ</Term>に対応します。
 
 ```js title="script.js"
 element.style.backgroundColor = "red";
@@ -100,7 +100,7 @@ element.style.backgroundColor = "red";
 ![JavaScriptからスタイルを操作する](./change-styles.png)
 
 {/* prettier-ignore */}
-<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名である`background-color`は、内部にハイフンが含まれているため、`element.style.background-color`のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。`style`<Term>プロパティ</Term>では、<Term>CSS</Term>の<Term type="cssProperty">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
+<Term>CSS</Term>の<Term id="css-property">プロパティ</Term>名である`background-color`は、内部にハイフンが含まれているため、`element.style.background-color`のように指定してしまうと、ハイフンが減算<Term>演算子</Term>として解釈されてしまいます。`style`<Term>プロパティ</Term>では、<Term>CSS</Term>の<Term id="css-property">プロパティ</Term>名は<Term>キャメルケース</Term>として指定する必要があることに注意してください。
 
 ### 確認問題
 

@@ -80,7 +80,7 @@ const height = 155;
 const canRideRollerCoasters = age >= 10 && height >= 120; // true
 ```
 
-`&&`や`||`よりも比較<Term>演算子</Term>の方が<Term type="javascriptOperatorPriority">優先順位</Term>が高いため、複数の条件を「かつ」「または」などで組み合わせることは容易です。
+`&&`や`||`よりも比較<Term>演算子</Term>の方が<Term id="javascript-operator-priority">優先順位</Term>が高いため、複数の条件を「かつ」「または」などで組み合わせることは容易です。
 
 :::info
 
@@ -117,7 +117,7 @@ document.write(isTanakaWinner); // true
 
 :::tip
 
-`+`, `-`, `*`, `/`などの算術演算子は、比較演算子よりも<Term type="javascriptOperatorPriority">優先順位</Term>が高いです。
+`+`, `-`, `*`, `/`などの算術演算子は、比較演算子よりも<Term id="javascript-operator-priority">優先順位</Term>が高いです。
 
 ```javascript
 const isBig = 10 + 5 > 10 - 3; // 15 > 7 なので true

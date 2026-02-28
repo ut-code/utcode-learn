@@ -9,7 +9,7 @@ import canvasConfettiAppVideo from "./canvas-confetti-app.mp4";
 
 ## 複雑化するWeb開発
 
-JavaScriptは、当初はWebサイトに簡易的な動きを追加させるための言語として設計されました。しかしながら、高度なWebアプリケーションの台頭や、Node.jsをはじめとしたブラウザにおけるJavaScriptのユースケースの広がりにより、標準的なJavaScriptのみでの開発には限界があることがわかってきました。
+JavaScriptは、当初はWebサイトに簡易的な動きを追加させるための言語として設計されました。しかしながら、高度なWebアプリケーションの台頭や、Node.jsをはじめとしたブラウザ外におけるJavaScriptのユースケースの広がりにより、標準的なJavaScriptのみでの開発には限界があることがわかってきました。
 
 このため、現代では、JavaScriptは事前に何らかの変換を行っておくことが一般的になっています。
 
@@ -20,11 +20,11 @@ JavaScriptは、当初はWebサイトに簡易的な動きを追加させるた�
 
 ひとつは、**最新の機能を使用するため**です。JavaScriptの言語仕様は、[Ecma International](https://www.ecma-international.org/)の[TC39](https://tc39.es/)によって作成されていますが、新しく策定された仕様は、まだブラウザなどによって実装されていない場合があります。[Babel](https://babeljs.io/)は、そういった最新の言語仕様に沿って書かれたプログラムを変換し、古い仕様の範囲内で解釈できるプログラムに変換するための、最も有名な<Term>トランスパイラ</Term>です。
 
-もうひとつは、**別の言語で書かれたプログラムをJavaScriptに変換するため**です。次の章で扱うTypeScriptは、トランスパイラを用いてJavaScriptに変換されます。
+もうひとつは、**別の言語で書かれたプログラムをJavaScriptに変換するため**です。次の節で扱うTypeScriptは、トランスパイラを用いてJavaScriptに変換されます。
 
 ### <Term>モジュールバンドラ</Term>
 
-通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTMLから複数のJavaScriptを読み込むためには`script`タグを並べれば良いですが、[HTTPサーバー](/docs/web-servers/server/)の節で学んだように、`script`タグの数だけ<Term>HTTPリクエスト</Term>が発行されてしまうため非効率的です。
+通常、規模の大きなプログラムは、見通しが良くなるよう複数のファイルに分割されます。HTMLから複数のJavaScriptを読み込むためには`script`タグを並べれば良いですが、[「Expressによるサーバー構築」の節](/docs/web-servers/server/)で学んだように、`script`タグの数だけ<Term>HTTPリクエスト</Term>が発行されてしまうため非効率的です。
 
 [webpack](https://webpack.js.org)のような<Term>**モジュールバンドラ**</Term>を用いることで、複数のJavaScriptファイルを統合できます。
 
@@ -88,9 +88,11 @@ dist/assets/index-_AYE_jbl.js   2.58 kB │ gzip: 1.40 kB
 ✓ built in 130ms
 ```
 
-これにより、カレントディレクトリに`dist`ディレクトリが作成され、<Term>トランスパイル</Term>と<Term type="moduleBundler">バンドル</Term>の結果が格納されます。
+これにより、カレントディレクトリに`dist`ディレクトリが作成され、<Term>トランスパイル</Term>と<Term id="module-bundler">バンドル</Term>の結果が格納されます。
 
 出力されたファイルを元のファイルと比較してみましょう。元の`index.html`や`main.js`が、変換された状態で出力されていることがわかります。ディレクトリごと[Netlify Drop](/docs/trial-session/deploy-application/)などにアップロードすれば使用可能になるでしょう。
+
+このように、<Term>トランスパイル</Term>や<Term id="module-bundler">バンドル</Term>などにより必要な変換や最適化を施し、実行可能な形式の最終成果物を生成する一連の処理は一般に<Term>**ビルド**</Term>と呼ばれます。本番環境では、これにより生成された最終成果物を利用します。
 
 <video src={buildVideo} controls />
 

@@ -58,7 +58,7 @@ addButton.onclick = () => {
 };
 ```
 
-このとき、箇条書きの項目として新たに`li`要素を追加する必要があります。DOMの章で扱ったように、`document.createElement`関数を使うと新しい要素を作成できます。また、`Node#appendChild`メソッドを用いることで既存の要素内に子要素を追加することができます。
+このとき、箇条書きの項目として新たに`li`要素を追加する必要があります。[「DOM」の節](/docs/trial-session/dom/)で扱ったように、`document.createElement`関数を使うと新しい要素を作成できます。また、`Node#appendChild`メソッドを用いることで既存の要素内に子要素を追加することができます。
 
 ```javascript
 const li = document.createElement("li");
@@ -271,7 +271,7 @@ addButton.onclick = () => {
   addButton.disabled = true; // valueへの代入はoninputイベントを発火しない
   editButton.textContent = "編集";
   editButton.onclick = () => {
-    const input = prompt("新しい内容を入力してください"。);
+    const input = prompt("新しい内容を入力してください。");
     // prompt関数は入力された文字列が空の場合は空文字列 ("")、キャンセルされた場合はnullを返す
     if (input !== "" && input !== null) todoText.textContent = input;
   };

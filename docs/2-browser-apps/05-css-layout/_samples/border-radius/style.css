@@ -1,0 +1,28 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.card {
+  background-color: #ffffff;
+  width: 240px;
+  border: 1px solid #bbbbbb;
+  border-radius: 8px;
+}
+
+.plan {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.price {
+  font-size: 20px;
+}
+
+.button {
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}

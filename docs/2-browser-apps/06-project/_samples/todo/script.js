@@ -2,7 +2,9 @@ const todoList = document.getElementById("todo-list");
 const todoInput = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 
-todoInput.oninput = () => (addButton.disabled = todoInput === "");
+todoInput.oninput = () => {
+  addButton.disabled = todoInput.value === "";
+};
 
 addButton.onclick = () => {
   const todoItem = document.createElement("li");

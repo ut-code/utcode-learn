@@ -1,2 +1,2 @@
-const element = document.getElementById("greeting");
-element.textContent = "Hello DOM";
+const greetingElement = document.getElementById("greeting");
+greetingElement.textContent = "Hello DOM";

@@ -11,9 +11,9 @@ app.get("/posts", async (request, response) => {
   response.json(posts);
 });
 
-app.post("/send", async (request, response) => {
+app.post("/posts", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
-  response.send();
+  response.sendStatus(201); // Created（新しいメッセージを作成）
 });
 
 app.listen(3000);
