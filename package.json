@@ -13,6 +13,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/plugin-content-docs": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",

@@ -2,6 +2,17 @@
 title: DOM
 ---
 
+import goodEveningHtml from "./_samples/good-evening/index.html?raw";
+import goodEveningJs from "./_samples/good-evening/script.js?raw";
+import changeStylesHtml from "./_samples/change-styles/index.html?raw";
+import changeStylesJs from "./_samples/change-styles/script.js?raw";
+import addElementExerciseHtml from "./_samples/add-element-exercise/index.html?raw";
+import addElementExerciseJs from "./_samples/add-element-exercise/script.js?raw";
+import changeShoppingMemoHtml from "./_samples/change-shopping-memo/index.html?raw";
+import changeShoppingMemoJs from "./_samples/change-shopping-memo/script.js?raw";
+import fruitBasketHtml from "./_samples/fruit-basket/index.html?raw";
+import fruitBasketJs from "./_samples/fruit-basket/script.js?raw";
+
 ## <Term>HTML</Term>要素を<Term>JavaScript</Term>で取得する
 
 {/* prettier-ignore */}
@@ -63,7 +74,16 @@ const greetingType = document.getElementById("greeting-type");
 greetingType.textContent = "evening";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/good-evening" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": goodEveningHtml,
+    "/script.js": goodEveningJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -104,7 +124,16 @@ greetingElement.style.color = "yellow";
 greetingElement.style.backgroundColor = "black";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-styles" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeStylesHtml,
+    "/script.js": changeStylesJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -159,7 +188,16 @@ capElement.textContent = "帽子";
 packingList.appendChild(capElement);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/add-element-exercise" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": addElementExerciseHtml,
+    "/script.js": addElementExerciseJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -183,7 +221,16 @@ const targetItem = document.getElementById("item2");
 targetItem.textContent = "レモン";
 ```
 
-<ViewSource url={import.meta.url} path="_samples/change-shopping-memo" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": changeShoppingMemoHtml,
+    "/script.js": changeShoppingMemoJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
 
@@ -214,6 +261,15 @@ for (const fruit of fruits) {
 }
 ```
 
-<ViewSource url={import.meta.url} path="_samples/fruit-basket" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": fruitBasketHtml,
+    "/script.js": fruitBasketJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

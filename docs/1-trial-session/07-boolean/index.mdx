@@ -2,6 +2,9 @@
 title: 論理値と論理演算子
 ---
 
+import quizShowHtml from "./_samples/quiz-show/index.html?raw";
+import quizShowJs from "./_samples/quiz-show/script.js?raw";
+
 ## <Term>論理値</Term>
 
 {/* prettier-ignore */}
@@ -131,6 +134,15 @@ const isTanakaWinner = tanakaScore >= 100 && tanakaScore - satoScore >= 20;
 document.write(isTanakaWinner); // true
 ```
 
-<ViewSource url={import.meta.url} path="_samples/quiz-show" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": quizShowHtml,
+    "/script.js": quizShowJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>

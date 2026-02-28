@@ -2,6 +2,9 @@
 title: 変数
 ---
 
+import counterHtml from "./_samples/counter/index.html?raw";
+import counterJs from "./_samples/counter/script.js?raw";
+
 ## <Term>変数</Term>とは
 
 {/* prettier-ignore */}
@@ -107,6 +110,15 @@ counter = counter + 1;
 document.write(counter);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/counter" />
+<Sandpack
+  template="static"
+  files={{
+    "/index.html": counterHtml,
+    "/script.js": counterJs,
+  }}
+  options={{
+    activeFile: "/script.js",
+  }}
+/>
 
 </Answer>
