@@ -104,10 +104,51 @@ document.write(multiply(3, 4));
 ## <Term>変数</Term>の<Term>スコープ</Term>
 
 {/* prettier-ignore */}
-<Term>関数</Term>内で<Term>宣言</Term>された<Term>変数</Term>は、<Term>関数</Term>内でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
+<Term>関数</Term>やif文などの中で`let`や`const`を使って宣言された<Term>変数</Term>は、それらの内部でのみ有効です。<Term>変数</Term>が有効な範囲のことを、その<Term>変数</Term>の<Term>**スコープ**</Term>と呼んでいます。
 
-{/* prettier-ignore */}
-<Term>関数</Term>外で<Term>宣言</Term>された<Term>変数</Term>は<Term>関数</Term>内でも利用できます。
+次の例では、<Term>関数</Term>`greet`の中で<Term>変数</Term>`siteName`を宣言しています。
+
+```javascript
+function greet() {
+  const siteName = "田中のブログ";
+  document.write("ようこそ、" + siteName + "へ！");
+}
+
+greet(); // ようこそ、田中のブログへ！ と表示される
+```
+
+ここで、<Term>関数</Term>の外側から`siteName`を利用しようとするとエラーになります。
+
+```javascript
+function greet() {
+  const siteName = "田中のブログ";
+  document.write("ようこそ、" + siteName + "へ！");
+}
+
+greet(); // ようこそ、田中のブログへ！ と表示される
+
+document.write(siteName); // これはエラーになる (Uncaught ReferenceError: siteName is not defined)
+```
+
+一方で、<Term>関数</Term>の外側で宣言された<Term>変数</Term>を<Term>関数</Term>の内側から利用することは可能です。
+
+```javascript
+const siteName = "田中のブログ";
+
+function greet() {
+  document.write("ようこそ、" + siteName + "へ！");
+}
+
+greet(); // ようこそ、田中のブログへ！ と表示される
+```
+
+:::tip[複合代入演算子]
+
+[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
+
+`x += y`は、`x = x + y`という意味になります。他にも`-=`や`*=`などの演算子が定義されています。`x -= y`は`x = x - y`、`x *= y`は`x = x * y`という意味になります。
+
+次の例の`greet`<Term>関数</Term>は、呼び出されるたびに`guestCount`に1を加えています。`guestCount += 1;`は、`guestCount = guestCount + 1;`のように読み替えられます。
 
 ```javascript
 let guestCount = 0;
@@ -119,46 +160,6 @@ function greet() {
 
 greet(); // あなたは1人目のお客様です。
 greet(); // あなたは2人目のお客様です。
-```
-
-この例における、`greet`<Term>関数</Term>は、呼び出されるたびに`guestCount`に1を加えています。
-
-:::tip[複合代入演算子]
-
-[**複合代入演算子**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E4%BB%A3%E5%85%A5%E6%BC%94%E7%AE%97%E5%AD%90) は、計算と代入を同時に行うことができる演算子です。
-
-`x += y`は、`x = x + y`という意味になります。他にも`-=`や`*=`などの演算子が定義されています。`x -= y`は`x = x - y`、`x *= y`は`x = x * y`という意味になります。
-
-```javascript
-guestCount += 1;
-```
-
-は以下の文のように読み替えられます。
-
-```javascript
-guestCount = guestCount + 1;
-```
-
-:::
-
-:::warning[<Term>変数</Term>の<Term>**スコープ**</Term>]
-
-{/* prettier-ignore */}
-<Term>スコープ</Term>が終わった<Term>変数</Term>は、その時点で破棄されます。
-
-```javascript
-let outer = 0;
-
-function increment() {
-  let inner = 0;
-  outer += 1;
-  inner += 1;
-  document.write(outer); // 1ずつ増える
-  document.write(inner); // 常に1
-}
-
-increment();
-increment();
 ```
 
 :::
