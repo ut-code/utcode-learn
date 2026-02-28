@@ -125,7 +125,6 @@ Viteを用いて構築されたフロントエンドと、Node.jsを用いて構
 
 例えば、フロントエンドの開発用サーバーの[[オリジン]]が`http://localhost:5173`でバックエンドのWebサーバーの[[オリジン]]が`http://localhost:3000`である場合には、これらは異なる[[オリジン]]になります。そのため、Fetch APIを使用してフロントエンドのアプリケーションからバックエンドのアプリケーションのリソースへアクセスすることはブラウザによって制限されます。
 
-{/* prettier-ignore */}
 [[**CORS**]]は、このような場合でも必要に応じてリソースへのアクセスを可能にする仕組みです。クライアントからのリクエストに対して、サーバーがHTTPレスポンスヘッダにリソースへのアクセスを許可する[[オリジン]]を示す[`Access-Control-Allow-Origin`ヘッダ](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)を含めることで、ブラウザはそこで指定された[[オリジン]]からリソースへアクセスすることを許可します。
 
 Expressを用いる場合には、[`cors`パッケージ](https://www.npmjs.com/package/cors)を使用することで、HTTPレスポンスヘッダに`Access-Control-Allow-Origin`ヘッダなどを適切に設定することができます。
@@ -324,11 +323,11 @@ Viteは、[`VITE_`で始まる[[環境変数]]を、アプリケーション内�
 
    ![](./web-service.png)
 
-1. {/*  */}[[デプロイ]]するアプリケーションのコードを含むGitHubのリポジトリを選択した後、次のように設定します。
+1. [[デプロイ]]するアプリケーションのコードを含むGitHubのリポジトリを選択した後、次のように設定します。
 
    ![バックエンドの設定](./backend-configuration.png)
 
-1. {/*  */}[[環境変数]]`DATABASE_URL`でデータベースへの接続情報を設定します。[[環境変数]]`WEB_ORIGIN`は、ひとまず空のままにしておきます。
+1. [[環境変数]]`DATABASE_URL`でデータベースへの接続情報を設定します。[[環境変数]]`WEB_ORIGIN`は、ひとまず空のままにしておきます。
 
    ![](./backend-environment-variable.png)
 
@@ -340,7 +339,7 @@ Viteは、[`VITE_`で始まる[[環境変数]]を、アプリケーション内�
 
    ![フロントエンドの設定](./frontend-configuration.png)
 
-1. {/*  */}[[環境変数]]`VITE_API_ENDPOINT`に先ほど[[デプロイ]]したバックエンドのURLを設定します。
+1. [[環境変数]]`VITE_API_ENDPOINT`に先ほど[[デプロイ]]したバックエンドのURLを設定します。
 
    ![](./frontend-environment-variable.png)
 
