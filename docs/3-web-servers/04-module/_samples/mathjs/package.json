@@ -1,5 +1,6 @@
 {
   "name": "mathjs",
+  "type": "module",
   "dependencies": {
     "mathjs": "^14.5.3"
   }

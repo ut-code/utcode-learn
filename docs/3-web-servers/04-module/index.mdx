@@ -7,30 +7,30 @@ import npmInstallVideo from "./npm-install.mp4";
 
 ## 別のファイルに書かれたプログラム
 
-Node.jsでは、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の`main.mjs`はエラーになります。
+Node.jsでは、あるファイルに書かれたプログラムは、別のプログラムからは読み込めません。よって、次の`main.js`はエラーになります。
 
-```javascript title="sub.mjs"
+```javascript title="sub.js"
 function add(a, b) {
   return a + b;
 }
 ```
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 console.log(add(3, 4)); // Uncaught ReferenceError: add is not defined
 ```
 
 別のファイルに書かれたプログラムを読み込むための手段として、Node.jsでは<Term>**モジュール**</Term>という仕組みが用意されています。JavaScriptでは、すべてのファイルが<Term>モジュール</Term>として扱われます。
 
-Node.jsでは、ファイルの拡張子が`.mjs`の場合、`export`文や`import`文を用いて他の<Term>モジュール</Term>とのやりとりを行います。
+Node.jsでは、`export`文や`import`文を用いて他の<Term>モジュール</Term>とのやりとりを行うことができます。
 
-```javascript title="sub.mjs"
+```javascript title="sub.js"
 export default function add(a, b) {
   return a + b;
 }
 ```
 
-```javascript title="main.mjs"
-import add from "./sub.mjs";
+```javascript title="main.js"
+import add from "./sub.js";
 console.log(add(3, 4));
 ```
 
@@ -44,7 +44,7 @@ console.log(add(3, 4));
 
 上のように**デフォルトエクスポート**を使うと各モジュールで複数の関数をエクスポートすることができません。その場合は、**名前付きエクスポート**を用いることができます。
 
-```javascript title="sub.mjs"
+```javascript title="sub.js"
 export function add(a, b) {
   return a + b;
 }
@@ -54,8 +54,8 @@ export function subtract(a, b) {
 }
 ```
 
-```javascript title="main.mjs"
-import { add, subtract } from "./sub.mjs";
+```javascript title="main.js"
+import { add, subtract } from "./sub.js";
 console.log(add(3, 4));
 console.log(subtract(4, 3));
 ```
@@ -66,9 +66,9 @@ console.log(subtract(4, 3));
 
 :::tip[CommonJSモジュール]
 
-さきほどのように`export`文と`import`文を用いて他の<Term>モジュール</Term>とのやり取りを行うJavaScript標準の<Term>モジュール</Term>システムを、[**ECMAScriptモジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。Node.jsでは、拡張子を`.mjs`にすることで、ECMAScript<Term>モジュール</Term>を用いてプログラムを記述できます。
+さきほどのように`export`文と`import`文を用いて他の<Term>モジュール</Term>とのやり取りを行うJavaScript標準の<Term>モジュール</Term>システムを、[**ECMAScriptモジュール**](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)と呼ぶ場合があります。
 
-ECMAScriptモジュールの他に[CommonJSモジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJSモジュールでは、`exports`オブジェクトや`require`関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。Node.jsでは、拡張子を`.js`にすることで、CommonJS<Term>モジュール</Term>を用いてプログラムを記述できます。
+ECMAScriptモジュールの他に[CommonJSモジュール](https://nodejs.org/api/modules.html)と呼ばれるものもあります。CommonJSモジュールでは、`exports`オブジェクトや`require`関数を用いて他の<Term>モジュール</Term>とのやり取りを行うことができます。
 
 `exports`オブジェクトは標準では空のオブジェクトですが、プログラム中から書き換えることができます。
 
@@ -98,7 +98,7 @@ console.log(add(3, 4));
 
 Node.jsの[`fs`モジュール](https://nodejs.org/api/fs.html)を用いると、Node.jsからファイルの読み書きを行うことができます。`fs`モジュールの[`readFileSync`関数](https://nodejs.org/api/fs.html#fsreadfilesyncpath-options)は、ファイルの読み込みを行う関数で、第1引数にファイルへのパスを指定し、第2引数には文字コードを指定します。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import { readFileSync } from "node:fs";
 console.log(readFileSync("./sample.txt", "utf-8"));
 ```
@@ -127,7 +127,7 @@ Hello World!
 
 第1引数にファイルへのパス、第2引数に書き込む文字列を指定します。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import { writeFileSync } from "node:fs";
 writeFileSync("./sample.txt", "Hello World!");
 ```
@@ -146,7 +146,7 @@ Node.jsにおける**パッケージ**とは、主にJavaScriptファイルを�
 
 また、npmから利用されるパッケージを集積したサービス[npmjs.com](https://www.npmjs.com/)もまた、npmと呼ばれます。例として、日付や時刻の操作のために用いられる<Term>ライブラリ</Term>である、[date-fns](https://www.npmjs.com/package/date-fns)パッケージを利用してみましょう。
 
-npmを用いて開発を行うには、まず`npm init`コマンドを実行します。いくつか質問をされるので、Enterキーを押し続けて質問をスキップしましょう。完了すると、フォルダの中に`package.json`という名前のファイルが作成されます。このファイルは、npmによって管理されるフォルダに必ず1つ必要になるものです。
+npmを用いて開発を行うには、まず`npm init`コマンドを実行します。いくつか質問をされるので、`type`と尋ねられた時には`module`と入力し、それ以外の時にはEnterキーを押し続けて質問をスキップしましょう。完了すると、フォルダの中に`package.json`という名前のファイルが作成されます。このファイルは、npmによって管理されるフォルダに必ず1つ必要になるものです。
 
 <video src={npmInitVideo} controls muted />
 

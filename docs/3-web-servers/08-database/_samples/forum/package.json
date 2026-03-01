@@ -1,7 +1,8 @@
 {
   "name": "forum",
+  "type": "module",
   "scripts": {
-    "start": "node main.mjs"
+    "start": "node main.js"
   },
   "dependencies": {
     "@prisma/client": "^6.11.1",

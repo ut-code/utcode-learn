@@ -1,5 +1,6 @@
 {
   "name": "emoji",
+  "type": "module",
   "dependencies": {
     "node-emoji": "^2.2.0"
   }
