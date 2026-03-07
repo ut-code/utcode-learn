@@ -1,7 +1,8 @@
 {
   "name": "cookie-counter",
+  "type": "module",
   "scripts": {
-    "start": "node main.mjs"
+    "start": "node main.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
