@@ -143,27 +143,13 @@ const string2 = `10から2を引くと${10 - 2}です。`;
 
 ```javascript
 let product = 1;
-for (let i = 1; i <= 10; i = i + 1) {
-  product = product * i;
-}
-document.write(product);
-```
-
-<ViewSource url={import.meta.url} path="_samples/product" />
-
-別解
-
-複合代入演算子を使うと次のようにも書けます。
-
-```javascript
-let product = 1;
 for (let i = 1; i <= 10; i += 1) {
   product *= i;
 }
 document.write(product);
 ```
 
-<ViewSource url={import.meta.url} path="_samples/product-alt" />
+<ViewSource url={import.meta.url} path="_samples/product" />
 
 </Answer>
 
