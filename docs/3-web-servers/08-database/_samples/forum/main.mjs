@@ -1,19 +1,20 @@
 import express from "express";
-import { PrismaClient } from "./generated/prisma/index.js";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { posts } from "./schema.mjs";
 
+const db = drizzle(process.env.DATABASE_URL);
 const app = express();
-const client = new PrismaClient();
 app.use(express.json());
 app.use(express.static("./public"));
 
 app.get("/posts", async (request, response) => {
-  const posts = await client.post.findMany();
-  response.json(posts);
+  const allPosts = await db.select().from(posts);
+  response.json(allPosts);
 });
 
 app.post("/posts", async (request, response) => {
-  await client.post.create({ data: { message: request.body.message } });
-  response.sendStatus(201); // Created（新しいメッセージを作成）
+  await db.insert(posts).values({ message: request.body.message });
+  response.sendStatus(201);
 });
 
 app.listen(3000);
