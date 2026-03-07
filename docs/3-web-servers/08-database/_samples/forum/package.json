@@ -2,13 +2,14 @@
   "name": "forum",
   "type": "module",
   "scripts": {
-    "start": "node main.js"
+    "start": "node --env-file=.env main.js"
   },
   "dependencies": {
-    "@prisma/client": "^6.11.1",
-    "express": "^5.1.0"
+    "drizzle-orm": "^0.39.0",
+    "express": "^5.1.0",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
-    "prisma": "^6.11.1"
+    "drizzle-kit": "^0.30.0"
   }
 }
