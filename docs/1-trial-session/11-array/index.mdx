@@ -101,20 +101,13 @@ document.write(studentNames); // 田中,佐藤,鈴木,内藤
 
 ## 演習問題1
 
-- 配列があります。その配列の要素の和を求めてみましょう。
-
-:::tip
-`for〜of`文を使って、配列のそれぞれの要素に対して操作を実行します。
-:::
-
-:::note
-次の配列をテスト用に使ってください。
+`for〜of`文を用いて、配列の要素の和を求めるプログラムを作成してみましょう。
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-```
 
-:::
+// 配列の要素の和を求める
+```
 
 <Answer title="配列の要素の和">
 
@@ -126,73 +119,37 @@ for (const number of numbers) {
   sum += number;
 }
 
-document.write(`配列の合計値は ${sum} です。`);
+document.write(`配列の合計値は${sum}です。`);
 ```
 
 <ViewSource url={import.meta.url} path="_samples/array-sum-for-of" />
-
-別解
-
-`for〜of`文を使わず、次のように書くこともできます。
-
-```javascript
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-let sum = 0;
-for (let i = 0; i < numbers.length; i += 1) {
-  sum += numbers[i];
-}
-
-document.write(`配列の合計値は ${sum} です。`);
-```
-
-<ViewSource url={import.meta.url} path="_samples/array-sum-simple-for" />
 
 </Answer>
 
 ## 演習問題2（発展）
 
-引数に配列を一つ取り、その配列の最大値を求める関数`findMaxNumber`を作成しましょう。
-
-:::note
-
-テスト用に、ランダムに生成された次の配列を使ってください。
+`for`文を用いて、配列の最大値を求めるプログラムを作成してみましょう。
 
 ```javascript
-const array1 = [3, 6, 8, 5, 0];
-const array2 = [-8, -7, -3, -1, -5];
-```
+const numbers = [3, 6, 8, 5, 0];
 
-:::
+// 配列の最大値を求める
+```
 
 <Answer title="配列の最大値">
 
 ```javascript
-const array1 = [3, 6, 8, 5, 0];
-const array2 = [-8, -7, -3, -1, -5];
+const numbers = [3, 6, 8, 5, 0];
 
-function findMaxNumber(numbers) {
-  if (numbers.length === 0) return; // 空配列を除外
-  let maxNumber = numbers[0];
-  for (const number of numbers) {
-    if (maxNumber < number) {
-      maxNumber = number;
-    }
+let maxNumber = numbers[0];
+for (let i = 1; i < numbers.length; i += 1) {
+  if (maxNumber < numbers[i]) {
+    maxNumber = numbers[i];
   }
-  return maxNumber;
 }
 
-document.write(
-  `<p>配列[${array1}]の最大値は${findMaxNumber(array1)}です。</p>`,
-);
-document.write(
-  `<p>配列[${array2}]の最大値は${findMaxNumber(array2)}です。</p>`,
-);
+document.write(`配列[${numbers}]の最大値は${maxNumber}です。`);
 ```
-
-:::danger
-配列の長さにかかわらず配列の最初の値を使うような処理をする場合は、長さが0である空の配列を除外することを忘れないでください！
-:::
 
 <ViewSource url={import.meta.url} path="_samples/array-max" />
 
