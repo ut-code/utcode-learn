@@ -1,0 +1,488 @@
+---
+title: "プロジェクト: AI搭載のToDo管理アプリ"
+---
+
+import aiTodoDemoVideo from "./ai-todo-demo.mp4";
+
+これまで学んできた技術を組み合わせて、AIを活用したToDo管理アプリを作成してみましょう。
+
+## ルール
+
+- タスクのタイトルと期限を入力し、「追加」ボタンをクリックすることで、タスクが追加できます
+- タスクの内容はデータベースに保存されます
+- 「AIで追加」ボタンをクリックすることで、「明日の10時に会議」などの自然言語でタスクを追加できます
+- 「削除」ボタンをクリックすることで、タスクを削除できます
+
+<video src={aiTodoDemoVideo} controls />
+
+## ステップ1: セットアップ
+
+まずは、プロジェクトのセットアップを行います。新しいフォルダを作成し、必要なパッケージのインストールとデータベースの準備をします。
+
+### プロジェクトの作成
+
+```shell
+npm init
+npm install express @prisma/client
+npm install -D prisma
+npx prisma init
+```
+
+### Prismaスキーマの定義
+
+`prisma/schema.prisma`ファイルを編集し、タスクを保存するためのテーブルを定義します。
+
+```javascript title="prisma/schema.prisma"
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id    Int      @id @default(autoincrement())
+  title String
+  dueAt DateTime
+}
+```
+
+:::tip[DateTime型]
+Prismaの`DateTime`型は、日付と時刻の両方を保存できるデータ型です。PostgreSQLでは`timestamp`型に対応し、`2024-01-21T10:00:00`のような日時データを扱えます。JavaScriptでは`Date`オブジェクトとして読み書きします。
+:::
+
+`.env`ファイルにデータベースの接続情報を記述した後、テーブルを作成します。
+
+```shell
+npx prisma db push
+```
+
+## ステップ2: ToDoの読み取り
+
+Express<Term>サーバー</Term>を作成し、データベースからToDoを取得して一覧表示する機能を実装します。
+
+### サーバーの実装
+
+```javascript title="main.mjs"
+import express from "express";
+import { PrismaClient } from "./generated/prisma/index.js";
+
+const app = express();
+const client = new PrismaClient();
+
+app.use(express.json());
+app.use(express.static("./public"));
+
+// ToDo一覧を取得
+app.get("/todos", async (request, response) => {
+  const todos = await client.todo.findMany({ orderBy: { id: "asc" } });
+  response.json(todos);
+});
+
+app.listen(3000);
+```
+
+### フロントエンドの実装
+
+`public`フォルダを作成し、HTMLとJavaScriptファイルを配置します。
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI ToDo</title>
+  </head>
+  <body>
+    <h1>AI ToDo</h1>
+    <h2>ToDoリスト</h2>
+    <ul id="todo-list"></ul>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```javascript title="public/script.js"
+const todoList = document.getElementById("todo-list");
+
+loadTodos();
+
+async function loadTodos() {
+  const response = await fetch("/todos");
+  const todos = await response.json();
+
+  todoList.innerHTML = "";
+
+  for (const todo of todos) {
+    const todoListItem = document.createElement("li");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = todo.title;
+    todoListItem.appendChild(titleDiv);
+
+    const dueAtDiv = document.createElement("div");
+    dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
+    todoListItem.appendChild(dueAtDiv);
+
+    todoList.appendChild(todoListItem);
+  }
+}
+```
+
+`node main.mjs`で<Term>サーバー</Term>を起動し、ブラウザで http://localhost:3000 にアクセスして、空のToDoリストが表示されることを確認しましょう。
+
+## ステップ3: ToDoの追加
+
+ToDoを追加できるようにします。<Term>サーバー</Term>にPOSTリクエストを処理するエンドポイントを追加し、フロントエンドに入力フォームを実装します。
+
+### サーバーの実装
+
+`app.listen(3000)`の前に、以下のエンドポイントを追加します。
+
+```javascript title="main.mjs に追加"
+// ToDoを追加
+app.post("/todos", async (request, response) => {
+  const todo = await client.todo.create({
+    data: {
+      title: request.body.title,
+      dueAt: new Date(request.body.dueAt),
+    },
+  });
+  response.json(todo);
+});
+```
+
+### フロントエンドの更新
+
+HTMLにタスク入力フォームを追加します。
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI ToDo</title>
+  </head>
+  <body>
+    <h1>AI ToDo</h1>
+    <h2>ToDoの追加</h2>
+    <div>
+      <input id="title-input" />
+      <input id="due-at-input" type="datetime-local" />
+      <button id="add-button" type="button">追加</button>
+    </div>
+    <h2>ToDoリスト</h2>
+    <ul id="todo-list"></ul>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+JavaScriptに追加ボタンの処理を実装します。
+
+```javascript title="public/script.js"
+const titleInput = document.getElementById("title-input");
+const dueAtInput = document.getElementById("due-at-input");
+const addButton = document.getElementById("add-button");
+const todoList = document.getElementById("todo-list");
+
+loadTodos();
+
+addButton.onclick = async () => {
+  await fetch("/todos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: titleInput.value, dueAt: dueAtInput.value }),
+  });
+  titleInput.value = "";
+  dueAtInput.value = "";
+  loadTodos();
+};
+
+async function loadTodos() {
+  const response = await fetch("/todos");
+  const todos = await response.json();
+
+  todoList.innerHTML = "";
+
+  for (const todo of todos) {
+    const todoListItem = document.createElement("li");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = todo.title;
+    todoListItem.appendChild(titleDiv);
+
+    const dueAtDiv = document.createElement("div");
+    dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
+    todoListItem.appendChild(dueAtDiv);
+
+    todoList.appendChild(todoListItem);
+  }
+}
+```
+
+<Term>サーバー</Term>を再起動し、ブラウザでToDoを追加できることを確認しましょう。
+
+## ステップ4: ToDoの削除
+
+各ToDoに「削除」ボタンを追加し、不要なToDoを削除できるようにします。
+
+### DELETEメソッドとルートパラメータ
+
+HTTPには、GETやPOSTの他に**DELETE**メソッドがあり、リソースの削除に使用されます。Expressでは`app.delete`メソッドでDELETEリクエストを処理できます。
+
+パスに`:id`のようにコロンを付けた部分は**ルートパラメータ**と呼ばれ、URLの一部を変数として受け取ることができます。`request.params.id`でその値を取得できます。
+
+### サーバーの実装
+
+```javascript title="main.mjs に追加"
+// ToDoを削除
+app.delete("/todos/:id", async (request, response) => {
+  await client.todo.delete({
+    where: { id: parseInt(request.params.id) },
+  });
+  response.json({ success: true });
+});
+```
+
+### フロントエンドの更新
+
+HTMLファイルの変更は不要です。削除ボタンはJavaScriptで動的に生成します。`loadTodos`関数を更新して、各ToDoに削除ボタンを追加します。
+
+```javascript title="public/script.js の loadTodos 関数を更新"
+async function loadTodos() {
+  const response = await fetch("/todos");
+  const todos = await response.json();
+
+  todoList.innerHTML = "";
+
+  for (const todo of todos) {
+    const todoListItem = document.createElement("li");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = todo.title;
+    todoListItem.appendChild(titleDiv);
+
+    const dueAtDiv = document.createElement("div");
+    dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
+    todoListItem.appendChild(dueAtDiv);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "削除";
+    deleteButton.onclick = async () => {
+      await fetch(`/todos/${todo.id}`, { method: "DELETE" });
+      loadTodos();
+    };
+    todoListItem.appendChild(deleteButton);
+
+    todoList.appendChild(todoListItem);
+  }
+}
+```
+
+追加したToDoの横に「削除」ボタンが表示され、クリックするとToDoが削除されることを確認しましょう。
+
+## OpenRouterへの登録
+
+ここからは、AIを活用して「明日の10時に会議」などの自然言語からToDoを追加できるようにします。このステップでは、**外部サービスのAPIを呼び出す**方法を学びます。多くのWebサービスは、プログラムからアクセスできるAPIを提供しています。これらのAPIを活用することで、自分で実装するのが難しい高度な機能（AI、地図、決済など）を簡単にアプリケーションに組み込むことができます。
+
+### OpenRouterとは
+
+[OpenRouter](https://openrouter.ai/)は、様々なAIモデルを統一されたAPIで利用できるサービスです。OpenAIのGPT-4やAnthropicのClaudeなど、複数のモデルを同じ形式で呼び出すことができます。無料で使えるモデルも提供されています。
+
+### APIキーの取得
+
+1. [OpenRouter](https://openrouter.ai/)にアクセス
+2. 右上の「Sign In」からGoogleアカウントなどでログイン
+3. ログイン後、[Keys](https://openrouter.ai/keys)ページにアクセス
+4. 「Create Key」ボタンをクリック
+5. キーの名前（任意）を入力して作成
+6. 表示されたAPIキー（`sk-or-v1-...`で始まる文字列）をコピー
+
+### APIキーの設定
+
+生成したAPIキーを`.env`ファイルに追加します。
+
+```text title=".env"
+DATABASE_URL="postgresql://..."
+OPENROUTER_API_KEY="sk-or-v1-..."
+```
+
+:::caution[APIキーの管理]
+APIキーは機密情報です。絶対にGitにコミットしないでください。`.gitignore`に`.env`が含まれていることを確認しましょう。
+:::
+
+## ステップ5: AI解析（サーバー側）
+
+:::note[なぜサーバー経由で外部APIを呼び出すのか]
+外部サービスのAPIを利用する際、多くの場合**APIキー**による認証が必要です。APIキーをブラウザ（フロントエンド）のJavaScriptに含めると、誰でもブラウザの開発者ツールからキーを取得できてしまいます。そのため、APIキーはサーバー側で管理し、サーバーから外部APIを呼び出すのが一般的なパターンです。
+:::
+
+### AI解析エンドポイントの実装
+
+<Term>サーバー</Term>側でOpenRouter APIを呼び出すエンドポイントを追加します。
+
+```javascript title="main.mjs に追加"
+app.post("/todos/ai", async (request, response) => {
+  const systemPrompt = `
+ユーザーの入力から、ToDoのタイトルと期限を抽出してください。
+1行目にタイトル、2行目に期限（ISO8601形式、タイムゾーンは東京）を出力してください。
+現在日時: ${new Date().toISOString()}
+
+例
+現在日時: 2026-01-20T12:00:00+09:00
+入力: 明日の10時に会議
+出力: 会議
+2026-01-21T10:00:00+09:00
+`;
+
+  const result = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "openrouter/free",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: request.body.instruction },
+      ],
+    }),
+  });
+  const data = await result.json();
+  const content = data.choices[0].message.content;
+  const lines = content.split("\n");
+  const todo = await client.todo.create({
+    data: { title: lines[0], dueAt: new Date(lines[1]) },
+  });
+  response.json(todo);
+});
+```
+
+:::tip[認証ヘッダー `Authorization: Bearer`]
+多くの外部APIでは、`Authorization`ヘッダーに`Bearer <APIキー>`の形式でAPIキーを送信します。これは[OAuth 2.0](https://oauth.net/2/)で定義された認証方式で、多くのWebサービスで採用されています。
+:::
+
+:::tip[プロンプト設計]
+AIに期待する出力形式を明確に指示することが重要です。この例では、改行区切りの2行形式（1行目がタイトル、2行目が期限）にすることで、プログラムから解析しやすくしています。
+:::
+
+### 環境変数の読み込み
+
+Node.jsで<Term>環境変数</Term>を読み込むため、起動コマンドを変更します。`package.json`の`scripts`を以下のように更新します。
+
+```json title="package.json"
+{
+  "scripts": {
+    "start": "node --env-file=.env main.mjs"
+  }
+}
+```
+
+これにより、`npm start`で<Term>サーバー</Term>を起動すると、`.env`ファイルの内容が<Term>環境変数</Term>として読み込まれます。
+
+## ステップ6: AI解析（フロントエンド）
+
+最後に、フロントエンドにAI解析の入力欄とボタンを追加します。
+
+### HTMLの更新
+
+```html title="public/index.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI ToDo</title>
+  </head>
+  <body>
+    <h1>AI ToDo</h1>
+    <h2>ToDoの追加</h2>
+    <div>
+      <input id="title-input" />
+      <input id="due-at-input" type="datetime-local" />
+      <button id="add-button" type="button">追加</button>
+    </div>
+    <h2>AIでToDoを追加</h2>
+    <div>
+      <input id="instruction-input" />
+      <button id="ai-button" type="button">AIで追加</button>
+    </div>
+    <h2>ToDoリスト</h2>
+    <ul id="todo-list"></ul>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+### JavaScriptの更新
+
+```javascript title="public/script.js"
+const titleInput = document.getElementById("title-input");
+const dueAtInput = document.getElementById("due-at-input");
+const addButton = document.getElementById("add-button");
+const instructionInput = document.getElementById("instruction-input");
+const aiButton = document.getElementById("ai-button");
+const todoList = document.getElementById("todo-list");
+
+loadTodos();
+
+addButton.onclick = async () => {
+  await fetch("/todos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: titleInput.value, dueAt: dueAtInput.value }),
+  });
+  titleInput.value = "";
+  dueAtInput.value = "";
+  loadTodos();
+};
+
+aiButton.onclick = async () => {
+  await fetch("/todos/ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ instruction: instructionInput.value }),
+  });
+  instructionInput.value = "";
+  loadTodos();
+};
+
+async function loadTodos() {
+  const response = await fetch("/todos");
+  const todos = await response.json();
+
+  todoList.innerHTML = "";
+
+  for (const todo of todos) {
+    const todoListItem = document.createElement("li");
+
+    const titleDiv = document.createElement("div");
+    titleDiv.textContent = todo.title;
+    todoListItem.appendChild(titleDiv);
+
+    const dueAtDiv = document.createElement("div");
+    dueAtDiv.textContent = new Date(todo.dueAt).toLocaleString();
+    todoListItem.appendChild(dueAtDiv);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "削除";
+    deleteButton.onclick = async () => {
+      await fetch(`/todos/${todo.id}`, { method: "DELETE" });
+      loadTodos();
+    };
+    todoListItem.appendChild(deleteButton);
+
+    todoList.appendChild(todoListItem);
+  }
+}
+```
+
+## 完成版
+
+全てのステップを統合した完成版です。
+
+<ViewSource url={import.meta.url} path="_samples/ai-todo" noCodeSandbox />

@@ -1,0 +1,13 @@
+{
+  "name": "ai-todo",
+  "scripts": {
+    "start": "node --env-file=.env main.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.11.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.11.1"
+  }
+}
