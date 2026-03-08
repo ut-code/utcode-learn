@@ -46,7 +46,7 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=24.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.9.1",
