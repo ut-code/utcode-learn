@@ -5,6 +5,6 @@
     "start": "node main.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.2.1"
   }
 }
