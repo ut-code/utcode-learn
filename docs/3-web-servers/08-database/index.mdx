@@ -101,7 +101,7 @@ VS Code向けのPrisma拡張機能をインストールしましょう。
 npx prisma init
 ```
 
-コマンドを実行します。パッケージをインストールしても良いか尋ねられる場合は、`y`を入力して許可しましょう。
+コマンドを実行します。パッケージをインストールしても良いか尋ねられる場合は、`y`を入力して許可しましょう。このコマンドにより、テーブル構造を記述する`prisma/schema.prisma`ファイルや、データベースへの接続情報を設定する`prisma.config.ts`ファイルなどが生成されます。
 
 <video src={prismaInitVideo} controls muted />
 
@@ -128,7 +128,7 @@ npx prisma init
 DATABASE_URL=postgresql://user:password@example.com:5432/db node main.js
 ```
 
-`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.js`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
+`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.js`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。`npx prisma db push`などのPrismaのコマンドを実行する際、`prisma.config.ts`は`process.env`からデータベースの接続先を取得します。
 :::
 
 `prisma/schema.prisma`ファイルに、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
@@ -137,17 +137,15 @@ DATABASE_URL=postgresql://user:password@example.com:5432/db node main.js
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Todo {
