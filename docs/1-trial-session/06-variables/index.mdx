@@ -68,14 +68,14 @@ document.write(totalPrice);
 `let`と`const`の大きな違いは、再<Term>代入</Term>が可能かどうかです。`let`で<Term>宣言</Term>された<Term>変数</Term>には再<Term>代入</Term>が可能ですが、`const`で<Term>宣言</Term>された<Term>変数</Term>にはできません。次の例を見てみましょう。
 
 ```javascript title="script.js"
-let mysteriousNumber = 0;
-mysteriousNumber = 1;
-mysteriousNumber = 2;
-document.write(mysteriousNumber); // 2
+let unreadMessageCount = 0;
+unreadMessageCount = 1;
+unreadMessageCount = 2;
+document.write(unreadMessageCount); // 2
 ```
 
 {/* prettier-ignore */}
-<Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があります。そのため、<Term>変数</Term>`mysteriousNumber`は3回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された`2`が表示されます。
+<Term>変数</Term>には、最後に<Term>代入</Term>された<Term>値</Term>のみを保持する性質があります。そのため、<Term>変数</Term>`unreadMessageCount`は3回<Term>代入</Term>が行われていますが、最後に<Term>代入</Term>された`2`が表示されます。
 
 一方、`const`で<Term>宣言</Term>された<Term>変数</Term>には、再<Term>代入</Term>ができません。そのため、上記のコードの`let`を`const`に置き換えることはできません。
 
