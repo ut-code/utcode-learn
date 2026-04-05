@@ -102,9 +102,11 @@ document.write(takaoHeight = everestHeight);
 `<`の結合規則は左から右なので、`takaoHeight < everestHeight < fujiHeight`は`(takaoHeight < everestHeight) < fujiHeight`と解釈されることになります。
 まず`takaoHeight < everestHeight`が<Term>評価</Term>され、`true`になります。次に`true < fujiHeight`が<Term>評価</Term>されます。`true`は`1`として比較されるため、結果は`true`になります。
 
-![takaoHeight < everestHeight < fujiHeightの評価](./weird-comparison-evaluation.png)
+![takaoHeight < everestHeight < fujiHeightの評価](./chained-comparison-evaluation.png)
 
 `takaoHeight = everestHeight`の評価結果は、右辺の評価結果である`8849`になります。
+
+![takaoHeight = everestHeightの評価](./assignment-operator-evaluation.png)
 
 </Answer>
 
