@@ -21,7 +21,7 @@ Fetch APIは、`fetch`関数を呼び出すことで実行できます。`fetch`
 
 `fetch`関数や`Response#text`メソッドは、時間のかかる処理を行うため、<Term>**非同期処理**</Term>としてバックグラウンドで実行されます。戻り値に対して`await`演算子を適用することで、HTTPリクエストが完了するまで待機し、実際のレスポンスを取得できます。なお、`await`演算子を使用するためには、演算子が使用されている関数に`async`キーワードを付与する必要があります。
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
@@ -75,7 +75,7 @@ JavaScriptにおける<Term>**非同期処理**</Term>とは、ファイルの�
 
 <Answer title="カフェ営業状況表示プログラム">
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
@@ -116,7 +116,7 @@ fetchOpenStatus();
 - サーバー側は、Expressが提供する[`Response#json`メソッド](https://expressjs.com/ja/api.html#res.json)を用いてレスポンスを送信しています。このメソッドは、引数として渡されたオブジェクトを<Term>JSON</Term>に変換してレスポンスとして返します。
 - クライアント側は、ブラウザが提供する[`Response#json`メソッド](https://developer.mozilla.org/ja/docs/Web/API/Response/json)を用いて、<Term>JSON</Term>形式のレスポンスをJavaScriptオブジェクトとして取得します。
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
@@ -183,7 +183,7 @@ JSONでは、次のように、全てのキーをダブルクォーテーショ�
 
 <Answer title="カフェ営業状況表示プログラム">
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
@@ -255,7 +255,7 @@ setInterval(async () => {
 
 <Answer title="為替レート取得プログラム">
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();
@@ -320,7 +320,7 @@ document.getElementById("convert-button").onclick = async () => {
 
 <Answer title="通貨換算アプリケーション">
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 
 const app = express();

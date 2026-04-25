@@ -122,13 +122,13 @@ npx prisma init
 - 機密情報
 - 環境ごとに異なる設定情報
 
-アプリケーションの実行時に環境変数を指定するには、コマンドの前に`KEY=VALUE`の形式の文字列を記述します。例えば、ターミナル上で次のコマンドを実行すると、`main.mjs`では、[`process.env.DATABASE_URL`を通して](https://nodejs.org/ja/learn/command-line/how-to-read-environment-variables-from-nodejs)環境変数`DATABASE_URL`の値を取得できます。
+アプリケーションの実行時に環境変数を指定するには、コマンドの前に`KEY=VALUE`の形式の文字列を記述します。例えば、ターミナル上で次のコマンドを実行すると、`main.js`では、[`process.env.DATABASE_URL`を通して](https://nodejs.org/ja/learn/command-line/how-to-read-environment-variables-from-nodejs)環境変数`DATABASE_URL`の値を取得できます。
 
 ```shell
-DATABASE_URL=postgresql://user:password@example.com:5432/db node main.mjs
+DATABASE_URL=postgresql://user:password@example.com:5432/db node main.js
 ```
 
-`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.mjs`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
+`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.js`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
 :::
 
 `prisma/schema.prisma`ファイルに、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
@@ -280,7 +280,7 @@ Expressをインストールし、`/posts`へのGETリクエストに対して�
 
 <Answer title="手順6まで">
 
-```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+```javascript title="main.jsの抜粋 (サーバーとして動作するJavaScript)"
 app.get("/posts", async (request, response) => {
   const posts = await client.post.findMany();
   response.json(posts);
@@ -295,7 +295,7 @@ app.get("/posts", async (request, response) => {
 
 <Answer title="手順7まで">
 
-```javascript title="main.mjs (サーバーとして動作するJavaScript)"
+```javascript title="main.js (サーバーとして動作するJavaScript)"
 import express from "express";
 import { PrismaClient } from "./generated/prisma/index.js";
 
@@ -353,7 +353,7 @@ document.getElementById("send-button").onclick = async () => {
 
 <Answer title="手順8まで">
 
-```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+```javascript title="main.jsの抜粋 (サーバーとして動作するJavaScript)"
 app.use(express.urlencoded({ extended: true }));
 app.post("/posts", async (request, response) => {
   debugger; // ここでrequestオブジェクトの中身を確認
@@ -368,7 +368,7 @@ app.post("/posts", async (request, response) => {
 
 <Answer title="手順9まで">
 
-```javascript title="main.mjsの抜粋 (サーバーとして動作するJavaScript)"
+```javascript title="main.jsの抜粋 (サーバーとして動作するJavaScript)"
 app.post("/posts", async (request, response) => {
   await client.post.create({ data: { message: request.body.message } });
   response.sendStatus(201); // Created（新しいメッセージを作成）

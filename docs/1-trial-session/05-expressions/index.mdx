@@ -43,6 +43,8 @@ document.write(3 + 4 * 5);
 
 `3 + 4 * 5`の<Term>評価</Term>は、先に`4 * 5`が<Term>評価</Term>されて`20`になり、次に`3 + 20`が<Term>評価</Term>されることにより、`23`という<Term>値</Term>となると考えることができます。
 
+![3 + 4 * 5の評価](./operator-priority-evaluation.png)
+
 ## いろいろな<Term>演算子</Term>
 
 {/* prettier-ignore */}
@@ -66,6 +68,8 @@ document.write("Hello" + 1 + 2);
 `+`の結合規則は左から右なので、`3 + 4 + "Hello"`は`(3 + 4) + "Hello"`、`"Hello" + 1 + 2`は`("Hello" + 1) + 2`と解釈されることになります。
 
 `+`は、両辺が<Term>数値</Term>の場合のみ加算<Term>演算子</Term>として振る舞い、片方が<Term>数値</Term>で片方が<Term>文字列</Term>の場合は<Term>数値</Term>を<Term>文字列</Term>に変換してから<Term>文字列</Term>結合<Term>演算子</Term>として機能します。このため、最終的な<Term>式</Term>全体の<Term>評価</Term>結果は前者が`"7Hello"`、後者が`"Hello12"`となるのです。
+
+![3 + 4 + "Hello"と"Hello" + 1 + 2の評価](./addition-operator-evaluation.png)
 
 ### 代表的な演算子
 

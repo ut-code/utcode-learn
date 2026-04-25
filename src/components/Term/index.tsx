@@ -35,7 +35,7 @@ export default function Term(props: TermProps) {
     // 現在のページで用語が初出であればリンクを表示する必要がない
     const shouldLinkToReferencePage = Boolean(
       location.pathname !== term.referencePage &&
-        location.pathname + "/" !== term.referencePage,
+      location.pathname + "/" !== term.referencePage,
     );
 
     return (

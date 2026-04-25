@@ -1,5 +1,5 @@
 ---
-title: プロジェクト
+title: "プロジェクト: ToDoアプリ"
 ---
 
 import todoVideo from "./todo.mp4";
@@ -11,20 +11,18 @@ import todoVideo from "./todo.mp4";
 - ToDoの追加ができます。
 - ToDoの削除ができます。
 - ToDoの編集ができます。
-- 入力欄が空欄だとToDoの追加ができなくなります。
 
 <video src={todoVideo} controls muted />
 
 ## 手順
 
-いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにある4つの課題をひとつずつ解決していきます。
+いきなり作るのが難しい場合はタスクを分解してみましょう。今回はルールにある3つの課題をひとつずつ解決していきます。
 
 1. ToDoを追加できるようにする。
 2. ToDoを削除できるようにする。
 3. ToDoを編集できるようにする。
-4. 空のToDoを追加できないようにする。
 
-の4つの仕事があるので、まず1からやっていきましょう。
+の3つの仕事があるので、まず1からやっていきましょう。
 
 ### ステップ1: ToDoを追加する
 
@@ -220,72 +218,5 @@ addButton.onclick = () => {
 ```
 
 <ViewSource url={import.meta.url} path="_samples/step3" />
-
-</Answer>
-
-### ステップ4 (発展) : 空のToDoを入れさせない
-
-[`HTMLButtonElement#disabled`プロパティ](https://developer.mozilla.org/ja/docs/Web/API/HTMLButtonElement/disabled)が`true`の時、ボタンはクリックを受け付けなくなります。入力欄が空の時にこのプロパティを`true`に、それ以外の時は`false`にすることによって空のタスクの追加を防ぐことができます。この時、入力欄に何かキー入力があるたびに入力欄が空かどうかを判定する必要があります。[`HTMLElement#oninput`プロパティ](https://html.spec.whatwg.org/multipage/webappapis.html#handler-oninput)にイベントハンドラを登録すると、ユーザーによって要素に入力されたときに実行される関数を定めることができます。
-
-```javascript
-todoInput.oninput = () => {
-  // 入力欄が空の時はボタンを押せないようにする
-  addButton.disabled = todoInput.value === "";
-};
-```
-
-<Answer title="ステップ4">
-
-```html title="index.html"
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <ul id="todo-list"></ul>
-    <input id="todo-input" />
-    <button id="add-button" disabled>追加</button>
-    <script src="./script.js"></script>
-  </body>
-</html>
-```
-
-```javascript title="script.js"
-const todoList = document.getElementById("todo-list");
-const todoInput = document.getElementById("todo-input");
-const addButton = document.getElementById("add-button");
-
-todoInput.oninput = () => {
-  addButton.disabled = todoInput.value === "";
-};
-
-addButton.onclick = () => {
-  const todoItem = document.createElement("li");
-  const todoText = document.createElement("span");
-  const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
-  todoText.textContent = todoInput.value;
-  todoInput.value = "";
-  addButton.disabled = true; // valueへの代入はoninputイベントを発火しない
-  editButton.textContent = "編集";
-  editButton.onclick = () => {
-    const input = prompt("新しい内容を入力してください。");
-    // prompt関数は入力された文字列が空の場合は空文字列 ("")、キャンセルされた場合はnullを返す
-    if (input !== "" && input !== null) todoText.textContent = input;
-  };
-  deleteButton.textContent = "削除";
-  deleteButton.onclick = () => {
-    todoList.removeChild(todoItem);
-  };
-  todoItem.appendChild(todoText);
-  todoItem.appendChild(editButton);
-  todoItem.appendChild(deleteButton);
-  todoList.appendChild(todoItem);
-};
-```
-
-<ViewSource url={import.meta.url} path="_samples/todo" />
 
 </Answer>

@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 const score: number = 80;
 
 export default function App() {

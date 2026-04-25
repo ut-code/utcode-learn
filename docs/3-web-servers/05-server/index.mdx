@@ -45,9 +45,9 @@ Google ChromeやSafariに代表される**ブラウザ**は、Webにおけるク
 npm install express
 ```
 
-続いて、次のような`main.mjs`を作成しましょう。
+続いて、次のような`main.js`を作成しましょう。
 
-```javascript title="main.mjs" showLineNumbers
+```javascript title="main.js" showLineNumbers
 import express from "express";
 const app = express();
 
@@ -66,7 +66,7 @@ app.listen(3000);
 ファイルを保存したら、作成したファイルを実行しましょう。
 
 ```shell
-node main.mjs
+node main.js
 ```
 
 ブラウザで<a href="http://localhost:3000/" target="_blank">`http://localhost:3000/`</a>にアクセスし、次の動作を確認してください。
@@ -107,9 +107,9 @@ node main.mjs
 
 ## Hello Worldサーバーの動作
 
-`main.mjs`のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
+`main.js`のプログラムを参照しながら、ブラウザとサーバーの間でどのようなやり取りが行われているのかを確認しましょう。
 
-```javascript title="main.mjs (再掲)" showLineNumbers
+```javascript title="main.js (再掲)" showLineNumbers
 import express from "express";
 const app = express();
 
@@ -123,7 +123,7 @@ app.get("/lang/ja", (request, response) => {
 app.listen(3000);
 ```
 
-### `node main.mjs`を実行したとき
+### `node main.js`を実行したとき
 
 1. **[2行目]** `const app = express();`により、Expressの[`Application`](https://expressjs.com/ja/api.html#app)クラスのインスタンスが作成されます。
 2. **[4行目]** `app.get("/", (request, response) => { ... });`で呼び出された[`get`](https://expressjs.com/ja/api.html#app.get.method)メソッドにより、`/`というパスに対するリクエストを受けたときに実行される関数として、第2引数に指定された関数が登録されます。この時点では関数は`Application`インスタンスに登録されるのみで、実行はされません。
@@ -163,7 +163,7 @@ app.listen(3000);
 6. サーバーは、`document.write("Hello World!");`という文字列をレスポンスとして送信します。
 7. ブラウザは、受け取ったレスポンスをJavaScriptとして解釈し、`Hello World!`という文字列を表示します。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import express from "express";
 const app = express();
 
@@ -183,7 +183,7 @@ app.listen(3000);
 
 次の例では、`/`、`/script.js`、`/sub/`、`/sub/script.js`へのリクエストについて、それぞれファイルから読み込んでレスポンスを送信しています。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import express from "express";
 import { readFileSync } from "node:fs";
 const app = express();
@@ -208,7 +208,7 @@ app.listen(3000);
 
 [`express.static`関数](https://expressjs.com/ja/api.html#express.static)を用いると、このような「リクエストを受け取ったら、そのパスに応じて適切なファイルを読み込んでレスポンスとして返す」という一連の動作を簡単に記述できます。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import express from "express";
 
 const app = express();
@@ -248,7 +248,7 @@ app.listen(3000);
 
 前項のプログラムを書き換えて、複雑なHTMLを出力できるようにしてみましょう。
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import express from "express";
 const app = express();
 
@@ -293,7 +293,7 @@ Expressを用いて、`あなたはn人目のお客様です。`とレスポン�
 
 <Answer title="訪問者カウンター">
 
-```javascript title="main.mjs"
+```javascript title="main.js"
 import express from "express";
 const app = express();
 
