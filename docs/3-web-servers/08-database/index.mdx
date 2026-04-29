@@ -42,77 +42,92 @@ app.post((request, response) => {
 
 ## データベースが動作する仕組み
 
-データベースは、通常<Term>サーバー</Term>として動作します。つまり、**データベースサーバー**は、保持しているデータに対する参照や更新のための<Term>リクエスト</Term> (**クエリ**) を受け、その結果を<Term>レスポンス</Term>として<Term>クライアント</Term>に返します。
+多くのデータベースは、<Term>サーバー</Term>として動作します。**データベースサーバー**は、保持しているデータに対する参照や更新のための<Term>リクエスト</Term> (**クエリ**) を受け、その結果を<Term>レスポンス</Term>として<Term>クライアント</Term>に返します。
 
-データベースサーバーの<Term>クライアント</Term>は、通常Webサービスの使用者ではなく、皆さんがNode.jsなどで開発する<Term>サーバー</Term>です。これまで開発してきたような<Term>サーバー</Term>を、データベースサーバーと対比して**アプリケーションサーバー**と呼びます。
+データベースサーバーの<Term>クライアント</Term>は、Webサービスの使用者ではなく、皆さんがNode.jsなどで開発する<Term>サーバー</Term>であることが多いです。これまで開発してきたような<Term>サーバー</Term>を、データベースサーバーと対比して**アプリケーションサーバー**と呼びます。
 
 ![データベースとアプリケーションサーバー](./database-application-server.drawio.svg)
 
-データベースの中でも、**リレーショナルデータベース**は、最も多く使われる種類のもので、データをExcelのような表形式でとらえます。次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
+データベースの中でも、[PostgreSQL](https://www.postgresql.org/)などの**リレーショナルデータベース**は、最も多く使われる種類のもので、データをExcelのような表形式でとらえます。次の図は、リレーショナルデータベースの基本的な概念である、**テーブル**、**カラム**、**レコード**について整理した図です。リレーショナルデータベースを用いる一般的なアプリケーションでは、アプリケーション開発時にテーブルとカラムを作成しておき、ユーザーの操作に応じてレコードを追加・編集・削除していきます。
 
 ![リレーショナルデータベース](./relational-database-concept.png)
 
-リレーショナルデータベースに対するクエリは、通常**SQL**と呼ばれる言語を用いて記述します。データベース<Term>クライアント</Term>として用いるライブラリによっては、SQLを直接用いることなく、そのライブラリが提供する専用の関数等を用いてデータベースに対してクエリを発行できることがあります。
+リレーショナルデータベースに対するクエリは、多くの場合、**SQL**と呼ばれる言語を用いて記述されます。しかし、SQLは人間が直接記述するための言語であり、プログラム中に直接記述するにはあまり適していません。そのため、データベースへのクエリをプログラムから発行しやすくするための<Term>ライブラリ</Term>が数多く存在しています。その中でも、この節で用いる[Prisma](https://www.prisma.io/)は、Node.jsにおける最も人気のある<Term>ライブラリ</Term>の一つです。
 
 ## データベースを用いるアプリケーション
 
-ここでは、Node.jsのアプリケーションサーバーで、Prismaと呼ばれる<Term>ライブラリ</Term>を用い、リレーショナルデータベースの一つであるPostgreSQL<Term>サーバー</Term>に保存されているデータを取得します。
+### SupabaseでPostgreSQLサーバーを構築する
 
-### 使用する技術・サービス
-
-#### [PostgreSQL](https://www.postgresql.org/)
-
-現在最もよく用いられるリレーショナルデータベースのひとつです。豊富な機能を持ちます。
-
-#### [Prisma](https://www.prisma.io/)
-
-主にリレーショナルデータベースを操作するためのNode.jsの<Term>ライブラリ</Term>です。複数の構成要素からなります。
-
-- [**`@prisma/client`パッケージ**](https://www.npmjs.com/package/@prisma/client): アプリケーションサーバーから用いるnpmのパッケージです。JavaScriptプログラムから使用します。
-- [**`prisma`パッケージ**](https://www.npmjs.com/package/prisma): 開発時にコマンドとして用いるnpmのパッケージです。`npx`コマンドを通して実行します。
-- [**`.prisma`ファイル**](https://www.prisma.io/docs/concepts/components/prisma-schema): データベースのテーブル構造を記述するファイルです。`prisma`パッケージのコマンドを用いて実際のデータベースサーバーに反映させます。
-- [**`Prisma`拡張機能**](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma): VS Codeの拡張機能です。`.prisma`ファイルに対する補完やフォーマットの機能を提供します。
-
-#### [Supabase](https://supabase.com/)
-
-PostgreSQLサーバーを提供するサービスです。その他にデータベースを直感的に操作できる機能なども提供しています。PostgreSQLサーバーは皆さんのコンピューター上にも構築できますが、ここではその手間を省くため、外部のサービスを利用します。
-
-### Supabase で PostgreSQL サーバーを構築する
-
-[Supabase](https://supabase.com/)のアカウントを作成しましょう。`New Project`ボタンを押して必要な情報を入力し、新しいPostgreSQLサーバーを起動させてください。入力が必要な情報は次の通りです。
+PostgreSQLサーバーは自分で構築することもできますが、この節では、[Supabase](https://supabase.com/)というサービスが提供しているサーバーを利用します。まずは、Supabaseのアカウントを作成し、`New Project`ボタンから新しいPostgreSQLサーバーを起動させてください。入力が必要な情報は次の通りです。
 
 - **Project name**: 起動するサーバーにつける名前です。適当に設定して構いません。
 - **Database Password**: 起動するサーバーのパスワードです。`Generate a password`ボタンを押して生成するのが良いでしょう。また、後でこのパスワードは使用することになるため覚えておきましょう。
 - **Region**: 起動するサーバーの地理的な場所です。ここでは`Northeast Asia (Tokyo)`を選択しています。
+- **Enable Data API**: 外部からデータベースに直接アクセスできるようにするための、Supabase特有の機能を有効にするためのオプションです。本節では、一般的な方法でデータベースを利用するため、このオプションは無効にして構いません。
 
 <video src={newPostgresqlInstanceVideo} controls />
+
+:::danger
+
+SupabaseのData APIを有効にする場合、データベース内のデータが標準で全世界に公開された状態になります。本機能を利用する明確な理由がない限りは、このオプションは有効にしないようにしてください。
+
+:::
 
 この時点では、まだデータベース上にテーブルが作成されていません。Supabase上で作成することもできますが、今回はPrismaを使用して作成することにします。
 
 ### Prismaでテーブル構造を作成する
 
-VS Code向けのPrisma拡張機能をインストールしましょう。
+:::tip[Prismaのドキュメント]
+最新のPrismaのドキュメントは、[こちら](https://www.prisma.io/docs)から確認できます。
+:::
+
+VS Code向けのPrisma拡張機能をインストールしましょう。これにより、VS Code上で、Prismaで使用する`.prisma`ファイルを編集する際の補助機能が提供されるようになります。
 
 ![Prisma拡張機能のインストール](./install-prisma-extension.png)
 
-新しいフォルダをVS Codeで開き、`npm init`コマンドを使用して`package.json`ファイルを作成した後、
+続いて、新しいフォルダをVS Codeで開き、`npm init`コマンドを使用して`package.json`ファイルを作成した後、次の2つのコマンドを実行して、計5つのnpmパッケージをインストールします。
+
+```shell
+npm install --save-dev prisma
+npm install @prisma/client @prisma/adapter-pg pg dotenv
+```
+
+これらのパッケージは、それぞれ次のような役割を持ちます。
+
+- **`prisma`**: Prismaのコマンドを実行するためのnpmのパッケージです。
+- **`@prisma/client`**: Prismaの本体となるパッケージです。Node.jsのプログラムからインポートして使用します。
+- **`@prisma/adapter-pg`**: PrismaがPostgreSQLに接続できるようにするためのnpmのパッケージです。PostgreSQL以外のデータベースを使用する場合は、別のパッケージが必要になります。
+- **`pg`**: PostgreSQLサーバーとの通信を実行するためのパッケージです。`@prisma/adapter-pg`が内部で使用します。
+- **`dotenv`**: `.env`ファイルに記述された<Term>環境変数</Term>を読み込むためのnpmのパッケージです。
+
+その後、次のコマンドを実行し、`prisma`パッケージを用いて、テーブル構造を記述する`prisma/schema.prisma`ファイルや、データベースへの接続情報を設定する`prisma.config.ts`ファイルなどを生成します。
 
 ```shell
 npx prisma init
 ```
 
-コマンドを実行します。パッケージをインストールしても良いか尋ねられる場合は、`y`を入力して許可しましょう。
-
 <video src={prismaInitVideo} controls muted />
+
+:::tip[`--save-dev`オプション]
+
+`npm install`時の`--save-dev`オプションは、npmのパッケージを開発環境でのみ使用することを示すためのオプションです。`prisma`パッケージは、後述するように`npx`コマンド等を通して直接実行するためのパッケージで、Node.jsのプログラムからインポートして使用するものではないため、開発環境でのみ使用されることになります。
+
+:::
 
 :::tip[`npx`コマンド]
 
 {/* prettier-ignore */}
-<Term>`npx`コマンド</Term>は、npmのパッケージを、プログラムからではなく直接実行するためのコマンドです。npmには`prisma`パッケージのように、直接実行専用のパッケージも存在します。
+<Term>`npx`コマンド</Term>は、npmのパッケージを直接実行するためのコマンドです。`prisma`パッケージは、`@prisma/client`パッケージとは異なり、プログラムからインポートして使用するのではなく、`npx`コマンド等を通して直接実行するためのパッケージとして設計されています。
 
 :::
 
-続いて、Supabaseからデータベースへの接続情報を`.env`ファイルにコピーします。これにより、PrismaはSupabase上のPostgreSQLサーバーと接続できるようになります。
+:::tip[`.ts`ファイル]
+
+`.ts`ファイルは、<Term>TypeScript</Term>というプログラミング言語で記述されたファイルで、JavaScriptファイルと同様に、Node.jsにより実行可能です。詳細は、[「TypeScript」の節](../../advanced/typescript/)で扱います。
+
+:::
+
+続いて、Supabaseからデータベースへの接続情報を`.env`ファイルにコピーします。パスワードの部分には、先ほどプロジェクトを作成した際に登録したパスワードを指定しましょう。これにより、PrismaはSupabase上のPostgreSQLサーバーと接続できるようになります。
 
 <video src={copySecretValuesVideo} controls muted />
 
@@ -128,7 +143,7 @@ npx prisma init
 DATABASE_URL=postgresql://user:password@example.com:5432/db node main.js
 ```
 
-`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.js`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。なお、Prismaは`.env`ファイルの内容を自動的に読み込むため、`--env-file`オプションを指定する必要はありません。
+`.env`ファイルは、環境変数の指定を簡略化するために慣習的に用いられるファイルです。`node --env-file=.env main.js`のように指定することで、`.env`ファイルに記述された環境変数を読み込ませることができます。`npx prisma init`コマンドを実行したときに作成される`prisma.config.ts`ファイルには、`dotenv`パッケージを用いて`.env`ファイルを読み込むコードが記述されているため、Prismaのコマンドを実行する際には、`.env`ファイルに記述された環境変数が自動的に読み込まれるようになっています。
 :::
 
 `prisma/schema.prisma`ファイルに、次のように追記し、`ToDo`テーブルとそのカラムを定義します。
@@ -137,17 +152,15 @@ DATABASE_URL=postgresql://user:password@example.com:5432/db node main.js
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Todo {

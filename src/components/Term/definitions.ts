@@ -599,6 +599,13 @@ export const terms: Term[] = [
     referencePage: "/docs/browser-apps/reference/",
   },
   {
+    id: "typescript",
+    name: "TypeScript",
+    aliases: [],
+    definition: "JavaScriptを拡張し、型の概念を加えたプログラミング言語。",
+    referencePage: "/docs/advanced/typescript/",
+  },
+  {
     id: "typescript-execute",
     name: "tsx（TypeScript Execute）",
     aliases: ["tsxパッケージ"],
