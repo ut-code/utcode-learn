@@ -88,7 +88,7 @@ VS Code向けのPrisma拡張機能をインストールしましょう。これ�
 続いて、新しいフォルダをVS Codeで開き、`npm init`コマンドを使用して`package.json`ファイルを作成した後、次の2つのコマンドを実行して、計5つのnpmパッケージをインストールします。
 
 ```shell
-npm install --save-dev prisma
+npm install -D prisma
 npm install @prisma/client @prisma/adapter-pg pg dotenv
 ```
 
@@ -108,9 +108,9 @@ npx prisma init
 
 <video src={prismaInitVideo} controls muted />
 
-:::tip[`--save-dev`オプション]
+:::tip[`-D`オプション]
 
-`npm install`時の`--save-dev`オプションは、npmのパッケージを開発環境でのみ使用することを示すためのオプションです。`prisma`パッケージは、後述するように`npx`コマンド等を通して直接実行するためのパッケージで、Node.jsのプログラムからインポートして使用するものではないため、開発環境でのみ使用されることになります。
+`npm install`時の`-D`オプションは、インストールするパッケージが開発時のみに使用されることを示すためのオプションです。`prisma`パッケージは、後述するように`npx`コマンド等を通して直接実行するためのパッケージで、Node.jsのプログラムからインポートして使用するものではないため、開発時のみに使用されることになります。
 
 :::
 
