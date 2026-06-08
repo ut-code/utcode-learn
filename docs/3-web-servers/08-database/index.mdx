@@ -378,7 +378,7 @@ document.getElementById("send-button").onclick = async () => {
 <Answer title="手順8まで">
 
 ```javascript title="main.jsの抜粋 (サーバーとして動作するJavaScript)"
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.post("/posts", async (request, response) => {
   debugger; // ここでrequestオブジェクトの中身を確認
 });
