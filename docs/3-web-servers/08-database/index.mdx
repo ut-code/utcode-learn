@@ -282,7 +282,7 @@ model Post {
 
 ### 手順5
 
-Node.jsのデバッガを用いて、データベースのデータがPrismaで取得できることを確認しましょう。
+`npx prisma generate`コマンドを実行して`PrismaClient`クラスを生成した上で、Node.jsのデバッガを用いて、データベースのデータがPrismaで取得できることを確認しましょう。
 
 :::info[ヒント]
 Prismaの`findMany`メソッドを用いて、テーブル内にある全てのレコードを取得できます。
