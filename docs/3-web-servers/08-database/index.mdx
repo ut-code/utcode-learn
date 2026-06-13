@@ -213,7 +213,7 @@ npx prisma generate
 - [`PrismaClient#[テーブル名].findFirst`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
 - [`PrismaClient#[テーブル名].findUnique`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを1つだけ取得
 
-まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。`PrismaClient`は、`@prisma/adapter-pg`パッケージの`PrismaPg`を介してPostgreSQLに接続します。
+まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。`PrismaClient`は、`@prisma/adapter-pg`パッケージの`PrismaPg`クラスを介してPostgreSQLに接続します。
 
 ```javascript
 import "dotenv/config";
@@ -225,6 +225,10 @@ const prisma = new PrismaClient({ adapter: adapter });
 const todos = await prisma.todo.findMany();
 debugger;
 ```
+
+:::tip[`dotenv`パッケージ]
+JavaScriptでは、`import "モジュール";`のように記述することで、エクスポートされた関数等をインポートすることなく、モジュールの実行のみを行うことができます。`dotenv`パッケージにより提供される`dotenv/config`モジュールは、実行時に`.env`ファイルに記述された内容を環境変数として読み込みます。
+:::
 
 ![findManyの戻り値](./find-many-result.png)
 
