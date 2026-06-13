@@ -101,7 +101,7 @@ npm install @prisma/client @prisma/adapter-pg pg dotenv
 - **`pg`**: PostgreSQLサーバーとの通信を実行するためのパッケージです。`@prisma/adapter-pg`が内部で使用します。
 - **`dotenv`**: `.env`ファイルに記述された<Term>環境変数</Term>を読み込むためのnpmのパッケージです。
 
-その後、次のコマンドを実行し、`prisma`パッケージを用いて、テーブル構造を記述する`prisma/schema.prisma`ファイルや、データベースへの接続情報を設定する`prisma.config.ts`ファイルなどを生成します。
+その後、次のコマンドを実行し、`prisma`パッケージを用いて、テーブル構造を記述する`prisma/schema.prisma`ファイルや、Prisma自身の設定を記述する`prisma.config.ts`ファイルなどを生成します。
 
 ```shell
 npx prisma init
