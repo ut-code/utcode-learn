@@ -198,13 +198,17 @@ DBeaverをインストールした後、次のようにすることでDBeaverを
 
 ### Prismaでデータベースのデータを読み書きする
 
-Node.jsからPrismaを利用してデータベースのデータを操作するためには、`@prisma/client`パッケージの[`PrismaClient`クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。
+Node.jsからPrismaを利用してデータベースのデータを操作するためには、`@prisma/client`パッケージの[`PrismaClient`クラス](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#prismaclient)を用います。次のコマンドを実行することで、`schema.prisma`に記述されたテーブルの構造に基づいて、`PrismaClient`クラスの実際の定義が`./generated/prisma/client.ts`に生成されます。
+
+```shell
+npx prisma generate
+```
+
+`PrismaClient`クラスは、次のようなメソッドを提供しています。これらはいずれも<Term>非同期処理</Term>を行うため、`await`キーワードを用いて呼び出します。
 
 - [`PrismaClient#[テーブル名].findMany`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findmany): 条件を満たすレコードを全て取得
 - [`PrismaClient#[テーブル名].findFirst`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
 - [`PrismaClient#[テーブル名].findUnique`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを1つだけ取得
-
-これら3つのメソッドは、<Term>非同期処理</Term>を行います。
 
 まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。`PrismaClient`は、`@prisma/adapter-pg`パッケージの`PrismaPg`を介してPostgreSQLに接続します。
 
@@ -220,12 +224,6 @@ debugger;
 ```
 
 ![findManyの戻り値](./find-many-result.png)
-
-:::tip[`@prisma/client` パッケージのインポート元]
-
-`@prisma/client`パッケージによって提供される`PrismaClient`クラスは、`./generated/prisma/client.ts`からインポートします。このファイルは、`npx prisma db push`コマンドを実行した際に自動的に生成されるファイルで、`schema.prisma`ファイルに記述したテーブルの構造を元に、Prismaが自動的に生成したものです。このファイルが生成される場所は、`schema.prisma`ファイルの`generator`セクションから変更できます。
-
-:::
 
 続いて、[`PrismaClient#[テーブル名].create`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#create)を用いて、テーブルにレコードを作成してみましょう。
 
