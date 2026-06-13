@@ -241,7 +241,7 @@ import { PrismaClient } from "./generated/prisma/client.ts";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter: adapter });
-const todos = await prisma.todo.create({ data: { name: "買い物をする" } });
+const todo = await prisma.todo.create({ data: { name: "買い物をする" } });
 debugger;
 ```
 
