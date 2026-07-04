@@ -88,7 +88,7 @@ function removeTodo(index: number) {
 
 <ViewSource url={import.meta.url} path="_samples/todo-declarative" />
 
-これにより、アプリケーション全体の状態が変数`state`に集約され、開発者が意識すべき状態のパターンを大幅に減らすことに成功しました。このコードでは、状態$S$は変数`state`に、関数$f(S)$は`render`関数に対応しています。例えば、`remove("寝る")`によって`state`が変化すると、`render`関数が再び呼ばれ、新しい状態に応じたUIが描画されます。
+これにより、アプリケーション全体の状態が変数`state`に集約され、開発者が意識すべき状態のパターンを大幅に減らすことに成功しました。このコードでは、状態$S$は変数`state`に、関数$f(S)$は`render`関数に対応しています。例えば、下の図のように、`addTodo("寝る")`を呼び出して`state`が変化すると、`render`関数が再び呼ばれ、新しい状態に応じたUIが描画されます。
 
 ![宣言的UIの概念図](./declarative-ui.drawio.svg)
 
