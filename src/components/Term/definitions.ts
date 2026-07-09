@@ -51,6 +51,72 @@ type Term = {
 
 export const terms: Term[] = [
   {
+    id: "web-browser",
+    name: "ウェブブラウザ",
+    aliases: [],
+    definition:
+      "パソコンやスマートフォンなどで、インターネット上のウェブページなどを利用するためのアプリケーション。Google ChromeやSafari、Microsoft Edge、Mozilla Firefoxなどがある。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - MDN「Browser (ブラウザー)」 https://developer.mozilla.org/ja/docs/Glossary/Browser
+    // - Wikipedia「ウェブブラウザ」 https://ja.wikipedia.org/wiki/ウェブブラウザ
+    // - StatCounter Global Stats「Browser MarketShare Worldwide」 https://gs.statcounter.com/browser-market-share
+  },
+  {
+    id: "google-chrome",
+    name: "Google Chrome",
+    aliases: [],
+    definition:
+      "Google社が開発するウェブブラウザ。高速性と安全性を特徴としており、多くのユーザーに利用されている。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考：Google「Chrome」 https://www.google.com/intl/ja_jp/chrome/
+  },
+  {
+    id: "code-editor",
+    name: "コードエディタ",
+    aliases: [],
+    definition:
+      "プログラムを記述・編集するためのアプリケーション。Visual Studio Codeなどがある。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - MDN「コードエディター」 https://developer.mozilla.org/ja/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors
+    // - Wikipedia「ソースコードエディタ」 https://ja.wikipedia.org/wiki/ソースコードエディタ
+    // - 2025 Stack Overflow Developer Survey「Technology: Dev IDEs」 https://survey.stackoverflow.co/2025/technology#1-dev-id-es
+  },
+  {
+    id: "visual-studio-code",
+    name: "Visual Studio Code",
+    aliases: ["VS Code"],
+    definition:
+      "Microsoft社が開発するコードエディタ。豊富な機能を特徴としており、多くの開発者に利用されている。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - Visual Studio Code https://code.visualstudio.com/
+    // - Wikipedia「Visual Studio Code」 https://ja.wikipedia.org/wiki/Visual_Studio_Code
+  },
+  {
+    id: "file",
+    name: "ファイル",
+    aliases: [],
+    definition:
+      "パソコンやスマートフォンなどで扱う、文書・画像・音声・動画・プログラムなどのデータのまとまり。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - IT用語辞典 e-Words「ファイルとは」 https://e-words.jp/w/ファイル.html
+    // - Wikipedia「ファイル (コンピュータ)」 https://ja.wikipedia.org/wiki/ファイル_(コンピュータ)
+  },
+  {
+    id: "folder",
+    name: "フォルダ",
+    aliases: [],
+    definition:
+      "パソコンやスマートフォンなどで、ファイルや他のフォルダを整理してまとめておくための「入れ物」。",
+    referencePage: "/docs/trial-session/get-started/",
+    // 参考
+    // - IT用語辞典 e-Words「フォルダとは」 https://e-words.jp/w/フォルダ.html
+    // - Wikipedia「ディレクトリ」 https://ja.wikipedia.org/wiki/ディレクトリ
+  },
+  {
     id: "file-extension",
     name: "拡張子",
     aliases: [],
