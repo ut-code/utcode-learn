@@ -212,7 +212,7 @@ npx prisma generate
 - [`PrismaClient#[テーブル名].findFirst`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findfirst): 条件を満たす最初のレコードを取得
 - [`PrismaClient#[テーブル名].findUnique`メソッド](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique): レコードを一意に識別できる条件を使用してレコードを1つだけ取得
 
-まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。`PrismaClient`は、`@prisma/adapter-pg`パッケージの`PrismaPg`クラスを介してPostgreSQLに接続します。
+まずは、`findMany`メソッドの戻り値を、デバッガを用いて確認してみましょう。`PrismaClient`クラスは、`@prisma/adapter-pg`パッケージの`PrismaPg`クラスを介してPostgreSQLに接続します。
 
 ```javascript
 import "dotenv/config";
