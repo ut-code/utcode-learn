@@ -7,48 +7,50 @@ import openInBrowserVideo from "./open-in-browser.mp4";
 import showFileExtensionsVideo from "./show-file-extensions.mp4";
 import reloadBrowserVideo from "./reload-browser.mp4";
 
-Web開発に必ず用いられる言語があります。<Term>**HTML**</Term>とCSS、そしてJavaScriptです。これらは互いに異なる役割をもっています。まずは最も基本となる<Term>HTML</Term>から学んでいきましょう。
+私たちは日々、[[ウェブブラウザ]]を通してさまざまなページやアプリを利用しています。これらはどのようにして作られているのでしょうか？実は、[[**HTML**]]と[[CSS]]、そして[[JavaScript]]の3つの言語を用いることで作ることができます。これらは互いに異なる役割をもっています。
 
-![Web開発で用いられる言語](./web-development-languages.drawio.svg)
+[[HTML]]は、ウェブサイトの構造を表すことができます。[[CSS]]は、色や配置などウェブサイトの見た目を変えることができます。[[JavaScript]]は、ウェブサイトに動きを与えることができます。
 
-## <Term>HTML</Term>を書き始める
+![](./web-development-languages.drawio.svg)
 
-VS Codeの画面左端には、ファイル一覧が表示されています。新しいファイルを作成して、`index.html`と名付けましょう。ファイルの中身を次のようにした後、保存します。保存にはショートカットキー (<kbd>Ctrl</kbd> + <kbd>S</kbd> (Windows) / <kbd>command</kbd> + <kbd>S</kbd> (macOS) ) を用いてください。
+まずは最も基本となる[[HTML]]から学んでいきましょう。
+
+## はじめてのHTML
+
+まず、[[HTML]]を書くための[[ファイル]]を作成します。VS Codeの画面左端から、新しい[[ファイル]]を作成して、`index.html`と名付けましょう。次に、[[ファイル]]の中身を次のようにして、保存します。保存には[[ショートカットキー]]（<kbd>Control+S</kbd>（macOSでは<kbd>Command+S</kbd>））を用いてください。
 
 ```html title="index.html"
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Title</title>
+    <title>天気予報の確認</title>
   </head>
   <body>
-    Hello <strong>World</strong>!
+    出かける前に、気象庁の天気予報を確認しましょう。
   </body>
 </html>
 ```
 
 <video src={createFileVideo} controls />
 
-## ブラウザで<Term>HTML</Term>ファイルを開く
-
-前頁で作成したフォルダを開き、`index.html`が作成されていることを確認しましょう。このファイルをダブルクリックして開きます。`Hello World!` (`World`の部分だけ太字) が表示されましたか？
+プロジェクトフォルダを開き、`index.html`が作成されていることを確認しましょう。この[[ファイル]]をダブルクリックして開きます。`出かける前に、気象庁の天気予報を確認しましょう。`と表示されましたか？
 
 <video src={openInBrowserVideo} controls />
 
 :::info[拡張子]
 
-VS Code上で作成したファイルは`index.html`でした。しかしながら、Windowsでフォルダの中身を見ると`index`しか表示されません (macOSの場合は正しく表示されます)。なぜでしょうか？
+VS Code上で作成した[[ファイル]]の名前は`index.html`でした。しかし、Windowsで[[フォルダ]]の中身を見ると`index`とだけ表示されることがあります。なぜでしょうか？
 
-ファイル名の`.` (ピリオド) 以降の部分は<Term>**拡張子**</Term>と呼ばれ、ファイルの種類を識別するために用いられることが多いです。先ほど`index.html`という名前のファイルを作成したのは、<Term>HTML</Term>ファイルであることを明示するためです。
+これは、Windowsでは[[拡張子]]が標準で表示されないためです。ファイル名の`.`（ピリオド）以降の部分は[[**拡張子**]]と呼ばれ、[[ファイル]]の種類を識別するために用いられることが多いです。たとえば、`index.html`の`html`が拡張子です。
 
-実はWindowsでは、拡張子は標準で表示されません。下の動画を参考に、拡張子を表示する設定に変更しておきましょう。
+下の動画を参考に、[[拡張子]]を表示する設定に変更しておきましょう。
 
 <video src={showFileExtensionsVideo} controls />
 
 :::
 
-## <Term>HTML</Term>の構造
+## HTMLの構造
 
 それでは、先ほどのファイルの中身を見ていきましょう。
 

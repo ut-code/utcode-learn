@@ -51,7 +51,44 @@ type Term = {
 
 export const terms: Term[] = [
   {
-    id: "file-extension",
+    id: "html",
+    name: "HTML",
+    aliases: [],
+    definition: "ウェブページの構造を表すためのマークアップ言語。",
+    referencePage: "/docs/trial-session/html/",
+  },
+  {
+    id: "css",
+    name: "CSS",
+    aliases: [],
+    definition:
+      "ウェブサイトの見た目をカスタマイズするための言語。HTML要素のstyle属性はCSSを用いて記述する。",
+    referencePage: "/docs/trial-session/html/",
+  },
+  {
+    id: "javascript",
+    name: "JavaScript",
+    aliases: [],
+    definition:
+      "ウェブサイトに動きを与えるために生まれたスクリプト言語。現在は機能が拡張され、ウェブサイト以外にも応用されるようになった。",
+    referencePage: "/docs/trial-session/html/",
+  },
+  {
+    id: "file",
+    name: "ファイル",
+    aliases: [],
+    definition: "",
+    referencePage: "/docs/trial-session/html/",
+  },
+  {
+    id: "shortcut-key",
+    name: "ショートカットキー",
+    aliases: [],
+    definition: "",
+    referencePage: "/docs/trial-session/html/",
+  },
+  {
+    id: "filename-extension",
     name: "拡張子",
     aliases: [],
     definition:
@@ -81,26 +118,11 @@ export const terms: Term[] = [
     referencePage: "/docs/web-servers/git/",
   },
   {
-    id: "html",
-    name: "HTML",
-    aliases: [],
-    definition: "ウェブページの構造を表すためのマークアップ言語。",
-    referencePage: "/docs/trial-session/html/",
-  },
-  {
     id: "nest",
     name: "ネスト",
     aliases: [],
     definition: "ある構造の中にある別の構造を入れること。",
     referencePage: "/docs/trial-session/html/",
-  },
-  {
-    id: "javascript",
-    name: "JavaScript",
-    aliases: [],
-    definition:
-      "ウェブサイトに動きを与えるために生まれたスクリプト言語。現在は機能が拡張され、ウェブサイト以外にも応用されるようになった。",
-    referencePage: "/docs/trial-session/javascript/",
   },
   {
     id: "start-tag",
@@ -137,14 +159,6 @@ export const terms: Term[] = [
     aliases: [],
     definition: "要素の終端を表す。<div>内容</div>ならば</div>が終了タグ。",
     referencePage: "/docs/trial-session/html/",
-  },
-  {
-    id: "css",
-    name: "CSS",
-    aliases: [],
-    definition:
-      "ウェブサイトの見た目をカスタマイズするための言語。HTML要素のstyle属性はCSSを用いて記述する。",
-    referencePage: "/docs/trial-session/css/",
   },
   {
     id: "style-attribute",
